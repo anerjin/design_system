@@ -1,0 +1,92 @@
+/* ========================================
+   BRICKS - Badge Component
+   BEM + Single-Line CSS Convention
+======================================== */
+
+/* Base Badge */
+.badge {display:inline-flex; align-items:center; justify-content:center; padding:0 var(--ds-space-2); height:20px; font-size:var(--ds-text-xs); font-weight:var(--ds-font-semibold); line-height:1; color:var(--ds-text-inverse); background:var(--ds-gray-600); border-radius:var(--ds-radius-full); white-space:nowrap; vertical-align:middle;}
+
+/* Badge Sizes */
+.badge--sm {height:16px; padding:0 var(--ds-space-1-5); font-size:10px;}
+.badge--md {height:20px; padding:0 var(--ds-space-2); font-size:var(--ds-text-xs);}
+.badge--lg {height:24px; padding:0 var(--ds-space-2-5); font-size:var(--ds-text-sm);}
+
+/* Badge Variants */
+.badge--primary {background:var(--ds-brand-primary);}
+.badge--secondary {background:var(--ds-brand-secondary);}
+.badge--success {background:var(--ds-color-success);}
+.badge--danger {background:var(--ds-color-danger);}
+.badge--warning {background:var(--ds-color-warning);}
+.badge--info {background:var(--ds-color-info);}
+.badge--light {background:var(--ds-gray-200); color:var(--ds-text-primary);}
+.badge--dark {background:var(--ds-gray-900);}
+
+/* Badge Outline Variants */
+.badge--outline-primary {background:transparent; color:var(--ds-brand-primary); box-shadow:inset 0 0 0 1px var(--ds-brand-primary);}
+.badge--outline-secondary {background:transparent; color:var(--ds-brand-secondary); box-shadow:inset 0 0 0 1px var(--ds-brand-secondary);}
+.badge--outline-success {background:transparent; color:var(--ds-color-success); box-shadow:inset 0 0 0 1px var(--ds-color-success);}
+.badge--outline-danger {background:transparent; color:var(--ds-color-danger); box-shadow:inset 0 0 0 1px var(--ds-color-danger);}
+.badge--outline-warning {background:transparent; color:var(--ds-color-warning); box-shadow:inset 0 0 0 1px var(--ds-color-warning);}
+.badge--outline-info {background:transparent; color:var(--ds-color-info); box-shadow:inset 0 0 0 1px var(--ds-color-info);}
+
+/* Badge Soft Variants */
+.badge--soft-primary {background:rgba(93,156,236,0.1); color:var(--ds-brand-primary);}
+.badge--soft-secondary {background:rgba(100,116,139,0.1); color:var(--ds-brand-secondary);}
+.badge--soft-success {background:rgba(100,166,68,0.1); color:var(--ds-color-success);}
+.badge--soft-danger {background:rgba(237,85,101,0.1); color:var(--ds-color-danger);}
+.badge--soft-warning {background:rgba(252,110,81,0.1); color:var(--ds-color-warning);}
+.badge--soft-info {background:rgba(28,182,237,0.1); color:var(--ds-color-info);}
+
+/* Badge Pill */
+.badge--pill {border-radius:var(--ds-radius-full);}
+
+/* Badge Square */
+.badge--square {border-radius:var(--ds-radius-base);}
+
+/* Badge with Dot */
+.badge--dot::before {content:''; display:inline-block; width:6px; height:6px; margin-right:var(--ds-space-1); background:currentColor; border-radius:50%;}
+
+/* Badge with Close */
+.badge__close {display:inline-flex; align-items:center; justify-content:center; margin-left:var(--ds-space-1); width:12px; height:12px; cursor:pointer; opacity:0.7; transition:var(--ds-transition-opacity);}
+.badge__close:hover {opacity:1;}
+
+/* === Label Component === */
+.label {display:inline-flex; align-items:center; padding:var(--ds-space-1) var(--ds-space-2); font-size:var(--ds-text-xs); font-weight:var(--ds-font-medium); color:var(--ds-text-secondary); background:var(--ds-color-surface); border:1px solid var(--ds-color-border); border-radius:var(--ds-radius-base);}
+
+/* Label Variants */
+.label--primary {background:var(--ds-brand-primary); color:var(--ds-text-inverse); border-color:var(--ds-brand-primary);}
+.label--secondary {background:var(--ds-brand-secondary); color:var(--ds-text-inverse); border-color:var(--ds-brand-secondary);}
+.label--success {background:var(--ds-color-success); color:var(--ds-text-inverse); border-color:var(--ds-color-success);}
+.label--danger {background:var(--ds-color-danger); color:var(--ds-text-inverse); border-color:var(--ds-color-danger);}
+.label--warning {background:var(--ds-color-warning); color:var(--ds-text-inverse); border-color:var(--ds-color-warning);}
+.label--info {background:var(--ds-color-info); color:var(--ds-text-inverse); border-color:var(--ds-color-info);}
+
+/* === Tag Component === */
+.tag {display:inline-flex; align-items:center; padding:var(--ds-space-1-5) var(--ds-space-3); font-size:var(--ds-text-sm); font-weight:var(--ds-font-normal); color:var(--ds-text-primary); background:var(--ds-color-surface); border-radius:var(--ds-radius-md); transition:var(--ds-transition-all); cursor:default;}
+.tag:hover {background:var(--ds-color-surface-hover);}
+
+/* Tag Clickable */
+.tag--clickable {cursor:pointer;}
+.tag--clickable:hover {transform:translateY(-1px); box-shadow:var(--ds-shadow-sm);}
+.tag--clickable:active {transform:translateY(0); box-shadow:none;}
+
+/* Tag with Remove */
+.tag__remove {display:inline-flex; align-items:center; justify-content:center; margin-left:var(--ds-space-2); width:16px; height:16px; cursor:pointer; opacity:0.5; transition:var(--ds-transition-opacity);}
+.tag__remove:hover {opacity:1;}
+
+/* Tag Group */
+.tag-group {display:inline-flex; flex-wrap:wrap; gap:var(--ds-space-2);}
+
+/* === Chip Component === */
+.chip {display:inline-flex; align-items:center; padding:var(--ds-space-1) var(--ds-space-1); padding-right:var(--ds-space-3); font-size:var(--ds-text-sm); font-weight:var(--ds-font-normal); color:var(--ds-text-primary); background:var(--ds-color-surface); border:1px solid var(--ds-color-border); border-radius:var(--ds-radius-full);}
+
+/* Chip Avatar */
+.chip__avatar {display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; margin-right:var(--ds-space-2); background:var(--ds-gray-300); border-radius:50%; overflow:hidden;}
+.chip__avatar img {width:100%; height:100%; object-fit:cover;}
+
+/* Chip Icon */
+.chip__icon {display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; margin-right:var(--ds-space-1-5);}
+
+/* Chip Remove */
+.chip__remove {display:inline-flex; align-items:center; justify-content:center; margin-left:var(--ds-space-2); width:16px; height:16px; cursor:pointer; opacity:0.5; transition:var(--ds-transition-opacity);}
+.chip__remove:hover {opacity:1;}

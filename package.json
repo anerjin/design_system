@@ -1,0 +1,12 @@
+{
+  "name": "bricks",
+  "version": "1.0.0",
+  "description": "BRICKS - Simple text-based design system with dark/light mode",
+  "main": "index.html",
+  "scripts": {
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": ["design-system", "ui", "components"],
+  "author": "",
+  "license": "MIT"
+}

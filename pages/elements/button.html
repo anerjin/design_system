@@ -1,0 +1,284 @@
+<!-- Button Component Page -->
+<div class="page-header">
+    <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+        <span class="page-header__breadcrumb-item">
+            <a href="#introduction" class="page-header__breadcrumb-link">Home</a>
+        </span>
+        <span class="page-header__breadcrumb-separator">/</span>
+        <span class="page-header__breadcrumb-item">
+            <a href="#" class="page-header__breadcrumb-link">Elements</a>
+        </span>
+        <span class="page-header__breadcrumb-separator">/</span>
+        <span class="page-header__breadcrumb-item">
+            <span>Button</span>
+        </span>
+    </nav>
+    <h1 class="page-header__title">Button</h1>
+    <p class="page-header__description">
+        Buttons trigger actions or navigate to other pages. They can contain text, icons, or both.
+    </p>
+</div>
+
+<!-- Button Variants -->
+<div class="content-section">
+    <div class="content-section__header">
+        <h2 class="content-section__title">Button Variants</h2>
+        <p class="content-section__subtitle">Different button styles for various use cases</p>
+    </div>
+    
+    <div class="component-preview">
+        <div class="component-preview__demo">
+            <button class="btn btn--primary">Primary</button>
+            <button class="btn btn--secondary">Secondary</button>
+            <button class="btn btn--success">Success</button>
+            <button class="btn btn--danger">Danger</button>
+            <button class="btn btn--warning">Warning</button>
+            <button class="btn btn--info">Info</button>
+            <button class="btn btn--ghost">Ghost</button>
+            <button class="btn btn--text">Text</button>
+        </div>
+        <div class="component-preview__toolbar">
+            <div class="component-preview__tabs">
+                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
+                <button class="component-preview__tab" data-tab="html">HTML</button>
+                <button class="component-preview__tab" data-tab="css">CSS</button>
+            </div>
+            <button class="component-preview__copy" aria-label="Copy code">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="component-preview__code" data-tab-content="html" style="display: none;">
+            <pre><code>&lt;button class="btn btn--primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn--secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn--success"&gt;Success&lt;/button&gt;
+&lt;button class="btn btn--danger"&gt;Danger&lt;/button&gt;
+&lt;button class="btn btn--warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn--info"&gt;Info&lt;/button&gt;
+&lt;button class="btn btn--ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn--text"&gt;Text&lt;/button&gt;</code></pre>
+        </div>
+    </div>
+</div>
+
+<!-- Button Sizes -->
+<div class="content-section">
+    <div class="content-section__header">
+        <h2 class="content-section__title">Button Sizes</h2>
+        <p class="content-section__subtitle">Available button sizes for different contexts</p>
+    </div>
+    
+    <div class="component-preview">
+        <div class="component-preview__demo">
+            <button class="btn btn--primary btn--xs">Extra Small</button>
+            <button class="btn btn--primary btn--sm">Small</button>
+            <button class="btn btn--primary btn--md">Medium</button>
+            <button class="btn btn--primary btn--lg">Large</button>
+            <button class="btn btn--primary btn--xl">Extra Large</button>
+        </div>
+        <div class="component-preview__toolbar">
+            <div class="component-preview__tabs">
+                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
+                <button class="component-preview__tab" data-tab="html">HTML</button>
+            </div>
+        </div>
+        <div class="component-preview__code" data-tab-content="html" style="display: none;">
+            <pre><code>&lt;button class="btn btn--primary btn--xs"&gt;Extra Small&lt;/button&gt;
+&lt;button class="btn btn--primary btn--sm"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn--primary btn--md"&gt;Medium&lt;/button&gt;
+&lt;button class="btn btn--primary btn--lg"&gt;Large&lt;/button&gt;
+&lt;button class="btn btn--primary btn--xl"&gt;Extra Large&lt;/button&gt;</code></pre>
+        </div>
+    </div>
+</div>
+
+<!-- Button States -->
+<div class="content-section">
+    <div class="content-section__header">
+        <h2 class="content-section__title">Button States</h2>
+        <p class="content-section__subtitle">Different button states and conditions</p>
+    </div>
+    
+    <div class="component-preview">
+        <div class="component-preview__demo">
+            <button class="btn btn--primary">Normal</button>
+            <button class="btn btn--primary" disabled>Disabled</button>
+            <button class="btn btn--primary btn--loading">
+                <span class="btn__spinner"></span>
+                Loading
+            </button>
+            <button class="btn btn--primary btn--block">Block Button (Full Width)</button>
+        </div>
+        <div class="component-preview__toolbar">
+            <div class="component-preview__tabs">
+                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
+                <button class="component-preview__tab" data-tab="html">HTML</button>
+            </div>
+        </div>
+        <div class="component-preview__code" data-tab-content="html" style="display: none;">
+            <pre><code>&lt;button class="btn btn--primary"&gt;Normal&lt;/button&gt;
+&lt;button class="btn btn--primary" disabled&gt;Disabled&lt;/button&gt;
+&lt;button class="btn btn--primary btn--loading"&gt;
+    &lt;span class="btn__spinner"&gt;&lt;/span&gt;
+    Loading
+&lt;/button&gt;
+&lt;button class="btn btn--primary btn--block"&gt;Block Button&lt;/button&gt;</code></pre>
+        </div>
+    </div>
+</div>
+
+<!-- Button with Icons -->
+<div class="content-section">
+    <div class="content-section__header">
+        <h2 class="content-section__title">Button with Icons</h2>
+        <p class="content-section__subtitle">Buttons can include icons for better visual communication</p>
+    </div>
+    
+    <div class="component-preview">
+        <div class="component-preview__demo">
+            <button class="btn btn--primary">
+                <svg class="btn__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                </svg>
+                Security
+            </button>
+            <button class="btn btn--secondary">
+                Settings
+                <svg class="btn__icon btn__icon--right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6m4.22-13.22l4.24 4.24M1.54 1.54l4.24 4.24M20.46 20.46l-4.24-4.24M1.54 20.46l4.24-4.24"/>
+                </svg>
+            </button>
+            <button class="btn btn--ghost btn--icon-only" aria-label="Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="component-preview__toolbar">
+            <div class="component-preview__tabs">
+                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
+                <button class="component-preview__tab" data-tab="html">HTML</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button Group -->
+<div class="content-section">
+    <div class="content-section__header">
+        <h2 class="content-section__title">Button Group</h2>
+        <p class="content-section__subtitle">Group related buttons together</p>
+    </div>
+    
+    <div class="component-preview">
+        <div class="component-preview__demo">
+            <div class="btn-group">
+                <button class="btn btn--secondary">Left</button>
+                <button class="btn btn--secondary">Center</button>
+                <button class="btn btn--secondary">Right</button>
+            </div>
+            
+            <div class="btn-group" style="margin-left: 20px;">
+                <button class="btn btn--primary btn--sm">Small</button>
+                <button class="btn btn--primary btn--sm">Group</button>
+                <button class="btn btn--primary btn--sm">Buttons</button>
+            </div>
+        </div>
+        <div class="component-preview__toolbar">
+            <div class="component-preview__tabs">
+                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
+                <button class="component-preview__tab" data-tab="html">HTML</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Props Table -->
+<div class="content-section">
+    <div class="content-section__header">
+        <h2 class="content-section__title">Properties</h2>
+        <p class="content-section__subtitle">Available button modifiers and their usage</p>
+    </div>
+    
+    <table class="props-table">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Description</th>
+                <th>Usage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="props-table__name">.btn</span></td>
+                <td>Base button class</td>
+                <td>Required on all buttons</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--primary</span></td>
+                <td>Primary button style</td>
+                <td>Main actions</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--secondary</span></td>
+                <td>Secondary button style</td>
+                <td>Secondary actions</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--xs</span></td>
+                <td>Extra small size</td>
+                <td>Compact layouts</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--sm</span></td>
+                <td>Small size</td>
+                <td>Reduced emphasis</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--lg</span></td>
+                <td>Large size</td>
+                <td>Important actions</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--block</span></td>
+                <td>Full width button</td>
+                <td>Mobile layouts</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--loading</span></td>
+                <td>Loading state</td>
+                <td>Async operations</td>
+            </tr>
+            <tr>
+                <td><span class="props-table__name">.btn--icon-only</span></td>
+                <td>Icon-only button</td>
+                <td>Toolbar buttons</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Accessibility -->
+<div class="content-section">
+    <div class="content-section__header">
+        <h2 class="content-section__title">Accessibility</h2>
+        <p class="content-section__subtitle">Guidelines for accessible button implementation</p>
+    </div>
+    
+    <div class="content-section__body">
+        <ul>
+            <li>✅ Use semantic <code>&lt;button&gt;</code> elements for actions</li>
+            <li>✅ Use <code>&lt;a&gt;</code> elements for navigation with button styling</li>
+            <li>✅ Provide <code>aria-label</code> for icon-only buttons</li>
+            <li>✅ Ensure sufficient color contrast (WCAG 2.1 AA)</li>
+            <li>✅ Maintain focus visibility for keyboard navigation</li>
+            <li>✅ Use <code>disabled</code> attribute for inactive buttons</li>
+            <li>✅ Provide loading state feedback for async operations</li>
+        </ul>
+    </div>
+</div>

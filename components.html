@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRICKS - Components Showcase</title>
+    
+    <!-- Design System Tokens -->
+    <link rel="stylesheet" href="design-system/tokens/colors.css">
+    <link rel="stylesheet" href="design-system/tokens/typography.css">
+    <link rel="stylesheet" href="design-system/tokens/spacing.css">
+    
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="design-system/base/reset.css">
+    
+    <!-- Layout Styles -->
+    <link rel="stylesheet" href="layout/css/layout.css">
+    
+    <!-- Component Styles -->
+    <link rel="stylesheet" href="components/atoms/button.css">
+    <link rel="stylesheet" href="components/atoms/input.css">
+    <link rel="stylesheet" href="components/atoms/badge.css">
+    <link rel="stylesheet" href="components/molecules/card.css">
+    <link rel="stylesheet" href="components/molecules/form-group.css">
+    <link rel="stylesheet" href="components/molecules/alert.css">
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('ds-theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="layout">
+        <!-- Header -->
+        <header class="header" role="banner">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="header__logo">
+                        <span>BRICKS Components</span>
+                    </div>
+                    
+                    <nav class="header__nav" role="navigation" aria-label="Main navigation">
+                        <ul class="header__nav-list">
+                            <li class="header__nav-item">
+                                <a href="index.html" class="header__nav-link">Home</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#buttons" class="header__nav-link">Buttons</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#forms" class="header__nav-link">Forms</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#cards" class="header__nav-link">Cards</a>
+                            </li>
+                        </ul>
+                        
+                        <!-- Theme Toggle Button -->
+                        <button class="theme-toggle" aria-label="Toggle theme">
+                            <svg class="theme-toggle__icon theme-toggle__sun" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="theme-toggle__icon theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main main--full" role="main">
+            <div class="container">
+                <div class="main__header">
+                    <h1 class="main__title">BRICKS Components</h1>
+                    <p class="main__description">
+                        모든 컴포넌트는 WCAG 2.1 AA 접근성 기준을 준수하며, BEM 네이밍과 한 줄 CSS 작성 규칙을 따릅니다.
+                    </p>
+                </div>
+                
+                <!-- Buttons Section -->
+                <section id="buttons" class="section" aria-labelledby="buttons-title">
+                    <div class="section__header">
+                        <h2 id="buttons-title" class="section__title">Buttons</h2>
+                        <p class="section__subtitle">다양한 스타일과 크기의 버튼 컴포넌트</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 class="card__title">Button Variants</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px;">
+                                <button class="btn btn--primary">Primary</button>
+                                <button class="btn btn--secondary">Secondary</button>
+                                <button class="btn btn--success">Success</button>
+                                <button class="btn btn--danger">Danger</button>
+                                <button class="btn btn--warning">Warning</button>
+                                <button class="btn btn--info">Info</button>
+                                <button class="btn btn--ghost">Ghost</button>
+                                <button class="btn btn--text">Text</button>
+                            </div>
+                            
+                            <h3 class="card__title" style="margin-top: 24px;">Button Sizes</h3>
+                            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 16px;">
+                                <button class="btn btn--primary btn--xs">Extra Small</button>
+                                <button class="btn btn--primary btn--sm">Small</button>
+                                <button class="btn btn--primary btn--md">Medium</button>
+                                <button class="btn btn--primary btn--lg">Large</button>
+                                <button class="btn btn--primary btn--xl">Extra Large</button>
+                            </div>
+                            
+                            <h3 class="card__title" style="margin-top: 24px;">Button States</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px;">
+                                <button class="btn btn--primary" disabled>Disabled</button>
+                                <button class="btn btn--primary btn--loading">Loading</button>
+                                <button class="btn btn--primary btn--block" style="width: 200px;">Block Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Forms Section -->
+                <section id="forms" class="section" aria-labelledby="forms-title">
+                    <div class="section__header">
+                        <h2 id="forms-title" class="section__title">Forms</h2>
+                        <p class="section__subtitle">폼 입력 요소와 그룹 컴포넌트</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card__body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="input-text" class="form-label">Text Input</label>
+                                    <input type="text" id="input-text" class="input" placeholder="Enter text here..." aria-describedby="input-text-help">
+                                    <span id="input-text-help" class="form-help">This is a help text</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="input-email" class="form-label form-label--required">Email Input</label>
+                                    <input type="email" id="input-email" class="input" placeholder="email@example.com" required aria-required="true">
+                                </div>
+                                
+                                <div class="form-group form-group--error">
+                                    <label for="input-error" class="form-label">Input with Error</label>
+                                    <input type="text" id="input-error" class="input input--error" aria-invalid="true" aria-describedby="input-error-msg">
+                                    <span id="input-error-msg" class="form-help form-help--error" role="alert">This field has an error</span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="textarea" class="form-label">Textarea</label>
+                                    <textarea id="textarea" class="textarea" rows="4" placeholder="Enter your message..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="select" class="form-label">Select</label>
+                                    <select id="select" class="select">
+                                        <option>Choose an option...</option>
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="checkbox">
+                                        <input type="checkbox" aria-label="Checkbox option">
+                                        <span class="checkbox__input"></span>
+                                        <span class="checkbox__label">Checkbox Option</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="radio">
+                                        <input type="radio" name="radio-group" aria-label="Radio option 1">
+                                        <span class="radio__input"></span>
+                                        <span class="radio__label">Radio Option 1</span>
+                                    </label>
+                                    <label class="radio" style="margin-left: 16px;">
+                                        <input type="radio" name="radio-group" aria-label="Radio option 2">
+                                        <span class="radio__input"></span>
+                                        <span class="radio__label">Radio Option 2</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn--primary">Submit</button>
+                                    <button type="button" class="btn btn--ghost">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Badges Section -->
+                <section id="badges" class="section" aria-labelledby="badges-title">
+                    <div class="section__header">
+                        <h2 id="badges-title" class="section__title">Badges & Tags</h2>
+                        <p class="section__subtitle">레이블과 태그 컴포넌트</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 class="card__title">Badges</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+                                <span class="badge badge--primary">Primary</span>
+                                <span class="badge badge--secondary">Secondary</span>
+                                <span class="badge badge--success">Success</span>
+                                <span class="badge badge--danger">Danger</span>
+                                <span class="badge badge--warning">Warning</span>
+                                <span class="badge badge--info">Info</span>
+                                <span class="badge badge--light">Light</span>
+                                <span class="badge badge--dark">Dark</span>
+                            </div>
+                            
+                            <h3 class="card__title" style="margin-top: 24px;">Tags</h3>
+                            <div class="tag-group" style="margin-top: 16px;">
+                                <span class="tag">Default Tag</span>
+                                <span class="tag tag--clickable">Clickable Tag</span>
+                                <span class="tag">
+                                    Tag with Remove
+                                    <button class="tag__remove" aria-label="Remove tag">×</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Alerts Section -->
+                <section id="alerts" class="section" aria-labelledby="alerts-title">
+                    <div class="section__header">
+                        <h2 id="alerts-title" class="section__title">Alerts</h2>
+                        <p class="section__subtitle">알림 메시지 컴포넌트</p>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div class="alert alert--info" role="alert">
+                            <div class="alert__content">
+                                <div class="alert__title">Information Alert</div>
+                                <div class="alert__description">This is an informational alert message.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert--success" role="alert">
+                            <div class="alert__content">
+                                <div class="alert__title">Success Alert</div>
+                                <div class="alert__description">Your action was completed successfully!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert--warning alert--dismissible" role="alert">
+                            <div class="alert__content">
+                                <div class="alert__title">Warning Alert</div>
+                                <div class="alert__description">Please review this important information.</div>
+                            </div>
+                            <button class="alert__close" aria-label="Close alert">×</button>
+                        </div>
+                        
+                        <div class="alert alert--danger" role="alert">
+                            <div class="alert__content">
+                                <div class="alert__title">Error Alert</div>
+                                <div class="alert__description">An error occurred. Please try again.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Cards Section -->
+                <section id="cards" class="section" aria-labelledby="cards-title">
+                    <div class="section__header">
+                        <h2 id="cards-title" class="section__title">Cards</h2>
+                        <p class="section__subtitle">카드 레이아웃 컴포넌트</p>
+                    </div>
+                    
+                    <div class="card-group card-group--cols-3">
+                        <article class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Basic Card</h3>
+                            </div>
+                            <div class="card__body">
+                                <p>This is a basic card with header, body, and footer sections.</p>
+                            </div>
+                            <div class="card__footer">
+                                <div class="card__actions">
+                                    <button class="btn btn--primary btn--sm">Action</button>
+                                    <button class="btn btn--ghost btn--sm">Cancel</button>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="card card--elevated">
+                            <div class="card__header">
+                                <h3 class="card__title">Elevated Card</h3>
+                                <p class="card__subtitle">With shadow effect</p>
+                            </div>
+                            <div class="card__body">
+                                <p>This card has an elevated appearance with shadow.</p>
+                            </div>
+                        </article>
+                        
+                        <article class="card card--clickable">
+                            <div class="card__body">
+                                <h3 class="card__title">Clickable Card</h3>
+                                <p>This entire card is clickable and responds to hover.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div class="container">
+                <div class="footer__content">
+                    <p class="footer__text">
+                        © 2025 BRICKS Design System. Built with accessibility in mind.
+                    </p>
+                    <div class="footer__links">
+                        <a href="_guide/project_guide.md" class="footer__link">Documentation</a>
+                        <a href="#" class="footer__link">GitHub</a>
+                        <a href="#" class="footer__link">Support</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Theme Toggle Script -->
+    <script src="layout/js/theme-toggle.js"></script>
+</body>
+</html>

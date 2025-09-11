@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRICKS Design System</title>
+    
+    <!-- Design System Tokens -->
+    <link rel="stylesheet" href="design-system/tokens/colors.css">
+    <link rel="stylesheet" href="design-system/tokens/typography.css">
+    <link rel="stylesheet" href="design-system/tokens/spacing.css">
+    
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="design-system/base/reset.css">
+    
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Layout Styles -->
+    <link rel="stylesheet" href="layout/css/layout-webpixels.css">
+    
+    <!-- Component Styles -->
+    <link rel="stylesheet" href="components/atoms/button.css">
+    <link rel="stylesheet" href="components/atoms/input.css">
+    <link rel="stylesheet" href="components/atoms/badge.css">
+    <link rel="stylesheet" href="components/molecules/card.css">
+    <link rel="stylesheet" href="components/molecules/form-group.css">
+    <link rel="stylesheet" href="components/molecules/alert.css">
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('ds-theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="app-header__brand">
+                <div class="app-header__logo">
+                    <i class='bx bxs-cube-alt'></i>
+                </div>
+                <h1 class="app-header__title">BRICKS</h1>
+            </div>
+            
+            <div class="app-header__actions">
+                <div class="app-header__search">
+                    <svg class="app-header__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" class="app-header__search-input" placeholder="Search components...">
+                </div>
+                
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-toggle__icon theme-toggle__sun" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="theme-toggle__icon theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="app-header__menu-toggle" data-menu-toggle aria-label="Toggle menu">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Sidebar -->
+        <aside class="app-sidebar">
+            <nav class="app-sidebar__nav">
+                <!-- Introduction -->
+                <div class="app-sidebar__section">
+                    <ul class="app-sidebar__menu">
+                        <li class="app-sidebar__item">
+                            <a href="#overview" class="app-sidebar__link app-sidebar__link--active" data-page="overview">
+                                <span class="app-sidebar__icon"><i class='bx bx-home'></i></span>
+                                <span class="app-sidebar__label">Overview</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#getting-started" class="app-sidebar__link" data-page="getting-started">
+                                <span class="app-sidebar__icon"><i class='bx bx-rocket'></i></span>
+                                <span class="app-sidebar__label">Getting Started</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Elements -->
+                <div class="app-sidebar__section">
+                    <h3 class="app-sidebar__section-title">Elements</h3>
+                    <ul class="app-sidebar__menu">
+                        <li class="app-sidebar__item">
+                            <a href="#typography" class="app-sidebar__link" data-page="typography">
+                                <span class="app-sidebar__icon"><i class='bx bx-font'></i></span>
+                                <span class="app-sidebar__label">Typography</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#button" class="app-sidebar__link" data-page="button">
+                                <span class="app-sidebar__icon"><i class='bx bx-square-rounded'></i></span>
+                                <span class="app-sidebar__label">Buttons</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#forms" class="app-sidebar__link" data-page="input">
+                                <span class="app-sidebar__icon"><i class='bx bx-edit'></i></span>
+                                <span class="app-sidebar__label">Forms</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#badge" class="app-sidebar__link" data-page="badge">
+                                <span class="app-sidebar__icon"><i class='bx bx-purchase-tag'></i></span>
+                                <span class="app-sidebar__label">Badges</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#avatar" class="app-sidebar__link" data-page="avatar">
+                                <span class="app-sidebar__icon"><i class='bx bx-user-circle'></i></span>
+                                <span class="app-sidebar__label">Avatars</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#progress" class="app-sidebar__link" data-page="progress">
+                                <span class="app-sidebar__icon"><i class='bx bx-loader-alt'></i></span>
+                                <span class="app-sidebar__label">Progress</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#spinner" class="app-sidebar__link" data-page="spinner">
+                                <span class="app-sidebar__icon"><i class='bx bx-loader-circle'></i></span>
+                                <span class="app-sidebar__label">Spinners</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Components -->
+                <div class="app-sidebar__section">
+                    <h3 class="app-sidebar__section-title">Components</h3>
+                    <ul class="app-sidebar__menu">
+                        <li class="app-sidebar__item">
+                            <a href="#alert" class="app-sidebar__link" data-page="alert">
+                                <span class="app-sidebar__icon"><i class='bx bx-error-circle'></i></span>
+                                <span class="app-sidebar__label">Alerts</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#card" class="app-sidebar__link" data-page="card">
+                                <span class="app-sidebar__icon"><i class='bx bx-card'></i></span>
+                                <span class="app-sidebar__label">Cards</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#modal" class="app-sidebar__link" data-page="modal">
+                                <span class="app-sidebar__icon"><i class='bx bx-window-alt'></i></span>
+                                <span class="app-sidebar__label">Modals</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#dropdown" class="app-sidebar__link" data-page="dropdown">
+                                <span class="app-sidebar__icon"><i class='bx bx-chevron-down-square'></i></span>
+                                <span class="app-sidebar__label">Dropdowns</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#navbar" class="app-sidebar__link" data-page="navbar">
+                                <span class="app-sidebar__icon"><i class='bx bx-menu'></i></span>
+                                <span class="app-sidebar__label">Navbar</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#tabs" class="app-sidebar__link" data-page="tabs">
+                                <span class="app-sidebar__icon"><i class='bx bx-tab'></i></span>
+                                <span class="app-sidebar__label">Tabs</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#pagination" class="app-sidebar__link" data-page="pagination">
+                                <span class="app-sidebar__icon"><i class='bx bx-dots-horizontal-rounded'></i></span>
+                                <span class="app-sidebar__label">Pagination</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#breadcrumb" class="app-sidebar__link" data-page="breadcrumb">
+                                <span class="app-sidebar__icon"><i class='bx bx-right-arrow-alt'></i></span>
+                                <span class="app-sidebar__label">Breadcrumbs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sections -->
+                <div class="app-sidebar__section">
+                    <h3 class="app-sidebar__section-title">Sections</h3>
+                    <ul class="app-sidebar__menu">
+                        <li class="app-sidebar__item">
+                            <a href="#hero" class="app-sidebar__link" data-page="hero">
+                                <span class="app-sidebar__icon"><i class='bx bx-image'></i></span>
+                                <span class="app-sidebar__label">Heroes</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#features" class="app-sidebar__link" data-page="features">
+                                <span class="app-sidebar__icon"><i class='bx bx-grid-alt'></i></span>
+                                <span class="app-sidebar__label">Features</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#cta" class="app-sidebar__link" data-page="cta">
+                                <span class="app-sidebar__icon"><i class='bx bx-bell'></i></span>
+                                <span class="app-sidebar__label">Call to Actions</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#testimonials" class="app-sidebar__link" data-page="testimonials">
+                                <span class="app-sidebar__icon"><i class='bx bx-chat'></i></span>
+                                <span class="app-sidebar__label">Testimonials</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#pricing" class="app-sidebar__link" data-page="pricing">
+                                <span class="app-sidebar__icon"><i class='bx bx-credit-card'></i></span>
+                                <span class="app-sidebar__label">Pricing</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#contact" class="app-sidebar__link" data-page="contact">
+                                <span class="app-sidebar__icon"><i class='bx bx-envelope'></i></span>
+                                <span class="app-sidebar__label">Contact</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#footer" class="app-sidebar__link" data-page="footer">
+                                <span class="app-sidebar__icon"><i class='bx bx-dock-bottom'></i></span>
+                                <span class="app-sidebar__label">Footers</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Templates -->
+                <div class="app-sidebar__section">
+                    <h3 class="app-sidebar__section-title">Templates</h3>
+                    <ul class="app-sidebar__menu">
+                        <li class="app-sidebar__item">
+                            <a href="#landing" class="app-sidebar__link" data-page="landing">
+                                <span class="app-sidebar__icon"><i class='bx bx-home-alt'></i></span>
+                                <span class="app-sidebar__label">Landing Pages</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#dashboard" class="app-sidebar__link" data-page="dashboard">
+                                <span class="app-sidebar__icon"><i class='bx bx-dashboard'></i></span>
+                                <span class="app-sidebar__label">Dashboards</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#auth" class="app-sidebar__link" data-page="auth">
+                                <span class="app-sidebar__icon"><i class='bx bx-lock-alt'></i></span>
+                                <span class="app-sidebar__label">Authentication</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#error" class="app-sidebar__link" data-page="error">
+                                <span class="app-sidebar__icon"><i class='bx bx-error'></i></span>
+                                <span class="app-sidebar__label">Error Pages</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Layouts -->
+                <div class="app-sidebar__section">
+                    <h3 class="app-sidebar__section-title">Layouts</h3>
+                    <ul class="app-sidebar__menu">
+                        <li class="app-sidebar__item">
+                            <a href="#grid" class="app-sidebar__link" data-page="grid">
+                                <span class="app-sidebar__icon"><i class='bx bx-grid'></i></span>
+                                <span class="app-sidebar__label">Grid System</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#containers" class="app-sidebar__link" data-page="containers">
+                                <span class="app-sidebar__icon"><i class='bx bx-box'></i></span>
+                                <span class="app-sidebar__label">Containers</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#columns" class="app-sidebar__link" data-page="columns">
+                                <span class="app-sidebar__icon"><i class='bx bx-columns'></i></span>
+                                <span class="app-sidebar__label">Columns</span>
+                            </a>
+                        </li>
+                        <li class="app-sidebar__item">
+                            <a href="#utilities" class="app-sidebar__link" data-page="utilities">
+                                <span class="app-sidebar__icon"><i class='bx bx-wrench'></i></span>
+                                <span class="app-sidebar__label">Utilities</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="app-sidebar__backdrop"></div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="app-main">
+            <div class="app-content">
+                <!-- Content will be loaded dynamically here -->
+                <div class="page-header">
+                    <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+                        <span class="page-header__breadcrumb-item">
+                            <a href="#overview" class="page-header__breadcrumb-link">Home</a>
+                        </span>
+                        <span class="page-header__breadcrumb-separator">/</span>
+                        <span class="page-header__breadcrumb-item">
+                            <span>Overview</span>
+                        </span>
+                    </nav>
+                    <h1 class="page-header__title">Welcome to BRICKS</h1>
+                    <p class="page-header__description">
+                        A modern design system with comprehensive components, sections, templates, and layouts for building beautiful web applications.
+                    </p>
+                </div>
+                
+                <div class="content-section">
+                    <div class="content-section__header">
+                        <h2 class="content-section__title">Overview</h2>
+                        <p class="content-section__subtitle">Get started with BRICKS Design System</p>
+                    </div>
+                    <div class="content-section__body">
+                        <p>BRICKS is a comprehensive design system that provides everything you need to build modern web applications. From basic elements to complete templates, our system is designed with flexibility and accessibility in mind.</p>
+                        
+                        <h3>What's Included</h3>
+                        <ul>
+                            <li><i class='bx bx-check'></i> <strong>Elements</strong> - Typography, buttons, forms, badges, and more</li>
+                            <li><i class='bx bx-check'></i> <strong>Components</strong> - Cards, modals, navigation, alerts, and UI components</li>
+                            <li><i class='bx bx-check'></i> <strong>Sections</strong> - Pre-built page sections like heroes, features, and CTAs</li>
+                            <li><i class='bx bx-check'></i> <strong>Templates</strong> - Complete page templates for common use cases</li>
+                            <li><i class='bx bx-check'></i> <strong>Layouts</strong> - Grid system, containers, and utility classes</li>
+                        </ul>
+                        
+                        <h3>Quick Start</h3>
+                        <div class="component-preview">
+                            <div class="component-preview__demo">
+                                <button class="btn btn--primary">Get Started</button>
+                                <button class="btn btn--secondary">Learn More</button>
+                            </div>
+                            <div class="component-preview__toolbar">
+                                <div class="component-preview__tabs">
+                                    <button class="component-preview__tab component-preview__tab--active">Preview</button>
+                                    <button class="component-preview__tab">HTML</button>
+                                    <button class="component-preview__tab">CSS</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="layout/js/theme-toggle.js"></script>
+    <script src="layout/js/navigation.js"></script>
+</body>
+</html>
