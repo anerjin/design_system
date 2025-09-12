@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/molecules/navbar.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Navbar</h1>
+            <p class="vp-doc-description">
+                웹사이트 상단 네비게이션 바 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Navbar</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0;">
+                <nav class="navbar">
+                    <div class="navbar__container">
+                        <a href="#" class="navbar__brand">
+                            <img src="https://via.placeholder.com/32" alt="Logo" class="navbar__logo">
+                            <span>BRICKS</span>
+                        </a>
+                        <div class="navbar__menu">
+                            <a href="#" class="navbar__link navbar__link--active">Home</a>
+                            <a href="#" class="navbar__link">Features</a>
+                            <a href="#" class="navbar__link">Pricing</a>
+                            <a href="#" class="navbar__link">About</a>
+                            <a href="#" class="navbar__link">Contact</a>
+                        </div>
+                        <div class="navbar__actions">
+                            <button type="button" class="btn btn--ghost btn--sm">Sign In</button>
+                            <button type="button" class="btn btn--primary btn--sm">Sign Up</button>
+                        </div>
+                        <button type="button" class="navbar__toggle">
+                            <svg class="icon">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-menu"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <pre><code>&lt;nav class="navbar"&gt;
+    &lt;div class="navbar__container"&gt;
+        &lt;a href="#" class="navbar__brand"&gt;
+            &lt;img src="logo.png" alt="Logo" class="navbar__logo"&gt;
+            &lt;span&gt;BRICKS&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class="navbar__menu"&gt;
+            &lt;a href="#" class="navbar__link navbar__link--active"&gt;Home&lt;/a&gt;
+            &lt;a href="#" class="navbar__link"&gt;Features&lt;/a&gt;
+            &lt;a href="#" class="navbar__link"&gt;Pricing&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="navbar__actions"&gt;
+            &lt;button class="btn btn--primary"&gt;Sign Up&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button class="navbar__toggle"&gt;
+            &lt;svg class="icon"&gt;...&lt;/svg&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+        
+        <h2>Navbar with Dropdown</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0;">
+                <nav class="navbar">
+                    <div class="navbar__container">
+                        <a href="#" class="navbar__brand">
+                            <span>BRICKS</span>
+                        </a>
+                        <div class="navbar__menu">
+                            <a href="#" class="navbar__link">Home</a>
+                            <div class="navbar__dropdown">
+                                <button type="button" class="navbar__link navbar__dropdown-toggle">
+                                    Products
+                                    <svg class="icon icon--xs">
+                                        <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
+                                    </svg>
+                                </button>
+                                <div class="navbar__dropdown-menu">
+                                    <a href="#" class="navbar__dropdown-item">Design System</a>
+                                    <a href="#" class="navbar__dropdown-item">Components</a>
+                                    <a href="#" class="navbar__dropdown-item">Templates</a>
+                                    <div class="navbar__dropdown-divider"></div>
+                                    <a href="#" class="navbar__dropdown-item">Documentation</a>
+                                </div>
+                            </div>
+                            <a href="#" class="navbar__link">Pricing</a>
+                            <a href="#" class="navbar__link">Contact</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <h2>Dark Navbar</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0;">
+                <nav class="navbar navbar--dark">
+                    <div class="navbar__container">
+                        <a href="#" class="navbar__brand">
+                            <span>BRICKS</span>
+                        </a>
+                        <div class="navbar__menu">
+                            <a href="#" class="navbar__link navbar__link--active">Home</a>
+                            <a href="#" class="navbar__link">Features</a>
+                            <a href="#" class="navbar__link">Pricing</a>
+                            <a href="#" class="navbar__link">About</a>
+                        </div>
+                        <div class="navbar__actions">
+                            <button type="button" class="btn btn--ghost btn--sm" style="color: white;">Sign In</button>
+                            <button type="button" class="btn btn--primary btn--sm">Get Started</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <h2>Navbar with Search</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0;">
+                <nav class="navbar">
+                    <div class="navbar__container">
+                        <a href="#" class="navbar__brand">
+                            <span>BRICKS</span>
+                        </a>
+                        <div class="navbar__menu">
+                            <a href="#" class="navbar__link">Home</a>
+                            <a href="#" class="navbar__link">Products</a>
+                            <a href="#" class="navbar__link">Docs</a>
+                        </div>
+                        <div class="navbar__search">
+                            <input type="search" class="navbar__search-input" placeholder="Search...">
+                            <svg class="navbar__search-icon icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-search"></use>
+                            </svg>
+                        </div>
+                        <div class="navbar__actions">
+                            <button type="button" class="navbar__icon-btn">
+                                <svg class="icon">
+                                    <use href="../../design-system/icon/icon-sprite.svg#icon-bell"></use>
+                                </svg>
+                            </button>
+                            <div class="navbar__user">
+                                <img src="https://i.pravatar.cc/32" alt="User" class="navbar__avatar">
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.navbar</code></td>
+                    <td>Base navbar container</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__container</code></td>
+                    <td>Inner container with max-width</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__brand</code></td>
+                    <td>Brand/logo area</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__menu</code></td>
+                    <td>Navigation links container</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__link</code></td>
+                    <td>Navigation link</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__link--active</code></td>
+                    <td>Active navigation link</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__actions</code></td>
+                    <td>Action buttons container</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__toggle</code></td>
+                    <td>Mobile menu toggle</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar--dark</code></td>
+                    <td>Dark theme navbar</td>
+                </tr>
+                <tr>
+                    <td><code>.navbar__dropdown</code></td>
+                    <td>Dropdown container</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .navbar {
+                background: white;
+                border-bottom: 1px solid var(--vp-c-divider);
+                padding: 0;
+            }
+            .navbar__container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+                display: flex;
+                align-items: center;
+                height: 64px;
+                gap: 32px;
+            }
+            .navbar__brand {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--vp-c-text-1);
+                text-decoration: none;
+            }
+            .navbar__logo {
+                width: 32px;
+                height: 32px;
+            }
+            .navbar__menu {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+                flex: 1;
+            }
+            .navbar__link {
+                color: var(--vp-c-text-2);
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                transition: color 0.2s;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            .navbar__link:hover {
+                color: var(--color-primary-500);
+            }
+            .navbar__link--active {
+                color: var(--color-primary-500);
+            }
+            .navbar__actions {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .navbar__toggle {
+                display: none;
+                background: none;
+                border: none;
+                padding: 8px;
+                cursor: pointer;
+            }
+            .navbar--dark {
+                background: var(--vp-c-text-1);
+                border-bottom-color: rgba(255, 255, 255, 0.1);
+            }
+            .navbar--dark .navbar__brand,
+            .navbar--dark .navbar__link {
+                color: rgba(255, 255, 255, 0.9);
+            }
+            .navbar--dark .navbar__link:hover,
+            .navbar--dark .navbar__link--active {
+                color: var(--color-primary-400);
+            }
+            .navbar__dropdown {
+                position: relative;
+            }
+            .navbar__dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                margin-top: 8px;
+                min-width: 200px;
+                background: white;
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 8px;
+                box-shadow: var(--shadow-lg);
+                padding: 8px 0;
+                display: none;
+            }
+            .navbar__dropdown:hover .navbar__dropdown-menu {
+                display: block;
+            }
+            .navbar__dropdown-item {
+                display: block;
+                padding: 8px 16px;
+                color: var(--vp-c-text-1);
+                text-decoration: none;
+                transition: background 0.2s;
+            }
+            .navbar__dropdown-item:hover {
+                background: var(--vp-c-bg-soft);
+            }
+            .navbar__dropdown-divider {
+                height: 1px;
+                margin: 8px 0;
+                background: var(--vp-c-divider);
+            }
+            .navbar__search {
+                position: relative;
+                flex: 1;
+                max-width: 300px;
+            }
+            .navbar__search-input {
+                width: 100%;
+                padding: 8px 12px 8px 36px;
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 20px;
+                font-size: 14px;
+                background: var(--vp-c-bg-soft);
+            }
+            .navbar__search-icon {
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--vp-c-text-3);
+            }
+            .navbar__icon-btn {
+                background: none;
+                border: none;
+                padding: 8px;
+                cursor: pointer;
+                color: var(--vp-c-text-2);
+            }
+            .navbar__avatar {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            @media (max-width: 768px) {
+                .navbar__menu,
+                .navbar__search,
+                .navbar__actions {
+                    display: none;
+                }
+                .navbar__toggle {
+                    display: block;
+                }
+            }
+        </style>
+    </div>
+</body>
+</html>

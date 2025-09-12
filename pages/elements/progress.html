@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/atoms/progress.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Progress</h1>
+            <p class="vp-doc-description">
+                진행 상태를 시각적으로 표시하는 프로그레스 바 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Progress</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="progress">
+                    <div class="progress__bar" style="width: 60%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="progress"&gt;
+    &lt;div class="progress__bar" style="width: 60%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Progress Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="progress progress--xs">
+                    <div class="progress__bar" style="width: 40%"></div>
+                </div>
+                <div class="progress progress--sm">
+                    <div class="progress__bar" style="width: 50%"></div>
+                </div>
+                <div class="progress">
+                    <div class="progress__bar" style="width: 60%"></div>
+                </div>
+                <div class="progress progress--lg">
+                    <div class="progress__bar" style="width: 70%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Progress Colors</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="progress">
+                    <div class="progress__bar" style="width: 25%"></div>
+                </div>
+                <div class="progress progress--success">
+                    <div class="progress__bar" style="width: 50%"></div>
+                </div>
+                <div class="progress progress--warning">
+                    <div class="progress__bar" style="width: 75%"></div>
+                </div>
+                <div class="progress progress--danger">
+                    <div class="progress__bar" style="width: 90%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Progress with Label</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <div>
+                    <div class="progress-label">
+                        <span>Upload progress</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress__bar" style="width: 60%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="progress-label">
+                        <span>Download</span>
+                        <span>2.4MB / 10MB</span>
+                    </div>
+                    <div class="progress progress--success">
+                        <div class="progress__bar" style="width: 24%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Striped Progress</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="progress progress--striped">
+                    <div class="progress__bar" style="width: 40%"></div>
+                </div>
+                <div class="progress progress--striped progress--animated">
+                    <div class="progress__bar" style="width: 60%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Indeterminate Progress</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="progress progress--indeterminate">
+                    <div class="progress__bar"></div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Circular Progress</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 24px;">
+                <div class="progress-circle">
+                    <svg class="progress-circle__svg" viewBox="0 0 36 36">
+                        <path class="progress-circle__bg"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress-circle__bar"
+                            stroke-dasharray="25, 100"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <span class="progress-circle__text">25%</span>
+                </div>
+                <div class="progress-circle">
+                    <svg class="progress-circle__svg" viewBox="0 0 36 36">
+                        <path class="progress-circle__bg"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress-circle__bar progress-circle__bar--success"
+                            stroke-dasharray="50, 100"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <span class="progress-circle__text">50%</span>
+                </div>
+                <div class="progress-circle">
+                    <svg class="progress-circle__svg" viewBox="0 0 36 36">
+                        <path class="progress-circle__bg"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <path class="progress-circle__bar progress-circle__bar--warning"
+                            stroke-dasharray="75, 100"
+                            d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    </svg>
+                    <span class="progress-circle__text">75%</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.progress</code></td>
+                    <td>Base progress container</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--xs</code></td>
+                    <td>Extra small height</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--sm</code></td>
+                    <td>Small height</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--lg</code></td>
+                    <td>Large height</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--success</code></td>
+                    <td>Success color</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--warning</code></td>
+                    <td>Warning color</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--danger</code></td>
+                    <td>Danger color</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--striped</code></td>
+                    <td>Striped pattern</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--animated</code></td>
+                    <td>Animated stripes</td>
+                </tr>
+                <tr>
+                    <td><code>.progress--indeterminate</code></td>
+                    <td>Indeterminate state</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .progress-label {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+            .progress-circle {
+                position: relative;
+                width: 60px;
+                height: 60px;
+            }
+            .progress-circle__svg {
+                transform: rotate(-90deg);
+            }
+            .progress-circle__bg {
+                fill: none;
+                stroke: var(--vp-c-divider);
+                stroke-width: 3.8;
+            }
+            .progress-circle__bar {
+                fill: none;
+                stroke: var(--color-primary-500);
+                stroke-width: 3.8;
+                stroke-linecap: round;
+                animation: progress-circle 1s ease-out;
+            }
+            .progress-circle__bar--success {
+                stroke: var(--color-success-500);
+            }
+            .progress-circle__bar--warning {
+                stroke: var(--color-warning-500);
+            }
+            .progress-circle__text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 12px;
+                font-weight: 500;
+            }
+            @keyframes progress-circle {
+                from {
+                    stroke-dasharray: 0, 100;
+                }
+            }
+        </style>
+    </div>
+</body>
+</html>

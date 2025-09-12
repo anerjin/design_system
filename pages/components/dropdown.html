@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/molecules/dropdown.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Dropdown</h1>
+            <p class="vp-doc-description">
+                클릭 시 옵션 목록을 표시하는 드롭다운 메뉴 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Dropdown</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="dropdown">
+                    <button type="button" class="dropdown__trigger btn btn--secondary">
+                        Dropdown
+                        <svg class="icon icon--sm">
+                            <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
+                        </svg>
+                    </button>
+                    <div class="dropdown__menu">
+                        <a href="#" class="dropdown__item">Action</a>
+                        <a href="#" class="dropdown__item">Another action</a>
+                        <a href="#" class="dropdown__item">Something else</a>
+                        <div class="dropdown__divider"></div>
+                        <a href="#" class="dropdown__item">Separated link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="dropdown"&gt;
+    &lt;button class="dropdown__trigger btn"&gt;
+        Dropdown
+    &lt;/button&gt;
+    &lt;div class="dropdown__menu"&gt;
+        &lt;a href="#" class="dropdown__item"&gt;Action&lt;/a&gt;
+        &lt;a href="#" class="dropdown__item"&gt;Another action&lt;/a&gt;
+        &lt;div class="dropdown__divider"&gt;&lt;/div&gt;
+        &lt;a href="#" class="dropdown__item"&gt;Separated link&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Dropdown Directions</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; gap: 12px; padding: 60px 20px;">
+                <div class="dropdown dropdown--up">
+                    <button type="button" class="dropdown__trigger btn btn--secondary">
+                        Dropup
+                    </button>
+                    <div class="dropdown__menu">
+                        <a href="#" class="dropdown__item">Item 1</a>
+                        <a href="#" class="dropdown__item">Item 2</a>
+                        <a href="#" class="dropdown__item">Item 3</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown dropdown--right">
+                    <button type="button" class="dropdown__trigger btn btn--secondary">
+                        Dropright
+                    </button>
+                    <div class="dropdown__menu">
+                        <a href="#" class="dropdown__item">Item 1</a>
+                        <a href="#" class="dropdown__item">Item 2</a>
+                        <a href="#" class="dropdown__item">Item 3</a>
+                    </div>
+                </div>
+                
+                <div class="dropdown dropdown--left">
+                    <button type="button" class="dropdown__trigger btn btn--secondary">
+                        Dropleft
+                    </button>
+                    <div class="dropdown__menu">
+                        <a href="#" class="dropdown__item">Item 1</a>
+                        <a href="#" class="dropdown__item">Item 2</a>
+                        <a href="#" class="dropdown__item">Item 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Dropdown with Icons</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="dropdown">
+                    <button type="button" class="dropdown__trigger btn btn--primary">
+                        <svg class="icon icon--sm">
+                            <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
+                        </svg>
+                        Settings
+                    </button>
+                    <div class="dropdown__menu">
+                        <a href="#" class="dropdown__item">
+                            <svg class="icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-user"></use>
+                            </svg>
+                            Profile
+                        </a>
+                        <a href="#" class="dropdown__item">
+                            <svg class="icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
+                            </svg>
+                            Settings
+                        </a>
+                        <div class="dropdown__divider"></div>
+                        <a href="#" class="dropdown__item dropdown__item--danger">
+                            <svg class="icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-logout"></use>
+                            </svg>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Dropdown with Header</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="dropdown">
+                    <button type="button" class="dropdown__trigger btn btn--secondary">
+                        User Menu
+                    </button>
+                    <div class="dropdown__menu dropdown__menu--wide">
+                        <div class="dropdown__header">
+                            <div class="dropdown__user">
+                                <div class="avatar avatar--sm">
+                                    <img src="https://i.pravatar.cc/150?img=1" alt="User">
+                                </div>
+                                <div>
+                                    <div class="dropdown__user-name">John Doe</div>
+                                    <div class="dropdown__user-email">john@example.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown__divider"></div>
+                        <a href="#" class="dropdown__item">Dashboard</a>
+                        <a href="#" class="dropdown__item">Settings</a>
+                        <a href="#" class="dropdown__item">Billing</a>
+                        <div class="dropdown__divider"></div>
+                        <a href="#" class="dropdown__item">Sign out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.dropdown</code></td>
+                    <td>Base dropdown container</td>
+                </tr>
+                <tr>
+                    <td><code>.dropdown__trigger</code></td>
+                    <td>Dropdown trigger button</td>
+                </tr>
+                <tr>
+                    <td><code>.dropdown__menu</code></td>
+                    <td>Dropdown menu container</td>
+                </tr>
+                <tr>
+                    <td><code>.dropdown__item</code></td>
+                    <td>Menu item</td>
+                </tr>
+                <tr>
+                    <td><code>.dropdown__divider</code></td>
+                    <td>Menu divider</td>
+                </tr>
+                <tr>
+                    <td><code>.dropdown--up</code></td>
+                    <td>Show menu above trigger</td>
+                </tr>
+                <tr>
+                    <td><code>.dropdown--right</code></td>
+                    <td>Show menu to the right</td>
+                </tr>
+                <tr>
+                    <td><code>.dropdown--left</code></td>
+                    <td>Show menu to the left</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            .dropdown__trigger {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .dropdown__menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 100;
+                min-width: 200px;
+                margin-top: 4px;
+                background: white;
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 8px;
+                box-shadow: var(--shadow-lg);
+                display: none;
+                padding: 8px 0;
+            }
+            .dropdown:hover .dropdown__menu {
+                display: block;
+            }
+            .dropdown__item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px;
+                color: var(--vp-c-text-1);
+                text-decoration: none;
+                transition: background 0.2s;
+            }
+            .dropdown__item:hover {
+                background: var(--vp-c-bg-soft);
+            }
+            .dropdown__item--danger {
+                color: var(--color-danger-500);
+            }
+            .dropdown__divider {
+                height: 1px;
+                margin: 8px 0;
+                background: var(--vp-c-divider);
+            }
+            .dropdown__header {
+                padding: 12px 16px;
+            }
+            .dropdown__user {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .dropdown__user-name {
+                font-weight: 500;
+            }
+            .dropdown__user-email {
+                font-size: 12px;
+                color: var(--vp-c-text-3);
+            }
+            .dropdown__menu--wide {
+                min-width: 280px;
+            }
+            .dropdown--up .dropdown__menu {
+                bottom: 100%;
+                top: auto;
+                margin-bottom: 4px;
+                margin-top: 0;
+            }
+            .dropdown--right .dropdown__menu {
+                left: 100%;
+                top: 0;
+                margin-left: 4px;
+                margin-top: 0;
+            }
+            .dropdown--left .dropdown__menu {
+                right: 100%;
+                left: auto;
+                top: 0;
+                margin-right: 4px;
+                margin-top: 0;
+            }
+        </style>
+    </div>
+</body>
+</html>

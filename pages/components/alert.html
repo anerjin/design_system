@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/molecules/alert.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Alert</h1>
+            <p class="vp-doc-description">
+                사용자에게 중요한 정보를 전달하는 알림 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Alert</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="alert">
+                    This is a default alert message.
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="alert"&gt;
+    This is a default alert message.
+&lt;/div&gt;</code></pre>
+        
+        <h2>Alert Types</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="alert alert--info">
+                    <strong>Info!</strong> This is an informational alert.
+                </div>
+                <div class="alert alert--success">
+                    <strong>Success!</strong> Your action was completed successfully.
+                </div>
+                <div class="alert alert--warning">
+                    <strong>Warning!</strong> Please check your input.
+                </div>
+                <div class="alert alert--danger">
+                    <strong>Error!</strong> Something went wrong.
+                </div>
+            </div>
+        </div>
+        
+        <h2>Alert with Icon</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="alert alert--info">
+                    <svg class="alert__icon icon icon--sm">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-info"></use>
+                    </svg>
+                    <div class="alert__content">
+                        <strong>New Update Available</strong>
+                        <p>Version 2.0 is now available with new features.</p>
+                    </div>
+                </div>
+                <div class="alert alert--success">
+                    <svg class="alert__icon icon icon--sm">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-check"></use>
+                    </svg>
+                    <div class="alert__content">
+                        <strong>Payment Successful</strong>
+                        <p>Your payment has been processed successfully.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Dismissible Alert</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="alert alert--warning alert--dismissible">
+                    <div class="alert__content">
+                        <strong>Session Expiring</strong>
+                        <p>Your session will expire in 5 minutes.</p>
+                    </div>
+                    <button type="button" class="alert__close" aria-label="Close">
+                        <svg class="icon icon--sm">
+                            <use href="../../design-system/icon/icon-sprite.svg#icon-close"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Alert with Actions</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="alert alert--info">
+                    <div class="alert__content">
+                        <strong>Cookie Notice</strong>
+                        <p>We use cookies to improve your experience.</p>
+                    </div>
+                    <div class="alert__actions">
+                        <button type="button" class="btn btn--sm btn--primary">Accept</button>
+                        <button type="button" class="btn btn--sm btn--ghost">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.alert</code></td>
+                    <td>Base alert container</td>
+                </tr>
+                <tr>
+                    <td><code>.alert--info</code></td>
+                    <td>Info alert style</td>
+                </tr>
+                <tr>
+                    <td><code>.alert--success</code></td>
+                    <td>Success alert style</td>
+                </tr>
+                <tr>
+                    <td><code>.alert--warning</code></td>
+                    <td>Warning alert style</td>
+                </tr>
+                <tr>
+                    <td><code>.alert--danger</code></td>
+                    <td>Danger/error alert style</td>
+                </tr>
+                <tr>
+                    <td><code>.alert--dismissible</code></td>
+                    <td>Alert with close button</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

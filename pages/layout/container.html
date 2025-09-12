@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../layout/css/container.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Container</h1>
+            <p class="vp-doc-description">
+                콘텐츠를 중앙에 정렬하고 최대 너비를 제한하는 컨테이너 레이아웃입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Container</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
+                <div class="container" style="background: white; padding: 24px;">
+                    <p>This is a basic container. It centers the content and has a maximum width. The content will be responsive and adapt to different screen sizes while maintaining proper margins.</p>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="container"&gt;
+    &lt;p&gt;Content inside container&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Container Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
+                <div class="container container--sm" style="background: white; padding: 16px; margin-bottom: 16px;">
+                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
+                        Small Container (max: 640px)
+                    </div>
+                </div>
+                
+                <div class="container container--md" style="background: white; padding: 16px; margin-bottom: 16px;">
+                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
+                        Medium Container (max: 768px)
+                    </div>
+                </div>
+                
+                <div class="container" style="background: white; padding: 16px; margin-bottom: 16px;">
+                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
+                        Default Container (max: 1200px)
+                    </div>
+                </div>
+                
+                <div class="container container--lg" style="background: white; padding: 16px; margin-bottom: 16px;">
+                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
+                        Large Container (max: 1440px)
+                    </div>
+                </div>
+                
+                <div class="container container--xl" style="background: white; padding: 16px; margin-bottom: 16px;">
+                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
+                        Extra Large Container (max: 1920px)
+                    </div>
+                </div>
+                
+                <div class="container container--fluid" style="background: white; padding: 16px;">
+                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
+                        Fluid Container (no max width)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Container with Padding</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
+                <div class="container container--no-padding" style="background: white;">
+                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
+                        Container without padding
+                    </div>
+                </div>
+                
+                <div class="container container--padding-sm" style="background: white; margin-top: 16px;">
+                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
+                        Container with small padding (16px)
+                    </div>
+                </div>
+                
+                <div class="container container--padding-md" style="background: white; margin-top: 16px;">
+                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
+                        Container with medium padding (24px)
+                    </div>
+                </div>
+                
+                <div class="container container--padding-lg" style="background: white; margin-top: 16px;">
+                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
+                        Container with large padding (32px)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Nested Containers</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0;">
+                <div class="container" style="background: var(--vp-c-bg-soft); padding: 24px;">
+                    <h3>Outer Container</h3>
+                    <p>This is the outer container with default max-width.</p>
+                    
+                    <div class="container container--sm" style="background: white; padding: 24px; margin-top: 16px;">
+                        <h4>Inner Container</h4>
+                        <p>This is a nested container with smaller max-width.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Responsive Container</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
+                <div class="container container--responsive" style="background: white; padding: 24px;">
+                    <h3>Responsive Container</h3>
+                    <p>This container adjusts its max-width based on screen size:</p>
+                    <ul>
+                        <li>Mobile (&lt;640px): Full width with padding</li>
+                        <li>Tablet (640px-1024px): 768px max-width</li>
+                        <li>Desktop (1024px-1440px): 1200px max-width</li>
+                        <li>Large Desktop (&gt;1440px): 1440px max-width</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Container with Sections</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="padding: 0;">
+                <section style="background: var(--vp-c-bg-soft); padding: 48px 0;">
+                    <div class="container">
+                        <h2>Hero Section</h2>
+                        <p>This section has a full-width background with contained content.</p>
+                    </div>
+                </section>
+                
+                <section style="background: white; padding: 48px 0;">
+                    <div class="container">
+                        <h2>Content Section</h2>
+                        <p>Another section with different background but same container width.</p>
+                    </div>
+                </section>
+                
+                <section style="background: var(--color-primary-50); padding: 48px 0;">
+                    <div class="container">
+                        <h2>Feature Section</h2>
+                        <p>Consistent content width across all sections.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Max Width</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.container</code></td>
+                    <td>1200px</td>
+                    <td>Default container</td>
+                </tr>
+                <tr>
+                    <td><code>.container--sm</code></td>
+                    <td>640px</td>
+                    <td>Small container</td>
+                </tr>
+                <tr>
+                    <td><code>.container--md</code></td>
+                    <td>768px</td>
+                    <td>Medium container</td>
+                </tr>
+                <tr>
+                    <td><code>.container--lg</code></td>
+                    <td>1440px</td>
+                    <td>Large container</td>
+                </tr>
+                <tr>
+                    <td><code>.container--xl</code></td>
+                    <td>1920px</td>
+                    <td>Extra large container</td>
+                </tr>
+                <tr>
+                    <td><code>.container--fluid</code></td>
+                    <td>100%</td>
+                    <td>Full width container</td>
+                </tr>
+                <tr>
+                    <td><code>.container--no-padding</code></td>
+                    <td>-</td>
+                    <td>Remove padding</td>
+                </tr>
+                <tr>
+                    <td><code>.container--padding-sm</code></td>
+                    <td>-</td>
+                    <td>Small padding (16px)</td>
+                </tr>
+                <tr>
+                    <td><code>.container--padding-md</code></td>
+                    <td>-</td>
+                    <td>Medium padding (24px)</td>
+                </tr>
+                <tr>
+                    <td><code>.container--padding-lg</code></td>
+                    <td>-</td>
+                    <td>Large padding (32px)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+            .container--sm {
+                max-width: 640px;
+            }
+            .container--md {
+                max-width: 768px;
+            }
+            .container--lg {
+                max-width: 1440px;
+            }
+            .container--xl {
+                max-width: 1920px;
+            }
+            .container--fluid {
+                max-width: 100%;
+            }
+            .container--no-padding {
+                padding: 0;
+            }
+            .container--padding-sm {
+                padding: 0 16px;
+            }
+            .container--padding-md {
+                padding: 0 24px;
+            }
+            .container--padding-lg {
+                padding: 0 32px;
+            }
+            .container--responsive {
+                max-width: 100%;
+            }
+            @media (min-width: 640px) {
+                .container--responsive {
+                    max-width: 768px;
+                }
+            }
+            @media (min-width: 1024px) {
+                .container--responsive {
+                    max-width: 1200px;
+                }
+            }
+            @media (min-width: 1440px) {
+                .container--responsive {
+                    max-width: 1440px;
+                }
+            }
+        </style>
+    </div>
+</body>
+</html>

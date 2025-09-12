@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/atoms/spinner.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Spinner</h1>
+            <p class="vp-doc-description">
+                로딩 상태를 표시하는 스피너 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Spinner</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="spinner"&gt;&lt;/div&gt;</code></pre>
+        
+        <h2>Spinner Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 24px;">
+                <div class="spinner spinner--xs"></div>
+                <div class="spinner spinner--sm"></div>
+                <div class="spinner"></div>
+                <div class="spinner spinner--lg"></div>
+                <div class="spinner spinner--xl"></div>
+            </div>
+        </div>
+        
+        <h2>Spinner Colors</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 24px;">
+                <div class="spinner"></div>
+                <div class="spinner spinner--success"></div>
+                <div class="spinner spinner--warning"></div>
+                <div class="spinner spinner--danger"></div>
+                <div class="spinner spinner--info"></div>
+            </div>
+        </div>
+        
+        <h2>Spinner Types</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 32px;">
+                <div class="spinner"></div>
+                <div class="spinner spinner--dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="spinner spinner--pulse"></div>
+                <div class="spinner spinner--bars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Spinner with Text</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 24px;">
+                <div class="spinner-wrapper">
+                    <div class="spinner spinner--sm"></div>
+                    <span>Loading...</span>
+                </div>
+                <div class="spinner-wrapper">
+                    <div class="spinner spinner--sm spinner--success"></div>
+                    <span>Processing...</span>
+                </div>
+                <div class="spinner-wrapper">
+                    <div class="spinner spinner--sm spinner--warning"></div>
+                    <span>Please wait...</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Button with Spinner</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; gap: 12px;">
+                <button type="button" class="btn btn--primary" disabled>
+                    <div class="spinner spinner--xs spinner--white"></div>
+                    Loading...
+                </button>
+                <button type="button" class="btn btn--secondary" disabled>
+                    <div class="spinner spinner--xs"></div>
+                    Processing
+                </button>
+            </div>
+        </div>
+        
+        <h2>Full Screen Spinner</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="position: relative; height: 200px;">
+                <div class="spinner-overlay">
+                    <div class="spinner spinner--lg"></div>
+                </div>
+                <p>Content behind the overlay...</p>
+            </div>
+        </div>
+        
+        <h2>Card Loading</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="card" style="position: relative; min-height: 150px;">
+                    <div class="spinner-container">
+                        <div class="spinner"></div>
+                        <p style="margin-top: 16px; color: var(--vp-c-text-2);">Loading content...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.spinner</code></td>
+                    <td>Base spinner (default circular)</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--xs</code></td>
+                    <td>Extra small (16px)</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--sm</code></td>
+                    <td>Small (20px)</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--lg</code></td>
+                    <td>Large (32px)</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--xl</code></td>
+                    <td>Extra large (48px)</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--success</code></td>
+                    <td>Success color</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--warning</code></td>
+                    <td>Warning color</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--danger</code></td>
+                    <td>Danger color</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--white</code></td>
+                    <td>White color</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--dots</code></td>
+                    <td>Dots animation</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--pulse</code></td>
+                    <td>Pulse animation</td>
+                </tr>
+                <tr>
+                    <td><code>.spinner--bars</code></td>
+                    <td>Bars animation</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .spinner-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .spinner-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10;
+            }
+            .spinner-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 32px;
+            }
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .card {
+                background: var(--vp-c-bg-soft);
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 8px;
+            }
+        </style>
+    </div>
+</body>
+</html>

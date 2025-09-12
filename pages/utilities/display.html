@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../utilities/display.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Display</h1>
+            <p class="vp-doc-description">
+                요소의 표시 방법을 제어하는 유틸리티 클래스입니다.
+            </p>
+        </div>
+        
+        <h2>Display Types</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="demo-group">
+                    <h4>Block</h4>
+                    <div class="d-block demo-element">
+                        This is a block element. It takes full width.
+                    </div>
+                    <div class="d-block demo-element">
+                        Another block element.
+                    </div>
+                </div>
+                
+                <div class="demo-group" style="margin-top: 24px;">
+                    <h4>Inline</h4>
+                    <div>
+                        <span class="d-inline demo-element">Inline 1</span>
+                        <span class="d-inline demo-element">Inline 2</span>
+                        <span class="d-inline demo-element">Inline 3</span>
+                    </div>
+                </div>
+                
+                <div class="demo-group" style="margin-top: 24px;">
+                    <h4>Inline Block</h4>
+                    <div>
+                        <div class="d-inline-block demo-element" style="width: 100px;">Inline Block 1</div>
+                        <div class="d-inline-block demo-element" style="width: 100px;">Inline Block 2</div>
+                        <div class="d-inline-block demo-element" style="width: 100px;">Inline Block 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="d-block"&gt;Block element&lt;/div&gt;
+&lt;span class="d-inline"&gt;Inline element&lt;/span&gt;
+&lt;div class="d-inline-block"&gt;Inline block element&lt;/div&gt;</code></pre>
+        
+        <h2>Display None</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="demo-element">Visible element</div>
+                <div class="d-none demo-element">Hidden element (you can't see this)</div>
+                <div class="demo-element">Another visible element</div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="d-none"&gt;This element is hidden&lt;/div&gt;</code></pre>
+        
+        <h2>Flex Display</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="d-flex" style="gap: 12px;">
+                    <div class="demo-element">Flex item 1</div>
+                    <div class="demo-element">Flex item 2</div>
+                    <div class="demo-element">Flex item 3</div>
+                </div>
+                
+                <div style="margin-top: 16px;">
+                    <span class="d-inline-flex" style="gap: 12px;">
+                        <span class="demo-element">Inline flex 1</span>
+                        <span class="demo-element">Inline flex 2</span>
+                    </span>
+                    <span class="d-inline-flex" style="gap: 12px; margin-left: 16px;">
+                        <span class="demo-element">Inline flex 3</span>
+                        <span class="demo-element">Inline flex 4</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Grid Display</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="d-grid" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                    <div class="demo-element">Grid item 1</div>
+                    <div class="demo-element">Grid item 2</div>
+                    <div class="demo-element">Grid item 3</div>
+                    <div class="demo-element">Grid item 4</div>
+                    <div class="demo-element">Grid item 5</div>
+                    <div class="demo-element">Grid item 6</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Table Display</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="d-table" style="width: 100%;">
+                    <div class="d-table-row">
+                        <div class="d-table-cell demo-element">Table cell 1</div>
+                        <div class="d-table-cell demo-element">Table cell 2</div>
+                        <div class="d-table-cell demo-element">Table cell 3</div>
+                    </div>
+                    <div class="d-table-row">
+                        <div class="d-table-cell demo-element">Table cell 4</div>
+                        <div class="d-table-cell demo-element">Table cell 5</div>
+                        <div class="d-table-cell demo-element">Table cell 6</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Responsive Display</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="demo-group">
+                    <h4>Hidden on Mobile</h4>
+                    <div class="d-none d-sm-block demo-element">
+                        Hidden on mobile, visible on tablet and desktop
+                    </div>
+                </div>
+                
+                <div class="demo-group" style="margin-top: 16px;">
+                    <h4>Hidden on Desktop</h4>
+                    <div class="d-block d-lg-none demo-element">
+                        Visible on mobile and tablet, hidden on desktop
+                    </div>
+                </div>
+                
+                <div class="demo-group" style="margin-top: 16px;">
+                    <h4>Different Display Types</h4>
+                    <div class="d-block d-md-flex" style="gap: 12px;">
+                        <div class="demo-element">Block on mobile, flex on tablet+</div>
+                        <div class="demo-element">Item 2</div>
+                        <div class="demo-element">Item 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Print Display</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="d-print-none demo-element">
+                    This element is hidden when printing
+                </div>
+                <div class="d-none d-print-block demo-element">
+                    This element only shows when printing
+                </div>
+                <div class="demo-element">
+                    This element is always visible
+                </div>
+            </div>
+        </div>
+        
+        <h2>Visibility</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="demo-element">Visible element</div>
+                <div class="invisible demo-element">Invisible element (takes up space)</div>
+                <div class="demo-element">Another visible element</div>
+                
+                <div style="margin-top: 24px;">
+                    <button type="button" class="btn btn--primary visible">Visible button</button>
+                    <button type="button" class="btn btn--primary invisible">Invisible button</button>
+                    <button type="button" class="btn btn--primary visible">Another visible button</button>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>CSS Property</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.d-none</code></td>
+                    <td>display: none</td>
+                    <td>Hide element</td>
+                </tr>
+                <tr>
+                    <td><code>.d-block</code></td>
+                    <td>display: block</td>
+                    <td>Block display</td>
+                </tr>
+                <tr>
+                    <td><code>.d-inline</code></td>
+                    <td>display: inline</td>
+                    <td>Inline display</td>
+                </tr>
+                <tr>
+                    <td><code>.d-inline-block</code></td>
+                    <td>display: inline-block</td>
+                    <td>Inline block display</td>
+                </tr>
+                <tr>
+                    <td><code>.d-flex</code></td>
+                    <td>display: flex</td>
+                    <td>Flex container</td>
+                </tr>
+                <tr>
+                    <td><code>.d-inline-flex</code></td>
+                    <td>display: inline-flex</td>
+                    <td>Inline flex container</td>
+                </tr>
+                <tr>
+                    <td><code>.d-grid</code></td>
+                    <td>display: grid</td>
+                    <td>Grid container</td>
+                </tr>
+                <tr>
+                    <td><code>.d-table</code></td>
+                    <td>display: table</td>
+                    <td>Table display</td>
+                </tr>
+                <tr>
+                    <td><code>.d-table-row</code></td>
+                    <td>display: table-row</td>
+                    <td>Table row</td>
+                </tr>
+                <tr>
+                    <td><code>.d-table-cell</code></td>
+                    <td>display: table-cell</td>
+                    <td>Table cell</td>
+                </tr>
+                <tr>
+                    <td><code>.visible</code></td>
+                    <td>visibility: visible</td>
+                    <td>Make visible</td>
+                </tr>
+                <tr>
+                    <td><code>.invisible</code></td>
+                    <td>visibility: hidden</td>
+                    <td>Make invisible</td>
+                </tr>
+                <tr>
+                    <td><code>.d-[breakpoint]-[type]</code></td>
+                    <td>Responsive display</td>
+                    <td>Responsive variants</td>
+                </tr>
+                <tr>
+                    <td><code>.d-print-[type]</code></td>
+                    <td>Print display</td>
+                    <td>Print media variants</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .d-none {
+                display: none !important;
+            }
+            .d-block {
+                display: block !important;
+            }
+            .d-inline {
+                display: inline !important;
+            }
+            .d-inline-block {
+                display: inline-block !important;
+            }
+            .d-flex {
+                display: flex !important;
+            }
+            .d-inline-flex {
+                display: inline-flex !important;
+            }
+            .d-grid {
+                display: grid !important;
+            }
+            .d-table {
+                display: table !important;
+            }
+            .d-table-row {
+                display: table-row !important;
+            }
+            .d-table-cell {
+                display: table-cell !important;
+            }
+            .visible {
+                visibility: visible !important;
+            }
+            .invisible {
+                visibility: hidden !important;
+            }
+            
+            @media (min-width: 640px) {
+                .d-sm-none { display: none !important; }
+                .d-sm-block { display: block !important; }
+                .d-sm-inline { display: inline !important; }
+                .d-sm-inline-block { display: inline-block !important; }
+                .d-sm-flex { display: flex !important; }
+                .d-sm-inline-flex { display: inline-flex !important; }
+                .d-sm-grid { display: grid !important; }
+            }
+            
+            @media (min-width: 768px) {
+                .d-md-none { display: none !important; }
+                .d-md-block { display: block !important; }
+                .d-md-inline { display: inline !important; }
+                .d-md-inline-block { display: inline-block !important; }
+                .d-md-flex { display: flex !important; }
+                .d-md-inline-flex { display: inline-flex !important; }
+                .d-md-grid { display: grid !important; }
+            }
+            
+            @media (min-width: 1024px) {
+                .d-lg-none { display: none !important; }
+                .d-lg-block { display: block !important; }
+                .d-lg-inline { display: inline !important; }
+                .d-lg-inline-block { display: inline-block !important; }
+                .d-lg-flex { display: flex !important; }
+                .d-lg-inline-flex { display: inline-flex !important; }
+                .d-lg-grid { display: grid !important; }
+            }
+            
+            @media print {
+                .d-print-none { display: none !important; }
+                .d-print-block { display: block !important; }
+                .d-print-inline { display: inline !important; }
+                .d-print-inline-block { display: inline-block !important; }
+                .d-print-flex { display: flex !important; }
+            }
+            
+            .demo-element {
+                background: var(--color-primary-100);
+                border: 1px solid var(--color-primary-300);
+                padding: 12px 16px;
+                border-radius: 4px;
+                color: var(--color-primary-700);
+                font-size: 14px;
+                text-align: center;
+            }
+            .demo-group h4 {
+                margin-bottom: 12px;
+                color: var(--vp-c-text-1);
+            }
+        </style>
+    </div>
+</body>
+</html>

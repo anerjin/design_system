@@ -1,0 +1,47 @@
+/* Modal Component Styles */
+.modal {display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; overflow:auto; background-color:rgba(0, 0, 0, 0.5); animation:fadeIn 0.2s;}
+.modal--open {display:flex; justify-content:center; align-items:center;}
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+.modal__dialog {display:flex; flex-direction:column; position:relative; width:90%; max-width:500px; max-height:90vh; border-radius:8px; background-color:white; box-shadow:0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); animation:slideIn 0.2s;}
+@keyframes slideIn {
+  from {opacity:0; transform:translateY(-20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* Sizes */
+.modal__dialog--sm {max-width:400px;}
+.modal__dialog--lg {max-width:800px;}
+.modal__dialog--xl {max-width:1200px;}
+.modal__dialog--fullscreen {width:100%; max-width:100%; height:100%; max-height:100%; margin:0; border-radius:0;}
+
+/* Modal parts */
+.modal__header {display:flex; justify-content:space-between; align-items:center; flex-shrink:0; padding:20px 24px; border-bottom:1px solid var(--vp-c-divider);}
+.modal__title {margin:0; color:var(--vp-c-text-1); font-size:18px; font-weight:600;}
+.modal__close {display:flex; justify-content:center; align-items:center; width:32px; height:32px; padding:0; border:none; border-radius:4px; background:none; color:var(--vp-c-text-3); font-size:24px; line-height:1; cursor:pointer; transition:background-color 0.2s;}
+.modal__close:hover {background-color:var(--vp-c-bg-soft);}
+.modal__body {padding:24px; overflow-y:auto;flex:1;}
+.modal__footer {display:flex; justify-content:flex-end; align-items:center; flex-shrink:0; padding:16px 24px; border-top:1px solid var(--vp-c-divider); gap:12px;}
+
+/* Centered */
+.modal--centered .modal__dialog {display:flex; align-items:center; min-height:calc(100% - 3rem);}
+
+/* Scrollable */
+.modal__dialog--scrollable .modal__body {max-height:calc(100vh - 200px); overflow-y:auto;}
+
+/* Static backdrop */
+.modal--static {animation:shake 0.5s;}
+@keyframes shake {
+  0%, 100% {transform:translateX(0);}
+  10%, 30%, 50%, 70%, 90% {transform:translateX(-10px);}
+  20%, 40%, 60%, 80% {transform:translateX(10px);}
+}
+
+/* Dark theme */
+.modal--dark .modal__dialog {background-color:var(--vp-c-bg-soft); color:var(--vp-c-text-1);}
+.modal--dark .modal__header,
+.modal--dark .modal__footer {border-color:var(--vp-c-divider);}
+.modal--dark .modal__close {color:var(--vp-c-text-2);}
+.modal--dark .modal__close:hover {background-color:rgba(255, 255, 255, 0.1);}

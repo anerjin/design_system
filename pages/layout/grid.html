@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid System - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../layout/css/grid.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Grid System</h1>
+            <p class="vp-doc-description">
+                유연하고 반응형인 12 컬럼 그리드 시스템입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Grid</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="grid">
+                    <div class="grid__col grid__col--12">
+                        <div class="demo-box">12 columns</div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="grid__col grid__col--6">
+                        <div class="demo-box">6 columns</div>
+                    </div>
+                    <div class="grid__col grid__col--6">
+                        <div class="demo-box">6 columns</div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">4 columns</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">4 columns</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">4 columns</div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">3</div>
+                    </div>
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">3</div>
+                    </div>
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">3</div>
+                    </div>
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="grid"&gt;
+    &lt;div class="grid__col grid__col--6"&gt;6 columns&lt;/div&gt;
+    &lt;div class="grid__col grid__col--6"&gt;6 columns&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid"&gt;
+    &lt;div class="grid__col grid__col--4"&gt;4 columns&lt;/div&gt;
+    &lt;div class="grid__col grid__col--4"&gt;4 columns&lt;/div&gt;
+    &lt;div class="grid__col grid__col--4"&gt;4 columns&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Responsive Grid</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="grid">
+                    <div class="grid__col grid__col--12 grid__col--md-6 grid__col--lg-4">
+                        <div class="demo-box">12 / md:6 / lg:4</div>
+                    </div>
+                    <div class="grid__col grid__col--12 grid__col--md-6 grid__col--lg-4">
+                        <div class="demo-box">12 / md:6 / lg:4</div>
+                    </div>
+                    <div class="grid__col grid__col--12 grid__col--md-12 grid__col--lg-4">
+                        <div class="demo-box">12 / md:12 / lg:4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Grid with Gap</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="grid grid--gap-sm">
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Small gap</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Small gap</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Small gap</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid--gap-md" style="margin-top: 16px;">
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Medium gap</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Medium gap</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Medium gap</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid--gap-lg" style="margin-top: 16px;">
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Large gap</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Large gap</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Large gap</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Grid Alignment</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <h4>Horizontal Alignment</h4>
+                <div class="grid grid--justify-start">
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">Start</div>
+                    </div>
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">Start</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid--justify-center" style="margin-top: 16px;">
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">Center</div>
+                    </div>
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">Center</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid--justify-end" style="margin-top: 16px;">
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">End</div>
+                    </div>
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">End</div>
+                    </div>
+                </div>
+                
+                <h4 style="margin-top: 24px;">Vertical Alignment</h4>
+                <div class="grid grid--align-start" style="height: 100px;">
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Top</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Top</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid--align-center" style="height: 100px; margin-top: 16px;">
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Middle</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Middle</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid--align-end" style="height: 100px; margin-top: 16px;">
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Bottom</div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Bottom</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Offset Columns</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="grid">
+                    <div class="grid__col grid__col--4 grid__col--offset-4">
+                        <div class="demo-box">Offset 4</div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="grid__col grid__col--3 grid__col--offset-3">
+                        <div class="demo-box">Offset 3</div>
+                    </div>
+                    <div class="grid__col grid__col--3">
+                        <div class="demo-box">Normal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Nested Grid</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="grid">
+                    <div class="grid__col grid__col--8">
+                        <div class="demo-box" style="padding: 16px;">
+                            Parent Column
+                            <div class="grid" style="margin-top: 16px;">
+                                <div class="grid__col grid__col--6">
+                                    <div class="demo-box demo-box--nested">Nested 6</div>
+                                </div>
+                                <div class="grid__col grid__col--6">
+                                    <div class="demo-box demo-box--nested">Nested 6</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__col grid__col--4">
+                        <div class="demo-box">Side Column</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.grid</code></td>
+                    <td>Grid container</td>
+                </tr>
+                <tr>
+                    <td><code>.grid__col</code></td>
+                    <td>Grid column</td>
+                </tr>
+                <tr>
+                    <td><code>.grid__col--[1-12]</code></td>
+                    <td>Column width (1-12)</td>
+                </tr>
+                <tr>
+                    <td><code>.grid__col--sm-[1-12]</code></td>
+                    <td>Small screen column</td>
+                </tr>
+                <tr>
+                    <td><code>.grid__col--md-[1-12]</code></td>
+                    <td>Medium screen column</td>
+                </tr>
+                <tr>
+                    <td><code>.grid__col--lg-[1-12]</code></td>
+                    <td>Large screen column</td>
+                </tr>
+                <tr>
+                    <td><code>.grid__col--offset-[1-11]</code></td>
+                    <td>Column offset</td>
+                </tr>
+                <tr>
+                    <td><code>.grid--gap-sm</code></td>
+                    <td>Small gap (8px)</td>
+                </tr>
+                <tr>
+                    <td><code>.grid--gap-md</code></td>
+                    <td>Medium gap (16px)</td>
+                </tr>
+                <tr>
+                    <td><code>.grid--gap-lg</code></td>
+                    <td>Large gap (24px)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .grid {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 -8px;
+            }
+            .grid__col {
+                padding: 0 8px;
+                flex: 0 0 auto;
+            }
+            .grid__col--1 { width: 8.333333%; }
+            .grid__col--2 { width: 16.666667%; }
+            .grid__col--3 { width: 25%; }
+            .grid__col--4 { width: 33.333333%; }
+            .grid__col--5 { width: 41.666667%; }
+            .grid__col--6 { width: 50%; }
+            .grid__col--7 { width: 58.333333%; }
+            .grid__col--8 { width: 66.666667%; }
+            .grid__col--9 { width: 75%; }
+            .grid__col--10 { width: 83.333333%; }
+            .grid__col--11 { width: 91.666667%; }
+            .grid__col--12 { width: 100%; }
+            
+            .grid__col--offset-1 { margin-left: 8.333333%; }
+            .grid__col--offset-2 { margin-left: 16.666667%; }
+            .grid__col--offset-3 { margin-left: 25%; }
+            .grid__col--offset-4 { margin-left: 33.333333%; }
+            
+            .grid--gap-sm { gap: 8px; margin: 0; }
+            .grid--gap-sm .grid__col { padding: 0; }
+            .grid--gap-md { gap: 16px; margin: 0; }
+            .grid--gap-md .grid__col { padding: 0; }
+            .grid--gap-lg { gap: 24px; margin: 0; }
+            .grid--gap-lg .grid__col { padding: 0; }
+            
+            .grid--justify-start { justify-content: flex-start; }
+            .grid--justify-center { justify-content: center; }
+            .grid--justify-end { justify-content: flex-end; }
+            .grid--align-start { align-items: flex-start; }
+            .grid--align-center { align-items: center; }
+            .grid--align-end { align-items: flex-end; }
+            
+            .demo-box {
+                background: var(--color-primary-100);
+                border: 1px solid var(--color-primary-300);
+                padding: 16px;
+                text-align: center;
+                border-radius: 4px;
+                color: var(--color-primary-700);
+                font-size: 14px;
+            }
+            .demo-box--nested {
+                background: var(--color-primary-200);
+            }
+            
+            @media (min-width: 768px) {
+                .grid__col--md-1 { width: 8.333333%; }
+                .grid__col--md-2 { width: 16.666667%; }
+                .grid__col--md-3 { width: 25%; }
+                .grid__col--md-4 { width: 33.333333%; }
+                .grid__col--md-5 { width: 41.666667%; }
+                .grid__col--md-6 { width: 50%; }
+                .grid__col--md-7 { width: 58.333333%; }
+                .grid__col--md-8 { width: 66.666667%; }
+                .grid__col--md-9 { width: 75%; }
+                .grid__col--md-10 { width: 83.333333%; }
+                .grid__col--md-11 { width: 91.666667%; }
+                .grid__col--md-12 { width: 100%; }
+            }
+            
+            @media (min-width: 1024px) {
+                .grid__col--lg-1 { width: 8.333333%; }
+                .grid__col--lg-2 { width: 16.666667%; }
+                .grid__col--lg-3 { width: 25%; }
+                .grid__col--lg-4 { width: 33.333333%; }
+                .grid__col--lg-5 { width: 41.666667%; }
+                .grid__col--lg-6 { width: 50%; }
+                .grid__col--lg-7 { width: 58.333333%; }
+                .grid__col--lg-8 { width: 66.666667%; }
+                .grid__col--lg-9 { width: 75%; }
+                .grid__col--lg-10 { width: 83.333333%; }
+                .grid__col--lg-11 { width: 91.666667%; }
+                .grid__col--lg-12 { width: 100%; }
+            }
+        </style>
+    </div>
+</body>
+</html>

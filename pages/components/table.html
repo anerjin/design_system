@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/molecules/table.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Table</h1>
+            <p class="vp-doc-description">
+                데이터를 행과 열로 구성하여 표시하는 테이블 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Table</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>66</td>
+                            <td>2009/01/12</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>22</td>
+                            <td>2012/03/29</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <pre><code>&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Position&lt;/th&gt;
+            &lt;th&gt;Office&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Tiger Nixon&lt;/td&gt;
+            &lt;td&gt;System Architect&lt;/td&gt;
+            &lt;td&gt;Edinburgh&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        
+        <h2>Striped Table</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <table class="table table--striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Laptop</td>
+                            <td>$999</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Mouse</td>
+                            <td>$29</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Keyboard</td>
+                            <td>$79</td>
+                            <td>85</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Monitor</td>
+                            <td>$299</td>
+                            <td>42</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <h2>Hoverable Table</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <table class="table table--hover">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Status</th>
+                            <th>Progress</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Design Homepage</td>
+                            <td><span class="badge badge--success">Completed</span></td>
+                            <td>100%</td>
+                            <td>2024-01-15</td>
+                        </tr>
+                        <tr>
+                            <td>Develop API</td>
+                            <td><span class="badge badge--warning">In Progress</span></td>
+                            <td>75%</td>
+                            <td>2024-01-20</td>
+                        </tr>
+                        <tr>
+                            <td>Write Documentation</td>
+                            <td><span class="badge badge--info">Pending</span></td>
+                            <td>0%</td>
+                            <td>2024-01-25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <h2>Bordered Table</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <table class="table table--bordered">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#10234</td>
+                            <td>John Doe</td>
+                            <td>2024-01-10</td>
+                            <td>$156.00</td>
+                        </tr>
+                        <tr>
+                            <td>#10235</td>
+                            <td>Jane Smith</td>
+                            <td>2024-01-11</td>
+                            <td>$234.50</td>
+                        </tr>
+                        <tr>
+                            <td>#10236</td>
+                            <td>Bob Johnson</td>
+                            <td>2024-01-12</td>
+                            <td>$89.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <h2>Compact Table</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <table class="table table--compact">
+                    <thead>
+                        <tr>
+                            <th>File</th>
+                            <th>Size</th>
+                            <th>Modified</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>document.pdf</td>
+                            <td>2.4 MB</td>
+                            <td>2 hours ago</td>
+                            <td>
+                                <button type="button" class="btn btn--xs btn--ghost">View</button>
+                                <button type="button" class="btn btn--xs btn--ghost">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>image.jpg</td>
+                            <td>1.2 MB</td>
+                            <td>Yesterday</td>
+                            <td>
+                                <button type="button" class="btn btn--xs btn--ghost">View</button>
+                                <button type="button" class="btn btn--xs btn--ghost">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>data.csv</td>
+                            <td>856 KB</td>
+                            <td>3 days ago</td>
+                            <td>
+                                <button type="button" class="btn btn--xs btn--ghost">View</button>
+                                <button type="button" class="btn btn--xs btn--ghost">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <h2>Responsive Table</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Invoice</th>
+                                <th>Client</th>
+                                <th>Services</th>
+                                <th>VAT</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#INV-0001</td>
+                                <td>ABC Company</td>
+                                <td>Web Development</td>
+                                <td>$200</td>
+                                <td>$1,200</td>
+                                <td><span class="badge badge--success">Paid</span></td>
+                                <td>
+                                    <button type="button" class="btn btn--xs btn--primary">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#INV-0002</td>
+                                <td>XYZ Corporation</td>
+                                <td>Mobile App</td>
+                                <td>$500</td>
+                                <td>$3,000</td>
+                                <td><span class="badge badge--warning">Pending</span></td>
+                                <td>
+                                    <button type="button" class="btn btn--xs btn--primary">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.table</code></td>
+                    <td>Base table class</td>
+                </tr>
+                <tr>
+                    <td><code>.table--striped</code></td>
+                    <td>Striped rows</td>
+                </tr>
+                <tr>
+                    <td><code>.table--hover</code></td>
+                    <td>Hoverable rows</td>
+                </tr>
+                <tr>
+                    <td><code>.table--bordered</code></td>
+                    <td>Bordered table</td>
+                </tr>
+                <tr>
+                    <td><code>.table--compact</code></td>
+                    <td>Compact padding</td>
+                </tr>
+                <tr>
+                    <td><code>.table-responsive</code></td>
+                    <td>Responsive wrapper</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .table th,
+            .table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid var(--vp-c-divider);
+            }
+            .table th {
+                font-weight: 600;
+                color: var(--vp-c-text-1);
+                background: var(--vp-c-bg-soft);
+            }
+            .table td {
+                color: var(--vp-c-text-2);
+            }
+            .table--striped tbody tr:nth-child(even) {
+                background: var(--vp-c-bg-soft);
+            }
+            .table--hover tbody tr:hover {
+                background: var(--vp-c-bg-soft);
+            }
+            .table--bordered {
+                border: 1px solid var(--vp-c-divider);
+            }
+            .table--bordered th,
+            .table--bordered td {
+                border: 1px solid var(--vp-c-divider);
+            }
+            .table--compact th,
+            .table--compact td {
+                padding: 8px;
+            }
+            .table-responsive {
+                overflow-x: auto;
+            }
+            .badge {
+                display: inline-block;
+                padding: 4px 8px;
+                font-size: 12px;
+                font-weight: 500;
+                border-radius: 4px;
+            }
+            .badge--success {
+                background: var(--color-success-100);
+                color: var(--color-success-700);
+            }
+            .badge--warning {
+                background: var(--color-warning-100);
+                color: var(--color-warning-700);
+            }
+            .badge--info {
+                background: var(--color-info-100);
+                color: var(--color-info-700);
+            }
+            .btn--xs {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        </style>
+    </div>
+</body>
+</html>

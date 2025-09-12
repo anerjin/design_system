@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/atoms/toggle.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Toggle</h1>
+            <p class="vp-doc-description">
+                On/Off 상태를 전환하는 토글 스위치 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Toggle</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <label class="toggle">
+                    <input type="checkbox" class="toggle__input">
+                    <span class="toggle__slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <pre><code>&lt;label class="toggle"&gt;
+    &lt;input type="checkbox" class="toggle__input"&gt;
+    &lt;span class="toggle__slider"&gt;&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+        
+        <h2>Toggle with Label</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="toggle-wrapper">
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle__input" checked>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Enable notifications</span>
+                </div>
+                <div class="toggle-wrapper">
+                    <span class="toggle__label">Dark mode</span>
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle__input">
+                        <span class="toggle__slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Toggle Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 24px;">
+                <label class="toggle toggle--sm">
+                    <input type="checkbox" class="toggle__input" checked>
+                    <span class="toggle__slider"></span>
+                </label>
+                <label class="toggle">
+                    <input type="checkbox" class="toggle__input" checked>
+                    <span class="toggle__slider"></span>
+                </label>
+                <label class="toggle toggle--lg">
+                    <input type="checkbox" class="toggle__input" checked>
+                    <span class="toggle__slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <h2>Toggle Colors</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="toggle-wrapper">
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle__input" checked>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Primary (default)</span>
+                </div>
+                <div class="toggle-wrapper">
+                    <label class="toggle toggle--success">
+                        <input type="checkbox" class="toggle__input" checked>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Success</span>
+                </div>
+                <div class="toggle-wrapper">
+                    <label class="toggle toggle--warning">
+                        <input type="checkbox" class="toggle__input" checked>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Warning</span>
+                </div>
+                <div class="toggle-wrapper">
+                    <label class="toggle toggle--danger">
+                        <input type="checkbox" class="toggle__input" checked>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Danger</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Toggle States</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="toggle-wrapper">
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle__input">
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Off state</span>
+                </div>
+                <div class="toggle-wrapper">
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle__input" checked>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">On state</span>
+                </div>
+                <div class="toggle-wrapper">
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle__input" disabled>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Disabled off</span>
+                </div>
+                <div class="toggle-wrapper">
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle__input" checked disabled>
+                        <span class="toggle__slider"></span>
+                    </label>
+                    <span class="toggle__label">Disabled on</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Toggle with Icons</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <label class="toggle toggle--icons">
+                    <input type="checkbox" class="toggle__input" checked>
+                    <span class="toggle__slider">
+                        <span class="toggle__icon toggle__icon--on">✓</span>
+                        <span class="toggle__icon toggle__icon--off">✕</span>
+                    </span>
+                </label>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.toggle</code></td>
+                    <td>Base toggle container</td>
+                </tr>
+                <tr>
+                    <td><code>.toggle--sm</code></td>
+                    <td>Small size</td>
+                </tr>
+                <tr>
+                    <td><code>.toggle--lg</code></td>
+                    <td>Large size</td>
+                </tr>
+                <tr>
+                    <td><code>.toggle--success</code></td>
+                    <td>Success color</td>
+                </tr>
+                <tr>
+                    <td><code>.toggle--warning</code></td>
+                    <td>Warning color</td>
+                </tr>
+                <tr>
+                    <td><code>.toggle--danger</code></td>
+                    <td>Danger color</td>
+                </tr>
+                <tr>
+                    <td><code>.toggle--icons</code></td>
+                    <td>Toggle with icons</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .toggle-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .toggle__label {
+                font-size: 14px;
+                color: var(--vp-c-text-1);
+            }
+        </style>
+    </div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/atoms/checkbox.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Checkbox</h1>
+            <p class="vp-doc-description">
+                다중 선택을 위한 체크박스 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Checkbox</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input">
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Default checkbox</span>
+                </label>
+            </div>
+        </div>
+        
+        <pre><code>&lt;label class="checkbox"&gt;
+    &lt;input type="checkbox" class="checkbox__input"&gt;
+    &lt;span class="checkbox__box"&gt;&lt;/span&gt;
+    &lt;span class="checkbox__label"&gt;Default checkbox&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+        
+        <h2>Checkbox States</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input">
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Unchecked</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Checked</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input" checked indeterminate>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Indeterminate</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input" disabled>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Disabled</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input" checked disabled>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Disabled Checked</span>
+                </label>
+            </div>
+        </div>
+        
+        <h2>Checkbox Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <label class="checkbox checkbox--sm">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Small checkbox</span>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Default checkbox</span>
+                </label>
+                <label class="checkbox checkbox--lg">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Large checkbox</span>
+                </label>
+            </div>
+        </div>
+        
+        <h2>Checkbox Colors</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <label class="checkbox">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Primary (default)</span>
+                </label>
+                <label class="checkbox checkbox--success">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Success</span>
+                </label>
+                <label class="checkbox checkbox--warning">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Warning</span>
+                </label>
+                <label class="checkbox checkbox--danger">
+                    <input type="checkbox" class="checkbox__input" checked>
+                    <span class="checkbox__box"></span>
+                    <span class="checkbox__label">Danger</span>
+                </label>
+            </div>
+        </div>
+        
+        <h2>Checkbox Group</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <fieldset class="checkbox-group">
+                    <legend>Select your interests:</legend>
+                    <label class="checkbox">
+                        <input type="checkbox" class="checkbox__input" name="interests" value="design">
+                        <span class="checkbox__box"></span>
+                        <span class="checkbox__label">Design</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" class="checkbox__input" name="interests" value="development">
+                        <span class="checkbox__box"></span>
+                        <span class="checkbox__label">Development</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" class="checkbox__input" name="interests" value="marketing">
+                        <span class="checkbox__box"></span>
+                        <span class="checkbox__label">Marketing</span>
+                    </label>
+                </fieldset>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.checkbox</code></td>
+                    <td>Base checkbox wrapper</td>
+                </tr>
+                <tr>
+                    <td><code>.checkbox--sm</code></td>
+                    <td>Small size</td>
+                </tr>
+                <tr>
+                    <td><code>.checkbox--lg</code></td>
+                    <td>Large size</td>
+                </tr>
+                <tr>
+                    <td><code>.checkbox--success</code></td>
+                    <td>Success color</td>
+                </tr>
+                <tr>
+                    <td><code>.checkbox--warning</code></td>
+                    <td>Warning color</td>
+                </tr>
+                <tr>
+                    <td><code>.checkbox--danger</code></td>
+                    <td>Danger color</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .checkbox-group {
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 8px;
+                padding: 16px;
+            }
+            .checkbox-group legend {
+                padding: 0 8px;
+                font-weight: 500;
+            }
+            .checkbox-group .checkbox {
+                margin: 8px 0;
+            }
+        </style>
+    </div>
+</body>
+</html>

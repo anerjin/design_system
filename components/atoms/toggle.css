@@ -1,0 +1,31 @@
+/* Toggle Switch Component Styles */
+.toggle {display:inline-block; position:relative; width:48px; height:24px;}
+.toggle__input {width:0; height:0; opacity:0;}
+.toggle__slider {position:absolute; top:0; left:0; right:0; bottom:0; border-radius:24px; background-color:var(--vp-c-divider); cursor:pointer; transition:0.3s;}
+.toggle__slider:before {content:""; position:absolute; left:3px; bottom:3px; width:18px; height:18px; border-radius:50%; background-color:white; transition:0.3s;}
+.toggle__input:checked + .toggle__slider {background-color:var(--color-primary-500);}
+.toggle__input:checked + .toggle__slider:before {transform:translateX(24px);}
+
+/* Disabled state */
+.toggle__input:disabled + .toggle__slider {opacity:0.5; cursor:not-allowed;}
+
+/* Sizes */
+.toggle--sm {width:36px; height:18px;}
+.toggle--sm .toggle__slider:before {left:2px; bottom:2px; width:14px; height:14px;}
+.toggle--sm .toggle__input:checked + .toggle__slider:before {transform:translateX(18px);}
+.toggle--lg {width:60px; height:30px;}
+.toggle--lg .toggle__slider:before {left:3px; bottom:3px; width:24px; height:24px;}
+.toggle--lg .toggle__input:checked + .toggle__slider:before {transform:translateX(30px);}
+
+/* Colors */
+.toggle--success .toggle__input:checked + .toggle__slider {background-color:var(--color-success-500);}
+.toggle--warning .toggle__input:checked + .toggle__slider {background-color:var(--color-warning-500);}
+.toggle--danger .toggle__input:checked + .toggle__slider {background-color:var(--color-danger-500);}
+.toggle--info .toggle__input:checked + .toggle__slider {background-color:var(--color-info-500);}
+
+/* With icons */
+.toggle__icon {position:absolute; top:50%; color:white; font-size:12px; transform:translateY(-50%);pointer-events:none;}
+.toggle__icon--on {left:6px; opacity:0; transition:opacity 0.3s;}
+.toggle__icon--off {right:6px; opacity:1; transition:opacity 0.3s;}
+.toggle__input:checked ~ .toggle__slider .toggle__icon--on {opacity:1;}
+.toggle__input:checked ~ .toggle__slider .toggle__icon--off {opacity:0;}

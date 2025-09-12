@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../utilities/overflow.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Overflow</h1>
+            <p class="vp-doc-description">
+                콘텐츠가 컨테이너를 넘어갈 때의 동작을 제어하는 유틸리티 클래스입니다.
+            </p>
+        </div>
+        
+        <h2>Overflow Visible</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="overflow-demo">
+                    <h4>Overflow Visible (Default)</h4>
+                    <div class="overflow-visible demo-container">
+                        <div class="demo-content">
+                            This content is longer than the container and will overflow visibly. 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            The content extends beyond the boundaries of the container.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="overflow-visible"&gt;
+    Content that overflows...
+&lt;/div&gt;</code></pre>
+        
+        <h2>Overflow Hidden</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="overflow-demo">
+                    <h4>Overflow Hidden</h4>
+                    <div class="overflow-hidden demo-container">
+                        <div class="demo-content">
+                            This content is longer than the container but will be hidden when it overflows. 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            You can't see this part because it's hidden by the overflow property.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="overflow-hidden"&gt;
+    Content that will be clipped...
+&lt;/div&gt;</code></pre>
+        
+        <h2>Overflow Scroll</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="overflow-demo">
+                    <h4>Overflow Scroll</h4>
+                    <div class="overflow-scroll demo-container">
+                        <div class="demo-content">
+                            This content is longer than the container. Scrollbars will always be visible, even if content doesn't overflow.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Overflow Auto</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="overflow-demo">
+                    <h4>Overflow Auto</h4>
+                    <div class="overflow-auto demo-container">
+                        <div class="demo-content">
+                            This content is longer than the container. Scrollbars will appear only when needed.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Overflow X and Y</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="overflow-demo-grid">
+                    <div>
+                        <h4>Overflow-X Auto</h4>
+                        <div class="overflow-x-auto demo-container">
+                            <div class="demo-content-wide">
+                                This_is_a_very_long_line_of_text_that_will_cause_horizontal_overflow_and_require_horizontal_scrolling
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>Overflow-Y Auto</h4>
+                        <div class="overflow-y-auto demo-container">
+                            <div class="demo-content">
+                                Line 1<br>
+                                Line 2<br>
+                                Line 3<br>
+                                Line 4<br>
+                                Line 5<br>
+                                Line 6<br>
+                                Line 7<br>
+                                Line 8<br>
+                                Line 9<br>
+                                Line 10<br>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>Overflow-X Hidden</h4>
+                        <div class="overflow-x-hidden demo-container">
+                            <div class="demo-content-wide">
+                                This_is_a_very_long_line_that_will_be_clipped_horizontally_without_showing_scrollbar
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>Overflow-Y Scroll</h4>
+                        <div class="overflow-y-scroll demo-container">
+                            <div class="demo-content">
+                                Content with vertical scroll always visible<br>
+                                Even if content fits
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Text Overflow</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="text-overflow-demo">
+                    <h4>Text Ellipsis</h4>
+                    <div class="text-truncate demo-text">
+                        This is a very long text that will be truncated with an ellipsis when it overflows the container
+                    </div>
+                    
+                    <h4 style="margin-top: 24px;">Text Clip</h4>
+                    <div class="text-clip demo-text">
+                        This is a very long text that will be clipped without an ellipsis when it overflows the container
+                    </div>
+                    
+                    <h4 style="margin-top: 24px;">Text Wrap</h4>
+                    <div class="text-wrap demo-text">
+                        This is a very long text that will wrap to the next line when it reaches the edge of the container
+                    </div>
+                    
+                    <h4 style="margin-top: 24px;">Text No-Wrap</h4>
+                    <div class="text-nowrap demo-text" style="overflow-x: auto;">
+                        This is a very long text that will not wrap to the next line and will continue on the same line causing horizontal overflow
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Practical Examples</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <h4>Scrollable Code Block</h4>
+                <div class="overflow-auto" style="background: var(--vp-c-code-block-bg); padding: 16px; border-radius: 8px; max-height: 200px;">
+                    <pre style="margin: 0; color: var(--vp-c-text-code);"><code>function calculateComplexAlgorithm(data) {
+    // This is a long code example that demonstrates scrollable content
+    const result = [];
+    
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        
+        if (item.type === 'important') {
+            result.push({
+                id: item.id,
+                value: item.value * 2,
+                timestamp: new Date().toISOString(),
+                metadata: {
+                    processed: true,
+                    processor: 'v2.0',
+                    confidence: 0.95
+                }
+            });
+        }
+    }
+    
+    return result.filter(item => item.value > 100)
+                 .sort((a, b) => b.value - a.value)
+                 .slice(0, 10);
+}</code></pre>
+                </div>
+                
+                <h4 style="margin-top: 24px;">Scrollable Table</h4>
+                <div class="overflow-x-auto">
+                    <table class="vp-table" style="min-width: 600px;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>John Doe</td>
+                                <td>john.doe@example.com</td>
+                                <td>Engineering</td>
+                                <td>Senior Developer</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Jane Smith</td>
+                                <td>jane.smith@example.com</td>
+                                <td>Design</td>
+                                <td>UX Designer</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Bob Johnson</td>
+                                <td>bob.johnson@example.com</td>
+                                <td>Marketing</td>
+                                <td>Marketing Manager</td>
+                                <td>Active</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4 style="margin-top: 24px;">Card with Truncated Text</h4>
+                <div class="card" style="max-width: 300px;">
+                    <div class="card__body">
+                        <h3 class="text-truncate">This is a very long card title that needs to be truncated</h3>
+                        <p class="text-truncate-3">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                            nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>CSS Property</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.overflow-visible</code></td>
+                    <td>overflow: visible</td>
+                    <td>Content can overflow</td>
+                </tr>
+                <tr>
+                    <td><code>.overflow-hidden</code></td>
+                    <td>overflow: hidden</td>
+                    <td>Hide overflow content</td>
+                </tr>
+                <tr>
+                    <td><code>.overflow-scroll</code></td>
+                    <td>overflow: scroll</td>
+                    <td>Always show scrollbars</td>
+                </tr>
+                <tr>
+                    <td><code>.overflow-auto</code></td>
+                    <td>overflow: auto</td>
+                    <td>Show scrollbars when needed</td>
+                </tr>
+                <tr>
+                    <td><code>.overflow-x-auto</code></td>
+                    <td>overflow-x: auto</td>
+                    <td>Horizontal scroll when needed</td>
+                </tr>
+                <tr>
+                    <td><code>.overflow-y-auto</code></td>
+                    <td>overflow-y: auto</td>
+                    <td>Vertical scroll when needed</td>
+                </tr>
+                <tr>
+                    <td><code>.text-truncate</code></td>
+                    <td>text-overflow: ellipsis</td>
+                    <td>Truncate with ellipsis</td>
+                </tr>
+                <tr>
+                    <td><code>.text-clip</code></td>
+                    <td>text-overflow: clip</td>
+                    <td>Clip overflow text</td>
+                </tr>
+                <tr>
+                    <td><code>.text-wrap</code></td>
+                    <td>white-space: normal</td>
+                    <td>Wrap text normally</td>
+                </tr>
+                <tr>
+                    <td><code>.text-nowrap</code></td>
+                    <td>white-space: nowrap</td>
+                    <td>Prevent text wrapping</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .overflow-visible {
+                overflow: visible !important;
+            }
+            .overflow-hidden {
+                overflow: hidden !important;
+            }
+            .overflow-scroll {
+                overflow: scroll !important;
+            }
+            .overflow-auto {
+                overflow: auto !important;
+            }
+            .overflow-x-visible {
+                overflow-x: visible !important;
+            }
+            .overflow-x-hidden {
+                overflow-x: hidden !important;
+            }
+            .overflow-x-scroll {
+                overflow-x: scroll !important;
+            }
+            .overflow-x-auto {
+                overflow-x: auto !important;
+            }
+            .overflow-y-visible {
+                overflow-y: visible !important;
+            }
+            .overflow-y-hidden {
+                overflow-y: hidden !important;
+            }
+            .overflow-y-scroll {
+                overflow-y: scroll !important;
+            }
+            .overflow-y-auto {
+                overflow-y: auto !important;
+            }
+            
+            .text-truncate {
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
+            }
+            .text-truncate-3 {
+                overflow: hidden !important;
+                display: -webkit-box !important;
+                -webkit-line-clamp: 3 !important;
+                -webkit-box-orient: vertical !important;
+            }
+            .text-clip {
+                overflow: hidden !important;
+                text-overflow: clip !important;
+                white-space: nowrap !important;
+            }
+            .text-wrap {
+                white-space: normal !important;
+            }
+            .text-nowrap {
+                white-space: nowrap !important;
+            }
+            
+            .demo-container {
+                width: 300px;
+                height: 150px;
+                background: var(--vp-c-bg-soft);
+                border: 2px solid var(--vp-c-divider);
+                border-radius: 8px;
+                padding: 16px;
+                position: relative;
+            }
+            
+            .demo-content {
+                background: var(--color-primary-100);
+                border: 1px solid var(--color-primary-300);
+                padding: 12px;
+                border-radius: 4px;
+                color: var(--color-primary-700);
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            
+            .demo-content-wide {
+                background: var(--color-primary-100);
+                border: 1px solid var(--color-primary-300);
+                padding: 12px;
+                border-radius: 4px;
+                color: var(--color-primary-700);
+                font-size: 14px;
+                white-space: nowrap;
+                width: 500px;
+            }
+            
+            .demo-text {
+                width: 300px;
+                padding: 12px;
+                background: var(--vp-c-bg-soft);
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 4px;
+                font-size: 14px;
+            }
+            
+            .overflow-demo h4,
+            .text-overflow-demo h4 {
+                margin-bottom: 12px;
+                color: var(--vp-c-text-1);
+            }
+            
+            .overflow-demo-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+            
+            .card {
+                background: white;
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 8px;
+            }
+            .card__body {
+                padding: 16px;
+            }
+            .card h3 {
+                margin: 0 0 12px 0;
+                font-size: 18px;
+            }
+            .card p {
+                margin: 0;
+                color: var(--vp-c-text-2);
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </div>
+</body>
+</html>

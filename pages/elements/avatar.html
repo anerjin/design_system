@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/atoms/avatar.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Avatar</h1>
+            <p class="vp-doc-description">
+                사용자 프로필 이미지를 표시하는 아바타 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Avatar</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="avatar">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="User">
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="avatar"&gt;
+    &lt;img src="user.jpg" alt="User"&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Avatar Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
+                <div class="avatar avatar--xs">
+                    <img src="https://i.pravatar.cc/150?img=2" alt="User">
+                </div>
+                <div class="avatar avatar--sm">
+                    <img src="https://i.pravatar.cc/150?img=3" alt="User">
+                </div>
+                <div class="avatar">
+                    <img src="https://i.pravatar.cc/150?img=4" alt="User">
+                </div>
+                <div class="avatar avatar--lg">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="User">
+                </div>
+                <div class="avatar avatar--xl">
+                    <img src="https://i.pravatar.cc/150?img=6" alt="User">
+                </div>
+            </div>
+        </div>
+        
+        <h2>Avatar Shapes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
+                <div class="avatar">
+                    <img src="https://i.pravatar.cc/150?img=7" alt="User">
+                </div>
+                <div class="avatar avatar--rounded">
+                    <img src="https://i.pravatar.cc/150?img=8" alt="User">
+                </div>
+                <div class="avatar avatar--square">
+                    <img src="https://i.pravatar.cc/150?img=9" alt="User">
+                </div>
+            </div>
+        </div>
+        
+        <h2>Avatar with Initials</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
+                <div class="avatar avatar--initials">
+                    <span>JD</span>
+                </div>
+                <div class="avatar avatar--initials avatar--primary">
+                    <span>AB</span>
+                </div>
+                <div class="avatar avatar--initials avatar--success">
+                    <span>CD</span>
+                </div>
+                <div class="avatar avatar--initials avatar--warning">
+                    <span>EF</span>
+                </div>
+                <div class="avatar avatar--initials avatar--danger">
+                    <span>GH</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Avatar with Status</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
+                <div class="avatar avatar--status">
+                    <img src="https://i.pravatar.cc/150?img=10" alt="User">
+                    <span class="avatar__status avatar__status--online"></span>
+                </div>
+                <div class="avatar avatar--status">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="User">
+                    <span class="avatar__status avatar__status--away"></span>
+                </div>
+                <div class="avatar avatar--status">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="User">
+                    <span class="avatar__status avatar__status--busy"></span>
+                </div>
+                <div class="avatar avatar--status">
+                    <img src="https://i.pravatar.cc/150?img=13" alt="User">
+                    <span class="avatar__status avatar__status--offline"></span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Avatar Group</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="avatar-group">
+                    <div class="avatar">
+                        <img src="https://i.pravatar.cc/150?img=14" alt="User 1">
+                    </div>
+                    <div class="avatar">
+                        <img src="https://i.pravatar.cc/150?img=15" alt="User 2">
+                    </div>
+                    <div class="avatar">
+                        <img src="https://i.pravatar.cc/150?img=16" alt="User 3">
+                    </div>
+                    <div class="avatar">
+                        <img src="https://i.pravatar.cc/150?img=17" alt="User 4">
+                    </div>
+                    <div class="avatar avatar--more">
+                        <span>+5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.avatar</code></td>
+                    <td>Base avatar container</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--xs</code></td>
+                    <td>Extra small (24px)</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--sm</code></td>
+                    <td>Small (32px)</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--lg</code></td>
+                    <td>Large (48px)</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--xl</code></td>
+                    <td>Extra large (64px)</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--rounded</code></td>
+                    <td>Rounded corners</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--square</code></td>
+                    <td>Square shape</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--initials</code></td>
+                    <td>Text initials</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar--status</code></td>
+                    <td>With status indicator</td>
+                </tr>
+                <tr>
+                    <td><code>.avatar-group</code></td>
+                    <td>Group container</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .avatar-group {
+                display: flex;
+                align-items: center;
+            }
+            .avatar-group .avatar {
+                margin-left: -8px;
+                border: 2px solid white;
+            }
+            .avatar-group .avatar:first-child {
+                margin-left: 0;
+            }
+            .avatar--more {
+                background: var(--vp-c-bg-soft);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--vp-c-text-2);
+            }
+        </style>
+    </div>
+</body>
+</html>

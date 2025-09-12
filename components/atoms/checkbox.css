@@ -1,0 +1,28 @@
+/* Checkbox Component Styles */
+.checkbox {display:inline-flex; align-items:center; cursor:pointer; user-select:none;}
+.checkbox__input {position:absolute; width:0; height:0; opacity:0; cursor:pointer;}
+.checkbox__box {position:relative; width:20px; height:20px; border:2px solid var(--vp-c-divider); border-radius:4px; background-color:white; transition:all 0.2s;}
+.checkbox__input:checked ~ .checkbox__box {border-color:var(--color-primary-500); background-color:var(--color-primary-500);}
+.checkbox__checkmark {display:none; position:absolute; top:2px; left:6px; width:5px; height:10px; border:solid white; border-width:0 2px 2px 0; transform:rotate(45deg);}
+.checkbox__input:checked ~ .checkbox__box .checkbox__checkmark {display:block;}
+.checkbox__label {margin-left:8px; color:var(--vp-c-text-1); font-size:14px;}
+
+/* Disabled state */
+.checkbox__input:disabled ~ .checkbox__box {background-color:var(--vp-c-bg-soft); cursor:not-allowed;}
+.checkbox__input:disabled ~ .checkbox__label {color:var(--vp-c-text-3); cursor:not-allowed;}
+
+/* Sizes */
+.checkbox--sm .checkbox__box {width:16px; height:16px;}
+.checkbox--sm .checkbox__checkmark {top:1px; left:4px; width:4px; height:8px;}
+.checkbox--lg .checkbox__box {width:24px; height:24px;}
+.checkbox--lg .checkbox__checkmark {top:3px; left:8px; width:6px; height:12px;}
+
+/* Colors */
+.checkbox--success .checkbox__input:checked ~ .checkbox__box {border-color:var(--color-success-500); background-color:var(--color-success-500);}
+.checkbox--warning .checkbox__input:checked ~ .checkbox__box {border-color:var(--color-warning-500); background-color:var(--color-warning-500);}
+.checkbox--danger .checkbox__input:checked ~ .checkbox__box {border-color:var(--color-danger-500); background-color:var(--color-danger-500);}
+.checkbox--info .checkbox__input:checked ~ .checkbox__box {border-color:var(--color-info-500); background-color:var(--color-info-500);}
+
+/* Checkbox group */
+.checkbox-group {display:flex; flex-direction:column; gap:12px;}
+.checkbox-group--inline {flex-direction:row; gap:24px;}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadcrumb - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/molecules/breadcrumb.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Breadcrumb</h1>
+            <p class="vp-doc-description">
+                현재 페이지의 위치를 계층적으로 표시하는 브레드크럼 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Breadcrumb</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Home</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Library</a>
+                        </li>
+                        <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">
+                            Data
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <pre><code>&lt;nav aria-label="breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li class="breadcrumb__item"&gt;
+            &lt;a href="#" class="breadcrumb__link"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="breadcrumb__item"&gt;
+            &lt;a href="#" class="breadcrumb__link"&gt;Library&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="breadcrumb__item breadcrumb__item--active" aria-current="page"&gt;
+            Data
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+        
+        <h2>Breadcrumb with Icons</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">
+                                <svg class="icon icon--sm">
+                                    <use href="../../design-system/icon/icon-sprite.svg#icon-home"></use>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">
+                                <svg class="icon icon--sm">
+                                    <use href="../../design-system/icon/icon-sprite.svg#icon-folder"></use>
+                                </svg>
+                                Documents
+                            </a>
+                        </li>
+                        <li class="breadcrumb__item breadcrumb__item--active">
+                            <svg class="icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-file"></use>
+                            </svg>
+                            Report.pdf
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <h2>Custom Separators</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb--slash">
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Home</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Products</a>
+                        </li>
+                        <li class="breadcrumb__item breadcrumb__item--active">
+                            Item
+                        </li>
+                    </ol>
+                </nav>
+                
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb--arrow">
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Home</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Products</a>
+                        </li>
+                        <li class="breadcrumb__item breadcrumb__item--active">
+                            Item
+                        </li>
+                    </ol>
+                </nav>
+                
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb--dot">
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Home</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Products</a>
+                        </li>
+                        <li class="breadcrumb__item breadcrumb__item--active">
+                            Item
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <h2>Breadcrumb in Card</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="card">
+                    <div class="card__body">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb--bg">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Analytics</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Overview
+                                </li>
+                            </ol>
+                        </nav>
+                        <h2 style="margin-top: 16px;">Page Content</h2>
+                        <p>Your page content goes here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.breadcrumb</code></td>
+                    <td>Base breadcrumb container</td>
+                </tr>
+                <tr>
+                    <td><code>.breadcrumb__item</code></td>
+                    <td>Individual breadcrumb item</td>
+                </tr>
+                <tr>
+                    <td><code>.breadcrumb__link</code></td>
+                    <td>Breadcrumb link</td>
+                </tr>
+                <tr>
+                    <td><code>.breadcrumb__item--active</code></td>
+                    <td>Active/current page</td>
+                </tr>
+                <tr>
+                    <td><code>.breadcrumb--slash</code></td>
+                    <td>Slash separator</td>
+                </tr>
+                <tr>
+                    <td><code>.breadcrumb--arrow</code></td>
+                    <td>Arrow separator</td>
+                </tr>
+                <tr>
+                    <td><code>.breadcrumb--dot</code></td>
+                    <td>Dot separator</td>
+                </tr>
+                <tr>
+                    <td><code>.breadcrumb--bg</code></td>
+                    <td>With background</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .breadcrumb {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-size: 14px;
+            }
+            .breadcrumb__item {
+                display: flex;
+                align-items: center;
+            }
+            .breadcrumb__item:not(:last-child)::after {
+                content: '/';
+                margin: 0 12px;
+                color: var(--vp-c-text-3);
+            }
+            .breadcrumb__link {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: var(--vp-c-text-2);
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+            .breadcrumb__link:hover {
+                color: var(--color-primary-500);
+            }
+            .breadcrumb__item--active {
+                color: var(--vp-c-text-1);
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .breadcrumb--slash .breadcrumb__item:not(:last-child)::after {
+                content: '/';
+            }
+            .breadcrumb--arrow .breadcrumb__item:not(:last-child)::after {
+                content: '→';
+            }
+            .breadcrumb--dot .breadcrumb__item:not(:last-child)::after {
+                content: '•';
+            }
+            .breadcrumb--bg {
+                background: var(--vp-c-bg-soft);
+                padding: 8px 16px;
+                border-radius: 6px;
+            }
+            .card {
+                background: white;
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 8px;
+            }
+            .card__body {
+                padding: 24px;
+            }
+        </style>
+    </div>
+</body>
+</html>

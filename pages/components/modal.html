@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/molecules/modal.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Modal</h1>
+            <p class="vp-doc-description">
+                오버레이 형태로 표시되는 모달 다이얼로그 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Modal</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <button type="button" class="btn btn--primary" onclick="document.getElementById('modal1').classList.add('modal--open')">
+                    Open Modal
+                </button>
+                
+                <div id="modal1" class="modal">
+                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
+                    <div class="modal__content">
+                        <div class="modal__header">
+                            <h3 class="modal__title">Modal Title</h3>
+                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">
+                                <svg class="icon">
+                                    <use href="../../design-system/icon/icon-sprite.svg#icon-close"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="modal__body">
+                            <p>This is the modal body content. You can put any content here.</p>
+                        </div>
+                        <div class="modal__footer">
+                            <button type="button" class="btn btn--secondary" onclick="this.closest('.modal').classList.remove('modal--open')">Cancel</button>
+                            <button type="button" class="btn btn--primary">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="modal"&gt;
+    &lt;div class="modal__backdrop"&gt;&lt;/div&gt;
+    &lt;div class="modal__content"&gt;
+        &lt;div class="modal__header"&gt;
+            &lt;h3 class="modal__title"&gt;Modal Title&lt;/h3&gt;
+            &lt;button class="modal__close"&gt;×&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__body"&gt;
+            &lt;p&gt;Modal content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__footer"&gt;
+            &lt;button class="btn"&gt;Cancel&lt;/button&gt;
+            &lt;button class="btn btn--primary"&gt;Confirm&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Modal Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; gap: 12px;">
+                <button type="button" class="btn btn--secondary" onclick="document.getElementById('modal-sm').classList.add('modal--open')">
+                    Small Modal
+                </button>
+                <button type="button" class="btn btn--secondary" onclick="document.getElementById('modal-lg').classList.add('modal--open')">
+                    Large Modal
+                </button>
+                <button type="button" class="btn btn--secondary" onclick="document.getElementById('modal-full').classList.add('modal--open')">
+                    Full Modal
+                </button>
+                
+                <div id="modal-sm" class="modal modal--sm">
+                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
+                    <div class="modal__content">
+                        <div class="modal__header">
+                            <h3 class="modal__title">Small Modal</h3>
+                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">×</button>
+                        </div>
+                        <div class="modal__body">
+                            <p>This is a small modal.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="modal-lg" class="modal modal--lg">
+                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
+                    <div class="modal__content">
+                        <div class="modal__header">
+                            <h3 class="modal__title">Large Modal</h3>
+                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">×</button>
+                        </div>
+                        <div class="modal__body">
+                            <p>This is a large modal with more space for content.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="modal-full" class="modal modal--full">
+                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
+                    <div class="modal__content">
+                        <div class="modal__header">
+                            <h3 class="modal__title">Full Screen Modal</h3>
+                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">×</button>
+                        </div>
+                        <div class="modal__body">
+                            <p>This modal takes up the full screen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.modal</code></td>
+                    <td>Base modal container</td>
+                </tr>
+                <tr>
+                    <td><code>.modal--open</code></td>
+                    <td>Show modal</td>
+                </tr>
+                <tr>
+                    <td><code>.modal--sm</code></td>
+                    <td>Small modal (400px)</td>
+                </tr>
+                <tr>
+                    <td><code>.modal--lg</code></td>
+                    <td>Large modal (800px)</td>
+                </tr>
+                <tr>
+                    <td><code>.modal--full</code></td>
+                    <td>Full screen modal</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1000;
+            }
+            .modal--open {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .modal__backdrop {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+            }
+            .modal__content {
+                position: relative;
+                background: white;
+                border-radius: 12px;
+                max-width: 600px;
+                width: 90%;
+                max-height: 90vh;
+                overflow: auto;
+            }
+            .modal--sm .modal__content {
+                max-width: 400px;
+            }
+            .modal--lg .modal__content {
+                max-width: 800px;
+            }
+            .modal--full .modal__content {
+                max-width: 100%;
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+            }
+            .modal__header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 24px;
+                border-bottom: 1px solid var(--vp-c-divider);
+            }
+            .modal__title {
+                margin: 0;
+                font-size: 18px;
+            }
+            .modal__close {
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                padding: 0;
+                width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 6px;
+            }
+            .modal__close:hover {
+                background: var(--vp-c-bg-soft);
+            }
+            .modal__body {
+                padding: 24px;
+            }
+            .modal__footer {
+                display: flex;
+                justify-content: flex-end;
+                gap: 12px;
+                padding: 20px 24px;
+                border-top: 1px solid var(--vp-c-divider);
+            }
+        </style>
+    </div>
+</body>
+</html>

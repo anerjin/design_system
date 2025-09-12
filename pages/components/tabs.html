@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/molecules/tabs.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Tabs</h1>
+            <p class="vp-doc-description">
+                콘텐츠를 탭으로 구분하여 보여주는 탭 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Tabs</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="tabs">
+                    <div class="tabs__nav">
+                        <button type="button" class="tabs__button tabs__button--active">Tab 1</button>
+                        <button type="button" class="tabs__button">Tab 2</button>
+                        <button type="button" class="tabs__button">Tab 3</button>
+                    </div>
+                    <div class="tabs__content">
+                        <div class="tabs__panel tabs__panel--active">
+                            <h4>Tab 1 Content</h4>
+                            <p>This is the content for the first tab. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <h4>Tab 2 Content</h4>
+                            <p>This is the content for the second tab. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <h4>Tab 3 Content</h4>
+                            <p>This is the content for the third tab. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="tabs"&gt;
+    &lt;div class="tabs__nav"&gt;
+        &lt;button class="tabs__button tabs__button--active"&gt;Tab 1&lt;/button&gt;
+        &lt;button class="tabs__button"&gt;Tab 2&lt;/button&gt;
+        &lt;button class="tabs__button"&gt;Tab 3&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="tabs__content"&gt;
+        &lt;div class="tabs__panel tabs__panel--active"&gt;
+            &lt;p&gt;Tab 1 content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="tabs__panel"&gt;
+            &lt;p&gt;Tab 2 content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="tabs__panel"&gt;
+            &lt;p&gt;Tab 3 content&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Tabs with Icons</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="tabs">
+                    <div class="tabs__nav">
+                        <button type="button" class="tabs__button tabs__button--active">
+                            <svg class="icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-home"></use>
+                            </svg>
+                            Home
+                        </button>
+                        <button type="button" class="tabs__button">
+                            <svg class="icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-user"></use>
+                            </svg>
+                            Profile
+                        </button>
+                        <button type="button" class="tabs__button">
+                            <svg class="icon icon--sm">
+                                <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
+                            </svg>
+                            Settings
+                        </button>
+                    </div>
+                    <div class="tabs__content">
+                        <div class="tabs__panel tabs__panel--active">
+                            <p>Home content</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <p>Profile content</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <p>Settings content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Vertical Tabs</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="tabs tabs--vertical">
+                    <div class="tabs__nav">
+                        <button type="button" class="tabs__button tabs__button--active">General</button>
+                        <button type="button" class="tabs__button">Security</button>
+                        <button type="button" class="tabs__button">Privacy</button>
+                        <button type="button" class="tabs__button">Notifications</button>
+                    </div>
+                    <div class="tabs__content">
+                        <div class="tabs__panel tabs__panel--active">
+                            <h4>General Settings</h4>
+                            <p>Configure your general account settings here.</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <h4>Security Settings</h4>
+                            <p>Manage your security preferences.</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <h4>Privacy Settings</h4>
+                            <p>Control your privacy settings.</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <h4>Notification Settings</h4>
+                            <p>Manage your notification preferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Pill Tabs</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="tabs tabs--pills">
+                    <div class="tabs__nav">
+                        <button type="button" class="tabs__button tabs__button--active">All</button>
+                        <button type="button" class="tabs__button">Active</button>
+                        <button type="button" class="tabs__button">Completed</button>
+                        <button type="button" class="tabs__button">Archived</button>
+                    </div>
+                    <div class="tabs__content">
+                        <div class="tabs__panel tabs__panel--active">
+                            <p>All items</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <p>Active items</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <p>Completed items</p>
+                        </div>
+                        <div class="tabs__panel">
+                            <p>Archived items</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.tabs</code></td>
+                    <td>Base tabs container</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs__nav</code></td>
+                    <td>Tab navigation container</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs__button</code></td>
+                    <td>Tab button</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs__button--active</code></td>
+                    <td>Active tab button</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs__content</code></td>
+                    <td>Tab panels container</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs__panel</code></td>
+                    <td>Tab panel</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs__panel--active</code></td>
+                    <td>Active tab panel</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs--vertical</code></td>
+                    <td>Vertical tabs layout</td>
+                </tr>
+                <tr>
+                    <td><code>.tabs--pills</code></td>
+                    <td>Pill style tabs</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .tabs__nav {
+                display: flex;
+                border-bottom: 1px solid var(--vp-c-divider);
+                margin-bottom: 24px;
+            }
+            .tabs__button {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 16px;
+                background: none;
+                border: none;
+                border-bottom: 2px solid transparent;
+                color: var(--vp-c-text-2);
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+            .tabs__button:hover {
+                color: var(--vp-c-text-1);
+            }
+            .tabs__button--active {
+                color: var(--color-primary-500);
+                border-bottom-color: var(--color-primary-500);
+            }
+            .tabs__panel {
+                display: none;
+            }
+            .tabs__panel--active {
+                display: block;
+            }
+            .tabs--vertical {
+                display: flex;
+                gap: 24px;
+            }
+            .tabs--vertical .tabs__nav {
+                flex-direction: column;
+                border-bottom: none;
+                border-right: 1px solid var(--vp-c-divider);
+                margin-bottom: 0;
+                padding-right: 24px;
+                margin-right: 0;
+            }
+            .tabs--vertical .tabs__button {
+                border-bottom: none;
+                border-left: 2px solid transparent;
+                justify-content: flex-start;
+            }
+            .tabs--vertical .tabs__button--active {
+                border-left-color: var(--color-primary-500);
+            }
+            .tabs--pills .tabs__nav {
+                border: none;
+                gap: 8px;
+            }
+            .tabs--pills .tabs__button {
+                border: none;
+                border-radius: 20px;
+                padding: 8px 16px;
+            }
+            .tabs--pills .tabs__button--active {
+                background: var(--color-primary-500);
+                color: white;
+            }
+        </style>
+        
+        <script>
+            document.querySelectorAll('.tabs').forEach(tabsContainer => {
+                const buttons = tabsContainer.querySelectorAll('.tabs__button');
+                const panels = tabsContainer.querySelectorAll('.tabs__panel');
+                
+                buttons.forEach((button, index) => {
+                    button.addEventListener('click', () => {
+                        buttons.forEach(b => b.classList.remove('tabs__button--active'));
+                        panels.forEach(p => p.classList.remove('tabs__panel--active'));
+                        
+                        button.classList.add('tabs__button--active');
+                        panels[index].classList.add('tabs__panel--active');
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
