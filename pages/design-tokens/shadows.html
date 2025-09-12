@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../design-system/tokens/shadows.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Shadows</h1>
+            <p class="vp-doc-description">
+                깊이감과 계층을 표현하는 그림자 시스템입니다.
+            </p>
+        </div>
+        
+        <h2>Shadow Scale</h2>
+        <div class="shadow-grid">
+            <div class="shadow-item">
+                <div class="shadow-box shadow-xs"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-xs</span>
+                    <span class="shadow-value">0 1px 2px 0 rgb(0 0 0 / 0.05)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-sm"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-sm</span>
+                    <span class="shadow-value">0 1px 3px 0 rgb(0 0 0 / 0.1)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-md"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-md</span>
+                    <span class="shadow-value">0 4px 6px -1px rgb(0 0 0 / 0.1)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-lg"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-lg</span>
+                    <span class="shadow-value">0 10px 15px -3px rgb(0 0 0 / 0.1)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-xl"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-xl</span>
+                    <span class="shadow-value">0 20px 25px -5px rgb(0 0 0 / 0.1)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-2xl"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-2xl</span>
+                    <span class="shadow-value">0 25px 50px -12px rgb(0 0 0 / 0.25)</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Colored Shadows</h2>
+        <div class="shadow-grid">
+            <div class="shadow-item">
+                <div class="shadow-box shadow-primary"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-primary</span>
+                    <span class="shadow-value">0 4px 14px 0 rgb(139 92 246 / 0.25)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-success"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-success</span>
+                    <span class="shadow-value">0 4px 14px 0 rgb(20 184 166 / 0.25)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-danger"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-danger</span>
+                    <span class="shadow-value">0 4px 14px 0 rgb(244 63 94 / 0.25)</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Inner Shadows</h2>
+        <div class="shadow-grid">
+            <div class="shadow-item">
+                <div class="shadow-box shadow-inner-sm"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-inner-sm</span>
+                    <span class="shadow-value">inset 0 1px 2px 0 rgb(0 0 0 / 0.05)</span>
+                </div>
+            </div>
+            <div class="shadow-item">
+                <div class="shadow-box shadow-inner-md"></div>
+                <div class="shadow-info">
+                    <span class="shadow-name">shadow-inner-md</span>
+                    <span class="shadow-value">inset 0 2px 4px 0 rgb(0 0 0 / 0.1)</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Usage Examples</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <button class="btn shadow-sm">Small Shadow Button</button>
+                <button class="btn btn--primary shadow-lg">Large Shadow Button</button>
+                <div class="card shadow-md" style="padding: 16px; margin-top: 16px;">
+                    Card with medium shadow
+                </div>
+            </div>
+        </div>
+        
+        <h2>Usage Guidelines</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Shadow</th>
+                    <th>Usage</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>shadow-xs</td>
+                    <td>미묘한 구분</td>
+                    <td>테이블 행, 구분선 대체</td>
+                </tr>
+                <tr>
+                    <td>shadow-sm</td>
+                    <td>기본 버튼</td>
+                    <td>버튼, 입력 필드</td>
+                </tr>
+                <tr>
+                    <td>shadow-md</td>
+                    <td>카드 기본</td>
+                    <td>카드, 패널</td>
+                </tr>
+                <tr>
+                    <td>shadow-lg</td>
+                    <td>떠있는 요소</td>
+                    <td>드롭다운, 툴팁</td>
+                </tr>
+                <tr>
+                    <td>shadow-xl</td>
+                    <td>모달</td>
+                    <td>모달, 다이얼로그</td>
+                </tr>
+                <tr>
+                    <td>shadow-2xl</td>
+                    <td>최상위 레이어</td>
+                    <td>팝오버, 알림</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>CSS Variables</h2>
+        <pre><code>:root {
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* 사용 예시 */
+.my-card {
+    box-shadow: var(--shadow-md);
+}
+
+.my-card:hover {
+    box-shadow: var(--shadow-lg);
+}</code></pre>
+        
+        <style>
+            .shadow-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 32px;
+                margin: 32px 0;
+            }
+            .shadow-item {
+                text-align: center;
+            }
+            .shadow-box {
+                width: 100%;
+                height: 100px;
+                background: white;
+                border-radius: 8px;
+                margin-bottom: 16px;
+            }
+            .shadow-xs { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+            .shadow-sm { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
+            .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+            .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
+            .shadow-xl { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+            .shadow-2xl { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+            .shadow-primary { 
+                background: var(--color-primary-500);
+                box-shadow: 0 4px 14px 0 rgb(139 92 246 / 0.25);
+            }
+            .shadow-success {
+                background: var(--color-success-500);
+                box-shadow: 0 4px 14px 0 rgb(20 184 166 / 0.25);
+            }
+            .shadow-danger {
+                background: var(--color-danger-500);
+                box-shadow: 0 4px 14px 0 rgb(244 63 94 / 0.25);
+            }
+            .shadow-inner-sm {
+                box-shadow: inset 0 1px 2px 0 rgb(0 0 0 / 0.05);
+                background: var(--vp-c-bg-soft);
+            }
+            .shadow-inner-md {
+                box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.1);
+                background: var(--vp-c-bg-soft);
+            }
+            .shadow-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .shadow-name {
+                font-weight: 500;
+                font-family: monospace;
+            }
+            .shadow-value {
+                font-size: 12px;
+                color: var(--vp-c-text-3);
+            }
+        </style>
+    </div>
+</body>
+</html>

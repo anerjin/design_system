@@ -390,12 +390,27 @@ const StyledButton = styled.button`
 
 ---
 
-## 연락처
+## 참조
 
-프로젝트 관련 문의사항은 아래로 연락주세요:
-- GitHub Issues: [BRICKS Repository]
-- Email: bricks@example.com
-
+https://tairo.cssninja.io/dashboards
 ---
 
 *Last Updated: 2025.01.11*
+
+
+
+주요 특징:
+
+  1. VitePress 스타일 레이아웃 - 모든 페이지에 layout-vitepress.css 적용
+  2. 한국어 콘텐츠 - 한국어 설명과 가이드 포함
+  3. 실제 데모 - 각 컴포넌트의 실제 사용 예시
+  4. 코드 예제 - HTML/CSS 사용법 제공
+  5. 속성 테이블 - 사용 가능한 클래스와 옵션 문서화
+
+  남은 작업:
+
+  아직 생성되지 않은 페이지들:
+  - Elements: checkbox, radio, toggle, avatar, progress, spinner
+  - Components: alert, card, modal, dropdown, tabs, accordion, pagination, breadcrumb, navbar, table
+  - Layout: grid, container, flexbox
+  - Utilities: display, position, overflow

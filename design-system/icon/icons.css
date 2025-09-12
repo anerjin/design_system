@@ -1,0 +1,169 @@
+/* ========================================
+   BRICKS - Icon System
+   SVG-based icon system with CSS classes
+======================================== */
+
+/* === Base Icon Styles === */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: middle;
+}
+
+/* === Icon Sizes === */
+.icon--xs { width: 16px; height: 16px; }
+.icon--sm { width: 20px; height: 20px; }
+.icon--md { width: 24px; height: 24px; } /* default */
+.icon--lg { width: 32px; height: 32px; }
+.icon--xl { width: 40px; height: 40px; }
+.icon--2xl { width: 48px; height: 48px; }
+
+/* === Icon Styles === */
+.icon--outlined {
+    fill: none;
+    stroke: currentColor;
+}
+
+.icon--filled {
+    fill: currentColor;
+    stroke: none;
+}
+
+.icon--duo {
+    fill: currentColor;
+    stroke: currentColor;
+    opacity: 0.8;
+}
+
+/* === Icon Colors === */
+.icon--primary { color: var(--color-primary-500, #8b5cf6); }
+.icon--secondary { color: var(--color-muted-500, #64748b); }
+.icon--success { color: var(--color-success-500, #14b8a6); }
+.icon--danger { color: var(--color-danger-500, #f43f5e); }
+.icon--warning { color: var(--color-warning-500, #f59e0b); }
+.icon--info { color: var(--color-info-500, #0ea5e9); }
+
+/* === Icon Animation === */
+.icon--spin {
+    animation: icon-spin 1s linear infinite;
+}
+
+.icon--pulse {
+    animation: icon-pulse 2s ease-in-out infinite;
+}
+
+.icon--bounce {
+    animation: icon-bounce 1s ease-in-out infinite;
+}
+
+@keyframes icon-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes icon-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes icon-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* === Icon Container === */
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--color-muted-600);
+}
+
+.icon-button:hover {
+    background: var(--color-muted-100);
+    color: var(--color-primary-500);
+}
+
+.icon-button:active {
+    transform: scale(0.95);
+}
+
+.icon-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* === Icon Badge === */
+.icon-badge {
+    position: relative;
+    display: inline-flex;
+}
+
+.icon-badge__dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--color-danger-500);
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.icon-badge__count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    background: var(--color-danger-500);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* === Icon with Text === */
+.icon-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-text--sm { gap: 4px; }
+.icon-text--lg { gap: 12px; }
+
+/* === Icon Stack === */
+.icon-stack {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-stack .icon:nth-child(2) {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+}

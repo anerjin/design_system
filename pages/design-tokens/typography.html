@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../design-system/tokens/typography.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Typography</h1>
+            <p class="vp-doc-description">
+                일관되고 가독성 높은 타이포그래피 시스템입니다.
+            </p>
+        </div>
+        
+        <h2>Font Family</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <p style="font-family: var(--font-sans)">Sans-serif: Pretendard, -apple-system, BlinkMacSystemFont</p>
+                <p style="font-family: var(--font-mono)">Monospace: 'Fira Code', 'Courier New', monospace</p>
+            </div>
+        </div>
+        
+        <h2>Font Sizes</h2>
+        <div class="type-scale">
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-xs)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-xs</span>
+                    <span class="type-value">12px / 0.75rem</span>
+                </div>
+            </div>
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-sm)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-sm</span>
+                    <span class="type-value">14px / 0.875rem</span>
+                </div>
+            </div>
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-base)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-base</span>
+                    <span class="type-value">16px / 1rem</span>
+                </div>
+            </div>
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-lg)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-lg</span>
+                    <span class="type-value">18px / 1.125rem</span>
+                </div>
+            </div>
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-xl)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-xl</span>
+                    <span class="type-value">20px / 1.25rem</span>
+                </div>
+            </div>
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-2xl)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-2xl</span>
+                    <span class="type-value">24px / 1.5rem</span>
+                </div>
+            </div>
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-3xl)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-3xl</span>
+                    <span class="type-value">30px / 1.875rem</span>
+                </div>
+            </div>
+            <div class="type-item">
+                <span class="type-sample" style="font-size: var(--text-4xl)">Aa</span>
+                <div class="type-info">
+                    <span class="type-name">text-4xl</span>
+                    <span class="type-value">36px / 2.25rem</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Font Weights</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <p style="font-weight: 300">Light (300)</p>
+                <p style="font-weight: 400">Regular (400)</p>
+                <p style="font-weight: 500">Medium (500)</p>
+                <p style="font-weight: 600">Semibold (600)</p>
+                <p style="font-weight: 700">Bold (700)</p>
+            </div>
+        </div>
+        
+        <h2>Headings</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <h1 class="h1">Heading 1</h1>
+                <h2 class="h2">Heading 2</h2>
+                <h3 class="h3">Heading 3</h3>
+                <h4 class="h4">Heading 4</h4>
+                <h5 class="h5">Heading 5</h5>
+                <h6 class="h6">Heading 6</h6>
+            </div>
+        </div>
+        
+        <h2>Line Height</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Value</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>leading-tight</code></td>
+                    <td>1.25</td>
+                    <td>Headings</td>
+                </tr>
+                <tr>
+                    <td><code>leading-normal</code></td>
+                    <td>1.5</td>
+                    <td>Body text</td>
+                </tr>
+                <tr>
+                    <td><code>leading-relaxed</code></td>
+                    <td>1.75</td>
+                    <td>Readable content</td>
+                </tr>
+                <tr>
+                    <td><code>leading-loose</code></td>
+                    <td>2</td>
+                    <td>Spacious text</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Text Styles</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <p class="text-muted">Muted text for secondary content</p>
+                <p class="text-primary">Primary colored text</p>
+                <p class="text-success">Success message text</p>
+                <p class="text-danger">Error or danger text</p>
+                <p class="text-uppercase">UPPERCASE TEXT</p>
+                <p class="text-capitalize">Capitalized Text</p>
+                <p><mark>Highlighted text</mark></p>
+                <p><code>Inline code</code></p>
+            </div>
+        </div>
+        
+        <style>
+            .type-scale {
+                display: grid;
+                gap: 24px;
+                margin: 24px 0;
+            }
+            .type-item {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+            .type-sample {
+                width: 80px;
+                font-weight: 600;
+            }
+            .type-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .type-name {
+                font-weight: 500;
+                font-family: monospace;
+            }
+            .type-value {
+                font-size: 14px;
+                color: var(--vp-c-text-3);
+            }
+        </style>
+    </div>
+</body>
+</html>

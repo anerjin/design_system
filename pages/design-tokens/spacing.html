@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacing - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../design-system/tokens/spacing.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Spacing</h1>
+            <p class="vp-doc-description">
+                4px 그리드 기반의 일관된 간격 시스템입니다.
+            </p>
+        </div>
+        
+        <h2>Spacing Scale</h2>
+        <p>모든 간격은 4px의 배수로 구성되어 일관된 리듬을 만듭니다.</p>
+        
+        <div class="spacing-scale">
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 4px; height: 4px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-1</span>
+                    <span class="spacing-value">4px / 0.25rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 8px; height: 8px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-2</span>
+                    <span class="spacing-value">8px / 0.5rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 12px; height: 12px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-3</span>
+                    <span class="spacing-value">12px / 0.75rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 16px; height: 16px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-4</span>
+                    <span class="spacing-value">16px / 1rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 20px; height: 20px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-5</span>
+                    <span class="spacing-value">20px / 1.25rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 24px; height: 24px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-6</span>
+                    <span class="spacing-value">24px / 1.5rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 32px; height: 32px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-8</span>
+                    <span class="spacing-value">32px / 2rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 40px; height: 40px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-10</span>
+                    <span class="spacing-value">40px / 2.5rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 48px; height: 48px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-12</span>
+                    <span class="spacing-value">48px / 3rem</span>
+                </div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-visual">
+                    <div class="spacing-box" style="width: 64px; height: 64px;"></div>
+                </div>
+                <div class="spacing-info">
+                    <span class="spacing-name">space-16</span>
+                    <span class="spacing-value">64px / 4rem</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Padding Examples</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="spacing-example p-2">p-2 (8px)</div>
+                <div class="spacing-example p-4">p-4 (16px)</div>
+                <div class="spacing-example p-6">p-6 (24px)</div>
+                <div class="spacing-example p-8">p-8 (32px)</div>
+            </div>
+        </div>
+        
+        <h2>Margin Examples</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="background: var(--vp-c-bg-soft);">
+                <div class="spacing-example m-2">m-2 (8px)</div>
+                <div class="spacing-example m-4">m-4 (16px)</div>
+                <div class="spacing-example m-6">m-6 (24px)</div>
+            </div>
+        </div>
+        
+        <h2>Gap Examples</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div style="display: flex; gap: var(--space-2);">
+                    <div class="spacing-example">Item</div>
+                    <div class="spacing-example">Item</div>
+                    <div class="spacing-example">Item</div>
+                </div>
+                <div style="display: flex; gap: var(--space-4); margin-top: 16px;">
+                    <div class="spacing-example">Item</div>
+                    <div class="spacing-example">Item</div>
+                    <div class="spacing-example">Item</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Usage Guidelines</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Scale</th>
+                    <th>Usage</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>space-1 (4px)</td>
+                    <td>아주 작은 간격</td>
+                    <td>아이콘과 텍스트 사이</td>
+                </tr>
+                <tr>
+                    <td>space-2 (8px)</td>
+                    <td>작은 간격</td>
+                    <td>버튼 내부 패딩</td>
+                </tr>
+                <tr>
+                    <td>space-4 (16px)</td>
+                    <td>기본 간격</td>
+                    <td>카드 내부 패딩</td>
+                </tr>
+                <tr>
+                    <td>space-6 (24px)</td>
+                    <td>중간 간격</td>
+                    <td>섹션 사이</td>
+                </tr>
+                <tr>
+                    <td>space-8 (32px)</td>
+                    <td>큰 간격</td>
+                    <td>컴포넌트 그룹 사이</td>
+                </tr>
+                <tr>
+                    <td>space-16 (64px)</td>
+                    <td>아주 큰 간격</td>
+                    <td>페이지 섹션 사이</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>CSS Variables</h2>
+        <pre><code>/* 컴포넌트에서 사용 */
+.my-component {
+    padding: var(--space-4);
+    margin-bottom: var(--space-6);
+    gap: var(--space-2);
+}
+
+/* 유틸리티 클래스 */
+.p-4 { padding: var(--space-4); }
+.m-6 { margin: var(--space-6); }
+.gap-2 { gap: var(--space-2); }</code></pre>
+        
+        <style>
+            .spacing-scale {
+                display: grid;
+                gap: 16px;
+                margin: 24px 0;
+            }
+            .spacing-item {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+            .spacing-visual {
+                width: 80px;
+                display: flex;
+                align-items: center;
+            }
+            .spacing-box {
+                background: var(--color-primary-500);
+                border-radius: 2px;
+            }
+            .spacing-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .spacing-name {
+                font-weight: 500;
+                font-family: monospace;
+            }
+            .spacing-value {
+                font-size: 14px;
+                color: var(--vp-c-text-3);
+            }
+            .spacing-example {
+                background: var(--color-primary-100);
+                border: 1px solid var(--color-primary-300);
+                color: var(--color-primary-700);
+                border-radius: 4px;
+                display: inline-block;
+            }
+            .p-2 { padding: 8px; }
+            .p-4 { padding: 16px; }
+            .p-6 { padding: 24px; }
+            .p-8 { padding: 32px; }
+            .m-2 { margin: 8px; }
+            .m-4 { margin: 16px; }
+            .m-6 { margin: 24px; }
+        </style>
+    </div>
+</body>
+</html>

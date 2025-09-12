@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../components/atoms/select.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Select</h1>
+            <p class="vp-doc-description">
+                드롭다운 선택 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Select</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <select class="select">
+                    <option>선택하세요...</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+        </div>
+        
+        <pre><code>&lt;select class="select"&gt;
+    &lt;option&gt;선택하세요...&lt;/option&gt;
+    &lt;option&gt;Option 1&lt;/option&gt;
+    &lt;option&gt;Option 2&lt;/option&gt;
+    &lt;option&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+        
+        <h2>Select Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <select class="select select--sm">
+                    <option>Small select</option>
+                    <option>Option 1</option>
+                </select>
+                <select class="select">
+                    <option>Default select</option>
+                    <option>Option 1</option>
+                </select>
+                <select class="select select--lg">
+                    <option>Large select</option>
+                    <option>Option 1</option>
+                </select>
+            </div>
+        </div>
+        
+        <h2>Select States</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
+                <select class="select">
+                    <option>Normal state</option>
+                </select>
+                <select class="select select--error">
+                    <option>Error state</option>
+                </select>
+                <select class="select select--success">
+                    <option>Success state</option>
+                </select>
+                <select class="select" disabled>
+                    <option>Disabled state</option>
+                </select>
+            </div>
+        </div>
+        
+        <h2>Multiple Select</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <select class="select" multiple size="4">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option selected>Option 3</option>
+                    <option>Option 4</option>
+                    <option selected>Option 5</option>
+                </select>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.select</code></td>
+                    <td>Base select class</td>
+                </tr>
+                <tr>
+                    <td><code>.select--sm</code></td>
+                    <td>Small size</td>
+                </tr>
+                <tr>
+                    <td><code>.select--lg</code></td>
+                    <td>Large size</td>
+                </tr>
+                <tr>
+                    <td><code>.select--error</code></td>
+                    <td>Error state</td>
+                </tr>
+                <tr>
+                    <td><code>.select--success</code></td>
+                    <td>Success state</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

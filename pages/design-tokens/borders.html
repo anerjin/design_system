@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borders - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <link rel="stylesheet" href="../../design-system/tokens/borders.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Borders</h1>
+            <p class="vp-doc-description">
+                일관된 테두리와 모서리 둥글기 시스템입니다.
+            </p>
+        </div>
+        
+        <h2>Border Width</h2>
+        <div class="border-grid">
+            <div class="border-item">
+                <div class="border-box" style="border-width: 0;"></div>
+                <div class="border-info">
+                    <span class="border-name">border-0</span>
+                    <span class="border-value">0px</span>
+                </div>
+            </div>
+            <div class="border-item">
+                <div class="border-box" style="border-width: 1px;"></div>
+                <div class="border-info">
+                    <span class="border-name">border</span>
+                    <span class="border-value">1px</span>
+                </div>
+            </div>
+            <div class="border-item">
+                <div class="border-box" style="border-width: 2px;"></div>
+                <div class="border-info">
+                    <span class="border-name">border-2</span>
+                    <span class="border-value">2px</span>
+                </div>
+            </div>
+            <div class="border-item">
+                <div class="border-box" style="border-width: 4px;"></div>
+                <div class="border-info">
+                    <span class="border-name">border-4</span>
+                    <span class="border-value">4px</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Border Radius</h2>
+        <div class="radius-grid">
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 0;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded-none</span>
+                    <span class="radius-value">0px</span>
+                </div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 2px;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded-sm</span>
+                    <span class="radius-value">2px</span>
+                </div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 4px;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded</span>
+                    <span class="radius-value">4px</span>
+                </div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 6px;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded-md</span>
+                    <span class="radius-value">6px</span>
+                </div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 8px;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded-lg</span>
+                    <span class="radius-value">8px</span>
+                </div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 12px;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded-xl</span>
+                    <span class="radius-value">12px</span>
+                </div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 16px;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded-2xl</span>
+                    <span class="radius-value">16px</span>
+                </div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius: 50%;"></div>
+                <div class="radius-info">
+                    <span class="radius-name">rounded-full</span>
+                    <span class="radius-value">50%</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Border Styles</h2>
+        <div class="border-style-grid">
+            <div class="border-style-item">
+                <div class="border-style-box" style="border-style: solid;"></div>
+                <span>border-solid</span>
+            </div>
+            <div class="border-style-item">
+                <div class="border-style-box" style="border-style: dashed;"></div>
+                <span>border-dashed</span>
+            </div>
+            <div class="border-style-item">
+                <div class="border-style-box" style="border-style: dotted;"></div>
+                <span>border-dotted</span>
+            </div>
+        </div>
+        
+        <h2>Border Colors</h2>
+        <div class="border-color-grid">
+            <div class="border-color-item">
+                <div class="border-color-box" style="border-color: var(--color-muted-200);"></div>
+                <span>border-muted</span>
+            </div>
+            <div class="border-color-item">
+                <div class="border-color-box" style="border-color: var(--color-primary-500);"></div>
+                <span>border-primary</span>
+            </div>
+            <div class="border-color-item">
+                <div class="border-color-box" style="border-color: var(--color-success-500);"></div>
+                <span>border-success</span>
+            </div>
+            <div class="border-color-item">
+                <div class="border-color-box" style="border-color: var(--color-danger-500);"></div>
+                <span>border-danger</span>
+            </div>
+        </div>
+        
+        <h2>Component Examples</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <button class="btn" style="border: 1px solid var(--color-muted-300); border-radius: 4px;">
+                    Small Radius Button
+                </button>
+                <button class="btn btn--primary" style="border-radius: 8px;">
+                    Large Radius Button
+                </button>
+                <button class="btn" style="border: 2px solid var(--color-primary-500); border-radius: 50px;">
+                    Pill Button
+                </button>
+            </div>
+        </div>
+        
+        <h2>Usage Guidelines</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Radius</th>
+                    <th>Usage</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>rounded (4px)</td>
+                    <td>작은 컴포넌트</td>
+                    <td>체크박스, 태그</td>
+                </tr>
+                <tr>
+                    <td>rounded-lg (8px)</td>
+                    <td>기본 컴포넌트</td>
+                    <td>버튼, 입력 필드</td>
+                </tr>
+                <tr>
+                    <td>rounded-xl (12px)</td>
+                    <td>카드, 패널</td>
+                    <td>카드, 모달</td>
+                </tr>
+                <tr>
+                    <td>rounded-2xl (16px)</td>
+                    <td>큰 컨테이너</td>
+                    <td>히어로 섹션</td>
+                </tr>
+                <tr>
+                    <td>rounded-full</td>
+                    <td>원형 요소</td>
+                    <td>아바타, 아이콘 버튼</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>CSS Variables</h2>
+        <pre><code>:root {
+    /* Border Width */
+    --border-width-0: 0;
+    --border-width-1: 1px;
+    --border-width-2: 2px;
+    --border-width-4: 4px;
+    
+    /* Border Radius */
+    --radius-sm: 2px;
+    --radius: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-full: 9999px;
+    
+    /* Border Colors */
+    --border-color: var(--color-muted-200);
+    --border-color-hover: var(--color-muted-300);
+}</code></pre>
+        
+        <style>
+            .border-grid, .radius-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 24px;
+                margin: 24px 0;
+            }
+            .border-item, .radius-item {
+                text-align: center;
+            }
+            .border-box, .radius-box {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 8px;
+                background: white;
+                border: solid var(--color-muted-400);
+            }
+            .radius-box {
+                border-width: 2px;
+            }
+            .border-info, .radius-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .border-name, .radius-name {
+                font-size: 12px;
+                font-weight: 500;
+                font-family: monospace;
+            }
+            .border-value, .radius-value {
+                font-size: 11px;
+                color: var(--vp-c-text-3);
+            }
+            .border-style-grid, .border-color-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 16px;
+                margin: 24px 0;
+            }
+            .border-style-item, .border-color-item {
+                text-align: center;
+            }
+            .border-style-box, .border-color-box {
+                width: 100px;
+                height: 60px;
+                margin: 0 auto 8px;
+                background: white;
+                border-width: 2px;
+                border-color: var(--color-muted-400);
+            }
+            .border-color-box {
+                border-style: solid;
+                border-width: 3px;
+            }
+            .border-style-item span, .border-color-item span {
+                font-size: 12px;
+                font-family: monospace;
+            }
+        </style>
+    </div>
+</body>
+</html>

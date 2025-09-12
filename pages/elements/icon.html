@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icons - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../design-system/icon/icons.css">
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Icons</h1>
+            <p class="vp-doc-description">
+                SVG 기반의 유연한 아이콘 시스템입니다. 크기, 색상, 스타일을 자유롭게 조정할 수 있습니다.
+            </p>
+        </div>
+        
+        <h2>Basic Usage</h2>
+        <p>SVG sprite를 사용하여 아이콘을 표시합니다.</p>
+        
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-home"></use>
+                </svg>
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-user"></use>
+                </svg>
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <pre><code>&lt;svg class="icon"&gt;
+    &lt;use href="/design-system/icon/icon-sprite.svg#icon-home"&gt;&lt;/use&gt;
+&lt;/svg&gt;</code></pre>
+        
+        <h2>Icon Sizes</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="align-items: center; gap: 16px;">
+                <svg class="icon icon--xs">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-heart"></use>
+                </svg>
+                <svg class="icon icon--sm">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-heart"></use>
+                </svg>
+                <svg class="icon icon--md">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-heart"></use>
+                </svg>
+                <svg class="icon icon--lg">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-heart"></use>
+                </svg>
+                <svg class="icon icon--xl">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-heart"></use>
+                </svg>
+                <svg class="icon icon--2xl">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-heart"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <h2>Icon Colors</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="gap: 16px;">
+                <svg class="icon icon--primary">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-check"></use>
+                </svg>
+                <svg class="icon icon--success">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-check"></use>
+                </svg>
+                <svg class="icon icon--warning">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-warning"></use>
+                </svg>
+                <svg class="icon icon--danger">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-error"></use>
+                </svg>
+                <svg class="icon icon--info">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-info"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <h2>Icon Animations</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="gap: 24px;">
+                <svg class="icon icon--spin">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-loader"></use>
+                </svg>
+                <svg class="icon icon--pulse">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-bell"></use>
+                </svg>
+                <svg class="icon icon--bounce">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-arrow-down"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <h2>Icon Button</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="gap: 12px;">
+                <button class="icon-button">
+                    <svg class="icon">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-edit"></use>
+                    </svg>
+                </button>
+                <button class="icon-button">
+                    <svg class="icon">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-delete"></use>
+                    </svg>
+                </button>
+                <button class="icon-button">
+                    <svg class="icon">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <h2>Icon with Text</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+                <span class="icon-text">
+                    <svg class="icon icon--sm">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-download"></use>
+                    </svg>
+                    Download File
+                </span>
+                <span class="icon-text">
+                    <svg class="icon icon--sm">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-mail"></use>
+                    </svg>
+                    Send Email
+                </span>
+                <span class="icon-text">
+                    <svg class="icon icon--sm icon--primary">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-external-link"></use>
+                    </svg>
+                    Open in New Tab
+                </span>
+            </div>
+        </div>
+        
+        <h2>Icon Badge</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="gap: 24px;">
+                <span class="icon-badge">
+                    <svg class="icon">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-bell"></use>
+                    </svg>
+                    <span class="icon-badge__dot"></span>
+                </span>
+                <span class="icon-badge">
+                    <svg class="icon">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-message"></use>
+                    </svg>
+                    <span class="icon-badge__count">3</span>
+                </span>
+                <span class="icon-badge">
+                    <svg class="icon">
+                        <use href="../../design-system/icon/icon-sprite.svg#icon-mail"></use>
+                    </svg>
+                    <span class="icon-badge__count">12</span>
+                </span>
+            </div>
+        </div>
+        
+        <h2>Available Icons</h2>
+        <div class="icon-grid">
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-home"></use>
+                </svg>
+                <span>home</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-user"></use>
+                </svg>
+                <span>user</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-users"></use>
+                </svg>
+                <span>users</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
+                </svg>
+                <span>settings</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-search"></use>
+                </svg>
+                <span>search</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-menu"></use>
+                </svg>
+                <span>menu</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-close"></use>
+                </svg>
+                <span>close</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-check"></use>
+                </svg>
+                <span>check</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-plus"></use>
+                </svg>
+                <span>plus</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-minus"></use>
+                </svg>
+                <span>minus</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-edit"></use>
+                </svg>
+                <span>edit</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-delete"></use>
+                </svg>
+                <span>delete</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-download"></use>
+                </svg>
+                <span>download</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-upload"></use>
+                </svg>
+                <span>upload</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-mail"></use>
+                </svg>
+                <span>mail</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-phone"></use>
+                </svg>
+                <span>phone</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-message"></use>
+                </svg>
+                <span>message</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-bell"></use>
+                </svg>
+                <span>bell</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-info"></use>
+                </svg>
+                <span>info</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-warning"></use>
+                </svg>
+                <span>warning</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-error"></use>
+                </svg>
+                <span>error</span>
+            </div>
+            <div class="icon-item">
+                <svg class="icon">
+                    <use href="../../design-system/icon/icon-sprite.svg#icon-success"></use>
+                </svg>
+                <span>success</span>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.icon</code></td>
+                    <td>Base icon class</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--xs</code></td>
+                    <td>Extra small size (16px)</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--sm</code></td>
+                    <td>Small size (20px)</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--md</code></td>
+                    <td>Medium size (24px) - default</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--lg</code></td>
+                    <td>Large size (32px)</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--xl</code></td>
+                    <td>Extra large size (40px)</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--2xl</code></td>
+                    <td>2x extra large size (48px)</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--primary</code></td>
+                    <td>Primary color</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--success</code></td>
+                    <td>Success color</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--warning</code></td>
+                    <td>Warning color</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--danger</code></td>
+                    <td>Danger color</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--info</code></td>
+                    <td>Info color</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--spin</code></td>
+                    <td>Spinning animation</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--pulse</code></td>
+                    <td>Pulse animation</td>
+                </tr>
+                <tr>
+                    <td><code>.icon--bounce</code></td>
+                    <td>Bounce animation</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .icon-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 16px;
+                margin: 24px 0;
+            }
+            .icon-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                padding: 16px 8px;
+                background: var(--vp-c-bg-soft);
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 8px;
+                transition: all 0.2s;
+            }
+            .icon-item:hover {
+                background: var(--vp-c-bg-mute);
+                transform: translateY(-2px);
+            }
+            .icon-item span {
+                font-size: 12px;
+                color: var(--vp-c-text-3);
+                font-family: monospace;
+            }
+            .vp-demo-container {
+                padding: 32px;
+            }
+        </style>
+    </div>
+</body>
+</html>

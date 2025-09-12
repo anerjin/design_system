@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">BRICKS Design System</h1>
+            <p class="vp-doc-description">
+                모던하고 일관된 사용자 경험을 제공하는 디자인 시스템입니다.
+            </p>
+        </div>
+        
+        <h2>시작하기</h2>
+        <p>
+            BRICKS는 Shuriken UI의 디자인 철학을 기반으로 만들어진 포괄적인 디자인 시스템입니다.
+            일관된 사용자 경험과 빠른 개발을 위한 컴포넌트, 디자인 토큰, 유틸리티를 제공합니다.
+        </p>
+        
+        <h2>주요 특징</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🎨 디자인 토큰</h3>
+                <p>색상, 타이포그래피, 간격 등 일관된 디자인 시스템</p>
+            </div>
+            <div class="feature-card">
+                <h3>🧩 컴포넌트</h3>
+                <p>재사용 가능한 UI 컴포넌트와 패턴</p>
+            </div>
+            <div class="feature-card">
+                <h3>📱 반응형</h3>
+                <p>모든 디바이스에서 완벽하게 작동</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌗 다크 모드</h3>
+                <p>라이트/다크 테마 지원</p>
+            </div>
+        </div>
+        
+        <h2>디자인 원칙</h2>
+        <ol>
+            <li><strong>일관성</strong>: 모든 인터페이스에서 일관된 경험 제공</li>
+            <li><strong>접근성</strong>: 모든 사용자가 쉽게 사용할 수 있는 디자인</li>
+            <li><strong>확장성</strong>: 프로젝트 성장에 따라 확장 가능한 시스템</li>
+            <li><strong>성능</strong>: 빠르고 효율적인 컴포넌트</li>
+        </ol>
+        
+        <h2>기술 스택</h2>
+        <ul>
+            <li>Pure CSS (No Tailwind)</li>
+            <li>CSS Custom Properties</li>
+            <li>BEM Naming Convention</li>
+            <li>SVG Icon System</li>
+            <li>Responsive Grid System</li>
+        </ul>
+        
+        <h2>브라우저 지원</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>브라우저</th>
+                    <th>버전</th>
+                    <th>지원</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chrome</td>
+                    <td>최신 2개 버전</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Firefox</td>
+                    <td>최신 2개 버전</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Safari</td>
+                    <td>최신 2개 버전</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Edge</td>
+                    <td>최신 2개 버전</td>
+                    <td>✅</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <style>
+            .feature-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 24px;
+                margin: 32px 0;
+            }
+            .feature-card {
+                padding: 24px;
+                background: var(--vp-c-bg-soft);
+                border: 1px solid var(--vp-c-divider);
+                border-radius: 12px;
+            }
+            .feature-card h3 {
+                margin: 0 0 12px 0;
+                font-size: 18px;
+            }
+            .feature-card p {
+                margin: 0;
+                color: var(--vp-c-text-2);
+            }
+        </style>
+    </div>
+</body>
+</html>

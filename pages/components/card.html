@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../components/molecules/card.css">
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Card</h1>
+            <p class="vp-doc-description">
+                콘텐츠를 그룹화하여 표시하는 카드 컴포넌트입니다.
+            </p>
+        </div>
+        
+        <h2>Basic Card</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Card Title</h3>
+                    </div>
+                    <div class="card__body">
+                        <p>This is the card body content. You can put any content here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <pre><code>&lt;div class="card"&gt;
+    &lt;div class="card__header"&gt;
+        &lt;h3 class="card__title"&gt;Card Title&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="card__body"&gt;
+        &lt;p&gt;Card content goes here&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h2>Card with Footer</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Card with Footer</h3>
+                    </div>
+                    <div class="card__body">
+                        <p>Card body content with a footer section.</p>
+                    </div>
+                    <div class="card__footer">
+                        <button class="btn btn--primary btn--sm">Action</button>
+                        <button class="btn btn--ghost btn--sm">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Card Variants</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container" style="gap: 16px;">
+                <div class="card card--elevated">
+                    <div class="card__body">
+                        <h4>Elevated Card</h4>
+                        <p>With shadow effect</p>
+                    </div>
+                </div>
+                <div class="card card--bordered">
+                    <div class="card__body">
+                        <h4>Bordered Card</h4>
+                        <p>With border style</p>
+                    </div>
+                </div>
+                <div class="card card--flat">
+                    <div class="card__body">
+                        <h4>Flat Card</h4>
+                        <p>No shadow or border</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Properties</h2>
+        <table class="vp-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.card</code></td>
+                    <td>Base card container</td>
+                </tr>
+                <tr>
+                    <td><code>.card__header</code></td>
+                    <td>Card header section</td>
+                </tr>
+                <tr>
+                    <td><code>.card__body</code></td>
+                    <td>Card body content</td>
+                </tr>
+                <tr>
+                    <td><code>.card__footer</code></td>
+                    <td>Card footer section</td>
+                </tr>
+                <tr>
+                    <td><code>.card--elevated</code></td>
+                    <td>Card with shadow</td>
+                </tr>
+                <tr>
+                    <td><code>.card--bordered</code></td>
+                    <td>Card with border</td>
+                </tr>
+                <tr>
+                    <td><code>.card--flat</code></td>
+                    <td>Flat card without effects</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>CSS Variables</h2>
+        <pre><code>/* Card Styling */
+--card-bg: white;
+--card-border: 1px solid #e2e8f0;
+--card-radius: 8px;
+--card-padding: 24px;
+--card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);</code></pre>
+    </div>
+</body>
+</html>
