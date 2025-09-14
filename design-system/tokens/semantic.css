@@ -1,0 +1,60 @@
+/* ========================================
+   BRICK Design System - Semantic Tokens
+   Semantic aliases that reference core color values
+======================================== */
+
+:root {
+  /* === Layout Semantic Tokens === */
+  /* Backgrounds */
+  --ds-color-background: var(--ds-white);
+  --ds-color-surface: var(--ds-gray-50);
+  --ds-color-surface-hover: var(--ds-gray-100);
+
+  /* Borders */
+  --ds-color-border: var(--ds-gray-200);
+  --ds-color-border-subtle: var(--ds-gray-100);
+  --ds-color-border-strong: var(--ds-gray-300);
+
+  /* Text */
+  --ds-text-primary: var(--ds-black);
+  --ds-text-secondary: var(--ds-gray-600);
+  --ds-text-tertiary: var(--ds-gray-500);
+  --ds-text-placeholder: var(--ds-gray-400);
+  --ds-text-disabled: var(--ds-gray-400);
+  --ds-text-inverse: var(--ds-white);
+
+  /* Buttons */
+  --ds-button-primary-bg: var(--ds-black);
+  --ds-button-primary-text: var(--ds-white);
+  --ds-button-primary-hover: var(--ds-gray-800);
+  --ds-button-secondary-bg: var(--ds-white);
+  --ds-button-secondary-text: var(--ds-black);
+  --ds-button-secondary-border: var(--ds-gray-300);
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] {
+  /* Layout Colors (Using inverted grays) */
+  --ds-color-background: var(--ds-gray-0);
+  --ds-color-surface: var(--ds-gray-50);
+  --ds-color-surface-hover: var(--ds-gray-100);
+  --ds-color-border: var(--ds-gray-200);
+  --ds-color-border-subtle: var(--ds-gray-100);
+  --ds-color-border-strong: var(--ds-gray-300);
+
+  /* Text (Using inverted grays) */
+  --ds-text-primary: var(--ds-white);
+  --ds-text-secondary: var(--ds-gray-600);
+  --ds-text-tertiary: var(--ds-gray-500);
+  --ds-text-placeholder: var(--ds-gray-400);
+  --ds-text-disabled: var(--ds-gray-400);
+  --ds-text-inverse: var(--ds-black);
+
+  /* Buttons (Using inverted grays) */
+  --ds-button-primary-bg: var(--ds-white);
+  --ds-button-primary-text: var(--ds-black);
+  --ds-button-primary-hover: var(--ds-gray-900);
+  --ds-button-secondary-bg: var(--ds-black);
+  --ds-button-secondary-text: var(--ds-white);
+  --ds-button-secondary-border: var(--ds-gray-300);
+}

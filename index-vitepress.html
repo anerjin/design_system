@@ -3,60 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRICKS Design System</title>
-    
-    <!-- Design System Tokens -->
-    <link rel="stylesheet" href="design-system/tokens/colors.css">
-    <link rel="stylesheet" href="design-system/tokens/typography.css">
-    <link rel="stylesheet" href="design-system/tokens/spacing.css">
-    
-    <!-- Base Styles -->
-    <link rel="stylesheet" href="design-system/base/reset.css">
-    
+    <title>BRICK Design System</title>
+
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- BRICK Design System - Complete Bundle -->
+    <link rel="stylesheet" href="layout/css/index.css">
+
     <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!-- VitePress Style Layout -->
-    <link rel="stylesheet" href="layout/css/layout-vitepress.css">
-    
-    <!-- Component Styles - Atoms -->
-    <link rel="stylesheet" href="components/atoms/button.css">
-    <link rel="stylesheet" href="components/atoms/input.css">
-    <link rel="stylesheet" href="components/atoms/badge.css">
-    <link rel="stylesheet" href="components/atoms/checkbox.css">
-    <link rel="stylesheet" href="components/atoms/radio.css">
-    <link rel="stylesheet" href="components/atoms/toggle.css">
-    <link rel="stylesheet" href="components/atoms/avatar.css">
-    <link rel="stylesheet" href="components/atoms/progress.css">
-    <link rel="stylesheet" href="components/atoms/spinner.css">
-    <link rel="stylesheet" href="components/atoms/select.css">
-    
-    <!-- Component Styles - Molecules -->
-    <link rel="stylesheet" href="components/molecules/card.css">
-    <link rel="stylesheet" href="components/molecules/form-group.css">
-    <link rel="stylesheet" href="components/molecules/alert.css">
-    <link rel="stylesheet" href="components/molecules/modal.css">
-    <link rel="stylesheet" href="components/molecules/dropdown.css">
-    <link rel="stylesheet" href="components/molecules/tabs.css">
-    <link rel="stylesheet" href="components/molecules/accordion.css">
-    <link rel="stylesheet" href="components/molecules/pagination.css">
-    <link rel="stylesheet" href="components/molecules/breadcrumb.css">
-    <link rel="stylesheet" href="components/molecules/navbar.css">
-    <link rel="stylesheet" href="components/molecules/table.css">
-    
-    <!-- Layout Styles -->
-    <link rel="stylesheet" href="layout/css/container.css">
-    <link rel="stylesheet" href="layout/css/grid.css">
-    <link rel="stylesheet" href="layout/css/flexbox.css">
-    
-    <!-- Utility Styles -->
-    <link rel="stylesheet" href="utilities/display.css">
-    <link rel="stylesheet" href="utilities/position.css">
-    <link rel="stylesheet" href="utilities/overflow.css">
-    
-    <!-- Additional Design Tokens -->
-    <link rel="stylesheet" href="design-system/tokens/shadows.css">
-    <link rel="stylesheet" href="design-system/tokens/borders.css">
     
     <!-- Theme Toggle Script -->
     <script>
@@ -536,14 +492,9 @@
                     mainContent.innerHTML = newContent.innerHTML;
                     mainContent.style.opacity = '1';
                     
-                    // Update the TOC if it exists
-                    if (newTOC) {
-                        const currentTOC = document.querySelector('.vp-aside-outline');
-                        if (currentTOC) {
-                            currentTOC.innerHTML = newTOC.innerHTML;
-                        }
-                    }
-                    
+                    // Generate outline from new content
+                    generateOutline();
+
                     // Reinitialize event handlers for new content
                     initializeDemoTabs();
                     initializeAnchorLinks();
@@ -674,6 +625,108 @@
             }
         });
         
+        // Outline 생성 함수
+        function generateOutline() {
+            const headings = document.querySelectorAll('.vp-doc h2');
+            const outlineNav = document.querySelector('.vp-aside-outline');
+
+            if (!outlineNav) {
+                console.error('Outline nav not found');
+                return;
+            }
+
+            // ul 요소 찾기 또는 생성
+            let outlineList = outlineNav.querySelector('ul');
+            if (!outlineList) {
+                outlineList = document.createElement('ul');
+                outlineNav.appendChild(outlineList);
+            }
+
+            if (headings.length === 0) {
+                return;
+            }
+
+            // 기존 내용 제거
+            outlineList.innerHTML = '';
+
+            // 각 heading에 대한 링크 생성
+            headings.forEach((heading, index) => {
+                // heading에 ID 추가 (없는 경우)
+                if (!heading.id) {
+                    heading.id = 'section-' + index;
+                }
+
+                // outline 링크 생성
+                const li = document.createElement('li');
+                li.className = 'vp-aside-outline-item';
+
+                const link = document.createElement('a');
+                link.href = '#' + heading.id;
+                link.textContent = heading.textContent;
+                link.className = 'vp-aside-outline-link';
+
+                // 클릭 이벤트
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById(heading.id);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+
+                        // active 상태 업데이트
+                        document.querySelectorAll('.vp-aside-outline-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+
+                li.appendChild(link);
+                outlineList.appendChild(li);
+            });
+
+            // 스크롤 이벤트로 active 상태 업데이트
+            updateScrollActiveLink();
+        }
+
+        // 스크롤 시 active link 업데이트
+        function updateScrollActiveLink() {
+            const headings = document.querySelectorAll('.vp-doc h2');
+            const links = document.querySelectorAll('.vp-aside-outline-link');
+
+            let ticking = false;
+
+            function update() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        let activeFound = false;
+
+                        headings.forEach((heading, index) => {
+                            const rect = heading.getBoundingClientRect();
+                            const link = links[index];
+
+                            if (link) {
+                                if (!activeFound && rect.top <= 100 && rect.top > -rect.height) {
+                                    link.classList.add('active');
+                                    activeFound = true;
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            }
+                        });
+
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            // 기존 리스너 제거하고 새로 추가
+            window.removeEventListener('scroll', update);
+            window.addEventListener('scroll', update);
+            update(); // 초기 실행
+        }
+
         // Load content from URL hash on page load
         window.addEventListener('DOMContentLoaded', function() {
             const hash = window.location.hash;
@@ -683,6 +736,9 @@
                 if (link) {
                     link.click();
                 }
+            } else {
+                // 초기 페이지에 대해서도 outline 생성
+                generateOutline();
             }
         });
     </script>

@@ -3,120 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button - BRICKS Design System</title>
-    <link rel="stylesheet" href="../../components/atoms/button.css">
+    <title>Button - BRICK Design System</title>
+    <link rel="stylesheet" href="../../layout/css/index.css">
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Button</h1>
-            <p class="vp-doc-description">
-                다양한 상황에 적합한 버튼 컴포넌트입니다. 7가지 변형과 4가지 크기를 지원합니다.
+        <header class="header">
+            <h1 class="header__title">Button Components</h1>
+            <p class="header__description">
+                BRICK Design System의 버튼 컴포넌트입니다. 다양한 변형과 크기를 지원합니다.
             </p>
-        </div>
+        </header>
         
-        <h2>Basic Usage</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <button class="btn btn--primary">Primary Button</button>
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
+                </div>
+                <div class="card__body">
+                    <div class="demo-buttons">
+                        <button class="btn btn--primary">Primary Button</button>
+                    </div>
+                    <pre class="code-block"><code>&lt;button class="btn btn--primary"&gt;Primary Button&lt;/button&gt;</code></pre>
+                </div>
             </div>
-        </div>
-        <pre><code>&lt;button class="btn btn--primary"&gt;Primary Button&lt;/button&gt;</code></pre>
+        </section>
         
-        <h2>Variants</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="gap: 12px;">
-                <button class="btn btn--primary">Primary</button>
-                <button class="btn btn--secondary">Secondary</button>
-                <button class="btn btn--ghost">Ghost</button>
-                <button class="btn btn--danger">Danger</button>
-                <button class="btn btn--success">Success</button>
-                <button class="btn btn--warning">Warning</button>
-                <button class="btn btn--link">Link</button>
+        <!-- Button Variants -->
+        <section class="section">
+            <h2 class="section__title">Button Variants</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary">Primary</button>
+                        <code class="code-inline">.btn--primary</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Secondary</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--secondary">Secondary</button>
+                        <code class="code-inline">.btn--secondary</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--success">Success</button>
+                        <code class="code-inline">.btn--success</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--danger">Danger</button>
+                        <code class="code-inline">.btn--danger</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Warning</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--warning">Warning</button>
+                        <code class="code-inline">.btn--warning</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Info</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--info">Info</button>
+                        <code class="code-inline">.btn--info</code>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <h2>Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="gap: 12px; align-items: center;">
-                <button class="btn btn--primary btn--sm">Small</button>
-                <button class="btn btn--primary btn--md">Medium</button>
-                <button class="btn btn--primary btn--lg">Large</button>
-                <button class="btn btn--primary btn--xl">Extra Large</button>
-            </div>
-        </div>
-        
-        <h2>States</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="gap: 12px;">
-                <button class="btn btn--primary">Normal</button>
-                <button class="btn btn--primary" disabled>Disabled</button>
-                <button class="btn btn--primary btn--loading">Loading</button>
-            </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                    <th>Values</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.btn</code></td>
-                    <td>Base button class</td>
-                    <td>Required</td>
-                </tr>
-                <tr>
-                    <td><code>.btn--{variant}</code></td>
-                    <td>Button variant</td>
-                    <td>primary, secondary, ghost, danger, success, warning, link</td>
-                </tr>
-                <tr>
-                    <td><code>.btn--{size}</code></td>
-                    <td>Button size</td>
-                    <td>sm, md, lg, xl</td>
-                </tr>
-                <tr>
-                    <td><code>.btn--loading</code></td>
-                    <td>Loading state</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td><code>disabled</code></td>
-                    <td>Disabled state</td>
-                    <td>HTML attribute</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>CSS Variables</h2>
-        <pre><code>/* Button Sizes */
---btn-height-sm: 32px;
---btn-height-md: 40px;
---btn-height-lg: 48px;
---btn-height-xl: 56px;
 
---btn-padding-sm: 8px 12px;
---btn-padding-md: 8px 16px;
---btn-padding-lg: 8px 24px;
---btn-padding-xl: 16px 40px;
-
-/* Button Colors */
---btn-primary-bg: #8b5cf6;
---btn-primary-hover: #7c3aed;
---btn-primary-active: #6d28d9;</code></pre>
+            <!-- Additional Variants -->
+            <div class="card-group card-group--cols-3 mt-4">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Light</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--light">Light</button>
+                        <code class="code-inline">.btn--light</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--dark">Dark</button>
+                        <code class="code-inline">.btn--dark</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Ghost</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--ghost">Ghost</button>
+                        <code class="code-inline">.btn--ghost</code>
+                    </div>
+                </div>
+            </div>
+        </section>
         
+        <!-- Button Sizes -->
+        <section class="section">
+            <h2 class="section__title">Button Sizes</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Extra Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--xs">Extra Small</button>
+                        <code class="code-inline">.btn--xs</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--sm">Small</button>
+                        <code class="code-inline">.btn--sm</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Medium (Default)</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--md">Medium</button>
+                        <code class="code-inline">.btn--md</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--lg">Large</button>
+                        <code class="code-inline">.btn--lg</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Extra Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--xl">Extra Large</button>
+                        <code class="code-inline">.btn--xl</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Button States -->
+        <section class="section">
+            <h2 class="section__title">Button States</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Normal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary">Normal</button>
+                        <p class="text-sm text-muted mt-2">Default interactive state</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Hover</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn-hover-demo">Hover</button>
+                        <p class="text-sm text-muted mt-2">:hover state</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Active</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn-active-demo">Active</button>
+                        <p class="text-sm text-muted mt-2">:active state</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Disabled</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary" disabled>Disabled</button>
+                        <p class="text-sm text-muted mt-2">disabled attribute</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Loading</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--loading">Loading</button>
+                        <p class="text-sm text-muted mt-2">.btn--loading</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Focus</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn-focus-demo">Focus</button>
+                        <p class="text-sm text-muted mt-2">:focus-visible state</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Outline Variants -->
+        <section class="section">
+            <h2 class="section__title">Outline Variants</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Outline Primary</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--outline-primary">Outline Primary</button>
+                        <code class="code-inline">.btn--outline-primary</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Outline Secondary</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--outline-secondary">Outline Secondary</button>
+                        <code class="code-inline">.btn--outline-secondary</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Outline Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--outline-success">Outline Success</button>
+                        <code class="code-inline">.btn--outline-success</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Outline Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--outline-danger">Outline Danger</button>
+                        <code class="code-inline">.btn--outline-danger</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Link Style</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--link">Link Button</button>
+                        <code class="code-inline">.btn--link</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features -->
+        <section class="section">
+            <h2 class="section__title">Special Features</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Button with Icon</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary">
+                            <span class="btn__icon">⚡</span>
+                            With Icon
+                        </button>
+                        <button class="btn btn--primary">
+                            Text First
+                            <span class="btn__icon btn__icon--right">→</span>
+                        </button>
+                        <pre class="code-block mt-3"><code>&lt;button class="btn btn--primary"&gt;
+  &lt;span class="btn__icon"&gt;⚡&lt;/span&gt;
+  With Icon
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Icon Only Button</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--icon-only">⚙️</button>
+                        <button class="btn btn--secondary btn--icon-only">❤️</button>
+                        <button class="btn btn--ghost btn--icon-only">✕</button>
+                        <pre class="code-block mt-3"><code>&lt;button class="btn btn--primary btn--icon-only"&gt;⚙️&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Pill Button</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--pill">Pill Button</button>
+                        <button class="btn btn--secondary btn--pill">Secondary Pill</button>
+                        <code class="code-inline mt-3">.btn--pill</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Full Width Button</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn btn--primary btn--block">Full Width Button</button>
+                        <code class="code-inline mt-3">.btn--block</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Button Group -->
+        <section class="section">
+            <h2 class="section__title">Button Group</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Grouped Buttons</h3>
+                </div>
+                <div class="card__body">
+                    <div class="btn-group">
+                        <button class="btn btn--secondary">Left</button>
+                        <button class="btn btn--secondary">Center</button>
+                        <button class="btn btn--secondary">Right</button>
+                    </div>
+                    <pre class="code-block mt-3"><code>&lt;div class="btn-group"&gt;
+  &lt;button class="btn btn--secondary"&gt;Left&lt;/button&gt;
+  &lt;button class="btn btn--secondary"&gt;Center&lt;/button&gt;
+  &lt;button class="btn btn--secondary"&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.btn</code></td>
+                                <td>Base button class</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.btn--{variant}</code></td>
+                                <td>Button variant</td>
+                                <td>primary, secondary, success, danger, warning, info, light, dark, ghost</td>
+                            </tr>
+                            <tr>
+                                <td><code>.btn--outline-{variant}</code></td>
+                                <td>Outline variant</td>
+                                <td>primary, secondary, success, danger</td>
+                            </tr>
+                            <tr>
+                                <td><code>.btn--{size}</code></td>
+                                <td>Button size</td>
+                                <td>xs, sm, md, lg, xl</td>
+                            </tr>
+                            <tr>
+                                <td><code>.btn--loading</code></td>
+                                <td>Loading state</td>
+                                <td>Shows spinner</td>
+                            </tr>
+                            <tr>
+                                <td><code>.btn--pill</code></td>
+                                <td>Pill shape</td>
+                                <td>Fully rounded</td>
+                            </tr>
+                            <tr>
+                                <td><code>.btn--block</code></td>
+                                <td>Full width</td>
+                                <td>100% width</td>
+                            </tr>
+                            <tr>
+                                <td><code>.btn--icon-only</code></td>
+                                <td>Icon only button</td>
+                                <td>Square button</td>
+                            </tr>
+                            <tr>
+                                <td><code>disabled</code></td>
+                                <td>Disabled state</td>
+                                <td>HTML attribute</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .vp-demo-container {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: flex-start;
-                gap: 8px;
-            }
+            /* Demo specific styles */
+            .demo-buttons { display: flex; gap: var(--ds-space-3); flex-wrap: wrap; align-items: center; margin-bottom: var(--ds-space-4); }
+            .btn-hover-demo:not(:hover) { background: var(--ds-gray-800) !important; border-color: var(--ds-gray-800) !important; }
+            .btn-active-demo { transform: translateY(0) !important; box-shadow: var(--ds-shadow-sm) !important; }
+            .btn-focus-demo { outline: 0 !important; box-shadow: 0 0 0 var(--ds-border-width-4) var(--ds-gray-400) !important; }
+            .code-inline { display: inline-block; margin-top: var(--ds-space-2); padding: var(--ds-space-1) var(--ds-space-2); background: var(--ds-gray-100); border-radius: var(--ds-border-radius-sm); font-size: var(--ds-text-xs); }
+            .code-block { background: var(--ds-gray-50); padding: var(--ds-space-3); border-radius: var(--ds-border-radius-md); overflow-x: auto; }
+            .mt-2 { margin-top: var(--ds-space-2); }
+            .mt-3 { margin-top: var(--ds-space-3); }
+            .mt-4 { margin-top: var(--ds-space-4); }
+            .text-sm { font-size: var(--ds-text-sm); }
+            .text-muted { color: var(--ds-gray-600); }
         </style>
     </div>
 </body>

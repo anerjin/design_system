@@ -3,254 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spacing - BRICKS Design System</title>
-    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
+    <title>Spacing - BRICK Design System</title>
+
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="../../design-system/tokens/colors.css">
+    <link rel="stylesheet" href="../../design-system/tokens/typography.css">
     <link rel="stylesheet" href="../../design-system/tokens/spacing.css">
+    <link rel="stylesheet" href="../../design-system/base/base.css">
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
 </head>
 <body>
     <div class="vp-doc">
         <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Spacing</h1>
+            <h1 class="vp-doc-title">Spacing System</h1>
             <p class="vp-doc-description">
-                4px 그리드 기반의 일관된 간격 시스템입니다.
+                BRICK 디자인 시스템의 일관된 간격 체계 - 4px 그리드 기반
             </p>
         </div>
-        
+
         <h2>Spacing Scale</h2>
         <p>모든 간격은 4px의 배수로 구성되어 일관된 리듬을 만듭니다.</p>
-        
-        <div class="spacing-scale">
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 4px; height: 4px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-1</span>
-                    <span class="spacing-value">4px / 0.25rem</span>
-                </div>
-            </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 8px; height: 8px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-2</span>
-                    <span class="spacing-value">8px / 0.5rem</span>
+
+        <div class="spacing-scale card-group--cols-3">
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-1"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-1</span>
+                        <span class="spacing-value">4px / 0.25rem</span>
+                    </div>
                 </div>
             </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 12px; height: 12px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-3</span>
-                    <span class="spacing-value">12px / 0.75rem</span>
-                </div>
-            </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 16px; height: 16px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-4</span>
-                    <span class="spacing-value">16px / 1rem</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-2"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-2</span>
+                        <span class="spacing-value">8px / 0.5rem</span>
+                    </div>
                 </div>
             </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 20px; height: 20px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-5</span>
-                    <span class="spacing-value">20px / 1.25rem</span>
-                </div>
-            </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 24px; height: 24px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-6</span>
-                    <span class="spacing-value">24px / 1.5rem</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-3"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-3</span>
+                        <span class="spacing-value">12px / 0.75rem</span>
+                    </div>
                 </div>
             </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 32px; height: 32px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-8</span>
-                    <span class="spacing-value">32px / 2rem</span>
-                </div>
-            </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 40px; height: 40px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-10</span>
-                    <span class="spacing-value">40px / 2.5rem</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-4"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-4</span>
+                        <span class="spacing-value">16px / 1rem</span>
+                    </div>
                 </div>
             </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 48px; height: 48px;"></div>
-                </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-12</span>
-                    <span class="spacing-value">48px / 3rem</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-5"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-5</span>
+                        <span class="spacing-value">20px / 1.25rem</span>
+                    </div>
                 </div>
             </div>
-            <div class="spacing-item">
-                <div class="spacing-visual">
-                    <div class="spacing-box" style="width: 64px; height: 64px;"></div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-6"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-6</span>
+                        <span class="spacing-value">24px / 1.5rem</span>
+                    </div>
                 </div>
-                <div class="spacing-info">
-                    <span class="spacing-name">space-16</span>
-                    <span class="spacing-value">64px / 4rem</span>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-8"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-8</span>
+                        <span class="spacing-value">32px / 2rem</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-10"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-10</span>
+                        <span class="spacing-value">40px / 2.5rem</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-12"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-12</span>
+                        <span class="spacing-value">48px / 3rem</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-16"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-16</span>
+                        <span class="spacing-value">64px / 4rem</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-20"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-20</span>
+                        <span class="spacing-value">80px / 5rem</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-24"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-24</span>
+                        <span class="spacing-value">96px / 6rem</span>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <h2>Padding Examples</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="spacing-example p-2">p-2 (8px)</div>
-                <div class="spacing-example p-4">p-4 (16px)</div>
-                <div class="spacing-example p-6">p-6 (24px)</div>
-                <div class="spacing-example p-8">p-8 (32px)</div>
-            </div>
-        </div>
-        
-        <h2>Margin Examples</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="background: var(--vp-c-bg-soft);">
-                <div class="spacing-example m-2">m-2 (8px)</div>
-                <div class="spacing-example m-4">m-4 (16px)</div>
-                <div class="spacing-example m-6">m-6 (24px)</div>
-            </div>
-        </div>
-        
-        <h2>Gap Examples</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div style="display: flex; gap: var(--space-2);">
-                    <div class="spacing-example">Item</div>
-                    <div class="spacing-example">Item</div>
-                    <div class="spacing-example">Item</div>
-                </div>
-                <div style="display: flex; gap: var(--space-4); margin-top: 16px;">
-                    <div class="spacing-example">Item</div>
-                    <div class="spacing-example">Item</div>
-                    <div class="spacing-example">Item</div>
+
+        <h2>Border Radius</h2>
+        <div class="radius-demo">
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-none"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-none</span>
+                        <span class="spacing-value">0</span>
+                    </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-sm"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-sm</span>
+                        <span class="spacing-value">2px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-base"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-base</span>
+                        <span class="spacing-value">4px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-md"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-md</span>
+                        <span class="spacing-value">6px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-lg"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-lg</span>
+                        <span class="spacing-value">8px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-xl"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-xl</span>
+                        <span class="spacing-value">12px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-2xl"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-2xl</span>
+                        <span class="spacing-value">16px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-3xl"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-3xl</span>
+                        <span class="spacing-value">24px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="radius-box radius-full"></div>
+                    <div class="radius-info">
+                        <span class="spacing-name">--ds-radius-full</span>
+                        <span class="spacing-value">9999px</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+
+        <h2>Padding & Margin Examples</h2>
+        <div class="spacing-examples">
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Padding</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-items">
+                        <div class="spacing-example p-2">p-2 (8px)</div>
+                        <div class="spacing-example p-4">p-4 (16px)</div>
+                        <div class="spacing-example p-6">p-6 (24px)</div>
+                        <div class="spacing-example p-8">p-8 (32px)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Margin</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-items margin-examples">
+                        <div class="spacing-example m-2">m-2 (8px)</div>
+                        <div class="spacing-example m-4">m-4 (16px)</div>
+                        <div class="spacing-example m-6">m-6 (24px)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Gap</h3>
+                </div>
+                <div class="card__body">
+                    <div class="gap-example gap-2">
+                        <div class="spacing-example">Item</div>
+                        <div class="spacing-example">Item</div>
+                        <div class="spacing-example">Item</div>
+                    </div>
+                    <div class="gap-example gap-4">
+                        <div class="spacing-example">Item</div>
+                        <div class="spacing-example">Item</div>
+                        <div class="spacing-example">Item</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Container Widths</h2>
+        <div class="container-demo">
+            <div class="card">
+                <div class="card__body container-item">
+                    <div class="container-box container-sm"></div>
+                    <span class="spacing-name">--ds-container-sm</span>
+                    <span class="spacing-value">384px</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body container-item">
+                    <div class="container-box container-md"></div>
+                    <span class="spacing-name">--ds-container-md</span>
+                    <span class="spacing-value">448px</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body container-item">
+                    <div class="container-box container-lg"></div>
+                    <span class="spacing-name">--ds-container-lg</span>
+                    <span class="spacing-value">512px</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body container-item">
+                    <div class="container-box container-xl"></div>
+                    <span class="spacing-name">--ds-container-xl</span>
+                    <span class="spacing-value">576px</span>
+                </div>
+            </div>
+        </div>
+
         <h2>Usage Guidelines</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Scale</th>
-                    <th>Usage</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>space-1 (4px)</td>
-                    <td>아주 작은 간격</td>
-                    <td>아이콘과 텍스트 사이</td>
-                </tr>
-                <tr>
-                    <td>space-2 (8px)</td>
-                    <td>작은 간격</td>
-                    <td>버튼 내부 패딩</td>
-                </tr>
-                <tr>
-                    <td>space-4 (16px)</td>
-                    <td>기본 간격</td>
-                    <td>카드 내부 패딩</td>
-                </tr>
-                <tr>
-                    <td>space-6 (24px)</td>
-                    <td>중간 간격</td>
-                    <td>섹션 사이</td>
-                </tr>
-                <tr>
-                    <td>space-8 (32px)</td>
-                    <td>큰 간격</td>
-                    <td>컴포넌트 그룹 사이</td>
-                </tr>
-                <tr>
-                    <td>space-16 (64px)</td>
-                    <td>아주 큰 간격</td>
-                    <td>페이지 섹션 사이</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>CSS Variables</h2>
-        <pre><code>/* 컴포넌트에서 사용 */
+        <div class="guidelines">
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Spacing Scale Usage</h3>
+                </div>
+                <div class="card__body">
+                    <ul>
+                        <li><strong>space-1 ~ space-2:</strong> 아이콘과 텍스트 사이, 작은 요소 간격</li>
+                        <li><strong>space-3 ~ space-4:</strong> 버튼 내부 패딩, 폼 요소 간격</li>
+                        <li><strong>space-6 ~ space-8:</strong> 카드 내부 패딩, 섹션 간격</li>
+                        <li><strong>space-12 ~ space-16:</strong> 큰 섹션 사이, 페이지 패딩</li>
+                        <li><strong>space-20 ~ space-24:</strong> 페이지 레벨 간격</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Border Radius Usage</h3>
+                </div>
+                <div class="card__body">
+                    <ul>
+                        <li><strong>radius-sm:</strong> 작은 버튼, 인풋 필드</li>
+                        <li><strong>radius-base ~ radius-md:</strong> 일반 버튼, 카드</li>
+                        <li><strong>radius-lg ~ radius-xl:</strong> 모달, 큰 카드</li>
+                        <li><strong>radius-2xl ~ radius-3xl:</strong> 특별한 디자인 요소</li>
+                        <li><strong>radius-full:</strong> 원형 버튼, 아바타</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>CSS Variables Example</h2>
+        <pre class="code-example"><code>/* Component spacing */
 .my-component {
-    padding: var(--space-4);
-    margin-bottom: var(--space-6);
-    gap: var(--space-2);
+    padding: var(--ds-space-4);
+    margin-bottom: var(--ds-space-6);
+    gap: var(--ds-space-2);
+    border-radius: var(--ds-radius-lg);
 }
 
-/* 유틸리티 클래스 */
-.p-4 { padding: var(--space-4); }
-.m-6 { margin: var(--space-6); }
-.gap-2 { gap: var(--space-2); }</code></pre>
-        
-        <style>
-            .spacing-scale {
-                display: grid;
-                gap: 16px;
-                margin: 24px 0;
-            }
-            .spacing-item {
-                display: flex;
-                align-items: center;
-                gap: 24px;
-            }
-            .spacing-visual {
-                width: 80px;
-                display: flex;
-                align-items: center;
-            }
-            .spacing-box {
-                background: var(--color-primary-500);
-                border-radius: 2px;
-            }
-            .spacing-info {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-            }
-            .spacing-name {
-                font-weight: 500;
-                font-family: monospace;
-            }
-            .spacing-value {
-                font-size: 14px;
-                color: var(--vp-c-text-3);
-            }
-            .spacing-example {
-                background: var(--color-primary-100);
-                border: 1px solid var(--color-primary-300);
-                color: var(--color-primary-700);
-                border-radius: 4px;
-                display: inline-block;
-            }
-            .p-2 { padding: 8px; }
-            .p-4 { padding: 16px; }
-            .p-6 { padding: 24px; }
-            .p-8 { padding: 32px; }
-            .m-2 { margin: 8px; }
-            .m-4 { margin: 16px; }
-            .m-6 { margin: 24px; }
-        </style>
+/* Container sizing */
+.container {
+    max-width: var(--ds-container-5xl);
+    margin: 0 auto;
+    padding: var(--ds-space-8);
+}
+
+/* Z-index layering */
+.modal {
+    z-index: var(--ds-z-modal);
+}
+
+/* Transitions */
+.button {
+    transition: var(--ds-transition-colors);
+    transition-duration: var(--ds-duration-200);
+}</code></pre>
+
+    <style>
+    /* === Spacing Page Specific Styles === */
+    /* Card Component Styles */
+    /* .spacing-scale .card__body {display:flex;align-items:center;gap:var(--ds-space-6);} */
+    /* .radius-demo .card__body {display:flex;flex-direction:column;align-items:center;gap:var(--ds-space-3);} */
+
+    /* Spacing Scale */
+    .spacing-scale {display:grid;gap:var(--ds-space-4);margin:var(--ds-space-8) 0;}
+    .spacing-visual {width:100px;display:flex;align-items:center;}
+    .spacing-box {background:var(--ds-black);border-radius:var(--ds-radius-sm);height:var(--ds-space-8);}
+    .space-1 {width:var(--ds-space-1);}
+    .space-2 {width:var(--ds-space-2);}
+    .space-3 {width:var(--ds-space-3);}
+    .space-4 {width:var(--ds-space-4);}
+    .space-5 {width:var(--ds-space-5);}
+    .space-6 {width:var(--ds-space-6);}
+    .space-8 {width:var(--ds-space-8);}
+    .space-10 {width:var(--ds-space-10);}
+    .space-12 {width:var(--ds-space-12);}
+    .space-16 {width:var(--ds-space-16);}
+    .space-20 {width:var(--ds-space-20);}
+    .space-24 {width:var(--ds-space-24);}
+    
+    /* Border Radius */
+    .radius-demo {display:grid;grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));gap:var(--ds-space-4);margin:var(--ds-space-8) 0;}
+    .radius-box {width:60px;height:60px;background:var(--ds-black);}
+    .radius-none {border-radius:var(--ds-radius-none);}
+    .radius-sm {border-radius:var(--ds-radius-sm);}
+    .radius-base {border-radius:var(--ds-radius-base);}
+    .radius-md {border-radius:var(--ds-radius-md);}
+    .radius-lg {border-radius:var(--ds-radius-lg);}
+    .radius-xl {border-radius:var(--ds-radius-xl);}
+    .radius-2xl {border-radius:var(--ds-radius-2xl);}
+    .radius-3xl {border-radius:var(--ds-radius-3xl);}
+    .radius-full {border-radius:var(--ds-radius-full);}
+    .radius-info {display:flex;flex-direction:column;align-items:center;gap:var(--ds-space-1);}
+    
+    /* Spacing Info */
+    .spacing-info {display:flex;flex-direction:column;gap:var(--ds-space-1);}
+    .spacing-name {font-weight:var(--ds-font-medium);font-family:var(--ds-font-mono);font-size:var(--ds-text-sm);color:var(--ds-text-primary);}
+    .spacing-value {font-size:var(--ds-text-xs);color:var(--ds-text-tertiary);}
+    
+    /* Examples */
+    .spacing-examples {display:grid;gap:var(--ds-space-8);margin:var(--ds-space-8) 0;}
+    .example-items {display:flex;flex-wrap:wrap;gap:var(--ds-space-4);}
+    .margin-examples {background:var(--ds-gray-100);padding:var(--ds-space-4);border-radius:var(--ds-radius-md);}
+    .spacing-example {background:var(--ds-white);border:var(--ds-border-width-2) solid var(--ds-black);color:var(--ds-text-primary);border-radius:var(--ds-radius-base);display:inline-block;font-size:var(--ds-text-sm);font-weight:var(--ds-font-medium);}
+    .p-2 {padding:var(--ds-space-2);}
+    .p-4 {padding:var(--ds-space-4);}
+    .p-6 {padding:var(--ds-space-6);}
+    .p-8 {padding:var(--ds-space-8);}
+    .m-2 {margin:var(--ds-space-2);}
+    .m-4 {margin:var(--ds-space-4);}
+    .m-6 {margin:var(--ds-space-6);}
+    .gap-example {display:flex;margin-bottom:var(--ds-space-4);}
+    .gap-2 {gap:var(--ds-space-2);}
+    .gap-4 {gap:var(--ds-space-4);}
+    
+    /* Container Demo */
+    .container-demo {display:grid;gap:var(--ds-space-4);margin:var(--ds-space-8) 0;}
+    .container-item {display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:var(--ds-space-4);}
+    .container-box {height:var(--ds-space-10);background:var(--ds-black);border-radius:var(--ds-radius-base);}
+    .container-sm {max-width:var(--ds-container-sm);}
+    .container-md {max-width:var(--ds-container-md);}
+    .container-lg {max-width:var(--ds-container-lg);}
+    .container-xl {max-width:var(--ds-container-xl);}
+    
+    /* Guidelines */
+    .guidelines {display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:var(--ds-space-6);margin:var(--ds-space-8) 0;}
+    .guidelines .card__body ul {list-style:none;padding:0;}
+    .guidelines .card__body li {padding:var(--ds-space-2) 0;border-bottom:var(--ds-border-width-1) solid var(--ds-color-border-subtle);}
+    .guidelines .card__body li:last-child {border-bottom:none;}
+    
+    /* Code Example */
+    .code-example {background:var(--ds-gray-50);border:var(--ds-border-width-1) solid var(--ds-color-border);border-radius:var(--ds-radius-lg);padding:var(--ds-space-6);overflow-x:auto;margin:var(--ds-space-6) 0;}
+    .code-example code {font-family:var(--ds-font-mono);font-size:var(--ds-text-sm);color:var(--ds-text-primary);}
+    
+    </style>
     </div>
 </body>
 </html>

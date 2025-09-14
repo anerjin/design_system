@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card - BRICKS Design System</title>
+
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="../../design-system/tokens/colors.css">
+    <link rel="stylesheet" href="../../design-system/tokens/typography.css">
+    <link rel="stylesheet" href="../../design-system/tokens/spacing.css">
+    <link rel="stylesheet" href="../../design-system/tokens/shadows.css">
+    <link rel="stylesheet" href="../../design-system/base/base.css">
+    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
     <link rel="stylesheet" href="../../components/molecules/card.css">
 </head>
 <body>
@@ -58,7 +69,7 @@
         
         <h2>Card Variants</h2>
         <div class="vp-demo">
-            <div class="vp-demo-container" style="gap: 16px;">
+            <div class="vp-demo-container card-demo-grid">
                 <div class="card card--elevated">
                     <div class="card__body">
                         <h4>Elevated Card</h4>
@@ -75,6 +86,48 @@
                     <div class="card__body">
                         <h4>Flat Card</h4>
                         <p>No shadow or border</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Card Border Radius</h2>
+        <div class="vp-demo">
+            <div class="vp-demo-container card-demo-grid">
+                <div class="card card--radius-none">
+                    <div class="card__body">
+                        <h4>No Radius</h4>
+                        <p>Sharp corners</p>
+                    </div>
+                </div>
+                <div class="card card--radius-sm">
+                    <div class="card__body">
+                        <h4>Small Radius</h4>
+                        <p>Subtle rounding</p>
+                    </div>
+                </div>
+                <div class="card card--radius-md">
+                    <div class="card__body">
+                        <h4>Medium Radius</h4>
+                        <p>Standard rounding</p>
+                    </div>
+                </div>
+                <div class="card card--radius-lg">
+                    <div class="card__body">
+                        <h4>Large Radius</h4>
+                        <p>Default card radius</p>
+                    </div>
+                </div>
+                <div class="card card--radius-xl">
+                    <div class="card__body">
+                        <h4>XL Radius</h4>
+                        <p>More rounded</p>
+                    </div>
+                </div>
+                <div class="card card--radius-2xl">
+                    <div class="card__body">
+                        <h4>2XL Radius</h4>
+                        <p>Very rounded</p>
                     </div>
                 </div>
             </div>
@@ -117,16 +170,88 @@
                     <td><code>.card--flat</code></td>
                     <td>Flat card without effects</td>
                 </tr>
+                <tr>
+                    <td><code>.card--radius-none</code></td>
+                    <td>No border radius (sharp corners)</td>
+                </tr>
+                <tr>
+                    <td><code>.card--radius-sm</code></td>
+                    <td>Small border radius (4px)</td>
+                </tr>
+                <tr>
+                    <td><code>.card--radius-md</code></td>
+                    <td>Medium border radius (8px)</td>
+                </tr>
+                <tr>
+                    <td><code>.card--radius-lg</code></td>
+                    <td>Large border radius (12px - default)</td>
+                </tr>
+                <tr>
+                    <td><code>.card--radius-xl</code></td>
+                    <td>Extra large border radius (16px)</td>
+                </tr>
+                <tr>
+                    <td><code>.card--radius-2xl</code></td>
+                    <td>2X large border radius (24px)</td>
+                </tr>
+                <tr>
+                    <td><code>.card--radius-3xl</code></td>
+                    <td>3X large border radius (32px)</td>
+                </tr>
+                <tr>
+                    <td><code>.card--radius-full</code></td>
+                    <td>Full border radius (9999px)</td>
+                </tr>
             </tbody>
         </table>
         
         <h2>CSS Variables</h2>
-        <pre><code>/* Card Styling */
---card-bg: white;
---card-border: 1px solid #e2e8f0;
---card-radius: 8px;
---card-padding: 24px;
---card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);</code></pre>
+        <pre class="code-example"><code>/* Card Styling */
+--ds-gray-50: #FAFAFA;  /* Card background */
+--ds-gray-200: #E8E8E8; /* Card border */
+--ds-radius-lg: 12px;   /* Card radius */
+--ds-space-4: 16px;     /* Card padding */
+--ds-shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.08);</code></pre>
     </div>
+
+    <style>
+        /* === Card Page Specific Styles === */
+        .card-demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        /* Code Example */
+        .code-example {
+            background: var(--ds-gray-900);
+            border: 1px solid var(--ds-gray-700);
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+        .code-example code {
+            color: var(--ds-gray-100);
+            font-family: var(--ds-font-mono);
+            font-size: var(--ds-text-sm);
+            line-height: 1.6;
+        }
+
+        /* Demo container adjustments */
+        .vp-demo-container {
+            padding: 32px;
+            background: var(--ds-white);
+        }
+
+        /* Ensure card has border in all variants */
+        .card--flat {
+            border: 1px solid var(--ds-gray-100);
+        }
+
+        .card--bordered {
+            border: 2px solid var(--ds-gray-300);
+        }
+    </style>
 </body>
 </html>

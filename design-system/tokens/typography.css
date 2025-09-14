@@ -1,12 +1,15 @@
 /* ========================================
-   BRICKS - Typography Tokens
-   타이포그래피 시스템
+   BRICK Design System - Typography Tokens
+   Pretendard 폰트 기반 타이포그래피 시스템
 ======================================== */
+
+/* Pretendard Font Import */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
 :root {
   /* === Font Families === */
-  --ds-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --ds-font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  --ds-font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ds-font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
   
   /* === Font Sizes === */
   --ds-text-xs: 0.75rem;     /* 12px */

@@ -1,48 +1,74 @@
 /* ========================================
-   BRICKS - Color Tokens
-   다크모드/라이트모드 색상 시스템
+   BRICK Design System - Color Tokens
+   Core Colors + Extended Palette
 ======================================== */
 
 :root {
-  /* === Primary Brand Colors - Webpixels Style === */
-  --ds-brand-primary: #624bff;
-  --ds-brand-secondary: #6c757d;
-  --ds-brand-accent: #ff679d;
-  
-  /* === Semantic Colors (Light Mode) - Webpixels Style === */
-  --ds-color-background: #f8f9fa;
-  --ds-color-surface: #ffffff;
-  --ds-color-surface-hover: #f6f7f9;
-  --ds-color-border: #e3e6ea;
-  --ds-color-border-subtle: #f1f3f5;
-  
-  --ds-text-primary: #212529;
-  --ds-text-secondary: #495057;
-  --ds-text-tertiary: #6c757d;
-  --ds-text-placeholder: #adb5bd;
-  --ds-text-disabled: #ced4da;
-  --ds-text-inverse: #ffffff;
-  
-  /* === Status Colors - Webpixels Style === */
-  --ds-color-success: #36b37e;
-  --ds-color-warning: #f9c74f;
-  --ds-color-danger: #f66;
-  --ds-color-info: #00b8d4;
-  
-  /* === Gray Scale === */
-  --ds-gray-50: #f8f9fa;
-  --ds-gray-100: #f1f3f5;
-  --ds-gray-200: #e9ecef;
-  --ds-gray-300: #dee2e6;
-  --ds-gray-400: #ced4da;
-  --ds-gray-500: #adb5bd;
-  --ds-gray-600: #6c757d;
-  --ds-gray-700: #495057;
-  --ds-gray-800: #343a40;
-  --ds-gray-900: #212529;
-  --ds-gray-950: #0d0f11;
-  
-  /* === Extended Palette === */
+  /* === Core Colors === */
+  --ds-black: #000000;
+  --ds-white: #FFFFFF;
+
+  /* === Gray Scale (13 levels) === */
+  --ds-gray-0: #FFFFFF;    /* Pure White */
+  --ds-gray-50: #FAFAFA;   /* Near White */
+  --ds-gray-100: #F5F5F5;  /* Lightest Gray */
+  --ds-gray-200: #E8E8E8;  /* Lighter Gray */
+  --ds-gray-300: #D4D4D4;  /* Light Gray */
+  --ds-gray-400: #A1A1A1;  /* Medium Light Gray */
+  --ds-gray-500: #787878;  /* Medium Gray */
+  --ds-gray-600: #525252;  /* Medium Dark Gray */
+  --ds-gray-700: #393939;  /* Dark Gray */
+  --ds-gray-800: #262626;  /* Darker Gray */
+  --ds-gray-900: #171717;  /* Darkest Gray */
+  --ds-gray-950: #0A0A0A;  /* Near Black */
+  --ds-gray-1000: #000000; /* Pure Black */
+
+  /* === Semantic UI Colors === */
+  /* Status Colors */
+  --ds-color-success: #64a644;     /* Green - 성공, 완료 */
+  --ds-color-warning: #fc6e51;     /* Orange - 경고, 주의 */
+  --ds-color-danger: #ed5565;      /* Red - 위험, 오류 */
+  --ds-color-info: #1cb6ed;        /* Blue - 정보, 안내 */
+
+  /* Extended Palette */
+  --ds-color-pink: #ec87c0;        /* Pink - 강조, 특별 */
+  --ds-color-purple: #ac92ec;      /* Purple - 창의, 독특 */
+  --ds-color-yellow: #ffce54;      /* Yellow - 주목, 하이라이트 */
+  --ds-color-green: #a0d468;       /* Green - 긍정, 성장 */
+  --ds-color-mint: #48cfad;        /* Mint - 신선, 새로움 */
+  --ds-color-lightblue: #4fc1e9;   /* Light Blue - 신뢰, 안정 */
+  --ds-color-blue: #5d9cec;        /* Blue - 기본, 링크 */
+  --ds-color-dark: #434a54;        /* Dark - 어두운 요소 */
+  --ds-color-light: #aab2bd;       /* Light - 밝은 요소 */
+
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] {
+  /* Core Colors (Inverted) */
+  --ds-black: #FFFFFF;
+  --ds-white: #000000;
+
+  /* Gray Scale (Inverted) */
+  --ds-gray-0: #000000;    /* Pure Black */
+  --ds-gray-50: #0A0A0A;   /* Near Black */
+  --ds-gray-100: #171717;  /* Darkest Gray */
+  --ds-gray-200: #262626;  /* Darker Gray */
+  --ds-gray-300: #393939;  /* Dark Gray */
+  --ds-gray-400: #525252;  /* Medium Dark Gray */
+  --ds-gray-500: #787878;  /* Medium Gray */
+  --ds-gray-600: #A1A1A1;  /* Medium Light Gray */
+  --ds-gray-700: #D4D4D4;  /* Light Gray */
+  --ds-gray-800: #E8E8E8;  /* Lighter Gray */
+  --ds-gray-900: #F5F5F5;  /* Lightest Gray */
+  --ds-gray-950: #FAFAFA;  /* Near White */
+  --ds-gray-1000: #FFFFFF; /* Pure White */
+
+  /* Semantic UI Colors (Same values maintained) */
+  --ds-color-success: #64a644;
+  --ds-color-warning: #fc6e51;
+  --ds-color-danger: #ed5565;
+  --ds-color-info: #1cb6ed;
   --ds-color-pink: #ec87c0;
   --ds-color-purple: #ac92ec;
   --ds-color-yellow: #ffce54;
@@ -50,58 +76,6 @@
   --ds-color-mint: #48cfad;
   --ds-color-lightblue: #4fc1e9;
   --ds-color-blue: #5d9cec;
-  --ds-color-orange: #fc6e51;
-  --ds-color-red: #ed5565;
-  
-  /* === Shadows === */
-  --ds-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ds-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --ds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --ds-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
-  /* === Overlays === */
-  --ds-overlay-light: rgba(255, 255, 255, 0.9);
-  --ds-overlay-dark: rgba(0, 0, 0, 0.5);
-}
-
-/* === Dark Mode === */
-[data-theme="dark"] {
-  /* === Semantic Colors (Dark Mode) - Webpixels Style === */
-  --ds-color-background: #0b0f19;
-  --ds-color-surface: #151a26;
-  --ds-color-surface-hover: #1a2033;
-  --ds-color-border: #2a3041;
-  --ds-color-border-subtle: #232937;
-  
-  --ds-text-primary: #f8f9fa;
-  --ds-text-secondary: #ced4da;
-  --ds-text-tertiary: #adb5bd;
-  --ds-text-placeholder: #6c757d;
-  --ds-text-disabled: #495057;
-  --ds-text-inverse: #212529;
-  
-  /* === Gray Scale (Inverted) === */
-  --ds-gray-50: #0d0f11;
-  --ds-gray-100: #1a1d21;
-  --ds-gray-200: #25282d;
-  --ds-gray-300: #343a40;
-  --ds-gray-400: #495057;
-  --ds-gray-500: #6c757d;
-  --ds-gray-600: #adb5bd;
-  --ds-gray-700: #ced4da;
-  --ds-gray-800: #dee2e6;
-  --ds-gray-900: #e9ecef;
-  --ds-gray-950: #f8f9fa;
-  
-  /* === Shadows (Dark Mode) === */
-  --ds-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --ds-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --ds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --ds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-  --ds-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-  
-  /* === Overlays === */
-  --ds-overlay-light: rgba(0, 0, 0, 0.9);
-  --ds-overlay-dark: rgba(0, 0, 0, 0.7);
+  --ds-color-dark: #434a54;
+  --ds-color-light: #aab2bd;
 }

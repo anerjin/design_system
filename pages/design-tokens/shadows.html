@@ -3,238 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shadows - BRICKS Design System</title>
+    <title>Shadows - BRICK Design System</title>
+
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="../../design-system/tokens/colors.css">
+    <link rel="stylesheet" href="../../design-system/tokens/typography.css">
+    <link rel="stylesheet" href="../../design-system/tokens/spacing.css">
+    <link rel="stylesheet" href="../../design-system/base/base.css">
     <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
-    <link rel="stylesheet" href="../../design-system/tokens/shadows.css">
 </head>
 <body>
     <div class="vp-doc">
         <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Shadows</h1>
+            <h1 class="vp-doc-title">Shadow System</h1>
             <p class="vp-doc-description">
-                깊이감과 계층을 표현하는 그림자 시스템입니다.
+                BRICK 디자인 시스템의 깊이와 계층을 표현하는 그림자 체계
             </p>
         </div>
-        
+
         <h2>Shadow Scale</h2>
-        <div class="shadow-grid">
-            <div class="shadow-item">
-                <div class="shadow-box shadow-xs"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-xs</span>
-                    <span class="shadow-value">0 1px 2px 0 rgb(0 0 0 / 0.05)</span>
+        <p>미니멀한 Black & White 시스템에 최적화된 6단계 그림자 스케일</p>
+
+        <div class="card-group card-group--cols-3">
+            <div class="card">
+                <div class="card__body">
+                    <div class="shadow-box shadow-xs"></div>
+                    <div class="shadow-info">
+                        <span class="shadow-name">--ds-shadow-xs</span>
+                        <span class="shadow-value">0 1px 2px 0 rgba(0, 0, 0, 0.05)</span>
+                        <span class="shadow-usage">미묘한 구분</span>
+                    </div>
                 </div>
             </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-sm"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-sm</span>
-                    <span class="shadow-value">0 1px 3px 0 rgb(0 0 0 / 0.1)</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="shadow-box shadow-sm"></div>
+                    <div class="shadow-info">
+                        <span class="shadow-name">--ds-shadow-sm</span>
+                        <span class="shadow-value">0 2px 4px 0 rgba(0, 0, 0, 0.06)</span>
+                        <span class="shadow-usage">기본 버튼</span>
+                    </div>
                 </div>
             </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-md"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-md</span>
-                    <span class="shadow-value">0 4px 6px -1px rgb(0 0 0 / 0.1)</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="shadow-box shadow-md"></div>
+                    <div class="shadow-info">
+                        <span class="shadow-name">--ds-shadow-md</span>
+                        <span class="shadow-value">0 4px 8px 0 rgba(0, 0, 0, 0.08)</span>
+                        <span class="shadow-usage">카드 기본</span>
+                    </div>
                 </div>
             </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-lg"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-lg</span>
-                    <span class="shadow-value">0 10px 15px -3px rgb(0 0 0 / 0.1)</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="shadow-box shadow-lg"></div>
+                    <div class="shadow-info">
+                        <span class="shadow-name">--ds-shadow-lg</span>
+                        <span class="shadow-value">0 8px 16px 0 rgba(0, 0, 0, 0.10)</span>
+                        <span class="shadow-usage">드롭다운</span>
+                    </div>
                 </div>
             </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-xl"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-xl</span>
-                    <span class="shadow-value">0 20px 25px -5px rgb(0 0 0 / 0.1)</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="shadow-box shadow-xl"></div>
+                    <div class="shadow-info">
+                        <span class="shadow-name">--ds-shadow-xl</span>
+                        <span class="shadow-value">0 16px 32px 0 rgba(0, 0, 0, 0.12)</span>
+                        <span class="shadow-usage">모달</span>
+                    </div>
                 </div>
             </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-2xl"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-2xl</span>
-                    <span class="shadow-value">0 25px 50px -12px rgb(0 0 0 / 0.25)</span>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Colored Shadows</h2>
-        <div class="shadow-grid">
-            <div class="shadow-item">
-                <div class="shadow-box shadow-primary"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-primary</span>
-                    <span class="shadow-value">0 4px 14px 0 rgb(139 92 246 / 0.25)</span>
-                </div>
-            </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-success"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-success</span>
-                    <span class="shadow-value">0 4px 14px 0 rgb(20 184 166 / 0.25)</span>
-                </div>
-            </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-danger"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-danger</span>
-                    <span class="shadow-value">0 4px 14px 0 rgb(244 63 94 / 0.25)</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="shadow-box shadow-2xl"></div>
+                    <div class="shadow-info">
+                        <span class="shadow-name">--ds-shadow-2xl</span>
+                        <span class="shadow-value">0 24px 48px 0 rgba(0, 0, 0, 0.14)</span>
+                        <span class="shadow-usage">팝오버</span>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <h2>Inner Shadows</h2>
-        <div class="shadow-grid">
-            <div class="shadow-item">
-                <div class="shadow-box shadow-inner-sm"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-inner-sm</span>
-                    <span class="shadow-value">inset 0 1px 2px 0 rgb(0 0 0 / 0.05)</span>
+
+        <h2>Elevation Levels</h2>
+        <div class="card-group card-group--cols-3">
+            <div class="card">
+                <div class="card__body">
+                    <div class="elevation-box elevation-0">
+                        <span class="elevation-label">Level 0</span>
+                        <span class="elevation-desc">Flat (no shadow)</span>
+                    </div>
                 </div>
             </div>
-            <div class="shadow-item">
-                <div class="shadow-box shadow-inner-md"></div>
-                <div class="shadow-info">
-                    <span class="shadow-name">shadow-inner-md</span>
-                    <span class="shadow-value">inset 0 2px 4px 0 rgb(0 0 0 / 0.1)</span>
+            <div class="card">
+                <div class="card__body">
+                    <div class="elevation-box elevation-1">
+                        <span class="elevation-label">Level 1</span>
+                        <span class="elevation-desc">Cards, Tiles</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="elevation-box elevation-2">
+                        <span class="elevation-label">Level 2</span>
+                        <span class="elevation-desc">Raised Buttons</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="elevation-box elevation-3">
+                        <span class="elevation-label">Level 3</span>
+                        <span class="elevation-desc">Dropdowns, Tooltips</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="elevation-box elevation-4">
+                        <span class="elevation-label">Level 4</span>
+                        <span class="elevation-desc">Modals, Dialogs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="elevation-box elevation-5">
+                        <span class="elevation-label">Level 5</span>
+                        <span class="elevation-desc">Popovers, Notifications</span>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <h2>Usage Examples</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <button class="btn shadow-sm">Small Shadow Button</button>
-                <button class="btn btn--primary shadow-lg">Large Shadow Button</button>
-                <div class="card shadow-md" style="padding: 16px; margin-top: 16px;">
-                    Card with medium shadow
+
+        <h2>Interactive Examples</h2>
+        <div class="card-group">
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Hover Effects</h3>
+                </div>
+                <div class="card__body">
+                    <div class="interactive-items">
+                        <button class="demo-button hover-lift">Hover to Lift</button>
+                        <button class="demo-button hover-glow">Hover to Glow</button>
+                        <button class="demo-button hover-press">Click to Press</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Cards</h3>
+                </div>
+                <div class="card__body">
+                    <div class="card-group card-group--cols-3">
+                        <div class="demo-card card-flat">
+                            <h4>Flat Card</h4>
+                            <p>No elevation</p>
+                        </div>
+                        <div class="demo-card card-raised">
+                            <h4>Raised Card</h4>
+                            <p>Default elevation</p>
+                        </div>
+                        <div class="demo-card card-floating">
+                            <h4>Floating Card</h4>
+                            <p>High elevation</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
+        <h2>Dark Mode Shadows</h2>
+        <div class="card dark-mode-demo">
+            <div class="card__body">
+                <div class="card-group card-group--cols-3">
+                    <div class="dark-shadow-item">
+                        <div class="shadow-box shadow-xs"></div>
+                        <span class="shadow-label">XS - More subtle in dark</span>
+                    </div>
+                    <div class="dark-shadow-item">
+                        <div class="shadow-box shadow-md"></div>
+                        <span class="shadow-label">MD - Stronger contrast</span>
+                    </div>
+                    <div class="dark-shadow-item">
+                        <div class="shadow-box shadow-xl"></div>
+                        <span class="shadow-label">XL - Maximum depth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h2>Usage Guidelines</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Shadow</th>
-                    <th>Usage</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>shadow-xs</td>
-                    <td>미묘한 구분</td>
-                    <td>테이블 행, 구분선 대체</td>
-                </tr>
-                <tr>
-                    <td>shadow-sm</td>
-                    <td>기본 버튼</td>
-                    <td>버튼, 입력 필드</td>
-                </tr>
-                <tr>
-                    <td>shadow-md</td>
-                    <td>카드 기본</td>
-                    <td>카드, 패널</td>
-                </tr>
-                <tr>
-                    <td>shadow-lg</td>
-                    <td>떠있는 요소</td>
-                    <td>드롭다운, 툴팁</td>
-                </tr>
-                <tr>
-                    <td>shadow-xl</td>
-                    <td>모달</td>
-                    <td>모달, 다이얼로그</td>
-                </tr>
-                <tr>
-                    <td>shadow-2xl</td>
-                    <td>최상위 레이어</td>
-                    <td>팝오버, 알림</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>CSS Variables</h2>
-        <pre><code>:root {
-    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        <div class="card-group card-group--cols-2">
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Elevation Hierarchy</h3>
+                </div>
+                <div class="card__body">
+                    <ul>
+                        <li><strong>Level 0:</strong> 배경과 같은 높이 (그림자 없음)</li>
+                        <li><strong>Level 1-2:</strong> 콘텐츠 카드, 기본 버튼</li>
+                        <li><strong>Level 3-4:</strong> 떠있는 요소 (드롭다운, 모달)</li>
+                        <li><strong>Level 5:</strong> 최상위 레이어 (알림, 툴팁)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Best Practices</h3>
+                </div>
+                <div class="card__body">
+                    <ul>
+                        <li><strong>일관성:</strong> 같은 레벨의 요소는 같은 그림자 사용</li>
+                        <li><strong>상호작용:</strong> 호버/클릭 시 그림자 변화로 피드백 제공</li>
+                        <li><strong>성능:</strong> 과도한 그림자는 성능에 영향을 줄 수 있음</li>
+                        <li><strong>접근성:</strong> 그림자만으로 구분하지 말고 border도 함께 사용</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>CSS Implementation</h2>
+        <div class="card">
+            <div class="card__body">
+                <pre class="code-example"><code>/* Basic shadow application */
+.card {
+    background: var(--ds-white);
+    box-shadow: var(--ds-shadow-md);
+    border-radius: var(--ds-radius-lg);
 }
 
-/* 사용 예시 */
-.my-card {
-    box-shadow: var(--shadow-md);
+/* Hover effect */
+.card:hover {
+    box-shadow: var(--ds-shadow-lg);
+    transform: translateY(-2px);
+    transition: all var(--ds-duration-200);
 }
 
-.my-card:hover {
-    box-shadow: var(--shadow-lg);
+/* Active/pressed state */
+.button:active {
+    box-shadow: var(--ds-shadow-xs);
+    transform: translateY(1px);
+}
+
+/* Dark mode adjustment */
+[data-theme="dark"] .card {
+    box-shadow: var(--ds-shadow-xl);
+    border: 1px solid var(--ds-gray-200);
 }</code></pre>
-        
-        <style>
-            .shadow-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 32px;
-                margin: 32px 0;
-            }
-            .shadow-item {
-                text-align: center;
-            }
-            .shadow-box {
-                width: 100%;
-                height: 100px;
-                background: white;
-                border-radius: 8px;
-                margin-bottom: 16px;
-            }
-            .shadow-xs { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
-            .shadow-sm { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
-            .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
-            .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
-            .shadow-xl { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-            .shadow-2xl { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
-            .shadow-primary { 
-                background: var(--color-primary-500);
-                box-shadow: 0 4px 14px 0 rgb(139 92 246 / 0.25);
-            }
-            .shadow-success {
-                background: var(--color-success-500);
-                box-shadow: 0 4px 14px 0 rgb(20 184 166 / 0.25);
-            }
-            .shadow-danger {
-                background: var(--color-danger-500);
-                box-shadow: 0 4px 14px 0 rgb(244 63 94 / 0.25);
-            }
-            .shadow-inner-sm {
-                box-shadow: inset 0 1px 2px 0 rgb(0 0 0 / 0.05);
-                background: var(--vp-c-bg-soft);
-            }
-            .shadow-inner-md {
-                box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.1);
-                background: var(--vp-c-bg-soft);
-            }
-            .shadow-info {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-            }
-            .shadow-name {
-                font-weight: 500;
-                font-family: monospace;
-            }
-            .shadow-value {
-                font-size: 12px;
-                color: var(--vp-c-text-3);
-            }
-        </style>
+            </div>
+        </div>
+    <style>
+        /* === Shadows Page Specific Styles === */
+
+        /* Card Layout */
+        /* .card { padding: var(--ds-space-6); background: var(--ds-white); border: var(--ds-border-width) solid var(--ds-gray-200); border-radius: var(--ds-radius-lg); }
+        .card__header { margin-bottom: var(--ds-space-4); }
+        .card__title { font-size: var(--ds-text-lg); font-weight: var(--ds-font-semibold); margin: 0; }
+        .card__body { } */
+
+        /* Card Groups */
+        .card-group { display: grid; gap: var(--ds-space-6); margin: var(--ds-space-8) 0; }
+        .card-group--cols-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .card-group--cols-3 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+        /* Shadow Box */
+        .shadow-box { width: 100%; height: 100px; background: var(--ds-white); border-radius: var(--ds-radius-lg); margin-bottom: var(--ds-space-4); border: var(--ds-border-width) solid var(--ds-gray-100); }
+        .shadow-xs { box-shadow: var(--ds-shadow-xs); }
+        .shadow-sm { box-shadow: var(--ds-shadow-sm); }
+        .shadow-md { box-shadow: var(--ds-shadow-md); }
+        .shadow-lg { box-shadow: var(--ds-shadow-lg); }
+        .shadow-xl { box-shadow: var(--ds-shadow-xl); }
+        .shadow-2xl { box-shadow: var(--ds-shadow-2xl); }
+
+        /* Shadow Info */
+        .shadow-info { display: flex; flex-direction: column; gap: var(--ds-space-1); padding: 0 var(--ds-space-2); text-align: center; }
+        .shadow-name { font-weight: var(--ds-font-medium); font-family: var(--ds-font-mono); font-size: var(--ds-text-sm); color: var(--ds-black); }
+        .shadow-value { font-size: var(--ds-text-xs); color: var(--ds-gray-400); font-family: var(--ds-font-mono); }
+        .shadow-usage { font-size: var(--ds-text-xs); color: var(--ds-gray-600); padding: var(--ds-space-0) var(--ds-space-2); background: var(--ds-gray-100); border-radius: var(--ds-radius-sm); display: inline-block; margin-top: var(--ds-space-1); }
+
+        /* Elevation Box */
+        .elevation-box { width: 100%; height: 120px; background: var(--ds-white); border-radius: var(--ds-radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; border: var(--ds-border-width) solid var(--ds-gray-100); }
+        .elevation-0 { box-shadow: none; }
+        .elevation-1 { box-shadow: var(--ds-shadow-xs); }
+        .elevation-2 { box-shadow: var(--ds-shadow-sm); }
+        .elevation-3 { box-shadow: var(--ds-shadow-md); }
+        .elevation-4 { box-shadow: var(--ds-shadow-lg); }
+        .elevation-5 { box-shadow: var(--ds-shadow-2xl); }
+        .elevation-label { font-weight: var(--ds-font-semibold); font-size: var(--ds-text-sm); color: var(--ds-black); }
+        .elevation-desc { font-size: var(--ds-text-xs); color: var(--ds-gray-400); margin-top: var(--ds-space-1); }
+
+        /* Interactive Items */
+        .interactive-items { display: flex; gap: var(--ds-space-4); flex-wrap: wrap; }
+
+        /* Demo Buttons */
+        .demo-button { padding: var(--ds-space-3) var(--ds-space-6); background: var(--ds-white); border: var(--ds-border-width-lg) solid var(--ds-black); color: var(--ds-black); border-radius: var(--ds-radius-md); font-weight: var(--ds-font-medium); cursor: pointer; transition: all var(--ds-duration-200); }
+        .hover-lift { box-shadow: var(--ds-shadow-sm); }
+        .hover-lift:hover { box-shadow: var(--ds-shadow-lg); transform: translateY(-2px); }
+        .hover-glow { box-shadow: var(--ds-shadow-sm); }
+        .hover-glow:hover { box-shadow: 0 0 20px var(--ds-gray-400); }
+        .hover-press { box-shadow: var(--ds-shadow-md); }
+        .hover-press:active { box-shadow: var(--ds-shadow-xs); transform: translateY(1px); }
+
+        /* Demo Cards */
+        .demo-card { padding: var(--ds-space-5); background: var(--ds-white); border-radius: var(--ds-radius-lg); border: var(--ds-border-width) solid var(--ds-gray-100); }
+        .demo-card h4 { margin: 0 0 var(--ds-space-2) 0; font-size: var(--ds-text-base); font-weight: var(--ds-font-semibold); }
+        .demo-card p { margin: 0; font-size: var(--ds-text-sm); color: var(--ds-gray-600); }
+        .card-flat { box-shadow: none; }
+        .card-raised { box-shadow: var(--ds-shadow-md); }
+        .card-floating { box-shadow: var(--ds-shadow-xl); }
+
+        /* Dark Mode Demo */
+        .dark-mode-demo { background: var(--ds-gray-900); }
+        .dark-shadow-item { text-align: center; }
+        .dark-shadow-item .shadow-box { background: var(--ds-gray-800); border: var(--ds-border-width) solid var(--ds-gray-700); }
+        .dark-shadow-item .shadow-label { display: block; margin-top: var(--ds-space-3); font-size: var(--ds-text-sm); color: var(--ds-gray-300); }
+
+        /* Lists */
+        .card ul { padding: 0; list-style: none; margin: 0; }
+        .card li { padding: var(--ds-space-2) 0; border-bottom: var(--ds-border-width) solid var(--ds-gray-100); }
+        .card li:last-child { border-bottom: none; }
+
+        /* Code Example */
+        /* .code-example { background: var(--ds-gray-900); border: var(--ds-border-width) solid var(--ds-gray-700); border-radius: var(--ds-radius-md); padding: var(--ds-space-5); overflow-x: auto; margin: 0; } */
+        /* .code-example code { color: var(--ds-gray-100); font-family: var(--ds-font-mono); font-size: var(--ds-text-sm); line-height: 1.6; } */
+    </style>
     </div>
 </body>
 </html>
