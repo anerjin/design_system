@@ -1,0 +1,45 @@
+/* ========================================
+   BRICKS - Checkbox Component
+   BEM + Single-Line CSS Convention
+======================================== */
+
+/* Base Checkbox */
+.checkbox {position:relative; display:inline-flex; align-items:center; cursor:pointer; user-select:none;}
+.checkbox__input {position:absolute; opacity:0; width:0; height:0;}
+.checkbox__box {position:relative; display:inline-block; width:20px; height:20px; background:var(--ds-white); border:2px solid var(--ds-gray-300); border-radius:var(--ds-radius-sm); transition:var(--ds-transition-all);}
+.checkbox__input:checked ~ .checkbox__box {background:var(--ds-black); border-color:var(--ds-black);}
+.checkbox__checkmark {display:none; position:absolute; top:2px; left:5px; width:6px; height:10px; border:solid white; border-width:0 2px 2px 0; transform:rotate(45deg);}
+.checkbox__input:checked ~ .checkbox__box .checkbox__checkmark {display:block;}
+.checkbox__label {margin-left:var(--ds-space-2); color:var(--ds-text-primary); font-size:var(--ds-text-base);}
+
+/* Checkbox States */
+.checkbox__input:focus-visible ~ .checkbox__box {box-shadow:0 0 0 3px rgba(0,0,0,0.1);}
+.checkbox__input:disabled ~ .checkbox__box {background:var(--ds-gray-50); border-color:var(--ds-gray-200); cursor:not-allowed;}
+.checkbox__input:disabled ~ .checkbox__label {color:var(--ds-gray-400); cursor:not-allowed;}
+.checkbox__input:disabled:checked ~ .checkbox__box {background:var(--ds-gray-400); border-color:var(--ds-gray-400);}
+
+/* Checkbox Sizes */
+.checkbox--xs .checkbox__box {width:14px; height:14px;}
+.checkbox--xs .checkbox__checkmark {top:1px; left:3px; width:4px; height:7px; border-width:0 1.5px 1.5px 0;}
+.checkbox--sm .checkbox__box {width:16px; height:16px;}
+.checkbox--sm .checkbox__checkmark {top:1px; left:4px; width:5px; height:8px;}
+.checkbox--md .checkbox__box {width:20px; height:20px;}
+.checkbox--md .checkbox__checkmark {top:2px; left:5px; width:6px; height:10px;}
+.checkbox--lg .checkbox__box {width:24px; height:24px;}
+.checkbox--lg .checkbox__checkmark {top:3px; left:7px; width:7px; height:12px;}
+.checkbox--xl .checkbox__box {width:28px; height:28px;}
+.checkbox--xl .checkbox__checkmark {top:4px; left:8px; width:8px; height:14px; border-width:0 3px 3px 0;}
+
+/* Checkbox Variants */
+.checkbox--success .checkbox__input:checked ~ .checkbox__box {background:var(--ds-color-success); border-color:var(--ds-color-success);}
+.checkbox--warning .checkbox__input:checked ~ .checkbox__box {background:var(--ds-color-warning); border-color:var(--ds-color-warning);}
+.checkbox--danger .checkbox__input:checked ~ .checkbox__box {background:var(--ds-color-danger); border-color:var(--ds-color-danger);}
+.checkbox--info .checkbox__input:checked ~ .checkbox__box {background:var(--ds-color-info); border-color:var(--ds-color-info);}
+
+/* Checkbox Group */
+.checkbox-group {display:flex; flex-direction:column; gap:var(--ds-space-3);}
+.checkbox-group--inline {flex-direction:row; flex-wrap:wrap; gap:var(--ds-space-6);}
+
+/* Indeterminate State */
+.checkbox__input:indeterminate ~ .checkbox__box {background:var(--ds-black); border-color:var(--ds-black);}
+.checkbox__input:indeterminate ~ .checkbox__box::after {content:''; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:10px; height:2px; background:white;}

@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spacing - BRICK Design System</title>
-
-    <!-- Pretendard Font -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-
-    <!-- Design System -->
-    <link rel="stylesheet" href="../../design-system/tokens/colors.css">
-    <link rel="stylesheet" href="../../design-system/tokens/typography.css">
-    <link rel="stylesheet" href="../../design-system/tokens/spacing.css">
-    <link rel="stylesheet" href="../../design-system/base/base.css">
-    <link rel="stylesheet" href="../../layout/css/layout-vitepress.css">
 </head>
 <body>
     <div class="vp-doc">
@@ -27,7 +17,40 @@
         <h2>Spacing Scale</h2>
         <p>모든 간격은 4px의 배수로 구성되어 일관된 리듬을 만듭니다.</p>
 
-        <div class="spacing-scale card-group--cols-3">
+        <div class="spacing-scale">
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-0"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-0</span>
+                        <span class="spacing-value">0px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-px"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-px</span>
+                        <span class="spacing-value">1px</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__body">
+                    <div class="spacing-visual">
+                        <div class="spacing-box space-0-5"></div>
+                    </div>
+                    <div class="spacing-info">
+                        <span class="spacing-name">--ds-space-0-5</span>
+                        <span class="spacing-value">2px / 0.125rem</span>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <div class="card__body">
                     <div class="spacing-visual">
@@ -389,29 +412,44 @@
 
     <style>
     /* === Spacing Page Specific Styles === */
-    /* Card Component Styles */
-    /* .spacing-scale .card__body {display:flex;align-items:center;gap:var(--ds-space-6);} */
-    /* .radius-demo .card__body {display:flex;flex-direction:column;align-items:center;gap:var(--ds-space-3);} */
-
+    
     /* Spacing Scale */
-    .spacing-scale {display:grid;gap:var(--ds-space-4);margin:var(--ds-space-8) 0;}
+    .spacing-scale {display:grid;grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));gap:var(--ds-space-4);margin:var(--ds-space-8) 0;}
+    .spacing-scale .card__body {display:flex;align-items:center;gap:var(--ds-space-4);}
     .spacing-visual {width:100px;display:flex;align-items:center;}
     .spacing-box {background:var(--ds-black);border-radius:var(--ds-radius-sm);height:var(--ds-space-8);}
+    
+    /* Space values - matching actual CSS variables */
+    .space-0 {width:0;}
+    .space-px {width:var(--ds-space-px);}
+    .space-0-5 {width:var(--ds-space-0-5);}
     .space-1 {width:var(--ds-space-1);}
+    .space-1-5 {width:var(--ds-space-1-5);}
     .space-2 {width:var(--ds-space-2);}
+    .space-2-5 {width:var(--ds-space-2-5);}
     .space-3 {width:var(--ds-space-3);}
+    .space-3-5 {width:var(--ds-space-3-5);}
     .space-4 {width:var(--ds-space-4);}
     .space-5 {width:var(--ds-space-5);}
     .space-6 {width:var(--ds-space-6);}
+    .space-7 {width:var(--ds-space-7);}
     .space-8 {width:var(--ds-space-8);}
+    .space-9 {width:var(--ds-space-9);}
     .space-10 {width:var(--ds-space-10);}
+    .space-11 {width:var(--ds-space-11);}
     .space-12 {width:var(--ds-space-12);}
+    .space-14 {width:var(--ds-space-14);}
     .space-16 {width:var(--ds-space-16);}
     .space-20 {width:var(--ds-space-20);}
     .space-24 {width:var(--ds-space-24);}
+    .space-28 {width:var(--ds-space-28);}
+    .space-32 {width:var(--ds-space-32);}
+    .space-36 {width:var(--ds-space-36);}
+    .space-40 {width:var(--ds-space-40);}
     
     /* Border Radius */
-    .radius-demo {display:grid;grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));gap:var(--ds-space-4);margin:var(--ds-space-8) 0;}
+    .radius-demo {display:grid;grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));gap:var(--ds-space-4);margin:var(--ds-space-8) 0;}
+    .radius-demo .card__body {display:flex;flex-direction:column;align-items:center;gap:var(--ds-space-3);}
     .radius-box {width:60px;height:60px;background:var(--ds-black);}
     .radius-none {border-radius:var(--ds-radius-none);}
     .radius-sm {border-radius:var(--ds-radius-sm);}

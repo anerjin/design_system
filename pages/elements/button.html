@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button - BRICK Design System</title>
-    <link rel="stylesheet" href="../../layout/css/index.css">
 </head>
 <body>
     <div class="vp-doc">
@@ -361,6 +360,55 @@
   &lt;button class="btn btn--secondary"&gt;Center&lt;/button&gt;
   &lt;button class="btn btn--secondary"&gt;Right&lt;/button&gt;
 &lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Switch Toggle -->
+        <section class="section">
+            <h2 class="section__title">Switch Toggle</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Default Switch</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn-switch" onclick="this.classList.toggle('btn-switch--active')">
+                            <span class="btn-switch__track">
+                                <span class="btn-switch__thumb"></span>
+                            </span>
+                            <span class="btn-switch__label">Toggle me</span>
+                        </button>
+                        <code class="code-inline">.btn-switch</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Active Switch</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn-switch btn-switch--active" onclick="this.classList.toggle('btn-switch--active')">
+                            <span class="btn-switch__track">
+                                <span class="btn-switch__thumb"></span>
+                            </span>
+                            <span class="btn-switch__label">Active</span>
+                        </button>
+                        <code class="code-inline">.btn-switch--active</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Disabled Switch</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="btn-switch" disabled>
+                            <span class="btn-switch__track">
+                                <span class="btn-switch__thumb"></span>
+                            </span>
+                            <span class="btn-switch__label">Disabled</span>
+                        </button>
+                        <code class="code-inline">disabled</code>
+                    </div>
                 </div>
             </div>
         </section>

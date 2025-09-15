@@ -6,7 +6,13 @@
       "WebSearch",
       "WebFetch(domain:shurikenui.com)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(for file in pages/design-tokens/typography.html pages/getting-started/configuration.html)",
+      "Bash(do)",
+      "Bash(sed:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []

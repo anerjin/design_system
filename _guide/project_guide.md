@@ -405,3 +405,17 @@ https://tairo.cssninja.io/dashboards
   - Components: alert, card, modal, dropdown, tabs, accordion, pagination, breadcrumb, navbar, table
   - Layout: grid, container, flexbox
   - Utilities: display, position, overflow
+
+
+
+
+
+명령 예제.
+pages/elements/input.html 을 수정하는데 대칭되는 css 파일을 찾고
+예제에 필요한 ui는 html파일 안에 작성해
+
+문제가 있을경우만 대칭되는 파일을 수정하고 그렇지 않는 경우는 수정하지마.
+
+_guide/brick_detail_make.md 을 참조하고 
+
+예제를 만드는데 pages/components/card.html 의 요소를 적절히 사용하면 좋겠어.

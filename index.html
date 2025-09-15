@@ -3,29 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRICKS Design System</title>
-    
-    <!-- Design System Tokens -->
-    <link rel="stylesheet" href="design-system/tokens/colors.css">
-    <link rel="stylesheet" href="design-system/tokens/typography.css">
-    <link rel="stylesheet" href="design-system/tokens/spacing.css">
-    
-    <!-- Base Styles -->
-    <link rel="stylesheet" href="design-system/base/reset.css">
-    
+    <title>BRICK Design System</title>
+
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- BRICK Design System - Complete Bundle -->
+    <link rel="stylesheet" href="layout/css/index.css">
+
     <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!-- Layout Styles -->
-    <link rel="stylesheet" href="layout/css/layout-webpixels.css">
-    
-    <!-- Component Styles -->
-    <link rel="stylesheet" href="components/atoms/button.css">
-    <link rel="stylesheet" href="components/atoms/input.css">
-    <link rel="stylesheet" href="components/atoms/badge.css">
-    <link rel="stylesheet" href="components/molecules/card.css">
-    <link rel="stylesheet" href="components/molecules/form-group.css">
-    <link rel="stylesheet" href="components/molecules/alert.css">
     
     <!-- Theme Toggle Script -->
     <script>
@@ -38,351 +25,722 @@
     </script>
 </head>
 <body>
-    <div class="app">
-        <!-- Header -->
-        <header class="app-header">
-            <div class="app-header__brand">
-                <div class="app-header__logo">
-                    <i class='bx bxs-cube-alt'></i>
-                </div>
-                <h1 class="app-header__title">BRICKS</h1>
-            </div>
-            
-            <div class="app-header__actions">
-                <div class="app-header__search">
-                    <svg class="app-header__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <input type="text" class="app-header__search-input" placeholder="Search components...">
+    <div class="vp-doc-layout">
+        <!-- Navigation Header -->
+        <header class="vp-nav">
+            <div class="vp-nav-container">
+                <div class="vp-nav-left">
+                    <a href="/" class="vp-nav-logo">
+                        <span class="vp-nav-logo-icon">
+                            <i class='bx bxs-cube-alt'></i>
+                        </span>
+                        <span>BRICKS</span>
+                    </a>
+                    
+                    <div class="vp-nav-search">
+                        <svg class="vp-nav-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" class="vp-nav-search-input" placeholder="Search...">
+                    </div>
                 </div>
                 
-                <button class="theme-toggle" aria-label="Toggle theme">
-                    <svg class="theme-toggle__icon theme-toggle__sun" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="theme-toggle__icon theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-                
-                <button class="app-header__menu-toggle" data-menu-toggle aria-label="Toggle menu">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
+                <div class="vp-nav-right">
+                    <div class="vp-nav-social">
+                        <a href="https://github.com" class="vp-nav-social-link" aria-label="GitHub">
+                            <i class='bx bxl-github' style="font-size: 20px;"></i>
+                        </a>
+                    </div>
+                    
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="theme-toggle-icon theme-toggle__sun" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-toggle-icon theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    
+                    <button class="vp-nav-menu-toggle" aria-label="Toggle menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </header>
         
-        <!-- Sidebar -->
-        <aside class="app-sidebar">
-            <nav class="app-sidebar__nav">
-                <!-- Introduction -->
-                <div class="app-sidebar__section">
-                    <ul class="app-sidebar__menu">
-                        <li class="app-sidebar__item">
-                            <a href="#overview" class="app-sidebar__link app-sidebar__link--active" data-page="overview">
-                                <span class="app-sidebar__icon"><i class='bx bx-home'></i></span>
-                                <span class="app-sidebar__label">Overview</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#getting-started" class="app-sidebar__link" data-page="getting-started">
-                                <span class="app-sidebar__icon"><i class='bx bx-rocket'></i></span>
-                                <span class="app-sidebar__label">Getting Started</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Elements -->
-                <div class="app-sidebar__section">
-                    <h3 class="app-sidebar__section-title">Elements</h3>
-                    <ul class="app-sidebar__menu">
-                        <li class="app-sidebar__item">
-                            <a href="#typography" class="app-sidebar__link" data-page="typography">
-                                <span class="app-sidebar__icon"><i class='bx bx-font'></i></span>
-                                <span class="app-sidebar__label">Typography</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#button" class="app-sidebar__link" data-page="button">
-                                <span class="app-sidebar__icon"><i class='bx bx-square-rounded'></i></span>
-                                <span class="app-sidebar__label">Buttons</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#forms" class="app-sidebar__link" data-page="input">
-                                <span class="app-sidebar__icon"><i class='bx bx-edit'></i></span>
-                                <span class="app-sidebar__label">Forms</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#badge" class="app-sidebar__link" data-page="badge">
-                                <span class="app-sidebar__icon"><i class='bx bx-purchase-tag'></i></span>
-                                <span class="app-sidebar__label">Badges</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#avatar" class="app-sidebar__link" data-page="avatar">
-                                <span class="app-sidebar__icon"><i class='bx bx-user-circle'></i></span>
-                                <span class="app-sidebar__label">Avatars</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#progress" class="app-sidebar__link" data-page="progress">
-                                <span class="app-sidebar__icon"><i class='bx bx-loader-alt'></i></span>
-                                <span class="app-sidebar__label">Progress</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#spinner" class="app-sidebar__link" data-page="spinner">
-                                <span class="app-sidebar__icon"><i class='bx bx-loader-circle'></i></span>
-                                <span class="app-sidebar__label">Spinners</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Components -->
-                <div class="app-sidebar__section">
-                    <h3 class="app-sidebar__section-title">Components</h3>
-                    <ul class="app-sidebar__menu">
-                        <li class="app-sidebar__item">
-                            <a href="#alert" class="app-sidebar__link" data-page="alert">
-                                <span class="app-sidebar__icon"><i class='bx bx-error-circle'></i></span>
-                                <span class="app-sidebar__label">Alerts</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#card" class="app-sidebar__link" data-page="card">
-                                <span class="app-sidebar__icon"><i class='bx bx-card'></i></span>
-                                <span class="app-sidebar__label">Cards</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#modal" class="app-sidebar__link" data-page="modal">
-                                <span class="app-sidebar__icon"><i class='bx bx-window-alt'></i></span>
-                                <span class="app-sidebar__label">Modals</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#dropdown" class="app-sidebar__link" data-page="dropdown">
-                                <span class="app-sidebar__icon"><i class='bx bx-chevron-down-square'></i></span>
-                                <span class="app-sidebar__label">Dropdowns</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#navbar" class="app-sidebar__link" data-page="navbar">
-                                <span class="app-sidebar__icon"><i class='bx bx-menu'></i></span>
-                                <span class="app-sidebar__label">Navbar</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#tabs" class="app-sidebar__link" data-page="tabs">
-                                <span class="app-sidebar__icon"><i class='bx bx-tab'></i></span>
-                                <span class="app-sidebar__label">Tabs</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#pagination" class="app-sidebar__link" data-page="pagination">
-                                <span class="app-sidebar__icon"><i class='bx bx-dots-horizontal-rounded'></i></span>
-                                <span class="app-sidebar__label">Pagination</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#breadcrumb" class="app-sidebar__link" data-page="breadcrumb">
-                                <span class="app-sidebar__icon"><i class='bx bx-right-arrow-alt'></i></span>
-                                <span class="app-sidebar__label">Breadcrumbs</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Sections -->
-                <div class="app-sidebar__section">
-                    <h3 class="app-sidebar__section-title">Sections</h3>
-                    <ul class="app-sidebar__menu">
-                        <li class="app-sidebar__item">
-                            <a href="#hero" class="app-sidebar__link" data-page="hero">
-                                <span class="app-sidebar__icon"><i class='bx bx-image'></i></span>
-                                <span class="app-sidebar__label">Heroes</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#features" class="app-sidebar__link" data-page="features">
-                                <span class="app-sidebar__icon"><i class='bx bx-grid-alt'></i></span>
-                                <span class="app-sidebar__label">Features</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#cta" class="app-sidebar__link" data-page="cta">
-                                <span class="app-sidebar__icon"><i class='bx bx-bell'></i></span>
-                                <span class="app-sidebar__label">Call to Actions</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#testimonials" class="app-sidebar__link" data-page="testimonials">
-                                <span class="app-sidebar__icon"><i class='bx bx-chat'></i></span>
-                                <span class="app-sidebar__label">Testimonials</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#pricing" class="app-sidebar__link" data-page="pricing">
-                                <span class="app-sidebar__icon"><i class='bx bx-credit-card'></i></span>
-                                <span class="app-sidebar__label">Pricing</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#contact" class="app-sidebar__link" data-page="contact">
-                                <span class="app-sidebar__icon"><i class='bx bx-envelope'></i></span>
-                                <span class="app-sidebar__label">Contact</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#footer" class="app-sidebar__link" data-page="footer">
-                                <span class="app-sidebar__icon"><i class='bx bx-dock-bottom'></i></span>
-                                <span class="app-sidebar__label">Footers</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Templates -->
-                <div class="app-sidebar__section">
-                    <h3 class="app-sidebar__section-title">Templates</h3>
-                    <ul class="app-sidebar__menu">
-                        <li class="app-sidebar__item">
-                            <a href="#landing" class="app-sidebar__link" data-page="landing">
-                                <span class="app-sidebar__icon"><i class='bx bx-home-alt'></i></span>
-                                <span class="app-sidebar__label">Landing Pages</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#dashboard" class="app-sidebar__link" data-page="dashboard">
-                                <span class="app-sidebar__icon"><i class='bx bx-dashboard'></i></span>
-                                <span class="app-sidebar__label">Dashboards</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#auth" class="app-sidebar__link" data-page="auth">
-                                <span class="app-sidebar__icon"><i class='bx bx-lock-alt'></i></span>
-                                <span class="app-sidebar__label">Authentication</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#error" class="app-sidebar__link" data-page="error">
-                                <span class="app-sidebar__icon"><i class='bx bx-error'></i></span>
-                                <span class="app-sidebar__label">Error Pages</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Layouts -->
-                <div class="app-sidebar__section">
-                    <h3 class="app-sidebar__section-title">Layouts</h3>
-                    <ul class="app-sidebar__menu">
-                        <li class="app-sidebar__item">
-                            <a href="#grid" class="app-sidebar__link" data-page="grid">
-                                <span class="app-sidebar__icon"><i class='bx bx-grid'></i></span>
-                                <span class="app-sidebar__label">Grid System</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#containers" class="app-sidebar__link" data-page="containers">
-                                <span class="app-sidebar__icon"><i class='bx bx-box'></i></span>
-                                <span class="app-sidebar__label">Containers</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#columns" class="app-sidebar__link" data-page="columns">
-                                <span class="app-sidebar__icon"><i class='bx bx-columns'></i></span>
-                                <span class="app-sidebar__label">Columns</span>
-                            </a>
-                        </li>
-                        <li class="app-sidebar__item">
-                            <a href="#utilities" class="app-sidebar__link" data-page="utilities">
-                                <span class="app-sidebar__icon"><i class='bx bx-wrench'></i></span>
-                                <span class="app-sidebar__label">Utilities</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            
-            <div class="app-sidebar__backdrop"></div>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="app-main">
-            <div class="app-content">
-                <!-- Content will be loaded dynamically here -->
-                <div class="page-header">
-                    <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
-                        <span class="page-header__breadcrumb-item">
-                            <a href="#overview" class="page-header__breadcrumb-link">Home</a>
-                        </span>
-                        <span class="page-header__breadcrumb-separator">/</span>
-                        <span class="page-header__breadcrumb-item">
-                            <span>Overview</span>
-                        </span>
-                    </nav>
-                    <h1 class="page-header__title">Welcome to BRICKS</h1>
-                    <p class="page-header__description">
-                        A modern design system with comprehensive components, sections, templates, and layouts for building beautiful web applications.
-                    </p>
-                </div>
-                
-                <div class="content-section">
-                    <div class="content-section__header">
-                        <h2 class="content-section__title">Overview</h2>
-                        <p class="content-section__subtitle">Get started with BRICKS Design System</p>
-                    </div>
-                    <div class="content-section__body">
-                        <p>BRICKS is a comprehensive design system that provides everything you need to build modern web applications. From basic elements to complete templates, our system is designed with flexibility and accessibility in mind.</p>
-                        
-                        <h3>What's Included</h3>
-                        <ul>
-                            <li><i class='bx bx-check'></i> <strong>Elements</strong> - Typography, buttons, forms, badges, and more</li>
-                            <li><i class='bx bx-check'></i> <strong>Components</strong> - Cards, modals, navigation, alerts, and UI components</li>
-                            <li><i class='bx bx-check'></i> <strong>Sections</strong> - Pre-built page sections like heroes, features, and CTAs</li>
-                            <li><i class='bx bx-check'></i> <strong>Templates</strong> - Complete page templates for common use cases</li>
-                            <li><i class='bx bx-check'></i> <strong>Layouts</strong> - Grid system, containers, and utility classes</li>
+        <!-- Main Content Wrapper -->
+        <div class="vp-content">
+            <!-- Sidebar Navigation -->
+            <aside class="vp-sidebar">
+                <nav aria-label="Sidebar navigation">
+                    <!-- Getting Started -->
+                    <div class="vp-sidebar-group">
+                        <div class="vp-sidebar-group-title">Getting Started</div>
+                        <ul class="vp-sidebar-items">
+                            <li class="vp-sidebar-item">
+                                <a href="pages/getting-started/introduction.html" class="vp-sidebar-link active">
+                                    <span class="vp-sidebar-link-text">Introduction</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/getting-started/installation.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Installation</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/getting-started/configuration.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Configuration</span>
+                                </a>
+                            </li>
                         </ul>
-                        
-                        <h3>Quick Start</h3>
-                        <div class="component-preview">
-                            <div class="component-preview__demo">
-                                <button class="btn btn--primary">Get Started</button>
-                                <button class="btn btn--secondary">Learn More</button>
+                    </div>
+                    
+                    <!-- Design Tokens -->
+                    <div class="vp-sidebar-group">
+                        <div class="vp-sidebar-group-title">Design Tokens</div>
+                        <ul class="vp-sidebar-items">
+                            <li class="vp-sidebar-item">
+                                <a href="pages/design-tokens/colors.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Colors</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/design-tokens/typography.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Typography</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/design-tokens/spacing.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Spacing</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/design-tokens/shadows.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Shadows</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/design-tokens/borders.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Borders</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Elements -->
+                    <div class="vp-sidebar-group">
+                        <div class="vp-sidebar-group-title">Elements</div>
+                        <ul class="vp-sidebar-items">
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/button.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Button</span>
+                                    <span class="vp-sidebar-link-badge">New</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/input.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Input</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/select.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Select</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/checkbox.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Checkbox</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/radio.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Radio</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/toggle.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Toggle</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/badge.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Badge</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/avatar.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Avatar</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/progress.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Progress</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/elements/spinner.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Spinner</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Components -->
+                    <div class="vp-sidebar-group">
+                        <div class="vp-sidebar-group-title">Components</div>
+                        <ul class="vp-sidebar-items">
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/alert.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Alert</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/card.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Card</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/modal.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Modal</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/dropdown.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Dropdown</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/tabs.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Tabs</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/accordion.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Accordion</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/pagination.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Pagination</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/breadcrumb.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Breadcrumb</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/navbar.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Navbar</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/table.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Table</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Layout -->
+                    <div class="vp-sidebar-group">
+                        <div class="vp-sidebar-group-title">Layout</div>
+                        <ul class="vp-sidebar-items">
+                            <li class="vp-sidebar-item">
+                                <a href="pages/layout/grid.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Grid System</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/layout/container.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Container</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/layout/flexbox.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Flexbox</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Utilities -->
+                    <div class="vp-sidebar-group">
+                        <div class="vp-sidebar-group-title">Utilities</div>
+                        <ul class="vp-sidebar-items">
+                            <li class="vp-sidebar-item">
+                                <a href="pages/utilities/display.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Display</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/utilities/position.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Position</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/utilities/overflow.html" class="vp-sidebar-link">
+                                    <span class="vp-sidebar-link-text">Overflow</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                
+                <div class="vp-sidebar-backdrop"></div>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="vp-main">
+                <div class="vp-doc">
+                    <!-- Page Header -->
+                    <div class="vp-doc-header">
+                        <h1 class="vp-doc-title">Welcome to BRICKS Design System</h1>
+                        <p class="vp-doc-description">
+                            A modern, accessible design system built with simplicity and flexibility in mind. Create beautiful, consistent user interfaces with our comprehensive collection of components and utilities.
+                        </p>
+                    </div>
+                    
+                    <!-- Content Section -->
+                    <h2 id="introduction">Introduction</h2>
+                    <p>
+                        BRICKS is a comprehensive design system that provides everything you need to build modern web applications. From basic elements to complete templates, our system is designed with flexibility and accessibility in mind.
+                    </p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>🎨 Modern, clean design with light and dark themes</li>
+                        <li>♿ WCAG 2.1 AA compliant for accessibility</li>
+                        <li>📱 Fully responsive and mobile-first approach</li>
+                        <li>🚀 Optimized for performance with minimal CSS</li>
+                        <li>🧩 Modular components for easy customization</li>
+                        <li>📖 Comprehensive documentation with examples</li>
+                    </ul>
+                    
+                    <h3>Quick Start</h3>
+                    <p>Get started with BRICKS in just a few steps:</p>
+                    
+                    <div class="vp-demo">
+                        <div class="vp-demo-container">
+                            <button class="btn btn--primary">Primary Button</button>
+                            <button class="btn btn--secondary">Secondary Button</button>
+                            <button class="btn btn--ghost">Ghost Button</button>
+                        </div>
+                        <div class="vp-demo-controls">
+                            <div class="vp-demo-tabs">
+                                <button class="vp-demo-tab active">Preview</button>
+                                <button class="vp-demo-tab">HTML</button>
+                                <button class="vp-demo-tab">CSS</button>
                             </div>
-                            <div class="component-preview__toolbar">
-                                <div class="component-preview__tabs">
-                                    <button class="component-preview__tab component-preview__tab--active">Preview</button>
-                                    <button class="component-preview__tab">HTML</button>
-                                    <button class="component-preview__tab">CSS</button>
-                                </div>
+                            <div class="vp-demo-actions">
+                                <button class="vp-demo-action" aria-label="Copy code">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
+                        <div class="vp-demo-code">
+                            <pre><code>&lt;button class="btn btn--primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="btn btn--secondary"&gt;Secondary Button&lt;/button&gt;
+&lt;button class="btn btn--ghost"&gt;Ghost Button&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+                    
+                    <h2>Installation</h2>
+                    <p>
+                        BRICKS can be installed via npm or used directly from a CDN. Choose the method that best fits your project needs.
+                    </p>
+                    
+                    <h3>Using npm</h3>
+                    <pre><code>npm install @bricks/design-system</code></pre>
+                    
+                    <h3>Using CDN</h3>
+                    <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@bricks/design-system/dist/bricks.min.css"&gt;</code></pre>
+                    
+                    <h2>Configuration</h2>
+                    <p>
+                        Customize BRICKS to match your brand by overriding CSS variables. All design tokens are defined as CSS custom properties for easy theming.
+                    </p>
+                    
+                    <div class="vp-custom-block tip">
+                        <div class="vp-custom-block-title">💡 TIP</div>
+                        <p>You can override any design token by defining custom CSS variables in your root selector.</p>
+                    </div>
+                    
+                    <h3>Custom Theme Example</h3>
+                    <pre><code>:root {
+  --ds-brand-primary: #624bff;
+  --ds-brand-secondary: #ff6b6b;
+  --ds-font-family: 'Inter', sans-serif;
+  --ds-radius-base: 8px;
+}</code></pre>
+                    
+                    <h2>Browser Support</h2>
+                    <p>
+                        BRICKS supports all modern browsers and provides graceful degradation for older browsers.
+                    </p>
+                    
+                    <table class="vp-table">
+                        <thead>
+                            <tr>
+                                <th>Browser</th>
+                                <th>Version</th>
+                                <th>Support</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chrome</td>
+                                <td>90+</td>
+                                <td>✅ Full support</td>
+                            </tr>
+                            <tr>
+                                <td>Firefox</td>
+                                <td>88+</td>
+                                <td>✅ Full support</td>
+                            </tr>
+                            <tr>
+                                <td>Safari</td>
+                                <td>14+</td>
+                                <td>✅ Full support</td>
+                            </tr>
+                            <tr>
+                                <td>Edge</td>
+                                <td>90+</td>
+                                <td>✅ Full support</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2>Contributing</h2>
+                    <p>
+                        We welcome contributions to BRICKS! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
+                    </p>
+                    
+                    <div class="vp-custom-block info">
+                        <div class="vp-custom-block-title">ℹ️ INFO</div>
+                        <p>Please read our contributing guidelines before submitting a pull request.</p>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+            
+            <!-- Table of Contents (Right Sidebar) -->
+            <aside class="vp-aside">
+                <div class="vp-aside-title">On this page</div>
+                <nav class="vp-aside-outline">
+                    <ul>
+                        <li class="vp-aside-outline-item">
+                            <a href="#introduction" class="vp-aside-outline-link active">Introduction</a>
+                        </li>
+                        <li class="vp-aside-outline-item">
+                            <a href="#installation" class="vp-aside-outline-link">Installation</a>
+                        </li>
+                        <li class="vp-aside-outline-item">
+                            <a href="#configuration" class="vp-aside-outline-link">Configuration</a>
+                        </li>
+                        <li class="vp-aside-outline-item">
+                            <a href="#browser-support" class="vp-aside-outline-link">Browser Support</a>
+                        </li>
+                        <li class="vp-aside-outline-item">
+                            <a href="#contributing" class="vp-aside-outline-link">Contributing</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
     </div>
     
     <!-- Scripts -->
     <script src="layout/js/theme-toggle.js"></script>
-    <script src="layout/js/navigation.js"></script>
+    <script>
+        // Dynamic content loading system
+        async function loadContent(url) {
+            try {
+                // Show loading state
+                const mainContent = document.querySelector('.vp-doc');
+                mainContent.style.opacity = '0.5';
+                
+                // Fetch the content
+                const response = await fetch(url);
+                const html = await response.text();
+                
+                // Parse the HTML
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Extract the main content (vp-doc div)
+                const newContent = doc.querySelector('.vp-doc');
+                const newTOC = doc.querySelector('.vp-aside-outline');
+                
+                if (newContent) {
+                    // Replace the content
+                    mainContent.innerHTML = newContent.innerHTML;
+                    mainContent.style.opacity = '1';
+                    
+                    // Generate outline from new content
+                    generateOutline();
+
+                    // Reinitialize event handlers for new content
+                    initializeDemoTabs();
+                    initializeAnchorLinks();
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                    
+                    // Update browser history
+                    history.pushState({url: url}, '', '#' + url.replace('pages/', '').replace('.html', ''));
+                }
+            } catch (error) {
+                console.error('Error loading content:', error);
+                // Restore opacity on error
+                document.querySelector('.vp-doc').style.opacity = '1';
+            }
+        }
+        
+        // Initialize demo tabs for dynamically loaded content
+        function initializeDemoTabs() {
+            document.querySelectorAll('.vp-demo-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const demo = this.closest('.vp-demo');
+                    if (!demo) return;
+                    
+                    demo.querySelectorAll('.vp-demo-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Toggle code visibility
+                    const codeBlock = demo.querySelector('.vp-demo-code');
+                    if (codeBlock) {
+                        if (this.textContent !== 'Preview') {
+                            codeBlock.classList.add('active');
+                        } else {
+                            codeBlock.classList.remove('active');
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Initialize anchor links for smooth scrolling
+        function initializeAnchorLinks() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Mobile menu toggle
+        document.querySelector('.vp-nav-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.vp-sidebar').classList.toggle('open');
+        });
+        
+        // Sidebar backdrop click
+        document.querySelector('.vp-sidebar-backdrop').addEventListener('click', function() {
+            document.querySelector('.vp-sidebar').classList.remove('open');
+        });
+        
+        // Sidebar link click handler with dynamic content loading
+        document.querySelectorAll('.vp-sidebar-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active state
+                document.querySelectorAll('.vp-sidebar-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Get the URL from href
+                const url = this.getAttribute('href');
+                
+                // Load content dynamically
+                if (url && url.endsWith('.html')) {
+                    loadContent(url);
+                }
+                
+                // Close mobile menu if open
+                document.querySelector('.vp-sidebar').classList.remove('open');
+            });
+        });
+        
+        // Initialize demo tabs for initial page
+        initializeDemoTabs();
+        
+        // Initialize anchor links for initial page
+        initializeAnchorLinks();
+        
+        // Update active TOC link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('h2[id], h3[id]');
+            const tocLinks = document.querySelectorAll('.vp-aside-outline-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.url) {
+                loadContent(e.state.url);
+                
+                // Update sidebar active state
+                document.querySelectorAll('.vp-sidebar-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === e.state.url) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+        
+        // Outline 생성 함수
+        function generateOutline() {
+            const headings = document.querySelectorAll('.vp-doc h2');
+            const outlineNav = document.querySelector('.vp-aside-outline');
+
+            if (!outlineNav) {
+                console.error('Outline nav not found');
+                return;
+            }
+
+            // ul 요소 찾기 또는 생성
+            let outlineList = outlineNav.querySelector('ul');
+            if (!outlineList) {
+                outlineList = document.createElement('ul');
+                outlineNav.appendChild(outlineList);
+            }
+
+            if (headings.length === 0) {
+                return;
+            }
+
+            // 기존 내용 제거
+            outlineList.innerHTML = '';
+
+            // 각 heading에 대한 링크 생성
+            headings.forEach((heading, index) => {
+                // heading에 ID 추가 (없는 경우)
+                if (!heading.id) {
+                    heading.id = 'section-' + index;
+                }
+
+                // outline 링크 생성
+                const li = document.createElement('li');
+                li.className = 'vp-aside-outline-item';
+
+                const link = document.createElement('a');
+                link.href = '#' + heading.id;
+                link.textContent = heading.textContent;
+                link.className = 'vp-aside-outline-link';
+
+                // 클릭 이벤트
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById(heading.id);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+
+                        // active 상태 업데이트
+                        document.querySelectorAll('.vp-aside-outline-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+
+                li.appendChild(link);
+                outlineList.appendChild(li);
+            });
+
+            // 스크롤 이벤트로 active 상태 업데이트
+            updateScrollActiveLink();
+        }
+
+        // 스크롤 시 active link 업데이트
+        function updateScrollActiveLink() {
+            const headings = document.querySelectorAll('.vp-doc h2');
+            const links = document.querySelectorAll('.vp-aside-outline-link');
+
+            let ticking = false;
+
+            function update() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        let activeFound = false;
+
+                        headings.forEach((heading, index) => {
+                            const rect = heading.getBoundingClientRect();
+                            const link = links[index];
+
+                            if (link) {
+                                if (!activeFound && rect.top <= 100 && rect.top > -rect.height) {
+                                    link.classList.add('active');
+                                    activeFound = true;
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            }
+                        });
+
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            // 기존 리스너 제거하고 새로 추가
+            window.removeEventListener('scroll', update);
+            window.addEventListener('scroll', update);
+            update(); // 초기 실행
+        }
+
+        // Load content from URL hash on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash;
+            if (hash && hash.length > 1) {
+                const path = 'pages/' + hash.substring(1) + '.html';
+                const link = document.querySelector(`.vp-sidebar-link[href="${path}"]`);
+                if (link) {
+                    link.click();
+                }
+            } else {
+                // 초기 페이지에 대해서도 outline 생성
+                generateOutline();
+            }
+        });
+    </script>
 </body>
 </html>

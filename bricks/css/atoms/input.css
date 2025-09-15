@@ -1,0 +1,54 @@
+/* ========================================
+   BRICKS - Input Component
+   BEM + Single-Line CSS Convention
+======================================== */
+
+/* Base Input */
+.input {display:block; width:100%; padding:0 var(--ds-space-3); height:40px; font-size:var(--ds-text-base); font-family:var(--ds-font-sans); line-height:1; color:var(--ds-text-primary); background:var(--ds-white); border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); transition:var(--ds-transition-all);}
+.input:focus {outline:none; border-color:var(--ds-black); box-shadow:0 0 0 3px rgba(0,0,0,0.1);}
+.input:disabled {background:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed;}
+.input:readonly {background:var(--ds-gray-50);}
+.input::placeholder {color:var(--ds-gray-400);}
+
+/* Input Sizes */
+.input--xs {height:24px; padding:0 var(--ds-space-2); font-size:var(--ds-text-xs);}
+.input--sm {height:32px; padding:0 var(--ds-space-2-5); font-size:var(--ds-text-sm);}
+.input--md {height:40px; padding:0 var(--ds-space-3); font-size:var(--ds-text-base);}
+.input--lg {height:48px; padding:0 var(--ds-space-4); font-size:var(--ds-text-lg);}
+.input--xl {height:56px; padding:0 var(--ds-space-5); font-size:var(--ds-text-xl);}
+
+/* Input States */
+.input--success {border-color:var(--ds-color-success);}
+.input--success:focus {border-color:var(--ds-color-success); box-shadow:0 0 0 3px rgba(100,166,68,0.1);}
+
+.input--warning {border-color:var(--ds-color-warning);}
+.input--warning:focus {border-color:var(--ds-color-warning); box-shadow:0 0 0 3px rgba(252,110,81,0.1);}
+
+.input--error {border-color:var(--ds-color-danger);}
+.input--error:focus {border-color:var(--ds-color-danger); box-shadow:0 0 0 3px rgba(237,85,101,0.1);}
+
+/* Textarea */
+.textarea {display:block; width:100%; padding:var(--ds-space-3); min-height:100px; font-size:var(--ds-text-base); font-family:var(--ds-font-sans); line-height:1.5; color:var(--ds-text-primary); background:var(--ds-white); border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); resize:vertical; transition:var(--ds-transition-all);}
+.textarea:focus {outline:none; border-color:var(--ds-black); box-shadow:0 0 0 3px rgba(0,0,0,0.1);}
+.textarea:disabled {background:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed; resize:none;}
+.textarea:readonly {background:var(--ds-gray-50); resize:none;}
+.textarea::placeholder {color:var(--ds-gray-400);}
+
+/* Input Group */
+.input-group {display:flex; align-items:stretch;}
+.input-group__prepend, .input-group__append {display:flex; align-items:center; padding:0 var(--ds-space-3); background:var(--ds-gray-50); border:1px solid var(--ds-gray-300); color:var(--ds-gray-600);}
+.input-group__prepend {border-right:0; border-radius:var(--ds-radius-md) 0 0 var(--ds-radius-md);}
+.input-group__append {border-left:0; border-radius:0 var(--ds-radius-md) var(--ds-radius-md) 0;}
+.input-group .input {border-radius:0; flex:1;}
+.input-group .input:focus {z-index:1;}
+.input-group__prepend + .input {border-radius:0;}
+.input-group .input + .input-group__append {border-left:0;}
+
+/* Input with Icons */
+.input-icon {position:relative; display:block;}
+.input-icon__icon {position:absolute; top:50%; transform:translateY(-50%); display:flex; align-items:center; justify-content:center; width:40px; height:40px; color:var(--ds-gray-500); pointer-events:none;}
+.input-icon__icon--left {left:0;}
+.input-icon__icon--right {right:0;}
+.input-icon .input {width:100%;}
+.input-icon--left .input {padding-left:var(--ds-space-10);}
+.input-icon--right .input {padding-right:var(--ds-space-10);}
