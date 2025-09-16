@@ -329,9 +329,9 @@
                 <div class="card__body toast-demo">
                     <p>Toast alerts can be positioned at different corners of the screen:</p>
                     <div class="demo-stack">
-                        <button type="button" class="btn btn--primary" onclick="showToast('top-right')">Show Top Right Toast</button>
-                        <button type="button" class="btn btn--secondary" onclick="showToast('bottom-right')">Show Bottom Right Toast</button>
-                        <button type="button" class="btn btn--info" onclick="showToast('top-center')">Show Top Center Toast</button>
+                        <button type="button" class="btn btn--primary" onclick="BRICKS.Toast.success('Your changes have been saved.', {position: 'top-right', title: 'Success!'})">Show Top Right Toast</button>
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Toast.info('New update available!', {position: 'bottom-right', title: 'Information'})">Show Bottom Right Toast</button>
+                        <button type="button" class="btn btn--info" onclick="BRICKS.Toast.warning('Please review your settings.', {position: 'top-center', title: 'Warning'})">Show Top Center Toast</button>
                     </div>
                 </div>
             </div>

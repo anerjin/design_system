@@ -56,8 +56,9 @@ body {margin:0; background:var(--ds-white); color:var(--ds-black);}
 .vp-sidebar-link-badge {display:inline-flex; justify-content:center; align-items:center; min-width:20px; height:20px; margin-left:4px; padding:0 6px; border-radius:10px; background:var(--ds-black); color:var(--ds-white); font-size:11px; font-weight:600;}
 /* === Main Content Area === */
 .vp-main {min-width:0; padding:32px 64px 96px; flex:1;}
-.vp-main h2,
-.vp-main h3 {display:block; margin:50px 0 10px;}
+.vp-doc > h2,
+.vp-main > h2,
+.vp-main > h3 {display:block; margin:50px 0 10px;}
 .vp-doc {max-width:848px; margin:0 auto;}
 /* Page Header */
 .vp-doc-header {margin-bottom:48px;}

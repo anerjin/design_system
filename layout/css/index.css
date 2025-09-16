@@ -12,13 +12,10 @@
 /* === Icons === */
 @import url('../../bricks/icon/icons.css');
 
-/* === VitePress Layout === */
-@import url('./layout.css');
-
-/* === Layout Styles === */
-@import url('./container.css');
-@import url('./grid.css');
-@import url('./flexbox.css');
+/* === Layout Styles (from bricks/css/layout) === */
+@import url('../../bricks/css/layout/container.css');
+@import url('../../bricks/css/layout/grid.css');
+@import url('../../bricks/css/layout/flexbox.css');
 
 /* === Design System Tokens === */
 @import url('../../bricks/css/tokens/colors.css');
@@ -56,3 +53,6 @@
 @import url('../../bricks/css/utilities/display.css');
 @import url('../../bricks/css/utilities/position.css');
 @import url('../../bricks/css/utilities/overflow.css');
+
+/* === VitePress Layout === */
+@import url('./layout.css');

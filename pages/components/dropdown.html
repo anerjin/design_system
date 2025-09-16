@@ -7,278 +7,518 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Dropdown</h1>
-            <p class="vp-doc-description">
-                클릭 시 옵션 목록을 표시하는 드롭다운 메뉴 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Dropdown Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 드롭다운 컴포넌트입니다. 사용자가 선택할 수 있는 옵션 목록을 제공하는 다양한 변형과 기능을 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Dropdown</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="dropdown">
-                    <button type="button" class="dropdown__trigger btn btn--secondary">
-                        Dropdown
-                        <svg class="icon icon--sm">
-                            <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
-                        </svg>
-                    </button>
-                    <div class="dropdown__menu">
-                        <a href="#" class="dropdown__item">Action</a>
-                        <a href="#" class="dropdown__item">Another action</a>
-                        <a href="#" class="dropdown__item">Something else</a>
-                        <div class="dropdown__divider"></div>
-                        <a href="#" class="dropdown__item">Separated link</a>
-                    </div>
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="dropdown"&gt;
-    &lt;button class="dropdown__trigger btn"&gt;
-        Dropdown
+                <div class="card__body">
+                    <div class="demo-dropdowns">
+                        <div class="dropdown" id="dropdown-basic">
+                            <button class="dropdown__toggle" type="button">
+                                선택하세요
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">액션 1</a>
+                                <a href="#" class="dropdown__item">액션 2</a>
+                                <a href="#" class="dropdown__item">액션 3</a>
+                                <div class="dropdown__divider"></div>
+                                <a href="#" class="dropdown__item">분리된 링크</a>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="dropdown"&gt;
+    &lt;button class="dropdown__toggle" type="button"&gt;
+        선택하세요
+        &lt;svg&gt;...&lt;/svg&gt;
     &lt;/button&gt;
     &lt;div class="dropdown__menu"&gt;
-        &lt;a href="#" class="dropdown__item"&gt;Action&lt;/a&gt;
-        &lt;a href="#" class="dropdown__item"&gt;Another action&lt;/a&gt;
+        &lt;a href="#" class="dropdown__item"&gt;액션 1&lt;/a&gt;
+        &lt;a href="#" class="dropdown__item"&gt;액션 2&lt;/a&gt;
         &lt;div class="dropdown__divider"&gt;&lt;/div&gt;
-        &lt;a href="#" class="dropdown__item"&gt;Separated link&lt;/a&gt;
+        &lt;a href="#" class="dropdown__item"&gt;분리된 링크&lt;/a&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Dropdown Directions</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; gap: 12px; padding: 60px 20px;">
-                <div class="dropdown dropdown--up">
-                    <button type="button" class="dropdown__trigger btn btn--secondary">
-                        Dropup
-                    </button>
-                    <div class="dropdown__menu">
-                        <a href="#" class="dropdown__item">Item 1</a>
-                        <a href="#" class="dropdown__item">Item 2</a>
-                        <a href="#" class="dropdown__item">Item 3</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown Sizes -->
+        <section class="section">
+            <h2 class="section__title">Dropdown Sizes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="dropdown dropdown--sm" id="dropdown-sm">
+                            <button class="dropdown__toggle" type="button">
+                                Small
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">옵션 1</a>
+                                <a href="#" class="dropdown__item">옵션 2</a>
+                                <a href="#" class="dropdown__item">옵션 3</a>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--sm</code>
                     </div>
                 </div>
-                
-                <div class="dropdown dropdown--right">
-                    <button type="button" class="dropdown__trigger btn btn--secondary">
-                        Dropright
-                    </button>
-                    <div class="dropdown__menu">
-                        <a href="#" class="dropdown__item">Item 1</a>
-                        <a href="#" class="dropdown__item">Item 2</a>
-                        <a href="#" class="dropdown__item">Item 3</a>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="dropdown" id="dropdown-md">
+                            <button class="dropdown__toggle" type="button">
+                                Default
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">옵션 1</a>
+                                <a href="#" class="dropdown__item">옵션 2</a>
+                                <a href="#" class="dropdown__item">옵션 3</a>
+                            </div>
+                        </div>
+                        <code class="code-inline">Default size</code>
                     </div>
                 </div>
-                
-                <div class="dropdown dropdown--left">
-                    <button type="button" class="dropdown__trigger btn btn--secondary">
-                        Dropleft
-                    </button>
-                    <div class="dropdown__menu">
-                        <a href="#" class="dropdown__item">Item 1</a>
-                        <a href="#" class="dropdown__item">Item 2</a>
-                        <a href="#" class="dropdown__item">Item 3</a>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="dropdown dropdown--lg" id="dropdown-lg">
+                            <button class="dropdown__toggle" type="button">
+                                Large
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">옵션 1</a>
+                                <a href="#" class="dropdown__item">옵션 2</a>
+                                <a href="#" class="dropdown__item">옵션 3</a>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--lg</code>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Dropdown with Icons</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="dropdown">
-                    <button type="button" class="dropdown__trigger btn btn--primary">
-                        <svg class="icon icon--sm">
-                            <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
-                        </svg>
-                        Settings
-                    </button>
-                    <div class="dropdown__menu">
-                        <a href="#" class="dropdown__item">
-                            <svg class="icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-user"></use>
-                            </svg>
-                            Profile
-                        </a>
-                        <a href="#" class="dropdown__item">
-                            <svg class="icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
-                            </svg>
-                            Settings
-                        </a>
-                        <div class="dropdown__divider"></div>
-                        <a href="#" class="dropdown__item dropdown__item--danger">
-                            <svg class="icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-logout"></use>
-                            </svg>
-                            Logout
-                        </a>
+        </section>
+
+        <!-- Dropdown Directions -->
+        <section class="section">
+            <h2 class="section__title">Dropdown Directions</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dropup</h3>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Dropdown with Header</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="dropdown">
-                    <button type="button" class="dropdown__trigger btn btn--secondary">
-                        User Menu
-                    </button>
-                    <div class="dropdown__menu dropdown__menu--wide">
-                        <div class="dropdown__header">
-                            <div class="dropdown__user">
-                                <div class="avatar avatar--sm">
-                                    <img src="https://i.pravatar.cc/150?img=1" alt="User">
-                                </div>
-                                <div>
-                                    <div class="dropdown__user-name">John Doe</div>
-                                    <div class="dropdown__user-email">john@example.com</div>
+                    <div class="card__body">
+                        <div class="demo-dropdowns" style="padding: 60px 0 20px;">
+                            <div class="dropdown dropdown--dropup" id="dropdown-up">
+                                <button class="dropdown__toggle" type="button">
+                                    Dropup
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="transform: rotate(180deg);"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown__divider"></div>
-                        <a href="#" class="dropdown__item">Dashboard</a>
-                        <a href="#" class="dropdown__item">Settings</a>
-                        <a href="#" class="dropdown__item">Billing</a>
-                        <div class="dropdown__divider"></div>
-                        <a href="#" class="dropdown__item">Sign out</a>
+                        <code class="code-inline">.dropdown--dropup</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dropright</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="demo-dropdowns">
+                            <div class="dropdown dropdown--dropright" id="dropdown-right">
+                                <button class="dropdown__toggle" type="button">
+                                    Dropright
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="transform: rotate(-90deg);"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--dropright</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dropleft</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="demo-dropdowns">
+                            <div class="dropdown dropdown--dropleft" id="dropdown-left">
+                                <button class="dropdown__toggle" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="transform: rotate(90deg);"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                                    Dropleft
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--dropleft</code>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.dropdown</code></td>
-                    <td>Base dropdown container</td>
-                </tr>
-                <tr>
-                    <td><code>.dropdown__trigger</code></td>
-                    <td>Dropdown trigger button</td>
-                </tr>
-                <tr>
-                    <td><code>.dropdown__menu</code></td>
-                    <td>Dropdown menu container</td>
-                </tr>
-                <tr>
-                    <td><code>.dropdown__item</code></td>
-                    <td>Menu item</td>
-                </tr>
-                <tr>
-                    <td><code>.dropdown__divider</code></td>
-                    <td>Menu divider</td>
-                </tr>
-                <tr>
-                    <td><code>.dropdown--up</code></td>
-                    <td>Show menu above trigger</td>
-                </tr>
-                <tr>
-                    <td><code>.dropdown--right</code></td>
-                    <td>Show menu to the right</td>
-                </tr>
-                <tr>
-                    <td><code>.dropdown--left</code></td>
-                    <td>Show menu to the left</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Menu Alignment -->
+        <section class="section">
+            <h2 class="section__title">Menu Alignment</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Right Aligned</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="demo-dropdowns" style="text-align: right;">
+                            <div class="dropdown" id="dropdown-align-right">
+                                <button class="dropdown__toggle" type="button">
+                                    오른쪽 정렬
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                                </button>
+                                <div class="dropdown__menu dropdown__menu--right">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown__menu--right</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Center Aligned</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="demo-dropdowns" style="text-align: center;">
+                            <div class="dropdown" id="dropdown-align-center">
+                                <button class="dropdown__toggle" type="button">
+                                    중앙 정렬
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                                </button>
+                                <div class="dropdown__menu dropdown__menu--center">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown__menu--center</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown with Icons -->
+        <section class="section">
+            <h2 class="section__title">Dropdown with Icons</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Icon Menu Items</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="dropdown" id="dropdown-icon">
+                            <button class="dropdown__toggle" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4m0 6c-1.08 0-2-.92-2-2s.92-2 2-2 2 .92 2 2-.92 2-2 2"/><path d="m20.42 13.4-.51-.29c.05-.37.08-.74.08-1.11s-.03-.74-.08-1.11l.51-.29c.96-.55 1.28-1.78.73-2.73l-1-1.73a2.006 2.006 0 0 0-2.73-.73l-.53.31c-.58-.46-1.22-.83-1.9-1.11v-.6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v.6c-.67.28-1.31.66-1.9 1.11l-.53-.31c-.96-.55-2.18-.22-2.73.73l-1 1.73c-.55.96-.22 2.18.73 2.73l.51.29c-.05.37-.08.74-.08 1.11s.03.74.08 1.11l-.51.29c-.96.55-1.28 1.78-.73 2.73l1 1.73c.55.95 1.77 1.28 2.73.73l.53-.31c.58.46 1.22.83 1.9 1.11v.6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-.6a8.7 8.7 0 0 0 1.9-1.11l.53.31c.95.55 2.18.22 2.73-.73l1-1.73c.55-.96.22-2.18-.73-2.73m-2.59-2.78c.11.45.17.92.17 1.38s-.06.92-.17 1.38a1 1 0 0 0 .47 1.11l1.12.65-1 1.73-1.14-.66c-.38-.22-.87-.16-1.19.14-.68.65-1.51 1.13-2.38 1.4-.42.13-.71.52-.71.96v1.3h-2v-1.3c0-.44-.29-.83-.71-.96-.88-.27-1.7-.75-2.38-1.4a1.01 1.01 0 0 0-1.19-.15l-1.14.66-1-1.73 1.12-.65c.39-.22.58-.68.47-1.11-.11-.45-.17-.92-.17-1.38s.06-.93.17-1.38A1 1 0 0 0 5.7 9.5l-1.12-.65 1-1.73 1.14.66c.38.22.87.16 1.19-.14.68-.65 1.51-1.13 2.38-1.4.42-.13.71-.52.71-.96v-1.3h2v1.3c0 .44.29.83.71.96.88.27 1.7.75 2.38 1.4.32.31.81.36 1.19.14l1.14-.66 1 1.73-1.12.65c-.39.22-.58.68-.47 1.11Z"/></svg>
+                                설정
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <div class="dropdown__header">계정 설정</div>
+                                <a href="#" class="dropdown__item dropdown__item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5m0-8c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1m6-7h4c2.76 0 5 2.24 5 5H5c0-2.76 2.24-5 5-5"/></svg>
+                                    프로필
+                                </a>
+                                <a href="#" class="dropdown__item dropdown__item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4m0 6c-1.08 0-2-.92-2-2s.92-2 2-2 2 .92 2 2-.92 2-2 2"/><path d="m20.42 13.4-.51-.29c.05-.37.08-.74.08-1.11s-.03-.74-.08-1.11l.51-.29c.96-.55 1.28-1.78.73-2.73l-1-1.73a2.006 2.006 0 0 0-2.73-.73l-.53.31c-.58-.46-1.22-.83-1.9-1.11v-.6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v.6c-.67.28-1.31.66-1.9 1.11l-.53-.31c-.96-.55-2.18-.22-2.73.73l-1 1.73c-.55.96-.22 2.18.73 2.73l.51.29c-.05.37-.08.74-.08 1.11s.03.74.08 1.11l-.51.29c-.96.55-1.28 1.78-.73 2.73l1 1.73c.55.95 1.77 1.28 2.73.73l.53-.31c.58.46 1.22.83 1.9 1.11v.6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-.6a8.7 8.7 0 0 0 1.9-1.11l.53.31c.95.55 2.18.22 2.73-.73l1-1.73c.55-.96.22-2.18-.73-2.73m-2.59-2.78c.11.45.17.92.17 1.38s-.06.92-.17 1.38a1 1 0 0 0 .47 1.11l1.12.65-1 1.73-1.14-.66c-.38-.22-.87-.16-1.19.14-.68.65-1.51 1.13-2.38 1.4-.42.13-.71.52-.71.96v1.3h-2v-1.3c0-.44-.29-.83-.71-.96-.88-.27-1.7-.75-2.38-1.4a1.01 1.01 0 0 0-1.19-.15l-1.14.66-1-1.73 1.12-.65c.39-.22.58-.68.47-1.11-.11-.45-.17-.92-.17-1.38s.06-.93.17-1.38A1 1 0 0 0 5.7 9.5l-1.12-.65 1-1.73 1.14.66c.38.22.87.16 1.19-.14.68-.65 1.51-1.13 2.38-1.4.42-.13.71-.52.71-.96v-1.3h2v1.3c0 .44.29.83.71.96.88.27 1.7.75 2.38 1.4.32.31.81.36 1.19.14l1.14-.66 1 1.73-1.12.65c-.39.22-.58.68-.47 1.11Z"/></svg>
+                                    설정
+                                </a>
+                                <div class="dropdown__divider"></div>
+                                <a href="#" class="dropdown__item dropdown__item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 6h2v12h-2zm-6.29 11.29L7.41 13H16v-2H7.41l4.3-4.29-1.42-1.42L3.59 12l6.7 6.71z"/></svg>
+                                    로그아웃
+                                </a>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown__item-icon</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">User Menu</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="dropdown" id="dropdown-complex">
+                            <button class="dropdown__toggle" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5m0-8c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1m6-7h4c2.76 0 5 2.24 5 5H5c0-2.76 2.24-5 5-5"/></svg>
+                                사용자 메뉴
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <div class="dropdown__header">계정</div>
+                                <a href="#" class="dropdown__item dropdown__item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5m0-8c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1m6-7h4c2.76 0 5 2.24 5 5H5c0-2.76 2.24-5 5-5"/></svg>
+                                    프로필
+                                </a>
+                                <a href="#" class="dropdown__item dropdown__item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.4 0 .77-.24.92-.62.15-.37.07-.8-.22-1.09l-8.99-9a.996.996 0 0 0-1.41 0l-9.01 9c-.29.29-.37.72-.22 1.09s.52.62.92.62Zm9-8.59 6 6V20H6v-9.59z"/></svg>
+                                    대시보드
+                                </a>
+                                <a href="#" class="dropdown__item dropdown__item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 12.59V10c0-3.22-2.18-5.93-5.14-6.74C13.57 2.52 12.85 2 12 2s-1.56.52-1.86 1.26C7.18 4.08 5 6.79 5 10v2.59L3.29 14.3a1 1 0 0 0-.29.71v2c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-2c0-.27-.11-.52-.29-.71zM19 16H5v-.59l1.71-1.71a1 1 0 0 0 .29-.71v-3c0-2.76 2.24-5 5-5s5 2.24 5 5v3c0 .27.11.52.29.71L19 15.41zm-4.18 4H9.18c.41 1.17 1.51 2 2.82 2s2.41-.83 2.82-2"/></svg>
+                                    알림
+                                </a>
+                                <div class="dropdown__divider"></div>
+                                <div class="dropdown__header">도움말</div>
+                                <a href="#" class="dropdown__item">문서</a>
+                                <a href="#" class="dropdown__item">지원</a>
+                                <a href="#" class="dropdown__item dropdown__item--disabled">API (곧 출시)</a>
+                                <div class="dropdown__divider"></div>
+                                <a href="#" class="dropdown__item dropdown__item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 6h2v12h-2zm-6.29 11.29L7.41 13H16v-2H7.41l4.3-4.29-1.42-1.42L3.59 12l6.7 6.71z"/></svg>
+                                    로그아웃
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown States -->
+        <section class="section">
+            <h2 class="section__title">Dropdown States</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Active & Disabled Items</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="dropdown" id="dropdown-states">
+                            <button class="dropdown__toggle" type="button">
+                                Mixed States
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">Normal Item</a>
+                                <a href="#" class="dropdown__item dropdown__item--active">Active Item</a>
+                                <a href="#" class="dropdown__item dropdown__item--disabled">Disabled Item</a>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <code class="code-inline">.dropdown__item--active</code>
+                            <code class="code-inline">.dropdown__item--disabled</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark Theme</h3>
+                    </div>
+                    <div class="card__body" style="background: var(--ds-gray-900); padding: var(--ds-space-4); border-radius: var(--ds-border-radius-md);">
+                        <div class="dropdown dropdown--dark" id="dropdown-dark">
+                            <button class="dropdown__toggle" type="button">
+                                Dark Dropdown
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">옵션 1</a>
+                                <a href="#" class="dropdown__item dropdown__item--active">Active Option</a>
+                                <a href="#" class="dropdown__item">옵션 3</a>
+                            </div>
+                        </div>
+                        <code class="code-inline" style="background: var(--ds-gray-800); color: var(--ds-white);">.dropdown--dark</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.dropdown</code></td>
+                                <td>Base dropdown container</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__toggle</code></td>
+                                <td>Dropdown trigger button</td>
+                                <td>Button element</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__menu</code></td>
+                                <td>Dropdown menu container</td>
+                                <td>Menu content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__item</code></td>
+                                <td>Menu item</td>
+                                <td>Link or button</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__divider</code></td>
+                                <td>Menu divider line</td>
+                                <td>Separator</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__header</code></td>
+                                <td>Menu section header</td>
+                                <td>Text content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--{size}</code></td>
+                                <td>Dropdown size</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--{direction}</code></td>
+                                <td>Menu direction</td>
+                                <td>dropup, dropright, dropleft</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--dark</code></td>
+                                <td>Dark theme variant</td>
+                                <td>Dark styling</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__menu--{align}</code></td>
+                                <td>Menu alignment</td>
+                                <td>right, center</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__item--{state}</code></td>
+                                <td>Item state</td>
+                                <td>active, disabled</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__item-icon</code></td>
+                                <td>Item with icon</td>
+                                <td>Icon + text layout</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--open</code></td>
+                                <td>Open state (JavaScript)</td>
+                                <td>Shows menu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .dropdown {
-                position: relative;
+            /* Demo specific styles */
+            .demo-dropdowns {
+                display: flex;
+                gap: var(--ds-space-3);
+                flex-wrap: wrap;
+                align-items: flex-start;
+                margin-bottom: var(--ds-space-4);
+            }
+
+            .code-inline {
                 display: inline-block;
+                margin-top: var(--ds-space-2);
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
-            .dropdown__trigger {
-                display: flex;
-                align-items: center;
-                gap: 8px;
+
+            .code-block {
+                background: var(--ds-gray-50);
+                padding: var(--ds-space-3);
+                border-radius: var(--ds-border-radius-md);
+                overflow-x: auto;
+                font-family: monospace;
+                font-size: var(--ds-text-sm);
+                line-height: 1.5;
             }
-            .dropdown__menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                z-index: 100;
-                min-width: 200px;
-                margin-top: 4px;
-                background: white;
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 8px;
-                box-shadow: var(--shadow-lg);
-                display: none;
-                padding: 8px 0;
+
+            .mt-3 {
+                margin-top: var(--ds-space-3);
             }
-            .dropdown:hover .dropdown__menu {
-                display: block;
+
+            /* Table styles */
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: var(--ds-text-sm);
             }
-            .dropdown__item {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 8px 16px;
-                color: var(--vp-c-text-1);
-                text-decoration: none;
-                transition: background 0.2s;
+
+            .table th {
+                padding: var(--ds-space-3);
+                border-bottom: 2px solid var(--ds-gray-200);
+                background: var(--ds-gray-50);
+                color: var(--ds-black);
+                font-weight: var(--ds-font-semibold);
+                text-align: left;
             }
-            .dropdown__item:hover {
-                background: var(--vp-c-bg-soft);
+
+            .table td {
+                padding: var(--ds-space-3);
+                border-bottom: 1px solid var(--ds-gray-100);
+                color: var(--ds-gray-600);
+                vertical-align: top;
             }
-            .dropdown__item--danger {
-                color: var(--color-danger-500);
+
+            .table code {
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
-            .dropdown__divider {
-                height: 1px;
-                margin: 8px 0;
-                background: var(--vp-c-divider);
-            }
-            .dropdown__header {
-                padding: 12px 16px;
-            }
-            .dropdown__user {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-            .dropdown__user-name {
-                font-weight: 500;
-            }
-            .dropdown__user-email {
-                font-size: 12px;
-                color: var(--vp-c-text-3);
-            }
-            .dropdown__menu--wide {
-                min-width: 280px;
-            }
-            .dropdown--up .dropdown__menu {
-                bottom: 100%;
-                top: auto;
-                margin-bottom: 4px;
-                margin-top: 0;
-            }
-            .dropdown--right .dropdown__menu {
-                left: 100%;
-                top: 0;
-                margin-left: 4px;
-                margin-top: 0;
-            }
-            .dropdown--left .dropdown__menu {
-                right: 100%;
-                left: auto;
-                top: 0;
-                margin-right: 4px;
-                margin-top: 0;
+
+            /* Dropdown click functionality */
+            .dropdown--open .dropdown__menu {
+                display: block !important;
             }
         </style>
+
     </div>
 </body>
 </html>

@@ -7,227 +7,804 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Modal</h1>
-            <p class="vp-doc-description">
-                오버레이 형태로 표시되는 모달 다이얼로그 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Modal Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 모달 다이얼로그 컴포넌트입니다. 오버레이 형태로 표시되어 사용자와 상호작용하는 다양한 변형과 기능을 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Modal</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <button type="button" class="btn btn--primary" onclick="document.getElementById('modal1').classList.add('modal--open')">
-                    Open Modal
-                </button>
-                
-                <div id="modal1" class="modal">
-                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
-                    <div class="modal__content">
-                        <div class="modal__header">
-                            <h3 class="modal__title">Modal Title</h3>
-                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">
-                                <svg class="icon">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-close"></use>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="modal__body">
-                            <p>This is the modal body content. You can put any content here.</p>
-                        </div>
-                        <div class="modal__footer">
-                            <button type="button" class="btn btn--secondary" onclick="this.closest('.modal').classList.remove('modal--open')">Cancel</button>
-                            <button type="button" class="btn btn--primary">Confirm</button>
-                        </div>
-                    </div>
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="modal"&gt;
-    &lt;div class="modal__backdrop"&gt;&lt;/div&gt;
-    &lt;div class="modal__content"&gt;
+                <div class="card__body">
+                    <div class="demo-modals">
+                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-basic')">
+                            Open Basic Modal
+                        </button>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="modal" id="modal-basic"&gt;
+    &lt;div class="modal__dialog"&gt;
         &lt;div class="modal__header"&gt;
             &lt;h3 class="modal__title"&gt;Modal Title&lt;/h3&gt;
-            &lt;button class="modal__close"&gt;×&lt;/button&gt;
+            &lt;button type="button" class="modal__close"&gt;×&lt;/button&gt;
         &lt;/div&gt;
         &lt;div class="modal__body"&gt;
-            &lt;p&gt;Modal content&lt;/p&gt;
+            &lt;p&gt;Modal content goes here&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class="modal__footer"&gt;
-            &lt;button class="btn"&gt;Cancel&lt;/button&gt;
+            &lt;button class="btn btn--ghost"&gt;Cancel&lt;/button&gt;
             &lt;button class="btn btn--primary"&gt;Confirm&lt;/button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Modal Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; gap: 12px;">
-                <button type="button" class="btn btn--secondary" onclick="document.getElementById('modal-sm').classList.add('modal--open')">
-                    Small Modal
-                </button>
-                <button type="button" class="btn btn--secondary" onclick="document.getElementById('modal-lg').classList.add('modal--open')">
-                    Large Modal
-                </button>
-                <button type="button" class="btn btn--secondary" onclick="document.getElementById('modal-full').classList.add('modal--open')">
-                    Full Modal
-                </button>
-                
-                <div id="modal-sm" class="modal modal--sm">
-                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
-                    <div class="modal__content">
-                        <div class="modal__header">
-                            <h3 class="modal__title">Small Modal</h3>
-                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">×</button>
-                        </div>
-                        <div class="modal__body">
-                            <p>This is a small modal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Sizes -->
+        <section class="section">
+            <h2 class="section__title">Modal Sizes</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Small Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-sm')">
+                            Open Small Modal
+                        </button>
+                        <code class="code-inline">.modal__dialog--sm</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Large Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-lg')">
+                            Open Large Modal
+                        </button>
+                        <code class="code-inline">.modal__dialog--lg</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Extra Large Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-xl')">
+                            Open XL Modal
+                        </button>
+                        <code class="code-inline">.modal__dialog--xl</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Fullscreen Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-fullscreen')">
+                            Open Fullscreen Modal
+                        </button>
+                        <code class="code-inline">.modal__dialog--fullscreen</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Themes -->
+        <section class="section">
+            <h2 class="section__title">Modal Themes</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Default Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-default')">
+                            Open Default Modal
+                        </button>
+                        <code class="code-inline">Default theme</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-dark')">
+                            Open Dark Modal
+                        </button>
+                        <code class="code-inline">.modal--dark</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal with Cards -->
+        <section class="section">
+            <h2 class="section__title">Modal with Card Components</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Form Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-form')">
+                            Open Form Modal
+                        </button>
+                        <p class="text-sm text-muted">Modal containing a form card with input fields</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Gallery Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-gallery')">
+                            Open Gallery Modal
+                        </button>
+                        <p class="text-sm text-muted">Modal with image gallery cards</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Settings Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-settings')">
+                            Open Settings Modal
+                        </button>
+                        <p class="text-sm text-muted">Modal with tabbed settings cards</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Confirmation Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--danger" onclick="BRICKS.Modal.open('modal-confirm')">
+                            Delete Item
+                        </button>
+                        <p class="text-sm text-muted">Simple confirmation dialog</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features -->
+        <section class="section">
+            <h2 class="section__title">Special Features</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Centered Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-centered')">
+                            Open Centered Modal
+                        </button>
+                        <code class="code-inline">.modal--centered</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Scrollable Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-scrollable')">
+                            Open Scrollable Modal
+                        </button>
+                        <code class="code-inline">.modal__dialog--scrollable</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Static Backdrop</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-static')">
+                            Open Static Modal
+                        </button>
+                        <code class="code-inline">.modal--static</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">No Header Modal</h3>
+                    </div>
+                    <div class="card__body">
+                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-no-header')">
+                            Open Headerless Modal
+                        </button>
+                        <code class="code-inline">Without .modal__header</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.modal</code></td>
+                                <td>Base modal container</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal--open</code></td>
+                                <td>Show modal (applied via JS)</td>
+                                <td>Visibility state</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal--centered</code></td>
+                                <td>Center modal vertically</td>
+                                <td>Position modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal--static</code></td>
+                                <td>Static backdrop (no close on click)</td>
+                                <td>Interaction modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal--dark</code></td>
+                                <td>Dark theme variant</td>
+                                <td>Theme modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__dialog</code></td>
+                                <td>Modal dialog container</td>
+                                <td>Content wrapper</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__dialog--sm</code></td>
+                                <td>Small dialog (400px max-width)</td>
+                                <td>Size modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__dialog--lg</code></td>
+                                <td>Large dialog (800px max-width)</td>
+                                <td>Size modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__dialog--xl</code></td>
+                                <td>Extra large dialog (1200px max-width)</td>
+                                <td>Size modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__dialog--fullscreen</code></td>
+                                <td>Full screen dialog</td>
+                                <td>Size modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__dialog--scrollable</code></td>
+                                <td>Scrollable body content</td>
+                                <td>Overflow modifier</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__header</code></td>
+                                <td>Modal header section</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__title</code></td>
+                                <td>Modal title text</td>
+                                <td>Header content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__close</code></td>
+                                <td>Close button</td>
+                                <td>Interactive element</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__body</code></td>
+                                <td>Modal body content</td>
+                                <td>Main content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.modal__footer</code></td>
+                                <td>Modal footer section</td>
+                                <td>Optional</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Modal Examples (Hidden by default) -->
+
+        <!-- Basic Modal -->
+        <div id="modal-basic" class="modal">
+            <div class="modal__dialog">
+                <div class="modal__header">
+                    <h3 class="modal__title">Basic Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-basic')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card">
+                        <div class="card__body">
+                            <p>This is a basic modal dialog with a card inside. It demonstrates the standard modal layout with header, body, and footer.</p>
+                            <p>You can put any content here, including other components like cards, forms, or media.</p>
                         </div>
                     </div>
                 </div>
-                
-                <div id="modal-lg" class="modal modal--lg">
-                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
-                    <div class="modal__content">
-                        <div class="modal__header">
-                            <h3 class="modal__title">Large Modal</h3>
-                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">×</button>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-basic')">Cancel</button>
+                    <button type="button" class="btn btn--primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Size Modals -->
+        <div id="modal-sm" class="modal">
+            <div class="modal__dialog modal__dialog--sm">
+                <div class="modal__header">
+                    <h3 class="modal__title">Small Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-sm')">×</button>
+                </div>
+                <div class="modal__body">
+                    <p>This is a small modal with 400px max-width.</p>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-sm')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-lg" class="modal">
+            <div class="modal__dialog modal__dialog--lg">
+                <div class="modal__header">
+                    <h3 class="modal__title">Large Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-lg')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card-group card-group--cols-2">
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Card 1</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>This is a large modal with 800px max-width, perfect for displaying multiple cards side by side.</p>
+                            </div>
                         </div>
-                        <div class="modal__body">
-                            <p>This is a large modal with more space for content.</p>
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Card 2</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>Large modals provide more space for complex layouts and multiple components.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div id="modal-full" class="modal modal--full">
-                    <div class="modal__backdrop" onclick="this.parentElement.classList.remove('modal--open')"></div>
-                    <div class="modal__content">
-                        <div class="modal__header">
-                            <h3 class="modal__title">Full Screen Modal</h3>
-                            <button type="button" class="modal__close" onclick="this.closest('.modal').classList.remove('modal--open')">×</button>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-lg')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-xl" class="modal">
+            <div class="modal__dialog modal__dialog--xl">
+                <div class="modal__header">
+                    <h3 class="modal__title">Extra Large Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-xl')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card-group card-group--cols-3">
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Feature 1</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>Extra large modal with 1200px max-width.</p>
+                            </div>
                         </div>
-                        <div class="modal__body">
-                            <p>This modal takes up the full screen.</p>
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Feature 2</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>Perfect for dashboards and complex interfaces.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Feature 3</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>Accommodates multiple columns of content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-xl')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-fullscreen" class="modal">
+            <div class="modal__dialog modal__dialog--fullscreen">
+                <div class="modal__header">
+                    <h3 class="modal__title">Fullscreen Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-fullscreen')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card">
+                        <div class="card__body">
+                            <h4>Fullscreen Experience</h4>
+                            <p>This modal takes up the entire viewport, perfect for immersive experiences like image galleries, video players, or complex forms.</p>
+                            <div class="card-group card-group--cols-4" style="margin-top: 2rem;">
+                                <div class="card card--gray">
+                                    <div class="card__body">
+                                        <h5>Section 1</h5>
+                                        <p>Content area 1</p>
+                                    </div>
+                                </div>
+                                <div class="card card--gray">
+                                    <div class="card__body">
+                                        <h5>Section 2</h5>
+                                        <p>Content area 2</p>
+                                    </div>
+                                </div>
+                                <div class="card card--gray">
+                                    <div class="card__body">
+                                        <h5>Section 3</h5>
+                                        <p>Content area 3</p>
+                                    </div>
+                                </div>
+                                <div class="card card--gray">
+                                    <div class="card__body">
+                                        <h5>Section 4</h5>
+                                        <p>Content area 4</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-fullscreen')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Theme Modals -->
+        <div id="modal-default" class="modal">
+            <div class="modal__dialog">
+                <div class="modal__header">
+                    <h3 class="modal__title">Default Theme</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-default')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card">
+                        <div class="card__body">
+                            <p>This modal uses the default light theme with white background.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-default')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-dark" class="modal modal--dark">
+            <div class="modal__dialog">
+                <div class="modal__header">
+                    <h3 class="modal__title">Dark Theme</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-dark')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card card--dark">
+                        <div class="card__body">
+                            <p>This modal uses the dark theme with dark background and light text.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-dark')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complex Modals -->
+        <div id="modal-form" class="modal">
+            <div class="modal__dialog modal__dialog--lg">
+                <div class="modal__header">
+                    <h3 class="modal__title">User Information Form</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-form')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card">
+                        <div class="card__header">
+                            <h4 class="card__title">Personal Details</h4>
+                        </div>
+                        <div class="card__body">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="4" placeholder="Enter your message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-form')">Cancel</button>
+                    <button type="button" class="btn btn--primary">Save Information</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-gallery" class="modal">
+            <div class="modal__dialog modal__dialog--xl">
+                <div class="modal__header">
+                    <h3 class="modal__title">Image Gallery</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-gallery')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card-group card-group--cols-3">
+                        <div class="card">
+                            <div class="card__image card__image--top">
+                                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white;">Image 1</div>
+                            </div>
+                            <div class="card__body">
+                                <h4>Gallery Item 1</h4>
+                                <p>Beautiful landscape photo</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__image card__image--top">
+                                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; color: white;">Image 2</div>
+                            </div>
+                            <div class="card__body">
+                                <h4>Gallery Item 2</h4>
+                                <p>Stunning architecture shot</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__image card__image--top">
+                                <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #4facfe, #00f2fe); display: flex; align-items: center; justify-content: center; color: white;">Image 3</div>
+                            </div>
+                            <div class="card__body">
+                                <h4>Gallery Item 3</h4>
+                                <p>Creative portrait photography</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-gallery')">Close Gallery</button>
+                    <button type="button" class="btn btn--primary">Download Selected</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-settings" class="modal">
+            <div class="modal__dialog modal__dialog--lg">
+                <div class="modal__header">
+                    <h3 class="modal__title">Settings</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-settings')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card-group card-group--cols-1">
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Account Settings</h4>
+                            </div>
+                            <div class="card__body">
+                                <div class="settings-item">
+                                    <span>Enable notifications</span>
+                                    <input type="checkbox" checked>
+                                </div>
+                                <div class="settings-item">
+                                    <span>Dark mode</span>
+                                    <input type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Privacy Settings</h4>
+                            </div>
+                            <div class="card__body">
+                                <div class="settings-item">
+                                    <span>Make profile public</span>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="settings-item">
+                                    <span>Allow data collection</span>
+                                    <input type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-settings')">Cancel</button>
+                    <button type="button" class="btn btn--primary">Save Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-confirm" class="modal">
+            <div class="modal__dialog modal__dialog--sm">
+                <div class="modal__header">
+                    <h3 class="modal__title">Confirm Deletion</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-confirm')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card card--outlined">
+                        <div class="card__body">
+                            <p><strong>Are you sure you want to delete this item?</strong></p>
+                            <p class="text-sm text-muted">This action cannot be undone. The item will be permanently removed from your account.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-confirm')">Cancel</button>
+                    <button type="button" class="btn btn--danger">Delete Item</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Feature Modals -->
+        <div id="modal-centered" class="modal modal--centered">
+            <div class="modal__dialog">
+                <div class="modal__header">
+                    <h3 class="modal__title">Centered Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-centered')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card">
+                        <div class="card__body">
+                            <p>This modal is vertically centered in the viewport using the <code>.modal--centered</code> class.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-centered')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-scrollable" class="modal">
+            <div class="modal__dialog modal__dialog--scrollable">
+                <div class="modal__header">
+                    <h3 class="modal__title">Scrollable Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-scrollable')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card">
+                        <div class="card__body">
+                            <p>This modal has a scrollable body when content exceeds the available height.</p>
+                            <div class="content-sections">
+                                <div class="card card--gray" style="margin-bottom: 1rem;">
+                                    <div class="card__body"><h5>Section 1</h5><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+                                </div>
+                                <div class="card card--gray" style="margin-bottom: 1rem;">
+                                    <div class="card__body"><h5>Section 2</h5><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+                                </div>
+                                <div class="card card--gray" style="margin-bottom: 1rem;">
+                                    <div class="card__body"><h5>Section 3</h5><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p></div>
+                                </div>
+                                <div class="card card--gray" style="margin-bottom: 1rem;">
+                                    <div class="card__body"><h5>Section 4</h5><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                                </div>
+                                <div class="card card--gray" style="margin-bottom: 1rem;">
+                                    <div class="card__body"><h5>Section 5</h5><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-scrollable')">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-static" class="modal modal--static">
+            <div class="modal__dialog">
+                <div class="modal__header">
+                    <h3 class="modal__title">Static Backdrop Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-static')">×</button>
+                </div>
+                <div class="modal__body">
+                    <div class="card card--outlined">
+                        <div class="card__body">
+                            <p><strong>This modal has a static backdrop.</strong></p>
+                            <p>Clicking outside the modal will not close it. You must use the close button or press Escape.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.close('modal-static')">I Understand</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-no-header" class="modal">
+            <div class="modal__dialog">
+                <div class="modal__body">
+                    <div class="card">
+                        <div class="card__body">
+                            <h4>Modal without Header</h4>
+                            <p>This modal doesn't have a header section. The content starts directly with the body.</p>
+                            <p>You can still include a close button within the body if needed.</p>
+                            <div style="text-align: right; margin-top: 1rem;">
+                                <button type="button" class="btn btn--ghost btn--sm" onclick="BRICKS.Modal.close('modal-no-header')">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.modal</code></td>
-                    <td>Base modal container</td>
-                </tr>
-                <tr>
-                    <td><code>.modal--open</code></td>
-                    <td>Show modal</td>
-                </tr>
-                <tr>
-                    <td><code>.modal--sm</code></td>
-                    <td>Small modal (400px)</td>
-                </tr>
-                <tr>
-                    <td><code>.modal--lg</code></td>
-                    <td>Large modal (800px)</td>
-                </tr>
-                <tr>
-                    <td><code>.modal--full</code></td>
-                    <td>Full screen modal</td>
-                </tr>
-            </tbody>
-        </table>
-        
+
         <style>
-            .modal {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 1000;
-            }
-            .modal--open {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .modal__backdrop {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5);
-            }
-            .modal__content {
-                position: relative;
-                background: white;
-                border-radius: 12px;
-                max-width: 600px;
-                width: 90%;
-                max-height: 90vh;
-                overflow: auto;
-            }
-            .modal--sm .modal__content {
-                max-width: 400px;
-            }
-            .modal--lg .modal__content {
-                max-width: 800px;
-            }
-            .modal--full .modal__content {
-                max-width: 100%;
-                width: 100%;
-                height: 100vh;
-                border-radius: 0;
-            }
-            .modal__header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px 24px;
-                border-bottom: 1px solid var(--vp-c-divider);
-            }
-            .modal__title {
-                margin: 0;
-                font-size: 18px;
-            }
-            .modal__close {
-                background: none;
-                border: none;
-                font-size: 24px;
-                cursor: pointer;
-                padding: 0;
-                width: 32px;
-                height: 32px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 6px;
-            }
-            .modal__close:hover {
-                background: var(--vp-c-bg-soft);
-            }
-            .modal__body {
-                padding: 24px;
-            }
-            .modal__footer {
-                display: flex;
-                justify-content: flex-end;
-                gap: 12px;
-                padding: 20px 24px;
-                border-top: 1px solid var(--vp-c-divider);
-            }
+            /* Demo specific styles */
+            .demo-modals { display: flex; gap: var(--ds-space-3); flex-wrap: wrap; align-items: flex-start; margin-bottom: var(--ds-space-4); }
+            .code-inline { display: inline-block; margin-top: var(--ds-space-2); padding: var(--ds-space-1) var(--ds-space-2); background: var(--ds-gray-100); border-radius: var(--ds-border-radius-sm); font-size: var(--ds-text-xs); }
+            .code-block { background: var(--ds-gray-50); padding: var(--ds-space-3); border-radius: var(--ds-border-radius-md); overflow-x: auto; }
+            .text-sm { font-size: var(--ds-text-sm); }
+            .text-muted { color: var(--ds-gray-600); }
+
+            /* Button styles for demo */
+            /* .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--ds-space-2) var(--ds-space-3); border: 1px solid transparent; border-radius: var(--ds-border-radius-md); font-size: var(--ds-text-sm); font-weight: var(--ds-font-medium); text-decoration: none; cursor: pointer; transition: all 0.2s; }
+            .btn--primary { background: var(--ds-black); color: var(--ds-white); border-color: var(--ds-black); }
+            .btn--primary:hover { background: var(--ds-gray-800); border-color: var(--ds-gray-800); }
+            .btn--secondary { background: var(--ds-gray-100); color: var(--ds-black); border-color: var(--ds-gray-200); }
+            .btn--secondary:hover { background: var(--ds-gray-200); }
+            .btn--ghost { background: transparent; color: var(--ds-black); border-color: var(--ds-gray-200); }
+            .btn--ghost:hover { background: var(--ds-gray-50); }
+            .btn--danger { background: var(--ds-red-500); color: var(--ds-white); border-color: var(--ds-red-500); }
+            .btn--danger:hover { background: var(--ds-red-600); border-color: var(--ds-red-600); }
+            .btn--sm { padding: var(--ds-space-1) var(--ds-space-2); font-size: var(--ds-text-xs); } */
+
+            /* Form styles for demo */
+            .form-group { margin-bottom: var(--ds-space-3); }
+            .form-group label { display: block; margin-bottom: var(--ds-space-1); font-weight: var(--ds-font-medium); }
+            .form-control { width: 100%; padding: var(--ds-space-2); border: 1px solid var(--ds-gray-200); border-radius: var(--ds-border-radius-sm); font-size: var(--ds-text-sm); }
+            .form-control:focus { outline: none; border-color: var(--ds-black); }
+
+            /* Settings styles for demo */
+            .settings-item { display: flex; justify-content: space-between; align-items: center; padding: var(--ds-space-2) 0; border-bottom: 1px solid var(--ds-gray-100); }
+            .settings-item:last-child { border-bottom: none; }
+
+            /* Dark card variant for demo */
+            .card--dark { background: var(--ds-gray-800); color: var(--ds-white); }
+
+            /* Utility classes */
+            .mt-2 { margin-top: var(--ds-space-2); }
+            .mt-3 { margin-top: var(--ds-space-3); }
+
+ 
         </style>
     </div>
 </body>

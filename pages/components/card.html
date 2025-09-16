@@ -7,28 +7,31 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Card</h1>
-            <p class="vp-doc-description">
-                콘텐츠를 그룹화하여 표시하는 카드 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Card Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 카드 컴포넌트입니다. 콘텐츠를 구조화하고 그룹화하여 표시하는 다양한 변형과 기능을 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Card</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="card">
-                    <div class="card__header">
-                        <h3 class="card__title">Card Title</h3>
-                    </div>
-                    <div class="card__body">
-                        <p>This is the card body content. You can put any content here.</p>
-                    </div>
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="card"&gt;
+                <div class="card__body">
+                    <div class="demo-cards">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Card Title</h3>
+                            </div>
+                            <div class="card__body">
+                                <p>This is the card body content. You can put any content here.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="card"&gt;
     &lt;div class="card__header"&gt;
         &lt;h3 class="card__title"&gt;Card Title&lt;/h3&gt;
     &lt;/div&gt;
@@ -36,210 +39,473 @@
         &lt;p&gt;Card content goes here&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Card with Footer</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
+                </div>
+            </div>
+        </section>
+
+        <!-- Card with Footer -->
+        <section class="section">
+            <h2 class="section__title">Card with Footer</h2>
+            <div class="card-group card-group--cols-2">
                 <div class="card">
                     <div class="card__header">
-                        <h3 class="card__title">Card with Footer</h3>
+                        <h3 class="card__title">Footer Left Aligned</h3>
                     </div>
                     <div class="card__body">
-                        <p>Card body content with a footer section.</p>
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Card Title</h3>
+                            </div>
+                            <div class="card__body">
+                                <p>Card content with footer buttons aligned to the left.</p>
+                            </div>
+                            <div class="card__footer card__footer--left">
+                                <button class="btn btn--primary btn--sm">Save</button>
+                                <button class="btn btn--ghost btn--sm">Cancel</button>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card__footer--left</code>
                     </div>
-                    <div class="card__footer">
-                        <button class="btn btn--primary btn--sm">Action</button>
-                        <button class="btn btn--ghost btn--sm">Cancel</button>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Footer Center Aligned</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Card Title</h3>
+                            </div>
+                            <div class="card__body">
+                                <p>Card content with footer buttons aligned to the center.</p>
+                            </div>
+                            <div class="card__footer card__footer--center">
+                                <button class="btn btn--primary btn--sm">Save</button>
+                                <button class="btn btn--ghost btn--sm">Cancel</button>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card__footer--center</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Footer Right Aligned</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Card Title</h3>
+                            </div>
+                            <div class="card__body">
+                                <p>Card content with footer buttons aligned to the right.</p>
+                            </div>
+                            <div class="card__footer card__footer--right">
+                                <button class="btn btn--primary btn--sm">Save</button>
+                                <button class="btn btn--ghost btn--sm">Cancel</button>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card__footer--right</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Footer Space Between</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Card Title</h3>
+                            </div>
+                            <div class="card__body">
+                                <p>Card content with footer buttons spaced between.</p>
+                            </div>
+                            <div class="card__footer card__footer--between">
+                                <button class="btn btn--ghost btn--sm">Back</button>
+                                <button class="btn btn--primary btn--sm">Next</button>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card__footer--between</code>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Card Variants</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container card-demo-grid">
-                <div class="card card--elevated">
-                    <div class="card__body">
-                        <h4>Elevated Card</h4>
-                        <p>With shadow effect</p>
-                    </div>
-                </div>
-                <div class="card card--bordered">
-                    <div class="card__body">
-                        <h4>Bordered Card</h4>
-                        <p>With border style</p>
-                    </div>
-                </div>
-                <div class="card card--flat">
-                    <div class="card__body">
-                        <h4>Flat Card</h4>
-                        <p>No shadow or border</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
-        <h2>Card Border Radius</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container card-demo-grid">
-                <div class="card card--radius-none">
+        <!-- Card Variants -->
+        <section class="section">
+            <h2 class="section__title">Card Variants</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Default (White)</h3>
+                    </div>
                     <div class="card__body">
-                        <h4>No Radius</h4>
-                        <p>Sharp corners</p>
+                        <div class="card">
+                            <div class="card__body">
+                                <h4>Default Card</h4>
+                                <p>White background</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card</code>
                     </div>
                 </div>
-                <div class="card card--radius-sm">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Gray</h3>
+                    </div>
                     <div class="card__body">
-                        <h4>Small Radius</h4>
-                        <p>Subtle rounding</p>
+                        <div class="card card--gray">
+                            <div class="card__body">
+                                <h4>Gray Card</h4>
+                                <p>Gray background</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--gray</code>
                     </div>
                 </div>
-                <div class="card card--radius-md">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Elevated</h3>
+                    </div>
                     <div class="card__body">
-                        <h4>Medium Radius</h4>
-                        <p>Standard rounding</p>
+                        <div class="card card--elevated">
+                            <div class="card__body">
+                                <h4>Elevated Card</h4>
+                                <p>With shadow effect</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--elevated</code>
                     </div>
                 </div>
-                <div class="card card--radius-lg">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Outlined</h3>
+                    </div>
                     <div class="card__body">
-                        <h4>Large Radius</h4>
-                        <p>Default card radius</p>
+                        <div class="card card--outlined">
+                            <div class="card__body">
+                                <h4>Outlined Card</h4>
+                                <p>With border style</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--outlined</code>
                     </div>
                 </div>
-                <div class="card card--radius-xl">
-                    <div class="card__body">
-                        <h4>XL Radius</h4>
-                        <p>More rounded</p>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Flat</h3>
                     </div>
-                </div>
-                <div class="card card--radius-2xl">
                     <div class="card__body">
-                        <h4>2XL Radius</h4>
-                        <p>Very rounded</p>
+                        <div class="card card--flat">
+                            <div class="card__body">
+                                <h4>Flat Card</h4>
+                                <p>No shadow or border</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--flat</code>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.card</code></td>
-                    <td>Base card container</td>
-                </tr>
-                <tr>
-                    <td><code>.card__header</code></td>
-                    <td>Card header section</td>
-                </tr>
-                <tr>
-                    <td><code>.card__body</code></td>
-                    <td>Card body content</td>
-                </tr>
-                <tr>
-                    <td><code>.card__footer</code></td>
-                    <td>Card footer section</td>
-                </tr>
-                <tr>
-                    <td><code>.card--elevated</code></td>
-                    <td>Card with shadow</td>
-                </tr>
-                <tr>
-                    <td><code>.card--bordered</code></td>
-                    <td>Card with border</td>
-                </tr>
-                <tr>
-                    <td><code>.card--flat</code></td>
-                    <td>Flat card without effects</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-none</code></td>
-                    <td>No border radius (sharp corners)</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-sm</code></td>
-                    <td>Small border radius (4px)</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-md</code></td>
-                    <td>Medium border radius (8px)</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-lg</code></td>
-                    <td>Large border radius (12px - default)</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-xl</code></td>
-                    <td>Extra large border radius (16px)</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-2xl</code></td>
-                    <td>2X large border radius (24px)</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-3xl</code></td>
-                    <td>3X large border radius (32px)</td>
-                </tr>
-                <tr>
-                    <td><code>.card--radius-full</code></td>
-                    <td>Full border radius (9999px)</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <h2>CSS Variables</h2>
-        <pre class="code-example"><code>/* Card Styling */
---ds-gray-50: #FAFAFA;  /* Card background */
---ds-gray-200: #E8E8E8; /* Card border */
---ds-radius-lg: 12px;   /* Card radius */
---ds-space-4: 16px;     /* Card padding */
---ds-shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.08);</code></pre>
+        </section>
+
+        <!-- Card Border Radius -->
+        <section class="section">
+            <h2 class="section__title">Border Radius</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">None</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--radius-none">
+                            <div class="card__body">
+                                <h4>No Radius</h4>
+                                <p>Sharp corners</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--radius-none</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--radius-sm">
+                            <div class="card__body">
+                                <h4>Small Radius</h4>
+                                <p>Subtle rounding</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--radius-sm</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Medium</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--radius-md">
+                            <div class="card__body">
+                                <h4>Medium Radius</h4>
+                                <p>Standard rounding</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--radius-md</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Large (Default)</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--radius-lg">
+                            <div class="card__body">
+                                <h4>Large Radius</h4>
+                                <p>Default card radius</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--radius-lg</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Extra Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--radius-xl">
+                            <div class="card__body">
+                                <h4>XL Radius</h4>
+                                <p>More rounded</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--radius-xl</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">2X Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--radius-2xl">
+                            <div class="card__body">
+                                <h4>2XL Radius</h4>
+                                <p>Very rounded</p>
+                            </div>
+                        </div>
+                        <code class="code-inline">.card--radius-2xl</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Special Features -->
+        <section class="section">
+            <h2 class="section__title">Special Features</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Clickable Card</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--clickable">
+                            <div class="card__body">
+                                <h4>Interactive Card</h4>
+                                <p>This card is clickable and has hover effects</p>
+                            </div>
+                        </div>
+                        <code class="code-inline mt-3">.card--clickable</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Horizontal Layout</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card card--horizontal">
+                            <div class="card__image">
+                                <div style="width: 100%; height: 120px; background: var(--ds-gray-200); display: flex; align-items: center; justify-content: center; color: var(--ds-gray-600); font-size: 14px;">Image</div>
+                            </div>
+                            <div class="card__body">
+                                <h4>Horizontal Card</h4>
+                                <p>Image and content side by side</p>
+                            </div>
+                        </div>
+                        <code class="code-inline mt-3">.card--horizontal</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Card with Image</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card">
+                            <div class="card__image card__image--top">
+                                <div style="width: 100%; height: 160px; background: var(--ds-gray-200); display: flex; align-items: center; justify-content: center; color: var(--ds-gray-600); font-size: 14px;">Image Placeholder</div>
+                            </div>
+                            <div class="card__body">
+                                <h4>Image Card</h4>
+                                <p>Card with top image</p>
+                            </div>
+                        </div>
+                        <code class="code-inline mt-3">.card__image--top</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Card with Badge</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="card" style="position: relative;">
+                            <div class="card__badge">
+                                <span class="badge badge--primary">New</span>
+                            </div>
+                            <div class="card__body">
+                                <h4>Badge Card</h4>
+                                <p>Card with positioned badge</p>
+                            </div>
+                        </div>
+                        <code class="code-inline mt-3">.card__badge</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.card</code></td>
+                                <td>Base card container (white background)</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card--gray</code></td>
+                                <td>Gray background variant</td>
+                                <td>Gray background</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card--{variant}</code></td>
+                                <td>Card variant</td>
+                                <td>elevated, outlined, flat, clickable</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card--radius-{size}</code></td>
+                                <td>Border radius modifier</td>
+                                <td>none, sm, md, lg, xl, 2xl, 3xl, full</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card--horizontal</code></td>
+                                <td>Horizontal layout</td>
+                                <td>Side-by-side content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__header</code></td>
+                                <td>Card header section</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__title</code></td>
+                                <td>Card title text</td>
+                                <td>Header content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__subtitle</code></td>
+                                <td>Card subtitle text</td>
+                                <td>Secondary text</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__body</code></td>
+                                <td>Card body content</td>
+                                <td>Main content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__footer</code></td>
+                                <td>Card footer section</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__footer--left</code></td>
+                                <td>Footer content aligned left</td>
+                                <td>Left alignment</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__footer--center</code></td>
+                                <td>Footer content aligned center</td>
+                                <td>Center alignment</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__footer--right</code></td>
+                                <td>Footer content aligned right</td>
+                                <td>Right alignment</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__footer--between</code></td>
+                                <td>Footer content spaced between</td>
+                                <td>Space between items</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__actions</code></td>
+                                <td>Action buttons container</td>
+                                <td>Button group</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__image</code></td>
+                                <td>Image container</td>
+                                <td>Media content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.card__badge</code></td>
+                                <td>Badge positioning</td>
+                                <td>Overlay content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <style>
+            /* Demo specific styles */
+            .demo-cards { display: flex; gap: var(--ds-space-3); flex-wrap: wrap; align-items: flex-start; margin-bottom: var(--ds-space-4); }
+            .code-inline { display: inline-block; margin-top: var(--ds-space-2); padding: var(--ds-space-1) var(--ds-space-2); background: var(--ds-gray-100); border-radius: var(--ds-border-radius-sm); font-size: var(--ds-text-xs); }
+            .code-block { background: var(--ds-gray-50); padding: var(--ds-space-3); border-radius: var(--ds-border-radius-md); overflow-x: auto; }
+            .mt-2 { margin-top: var(--ds-space-2); }
+            .mt-3 { margin-top: var(--ds-space-3); }
+            .mt-4 { margin-top: var(--ds-space-4); }
+            .text-sm { font-size: var(--ds-text-sm); }
+            .text-muted { color: var(--ds-gray-600); }
+
+            /* Badge styles for demo */
+            .badge { display: inline-flex; align-items: center; justify-content: center; padding: var(--ds-space-1) var(--ds-space-2); border-radius: var(--ds-border-radius-full); font-size: var(--ds-text-xs); font-weight: var(--ds-font-semibold); }
+            .badge--primary { background: var(--ds-black); color: var(--ds-white); }
+
+            /* Ensure nested cards in demos have proper spacing */
+            .card .card { margin: 0; }
+
+            /* Button styles for demo */
+            .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--ds-space-2) var(--ds-space-3); border: 1px solid transparent; border-radius: var(--ds-border-radius-md); font-size: var(--ds-text-sm); font-weight: var(--ds-font-medium); text-decoration: none; cursor: pointer; transition: all 0.2s; }
+            .btn--primary { background: var(--ds-black); color: var(--ds-white); border-color: var(--ds-black); }
+            .btn--primary:hover { background: var(--ds-gray-800); border-color: var(--ds-gray-800); }
+            .btn--ghost { background: transparent; color: var(--ds-black); border-color: var(--ds-gray-200); }
+            .btn--ghost:hover { background: var(--ds-gray-50); }
+            .btn--sm { padding: var(--ds-space-1) var(--ds-space-2); font-size: var(--ds-text-xs); }
+        </style>
+        </section>
+
     </div>
 
-    <style>
-        /* === Card Page Specific Styles === */
-        .card-demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-        }
-
-        /* Code Example */
-        .code-example {
-            background: var(--ds-gray-900);
-            border: 1px solid var(--ds-gray-700);
-            border-radius: 8px;
-            padding: 20px;
-            overflow-x: auto;
-            margin: 16px 0;
-        }
-        .code-example code {
-            color: var(--ds-gray-100);
-            font-family: var(--ds-font-mono);
-            font-size: var(--ds-text-sm);
-            line-height: 1.6;
-        }
-
-        /* Demo container adjustments */
-        .vp-demo-container {
-            padding: 32px;
-            background: var(--ds-white);
-        }
-
-        /* Ensure card has border in all variants */
-        .card--flat {
-            border: 1px solid var(--ds-gray-100);
-        }
-
-        .card--bordered {
-            border: 2px solid var(--ds-gray-300);
-        }
-    </style>
 </body>
 </html>
