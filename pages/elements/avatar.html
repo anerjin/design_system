@@ -7,201 +7,469 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Avatar</h1>
-            <p class="vp-doc-description">
-                사용자 프로필 이미지를 표시하는 아바타 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Avatar Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 아바타 컴포넌트입니다. 사용자 프로필 이미지와 이니셜을 표시하는 다양한 변형과 크기를 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Avatar</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="avatar">
-                    <img src="https://i.pravatar.cc/150?img=1" alt="User">
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="avatar"&gt;
-    &lt;img src="user.jpg" alt="User"&gt;
+                <div class="card__body">
+                    <div class="demo-avatars">
+                        <div class="avatar">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=1" alt="User">
+                        </div>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="avatar"&gt;
+    &lt;img class="avatar__image" src="user.jpg" alt="User"&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Avatar Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
-                <div class="avatar avatar--xs">
-                    <img src="https://i.pravatar.cc/150?img=2" alt="User">
-                </div>
-                <div class="avatar avatar--sm">
-                    <img src="https://i.pravatar.cc/150?img=3" alt="User">
-                </div>
-                <div class="avatar">
-                    <img src="https://i.pravatar.cc/150?img=4" alt="User">
-                </div>
-                <div class="avatar avatar--lg">
-                    <img src="https://i.pravatar.cc/150?img=5" alt="User">
-                </div>
-                <div class="avatar avatar--xl">
-                    <img src="https://i.pravatar.cc/150?img=6" alt="User">
                 </div>
             </div>
-        </div>
-        
-        <h2>Avatar Shapes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
-                <div class="avatar">
-                    <img src="https://i.pravatar.cc/150?img=7" alt="User">
+        </section>
+
+        <!-- Avatar Sizes -->
+        <section class="section">
+            <h2 class="section__title">Avatar Sizes</h2>
+            <p>다양한 크기의 아바타</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Size Variations</h3>
                 </div>
-                <div class="avatar avatar--rounded">
-                    <img src="https://i.pravatar.cc/150?img=8" alt="User">
-                </div>
-                <div class="avatar avatar--square">
-                    <img src="https://i.pravatar.cc/150?img=9" alt="User">
-                </div>
-            </div>
-        </div>
-        
-        <h2>Avatar with Initials</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
-                <div class="avatar avatar--initials">
-                    <span>JD</span>
-                </div>
-                <div class="avatar avatar--initials avatar--primary">
-                    <span>AB</span>
-                </div>
-                <div class="avatar avatar--initials avatar--success">
-                    <span>CD</span>
-                </div>
-                <div class="avatar avatar--initials avatar--warning">
-                    <span>EF</span>
-                </div>
-                <div class="avatar avatar--initials avatar--danger">
-                    <span>GH</span>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Avatar with Status</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 16px;">
-                <div class="avatar avatar--status">
-                    <img src="https://i.pravatar.cc/150?img=10" alt="User">
-                    <span class="avatar__status avatar__status--online"></span>
-                </div>
-                <div class="avatar avatar--status">
-                    <img src="https://i.pravatar.cc/150?img=11" alt="User">
-                    <span class="avatar__status avatar__status--away"></span>
-                </div>
-                <div class="avatar avatar--status">
-                    <img src="https://i.pravatar.cc/150?img=12" alt="User">
-                    <span class="avatar__status avatar__status--busy"></span>
-                </div>
-                <div class="avatar avatar--status">
-                    <img src="https://i.pravatar.cc/150?img=13" alt="User">
-                    <span class="avatar__status avatar__status--offline"></span>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Avatar Group</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="avatar-group">
-                    <div class="avatar">
-                        <img src="https://i.pravatar.cc/150?img=14" alt="User 1">
-                    </div>
-                    <div class="avatar">
-                        <img src="https://i.pravatar.cc/150?img=15" alt="User 2">
-                    </div>
-                    <div class="avatar">
-                        <img src="https://i.pravatar.cc/150?img=16" alt="User 3">
-                    </div>
-                    <div class="avatar">
-                        <img src="https://i.pravatar.cc/150?img=17" alt="User 4">
-                    </div>
-                    <div class="avatar avatar--more">
-                        <span>+5</span>
+                <div class="card__body">
+                    <div class="sizes-list">
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--xs">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=2" alt="User">
+                            </div>
+                            <span class="label">Extra Small (24px)</span>
+                            <code class="code-inline">.avatar--xs</code>
+                        </div>
+
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--sm">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=3" alt="User">
+                            </div>
+                            <span class="label">Small (32px)</span>
+                            <code class="code-inline">.avatar--sm</code>
+                        </div>
+
+                        <div class="avatar-wrapper">
+                            <div class="avatar">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=4" alt="User">
+                            </div>
+                            <span class="label">Medium (40px)</span>
+                            <code class="code-inline">default</code>
+                        </div>
+
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--lg">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=5" alt="User">
+                            </div>
+                            <span class="label">Large (48px)</span>
+                            <code class="code-inline">.avatar--lg</code>
+                        </div>
+
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--xl">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=6" alt="User">
+                            </div>
+                            <span class="label">Extra Large (64px)</span>
+                            <code class="code-inline">.avatar--xl</code>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.avatar</code></td>
-                    <td>Base avatar container</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--xs</code></td>
-                    <td>Extra small (24px)</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--sm</code></td>
-                    <td>Small (32px)</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--lg</code></td>
-                    <td>Large (48px)</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--xl</code></td>
-                    <td>Extra large (64px)</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--rounded</code></td>
-                    <td>Rounded corners</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--square</code></td>
-                    <td>Square shape</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--initials</code></td>
-                    <td>Text initials</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar--status</code></td>
-                    <td>With status indicator</td>
-                </tr>
-                <tr>
-                    <td><code>.avatar-group</code></td>
-                    <td>Group container</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Avatar Shapes -->
+        <section class="section">
+            <h2 class="section__title">Avatar Shapes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Circle (Default)</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="avatar">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=7" alt="User">
+                        </div>
+                        <code class="code-inline">default</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Rounded</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="avatar avatar--rounded">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=8" alt="User">
+                        </div>
+                        <code class="code-inline">.avatar--rounded</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Square</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="avatar avatar--square">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=9" alt="User">
+                        </div>
+                        <code class="code-inline">.avatar--square</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avatar with Initials -->
+        <section class="section">
+            <h2 class="section__title">Avatar with Initials</h2>
+            <p>이미지 대신 이니셜을 표시하는 아바타</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Initial Avatars</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-avatars">
+                        <div class="avatar avatar--initials">
+                            <span class="avatar__text">JD</span>
+                        </div>
+                        <div class="avatar avatar--initials avatar--primary">
+                            <span class="avatar__text">AB</span>
+                        </div>
+                        <div class="avatar avatar--initials avatar--success">
+                            <span class="avatar__text">CD</span>
+                        </div>
+                        <div class="avatar avatar--initials avatar--warning">
+                            <span class="avatar__text">EF</span>
+                        </div>
+                        <div class="avatar avatar--initials avatar--danger">
+                            <span class="avatar__text">GH</span>
+                        </div>
+                        <div class="avatar avatar--initials avatar--info">
+                            <span class="avatar__text">IJ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avatar with Status -->
+        <section class="section">
+            <h2 class="section__title">Avatar with Status</h2>
+            <p>상태 표시기가 있는 아바타</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Status Indicators</h3>
+                </div>
+                <div class="card__body">
+                    <div class="status-list">
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--status">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=10" alt="User">
+                                <span class="avatar__status avatar__status--online"></span>
+                            </div>
+                            <span class="label">Online</span>
+                        </div>
+
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--status">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=11" alt="User">
+                                <span class="avatar__status avatar__status--away"></span>
+                            </div>
+                            <span class="label">Away</span>
+                        </div>
+
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--status">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=12" alt="User">
+                                <span class="avatar__status avatar__status--busy"></span>
+                            </div>
+                            <span class="label">Busy</span>
+                        </div>
+
+                        <div class="avatar-wrapper">
+                            <div class="avatar avatar--status">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=13" alt="User">
+                                <span class="avatar__status avatar__status--offline"></span>
+                            </div>
+                            <span class="label">Offline</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avatar Group -->
+        <section class="section">
+            <h2 class="section__title">Avatar Group</h2>
+            <p>여러 아바타를 그룹으로 표시</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Stacked Avatars</h3>
+                </div>
+                <div class="card__body">
+                    <div class="avatar-group">
+                        <div class="avatar">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=14" alt="User 1">
+                        </div>
+                        <div class="avatar">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=15" alt="User 2">
+                        </div>
+                        <div class="avatar">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=16" alt="User 3">
+                        </div>
+                        <div class="avatar">
+                            <img class="avatar__image" src="https://i.pravatar.cc/150?img=17" alt="User 4">
+                        </div>
+                        <div class="avatar-group__more">
+                            <span>+5</span>
+                        </div>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="avatar-group"&gt;
+    &lt;div class="avatar"&gt;
+        &lt;img class="avatar__image" src="user1.jpg" alt="User 1"&gt;
+    &lt;/div&gt;
+    &lt;div class="avatar"&gt;
+        &lt;img class="avatar__image" src="user2.jpg" alt="User 2"&gt;
+    &lt;/div&gt;
+    &lt;div class="avatar-group__more"&gt;
+        &lt;span&gt;+5&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Avatar Group Sizes</h3>
+                </div>
+                <div class="card__body">
+                    <div class="group-sizes">
+                        <div class="avatar-group avatar-group--sm">
+                            <div class="avatar avatar--sm">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=18" alt="User">
+                            </div>
+                            <div class="avatar avatar--sm">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=19" alt="User">
+                            </div>
+                            <div class="avatar avatar--sm">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=20" alt="User">
+                            </div>
+                            <div class="avatar-group__more avatar-group__more--sm">
+                                <span>+3</span>
+                            </div>
+                        </div>
+
+                        <div class="avatar-group">
+                            <div class="avatar">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=21" alt="User">
+                            </div>
+                            <div class="avatar">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=22" alt="User">
+                            </div>
+                            <div class="avatar">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=23" alt="User">
+                            </div>
+                            <div class="avatar-group__more">
+                                <span>+3</span>
+                            </div>
+                        </div>
+
+                        <div class="avatar-group avatar-group--lg">
+                            <div class="avatar avatar--lg">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=24" alt="User">
+                            </div>
+                            <div class="avatar avatar--lg">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=25" alt="User">
+                            </div>
+                            <div class="avatar avatar--lg">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=26" alt="User">
+                            </div>
+                            <div class="avatar-group__more avatar-group__more--lg">
+                                <span>+3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Examples -->
+        <section class="section">
+            <h2 class="section__title">Advanced Examples</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">User Cards</h3>
+                </div>
+                <div class="card__body">
+                    <div class="user-cards">
+                        <div class="user-card">
+                            <div class="avatar avatar--lg avatar--status">
+                                <img class="avatar__image" src="https://i.pravatar.cc/150?img=27" alt="John Doe">
+                                <span class="avatar__status avatar__status--online"></span>
+                            </div>
+                            <div class="user-info">
+                                <div class="user-name">John Doe</div>
+                                <div class="user-role">Product Designer</div>
+                            </div>
+                        </div>
+
+                        <div class="user-card">
+                            <div class="avatar avatar--lg avatar--initials avatar--primary">
+                                <span class="avatar__text">JD</span>
+                            </div>
+                            <div class="user-info">
+                                <div class="user-name">Jane Smith</div>
+                                <div class="user-role">Frontend Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Table -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.avatar</code></td>
+                                <td>Base avatar container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--xs</code></td>
+                                <td>Extra small size (24px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--sm</code></td>
+                                <td>Small size (32px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--lg</code></td>
+                                <td>Large size (48px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--xl</code></td>
+                                <td>Extra large size (64px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--rounded</code></td>
+                                <td>Rounded corners</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--square</code></td>
+                                <td>Square shape</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--initials</code></td>
+                                <td>Text initials avatar</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar--status</code></td>
+                                <td>With status indicator</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar__status--online</code></td>
+                                <td>Online status (green)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar__status--away</code></td>
+                                <td>Away status (orange)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar__status--busy</code></td>
+                                <td>Busy status (red)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar__status--offline</code></td>
+                                <td>Offline status (gray)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.avatar-group</code></td>
+                                <td>Avatar group container</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .avatar-group {
-                display: flex;
-                align-items: center;
-            }
-            .avatar-group .avatar {
-                margin-left: -8px;
-                border: 2px solid white;
-            }
-            .avatar-group .avatar:first-child {
-                margin-left: 0;
-            }
-            .avatar--more {
-                background: var(--vp-c-bg-soft);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 12px;
-                font-weight: 500;
-                color: var(--vp-c-text-2);
-            }
+            /* Layout styles */
+            .header {margin-bottom:32px;}
+            .header__title {margin:0 0 12px 0; font-size:32px; font-weight:700;}
+            .header__description {margin:0; color:var(--ds-gray-600); font-size:16px;}
+            .section {margin-bottom:48px;}
+            .section__title {margin:0 0 24px 0; font-size:24px; font-weight:600;}
+
+            /* Card grid layout */
+            .card-group {display:grid; margin-bottom:16px; gap:16px;}
+            .card-group--cols-3 {grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));}
+
+            /* Code styles */
+            .code-block {margin-top:16px; padding:16px; border-radius:6px; background:var(--ds-gray-100); overflow-x:auto;}
+            .code-block code {font-size:14px; font-family:monospace; line-height:1.5;}
+            .code-inline {display:block; margin-top:8px; padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); color:var(--ds-gray-600); font-size:13px; font-family:monospace;}
+
+            /* Demo styles */
+            .demo-avatars {display:flex; align-items:center; gap:16px; margin-bottom:16px;}
+            .sizes-list {display:flex; align-items:center; gap:24px; flex-wrap:wrap;}
+            .status-list {display:flex; align-items:center; gap:32px; flex-wrap:wrap;}
+            .avatar-wrapper {display:flex; flex-direction:column; align-items:center; gap:8px;}
+            .label {font-size:13px; color:var(--ds-gray-600);}
+
+            /* Avatar variants for initials */
+            .avatar--initials {background:var(--ds-gray-400);}
+            .avatar--initials.avatar--primary {background:var(--ds-black);}
+            .avatar--initials.avatar--success {background:var(--ds-color-success);}
+            .avatar--initials.avatar--warning {background:var(--ds-color-warning);}
+            .avatar--initials.avatar--danger {background:var(--ds-color-danger);}
+            .avatar--initials.avatar--info {background:var(--ds-color-info);}
+            .avatar--initials .avatar__text {color:var(--ds-white);}
+
+            /* Avatar group sizes */
+            .group-sizes {display:flex; flex-direction:column; gap:24px;}
+            .avatar-group__more--sm {width:32px; height:32px; font-size:11px;}
+            .avatar-group__more--lg {width:48px; height:48px; font-size:14px;}
+
+            /* User cards */
+            .user-cards {display:flex; gap:24px; flex-wrap:wrap;}
+            .user-card {display:flex; align-items:center; gap:12px; padding:12px; border:1px solid var(--ds-gray-200); border-radius:8px; min-width:250px;}
+            .user-info {display:flex; flex-direction:column; gap:2px;}
+            .user-name {font-weight:600; color:var(--ds-gray-900);}
+            .user-role {font-size:13px; color:var(--ds-gray-600);}
+
+            /* Properties table */
+            .properties-table {width:100%; border-collapse:collapse;}
+            .properties-table th {padding:12px; border-bottom:2px solid var(--ds-gray-300); font-weight:600; text-align:left;}
+            .properties-table td {padding:12px; border-bottom:1px solid var(--ds-gray-200);}
+            .properties-table code {padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); font-size:13px; font-family:monospace;}
+
+            /* Utility classes */
+            .mt-4 {margin-top:32px;}
         </style>
     </div>
 </body>

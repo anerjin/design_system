@@ -7,243 +7,483 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Radio</h1>
-            <p class="vp-doc-description">
-                단일 선택을 위한 라디오 버튼 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Radio Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 라디오 버튼 컴포넌트입니다. 단일 선택을 위한 다양한 변형과 크기를 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Radio</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="basic" checked>
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Option 1</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="basic">
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Option 2</span>
-                </label>
-            </div>
-        </div>
-        
-        <pre><code>&lt;label class="radio"&gt;
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
+                </div>
+                <div class="card__body">
+                    <div class="demo-radios">
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="basic-demo" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Option 1</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="basic-demo">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Option 2</span>
+                        </label>
+                    </div>
+                    <pre class="code-block"><code>&lt;label class="radio"&gt;
     &lt;input type="radio" class="radio__input" name="group"&gt;
-    &lt;span class="radio__circle"&gt;&lt;/span&gt;
+    &lt;span class="radio__circle"&gt;
+        &lt;span class="radio__dot"&gt;&lt;/span&gt;
+    &lt;/span&gt;
     &lt;span class="radio__label"&gt;Option&lt;/span&gt;
 &lt;/label&gt;</code></pre>
-        
-        <h2>Radio States</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="states">
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Unchecked</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="states" checked>
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Checked</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="states2" disabled>
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Disabled</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="states3" checked disabled>
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Disabled Checked</span>
-                </label>
-            </div>
-        </div>
-        
-        <h2>Radio Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
-                <label class="radio radio--sm">
-                    <input type="radio" class="radio__input" name="size" checked>
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Small radio</span>
-                </label>
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="size">
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Default radio</span>
-                </label>
-                <label class="radio radio--lg">
-                    <input type="radio" class="radio__input" name="size">
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Large radio</span>
-                </label>
-            </div>
-        </div>
-        
-        <h2>Radio Colors</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 12px;">
-                <label class="radio">
-                    <input type="radio" class="radio__input" name="color" checked>
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Primary (default)</span>
-                </label>
-                <label class="radio radio--success">
-                    <input type="radio" class="radio__input" name="color">
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Success</span>
-                </label>
-                <label class="radio radio--warning">
-                    <input type="radio" class="radio__input" name="color">
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Warning</span>
-                </label>
-                <label class="radio radio--danger">
-                    <input type="radio" class="radio__input" name="color">
-                    <span class="radio__circle"></span>
-                    <span class="radio__label">Danger</span>
-                </label>
-            </div>
-        </div>
-        
-        <h2>Radio Group</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <fieldset class="radio-group">
-                    <legend>Choose your plan:</legend>
-                    <label class="radio">
-                        <input type="radio" class="radio__input" name="plan" value="basic">
-                        <span class="radio__circle"></span>
-                        <span class="radio__label">
-                            <strong>Basic</strong>
-                            <span class="radio__description">$9/month - Essential features</span>
-                        </span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" class="radio__input" name="plan" value="pro" checked>
-                        <span class="radio__circle"></span>
-                        <span class="radio__label">
-                            <strong>Pro</strong>
-                            <span class="radio__description">$29/month - Advanced features</span>
-                        </span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" class="radio__input" name="plan" value="enterprise">
-                        <span class="radio__circle"></span>
-                        <span class="radio__label">
-                            <strong>Enterprise</strong>
-                            <span class="radio__description">Custom pricing - All features</span>
-                        </span>
-                    </label>
-                </fieldset>
-            </div>
-        </div>
-        
-        <h2>Inline Radio Group</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="radio-group radio-group--inline">
-                    <label class="radio">
-                        <input type="radio" class="radio__input" name="size2" value="s">
-                        <span class="radio__circle"></span>
-                        <span class="radio__label">S</span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" class="radio__input" name="size2" value="m" checked>
-                        <span class="radio__circle"></span>
-                        <span class="radio__label">M</span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" class="radio__input" name="size2" value="l">
-                        <span class="radio__circle"></span>
-                        <span class="radio__label">L</span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" class="radio__input" name="size2" value="xl">
-                        <span class="radio__circle"></span>
-                        <span class="radio__label">XL</span>
-                    </label>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.radio</code></td>
-                    <td>Base radio wrapper</td>
-                </tr>
-                <tr>
-                    <td><code>.radio--sm</code></td>
-                    <td>Small size</td>
-                </tr>
-                <tr>
-                    <td><code>.radio--lg</code></td>
-                    <td>Large size</td>
-                </tr>
-                <tr>
-                    <td><code>.radio--success</code></td>
-                    <td>Success color</td>
-                </tr>
-                <tr>
-                    <td><code>.radio--warning</code></td>
-                    <td>Warning color</td>
-                </tr>
-                <tr>
-                    <td><code>.radio--danger</code></td>
-                    <td>Danger color</td>
-                </tr>
-                <tr>
-                    <td><code>.radio-group</code></td>
-                    <td>Radio group container</td>
-                </tr>
-                <tr>
-                    <td><code>.radio-group--inline</code></td>
-                    <td>Inline radio layout</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Radio States -->
+        <section class="section">
+            <h2 class="section__title">Radio States</h2>
+            <p>다양한 상태의 라디오 버튼</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Interactive States</h3>
+                </div>
+                <div class="card__body">
+                    <div class="states-list">
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="states">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Unchecked</span>
+                        </label>
+
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="states" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Checked</span>
+                        </label>
+
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="states2" disabled>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Disabled</span>
+                        </label>
+
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="states3" checked disabled>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Disabled Checked</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radio Sizes -->
+        <section class="section">
+            <h2 class="section__title">Radio Sizes</h2>
+            <p>다양한 크기의 라디오 버튼</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Size Variations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="sizes-list">
+                        <label class="radio radio--sm">
+                            <input type="radio" class="radio__input" name="size" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Small</span>
+                        </label>
+                        <code class="code-inline">.radio--sm</code>
+
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="size">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Medium (Default)</span>
+                        </label>
+                        <code class="code-inline">default</code>
+
+                        <label class="radio radio--lg">
+                            <input type="radio" class="radio__input" name="size">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Large</span>
+                        </label>
+                        <code class="code-inline">.radio--lg</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radio Variants -->
+        <section class="section">
+            <h2 class="section__title">Radio Variants</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary</h3>
+                    </div>
+                    <div class="card__body">
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="primary" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Primary</span>
+                        </label>
+                        <code class="code-inline">default</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <label class="radio radio--success">
+                            <input type="radio" class="radio__input" name="success" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Success</span>
+                        </label>
+                        <code class="code-inline">.radio--success</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Warning</h3>
+                    </div>
+                    <div class="card__body">
+                        <label class="radio radio--warning">
+                            <input type="radio" class="radio__input" name="warning" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Warning</span>
+                        </label>
+                        <code class="code-inline">.radio--warning</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <label class="radio radio--danger">
+                            <input type="radio" class="radio__input" name="danger" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Danger</span>
+                        </label>
+                        <code class="code-inline">.radio--danger</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radio Group -->
+        <section class="section">
+            <h2 class="section__title">Radio Group Examples</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Vertical Group with Description</h3>
+                </div>
+                <div class="card__body">
+                    <fieldset class="radio-group">
+                        <legend>Choose your plan:</legend>
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="plan" value="basic">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">
+                                <strong>Basic</strong>
+                                <span class="radio__description">$9/month - Essential features</span>
+                            </span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="plan" value="pro" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">
+                                <strong>Pro</strong>
+                                <span class="radio__description">$29/month - Advanced features</span>
+                            </span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="plan" value="enterprise">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">
+                                <strong>Enterprise</strong>
+                                <span class="radio__description">Custom pricing - All features</span>
+                            </span>
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Inline Radio Group</h3>
+                </div>
+                <div class="card__body">
+                    <div class="radio-group radio-group--inline">
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="size2" value="s">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">S</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="size2" value="m" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">M</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="size2" value="l">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">L</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio__input" name="size2" value="xl">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">XL</span>
+                        </label>
+                    </div>
+                    <code class="code-inline">.radio-group--inline</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Examples -->
+        <section class="section">
+            <h2 class="section__title">Advanced Examples</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Payment Method Selection</h3>
+                </div>
+                <div class="card__body">
+                    <div class="radio-group">
+                        <label class="radio radio-card">
+                            <input type="radio" class="radio__input" name="payment" value="credit" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">
+                                <strong>Credit Card</strong>
+                                <span class="radio__description">Visa, Mastercard, American Express</span>
+                            </span>
+                        </label>
+                        <label class="radio radio-card">
+                            <input type="radio" class="radio__input" name="payment" value="paypal">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">
+                                <strong>PayPal</strong>
+                                <span class="radio__description">Secure payment with PayPal account</span>
+                            </span>
+                        </label>
+                        <label class="radio radio-card">
+                            <input type="radio" class="radio__input" name="payment" value="bank">
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">
+                                <strong>Bank Transfer</strong>
+                                <span class="radio__description">Direct transfer from your bank account</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Radio Cards Grid Layout</h3>
+                </div>
+                <div class="card__body">
+                    <div class="radio-cards-grid">
+                        <label class="radio-card-item">
+                            <input type="radio" class="radio__input" name="theme" value="light" checked>
+                            <div class="radio-card-content">
+                                <span class="radio__circle">
+                                    <span class="radio__dot"></span>
+                                </span>
+                                <div class="radio-card-body">
+                                    <h4>Light Theme</h4>
+                                    <p>Clean and bright interface</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="radio-card-item">
+                            <input type="radio" class="radio__input" name="theme" value="dark">
+                            <div class="radio-card-content">
+                                <span class="radio__circle">
+                                    <span class="radio__dot"></span>
+                                </span>
+                                <div class="radio-card-body">
+                                    <h4>Dark Theme</h4>
+                                    <p>Easy on the eyes at night</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="radio-card-item">
+                            <input type="radio" class="radio__input" name="theme" value="auto">
+                            <div class="radio-card-content">
+                                <span class="radio__circle">
+                                    <span class="radio__dot"></span>
+                                </span>
+                                <div class="radio-card-body">
+                                    <h4>Auto Theme</h4>
+                                    <p>Follows system preference</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Table -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.radio</code></td>
+                                <td>Base radio wrapper</td>
+                            </tr>
+                            <tr>
+                                <td><code>.radio--sm</code></td>
+                                <td>Small size variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.radio--lg</code></td>
+                                <td>Large size variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.radio--success</code></td>
+                                <td>Success color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.radio--warning</code></td>
+                                <td>Warning color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.radio--danger</code></td>
+                                <td>Danger color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.radio-group</code></td>
+                                <td>Radio group container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.radio-group--inline</code></td>
+                                <td>Inline radio layout modifier</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .radio-group {
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 8px;
-                padding: 16px;
-            }
-            .radio-group legend {
-                padding: 0 8px;
-                font-weight: 500;
-            }
-            .radio-group .radio {
-                margin: 12px 0;
-            }
-            .radio-group--inline {
-                display: flex;
-                gap: 16px;
-                border: none;
-                padding: 0;
-            }
-            .radio__label {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-            }
-            .radio__description {
-                font-size: 12px;
-                color: var(--vp-c-text-3);
-                font-weight: normal;
-            }
+            /* Layout styles */
+            .header {margin-bottom:32px;}
+            .header__title {margin:0 0 12px 0; font-size:32px; font-weight:700;}
+            .header__description {margin:0; color:var(--vp-c-text-2); font-size:16px;}
+            .section {margin-bottom:48px;}
+            .section__title {margin:0 0 24px 0; font-size:24px; font-weight:600;}
+
+            /* Card grid layout */
+            .card-group {display:grid; margin-bottom:16px; gap:16px;}
+            .card-group--cols-3 {grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));}
+
+            /* Code styles */
+            .code-block {margin-top:16px; padding:16px; border-radius:6px; background:var(--vp-c-code-block-bg); overflow-x:auto;}
+            .code-block code {font-size:14px; font-family:monospace; line-height:1.5;}
+            .code-inline {display:block; margin-top:8px; padding:2px 6px; border-radius:4px; background:var(--vp-c-code-inline-bg); color:var(--vp-c-text-2); font-size:13px; font-family:monospace;}
+         /* Demo styles */
+            .demo-radios {display:flex; flex-direction:column; gap:12px;}
+            .states-list {display:flex; flex-direction:column; gap:16px;}
+            .sizes-list {display:flex; flex-direction:column; gap:20px;}
+            .sizes-list .radio {margin-bottom:4px;}
+         /* Radio group extensions */
+            .radio-group {padding:16px; border:1px solid var(--vp-c-divider); border-radius:8px;}
+            .radio-group legend {padding:0 8px; font-weight:500;}
+            .radio-group .radio {margin:12px 0;}
+            .radio-group--inline {display:flex; padding:0; border:none; gap:16px;}
+            .radio__label {display:flex; flex-direction:column; gap:4px;}
+            .radio__description {color:var(--vp-c-text-3); font-size:12px; font-weight:normal;}
+
+            /* Radio card styles */
+            .radio-card {display:flex; align-items:flex-start; margin-bottom:12px; padding:16px; border:1px solid var(--vp-c-divider); border-radius:8px; transition:all 0.2s;}
+            .radio-card:hover {border-color:var(--vp-c-brand); background:var(--vp-c-bg-soft);}
+         /* Radio cards grid */
+            .radio-cards-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;}
+            .radio-card-item {position:relative; padding:20px; cursor:pointer; transition:all 0.2s;}
+            .radio-card-item:hover {border-color:var(--vp-c-brand); transform:translateY(-2px);}
+            .radio-card-item .radio__input:checked ~ .radio-card-content {border-color:var(--vp-c-brand);}
+            .radio-card-content {display:flex; align-items:flex-start; gap:12px;}
+            .radio-card-body h4 {margin:0 0 8px 0; font-size:16px;}
+            .radio-card-body p {margin:0; color:var(--vp-c-text-2); font-size:14px;}
+         /* Properties table */
+            .properties-table {width:100%; border-collapse:collapse;}
+            .properties-table th {padding:12px; border-bottom:2px solid var(--vp-c-divider); font-weight:600; text-align:left;}
+            .properties-table td {padding:12px; border-bottom:1px solid var(--vp-c-divider);}
+            .properties-table code {padding:2px 6px; border-radius:4px; background:var(--vp-c-code-inline-bg); font-size:13px; font-family:monospace;}
+         /* Utility classes */
+            .mt-4 {margin-top:32px;}
         </style>
+        </div>
+
     </div>
 </body>
 </html>

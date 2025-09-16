@@ -411,7 +411,7 @@ https://tairo.cssninja.io/dashboards
 
 
 명령 예제.
-pages/elements/input.html 을 수정하는데 대칭되는 css 파일을 찾고
+pages/elements/spinner.html 을 수정하는데 대칭되는 css 파일을 찾고 대칭되는 css의 변수값이 잘못되어 있으면 수정해 주고
 예제에 필요한 ui는 html파일 안에 작성해
 
 문제가 있을경우만 대칭되는 파일을 수정하고 그렇지 않는 경우는 수정하지마.

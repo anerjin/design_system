@@ -7,18 +7,17 @@
 </head>
 <body>
 <div class="vp-doc">
-    <div class="vp-doc-header">
-        <h1 class="vp-doc-title">Checkbox</h1>
-        <p class="vp-doc-description">
-            다중 선택을 위한 체크박스 컴포넌트로 사용자가 여러 옵션을 선택할 수 있습니다.
+    <header class="header">
+        <h1 class="header__title">Checkbox Components</h1>
+        <p class="header__description">
+            BRICKS Design System의 체크박스 컴포넌트입니다. 다중 선택을 위한 다양한 변형과 크기를 지원합니다.
         </p>
-    </div>
+    </header>
 
-    <!-- Basic Checkbox -->
-    <h2>Basic Checkbox</h2>
-    <p>기본 체크박스 컴포넌트</p>
-    
-    <div class="checkbox-examples">
+    <!-- Basic Usage -->
+    <section class="section">
+        <h2 class="section__title">Basic Usage</h2>
+        <div class="checkbox-examples">
         <div class="card">
             <div class="card__header">
                 <h3 class="card__title">Default Checkbox</h3>
@@ -51,10 +50,12 @@
             </div>
         </div>
     </div>
+    </section>
 
     <!-- Checkbox States -->
-    <h2>Checkbox States</h2>
-    <p>다양한 상태의 체크박스</p>
+    <section class="section">
+        <h2 class="section__title">Checkbox States</h2>
+        <p>다양한 상태의 체크박스</p>
     
     <div class="checkbox-states">
         <div class="card">
@@ -106,10 +107,12 @@
             </div>
         </div>
     </div>
+    </section>
 
     <!-- Checkbox Sizes -->
-    <h2>Checkbox Sizes</h2>
-    <p>다양한 크기의 체크박스</p>
+    <section class="section">
+        <h2 class="section__title">Checkbox Sizes</h2>
+        <p>다양한 크기의 체크박스</p>
     
     <div class="checkbox-sizes">
         <div class="card">
@@ -161,10 +164,12 @@
             </div>
         </div>
     </div>
+    </section>
 
-    <!-- Checkbox Colors -->
-    <h2>Checkbox Variants</h2>
-    <p>다양한 색상의 체크박스</p>
+    <!-- Checkbox Variants -->
+    <section class="section">
+        <h2 class="section__title">Checkbox Variants</h2>
+        <p>다양한 색상의 체크박스</p>
     
     <div class="checkbox-colors">
         <div class="card">
@@ -246,10 +251,12 @@
             </div>
         </div>
     </div>
+    </section>
 
     <!-- Checkbox Groups -->
-    <h2>Checkbox Groups</h2>
-    <p>그룹으로 구성된 체크박스</p>
+    <section class="section">
+        <h2 class="section__title">Checkbox Groups</h2>
+        <p>그룹으로 구성된 체크박스</p>
     
     <div class="checkbox-groups">
         <div class="card">
@@ -336,10 +343,12 @@
             </div>
         </div>
     </div>
+    </section>
 
     <!-- Properties -->
-    <h2>Properties</h2>
-    <table class="props-table">
+    <section class="section">
+        <h2 class="section__title">Properties</h2>
+        <table class="props-table">
         <thead>
             <tr>
                 <th>Class</th>
@@ -410,10 +419,12 @@
             </tr>
         </tbody>
     </table>
+    </section>
 
     <!-- Accessibility -->
-    <h2>Accessibility</h2>
-    <div class="accessibility-section">
+    <section class="section">
+        <h2 class="section__title">Accessibility</h2>
+        <div class="accessibility-section">
         <ul>
             <li>✅ Always use <code>&lt;label&gt;</code> elements with checkboxes</li>
             <li>✅ Use <code>aria-label</code> when labels aren't visible</li>
@@ -425,8 +436,17 @@
             <li>✅ Maintain sufficient color contrast</li>
         </ul>
     </div>
-    
+    </section>
+
     <style>
+    /* Layout styles */
+    .header {margin-bottom:32px;}
+    .header__title {margin:0 0 12px 0; font-size:32px; font-weight:700;}
+    .header__description {margin:0; color:var(--ds-gray-600); font-size:16px;}
+    .section {margin-bottom:48px;}
+    .section__title {margin:0 0 24px 0; font-size:24px; font-weight:600;}
+
+
     /* Checkbox Page Specific Styles */
     .checkbox-examples {display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:var(--ds-space-4); margin:var(--ds-space-6) 0;}
     @media (min-width:768px) {
@@ -444,7 +464,7 @@
         .checkbox-colors {grid-template-columns:repeat(3, 1fr);}
     }
     @media (min-width:1024px) {
-        .checkbox-colors {grid-template-columns:repeat(5, 1fr);}
+        /* .checkbox-colors {grid-template-columns:repeat(5, 1fr);} */
     }
     
     .checkbox-groups {display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:var(--ds-space-4); margin:var(--ds-space-6) 0;}

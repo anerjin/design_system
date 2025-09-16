@@ -1,9 +1,14 @@
-/* Avatar Component Styles */
-.avatar {display:inline-flex; justify-content:center; align-items:center; position:relative; width:40px; height:40px; overflow:hidden; border-radius:50%; background-color:var(--vp-c-bg-soft); color:var(--vp-c-text-1); font-weight:500;}
+/* ========================================
+   BRICKS - Avatar Component
+   BEM + Single-Line CSS Convention
+======================================== */
+
+/* Base Avatar */
+.avatar {display:inline-flex; justify-content:center; align-items:center; position:relative; width:40px; height:40px; overflow:hidden; border-radius:50%; background-color:var(--ds-gray-200); color:var(--ds-gray-700); font-weight:500;}
 .avatar__image {width:100%; height:100%; object-fit:cover;}
 .avatar__text {font-size:14px; text-transform:uppercase;}
 
-/* Sizes */
+/* Avatar Sizes */
 .avatar--xs {width:24px; height:24px;}
 .avatar--xs .avatar__text {font-size:10px;}
 .avatar--sm {width:32px; height:32px;}
@@ -13,19 +18,19 @@
 .avatar--xl {width:64px; height:64px;}
 .avatar--xl .avatar__text {font-size:20px;}
 
-/* Shapes */
+/* Avatar Shapes */
 .avatar--square {border-radius:8px;}
 .avatar--rounded {border-radius:12px;}
 
-/* Status indicator */
-.avatar__status {position:absolute; right:0; bottom:0; width:12px; height:12px; border:2px solid white; border-radius:50%;}
-.avatar__status--online {background-color:var(--color-success-500);}
-.avatar__status--offline {background-color:var(--vp-c-text-3);}
-.avatar__status--busy {background-color:var(--color-danger-500);}
-.avatar__status--away {background-color:var(--color-warning-500);}
+/* Status Indicators */
+.avatar__status {position:absolute; right:0; bottom:0; width:12px; height:12px; border:2px solid var(--ds-white); border-radius:50%;}
+.avatar__status--online {background-color:var(--ds-color-success);}
+.avatar__status--offline {background-color:var(--ds-gray-400);}
+.avatar__status--busy {background-color:var(--ds-color-danger);}
+.avatar__status--away {background-color:var(--ds-color-warning);}
 
-/* Avatar group */
+/* Avatar Group */
 .avatar-group {display:inline-flex; align-items:center;}
-.avatar-group .avatar {margin-left:-8px; border:2px solid white;}
+.avatar-group .avatar {margin-left:-8px; border:2px solid var(--ds-white);}
 .avatar-group .avatar:first-child {margin-left:0;}
-.avatar-group__more {display:inline-flex; justify-content:center; align-items:center; width:40px; height:40px; margin-left:-8px; border:2px solid white; border-radius:50%; background-color:var(--vp-c-bg-soft); color:var(--vp-c-text-2); font-size:12px; font-weight:500;}
+.avatar-group__more {display:inline-flex; justify-content:center; align-items:center; width:40px; height:40px; margin-left:-8px; border:2px solid var(--ds-white); border-radius:50%; background-color:var(--ds-gray-200); color:var(--ds-gray-600); font-size:12px; font-weight:500;}

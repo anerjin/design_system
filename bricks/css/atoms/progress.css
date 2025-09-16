@@ -1,46 +1,52 @@
-/* Progress Component Styles */
-.progress {width:100%; height:8px; overflow:hidden; border-radius:4px; background-color:var(--vp-c-bg-soft);}
-.progress__bar {height:100%; border-radius:4px; background-color:var(--color-primary-500); transition:width 0.3s ease;}
+/* ========================================
+   BRICKS - Progress Component
+   BEM + Single-Line CSS Convention
+======================================== */
 
-/* Sizes */
+/* Base Progress Bar */
+.progress {width:100%; height:8px; overflow:hidden; border-radius:4px; background-color:var(--ds-gray-200);}
+.progress__bar {height:100%; border-radius:4px; background-color:var(--ds-black); transition:width 0.3s ease;}
+
+/* Progress Sizes */
+.progress--xs {height:2px;}
 .progress--sm {height:4px;}
 .progress--lg {height:12px;}
 .progress--xl {height:16px;}
 
-/* Colors */
-.progress--success .progress__bar {background-color:var(--color-success-500);}
-.progress--warning .progress__bar {background-color:var(--color-warning-500);}
-.progress--danger .progress__bar {background-color:var(--color-danger-500);}
-.progress--info .progress__bar {background-color:var(--color-info-500);}
+/* Progress Colors */
+.progress--success .progress__bar {background-color:var(--ds-color-success);}
+.progress--warning .progress__bar {background-color:var(--ds-color-warning);}
+.progress--danger .progress__bar {background-color:var(--ds-color-danger);}
+.progress--info .progress__bar {background-color:var(--ds-color-info);}
 
-/* Striped */
+/* Striped Progress */
 .progress--striped .progress__bar {background-image:linear-gradient( 45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent ); background-size:1rem 1rem;}
 
-/* Animated */
+/* Animated Progress */
 .progress--animated .progress__bar {animation:progress-bar-stripes 1s linear infinite;}
 @keyframes progress-bar-stripes {
   from {background-position:1rem 0;}
   to {background-position:0 0;}
 }
 
-/* With label */
+/* Progress with Label */
 .progress-wrapper {position:relative;}
-.progress__label {position:absolute; top:50%; left:50%; color:white; font-size:12px; font-weight:500; text-shadow:0 1px 2px rgba(0, 0, 0, 0.2); transform:translate(-50%, -50%);}
+.progress__label {position:absolute; top:50%; left:50%; color:var(--ds-white); font-size:12px; font-weight:500; text-shadow:0 1px 2px rgba(0, 0, 0, 0.2); transform:translate(-50%, -50%);}
 
-/* Circular progress */
+/* Circular Progress */
 .progress-circular {display:inline-block; position:relative; width:80px; height:80px;}
 .progress-circular__svg {transform:rotate(-90deg);}
-.progress-circular__bg {fill:none;stroke:var(--vp-c-bg-soft);stroke-width:8;}
-.progress-circular__bar {fill:none;stroke:var(--color-primary-500);stroke-width:8;stroke-linecap:round;transition:stroke-dasharray 0.3s ease;}
-.progress-circular__text {position:absolute; top:50%; left:50%; color:var(--vp-c-text-1); font-size:16px; font-weight:500; transform:translate(-50%, -50%);}
+.progress-circular__bg {fill:none;stroke:var(--ds-gray-200);stroke-width:8;}
+.progress-circular__bar {fill:none;stroke:var(--ds-black);stroke-width:8;stroke-linecap:round;transition:stroke-dasharray 0.3s ease;}
+.progress-circular__text {position:absolute; top:50%; left:50%; color:var(--ds-gray-700); font-size:16px; font-weight:500; transform:translate(-50%, -50%);}
 
-/* Circular sizes */
+/* Circular Sizes */
 .progress-circular--sm {width:48px; height:48px;}
 .progress-circular--sm .progress-circular__text {font-size:12px;}
 .progress-circular--lg {width:120px; height:120px;}
 .progress-circular--lg .progress-circular__text {font-size:24px;}
 
-/* Indeterminate */
+/* Indeterminate Progress */
 .progress--indeterminate .progress__bar {width:30%; animation:indeterminate 1.5s ease-in-out infinite;}
 @keyframes indeterminate {
   0% {transform:translateX(-100%);}

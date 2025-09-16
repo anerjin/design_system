@@ -7,211 +7,490 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Spinner</h1>
-            <p class="vp-doc-description">
-                로딩 상태를 표시하는 스피너 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Spinner Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 스피너 컴포넌트입니다. 로딩 상태를 표시하는 다양한 변형과 크기를 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Spinner</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="spinner"></div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="spinner"&gt;&lt;/div&gt;</code></pre>
-        
-        <h2>Spinner Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 24px;">
-                <div class="spinner spinner--xs"></div>
-                <div class="spinner spinner--sm"></div>
-                <div class="spinner"></div>
-                <div class="spinner spinner--lg"></div>
-                <div class="spinner spinner--xl"></div>
-            </div>
-        </div>
-        
-        <h2>Spinner Colors</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 24px;">
-                <div class="spinner"></div>
-                <div class="spinner spinner--success"></div>
-                <div class="spinner spinner--warning"></div>
-                <div class="spinner spinner--danger"></div>
-                <div class="spinner spinner--info"></div>
-            </div>
-        </div>
-        
-        <h2>Spinner Types</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 32px;">
-                <div class="spinner"></div>
-                <div class="spinner spinner--dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
                 </div>
-                <div class="spinner spinner--pulse"></div>
-                <div class="spinner spinner--bars">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Spinner with Text</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 24px;">
-                <div class="spinner-wrapper">
-                    <div class="spinner spinner--sm"></div>
-                    <span>Loading...</span>
-                </div>
-                <div class="spinner-wrapper">
-                    <div class="spinner spinner--sm spinner--success"></div>
-                    <span>Processing...</span>
-                </div>
-                <div class="spinner-wrapper">
-                    <div class="spinner spinner--sm spinner--warning"></div>
-                    <span>Please wait...</span>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Button with Spinner</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; gap: 12px;">
-                <button type="button" class="btn btn--primary" disabled>
-                    <div class="spinner spinner--xs spinner--white"></div>
-                    Loading...
-                </button>
-                <button type="button" class="btn btn--secondary" disabled>
-                    <div class="spinner spinner--xs"></div>
-                    Processing
-                </button>
-            </div>
-        </div>
-        
-        <h2>Full Screen Spinner</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="position: relative; height: 200px;">
-                <div class="spinner-overlay">
-                    <div class="spinner spinner--lg"></div>
-                </div>
-                <p>Content behind the overlay...</p>
-            </div>
-        </div>
-        
-        <h2>Card Loading</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="card" style="position: relative; min-height: 150px;">
-                    <div class="spinner-container">
+                <div class="card__body">
+                    <div class="demo-spinners">
                         <div class="spinner"></div>
-                        <p style="margin-top: 16px; color: var(--vp-c-text-2);">Loading content...</p>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="spinner"&gt;&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spinner Sizes -->
+        <section class="section">
+            <h2 class="section__title">Spinner Sizes</h2>
+            <p>다양한 크기의 스피너</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Size Variations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="sizes-list">
+                        <div class="spinner-wrapper">
+                            <div class="spinner spinner--xs"></div>
+                            <span class="label">Extra Small (16px)</span>
+                            <code class="code-inline">.spinner--xs</code>
+                        </div>
+
+                        <div class="spinner-wrapper">
+                            <div class="spinner spinner--sm"></div>
+                            <span class="label">Small (20px)</span>
+                            <code class="code-inline">.spinner--sm</code>
+                        </div>
+
+                        <div class="spinner-wrapper">
+                            <div class="spinner"></div>
+                            <span class="label">Medium (24px)</span>
+                            <code class="code-inline">default</code>
+                        </div>
+
+                        <div class="spinner-wrapper">
+                            <div class="spinner spinner--lg"></div>
+                            <span class="label">Large (32px)</span>
+                            <code class="code-inline">.spinner--lg</code>
+                        </div>
+
+                        <div class="spinner-wrapper">
+                            <div class="spinner spinner--xl"></div>
+                            <span class="label">Extra Large (48px)</span>
+                            <code class="code-inline">.spinner--xl</code>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.spinner</code></td>
-                    <td>Base spinner (default circular)</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--xs</code></td>
-                    <td>Extra small (16px)</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--sm</code></td>
-                    <td>Small (20px)</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--lg</code></td>
-                    <td>Large (32px)</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--xl</code></td>
-                    <td>Extra large (48px)</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--success</code></td>
-                    <td>Success color</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--warning</code></td>
-                    <td>Warning color</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--danger</code></td>
-                    <td>Danger color</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--white</code></td>
-                    <td>White color</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--dots</code></td>
-                    <td>Dots animation</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--pulse</code></td>
-                    <td>Pulse animation</td>
-                </tr>
-                <tr>
-                    <td><code>.spinner--bars</code></td>
-                    <td>Bars animation</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Spinner Variants -->
+        <section class="section">
+            <h2 class="section__title">Spinner Variants</h2>
+            <div class="card-group card-group--cols-5">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner"></div>
+                        <code class="code-inline">default</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner spinner--success"></div>
+                        <code class="code-inline">.spinner--success</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Warning</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner spinner--warning"></div>
+                        <code class="code-inline">.spinner--warning</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner spinner--danger"></div>
+                        <code class="code-inline">.spinner--danger</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Info</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner spinner--info"></div>
+                        <code class="code-inline">.spinner--info</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spinner Types -->
+        <section class="section">
+            <h2 class="section__title">Spinner Types</h2>
+            <p>다양한 애니메이션 타입의 스피너</p>
+
+            <div class="card-group card-group--cols-4">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Circular (Default)</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner"></div>
+                        <code class="code-inline">default</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dots</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner spinner--dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <code class="code-inline">.spinner--dots</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Pulse</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner spinner--pulse"></div>
+                        <code class="code-inline">.spinner--pulse</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Bars</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="spinner spinner--bars">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <code class="code-inline">.spinner--bars</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colored Type Spinners -->
+        <section class="section">
+            <h2 class="section__title">Colored Type Spinners</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Dots Spinner Colors</h3>
+                </div>
+                <div class="card__body">
+                    <div class="type-colors">
+                        <div class="spinner spinner--dots spinner--success">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="spinner spinner--dots spinner--warning">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="spinner spinner--dots spinner--danger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="spinner spinner--dots spinner--info">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Pulse Spinner Colors</h3>
+                </div>
+                <div class="card__body">
+                    <div class="type-colors">
+                        <div class="spinner spinner--pulse spinner--success"></div>
+                        <div class="spinner spinner--pulse spinner--warning"></div>
+                        <div class="spinner spinner--pulse spinner--danger"></div>
+                        <div class="spinner spinner--pulse spinner--info"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Bars Spinner Colors</h3>
+                </div>
+                <div class="card__body">
+                    <div class="type-colors">
+                        <div class="spinner spinner--bars spinner--success">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="spinner spinner--bars spinner--warning">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="spinner spinner--bars spinner--danger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="spinner spinner--bars spinner--info">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spinner with Text -->
+        <section class="section">
+            <h2 class="section__title">Spinner with Text</h2>
+            <p>텍스트와 함께 사용하는 스피너</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Text Combinations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="text-spinners">
+                        <div class="spinner-with-text">
+                            <div class="spinner spinner--sm"></div>
+                            <span>Loading...</span>
+                        </div>
+
+                        <div class="spinner-with-text">
+                            <div class="spinner spinner--sm spinner--success"></div>
+                            <span>Processing...</span>
+                        </div>
+
+                        <div class="spinner-with-text">
+                            <div class="spinner spinner--sm spinner--warning"></div>
+                            <span>Please wait...</span>
+                        </div>
+
+                        <div class="spinner-with-text">
+                            <div class="spinner spinner--sm spinner--info"></div>
+                            <span>Updating...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Examples -->
+        <section class="section">
+            <h2 class="section__title">Advanced Examples</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Button with Spinner</h3>
+                </div>
+                <div class="card__body">
+                    <div class="button-spinners">
+                        <button type="button" class="btn btn--primary" disabled>
+                            <div class="spinner spinner--xs spinner--white"></div>
+                            Loading...
+                        </button>
+
+                        <button type="button" class="btn btn--secondary" disabled>
+                            <div class="spinner spinner--xs"></div>
+                            Processing
+                        </button>
+
+                        <button type="button" class="btn btn--success" disabled>
+                            <div class="spinner spinner--xs spinner--white"></div>
+                            Saving...
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Card Loading State</h3>
+                </div>
+                <div class="card__body">
+                    <div class="loading-card">
+                        <div class="spinner-container">
+                            <div class="spinner spinner--lg"></div>
+                            <p class="spinner-text">Loading content...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Overlay Loading</h3>
+                </div>
+                <div class="card__body">
+                    <div class="overlay-demo">
+                        <div class="content-area">
+                            <p>This is the content that will be covered by the overlay.</p>
+                            <p>The spinner overlay provides a loading state for entire sections.</p>
+                        </div>
+                        <div class="spinner-overlay-demo">
+                            <div class="spinner spinner--lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Table -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.spinner</code></td>
+                                <td>Base spinner (circular)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--xs</code></td>
+                                <td>Extra small size (16px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--sm</code></td>
+                                <td>Small size (20px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--lg</code></td>
+                                <td>Large size (32px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--xl</code></td>
+                                <td>Extra large size (48px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--success</code></td>
+                                <td>Success color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--warning</code></td>
+                                <td>Warning color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--danger</code></td>
+                                <td>Danger color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--info</code></td>
+                                <td>Info color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--white</code></td>
+                                <td>White color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--dots</code></td>
+                                <td>Dots animation type</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--pulse</code></td>
+                                <td>Pulse animation type</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner--bars</code></td>
+                                <td>Bars animation type</td>
+                            </tr>
+                            <tr>
+                                <td><code>.spinner-overlay</code></td>
+                                <td>Full screen overlay</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .spinner-wrapper {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-            .spinner-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(255, 255, 255, 0.9);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 10;
-            }
-            .spinner-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 32px;
-            }
-            .btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-            }
-            .card {
-                background: var(--vp-c-bg-soft);
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 8px;
-            }
+            /* Layout styles */
+            .header {margin-bottom:32px;}
+            .header__title {margin:0 0 12px 0; font-size:32px; font-weight:700;}
+            .header__description {margin:0; color:var(--ds-gray-600); font-size:16px;}
+            .section {margin-bottom:48px;}
+            .section__title {margin:0 0 24px 0; font-size:24px; font-weight:600;}
+
+            /* Card grid layout */
+            .card-group {display:grid; margin-bottom:16px; gap:16px;}
+            .card-group--cols-4 {grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));}
+            .card-group--cols-5 {grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));}
+
+            /* Code styles */
+            .code-block {margin-top:16px; padding:16px; border-radius:6px; background:var(--ds-gray-100); overflow-x:auto;}
+            .code-block code {font-size:14px; font-family:monospace; line-height:1.5;}
+            .code-inline {display:block; margin-top:8px; padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); color:var(--ds-gray-600); font-size:13px; font-family:monospace;}
+
+            /* Demo styles */
+            .demo-spinners {display:flex; align-items:center; justify-content:center; padding:20px;}
+            .sizes-list {display:flex; align-items:center; gap:32px; flex-wrap:wrap;}
+            .spinner-wrapper {display:flex; flex-direction:column; align-items:center; gap:8px;}
+            .label {font-size:13px; color:var(--ds-gray-600);}
+
+            /* Type colors */
+            .type-colors {display:flex; align-items:center; gap:24px; flex-wrap:wrap;}
+
+            /* Text spinners */
+            .text-spinners {display:flex; flex-direction:column; gap:16px;}
+            .spinner-with-text {display:flex; align-items:center; gap:12px; font-size:14px; color:var(--ds-gray-700);}
+
+            /* Button spinners */
+            .button-spinners {display:flex; gap:12px; flex-wrap:wrap;}
+            .btn {display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border:1px solid transparent; border-radius:6px; font-size:14px; font-weight:500; cursor:pointer; transition:all 0.2s;}
+            .btn:disabled {opacity:0.6; cursor:not-allowed;}
+            .btn--primary {background:var(--ds-black); color:var(--ds-white); border-color:var(--ds-black);}
+            .btn--secondary {background:var(--ds-gray-200); color:var(--ds-gray-700); border-color:var(--ds-gray-300);}
+            .btn--success {background:var(--ds-color-success); color:var(--ds-white); border-color:var(--ds-color-success);}
+
+            /* Loading card */
+            .loading-card {position:relative; min-height:150px; display:flex; align-items:center; justify-content:center; background:var(--ds-gray-50); border-radius:8px;}
+
+            /* Overlay demo */
+            .overlay-demo {position:relative; height:200px; border:1px solid var(--ds-gray-300); border-radius:8px; overflow:hidden;}
+            .content-area {padding:20px;}
+            .content-area p {margin:0 0 10px 0; color:var(--ds-gray-700);}
+            .spinner-overlay-demo {position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(255, 255, 255, 0.9); display:flex; align-items:center; justify-content:center; z-index:10;}
+
+            /* Properties table */
+            .properties-table {width:100%; border-collapse:collapse;}
+            .properties-table th {padding:12px; border-bottom:2px solid var(--ds-gray-300); font-weight:600; text-align:left;}
+            .properties-table td {padding:12px; border-bottom:1px solid var(--ds-gray-200);}
+            .properties-table code {padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); font-size:13px; font-family:monospace;}
+
+            /* Utility classes */
+            .mt-4 {margin-top:32px;}
         </style>
     </div>
 </body>

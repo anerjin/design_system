@@ -1,363 +1,435 @@
-<!-- Badge Component Page -->
-<div class="page-header">
-    <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
-        <span class="page-header__breadcrumb-item">
-            <a href="#introduction" class="page-header__breadcrumb-link">Home</a>
-        </span>
-        <span class="page-header__breadcrumb-separator">/</span>
-        <span class="page-header__breadcrumb-item">
-            <a href="#" class="page-header__breadcrumb-link">Elements</a>
-        </span>
-        <span class="page-header__breadcrumb-separator">/</span>
-        <span class="page-header__breadcrumb-item">
-            <span>Badge</span>
-        </span>
-    </nav>
-    <h1 class="page-header__title">Badge</h1>
-    <p class="page-header__description">
-        Badges are used to highlight and display short information, labels, or statuses.
-    </p>
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge - BRICKS Design System</title>
+</head>
+<body>
+    <div class="vp-doc">
+        <header class="header">
+            <h1 class="header__title">Badge Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 배지 컴포넌트입니다. 상태, 라벨, 카운트 표시를 위한 다양한 변형과 크기를 지원합니다.
+            </p>
+        </header>
 
-<!-- Badge Variants -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Badge Variants</h2>
-        <p class="content-section__subtitle">Different badge styles for various contexts</p>
-    </div>
-    
-    <div class="component-preview">
-        <div class="component-preview__demo">
-            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                <span class="badge badge--primary">Primary</span>
-                <span class="badge badge--secondary">Secondary</span>
-                <span class="badge badge--success">Success</span>
-                <span class="badge badge--danger">Danger</span>
-                <span class="badge badge--warning">Warning</span>
-                <span class="badge badge--info">Info</span>
-                <span class="badge badge--light">Light</span>
-                <span class="badge badge--dark">Dark</span>
-            </div>
-        </div>
-        <div class="component-preview__toolbar">
-            <div class="component-preview__tabs">
-                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
-                <button class="component-preview__tab" data-tab="html">HTML</button>
-            </div>
-            <button class="component-preview__copy" aria-label="Copy code">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-            </button>
-        </div>
-        <div class="component-preview__code" data-tab-content="html" style="display: none;">
-            <pre><code>&lt;span class="badge badge--primary"&gt;Primary&lt;/span&gt;
-&lt;span class="badge badge--secondary"&gt;Secondary&lt;/span&gt;
-&lt;span class="badge badge--success"&gt;Success&lt;/span&gt;
-&lt;span class="badge badge--danger"&gt;Danger&lt;/span&gt;
-&lt;span class="badge badge--warning"&gt;Warning&lt;/span&gt;
-&lt;span class="badge badge--info"&gt;Info&lt;/span&gt;
-&lt;span class="badge badge--light"&gt;Light&lt;/span&gt;
-&lt;span class="badge badge--dark"&gt;Dark&lt;/span&gt;</code></pre>
-        </div>
-    </div>
-</div>
-
-<!-- Badge Sizes -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Badge Sizes</h2>
-        <p class="content-section__subtitle">Available badge sizes for different use cases</p>
-    </div>
-    
-    <div class="component-preview">
-        <div class="component-preview__demo">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <span class="badge badge--primary badge--xs">Extra Small</span>
-                <span class="badge badge--primary badge--sm">Small</span>
-                <span class="badge badge--primary">Default</span>
-                <span class="badge badge--primary badge--lg">Large</span>
-                <span class="badge badge--primary badge--xl">Extra Large</span>
-            </div>
-        </div>
-        <div class="component-preview__toolbar">
-            <div class="component-preview__tabs">
-                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
-                <button class="component-preview__tab" data-tab="html">HTML</button>
-            </div>
-        </div>
-        <div class="component-preview__code" data-tab-content="html" style="display: none;">
-            <pre><code>&lt;span class="badge badge--primary badge--xs"&gt;Extra Small&lt;/span&gt;
-&lt;span class="badge badge--primary badge--sm"&gt;Small&lt;/span&gt;
-&lt;span class="badge badge--primary"&gt;Default&lt;/span&gt;
-&lt;span class="badge badge--primary badge--lg"&gt;Large&lt;/span&gt;
-&lt;span class="badge badge--primary badge--xl"&gt;Extra Large&lt;/span&gt;</code></pre>
-        </div>
-    </div>
-</div>
-
-<!-- Pill Badges -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Pill Badges</h2>
-        <p class="content-section__subtitle">Rounded pill-style badges</p>
-    </div>
-    
-    <div class="component-preview">
-        <div class="component-preview__demo">
-            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                <span class="badge badge--primary badge--pill">Primary Pill</span>
-                <span class="badge badge--secondary badge--pill">Secondary Pill</span>
-                <span class="badge badge--success badge--pill">Success Pill</span>
-                <span class="badge badge--danger badge--pill">99+</span>
-                <span class="badge badge--warning badge--pill">New</span>
-                <span class="badge badge--info badge--pill">v2.0</span>
-            </div>
-        </div>
-        <div class="component-preview__toolbar">
-            <div class="component-preview__tabs">
-                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
-                <button class="component-preview__tab" data-tab="html">HTML</button>
-            </div>
-        </div>
-        <div class="component-preview__code" data-tab-content="html" style="display: none;">
-            <pre><code>&lt;span class="badge badge--primary badge--pill"&gt;Primary Pill&lt;/span&gt;
-&lt;span class="badge badge--secondary badge--pill"&gt;Secondary Pill&lt;/span&gt;
-&lt;span class="badge badge--success badge--pill"&gt;Success Pill&lt;/span&gt;
-&lt;span class="badge badge--danger badge--pill"&gt;99+&lt;/span&gt;</code></pre>
-        </div>
-    </div>
-</div>
-
-<!-- Badge with Icons -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Badge with Icons</h2>
-        <p class="content-section__subtitle">Badges can include icons for better visual communication</p>
-    </div>
-    
-    <div class="component-preview">
-        <div class="component-preview__demo">
-            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                <span class="badge badge--success">
-                    <svg class="badge__icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    Completed
-                </span>
-                <span class="badge badge--warning">
-                    <svg class="badge__icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                    </svg>
-                    Warning
-                </span>
-                <span class="badge badge--danger">
-                    Error
-                    <svg class="badge__icon badge__icon--right" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </span>
-                <span class="badge badge--info badge--pill">
-                    <svg class="badge__icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                    </svg>
-                    Info
-                </span>
-            </div>
-        </div>
-        <div class="component-preview__toolbar">
-            <div class="component-preview__tabs">
-                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
-                <button class="component-preview__tab" data-tab="html">HTML</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Tags -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Tags</h2>
-        <p class="content-section__subtitle">Interactive tags with remove functionality</p>
-    </div>
-    
-    <div class="component-preview">
-        <div class="component-preview__demo">
-            <div class="tag-group">
-                <span class="tag">JavaScript</span>
-                <span class="tag">React</span>
-                <span class="tag">Vue.js</span>
-                <span class="tag tag--clickable">Clickable Tag</span>
-                <span class="tag">
-                    Removable
-                    <button class="tag__remove" aria-label="Remove tag">×</button>
-                </span>
-                <span class="tag tag--primary">
-                    Primary Tag
-                    <button class="tag__remove" aria-label="Remove tag">×</button>
-                </span>
-            </div>
-        </div>
-        <div class="component-preview__toolbar">
-            <div class="component-preview__tabs">
-                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
-                <button class="component-preview__tab" data-tab="html">HTML</button>
-            </div>
-        </div>
-        <div class="component-preview__code" data-tab-content="html" style="display: none;">
-            <pre><code>&lt;div class="tag-group"&gt;
-    &lt;span class="tag"&gt;JavaScript&lt;/span&gt;
-    &lt;span class="tag tag--clickable"&gt;Clickable Tag&lt;/span&gt;
-    &lt;span class="tag"&gt;
-        Removable
-        &lt;button class="tag__remove" aria-label="Remove tag"&gt;×&lt;/button&gt;
-    &lt;/span&gt;
-&lt;/div&gt;</code></pre>
-        </div>
-    </div>
-</div>
-
-<!-- Badge in Context -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Badge in Context</h2>
-        <p class="content-section__subtitle">Examples of badges used with other components</p>
-    </div>
-    
-    <div class="component-preview">
-        <div class="component-preview__demo">
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <!-- Button with badge -->
-                <div style="display: flex; gap: 12px;">
-                    <button class="btn btn--primary">
-                        Notifications
-                        <span class="badge badge--danger badge--pill" style="margin-left: 8px;">5</span>
-                    </button>
-                    <button class="btn btn--secondary">
-                        Messages
-                        <span class="badge badge--info" style="margin-left: 8px;">New</span>
-                    </button>
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
                 </div>
-                
-                <!-- List with badges -->
-                <div style="max-width: 300px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--ds-color-border);">
-                        <span>Inbox</span>
-                        <span class="badge badge--primary badge--pill">12</span>
+                <div class="card__body">
+                    <div class="demo-badges">
+                        <span class="badge">Default</span>
+                        <span class="badge badge--primary">Primary</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--ds-color-border);">
-                        <span>Drafts</span>
-                        <span class="badge badge--secondary badge--pill">3</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0;">
-                        <span>Spam</span>
-                        <span class="badge badge--danger badge--pill">99+</span>
-                    </div>
+                    <pre class="code-block"><code>&lt;span class="badge"&gt;Default&lt;/span&gt;
+&lt;span class="badge badge--primary"&gt;Primary&lt;/span&gt;</code></pre>
                 </div>
-                
-                <!-- Card header with badge -->
-                <div class="card" style="max-width: 300px;">
-                    <div class="card__header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <h3 class="card__title">Task List</h3>
-                        <span class="badge badge--success">Completed</span>
+            </div>
+        </section>
+
+        <!-- Badge Variants -->
+        <section class="section">
+            <h2 class="section__title">Badge Variants</h2>
+            <div class="card-group card-group--cols-4">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary</h3>
                     </div>
                     <div class="card__body">
-                        <p>All tasks have been completed successfully.</p>
+                        <span class="badge badge--primary">Primary</span>
+                        <code class="code-inline">.badge--primary</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Secondary</h3>
+                    </div>
+                    <div class="card__body">
+                        <span class="badge badge--secondary">Secondary</span>
+                        <code class="code-inline">.badge--secondary</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <span class="badge badge--success">Success</span>
+                        <code class="code-inline">.badge--success</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <span class="badge badge--danger">Danger</span>
+                        <code class="code-inline">.badge--danger</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Warning</h3>
+                    </div>
+                    <div class="card__body">
+                        <span class="badge badge--warning">Warning</span>
+                        <code class="code-inline">.badge--warning</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Info</h3>
+                    </div>
+                    <div class="card__body">
+                        <span class="badge badge--info">Info</span>
+                        <code class="code-inline">.badge--info</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Light</h3>
+                    </div>
+                    <div class="card__body">
+                        <span class="badge badge--light">Light</span>
+                        <code class="code-inline">.badge--light</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark</h3>
+                    </div>
+                    <div class="card__body">
+                        <span class="badge badge--dark">Dark</span>
+                        <code class="code-inline">.badge--dark</code>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="component-preview__toolbar">
-            <div class="component-preview__tabs">
-                <button class="component-preview__tab component-preview__tab--active" data-tab="preview">Preview</button>
-                <button class="component-preview__tab" data-tab="html">HTML</button>
+        </section>
+
+        <!-- Badge Sizes -->
+        <section class="section">
+            <h2 class="section__title">Badge Sizes</h2>
+            <p>다양한 크기의 배지</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Size Variations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="sizes-list">
+                        <div class="badge-wrapper">
+                            <span class="badge badge--primary badge--sm">Small</span>
+                            <code class="code-inline">.badge--sm</code>
+                        </div>
+
+                        <div class="badge-wrapper">
+                            <span class="badge badge--primary">Medium (Default)</span>
+                            <code class="code-inline">default</code>
+                        </div>
+
+                        <div class="badge-wrapper">
+                            <span class="badge badge--primary badge--lg">Large</span>
+                            <code class="code-inline">.badge--lg</code>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-<!-- Props Table -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Properties</h2>
-        <p class="content-section__subtitle">Available badge modifiers and their usage</p>
-    </div>
-    
-    <table class="props-table">
-        <thead>
-            <tr>
-                <th>Class</th>
-                <th>Description</th>
-                <th>Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><span class="props-table__name">.badge</span></td>
-                <td>Base badge class</td>
-                <td>Required on all badges</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.badge--primary</span></td>
-                <td>Primary badge style</td>
-                <td>Important labels</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.badge--pill</span></td>
-                <td>Rounded pill style</td>
-                <td>Counts and numbers</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.badge--xs</span></td>
-                <td>Extra small size</td>
-                <td>Compact spaces</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.tag</span></td>
-                <td>Tag component</td>
-                <td>Categories, filters</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.tag--clickable</span></td>
-                <td>Interactive tag</td>
-                <td>Clickable tags</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.tag__remove</span></td>
-                <td>Remove button</td>
-                <td>Removable tags</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.tag-group</span></td>
-                <td>Tag container</td>
-                <td>Group of tags</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <!-- Badge Styles -->
+        <section class="section">
+            <h2 class="section__title">Badge Styles</h2>
 
-<!-- Accessibility -->
-<div class="content-section">
-    <div class="content-section__header">
-        <h2 class="content-section__title">Accessibility</h2>
-        <p class="content-section__subtitle">Guidelines for accessible badge implementation</p>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Pill Badges</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-badges">
+                        <span class="badge badge--primary badge--pill">Primary Pill</span>
+                        <span class="badge badge--success badge--pill">Success Pill</span>
+                        <span class="badge badge--danger badge--pill">99+</span>
+                        <span class="badge badge--warning badge--pill">New</span>
+                        <span class="badge badge--info badge--pill">v2.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Outline Badges</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-badges">
+                        <span class="badge badge--outline-primary">Primary</span>
+                        <span class="badge badge--outline-success">Success</span>
+                        <span class="badge badge--outline-danger">Danger</span>
+                        <span class="badge badge--outline-warning">Warning</span>
+                        <span class="badge badge--outline-info">Info</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Soft Badges</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-badges">
+                        <span class="badge badge--soft-primary">Primary</span>
+                        <span class="badge badge--soft-success">Success</span>
+                        <span class="badge badge--soft-danger">Danger</span>
+                        <span class="badge badge--soft-warning">Warning</span>
+                        <span class="badge badge--soft-info">Info</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Badges with Dot</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-badges">
+                        <span class="badge badge--primary badge--dot">Active</span>
+                        <span class="badge badge--success badge--dot">Online</span>
+                        <span class="badge badge--danger badge--dot">Error</span>
+                        <span class="badge badge--warning badge--dot">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tags -->
+        <section class="section">
+            <h2 class="section__title">Tags</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Basic Tags</h3>
+                </div>
+                <div class="card__body">
+                    <div class="tag-group">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Interactive Tags</h3>
+                </div>
+                <div class="card__body">
+                    <div class="tag-group">
+                        <span class="tag tag--clickable">Clickable Tag</span>
+                        <span class="tag">
+                            Removable
+                            <button class="tag__remove" aria-label="Remove tag">×</button>
+                        </span>
+                        <span class="tag">
+                            JavaScript
+                            <button class="tag__remove" aria-label="Remove tag">×</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chips -->
+        <section class="section">
+            <h2 class="section__title">Chips</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Chip Variations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="chip-group">
+                        <div class="chip">
+                            <div class="chip__avatar">A</div>
+                            Avatar Chip
+                        </div>
+                        <div class="chip">
+                            <span class="chip__icon">📍</span>
+                            Location
+                        </div>
+                        <div class="chip">
+                            Filter
+                            <button class="chip__remove" aria-label="Remove chip">×</button>
+                        </div>
+                        <div class="chip">
+                            <div class="chip__avatar">U</div>
+                            User
+                            <button class="chip__remove" aria-label="Remove chip">×</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Examples -->
+        <section class="section">
+            <h2 class="section__title">Advanced Examples</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Badge in Context</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-group">
+                        <!-- Button with badge -->
+                        <div class="example-item">
+                            <button class="btn btn--primary">
+                                Notifications
+                                <span class="badge badge--danger badge--pill ml-2">5</span>
+                            </button>
+                            <button class="btn btn--secondary ml-3">
+                                Messages
+                                <span class="badge badge--info ml-2">New</span>
+                            </button>
+                        </div>
+
+                        <!-- List with badges -->
+                        <div class="example-item mt-4">
+                            <div class="list-item">
+                                <span>Inbox</span>
+                                <span class="badge badge--primary badge--pill">12</span>
+                            </div>
+                            <div class="list-item">
+                                <span>Drafts</span>
+                                <span class="badge badge--secondary badge--pill">3</span>
+                            </div>
+                            <div class="list-item">
+                                <span>Spam</span>
+                                <span class="badge badge--danger badge--pill">99+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Table -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.badge</code></td>
+                                <td>Base badge class</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--primary</code></td>
+                                <td>Primary color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--sm</code></td>
+                                <td>Small size variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--lg</code></td>
+                                <td>Large size variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--pill</code></td>
+                                <td>Fully rounded badge</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--outline-*</code></td>
+                                <td>Outline style badges</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--soft-*</code></td>
+                                <td>Soft background badges</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--dot</code></td>
+                                <td>Badge with dot indicator</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tag</code></td>
+                                <td>Tag component</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tag--clickable</code></td>
+                                <td>Interactive tag</td>
+                            </tr>
+                            <tr>
+                                <td><code>.chip</code></td>
+                                <td>Chip component</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Layout styles */
+            .header {margin-bottom:32px;}
+            .header__title {margin:0 0 12px 0; font-size:32px; font-weight:700;}
+            .header__description {margin:0; color:var(--ds-gray-600); font-size:16px;}
+            .section {margin-bottom:48px;}
+            .section__title {margin:0 0 24px 0; font-size:24px; font-weight:600;}
+
+            /* Card grid layout */
+            .card-group {display:grid; margin-bottom:16px; gap:16px;}
+            .card-group--cols-4 {grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));}
+
+            /* Code styles */
+            .code-block {margin-top:16px; padding:16px; border-radius:6px; background:var(--ds-gray-100); overflow-x:auto;}
+            .code-block code {font-size:14px; font-family:monospace; line-height:1.5;}
+            .code-inline {display:block; margin-top:8px; padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); color:var(--ds-gray-600); font-size:13px; font-family:monospace;}
+
+            /* Demo styles */
+            .demo-badges {display:flex; flex-wrap:wrap; align-items:center; gap:8px;}
+            .sizes-list {display:flex; flex-direction:column; gap:16px;}
+            .badge-wrapper {display:flex; align-items:center; gap:12px;}
+
+            /* Tag and chip group styles */
+            .tag-group {display:flex; flex-wrap:wrap; gap:8px;}
+            .chip-group {display:flex; flex-wrap:wrap; gap:12px;}
+
+            /* Example styles */
+            .example-group {max-width:400px;}
+            .example-item {margin-bottom:20px;}
+            .list-item {display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--ds-gray-300);}
+            .list-item:last-child {border-bottom:none;}
+
+            /* Properties table */
+            .properties-table {width:100%; border-collapse:collapse;}
+            .properties-table th {padding:12px; border-bottom:2px solid var(--ds-gray-300); font-weight:600; text-align:left;}
+            .properties-table td {padding:12px; border-bottom:1px solid var(--ds-gray-200);}
+            .properties-table code {padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); font-size:13px; font-family:monospace;}
+
+            /* Utility classes */
+            .mt-4 {margin-top:32px;}
+            .ml-2 {margin-left:8px;}
+            .ml-3 {margin-left:12px;}
+        </style>
     </div>
-    
-    <div class="content-section__body">
-        <ul>
-            <li>✅ Use semantic HTML elements (<code>&lt;span&gt;</code> for decorative, <code>&lt;button&gt;</code> for interactive)</li>
-            <li>✅ Provide sufficient color contrast (WCAG 2.1 AA)</li>
-            <li>✅ Include <code>aria-label</code> for icon-only badges</li>
-            <li>✅ Use <code>role="status"</code> for dynamic count badges</li>
-            <li>✅ Ensure remove buttons have descriptive labels</li>
-            <li>✅ Consider screen reader announcements for dynamic updates</li>
-            <li>✅ Don't rely solely on color to convey meaning</li>
-        </ul>
-    </div>
-</div>
+</body>
+</html>

@@ -1,68 +1,90 @@
-/* Spinner Component Styles */
-.spinner {display:inline-block; width:40px; height:40px;}
-/* Default spinner */
-.spinner--default {border:4px solid var(--vp-c-bg-soft); border-top:4px solid var(--color-primary-500); border-radius:50%; animation:spin 1s linear infinite;}
+/* ========================================
+   BRICKS - Spinner Component
+   BEM + Single-Line CSS Convention
+======================================== */
+
+/* Base Spinner */
+.spinner {display:inline-block; width:24px; height:24px; border:3px solid var(--ds-gray-300); border-top:3px solid var(--ds-black); border-radius:50%; animation:spin 1s linear infinite;}
 @keyframes spin {
   0% {transform:rotate(0deg);}
   100% {transform:rotate(360deg);}
 }
-/* Dots spinner */
-.spinner--dots {display:inline-flex; gap:4px;}
-.spinner__dot {width:8px; height:8px; border-radius:50%; background-color:var(--color-primary-500); animation:dot-pulse 1.4s ease-in-out infinite;}
-.spinner__dot:nth-child(1) {animation-delay:-0.32s;}
-.spinner__dot:nth-child(2) {animation-delay:-0.16s;}
+
+/* Spinner Sizes */
+.spinner--xs {width:16px; height:16px; border-width:2px;}
+.spinner--sm {width:20px; height:20px; border-width:2px;}
+.spinner--lg {width:32px; height:32px; border-width:3px;}
+.spinner--xl {width:48px; height:48px; border-width:4px;}
+
+/* Spinner Colors */
+.spinner--success {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-success);}
+.spinner--warning {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-warning);}
+.spinner--danger {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-danger);}
+.spinner--info {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-info);}
+.spinner--white {border-color:rgba(255,255,255,0.3); border-top-color:var(--ds-white);}
+
+/* Dots Spinner */
+.spinner--dots {display:inline-flex; align-items:center; gap:4px; border:none; animation:none;}
+.spinner--dots span {display:inline-block; width:8px; min-width:8px; height:8px; min-height:8px; border-radius:50%; background-color:var(--ds-black); animation:dot-pulse 1.4s ease-in-out infinite;}
+.spinner--dots span:nth-child(1) {animation-delay:-0.32s;}
+.spinner--dots span:nth-child(2) {animation-delay:-0.16s;}
 @keyframes dot-pulse {
-  0%, 80%, 100% {opacity:0.5; transform:scale(0.8);}
+  0%, 80%, 100% {opacity:0.3; transform:scale(0.8);}
   40% {opacity:1; transform:scale(1);}
 }
-/* Pulse spinner */
-.spinner--pulse {border-radius:50%; background-color:var(--color-primary-500); animation:pulse 1.5s ease-in-out infinite;}
+
+/* Dots Sizes */
+.spinner--dots.spinner--xs span {width:4px; height:4px;}
+.spinner--dots.spinner--sm span {width:6px; height:6px;}
+.spinner--dots.spinner--lg span {width:10px; height:10px;}
+.spinner--dots.spinner--xl span {width:12px; height:12px;}
+
+/* Dots Colors */
+.spinner--dots.spinner--success span {background-color:var(--ds-color-success);}
+.spinner--dots.spinner--warning span {background-color:var(--ds-color-warning);}
+.spinner--dots.spinner--danger span {background-color:var(--ds-color-danger);}
+.spinner--dots.spinner--info span {background-color:var(--ds-color-info);}
+.spinner--dots.spinner--white span {background-color:var(--ds-white);}
+
+/* Pulse Spinner */
+.spinner--pulse {border:none; border-radius:50%; background-color:var(--ds-black); animation:pulse 1.5s ease-in-out infinite;}
 @keyframes pulse {
   0% {opacity:1; transform:scale(0);}
   100% {opacity:0; transform:scale(1);}
 }
-/* Bars spinner */
-.spinner--bars {display:inline-flex; gap:2px;}
-.spinner__bar {width:4px; height:24px; background-color:var(--color-primary-500); animation:bar-scale 1s ease-in-out infinite;}
-.spinner__bar:nth-child(1) {animation-delay:-0.4s;}
-.spinner__bar:nth-child(2) {animation-delay:-0.3s;}
-.spinner__bar:nth-child(3) {animation-delay:-0.2s;}
-.spinner__bar:nth-child(4) {animation-delay:-0.1s;}
+
+/* Pulse Colors */
+.spinner--pulse.spinner--success {background-color:var(--ds-color-success);}
+.spinner--pulse.spinner--warning {background-color:var(--ds-color-warning);}
+.spinner--pulse.spinner--danger {background-color:var(--ds-color-danger);}
+.spinner--pulse.spinner--info {background-color:var(--ds-color-info);}
+.spinner--pulse.spinner--white {background-color:var(--ds-white);}
+
+/* Bars Spinner */
+.spinner--bars {display:inline-flex; align-items:center; gap:2px; border:none; animation:none;}
+.spinner--bars span {display:inline-block; width:3px; height:20px; background-color:var(--ds-black); animation:bar-scale 1s ease-in-out infinite;}
+.spinner--bars span:nth-child(1) {animation-delay:-0.3s;}
+.spinner--bars span:nth-child(2) {animation-delay:-0.2s;}
+.spinner--bars span:nth-child(3) {animation-delay:-0.1s;}
 @keyframes bar-scale {
   0%, 40%, 100% {transform:scaleY(0.4);}
   20% {transform:scaleY(1);}
 }
-/* Sizes */
-.spinner--sm {width:24px; height:24px;}
-.spinner--sm.spinner--default {border-width:3px;}
-.spinner--sm .spinner__dot {width:6px; height:6px;}
-.spinner--sm .spinner__bar {width:3px; height:16px;}
-.spinner--lg {width:56px; height:56px;}
-.spinner--lg.spinner--default {border-width:5px;}
-.spinner--lg .spinner__dot {width:12px; height:12px;}
-.spinner--lg .spinner__bar {width:6px; height:32px;}
-/* Colors */
-.spinner--success,
-.spinner--success.spinner--default {border-top-color:var(--color-success-500);}
-.spinner--success .spinner__dot,
-.spinner--success .spinner__bar,
-.spinner--success.spinner--pulse {background-color:var(--color-success-500);}
-.spinner--warning,
-.spinner--warning.spinner--default {border-top-color:var(--color-warning-500);}
-.spinner--warning .spinner__dot,
-.spinner--warning .spinner__bar,
-.spinner--warning.spinner--pulse {background-color:var(--color-warning-500);}
-.spinner--danger,
-.spinner--danger.spinner--default {border-top-color:var(--color-danger-500);}
-.spinner--danger .spinner__dot,
-.spinner--danger .spinner__bar,
-.spinner--danger.spinner--pulse {background-color:var(--color-danger-500);}
-.spinner--info,
-.spinner--info.spinner--default {border-top-color:var(--color-info-500);}
-.spinner--info .spinner__dot,
-.spinner--info .spinner__bar,
-.spinner--info.spinner--pulse {background-color:var(--color-info-500);}
-/* Loading overlay */
+
+/* Bars Sizes */
+.spinner--bars.spinner--xs span {width:2px; height:12px;}
+.spinner--bars.spinner--sm span {width:2px; height:16px;}
+.spinner--bars.spinner--lg span {width:4px; height:24px;}
+.spinner--bars.spinner--xl span {width:5px; height:32px;}
+
+/* Bars Colors */
+.spinner--bars.spinner--success span {background-color:var(--ds-color-success);}
+.spinner--bars.spinner--warning span {background-color:var(--ds-color-warning);}
+.spinner--bars.spinner--danger span {background-color:var(--ds-color-danger);}
+.spinner--bars.spinner--info span {background-color:var(--ds-color-info);}
+.spinner--bars.spinner--white span {background-color:var(--ds-white);}
+
+/* Loading Overlay */
 .spinner-overlay {display:flex; justify-content:center; align-items:center; position:fixed; z-index:9999; top:0; left:0; right:0; bottom:0; background-color:rgba(255, 255, 255, 0.9);}
 .spinner-container {text-align:center;}
-.spinner-text {margin-top:16px; color:var(--vp-c-text-2); font-size:14px;}
+.spinner-text {margin-top:16px; color:var(--ds-gray-600); font-size:14px;}

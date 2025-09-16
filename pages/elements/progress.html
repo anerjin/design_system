@@ -7,253 +7,511 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Progress</h1>
-            <p class="vp-doc-description">
-                진행 상태를 시각적으로 표시하는 프로그레스 바 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Progress Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 프로그레스 컴포넌트입니다. 작업 진행 상태를 시각적으로 표시하는 다양한 변형과 크기를 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Progress</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="progress">
-                    <div class="progress__bar" style="width: 60%"></div>
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Usage</h2>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="progress"&gt;
-    &lt;div class="progress__bar" style="width: 60%"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-        
-        <h2>Progress Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div class="progress progress--xs">
-                    <div class="progress__bar" style="width: 40%"></div>
-                </div>
-                <div class="progress progress--sm">
-                    <div class="progress__bar" style="width: 50%"></div>
-                </div>
-                <div class="progress">
-                    <div class="progress__bar" style="width: 60%"></div>
-                </div>
-                <div class="progress progress--lg">
-                    <div class="progress__bar" style="width: 70%"></div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Progress Colors</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div class="progress">
-                    <div class="progress__bar" style="width: 25%"></div>
-                </div>
-                <div class="progress progress--success">
-                    <div class="progress__bar" style="width: 50%"></div>
-                </div>
-                <div class="progress progress--warning">
-                    <div class="progress__bar" style="width: 75%"></div>
-                </div>
-                <div class="progress progress--danger">
-                    <div class="progress__bar" style="width: 90%"></div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Progress with Label</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div>
-                    <div class="progress-label">
-                        <span>Upload progress</span>
-                        <span>60%</span>
-                    </div>
+                <div class="card__body">
                     <div class="progress">
                         <div class="progress__bar" style="width: 60%"></div>
                     </div>
+                    <pre class="code-block"><code>&lt;div class="progress"&gt;
+    &lt;div class="progress__bar" style="width: 60%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
                 </div>
-                <div>
-                    <div class="progress-label">
-                        <span>Download</span>
-                        <span>2.4MB / 10MB</span>
+            </div>
+        </section>
+
+        <!-- Progress Sizes -->
+        <section class="section">
+            <h2 class="section__title">Progress Sizes</h2>
+            <p>다양한 크기의 프로그레스 바</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Size Variations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="sizes-list">
+                        <div class="progress-wrapper-item">
+                            <span class="label">Extra Small (2px)</span>
+                            <div class="progress progress--xs">
+                                <div class="progress__bar" style="width: 30%"></div>
+                            </div>
+                            <code class="code-inline">.progress--xs</code>
+                        </div>
+
+                        <div class="progress-wrapper-item">
+                            <span class="label">Small (4px)</span>
+                            <div class="progress progress--sm">
+                                <div class="progress__bar" style="width: 45%"></div>
+                            </div>
+                            <code class="code-inline">.progress--sm</code>
+                        </div>
+
+                        <div class="progress-wrapper-item">
+                            <span class="label">Medium (8px)</span>
+                            <div class="progress">
+                                <div class="progress__bar" style="width: 60%"></div>
+                            </div>
+                            <code class="code-inline">default</code>
+                        </div>
+
+                        <div class="progress-wrapper-item">
+                            <span class="label">Large (12px)</span>
+                            <div class="progress progress--lg">
+                                <div class="progress__bar" style="width: 75%"></div>
+                            </div>
+                            <code class="code-inline">.progress--lg</code>
+                        </div>
+
+                        <div class="progress-wrapper-item">
+                            <span class="label">Extra Large (16px)</span>
+                            <div class="progress progress--xl">
+                                <div class="progress__bar" style="width: 90%"></div>
+                            </div>
+                            <code class="code-inline">.progress--xl</code>
+                        </div>
                     </div>
-                    <div class="progress progress--success">
-                        <div class="progress__bar" style="width: 24%"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Variants -->
+        <section class="section">
+            <h2 class="section__title">Progress Variants</h2>
+            <div class="card-group card-group--cols-4">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="progress">
+                            <div class="progress__bar" style="width: 60%"></div>
+                        </div>
+                        <code class="code-inline">default</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="progress progress--success">
+                            <div class="progress__bar" style="width: 75%"></div>
+                        </div>
+                        <code class="code-inline">.progress--success</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Warning</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="progress progress--warning">
+                            <div class="progress__bar" style="width: 50%"></div>
+                        </div>
+                        <code class="code-inline">.progress--warning</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="progress progress--danger">
+                            <div class="progress__bar" style="width: 90%"></div>
+                        </div>
+                        <code class="code-inline">.progress--danger</code>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Info</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="progress progress--info">
+                            <div class="progress__bar" style="width: 40%"></div>
+                        </div>
+                        <code class="code-inline">.progress--info</code>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Striped Progress</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div class="progress progress--striped">
-                    <div class="progress__bar" style="width: 40%"></div>
+        </section>
+
+        <!-- Progress with Labels -->
+        <section class="section">
+            <h2 class="section__title">Progress with Labels</h2>
+            <p>라벨이 있는 프로그레스 바</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Label Variations</h3>
                 </div>
-                <div class="progress progress--striped progress--animated">
-                    <div class="progress__bar" style="width: 60%"></div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Indeterminate Progress</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="progress progress--indeterminate">
-                    <div class="progress__bar"></div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Circular Progress</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; align-items: center; gap: 24px;">
-                <div class="progress-circle">
-                    <svg class="progress-circle__svg" viewBox="0 0 36 36">
-                        <path class="progress-circle__bg"
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="progress-circle__bar"
-                            stroke-dasharray="25, 100"
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    </svg>
-                    <span class="progress-circle__text">25%</span>
-                </div>
-                <div class="progress-circle">
-                    <svg class="progress-circle__svg" viewBox="0 0 36 36">
-                        <path class="progress-circle__bg"
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="progress-circle__bar progress-circle__bar--success"
-                            stroke-dasharray="50, 100"
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    </svg>
-                    <span class="progress-circle__text">50%</span>
-                </div>
-                <div class="progress-circle">
-                    <svg class="progress-circle__svg" viewBox="0 0 36 36">
-                        <path class="progress-circle__bg"
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                        <path class="progress-circle__bar progress-circle__bar--warning"
-                            stroke-dasharray="75, 100"
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                    </svg>
-                    <span class="progress-circle__text">75%</span>
+                <div class="card__body">
+                    <div class="labeled-progress-list">
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>File Upload</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" style="width: 60%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Download Progress</span>
+                                <span>2.4MB / 10MB</span>
+                            </div>
+                            <div class="progress progress--success">
+                                <div class="progress__bar" style="width: 24%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Processing</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress progress--warning">
+                                <div class="progress__bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-item">
+                            <div class="progress-wrapper">
+                                <div class="progress progress--lg progress--info">
+                                    <div class="progress__bar" style="width: 45%">
+                                        <span class="progress__label">45%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.progress</code></td>
-                    <td>Base progress container</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--xs</code></td>
-                    <td>Extra small height</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--sm</code></td>
-                    <td>Small height</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--lg</code></td>
-                    <td>Large height</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--success</code></td>
-                    <td>Success color</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--warning</code></td>
-                    <td>Warning color</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--danger</code></td>
-                    <td>Danger color</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--striped</code></td>
-                    <td>Striped pattern</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--animated</code></td>
-                    <td>Animated stripes</td>
-                </tr>
-                <tr>
-                    <td><code>.progress--indeterminate</code></td>
-                    <td>Indeterminate state</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Striped and Animated Progress -->
+        <section class="section">
+            <h2 class="section__title">Striped & Animated Progress</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Striped Progress</h3>
+                </div>
+                <div class="card__body">
+                    <div class="progress progress--striped">
+                        <div class="progress__bar" style="width: 40%"></div>
+                    </div>
+                    <code class="code-inline">.progress--striped</code>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Animated Stripes</h3>
+                </div>
+                <div class="card__body">
+                    <div class="progress progress--striped progress--animated">
+                        <div class="progress__bar" style="width: 60%"></div>
+                    </div>
+                    <code class="code-inline">.progress--striped .progress--animated</code>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Indeterminate Progress</h3>
+                </div>
+                <div class="card__body">
+                    <div class="progress progress--indeterminate">
+                        <div class="progress__bar"></div>
+                    </div>
+                    <code class="code-inline">.progress--indeterminate</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Circular Progress -->
+        <section class="section">
+            <h2 class="section__title">Circular Progress</h2>
+            <p>원형 프로그레스 인디케이터</p>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Circular Variations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="circular-list">
+                        <div class="circular-item">
+                            <div class="progress-circular progress-circular--sm">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar"
+                                        stroke-dasharray="25, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">25%</span>
+                            </div>
+                            <span class="label">Small</span>
+                        </div>
+
+                        <div class="circular-item">
+                            <div class="progress-circular">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar progress-circular__bar--success"
+                                        stroke-dasharray="50, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">50%</span>
+                            </div>
+                            <span class="label">Success</span>
+                        </div>
+
+                        <div class="circular-item">
+                            <div class="progress-circular">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar progress-circular__bar--warning"
+                                        stroke-dasharray="75, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">75%</span>
+                            </div>
+                            <span class="label">Warning</span>
+                        </div>
+
+                        <div class="circular-item">
+                            <div class="progress-circular progress-circular--lg">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar progress-circular__bar--danger"
+                                        stroke-dasharray="90, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">90%</span>
+                            </div>
+                            <span class="label">Large</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Examples -->
+        <section class="section">
+            <h2 class="section__title">Advanced Examples</h2>
+
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Multi-step Progress</h3>
+                </div>
+                <div class="card__body">
+                    <div class="multi-step">
+                        <div class="step-labels">
+                            <span class="step-label step-label--completed">Step 1</span>
+                            <span class="step-label step-label--active">Step 2</span>
+                            <span class="step-label">Step 3</span>
+                            <span class="step-label">Step 4</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress__bar" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Stacked Progress</h3>
+                </div>
+                <div class="card__body">
+                    <div class="stacked-progress">
+                        <div class="progress">
+                            <div class="progress__bar progress--success" style="width: 35%"></div>
+                            <div class="progress__bar progress--warning" style="width: 20%"></div>
+                            <div class="progress__bar progress--danger" style="width: 10%"></div>
+                        </div>
+                        <div class="stacked-legend">
+                            <span class="legend-item"><span class="legend-color legend-color--success"></span>Complete: 35%</span>
+                            <span class="legend-item"><span class="legend-color legend-color--warning"></span>In Progress: 20%</span>
+                            <span class="legend-item"><span class="legend-color legend-color--danger"></span>Failed: 10%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Table -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.progress</code></td>
+                                <td>Base progress container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--xs</code></td>
+                                <td>Extra small height (2px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--sm</code></td>
+                                <td>Small height (4px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--lg</code></td>
+                                <td>Large height (12px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--xl</code></td>
+                                <td>Extra large height (16px)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--success</code></td>
+                                <td>Success color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--warning</code></td>
+                                <td>Warning color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--danger</code></td>
+                                <td>Danger color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--info</code></td>
+                                <td>Info color variant</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--striped</code></td>
+                                <td>Striped pattern</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--animated</code></td>
+                                <td>Animated stripes</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress--indeterminate</code></td>
+                                <td>Indeterminate state</td>
+                            </tr>
+                            <tr>
+                                <td><code>.progress-circular</code></td>
+                                <td>Circular progress</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .progress-label {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 8px;
-                font-size: 14px;
-            }
-            .progress-circle {
-                position: relative;
-                width: 60px;
-                height: 60px;
-            }
-            .progress-circle__svg {
-                transform: rotate(-90deg);
-            }
-            .progress-circle__bg {
-                fill: none;
-                stroke: var(--vp-c-divider);
-                stroke-width: 3.8;
-            }
-            .progress-circle__bar {
-                fill: none;
-                stroke: var(--color-primary-500);
-                stroke-width: 3.8;
-                stroke-linecap: round;
-                animation: progress-circle 1s ease-out;
-            }
-            .progress-circle__bar--success {
-                stroke: var(--color-success-500);
-            }
-            .progress-circle__bar--warning {
-                stroke: var(--color-warning-500);
-            }
-            .progress-circle__text {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 12px;
-                font-weight: 500;
-            }
-            @keyframes progress-circle {
-                from {
-                    stroke-dasharray: 0, 100;
-                }
-            }
+            /* Layout styles */
+            .header {margin-bottom:32px;}
+            .header__title {margin:0 0 12px 0; font-size:32px; font-weight:700;}
+            .header__description {margin:0; color:var(--ds-gray-600); font-size:16px;}
+            .section {margin-bottom:48px;}
+            .section__title {margin:0 0 24px 0; font-size:24px; font-weight:600;}
+
+            /* Card grid layout */
+            .card-group {display:grid; margin-bottom:16px; gap:16px;}
+            .card-group--cols-4 {grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));}
+
+            /* Code styles */
+            .code-block {margin-top:16px; padding:16px; border-radius:6px; background:var(--ds-gray-100); overflow-x:auto;}
+            .code-block code {font-size:14px; font-family:monospace; line-height:1.5;}
+            .code-inline {display:block; margin-top:8px; padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); color:var(--ds-gray-600); font-size:13px; font-family:monospace;}
+
+            /* Demo styles */
+            .sizes-list {display:flex; flex-direction:column; gap:20px;}
+            .progress-wrapper-item {display:flex; flex-direction:column; gap:8px;}
+            .label {font-size:13px; color:var(--ds-gray-600);}
+
+            /* Progress labels */
+            .progress-label {display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px; color:var(--ds-gray-700);}
+            .labeled-progress-list {display:flex; flex-direction:column; gap:24px;}
+            .progress-item {margin-bottom:16px;}
+
+            /* Circular progress colors */
+            .progress-circular__bar--success {stroke:var(--ds-color-success);}
+            .progress-circular__bar--warning {stroke:var(--ds-color-warning);}
+            .progress-circular__bar--danger {stroke:var(--ds-color-danger);}
+            .progress-circular__bar--info {stroke:var(--ds-color-info);}
+
+            /* Circular list */
+            .circular-list {display:flex; align-items:center; gap:32px;}
+            .circular-item {display:flex; flex-direction:column; align-items:center; gap:8px;}
+
+            /* Multi-step progress */
+            .multi-step {margin-bottom:20px;}
+            .step-labels {display:flex; justify-content:space-between; margin-bottom:12px;}
+            .step-label {font-size:13px; color:var(--ds-gray-500); font-weight:500;}
+            .step-label--completed {color:var(--ds-color-success);}
+            .step-label--active {color:var(--ds-black); font-weight:600;}
+
+            /* Stacked progress */
+            .stacked-progress .progress {display:flex; overflow:visible;}
+            .stacked-progress .progress__bar {position:relative;}
+            .stacked-legend {display:flex; gap:20px; margin-top:12px;}
+            .legend-item {display:flex; align-items:center; gap:6px; font-size:13px;}
+            .legend-color {width:12px; height:12px; border-radius:2px;}
+            .legend-color--success {background:var(--ds-color-success);}
+            .legend-color--warning {background:var(--ds-color-warning);}
+            .legend-color--danger {background:var(--ds-color-danger);}
+
+            /* Properties table */
+            .properties-table {width:100%; border-collapse:collapse;}
+            .properties-table th {padding:12px; border-bottom:2px solid var(--ds-gray-300); font-weight:600; text-align:left;}
+            .properties-table td {padding:12px; border-bottom:1px solid var(--ds-gray-200);}
+            .properties-table code {padding:2px 6px; border-radius:4px; background:var(--ds-gray-100); font-size:13px; font-family:monospace;}
+
+            /* Utility classes */
+            .mt-4 {margin-top:32px;}
         </style>
     </div>
 </body>
