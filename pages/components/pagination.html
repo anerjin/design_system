@@ -7,57 +7,58 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Pagination</h1>
-            <p class="vp-doc-description">
-                페이지 네비게이션을 위한 페이지네이션 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Pagination Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 페이지네이션 컴포넌트입니다. 페이지 네비게이션을 위한 다양한 스타일과 기능을 제공합니다.
             </p>
-        </div>
-        
-        <h2>Basic Pagination</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <nav class="pagination" aria-label="Page navigation">
-                    <ul class="pagination__list">
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--prev" aria-label="Previous">
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-left"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">1</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--active" aria-current="page">2</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">3</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">4</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">5</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--next" aria-label="Next">
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-right"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        
-        <pre><code>&lt;nav class="pagination" aria-label="Page navigation"&gt;
+        </header>
+
+        <!-- Basic Pagination -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Pagination</h2>
+                </div>
+                <div class="card__body">
+                    <nav class="pagination" aria-label="Page navigation" data-pagination>
+                        <ul class="pagination__list">
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--prev" aria-label="Previous" data-page="prev">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m15 18-6-6 6-6"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="1">1</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--active" aria-current="page" data-page="2">2</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="3">3</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="4">4</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="5">5</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--next" aria-label="Next" data-page="next">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m9 18 6-6-6-6"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <pre class="code-block"><code>&lt;nav class="pagination" aria-label="Page navigation" data-pagination&gt;
     &lt;ul class="pagination__list"&gt;
         &lt;li class="pagination__item"&gt;
             &lt;a href="#" class="pagination__link pagination__link--prev"&gt;
-                &lt;svg class="icon"&gt;...&lt;/svg&gt;
+                &lt;svg&gt;...&lt;/svg&gt;
             &lt;/a&gt;
         &lt;/li&gt;
         &lt;li class="pagination__item"&gt;
@@ -67,312 +68,550 @@
             &lt;a href="#" class="pagination__link pagination__link--active"&gt;2&lt;/a&gt;
         &lt;/li&gt;
         &lt;li class="pagination__item"&gt;
-            &lt;a href="#" class="pagination__link"&gt;3&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="pagination__item"&gt;
             &lt;a href="#" class="pagination__link pagination__link--next"&gt;
-                &lt;svg class="icon"&gt;...&lt;/svg&gt;
+                &lt;svg&gt;...&lt;/svg&gt;
             &lt;/a&gt;
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
-        
-        <h2>Pagination with Ellipsis</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <nav class="pagination">
-                    <ul class="pagination__list">
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--prev">
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-left"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">1</a>
-                        </li>
-                        <li class="pagination__item">
-                            <span class="pagination__ellipsis">...</span>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">4</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--active">5</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">6</a>
-                        </li>
-                        <li class="pagination__item">
-                            <span class="pagination__ellipsis">...</span>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">10</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--next">
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-right"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                </div>
             </div>
-        </div>
-        
-        <h2>Pagination Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <nav class="pagination pagination--sm">
-                    <ul class="pagination__list">
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--prev">‹</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">1</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--active">2</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">3</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--next">›</a>
-                        </li>
-                    </ul>
-                </nav>
-                
-                <nav class="pagination">
-                    <ul class="pagination__list">
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--prev">‹</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">1</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--active">2</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">3</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--next">›</a>
-                        </li>
-                    </ul>
-                </nav>
-                
-                <nav class="pagination pagination--lg">
-                    <ul class="pagination__list">
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--prev">‹</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">1</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--active">2</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">3</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--next">›</a>
-                        </li>
-                    </ul>
-                </nav>
+        </section>
+
+        <!-- Pagination with Ellipsis -->
+        <section class="section">
+            <h2 class="section__title">Pagination with Ellipsis</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Large Page Range</h3>
+                </div>
+                <div class="card__body">
+                    <nav class="pagination" data-pagination data-total-pages="20" data-current-page="10">
+                        <ul class="pagination__list">
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--prev" data-page="prev">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m15 18-6-6 6-6"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="1">1</a>
+                            </li>
+                            <li class="pagination__item">
+                                <span class="pagination__ellipsis">...</span>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="9">9</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--active" data-page="10">10</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="11">11</a>
+                            </li>
+                            <li class="pagination__item">
+                                <span class="pagination__ellipsis">...</span>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link" data-page="20">20</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--next" data-page="next">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m9 18 6-6-6-6"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
-        
-        <h2>Pagination with Text</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <nav class="pagination">
-                    <ul class="pagination__list">
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--prev">
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-left"></use>
-                                </svg>
-                                Previous
-                            </a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">1</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--active">2</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">3</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--next">
-                                Next
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-right"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+        </section>
+
+        <!-- Pagination Sizes -->
+        <section class="section">
+            <h2 class="section__title">Pagination Sizes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <nav class="pagination pagination--sm" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--prev">‹</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">3</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--next">›</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <code class="code-inline">.pagination--sm</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
+                        <nav class="pagination" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--prev">‹</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">3</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--next">›</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p class="text-muted">Default size</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <nav class="pagination pagination--lg" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--prev">‹</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">3</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--next">›</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <code class="code-inline">.pagination--lg</code>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <h2>Rounded Pagination</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <nav class="pagination pagination--rounded">
-                    <ul class="pagination__list">
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--prev">‹</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">1</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--active">2</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">3</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link">4</a>
-                        </li>
-                        <li class="pagination__item">
-                            <a href="#" class="pagination__link pagination__link--next">›</a>
-                        </li>
-                    </ul>
-                </nav>
+        </section>
+
+        <!-- Pagination Styles -->
+        <section class="section">
+            <h2 class="section__title">Pagination Styles</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Rounded Style</h3>
+                    </div>
+                    <div class="card__body">
+                        <nav class="pagination pagination--rounded" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--prev">‹</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">3</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">4</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--next">›</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <code class="code-inline">.pagination--rounded</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Simple Style</h3>
+                    </div>
+                    <div class="card__body">
+                        <nav class="pagination pagination--simple" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--prev">‹</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">3</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">4</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--next">›</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <code class="code-inline">.pagination--simple</code>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.pagination</code></td>
-                    <td>Base pagination container</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination__list</code></td>
-                    <td>Pagination list container</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination__item</code></td>
-                    <td>Individual page item</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination__link</code></td>
-                    <td>Page link</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination__link--active</code></td>
-                    <td>Active page</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination__link--prev</code></td>
-                    <td>Previous page link</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination__link--next</code></td>
-                    <td>Next page link</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination__ellipsis</code></td>
-                    <td>Ellipsis separator</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination--sm</code></td>
-                    <td>Small size</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination--lg</code></td>
-                    <td>Large size</td>
-                </tr>
-                <tr>
-                    <td><code>.pagination--rounded</code></td>
-                    <td>Rounded style</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Pagination with Text -->
+        <section class="section">
+            <h2 class="section__title">Pagination with Text</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Previous/Next Text Labels</h3>
+                </div>
+                <div class="card__body">
+                    <nav class="pagination" data-pagination>
+                        <ul class="pagination__list">
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--prev">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m15 18-6-6 6-6"/>
+                                    </svg>
+                                    Previous
+                                </a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link">1</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--active">2</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link">3</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--next">
+                                    Next
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m9 18 6-6-6-6"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pagination with Info -->
+        <section class="section">
+            <h2 class="section__title">Pagination with Info</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">With Result Count</h3>
+                </div>
+                <div class="card__body">
+                    <div class="pagination-wrapper">
+                        <div class="pagination-info">
+                            Showing <strong>21-30</strong> of <strong>248</strong> results
+                        </div>
+                        <nav class="pagination" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--prev">‹</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">3</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">4</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">5</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--next">›</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disabled State -->
+        <section class="section">
+            <h2 class="section__title">Disabled State</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">First Page Example</h3>
+                </div>
+                <div class="card__body">
+                    <nav class="pagination" data-pagination>
+                        <ul class="pagination__list">
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--disabled" aria-disabled="true" tabindex="-1">‹</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--active">1</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link">2</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link">3</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link">4</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link">5</a>
+                            </li>
+                            <li class="pagination__item">
+                                <a href="#" class="pagination__link pagination__link--next">›</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="text-muted">Previous button is disabled on first page</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alignment Options -->
+        <section class="section">
+            <h2 class="section__title">Alignment Options</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Center & End Alignment</h3>
+                </div>
+                <div class="card__body">
+                    <div style="margin-bottom: 20px;">
+                        <p class="text-muted mb-2">Center aligned:</p>
+                        <nav class="pagination pagination--center" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">3</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div>
+                        <p class="text-muted mb-2">End aligned:</p>
+                        <nav class="pagination pagination--end" data-pagination>
+                            <ul class="pagination__list">
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">1</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link pagination__link--active">2</a>
+                                </li>
+                                <li class="pagination__item">
+                                    <a href="#" class="pagination__link">3</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <code class="code-inline">.pagination--center</code>
+                    <code class="code-inline">.pagination--end</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.pagination</code></td>
+                                <td>Base pagination container</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__list</code></td>
+                                <td>Pagination list container</td>
+                                <td>ul element</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__item</code></td>
+                                <td>Individual page item</td>
+                                <td>li element</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__link</code></td>
+                                <td>Page link</td>
+                                <td>Clickable element</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__link--active</code></td>
+                                <td>Active/current page</td>
+                                <td>Visual indicator</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__link--prev</code></td>
+                                <td>Previous page link</td>
+                                <td>Navigation</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__link--next</code></td>
+                                <td>Next page link</td>
+                                <td>Navigation</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__link--disabled</code></td>
+                                <td>Disabled state</td>
+                                <td>Non-clickable</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination__ellipsis</code></td>
+                                <td>Ellipsis separator</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination--{size}</code></td>
+                                <td>Size variants</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination--rounded</code></td>
+                                <td>Rounded style</td>
+                                <td>Circular buttons</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination--simple</code></td>
+                                <td>Simple style</td>
+                                <td>No borders</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination--center</code></td>
+                                <td>Center alignment</td>
+                                <td>Centered</td>
+                            </tr>
+                            <tr>
+                                <td><code>.pagination--end</code></td>
+                                <td>End alignment</td>
+                                <td>Right aligned</td>
+                            </tr>
+                            <tr>
+                                <td><code>data-pagination</code></td>
+                                <td>JavaScript initialization</td>
+                                <td>Required for JS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .pagination__list {
-                display: flex;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                gap: 4px;
+            /* Demo specific styles */
+            .code-inline {
+                display: inline-block;
+                margin-top: var(--ds-space-2);
+                margin-right: var(--ds-space-2);
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
-            .pagination__item {
-                margin: 0;
+
+            .code-block {
+                background: var(--ds-gray-50);
+                padding: var(--ds-space-3);
+                border-radius: var(--ds-border-radius-md);
+                overflow-x: auto;
+                font-family: monospace;
+                font-size: var(--ds-text-sm);
+                line-height: 1.5;
+                margin-top: var(--ds-space-3);
             }
-            .pagination__link {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 4px;
-                min-width: 36px;
-                height: 36px;
-                padding: 0 12px;
-                border: 1px solid var(--vp-c-divider);
-                background: white;
-                color: var(--vp-c-text-1);
-                text-decoration: none;
-                border-radius: 6px;
-                transition: all 0.2s;
+
+            .text-muted {
+                color: var(--ds-gray-600);
+                font-size: var(--ds-text-sm);
+                margin-top: var(--ds-space-2);
             }
-            .pagination__link:hover {
-                background: var(--vp-c-bg-soft);
-                border-color: var(--color-primary-500);
+
+            .mb-2 {
+                margin-bottom: var(--ds-space-2);
             }
-            .pagination__link--active {
-                background: var(--color-primary-500);
-                border-color: var(--color-primary-500);
-                color: white;
+
+            /* Table styles */
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: var(--ds-text-sm);
             }
-            .pagination__link--active:hover {
-                background: var(--color-primary-600);
-                border-color: var(--color-primary-600);
+
+            .table th {
+                padding: var(--ds-space-3);
+                border-bottom: 2px solid var(--ds-gray-200);
+                background: var(--ds-gray-50);
+                color: var(--ds-black);
+                font-weight: var(--ds-font-semibold);
+                text-align: left;
             }
-            .pagination__link:disabled,
-            .pagination__link--disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-                pointer-events: none;
+
+            .table td {
+                padding: var(--ds-space-3);
+                border-bottom: 1px solid var(--ds-gray-100);
+                color: var(--ds-gray-600);
+                vertical-align: top;
             }
-            .pagination__ellipsis {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-width: 36px;
-                height: 36px;
-                color: var(--vp-c-text-3);
-            }
-            .pagination--sm .pagination__link {
-                min-width: 28px;
-                height: 28px;
-                padding: 0 8px;
-                font-size: 14px;
-            }
-            .pagination--lg .pagination__link {
-                min-width: 44px;
-                height: 44px;
-                padding: 0 16px;
-                font-size: 16px;
-            }
-            .pagination--rounded .pagination__link {
-                border-radius: 50%;
+
+            .table code {
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
         </style>
     </div>

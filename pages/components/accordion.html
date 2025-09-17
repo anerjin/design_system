@@ -7,63 +7,64 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Accordion</h1>
-            <p class="vp-doc-description">
-                접고 펼칠 수 있는 콘텐츠 패널을 제공하는 아코디언 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Accordion Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 아코디언 컴포넌트입니다. 접고 펼칠 수 있는 콘텐츠 패널을 제공하여 정보를 효율적으로 구성할 수 있습니다.
             </p>
-        </div>
-        
-        <h2>Basic Accordion</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="accordion">
-                    <div class="accordion__item accordion__item--open">
-                        <button type="button" class="accordion__header">
-                            <span>What is BRICKS Design System?</span>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>BRICKS is a modern, flexible design system built with pure CSS. It provides a comprehensive set of components and utilities for building beautiful user interfaces.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <span>How to get started?</span>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>You can get started by installing BRICKS via NPM or using our CDN. Check out our installation guide for detailed instructions.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <span>Is it customizable?</span>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>Yes! BRICKS uses CSS custom properties for easy customization. You can override colors, spacing, typography, and more to match your brand.</p>
-                            </div>
-                        </div>
-                    </div>
+        </header>
+
+        <!-- Basic Accordion -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Accordion</h2>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="accordion"&gt;
+                <div class="card__body">
+                    <div class="accordion" data-accordion>
+                        <div class="accordion__item accordion__item--open">
+                            <button type="button" class="accordion__header">
+                                <span>What is BRICKS Design System?</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content accordion__content--open">
+                                <div class="accordion__body">
+                                    <p>BRICKS is a modern, flexible design system built with pure CSS. It provides a comprehensive set of components and utilities for building beautiful user interfaces. The system is designed to be lightweight, accessible, and easy to customize.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <span>How to get started?</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>You can get started by installing BRICKS via NPM or using our CDN. Check out our installation guide for detailed instructions. The setup process is simple and takes only a few minutes.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <span>Is it customizable?</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>Yes! BRICKS uses CSS custom properties for easy customization. You can override colors, spacing, typography, and more to match your brand. Every aspect of the design system is customizable through CSS variables.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="accordion" data-accordion&gt;
     &lt;div class="accordion__item"&gt;
         &lt;button class="accordion__header"&gt;
             &lt;span&gt;Accordion Title&lt;/span&gt;
@@ -76,240 +77,473 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Accordion with Icons</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="accordion">
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <div class="accordion__title">
-                                <svg class="icon icon--sm" style="color: var(--color-primary-500)">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
-                                </svg>
-                                <span>Settings</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordion Sizes -->
+        <section class="section">
+            <h2 class="section__title">Accordion Sizes</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Small Size</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="accordion accordion--sm" data-accordion>
+                            <div class="accordion__item">
+                                <button type="button" class="accordion__header">
+                                    <span>Small Item 1</span>
+                                    <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
+                                </button>
+                                <div class="accordion__content">
+                                    <div class="accordion__body">
+                                        <p>Small accordion content with reduced padding and font size.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>Configure your application settings here.</p>
+                            <div class="accordion__item">
+                                <button type="button" class="accordion__header">
+                                    <span>Small Item 2</span>
+                                    <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
+                                </button>
+                                <div class="accordion__content">
+                                    <div class="accordion__body">
+                                        <p>Another small accordion item.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <code class="code-inline">.accordion--sm</code>
                     </div>
-                    
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <div class="accordion__title">
-                                <svg class="icon icon--sm" style="color: var(--color-success-500)">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-shield"></use>
-                                </svg>
-                                <span>Security</span>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Large Size</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="accordion accordion--lg" data-accordion>
+                            <div class="accordion__item">
+                                <button type="button" class="accordion__header">
+                                    <span>Large Item 1</span>
+                                    <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
+                                </button>
+                                <div class="accordion__content">
+                                    <div class="accordion__body">
+                                        <p>Large accordion content with increased padding and font size for better readability.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>Manage your security preferences and two-factor authentication.</p>
+                            <div class="accordion__item">
+                                <button type="button" class="accordion__header">
+                                    <span>Large Item 2</span>
+                                    <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
+                                </button>
+                                <div class="accordion__content">
+                                    <div class="accordion__body">
+                                        <p>Another large accordion item with more content space.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <code class="code-inline">.accordion--lg</code>
                     </div>
-                    
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <div class="accordion__title">
-                                <svg class="icon icon--sm" style="color: var(--color-warning-500)">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-bell"></use>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordion with Icons -->
+        <section class="section">
+            <h2 class="section__title">Accordion with Icons</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Icon Enhanced Accordion</h3>
+                </div>
+                <div class="card__body">
+                    <div class="accordion" data-accordion>
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <div class="accordion__title">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--ds-prime)">
+                                        <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4m0 6c-1.08 0-2-.92-2-2s.92-2 2-2 2 .92 2 2-.92 2-2 2"/>
+                                        <path d="m20.42 13.4-.51-.29c.05-.37.08-.74.08-1.11s-.03-.74-.08-1.11l.51-.29c.96-.55 1.28-1.78.73-2.73l-1-1.73a2.006 2.006 0 0 0-2.73-.73l-.53.31c-.58-.46-1.22-.83-1.9-1.11v-.6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v.6c-.67.28-1.31.66-1.9 1.11l-.53-.31c-.96-.55-2.18-.22-2.73.73l-1 1.73c-.55.96-.22 2.18.73 2.73l.51.29c-.05.37-.08.74-.08 1.11s.03.74.08 1.11l-.51.29c-.96.55-1.28 1.78-.73 2.73l1 1.73c.55.95 1.77 1.28 2.73.73l.53-.31c.58.46 1.22.83 1.9 1.11v.6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-.6a8.7 8.7 0 0 0 1.9-1.11l.53.31c.95.55 2.18.22 2.73-.73l1-1.73c.55-.96.22-2.18-.73-2.73m-2.59-2.78c.11.45.17.92.17 1.38s-.06.92-.17 1.38a1 1 0 0 0 .47 1.11l1.12.65-1 1.73-1.14-.66c-.38-.22-.87-.16-1.19.14-.68.65-1.51 1.13-2.38 1.4-.42.13-.71.52-.71.96v1.3h-2v-1.3c0-.44-.29-.83-.71-.96-.88-.27-1.7-.75-2.38-1.4a1.01 1.01 0 0 0-1.19-.15l-1.14.66-1-1.73 1.12-.65c.39-.22.58-.68.47-1.11-.11-.45-.17-.92-.17-1.38s.06-.93.17-1.38A1 1 0 0 0 5.7 9.5l-1.12-.65 1-1.73 1.14.66c.38.22.87.16 1.19-.14.68-.65 1.51-1.13 2.38-1.4.42-.13.71-.52.71-.96v-1.3h2v1.3c0 .44.29.83.71.96.88.27 1.7.75 2.38 1.4.32.31.81.36 1.19.14l1.14-.66 1 1.73-1.12.65c-.39.22-.58.68-.47 1.11Z"/>
+                                    </svg>
+                                    <span>Settings</span>
+                                </div>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
-                                <span>Notifications</span>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>Configure your application settings here. You can customize various aspects of the system including appearance, behavior, and performance options.</p>
+                                </div>
                             </div>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>Control your notification preferences and alert settings.</p>
+                        </div>
+
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <div class="accordion__title">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--ds-color-success)">
+                                        <path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11z"/>
+                                    </svg>
+                                    <span>Security</span>
+                                </div>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>Manage your security preferences and two-factor authentication. Keep your account secure with advanced security features.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <div class="accordion__title">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--ds-color-warning)">
+                                        <path d="M19 12.59V10c0-3.22-2.18-5.93-5.14-6.74C13.57 2.52 12.85 2 12 2s-1.56.52-1.86 1.26C7.18 4.08 5 6.79 5 10v2.59L3.29 14.3a1 1 0 0 0-.29.71v2c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-2c0-.27-.11-.52-.29-.71zM19 16H5v-.59l1.71-1.71a1 1 0 0 0 .29-.71v-3c0-2.76 2.24-5 5-5s5 2.24 5 5v3c0 .27.11.52.29.71L19 15.41zm-4.18 4H9.18c.41 1.17 1.51 2 2.82 2s2.41-.83 2.82-2"/>
+                                    </svg>
+                                    <span>Notifications</span>
+                                </div>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>Control your notification preferences and alert settings. Choose how and when you want to be notified about important updates.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Flush Accordion</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="accordion accordion--flush">
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <span>First item</span>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-plus"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>This is a flush accordion without borders.</p>
+        </section>
+
+        <!-- Flush Accordion -->
+        <section class="section">
+            <h2 class="section__title">Flush Style</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Borderless Accordion</h3>
+                </div>
+                <div class="card__body">
+                    <div class="accordion accordion--flush" data-accordion>
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <span>First flush item</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12h14"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>This is a flush accordion without outer borders. It integrates seamlessly into your design.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <span>Second flush item</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12h14"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>Content for the second flush item. Perfect for minimal designs where you want less visual separation.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <span>Third flush item</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12h14"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>Content for the third flush item. The flush style works great in cards or other containers.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <span>Second item</span>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-plus"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>Content for the second item.</p>
-                            </div>
-                        </div>
+                    <code class="code-inline">.accordion--flush</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Variants -->
+        <section class="section">
+            <h2 class="section__title">Color Variants</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary Variant</h3>
                     </div>
-                    
-                    <div class="accordion__item">
-                        <button type="button" class="accordion__header">
-                            <span>Third item</span>
-                            <svg class="accordion__icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-plus"></use>
-                            </svg>
-                        </button>
-                        <div class="accordion__content">
-                            <div class="accordion__body">
-                                <p>Content for the third item.</p>
+                    <div class="card__body">
+                        <div class="accordion accordion--primary" data-accordion>
+                            <div class="accordion__item accordion__item--open">
+                                <button type="button" class="accordion__header accordion__header--active">
+                                    <span>Primary Active Item</span>
+                                    <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
+                                </button>
+                                <div class="accordion__content accordion__content--open">
+                                    <div class="accordion__body">
+                                        <p>This accordion uses the primary color scheme.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <code class="code-inline">.accordion--primary</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Success Variant</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="accordion accordion--success" data-accordion>
+                            <div class="accordion__item accordion__item--open">
+                                <button type="button" class="accordion__header accordion__header--active">
+                                    <span>Success Active Item</span>
+                                    <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
+                                </button>
+                                <div class="accordion__content accordion__content--open">
+                                    <div class="accordion__body">
+                                        <p>This accordion uses the success color scheme.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.accordion--success</code>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.accordion</code></td>
-                    <td>Base accordion container</td>
-                </tr>
-                <tr>
-                    <td><code>.accordion__item</code></td>
-                    <td>Individual accordion item</td>
-                </tr>
-                <tr>
-                    <td><code>.accordion__item--open</code></td>
-                    <td>Open accordion item</td>
-                </tr>
-                <tr>
-                    <td><code>.accordion__header</code></td>
-                    <td>Clickable header button</td>
-                </tr>
-                <tr>
-                    <td><code>.accordion__content</code></td>
-                    <td>Content container</td>
-                </tr>
-                <tr>
-                    <td><code>.accordion__body</code></td>
-                    <td>Content body with padding</td>
-                </tr>
-                <tr>
-                    <td><code>.accordion--flush</code></td>
-                    <td>Remove outer borders</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Multiple Expansion -->
+        <section class="section">
+            <h2 class="section__title">Multiple Expansion</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Allow Multiple Open</h3>
+                </div>
+                <div class="card__body">
+                    <div class="accordion" data-accordion data-accordion-multiple="true">
+                        <div class="accordion__item accordion__item--open">
+                            <button type="button" class="accordion__header accordion__header--active">
+                                <span>Item 1 (Initially Open)</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content accordion__content--open">
+                                <div class="accordion__body">
+                                    <p>This accordion allows multiple items to be open at the same time.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item accordion__item--open">
+                            <button type="button" class="accordion__header accordion__header--active">
+                                <span>Item 2 (Also Open)</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content accordion__content--open">
+                                <div class="accordion__body">
+                                    <p>Multiple items can be expanded simultaneously for better content comparison.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <button type="button" class="accordion__header">
+                                <span>Item 3 (Closed)</span>
+                                <svg class="accordion__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="accordion__body">
+                                    <p>Click to expand this item while keeping others open.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <code class="code-inline">data-accordion-multiple="true"</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.accordion</code></td>
+                                <td>Base accordion container</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion__item</code></td>
+                                <td>Individual accordion item</td>
+                                <td>Container for header and content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion__item--open</code></td>
+                                <td>Open accordion item</td>
+                                <td>Expanded state</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion__header</code></td>
+                                <td>Clickable header button</td>
+                                <td>Trigger element</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion__header--active</code></td>
+                                <td>Active header state</td>
+                                <td>Visual feedback</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion__content</code></td>
+                                <td>Content container</td>
+                                <td>Collapsible area</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion__content--open</code></td>
+                                <td>Open content state</td>
+                                <td>Visible content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion__body</code></td>
+                                <td>Content body with padding</td>
+                                <td>Inner content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion--{size}</code></td>
+                                <td>Size variants</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion--flush</code></td>
+                                <td>Remove outer borders</td>
+                                <td>Borderless style</td>
+                            </tr>
+                            <tr>
+                                <td><code>.accordion--{color}</code></td>
+                                <td>Color variants</td>
+                                <td>primary, success, warning, danger</td>
+                            </tr>
+                            <tr>
+                                <td><code>data-accordion</code></td>
+                                <td>JavaScript initialization</td>
+                                <td>Required for JS</td>
+                            </tr>
+                            <tr>
+                                <td><code>data-accordion-multiple</code></td>
+                                <td>Allow multiple open</td>
+                                <td>true, false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .accordion {
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 8px;
-                overflow: hidden;
-            }
-            .accordion__item {
-                border-bottom: 1px solid var(--vp-c-divider);
-            }
-            .accordion__item:last-child {
-                border-bottom: none;
-            }
-            .accordion__header {
-                width: 100%;
-                padding: 16px 20px;
-                background: none;
-                border: none;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
-                transition: background 0.2s;
-                text-align: left;
-                font-size: 16px;
-                font-weight: 500;
-            }
-            .accordion__header:hover {
-                background: var(--vp-c-bg-soft);
-            }
+            /* Demo specific styles */
             .accordion__title {
                 display: flex;
                 align-items: center;
                 gap: 12px;
             }
-            .accordion__icon {
-                transition: transform 0.3s;
-                flex-shrink: 0;
+
+            .code-inline {
+                display: inline-block;
+                margin-top: var(--ds-space-2);
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
-            .accordion__item--open .accordion__icon {
-                transform: rotate(180deg);
+
+            .code-block {
+                background: var(--ds-gray-50);
+                padding: var(--ds-space-3);
+                border-radius: var(--ds-border-radius-md);
+                overflow-x: auto;
+                font-family: monospace;
+                font-size: var(--ds-text-sm);
+                line-height: 1.5;
+                margin-top: var(--ds-space-3);
             }
-            .accordion__content {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
+
+            /* Table styles */
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: var(--ds-text-sm);
             }
-            .accordion__item--open .accordion__content {
-                max-height: 500px;
+
+            .table th {
+                padding: var(--ds-space-3);
+                border-bottom: 2px solid var(--ds-gray-200);
+                background: var(--ds-gray-50);
+                color: var(--ds-black);
+                font-weight: var(--ds-font-semibold);
+                text-align: left;
             }
-            .accordion__body {
-                padding: 0 20px 20px;
+
+            .table td {
+                padding: var(--ds-space-3);
+                border-bottom: 1px solid var(--ds-gray-100);
+                color: var(--ds-gray-600);
+                vertical-align: top;
             }
-            .accordion--flush {
-                border: none;
-                border-radius: 0;
-            }
-            .accordion--flush .accordion__item {
-                border-bottom: 1px solid var(--vp-c-divider);
+
+            .table code {
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
         </style>
-        
-        <script>
-            document.querySelectorAll('.accordion__header').forEach(header => {
-                header.addEventListener('click', () => {
-                    const item = header.parentElement;
-                    const accordion = item.parentElement;
-                    const isOpen = item.classList.contains('accordion__item--open');
-                    
-                    // Close all items in the same accordion
-                    accordion.querySelectorAll('.accordion__item').forEach(i => {
-                        i.classList.remove('accordion__item--open');
-                    });
-                    
-                    // Toggle current item
-                    if (!isOpen) {
-                        item.classList.add('accordion__item--open');
-                    }
-                });
-            });
-        </script>
     </div>
 </body>
 </html>

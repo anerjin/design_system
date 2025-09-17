@@ -7,288 +7,461 @@
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Tabs</h1>
-            <p class="vp-doc-description">
-                콘텐츠를 탭으로 구분하여 보여주는 탭 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Tabs Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 탭 컴포넌트입니다. 콘텐츠를 탭으로 구분하여 보여주는 다양한 변형과 기능을 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Tabs</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="tabs">
-                    <div class="tabs__nav">
-                        <button type="button" class="tabs__button tabs__button--active">Tab 1</button>
-                        <button type="button" class="tabs__button">Tab 2</button>
-                        <button type="button" class="tabs__button">Tab 3</button>
-                    </div>
-                    <div class="tabs__content">
-                        <div class="tabs__panel tabs__panel--active">
-                            <h4>Tab 1 Content</h4>
-                            <p>This is the content for the first tab. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <h4>Tab 2 Content</h4>
-                            <p>This is the content for the second tab. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <h4>Tab 3 Content</h4>
-                            <p>This is the content for the third tab. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                        </div>
-                    </div>
+        </header>
+
+        <!-- Basic Tabs -->
+        <section class="section">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">Basic Tabs</h2>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="tabs"&gt;
+                <div class="card__body">
+                    <div class="tabs" data-tabs>
+                        <div class="tabs__nav">
+                            <button type="button" class="tabs__button tabs__button--active" data-tab="tab1">Tab 1</button>
+                            <button type="button" class="tabs__button" data-tab="tab2">Tab 2</button>
+                            <button type="button" class="tabs__button" data-tab="tab3">Tab 3</button>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__panel tabs__panel--active" id="tab1">
+                                <h4>Tab 1 Content</h4>
+                                <p>This is the content for the first tab. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="tabs__panel" id="tab2">
+                                <h4>Tab 2 Content</h4>
+                                <p>This is the content for the second tab. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            <div class="tabs__panel" id="tab3">
+                                <h4>Tab 3 Content</h4>
+                                <p>This is the content for the third tab. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class="code-block"><code>&lt;div class="tabs" data-tabs&gt;
     &lt;div class="tabs__nav"&gt;
-        &lt;button class="tabs__button tabs__button--active"&gt;Tab 1&lt;/button&gt;
-        &lt;button class="tabs__button"&gt;Tab 2&lt;/button&gt;
-        &lt;button class="tabs__button"&gt;Tab 3&lt;/button&gt;
+        &lt;button class="tabs__button tabs__button--active" data-tab="tab1"&gt;Tab 1&lt;/button&gt;
+        &lt;button class="tabs__button" data-tab="tab2"&gt;Tab 2&lt;/button&gt;
+        &lt;button class="tabs__button" data-tab="tab3"&gt;Tab 3&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class="tabs__content"&gt;
-        &lt;div class="tabs__panel tabs__panel--active"&gt;
+        &lt;div class="tabs__panel tabs__panel--active" id="tab1"&gt;
             &lt;p&gt;Tab 1 content&lt;/p&gt;
         &lt;/div&gt;
-        &lt;div class="tabs__panel"&gt;
+        &lt;div class="tabs__panel" id="tab2"&gt;
             &lt;p&gt;Tab 2 content&lt;/p&gt;
         &lt;/div&gt;
-        &lt;div class="tabs__panel"&gt;
+        &lt;div class="tabs__panel" id="tab3"&gt;
             &lt;p&gt;Tab 3 content&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Tabs with Icons</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="tabs">
-                    <div class="tabs__nav">
-                        <button type="button" class="tabs__button tabs__button--active">
-                            <svg class="icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-home"></use>
-                            </svg>
-                            Home
-                        </button>
-                        <button type="button" class="tabs__button">
-                            <svg class="icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-user"></use>
-                            </svg>
-                            Profile
-                        </button>
-                        <button type="button" class="tabs__button">
-                            <svg class="icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-settings"></use>
-                            </svg>
-                            Settings
-                        </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs with Icons -->
+        <section class="section">
+            <h2 class="section__title">Tabs with Icons</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Icon Tabs</h3>
+                </div>
+                <div class="card__body">
+                    <div class="tabs" data-tabs>
+                        <div class="tabs__nav">
+                            <button type="button" class="tabs__button tabs__button--active tabs__button-icon" data-tab="home">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.4 0 .77-.24.92-.62.15-.37.07-.8-.22-1.09l-8.99-9a.996.996 0 0 0-1.41 0l-9.01 9c-.29.29-.37.72-.22 1.09s.52.62.92.62Zm9-8.59 6 6V20H6v-9.59z"/>
+                                </svg>
+                                Home
+                            </button>
+                            <button type="button" class="tabs__button tabs__button-icon" data-tab="profile">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5m0-8c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1m6-7h4c2.76 0 5 2.24 5 5H5c0-2.76 2.24-5 5-5"/>
+                                </svg>
+                                Profile
+                            </button>
+                            <button type="button" class="tabs__button tabs__button-icon" data-tab="settings">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4m0 6c-1.08 0-2-.92-2-2s.92-2 2-2 2 .92 2 2-.92 2-2 2"/>
+                                    <path d="m20.42 13.4-.51-.29c.05-.37.08-.74.08-1.11s-.03-.74-.08-1.11l.51-.29c.96-.55 1.28-1.78.73-2.73l-1-1.73a2.006 2.006 0 0 0-2.73-.73l-.53.31c-.58-.46-1.22-.83-1.9-1.11v-.6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v.6c-.67.28-1.31.66-1.9 1.11l-.53-.31c-.96-.55-2.18-.22-2.73.73l-1 1.73c-.55.96-.22 2.18.73 2.73l.51.29c-.05.37-.08.74-.08 1.11s.03.74.08 1.11l-.51.29c-.96.55-1.28 1.78-.73 2.73l1 1.73c.55.95 1.77 1.28 2.73.73l.53-.31c.58.46 1.22.83 1.9 1.11v.6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-.6a8.7 8.7 0 0 0 1.9-1.11l.53.31c.95.55 2.18.22 2.73-.73l1-1.73c.55-.96.22-2.18-.73-2.73m-2.59-2.78c.11.45.17.92.17 1.38s-.06.92-.17 1.38a1 1 0 0 0 .47 1.11l1.12.65-1 1.73-1.14-.66c-.38-.22-.87-.16-1.19.14-.68.65-1.51 1.13-2.38 1.4-.42.13-.71.52-.71.96v1.3h-2v-1.3c0-.44-.29-.83-.71-.96-.88-.27-1.7-.75-2.38-1.4a1.01 1.01 0 0 0-1.19-.15l-1.14.66-1-1.73 1.12-.65c.39-.22.58-.68.47-1.11-.11-.45-.17-.92-.17-1.38s.06-.93.17-1.38A1 1 0 0 0 5.7 9.5l-1.12-.65 1-1.73 1.14.66c.38.22.87.16 1.19-.14.68-.65 1.51-1.13 2.38-1.4.42-.13.71-.52.71-.96v-1.3h2v1.3c0 .44.29.83.71.96.88.27 1.7.75 2.38 1.4.32.31.81.36 1.19.14l1.14-.66 1 1.73-1.12.65c-.39.22-.58.68-.47 1.11Z"/>
+                                </svg>
+                                Settings
+                            </button>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__panel tabs__panel--active" id="home">
+                                <h4>Home Content</h4>
+                                <p>Welcome to your dashboard. Here you can see an overview of your account.</p>
+                            </div>
+                            <div class="tabs__panel" id="profile">
+                                <h4>Profile Content</h4>
+                                <p>Manage your profile information and preferences here.</p>
+                            </div>
+                            <div class="tabs__panel" id="settings">
+                                <h4>Settings Content</h4>
+                                <p>Configure your application settings and preferences.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tabs__content">
-                        <div class="tabs__panel tabs__panel--active">
-                            <p>Home content</p>
+                    <code class="code-inline">.tabs__button-icon</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Sizes -->
+        <section class="section">
+            <h2 class="section__title">Tab Sizes</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Small Tabs</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="tabs tabs--sm" data-tabs>
+                            <div class="tabs__nav">
+                                <button type="button" class="tabs__button tabs__button--active" data-tab="sm1">Small 1</button>
+                                <button type="button" class="tabs__button" data-tab="sm2">Small 2</button>
+                                <button type="button" class="tabs__button" data-tab="sm3">Small 3</button>
+                            </div>
+                            <div class="tabs__content">
+                                <div class="tabs__panel tabs__panel--active" id="sm1">
+                                    <p>Small tab content 1</p>
+                                </div>
+                                <div class="tabs__panel" id="sm2">
+                                    <p>Small tab content 2</p>
+                                </div>
+                                <div class="tabs__panel" id="sm3">
+                                    <p>Small tab content 3</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tabs__panel">
-                            <p>Profile content</p>
+                        <code class="code-inline">.tabs--sm</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Large Tabs</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="tabs tabs--lg" data-tabs>
+                            <div class="tabs__nav">
+                                <button type="button" class="tabs__button tabs__button--active" data-tab="lg1">Large 1</button>
+                                <button type="button" class="tabs__button" data-tab="lg2">Large 2</button>
+                                <button type="button" class="tabs__button" data-tab="lg3">Large 3</button>
+                            </div>
+                            <div class="tabs__content">
+                                <div class="tabs__panel tabs__panel--active" id="lg1">
+                                    <p>Large tab content 1</p>
+                                </div>
+                                <div class="tabs__panel" id="lg2">
+                                    <p>Large tab content 2</p>
+                                </div>
+                                <div class="tabs__panel" id="lg3">
+                                    <p>Large tab content 3</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tabs__panel">
-                            <p>Settings content</p>
-                        </div>
+                        <code class="code-inline">.tabs--lg</code>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Vertical Tabs</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="tabs tabs--vertical">
-                    <div class="tabs__nav">
-                        <button type="button" class="tabs__button tabs__button--active">General</button>
-                        <button type="button" class="tabs__button">Security</button>
-                        <button type="button" class="tabs__button">Privacy</button>
-                        <button type="button" class="tabs__button">Notifications</button>
+        </section>
+
+        <!-- Vertical Tabs -->
+        <section class="section">
+            <h2 class="section__title">Vertical Tabs</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Vertical Layout</h3>
+                </div>
+                <div class="card__body">
+                    <div class="tabs tabs--vertical" data-tabs>
+                        <div class="tabs__nav">
+                            <button type="button" class="tabs__button tabs__button--active" data-tab="general">General</button>
+                            <button type="button" class="tabs__button" data-tab="security">Security</button>
+                            <button type="button" class="tabs__button" data-tab="privacy">Privacy</button>
+                            <button type="button" class="tabs__button" data-tab="notifications">Notifications</button>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__panel tabs__panel--active" id="general">
+                                <h4>General Settings</h4>
+                                <p>Configure your general account settings here. You can update your personal information, change your email preferences, and manage your display name.</p>
+                            </div>
+                            <div class="tabs__panel" id="security">
+                                <h4>Security Settings</h4>
+                                <p>Manage your security preferences including two-factor authentication, password policies, and trusted devices.</p>
+                            </div>
+                            <div class="tabs__panel" id="privacy">
+                                <h4>Privacy Settings</h4>
+                                <p>Control your privacy settings, data sharing preferences, and visibility options for your profile.</p>
+                            </div>
+                            <div class="tabs__panel" id="notifications">
+                                <h4>Notification Settings</h4>
+                                <p>Manage your notification preferences including email alerts, push notifications, and in-app messages.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tabs__content">
-                        <div class="tabs__panel tabs__panel--active">
-                            <h4>General Settings</h4>
-                            <p>Configure your general account settings here.</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <h4>Security Settings</h4>
-                            <p>Manage your security preferences.</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <h4>Privacy Settings</h4>
-                            <p>Control your privacy settings.</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <h4>Notification Settings</h4>
-                            <p>Manage your notification preferences.</p>
-                        </div>
-                    </div>
+                    <code class="code-inline">.tabs--vertical</code>
                 </div>
             </div>
-        </div>
-        
-        <h2>Pill Tabs</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="tabs tabs--pills">
-                    <div class="tabs__nav">
-                        <button type="button" class="tabs__button tabs__button--active">All</button>
-                        <button type="button" class="tabs__button">Active</button>
-                        <button type="button" class="tabs__button">Completed</button>
-                        <button type="button" class="tabs__button">Archived</button>
+        </section>
+
+        <!-- Pill Tabs -->
+        <section class="section">
+            <h2 class="section__title">Pill Style Tabs</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Pills Variant</h3>
+                </div>
+                <div class="card__body">
+                    <div class="tabs tabs--pills" data-tabs>
+                        <div class="tabs__nav">
+                            <button type="button" class="tabs__button tabs__button--active" data-tab="all">All</button>
+                            <button type="button" class="tabs__button" data-tab="active">Active</button>
+                            <button type="button" class="tabs__button" data-tab="completed">Completed</button>
+                            <button type="button" class="tabs__button" data-tab="archived">Archived</button>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__panel tabs__panel--active" id="all">
+                                <p>Showing all items (24 total)</p>
+                            </div>
+                            <div class="tabs__panel" id="active">
+                                <p>Showing active items (12 active)</p>
+                            </div>
+                            <div class="tabs__panel" id="completed">
+                                <p>Showing completed items (8 completed)</p>
+                            </div>
+                            <div class="tabs__panel" id="archived">
+                                <p>Showing archived items (4 archived)</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tabs__content">
-                        <div class="tabs__panel tabs__panel--active">
-                            <p>All items</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <p>Active items</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <p>Completed items</p>
-                        </div>
-                        <div class="tabs__panel">
-                            <p>Archived items</p>
-                        </div>
-                    </div>
+                    <code class="code-inline">.tabs--pills</code>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.tabs</code></td>
-                    <td>Base tabs container</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs__nav</code></td>
-                    <td>Tab navigation container</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs__button</code></td>
-                    <td>Tab button</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs__button--active</code></td>
-                    <td>Active tab button</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs__content</code></td>
-                    <td>Tab panels container</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs__panel</code></td>
-                    <td>Tab panel</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs__panel--active</code></td>
-                    <td>Active tab panel</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs--vertical</code></td>
-                    <td>Vertical tabs layout</td>
-                </tr>
-                <tr>
-                    <td><code>.tabs--pills</code></td>
-                    <td>Pill style tabs</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <!-- Justified Tabs -->
+        <section class="section">
+            <h2 class="section__title">Justified Tabs</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Full Width Tabs</h3>
+                </div>
+                <div class="card__body">
+                    <div class="tabs tabs--justified" data-tabs>
+                        <div class="tabs__nav">
+                            <button type="button" class="tabs__button tabs__button--active" data-tab="j1">Tab 1</button>
+                            <button type="button" class="tabs__button" data-tab="j2">Tab 2</button>
+                            <button type="button" class="tabs__button" data-tab="j3">Tab 3</button>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__panel tabs__panel--active" id="j1">
+                                <p>Justified tab content 1</p>
+                            </div>
+                            <div class="tabs__panel" id="j2">
+                                <p>Justified tab content 2</p>
+                            </div>
+                            <div class="tabs__panel" id="j3">
+                                <p>Justified tab content 3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <code class="code-inline">.tabs--justified</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs with Badge -->
+        <section class="section">
+            <h2 class="section__title">Tabs with Badges</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Badge Indicators</h3>
+                </div>
+                <div class="card__body">
+                    <div class="tabs" data-tabs>
+                        <div class="tabs__nav">
+                            <button type="button" class="tabs__button tabs__button--active" data-tab="inbox">
+                                Inbox
+                                <span class="tabs__button-badge">3</span>
+                            </button>
+                            <button type="button" class="tabs__button" data-tab="sent">
+                                Sent
+                            </button>
+                            <button type="button" class="tabs__button" data-tab="drafts">
+                                Drafts
+                                <span class="tabs__button-badge">12</span>
+                            </button>
+                            <button type="button" class="tabs__button" disabled>
+                                Disabled
+                            </button>
+                        </div>
+                        <div class="tabs__content">
+                            <div class="tabs__panel tabs__panel--active" id="inbox">
+                                <p>You have 3 new messages in your inbox</p>
+                            </div>
+                            <div class="tabs__panel" id="sent">
+                                <p>Your sent messages</p>
+                            </div>
+                            <div class="tabs__panel" id="drafts">
+                                <p>You have 12 draft messages</p>
+                            </div>
+                        </div>
+                    </div>
+                    <code class="code-inline">.tabs__button-badge</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.tabs</code></td>
+                                <td>Base tabs container</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__nav</code></td>
+                                <td>Tab navigation container</td>
+                                <td>Contains buttons</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__button</code></td>
+                                <td>Tab button</td>
+                                <td>Clickable tab</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__button--active</code></td>
+                                <td>Active tab button</td>
+                                <td>Current tab</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__content</code></td>
+                                <td>Tab panels container</td>
+                                <td>Contains panels</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__panel</code></td>
+                                <td>Tab panel</td>
+                                <td>Content area</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__panel--active</code></td>
+                                <td>Active tab panel</td>
+                                <td>Visible panel</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs--{size}</code></td>
+                                <td>Tab sizes</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs--vertical</code></td>
+                                <td>Vertical tabs layout</td>
+                                <td>Side navigation</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs--pills</code></td>
+                                <td>Pill style tabs</td>
+                                <td>Rounded tabs</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs--justified</code></td>
+                                <td>Justified tabs</td>
+                                <td>Full width</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__button-icon</code></td>
+                                <td>Tab with icon</td>
+                                <td>Icon + text</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tabs__button-badge</code></td>
+                                <td>Tab badge</td>
+                                <td>Number indicator</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .tabs__nav {
-                display: flex;
-                border-bottom: 1px solid var(--vp-c-divider);
-                margin-bottom: 24px;
+            /* Demo specific styles */
+            .code-inline {
+                display: inline-block;
+                margin-top: var(--ds-space-2);
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
-            .tabs__button {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 12px 16px;
-                background: none;
-                border: none;
-                border-bottom: 2px solid transparent;
-                color: var(--vp-c-text-2);
-                cursor: pointer;
-                transition: all 0.2s;
+
+            .code-block {
+                background: var(--ds-gray-50);
+                padding: var(--ds-space-3);
+                border-radius: var(--ds-border-radius-md);
+                overflow-x: auto;
+                font-family: monospace;
+                font-size: var(--ds-text-sm);
+                line-height: 1.5;
+                margin-top: var(--ds-space-3);
             }
-            .tabs__button:hover {
-                color: var(--vp-c-text-1);
+
+            /* Table styles */
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: var(--ds-text-sm);
             }
-            .tabs__button--active {
-                color: var(--color-primary-500);
-                border-bottom-color: var(--color-primary-500);
+
+            .table th {
+                padding: var(--ds-space-3);
+                border-bottom: 2px solid var(--ds-gray-200);
+                background: var(--ds-gray-50);
+                color: var(--ds-black);
+                font-weight: var(--ds-font-semibold);
+                text-align: left;
             }
-            .tabs__panel {
-                display: none;
+
+            .table td {
+                padding: var(--ds-space-3);
+                border-bottom: 1px solid var(--ds-gray-100);
+                color: var(--ds-gray-600);
+                vertical-align: top;
             }
-            .tabs__panel--active {
-                display: block;
-            }
-            .tabs--vertical {
-                display: flex;
-                gap: 24px;
-            }
-            .tabs--vertical .tabs__nav {
-                flex-direction: column;
-                border-bottom: none;
-                border-right: 1px solid var(--vp-c-divider);
-                margin-bottom: 0;
-                padding-right: 24px;
-                margin-right: 0;
-            }
-            .tabs--vertical .tabs__button {
-                border-bottom: none;
-                border-left: 2px solid transparent;
-                justify-content: flex-start;
-            }
-            .tabs--vertical .tabs__button--active {
-                border-left-color: var(--color-primary-500);
-            }
-            .tabs--pills .tabs__nav {
-                border: none;
-                gap: 8px;
-            }
-            .tabs--pills .tabs__button {
-                border: none;
-                border-radius: 20px;
-                padding: 8px 16px;
-            }
-            .tabs--pills .tabs__button--active {
-                background: var(--color-primary-500);
-                color: white;
+
+            .table code {
+                padding: var(--ds-space-1) var(--ds-space-2);
+                background: var(--ds-gray-100);
+                border-radius: var(--ds-border-radius-sm);
+                font-size: var(--ds-text-xs);
+                font-family: monospace;
             }
         </style>
-        
-        <script>
-            document.querySelectorAll('.tabs').forEach(tabsContainer => {
-                const buttons = tabsContainer.querySelectorAll('.tabs__button');
-                const panels = tabsContainer.querySelectorAll('.tabs__panel');
-                
-                buttons.forEach((button, index) => {
-                    button.addEventListener('click', () => {
-                        buttons.forEach(b => b.classList.remove('tabs__button--active'));
-                        panels.forEach(p => p.classList.remove('tabs__panel--active'));
-                        
-                        button.classList.add('tabs__button--active');
-                        panels[index].classList.add('tabs__panel--active');
-                    });
-                });
-            });
-        </script>
     </div>
 </body>
 </html>

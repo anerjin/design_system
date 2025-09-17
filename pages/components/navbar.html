@@ -4,363 +4,489 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar - BRICKS Design System</title>
+    <style>
+        /* Demo styles */
+        .demo-navbar {
+            margin-bottom: 24px;
+            border: 1px solid var(--ds-gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .demo-container {
+            padding: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .navbar-placeholder {
+            height: 400px;
+            padding: 40px;
+            background: var(--ds-gray-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ds-gray-600);
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Navbar</h1>
-            <p class="vp-doc-description">
-                웹사이트 상단 네비게이션 바 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Navbar Components</h1>
+            <p class="header__description">
+                웹사이트 상단 네비게이션 바 컴포넌트입니다. 다양한 레이아웃과 기능을 지원하며 반응형 디자인을 제공합니다.
             </p>
-        </div>
-        
-        <h2>Basic Navbar</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0;">
-                <nav class="navbar">
-                    <div class="navbar__container">
-                        <a href="#" class="navbar__brand">
-                            <img src="https://via.placeholder.com/32" alt="Logo" class="navbar__logo">
-                            <span>BRICKS</span>
-                        </a>
-                        <div class="navbar__menu">
-                            <a href="#" class="navbar__link navbar__link--active">Home</a>
-                            <a href="#" class="navbar__link">Features</a>
-                            <a href="#" class="navbar__link">Pricing</a>
-                            <a href="#" class="navbar__link">About</a>
-                            <a href="#" class="navbar__link">Contact</a>
-                        </div>
-                        <div class="navbar__actions">
-                            <button type="button" class="btn btn--ghost btn--sm">Sign In</button>
-                            <button type="button" class="btn btn--primary btn--sm">Sign Up</button>
-                        </div>
-                        <button type="button" class="navbar__toggle">
-                            <svg class="icon">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-menu"></use>
-                            </svg>
-                        </button>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        
-        <pre><code>&lt;nav class="navbar"&gt;
-    &lt;div class="navbar__container"&gt;
-        &lt;a href="#" class="navbar__brand"&gt;
-            &lt;img src="logo.png" alt="Logo" class="navbar__logo"&gt;
-            &lt;span&gt;BRICKS&lt;/span&gt;
-        &lt;/a&gt;
-        &lt;div class="navbar__menu"&gt;
-            &lt;a href="#" class="navbar__link navbar__link--active"&gt;Home&lt;/a&gt;
-            &lt;a href="#" class="navbar__link"&gt;Features&lt;/a&gt;
-            &lt;a href="#" class="navbar__link"&gt;Pricing&lt;/a&gt;
-        &lt;/div&gt;
-        &lt;div class="navbar__actions"&gt;
-            &lt;button class="btn btn--primary"&gt;Sign Up&lt;/button&gt;
-        &lt;/div&gt;
-        &lt;button class="navbar__toggle"&gt;
-            &lt;svg class="icon"&gt;...&lt;/svg&gt;
-        &lt;/button&gt;
-    &lt;/div&gt;
-&lt;/nav&gt;</code></pre>
-        
-        <h2>Navbar with Dropdown</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0;">
-                <nav class="navbar">
-                    <div class="navbar__container">
-                        <a href="#" class="navbar__brand">
-                            <span>BRICKS</span>
-                        </a>
-                        <div class="navbar__menu">
-                            <a href="#" class="navbar__link">Home</a>
-                            <div class="navbar__dropdown">
-                                <button type="button" class="navbar__link navbar__dropdown-toggle">
-                                    Products
-                                    <svg class="icon icon--xs">
-                                        <use href="../../design-system/icon/icon-sprite.svg#icon-chevron-down"></use>
+        </header>
+
+        <!-- Basic Navbar -->
+        <section class="section">
+            <h2 class="section__title">Basic Navbar</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-navbar">
+                        <nav class="navbar" data-navbar>
+                            <div class="navbar__container">
+                                <a href="#" class="navbar__brand">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                                        <rect x="4" y="4" width="10" height="10" rx="2"/>
+                                        <rect x="18" y="4" width="10" height="10" rx="2"/>
+                                        <rect x="4" y="18" width="10" height="10" rx="2"/>
+                                        <rect x="18" y="18" width="10" height="10" rx="2"/>
+                                    </svg>
+                                    <span>BRICKS</span>
+                                </a>
+                                <nav class="navbar__menu">
+                                    <a href="#" class="navbar__link navbar__link--active">Home</a>
+                                    <a href="#" class="navbar__link">Features</a>
+                                    <a href="#" class="navbar__link">Pricing</a>
+                                    <a href="#" class="navbar__link">About</a>
+                                    <a href="#" class="navbar__link">Contact</a>
+                                </nav>
+                                <div class="navbar__actions">
+                                    <button type="button" class="btn btn--ghost btn--sm">Sign In</button>
+                                    <button type="button" class="btn btn--primary btn--sm">Sign Up</button>
+                                </div>
+                                <button type="button" class="navbar__toggle" data-navbar-toggle>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="3" y1="6" x2="21" y2="6"/>
+                                        <line x1="3" y1="12" x2="21" y2="12"/>
+                                        <line x1="3" y1="18" x2="21" y2="18"/>
                                     </svg>
                                 </button>
-                                <div class="navbar__dropdown-menu">
-                                    <a href="#" class="navbar__dropdown-item">Design System</a>
-                                    <a href="#" class="navbar__dropdown-item">Components</a>
-                                    <a href="#" class="navbar__dropdown-item">Templates</a>
-                                    <div class="navbar__dropdown-divider"></div>
-                                    <a href="#" class="navbar__dropdown-item">Documentation</a>
+                            </div>
+                        </nav>
+                    </div>
+                    <pre class="code-block"><code>&lt;nav class="navbar" data-navbar&gt;
+    &lt;div class="navbar__container"&gt;
+        &lt;a href="#" class="navbar__brand"&gt;
+            &lt;svg&gt;...&lt;/svg&gt;
+            &lt;span&gt;BRICKS&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;nav class="navbar__menu"&gt;
+            &lt;a href="#" class="navbar__link navbar__link--active"&gt;Home&lt;/a&gt;
+            &lt;a href="#" class="navbar__link"&gt;Features&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;div class="navbar__actions"&gt;
+            &lt;button class="btn btn--primary btn--sm"&gt;Sign Up&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navbar with Dropdown -->
+        <section class="section">
+            <h2 class="section__title">Navbar with Dropdown</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-navbar">
+                        <nav class="navbar" data-navbar>
+                            <div class="navbar__container">
+                                <a href="#" class="navbar__brand">
+                                    <span>BRICKS</span>
+                                </a>
+                                <nav class="navbar__menu">
+                                    <a href="#" class="navbar__link">Home</a>
+                                    <div class="navbar__dropdown">
+                                        <button type="button" class="navbar__dropdown-toggle">
+                                            Products
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M4.5 6L8 9.5L11.5 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                            </svg>
+                                        </button>
+                                        <div class="navbar__dropdown-menu">
+                                            <a href="#" class="navbar__dropdown-item">Design System</a>
+                                            <a href="#" class="navbar__dropdown-item">Components</a>
+                                            <a href="#" class="navbar__dropdown-item">Templates</a>
+                                            <div class="navbar__dropdown-divider"></div>
+                                            <a href="#" class="navbar__dropdown-item">Documentation</a>
+                                        </div>
+                                    </div>
+                                    <div class="navbar__dropdown">
+                                        <button type="button" class="navbar__dropdown-toggle">
+                                            Services
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M4.5 6L8 9.5L11.5 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                            </svg>
+                                        </button>
+                                        <div class="navbar__dropdown-menu">
+                                            <a href="#" class="navbar__dropdown-item">Web Development</a>
+                                            <a href="#" class="navbar__dropdown-item">Mobile Apps</a>
+                                            <a href="#" class="navbar__dropdown-item">Consulting</a>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="navbar__link">Pricing</a>
+                                    <a href="#" class="navbar__link">Contact</a>
+                                </nav>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navbar with Search -->
+        <section class="section">
+            <h2 class="section__title">Navbar with Search</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-navbar">
+                        <nav class="navbar" data-navbar>
+                            <div class="navbar__container">
+                                <a href="#" class="navbar__brand">
+                                    <span>BRICKS</span>
+                                </a>
+                                <nav class="navbar__menu">
+                                    <a href="#" class="navbar__link">Home</a>
+                                    <a href="#" class="navbar__link">Products</a>
+                                    <a href="#" class="navbar__link">Docs</a>
+                                </nav>
+                                <div class="navbar__search">
+                                    <input type="search" class="navbar__search-input" placeholder="Search...">
+                                    <svg class="navbar__search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <circle cx="7" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <path d="M10 10L13 13" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="navbar__actions">
+                                    <button type="button" class="navbar__icon-btn" aria-label="Notifications">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                                        </svg>
+                                    </button>
+                                    <div class="navbar__user">
+                                        <img src="https://i.pravatar.cc/32" alt="User" class="navbar__avatar">
+                                    </div>
                                 </div>
                             </div>
-                            <a href="#" class="navbar__link">Pricing</a>
-                            <a href="#" class="navbar__link">Contact</a>
-                        </div>
+                        </nav>
                     </div>
-                </nav>
+                </div>
             </div>
-        </div>
-        
-        <h2>Dark Navbar</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0;">
-                <nav class="navbar navbar--dark">
-                    <div class="navbar__container">
-                        <a href="#" class="navbar__brand">
-                            <span>BRICKS</span>
-                        </a>
-                        <div class="navbar__menu">
-                            <a href="#" class="navbar__link navbar__link--active">Home</a>
-                            <a href="#" class="navbar__link">Features</a>
-                            <a href="#" class="navbar__link">Pricing</a>
-                            <a href="#" class="navbar__link">About</a>
-                        </div>
-                        <div class="navbar__actions">
-                            <button type="button" class="btn btn--ghost btn--sm" style="color: white;">Sign In</button>
-                            <button type="button" class="btn btn--primary btn--sm">Get Started</button>
-                        </div>
+        </section>
+
+        <!-- Dark Navbar -->
+        <section class="section">
+            <h2 class="section__title">Dark Theme</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-navbar">
+                        <nav class="navbar navbar--dark" data-navbar>
+                            <div class="navbar__container">
+                                <a href="#" class="navbar__brand">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                                        <rect x="4" y="4" width="10" height="10" rx="2"/>
+                                        <rect x="18" y="4" width="10" height="10" rx="2"/>
+                                        <rect x="4" y="18" width="10" height="10" rx="2"/>
+                                        <rect x="18" y="18" width="10" height="10" rx="2"/>
+                                    </svg>
+                                    <span>BRICKS</span>
+                                </a>
+                                <nav class="navbar__menu">
+                                    <a href="#" class="navbar__link navbar__link--active">Home</a>
+                                    <a href="#" class="navbar__link">Features</a>
+                                    <a href="#" class="navbar__link">Pricing</a>
+                                    <a href="#" class="navbar__link">About</a>
+                                </nav>
+                                <div class="navbar__actions">
+                                    <button type="button" class="btn btn--ghost btn--sm">Sign In</button>
+                                    <button type="button" class="btn btn--primary btn--sm">Get Started</button>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
-                </nav>
+                </div>
             </div>
-        </div>
-        
-        <h2>Navbar with Search</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0;">
-                <nav class="navbar">
-                    <div class="navbar__container">
-                        <a href="#" class="navbar__brand">
-                            <span>BRICKS</span>
-                        </a>
-                        <div class="navbar__menu">
-                            <a href="#" class="navbar__link">Home</a>
-                            <a href="#" class="navbar__link">Products</a>
-                            <a href="#" class="navbar__link">Docs</a>
+        </section>
+
+        <!-- Fixed/Sticky Navbar -->
+        <section class="section">
+            <h2 class="section__title">Fixed & Sticky Positions</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="card-group card-group--cols-2">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Fixed Top</h3>
+                            </div>
+                            <div class="card__body">
+                                <p class="card__description">Use <code class="code-inline">.navbar--fixed</code> to fix navbar to top of viewport</p>
+                                <pre class="code-block"><code>&lt;nav class="navbar navbar--fixed"&gt;
+    ...
+&lt;/nav&gt;</code></pre>
+                            </div>
                         </div>
-                        <div class="navbar__search">
-                            <input type="search" class="navbar__search-input" placeholder="Search...">
-                            <svg class="navbar__search-icon icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-search"></use>
-                            </svg>
-                        </div>
-                        <div class="navbar__actions">
-                            <button type="button" class="navbar__icon-btn">
-                                <svg class="icon">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-bell"></use>
-                                </svg>
-                            </button>
-                            <div class="navbar__user">
-                                <img src="https://i.pravatar.cc/32" alt="User" class="navbar__avatar">
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title">Sticky Top</h3>
+                            </div>
+                            <div class="card__body">
+                                <p class="card__description">Use <code class="code-inline">.navbar--sticky</code> for sticky positioning</p>
+                                <pre class="code-block"><code>&lt;nav class="navbar navbar--sticky"&gt;
+    ...
+&lt;/nav&gt;</code></pre>
                             </div>
                         </div>
                     </div>
-                </nav>
+                </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.navbar</code></td>
-                    <td>Base navbar container</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__container</code></td>
-                    <td>Inner container with max-width</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__brand</code></td>
-                    <td>Brand/logo area</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__menu</code></td>
-                    <td>Navigation links container</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__link</code></td>
-                    <td>Navigation link</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__link--active</code></td>
-                    <td>Active navigation link</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__actions</code></td>
-                    <td>Action buttons container</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__toggle</code></td>
-                    <td>Mobile menu toggle</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar--dark</code></td>
-                    <td>Dark theme navbar</td>
-                </tr>
-                <tr>
-                    <td><code>.navbar__dropdown</code></td>
-                    <td>Dropdown container</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <style>
-            .navbar {
-                background: white;
-                border-bottom: 1px solid var(--vp-c-divider);
-                padding: 0;
-            }
-            .navbar__container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 24px;
-                display: flex;
-                align-items: center;
-                height: 64px;
-                gap: 32px;
-            }
-            .navbar__brand {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                font-size: 20px;
-                font-weight: 600;
-                color: var(--vp-c-text-1);
-                text-decoration: none;
-            }
-            .navbar__logo {
-                width: 32px;
-                height: 32px;
-            }
-            .navbar__menu {
-                display: flex;
-                align-items: center;
-                gap: 32px;
-                flex: 1;
-            }
-            .navbar__link {
-                color: var(--vp-c-text-2);
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 500;
-                transition: color 0.2s;
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-            .navbar__link:hover {
-                color: var(--color-primary-500);
-            }
-            .navbar__link--active {
-                color: var(--color-primary-500);
-            }
-            .navbar__actions {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-            .navbar__toggle {
-                display: none;
-                background: none;
-                border: none;
-                padding: 8px;
-                cursor: pointer;
-            }
-            .navbar--dark {
-                background: var(--vp-c-text-1);
-                border-bottom-color: rgba(255, 255, 255, 0.1);
-            }
-            .navbar--dark .navbar__brand,
-            .navbar--dark .navbar__link {
-                color: rgba(255, 255, 255, 0.9);
-            }
-            .navbar--dark .navbar__link:hover,
-            .navbar--dark .navbar__link--active {
-                color: var(--color-primary-400);
-            }
-            .navbar__dropdown {
-                position: relative;
-            }
-            .navbar__dropdown-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                margin-top: 8px;
-                min-width: 200px;
-                background: white;
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 8px;
-                box-shadow: var(--shadow-lg);
-                padding: 8px 0;
-                display: none;
-            }
-            .navbar__dropdown:hover .navbar__dropdown-menu {
-                display: block;
-            }
-            .navbar__dropdown-item {
-                display: block;
-                padding: 8px 16px;
-                color: var(--vp-c-text-1);
-                text-decoration: none;
-                transition: background 0.2s;
-            }
-            .navbar__dropdown-item:hover {
-                background: var(--vp-c-bg-soft);
-            }
-            .navbar__dropdown-divider {
-                height: 1px;
-                margin: 8px 0;
-                background: var(--vp-c-divider);
-            }
-            .navbar__search {
-                position: relative;
-                flex: 1;
-                max-width: 300px;
-            }
-            .navbar__search-input {
-                width: 100%;
-                padding: 8px 12px 8px 36px;
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 20px;
-                font-size: 14px;
-                background: var(--vp-c-bg-soft);
-            }
-            .navbar__search-icon {
-                position: absolute;
-                left: 12px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: var(--vp-c-text-3);
-            }
-            .navbar__icon-btn {
-                background: none;
-                border: none;
-                padding: 8px;
-                cursor: pointer;
-                color: var(--vp-c-text-2);
-            }
-            .navbar__avatar {
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                cursor: pointer;
-            }
-            @media (max-width: 768px) {
-                .navbar__menu,
-                .navbar__search,
-                .navbar__actions {
-                    display: none;
-                }
-                .navbar__toggle {
-                    display: block;
-                }
-            }
-        </style>
+        </section>
+
+        <!-- Complex Navbar -->
+        <section class="section">
+            <h2 class="section__title">Complex Navigation</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-navbar">
+                        <nav class="navbar" data-navbar>
+                            <div class="navbar__container">
+                                <a href="#" class="navbar__brand">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="var(--ds-prime)">
+                                        <rect x="4" y="4" width="10" height="10" rx="2"/>
+                                        <rect x="18" y="4" width="10" height="10" rx="2"/>
+                                        <rect x="4" y="18" width="10" height="10" rx="2"/>
+                                        <rect x="18" y="18" width="10" height="10" rx="2"/>
+                                    </svg>
+                                    <span>BRICKS Pro</span>
+                                </a>
+                                <nav class="navbar__menu">
+                                    <a href="#" class="navbar__link navbar__link--active">Dashboard</a>
+                                    <div class="navbar__dropdown">
+                                        <button type="button" class="navbar__dropdown-toggle">
+                                            Projects
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M4.5 6L8 9.5L11.5 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                            </svg>
+                                        </button>
+                                        <div class="navbar__dropdown-menu">
+                                            <a href="#" class="navbar__dropdown-item">All Projects</a>
+                                            <a href="#" class="navbar__dropdown-item">Recent</a>
+                                            <a href="#" class="navbar__dropdown-item">Archived</a>
+                                            <div class="navbar__dropdown-divider"></div>
+                                            <a href="#" class="navbar__dropdown-item">Create New</a>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="navbar__link">Analytics</a>
+                                    <a href="#" class="navbar__link">Team</a>
+                                </nav>
+                                <div class="navbar__search">
+                                    <input type="search" class="navbar__search-input" placeholder="Search projects...">
+                                    <svg class="navbar__search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                        <circle cx="7" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <path d="M10 10L13 13" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="navbar__actions">
+                                    <button type="button" class="navbar__icon-btn" aria-label="Help">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="navbar__icon-btn" aria-label="Notifications">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                                        </svg>
+                                        <span style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: var(--ds-color-danger); border-radius: 50%;"></span>
+                                    </button>
+                                    <div class="navbar__dropdown">
+                                        <button type="button" class="navbar__dropdown-toggle" style="padding: 0;">
+                                            <img src="https://i.pravatar.cc/32" alt="User" class="navbar__avatar">
+                                        </button>
+                                        <div class="navbar__dropdown-menu" style="right: 0; left: auto;">
+                                            <a href="#" class="navbar__dropdown-item">Profile</a>
+                                            <a href="#" class="navbar__dropdown-item">Settings</a>
+                                            <a href="#" class="navbar__dropdown-item">Billing</a>
+                                            <div class="navbar__dropdown-divider"></div>
+                                            <a href="#" class="navbar__dropdown-item">Sign Out</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="navbar__toggle" data-navbar-toggle>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="3" y1="6" x2="21" y2="6"/>
+                                        <line x1="3" y1="12" x2="21" y2="12"/>
+                                        <line x1="3" y1="18" x2="21" y2="18"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Responsive -->
+        <section class="section">
+            <h2 class="section__title">Mobile Responsive</h2>
+            <div class="card">
+                <div class="card__body">
+                    <p class="card__description">The navbar automatically adapts to mobile screens with a hamburger menu. Try resizing your browser window or use mobile device emulation.</p>
+                    <div class="demo-navbar" style="max-width: 400px; margin: 0 auto;">
+                        <nav class="navbar navbar--mobile-open" data-navbar>
+                            <div class="navbar__container">
+                                <a href="#" class="navbar__brand">
+                                    <span>BRICKS</span>
+                                </a>
+                                <nav class="navbar__menu" style="display: flex;">
+                                    <a href="#" class="navbar__link navbar__link--active">Home</a>
+                                    <a href="#" class="navbar__link">Features</a>
+                                    <a href="#" class="navbar__link">Pricing</a>
+                                    <a href="#" class="navbar__link">About</a>
+                                    <a href="#" class="navbar__link">Contact</a>
+                                </nav>
+                                <div class="navbar__actions">
+                                    <button type="button" class="btn btn--primary btn--sm">Sign Up</button>
+                                </div>
+                                <button type="button" class="navbar__toggle" data-navbar-toggle style="display: flex;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="3" y1="6" x2="21" y2="6" transform="rotate(45 12 6)"/>
+                                        <line x1="3" y1="18" x2="21" y2="18" transform="rotate(-45 12 18)"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code-inline">.navbar</code></td>
+                                <td>Base navbar container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__container</code></td>
+                                <td>Inner container with max-width</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__brand</code></td>
+                                <td>Brand/logo area</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__menu</code></td>
+                                <td>Navigation links container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__link</code></td>
+                                <td>Navigation link</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__link--active</code></td>
+                                <td>Active navigation link</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__dropdown</code></td>
+                                <td>Dropdown container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__dropdown-toggle</code></td>
+                                <td>Dropdown toggle button</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__dropdown-menu</code></td>
+                                <td>Dropdown menu container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__dropdown-item</code></td>
+                                <td>Dropdown menu item</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__search</code></td>
+                                <td>Search container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__actions</code></td>
+                                <td>Action buttons container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar__toggle</code></td>
+                                <td>Mobile menu toggle button</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar--dark</code></td>
+                                <td>Dark theme navbar</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar--fixed</code></td>
+                                <td>Fixed position navbar</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar--sticky</code></td>
+                                <td>Sticky position navbar</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.navbar--mobile-open</code></td>
+                                <td>Mobile menu open state</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Attributes -->
+        <section class="section">
+            <h2 class="section__title">Data Attributes</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code-inline">data-navbar</code></td>
+                                <td>Initialize navbar component</td>
+                                <td><code class="code-inline">data-navbar</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">data-navbar-toggle</code></td>
+                                <td>Mobile menu toggle button</td>
+                                <td><code class="code-inline">data-navbar-toggle</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 </html>

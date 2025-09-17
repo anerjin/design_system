@@ -4,64 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table - BRICKS Design System</title>
+    <style>
+        /* Demo styles */
+        .demo-table {
+            margin-bottom: 16px;
+        }
+        .demo-container {
+            padding: 20px;
+            background: var(--ds-gray-50);
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+    </style>
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Table</h1>
-            <p class="vp-doc-description">
-                데이터를 행과 열로 구성하여 표시하는 테이블 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Table Components</h1>
+            <p class="header__description">
+                데이터를 행과 열로 구성하여 표시하는 테이블 컴포넌트입니다. 다양한 스타일과 기능을 지원합니다.
             </p>
-        </div>
-        
-        <h2>Basic Table</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-                            <td>2009/01/12</td>
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2012/03/29</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <pre><code>&lt;table class="table"&gt;
+        </header>
+
+        <!-- Basic Table -->
+        <section class="section">
+            <h2 class="section__title">Basic Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table" data-table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>$320,800</td>
+                            </tr>
+                            <tr>
+                                <td>Garrett Winters</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>63</td>
+                                <td>2011/07/25</td>
+                                <td>$170,750</td>
+                            </tr>
+                            <tr>
+                                <td>Ashton Cox</td>
+                                <td>Junior Technical Author</td>
+                                <td>San Francisco</td>
+                                <td>66</td>
+                                <td>2009/01/12</td>
+                                <td>$86,000</td>
+                            </tr>
+                            <tr>
+                                <td>Cedric Kelly</td>
+                                <td>Senior Javascript Developer</td>
+                                <td>Edinburgh</td>
+                                <td>22</td>
+                                <td>2012/03/29</td>
+                                <td>$433,060</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pre class="code-block"><code>&lt;table class="table" data-table&gt;
     &lt;thead&gt;
         &lt;tr&gt;
             &lt;th&gt;Name&lt;/th&gt;
@@ -77,310 +93,615 @@
         &lt;/tr&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;</code></pre>
-        
-        <h2>Striped Table</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <table class="table table--striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Stock</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Laptop</td>
-                            <td>$999</td>
-                            <td>25</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Mouse</td>
-                            <td>$29</td>
-                            <td>150</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Keyboard</td>
-                            <td>$79</td>
-                            <td>85</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Monitor</td>
-                            <td>$299</td>
-                            <td>42</td>
-                        </tr>
-                    </tbody>
-                </table>
+                </div>
             </div>
-        </div>
-        
-        <h2>Hoverable Table</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <table class="table table--hover">
-                    <thead>
-                        <tr>
-                            <th>Task</th>
-                            <th>Status</th>
-                            <th>Progress</th>
-                            <th>Due Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Design Homepage</td>
-                            <td><span class="badge badge--success">Completed</span></td>
-                            <td>100%</td>
-                            <td>2024-01-15</td>
-                        </tr>
-                        <tr>
-                            <td>Develop API</td>
-                            <td><span class="badge badge--warning">In Progress</span></td>
-                            <td>75%</td>
-                            <td>2024-01-20</td>
-                        </tr>
-                        <tr>
-                            <td>Write Documentation</td>
-                            <td><span class="badge badge--info">Pending</span></td>
-                            <td>0%</td>
-                            <td>2024-01-25</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h2>Bordered Table</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <table class="table table--bordered">
-                    <thead>
-                        <tr>
-                            <th>Order</th>
-                            <th>Customer</th>
-                            <th>Date</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>#10234</td>
-                            <td>John Doe</td>
-                            <td>2024-01-10</td>
-                            <td>$156.00</td>
-                        </tr>
-                        <tr>
-                            <td>#10235</td>
-                            <td>Jane Smith</td>
-                            <td>2024-01-11</td>
-                            <td>$234.50</td>
-                        </tr>
-                        <tr>
-                            <td>#10236</td>
-                            <td>Bob Johnson</td>
-                            <td>2024-01-12</td>
-                            <td>$89.00</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h2>Compact Table</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <table class="table table--compact">
-                    <thead>
-                        <tr>
-                            <th>File</th>
-                            <th>Size</th>
-                            <th>Modified</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>document.pdf</td>
-                            <td>2.4 MB</td>
-                            <td>2 hours ago</td>
-                            <td>
-                                <button type="button" class="btn btn--xs btn--ghost">View</button>
-                                <button type="button" class="btn btn--xs btn--ghost">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>image.jpg</td>
-                            <td>1.2 MB</td>
-                            <td>Yesterday</td>
-                            <td>
-                                <button type="button" class="btn btn--xs btn--ghost">View</button>
-                                <button type="button" class="btn btn--xs btn--ghost">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>data.csv</td>
-                            <td>856 KB</td>
-                            <td>3 days ago</td>
-                            <td>
-                                <button type="button" class="btn btn--xs btn--ghost">View</button>
-                                <button type="button" class="btn btn--xs btn--ghost">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <h2>Responsive Table</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="table-responsive">
-                    <table class="table">
+        </section>
+
+        <!-- Striped Table -->
+        <section class="section">
+            <h2 class="section__title">Striped Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table table--striped" data-table>
                         <thead>
                             <tr>
-                                <th>Invoice</th>
-                                <th>Client</th>
-                                <th>Services</th>
-                                <th>VAT</th>
-                                <th>Total</th>
+                                <th>ID</th>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
                                 <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#001</td>
+                                <td>MacBook Pro</td>
+                                <td>Electronics</td>
+                                <td>$2,999</td>
+                                <td>25</td>
+                                <td><span class="table__status table__status--success">In Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>#002</td>
+                                <td>Magic Mouse</td>
+                                <td>Accessories</td>
+                                <td>$99</td>
+                                <td>150</td>
+                                <td><span class="table__status table__status--success">In Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>#003</td>
+                                <td>Magic Keyboard</td>
+                                <td>Accessories</td>
+                                <td>$149</td>
+                                <td>5</td>
+                                <td><span class="table__status table__status--warning">Low Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>#004</td>
+                                <td>Studio Display</td>
+                                <td>Monitors</td>
+                                <td>$1,599</td>
+                                <td>0</td>
+                                <td><span class="table__status table__status--danger">Out of Stock</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hoverable Table -->
+        <section class="section">
+            <h2 class="section__title">Hoverable Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table table--hover" data-table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Assignee</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Due Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Design Homepage</td>
+                                <td>John Doe</td>
+                                <td><span class="table__status table__status--success">Completed</span></td>
+                                <td><span class="badge badge--danger">High</span></td>
+                                <td>2024-01-15</td>
+                            </tr>
+                            <tr>
+                                <td>Develop API</td>
+                                <td>Jane Smith</td>
+                                <td><span class="table__status table__status--warning">In Progress</span></td>
+                                <td><span class="badge badge--warning">Medium</span></td>
+                                <td>2024-01-20</td>
+                            </tr>
+                            <tr>
+                                <td>Write Documentation</td>
+                                <td>Bob Johnson</td>
+                                <td><span class="table__status table__status--info">Pending</span></td>
+                                <td><span class="badge badge--success">Low</span></td>
+                                <td>2024-01-25</td>
+                            </tr>
+                            <tr>
+                                <td>Testing</td>
+                                <td>Alice Brown</td>
+                                <td><span class="table__status table__status--info">Pending</span></td>
+                                <td><span class="badge badge--danger">High</span></td>
+                                <td>2024-01-30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bordered Table -->
+        <section class="section">
+            <h2 class="section__title">Bordered Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table table--bordered" data-table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#10234</td>
+                                <td>John Doe</td>
+                                <td>Premium Package</td>
+                                <td>2024-01-10</td>
+                                <td>$1,560.00</td>
+                                <td><span class="table__status table__status--success">Paid</span></td>
+                            </tr>
+                            <tr>
+                                <td>#10235</td>
+                                <td>Jane Smith</td>
+                                <td>Standard Package</td>
+                                <td>2024-01-11</td>
+                                <td>$780.00</td>
+                                <td><span class="table__status table__status--success">Paid</span></td>
+                            </tr>
+                            <tr>
+                                <td>#10236</td>
+                                <td>Bob Johnson</td>
+                                <td>Basic Package</td>
+                                <td>2024-01-12</td>
+                                <td>$390.00</td>
+                                <td><span class="table__status table__status--warning">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compact Table -->
+        <section class="section">
+            <h2 class="section__title">Compact Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table table--compact table--hover" data-table>
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Modified</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>#INV-0001</td>
-                                <td>ABC Company</td>
-                                <td>Web Development</td>
-                                <td>$200</td>
-                                <td>$1,200</td>
-                                <td><span class="badge badge--success">Paid</span></td>
+                                <td>document.pdf</td>
+                                <td>PDF</td>
+                                <td>2.4 MB</td>
+                                <td>2 hours ago</td>
                                 <td>
-                                    <button type="button" class="btn btn--xs btn--primary">View</button>
+                                    <div class="table__actions">
+                                        <button type="button" class="btn btn--sm btn--ghost">View</button>
+                                        <button type="button" class="btn btn--sm btn--ghost">Delete</button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>#INV-0002</td>
-                                <td>XYZ Corporation</td>
-                                <td>Mobile App</td>
-                                <td>$500</td>
-                                <td>$3,000</td>
-                                <td><span class="badge badge--warning">Pending</span></td>
+                                <td>presentation.pptx</td>
+                                <td>PowerPoint</td>
+                                <td>5.8 MB</td>
+                                <td>Yesterday</td>
                                 <td>
-                                    <button type="button" class="btn btn--xs btn--primary">View</button>
+                                    <div class="table__actions">
+                                        <button type="button" class="btn btn--sm btn--ghost">View</button>
+                                        <button type="button" class="btn btn--sm btn--ghost">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>data.xlsx</td>
+                                <td>Excel</td>
+                                <td>856 KB</td>
+                                <td>3 days ago</td>
+                                <td>
+                                    <div class="table__actions">
+                                        <button type="button" class="btn btn--sm btn--ghost">View</button>
+                                        <button type="button" class="btn btn--sm btn--ghost">Delete</button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.table</code></td>
-                    <td>Base table class</td>
-                </tr>
-                <tr>
-                    <td><code>.table--striped</code></td>
-                    <td>Striped rows</td>
-                </tr>
-                <tr>
-                    <td><code>.table--hover</code></td>
-                    <td>Hoverable rows</td>
-                </tr>
-                <tr>
-                    <td><code>.table--bordered</code></td>
-                    <td>Bordered table</td>
-                </tr>
-                <tr>
-                    <td><code>.table--compact</code></td>
-                    <td>Compact padding</td>
-                </tr>
-                <tr>
-                    <td><code>.table-responsive</code></td>
-                    <td>Responsive wrapper</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <style>
-            .table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-            .table th,
-            .table td {
-                padding: 12px;
-                text-align: left;
-                border-bottom: 1px solid var(--vp-c-divider);
-            }
-            .table th {
-                font-weight: 600;
-                color: var(--vp-c-text-1);
-                background: var(--vp-c-bg-soft);
-            }
-            .table td {
-                color: var(--vp-c-text-2);
-            }
-            .table--striped tbody tr:nth-child(even) {
-                background: var(--vp-c-bg-soft);
-            }
-            .table--hover tbody tr:hover {
-                background: var(--vp-c-bg-soft);
-            }
-            .table--bordered {
-                border: 1px solid var(--vp-c-divider);
-            }
-            .table--bordered th,
-            .table--bordered td {
-                border: 1px solid var(--vp-c-divider);
-            }
-            .table--compact th,
-            .table--compact td {
-                padding: 8px;
-            }
-            .table-responsive {
-                overflow-x: auto;
-            }
-            .badge {
-                display: inline-block;
-                padding: 4px 8px;
-                font-size: 12px;
-                font-weight: 500;
-                border-radius: 4px;
-            }
-            .badge--success {
-                background: var(--color-success-100);
-                color: var(--color-success-700);
-            }
-            .badge--warning {
-                background: var(--color-warning-100);
-                color: var(--color-warning-700);
-            }
-            .badge--info {
-                background: var(--color-info-100);
-                color: var(--color-info-700);
-            }
-            .btn--xs {
-                padding: 4px 8px;
-                font-size: 12px;
-            }
-        </style>
+        </section>
+
+        <!-- Sortable Table -->
+        <section class="section">
+            <h2 class="section__title">Sortable Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table" data-table data-sortable>
+                        <thead>
+                            <tr>
+                                <th class="table__sort" data-sort="name">Name</th>
+                                <th class="table__sort" data-sort="email">Email</th>
+                                <th class="table__sort table__sort--asc" data-sort="role">Role</th>
+                                <th class="table__sort" data-sort="status">Status</th>
+                                <th class="table__sort" data-sort="date">Join Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alice Johnson</td>
+                                <td>alice@example.com</td>
+                                <td>Admin</td>
+                                <td><span class="table__status table__status--success">Active</span></td>
+                                <td>2023-01-15</td>
+                            </tr>
+                            <tr>
+                                <td>Bob Smith</td>
+                                <td>bob@example.com</td>
+                                <td>Editor</td>
+                                <td><span class="table__status table__status--success">Active</span></td>
+                                <td>2023-03-20</td>
+                            </tr>
+                            <tr>
+                                <td>Charlie Brown</td>
+                                <td>charlie@example.com</td>
+                                <td>Viewer</td>
+                                <td><span class="table__status table__status--danger">Inactive</span></td>
+                                <td>2023-06-10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Table -->
+        <section class="section">
+            <h2 class="section__title">Responsive Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="table-responsive">
+                        <table class="table table--hover" data-table>
+                            <thead>
+                                <tr>
+                                    <th>Invoice</th>
+                                    <th>Client</th>
+                                    <th>Services</th>
+                                    <th>Issue Date</th>
+                                    <th>Due Date</th>
+                                    <th>Amount</th>
+                                    <th>Tax</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#INV-0001</td>
+                                    <td>ABC Company Ltd.</td>
+                                    <td>Web Development</td>
+                                    <td>2024-01-01</td>
+                                    <td>2024-01-31</td>
+                                    <td>$10,000</td>
+                                    <td>$2,000</td>
+                                    <td>$12,000</td>
+                                    <td><span class="table__status table__status--success">Paid</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn--sm btn--primary">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-0002</td>
+                                    <td>XYZ Corporation</td>
+                                    <td>Mobile App Development</td>
+                                    <td>2024-01-05</td>
+                                    <td>2024-02-04</td>
+                                    <td>$25,000</td>
+                                    <td>$5,000</td>
+                                    <td>$30,000</td>
+                                    <td><span class="table__status table__status--warning">Pending</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn--sm btn--primary">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-0003</td>
+                                    <td>Tech Solutions Inc.</td>
+                                    <td>Consulting</td>
+                                    <td>2024-01-10</td>
+                                    <td>2024-02-09</td>
+                                    <td>$5,000</td>
+                                    <td>$1,000</td>
+                                    <td>$6,000</td>
+                                    <td><span class="table__status table__status--danger">Overdue</span></td>
+                                    <td>
+                                        <button type="button" class="btn btn--sm btn--primary">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky Header Table -->
+        <section class="section">
+            <h2 class="section__title">Sticky Header Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <p class="card__description">Scroll the table to see the sticky header in action</p>
+                    <div style="height: 300px; overflow-y: auto;">
+                        <table class="table table--sticky-header table--striped" data-table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Position</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>John Doe</td>
+                                    <td>Engineering</td>
+                                    <td>Senior Developer</td>
+                                    <td>$120,000</td>
+                                </tr>
+                                <tr>
+                                    <td>002</td>
+                                    <td>Jane Smith</td>
+                                    <td>Design</td>
+                                    <td>UX Designer</td>
+                                    <td>$95,000</td>
+                                </tr>
+                                <tr>
+                                    <td>003</td>
+                                    <td>Bob Johnson</td>
+                                    <td>Marketing</td>
+                                    <td>Marketing Manager</td>
+                                    <td>$85,000</td>
+                                </tr>
+                                <tr>
+                                    <td>004</td>
+                                    <td>Alice Brown</td>
+                                    <td>Sales</td>
+                                    <td>Sales Representative</td>
+                                    <td>$70,000</td>
+                                </tr>
+                                <tr>
+                                    <td>005</td>
+                                    <td>Charlie Wilson</td>
+                                    <td>Engineering</td>
+                                    <td>Junior Developer</td>
+                                    <td>$65,000</td>
+                                </tr>
+                                <tr>
+                                    <td>006</td>
+                                    <td>Diana Prince</td>
+                                    <td>HR</td>
+                                    <td>HR Manager</td>
+                                    <td>$80,000</td>
+                                </tr>
+                                <tr>
+                                    <td>007</td>
+                                    <td>Edward Norton</td>
+                                    <td>Finance</td>
+                                    <td>Financial Analyst</td>
+                                    <td>$90,000</td>
+                                </tr>
+                                <tr>
+                                    <td>008</td>
+                                    <td>Fiona Green</td>
+                                    <td>Engineering</td>
+                                    <td>DevOps Engineer</td>
+                                    <td>$110,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark Theme Table -->
+        <section class="section">
+            <h2 class="section__title">Dark Theme Table</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table table--dark table--hover" data-table>
+                        <thead>
+                            <tr>
+                                <th>Server</th>
+                                <th>Status</th>
+                                <th>CPU Usage</th>
+                                <th>Memory</th>
+                                <th>Uptime</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>web-01</td>
+                                <td><span class="table__status table__status--success">Online</span></td>
+                                <td>45%</td>
+                                <td>8.2 GB / 16 GB</td>
+                                <td>15 days</td>
+                            </tr>
+                            <tr>
+                                <td>web-02</td>
+                                <td><span class="table__status table__status--success">Online</span></td>
+                                <td>62%</td>
+                                <td>10.5 GB / 16 GB</td>
+                                <td>15 days</td>
+                            </tr>
+                            <tr>
+                                <td>db-01</td>
+                                <td><span class="table__status table__status--warning">Maintenance</span></td>
+                                <td>12%</td>
+                                <td>24.3 GB / 32 GB</td>
+                                <td>2 hours</td>
+                            </tr>
+                            <tr>
+                                <td>cache-01</td>
+                                <td><span class="table__status table__status--success">Online</span></td>
+                                <td>28%</td>
+                                <td>3.8 GB / 8 GB</td>
+                                <td>45 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Empty State -->
+        <section class="section">
+            <h2 class="section__title">Empty State</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table" data-table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="table__empty">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="3" y1="9" x2="21" y2="9"/>
+                                            <line x1="9" y1="21" x2="9" y2="9"/>
+                                        </svg>
+                                        <p>No data available</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code-inline">.table</code></td>
+                                <td>Base table class</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--striped</code></td>
+                                <td>Striped rows</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--hover</code></td>
+                                <td>Hoverable rows</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--bordered</code></td>
+                                <td>Bordered table</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--borderless</code></td>
+                                <td>Remove all borders</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--compact</code></td>
+                                <td>Compact padding</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--sm</code></td>
+                                <td>Small size</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--lg</code></td>
+                                <td>Large size</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--dark</code></td>
+                                <td>Dark theme</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--sticky-header</code></td>
+                                <td>Sticky table header</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table--fixed</code></td>
+                                <td>Fixed table layout</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table-responsive</code></td>
+                                <td>Responsive wrapper</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table__sort</code></td>
+                                <td>Sortable column header</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table__status</code></td>
+                                <td>Status badge in table</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table__actions</code></td>
+                                <td>Actions container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.table__empty</code></td>
+                                <td>Empty state container</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Attributes -->
+        <section class="section">
+            <h2 class="section__title">Data Attributes</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code-inline">data-table</code></td>
+                                <td>Initialize table component</td>
+                                <td><code class="code-inline">data-table</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">data-sortable</code></td>
+                                <td>Enable column sorting</td>
+                                <td><code class="code-inline">data-sortable</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">data-sort</code></td>
+                                <td>Sort column identifier</td>
+                                <td><code class="code-inline">data-sort="name"</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 </html>

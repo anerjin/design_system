@@ -360,6 +360,40 @@
             </div>
         </section>
 
+        <!-- Fixed Position Dropdown -->
+        <section class="section">
+            <h2 class="section__title">Fixed Position Dropdown</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Overflow Container Example</h3>
+                </div>
+                <div class="card__body">
+                    <p class="mb-3">overflow:hidden 컨테이너 안에서도 드롭다운이 올바르게 표시됩니다.</p>
+                    <div class="overflow-container" style="overflow: hidden; height: 150px; border: 2px dashed var(--ds-gray-300); padding: var(--ds-space-3); position: relative;">
+                        <p>이 컨테이너는 overflow:hidden이 적용되어 있습니다.</p>
+                        <div class="dropdown dropdown--fixed" id="dropdown-fixed">
+                            <button class="dropdown__toggle" type="button">
+                                Fixed Position
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12 15.41 5.71-5.7-1.42-1.42-4.29 4.3-4.29-4.3-1.42 1.42z"/></svg>
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">옵션 1</a>
+                                <a href="#" class="dropdown__item">옵션 2</a>
+                                <a href="#" class="dropdown__item">옵션 3</a>
+                                <a href="#" class="dropdown__item">옵션 4</a>
+                                <a href="#" class="dropdown__item">옵션 5</a>
+                            </div>
+                        </div>
+                        <p style="margin-top: 20px;">아래 공간이 부족해도 드롭다운이 잘 표시됩니다.</p>
+                    </div>
+                    <div class="mt-3">
+                        <code class="code-inline">.dropdown--fixed</code>
+                        <p class="text-muted mt-2">드롭다운 메뉴를 body에 append하여 overflow 제약을 벗어납니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- API Reference -->
         <section class="section">
             <h2 class="section__title">API Reference</h2>
@@ -442,6 +476,11 @@
                                 <td>Open state (JavaScript)</td>
                                 <td>Shows menu</td>
                             </tr>
+                            <tr>
+                                <td><code>.dropdown--fixed</code></td>
+                                <td>Fixed position mode</td>
+                                <td>Escapes overflow containers</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -480,6 +519,15 @@
 
             .mt-3 {
                 margin-top: var(--ds-space-3);
+            }
+
+            .mb-3 {
+                margin-bottom: var(--ds-space-3);
+            }
+
+            .text-muted {
+                color: var(--ds-gray-500);
+                font-size: var(--ds-text-sm);
             }
 
             /* Table styles */

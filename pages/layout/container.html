@@ -4,272 +4,460 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Container - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../bricks/css/bricks.css">
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Container</h1>
-            <p class="vp-doc-description">
+        <header class="docs__header">
+            <h1 class="docs__title">Container</h1>
+            <p class="docs__description">
                 콘텐츠를 중앙에 정렬하고 최대 너비를 제한하는 컨테이너 레이아웃입니다.
             </p>
-        </div>
-        
-        <h2>Basic Container</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
-                <div class="container" style="background: white; padding: 24px;">
-                    <p>This is a basic container. It centers the content and has a maximum width. The content will be responsive and adapt to different screen sizes while maintaining proper margins.</p>
+        </header>
+
+        <section class="section">
+            <h2 class="section__title">Basic Container</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">기본 컨테이너</h3>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="container"&gt;
+                <div class="card__body" style="padding: 0;">
+                    <div class="demo-full-width">
+                        <div class="container demo-container-visible">
+                            <p>This is a basic container. It centers the content and has a maximum width of 1200px. The content will be responsive and adapt to different screen sizes while maintaining proper margins.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <pre class="code"><code>&lt;div class="container"&gt;
     &lt;p&gt;Content inside container&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Container Sizes</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
-                <div class="container container--sm" style="background: white; padding: 16px; margin-bottom: 16px;">
-                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
-                        Small Container (max: 640px)
-                    </div>
                 </div>
-                
-                <div class="container container--md" style="background: white; padding: 16px; margin-bottom: 16px;">
-                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
-                        Medium Container (max: 768px)
-                    </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Container Sizes</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">다양한 크기의 컨테이너</h3>
                 </div>
-                
-                <div class="container" style="background: white; padding: 16px; margin-bottom: 16px;">
-                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
-                        Default Container (max: 1200px)
-                    </div>
-                </div>
-                
-                <div class="container container--lg" style="background: white; padding: 16px; margin-bottom: 16px;">
-                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
-                        Large Container (max: 1440px)
-                    </div>
-                </div>
-                
-                <div class="container container--xl" style="background: white; padding: 16px; margin-bottom: 16px;">
-                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
-                        Extra Large Container (max: 1920px)
-                    </div>
-                </div>
-                
-                <div class="container container--fluid" style="background: white; padding: 16px;">
-                    <div style="background: var(--color-primary-100); padding: 16px; text-align: center; border-radius: 4px;">
-                        Fluid Container (no max width)
+                <div class="card__body" style="padding: 0;">
+                    <div class="demo-full-width">
+                        <div class="container container--sm demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Small Container (max: 640px)
+                            </div>
+                        </div>
+
+                        <div class="container container--md demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Medium Container (max: 768px)
+                            </div>
+                        </div>
+
+                        <div class="container demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Default Container (max: 1200px)
+                            </div>
+                        </div>
+
+                        <div class="container container--lg demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Large Container (max: 1440px)
+                            </div>
+                        </div>
+
+                        <div class="container container--xl demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Extra Large Container (max: 1920px)
+                            </div>
+                        </div>
+
+                        <div class="container container--fluid demo-container-visible">
+                            <div class="demo-box">
+                                Fluid Container (no max width)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Container with Padding</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
-                <div class="container container--no-padding" style="background: white;">
-                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
-                        Container without padding
-                    </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Container Padding</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">패딩 옵션</h3>
                 </div>
-                
-                <div class="container container--padding-sm" style="background: white; margin-top: 16px;">
-                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
-                        Container with small padding (16px)
-                    </div>
-                </div>
-                
-                <div class="container container--padding-md" style="background: white; margin-top: 16px;">
-                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
-                        Container with medium padding (24px)
-                    </div>
-                </div>
-                
-                <div class="container container--padding-lg" style="background: white; margin-top: 16px;">
-                    <div style="background: var(--color-info-100); padding: 16px; text-align: center;">
-                        Container with large padding (32px)
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Nested Containers</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0;">
-                <div class="container" style="background: var(--vp-c-bg-soft); padding: 24px;">
-                    <h3>Outer Container</h3>
-                    <p>This is the outer container with default max-width.</p>
-                    
-                    <div class="container container--sm" style="background: white; padding: 24px; margin-top: 16px;">
-                        <h4>Inner Container</h4>
-                        <p>This is a nested container with smaller max-width.</p>
+                <div class="card__body" style="padding: 0;">
+                    <div class="demo-full-width">
+                        <div class="container container--no-padding demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Container without padding
+                            </div>
+                        </div>
+
+                        <div class="container container--padding-sm demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Container with small padding (16px)
+                            </div>
+                        </div>
+
+                        <div class="container container--padding-md demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Container with medium padding (24px)
+                            </div>
+                        </div>
+
+                        <div class="container container--padding-lg demo-container-visible" style="margin-bottom: 16px;">
+                            <div class="demo-box">
+                                Container with large padding (32px)
+                            </div>
+                        </div>
+
+                        <div class="container container--padding-xl demo-container-visible">
+                            <div class="demo-box">
+                                Container with extra large padding (48px)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Responsive Container</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0; background: var(--vp-c-bg-soft);">
-                <div class="container container--responsive" style="background: white; padding: 24px;">
-                    <h3>Responsive Container</h3>
-                    <p>This container adjusts its max-width based on screen size:</p>
-                    <ul>
-                        <li>Mobile (&lt;640px): Full width with padding</li>
-                        <li>Tablet (640px-1024px): 768px max-width</li>
-                        <li>Desktop (1024px-1440px): 1200px max-width</li>
-                        <li>Large Desktop (&gt;1440px): 1440px max-width</li>
-                    </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Centered Container</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">화면 중앙 정렬 컨테이너</h3>
+                </div>
+                <div class="card__body" style="padding: 0; height: 400px;">
+                    <div class="container container--center" style="min-height: 400px;">
+                        <div class="demo-box" style="width: 100%; max-width: 400px;">
+                            <h3>Centered Content</h3>
+                            <p>This content is centered both horizontally and vertically</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <pre class="code"><code>&lt;div class="container container--center"&gt;
+    &lt;div&gt;Centered content&lt;/div&gt;
+&lt;/div&gt;</code></pre>
                 </div>
             </div>
-        </div>
-        
-        <h2>Container with Sections</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="padding: 0;">
-                <section style="background: var(--vp-c-bg-soft); padding: 48px 0;">
-                    <div class="container">
-                        <h2>Hero Section</h2>
-                        <p>This section has a full-width background with contained content.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Responsive Container</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">반응형 컨테이너</h3>
+                </div>
+                <div class="card__body" style="padding: 0;">
+                    <div class="demo-full-width">
+                        <div class="container container--responsive demo-container-visible">
+                            <h3>Responsive Container</h3>
+                            <p>This container adjusts its max-width based on screen size:</p>
+                            <ul>
+                                <li>Mobile (&lt;640px): Full width with padding</li>
+                                <li>Small (640px+): 640px max-width</li>
+                                <li>Medium (768px+): 768px max-width</li>
+                                <li>Large (1024px+): 1024px max-width</li>
+                                <li>XL (1280px+): 1280px max-width</li>
+                                <li>2XL (1536px+): 1536px max-width</li>
+                            </ul>
+                        </div>
                     </div>
-                </section>
-                
-                <section style="background: white; padding: 48px 0;">
-                    <div class="container">
-                        <h2>Content Section</h2>
-                        <p>Another section with different background but same container width.</p>
-                    </div>
-                </section>
-                
-                <section style="background: var(--color-primary-50); padding: 48px 0;">
-                    <div class="container">
-                        <h2>Feature Section</h2>
-                        <p>Consistent content width across all sections.</p>
-                    </div>
-                </section>
+                </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Max Width</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.container</code></td>
-                    <td>1200px</td>
-                    <td>Default container</td>
-                </tr>
-                <tr>
-                    <td><code>.container--sm</code></td>
-                    <td>640px</td>
-                    <td>Small container</td>
-                </tr>
-                <tr>
-                    <td><code>.container--md</code></td>
-                    <td>768px</td>
-                    <td>Medium container</td>
-                </tr>
-                <tr>
-                    <td><code>.container--lg</code></td>
-                    <td>1440px</td>
-                    <td>Large container</td>
-                </tr>
-                <tr>
-                    <td><code>.container--xl</code></td>
-                    <td>1920px</td>
-                    <td>Extra large container</td>
-                </tr>
-                <tr>
-                    <td><code>.container--fluid</code></td>
-                    <td>100%</td>
-                    <td>Full width container</td>
-                </tr>
-                <tr>
-                    <td><code>.container--no-padding</code></td>
-                    <td>-</td>
-                    <td>Remove padding</td>
-                </tr>
-                <tr>
-                    <td><code>.container--padding-sm</code></td>
-                    <td>-</td>
-                    <td>Small padding (16px)</td>
-                </tr>
-                <tr>
-                    <td><code>.container--padding-md</code></td>
-                    <td>-</td>
-                    <td>Medium padding (24px)</td>
-                </tr>
-                <tr>
-                    <td><code>.container--padding-lg</code></td>
-                    <td>-</td>
-                    <td>Large padding (32px)</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Container with Sidebar</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">사이드바 레이아웃</h3>
+                </div>
+                <div class="card__body">
+                    <div class="container-with-sidebar">
+                        <div class="container-with-sidebar__main">
+                            <div class="demo-box" style="height: 200px;">
+                                <h3>Main Content</h3>
+                                <p>This is the main content area. It will grow to fill available space.</p>
+                            </div>
+                        </div>
+                        <div class="container-with-sidebar__sidebar">
+                            <div class="demo-box" style="height: 200px;">
+                                <h3>Sidebar</h3>
+                                <p>Fixed width sidebar (300px)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-with-sidebar container-with-sidebar--left" style="margin-top: 24px;">
+                        <div class="container-with-sidebar__main">
+                            <div class="demo-box" style="height: 200px;">
+                                <h3>Main Content</h3>
+                                <p>Main content with sidebar on left</p>
+                            </div>
+                        </div>
+                        <div class="container-with-sidebar__sidebar">
+                            <div class="demo-box" style="height: 200px;">
+                                <h3>Left Sidebar</h3>
+                                <p>Sidebar positioned on the left</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <pre class="code"><code>&lt;div class="container-with-sidebar"&gt;
+    &lt;div class="container-with-sidebar__main"&gt;
+        Main content
+    &lt;/div&gt;
+    &lt;div class="container-with-sidebar__sidebar"&gt;
+        Sidebar content
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Nested Containers</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">중첩 컨테이너</h3>
+                </div>
+                <div class="card__body" style="padding: 0;">
+                    <div class="container demo-container-visible" style="padding: 24px;">
+                        <h3>Outer Container</h3>
+                        <p>This is the outer container with default max-width (1200px).</p>
+
+                        <div class="container container--sm demo-container-nested">
+                            <h4>Inner Container</h4>
+                            <p>This is a nested container with smaller max-width (640px).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Container Sections</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">섹션별 컨테이너</h3>
+                </div>
+                <div class="card__body" style="padding: 0;">
+                    <div class="container-section container-section--sm" style="background: var(--ds-gray-50);">
+                        <div class="container">
+                            <h2>Small Section</h2>
+                            <p>Section with small padding (24px top/bottom)</p>
+                        </div>
+                    </div>
+
+                    <div class="container-section" style="background: var(--ds-white);">
+                        <div class="container">
+                            <h2>Default Section</h2>
+                            <p>Section with default padding (48px top/bottom)</p>
+                        </div>
+                    </div>
+
+                    <div class="container-section container-section--lg" style="background: var(--ds-gray-50);">
+                        <div class="container">
+                            <h2>Large Section</h2>
+                            <p>Section with large padding (64px top/bottom)</p>
+                        </div>
+                    </div>
+
+                    <div class="container-section container-section--xl" style="background: var(--ds-white);">
+                        <div class="container">
+                            <h2>Extra Large Section</h2>
+                            <p>Section with extra large padding (96px top/bottom)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Full Page Layout Example</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">전체 페이지 레이아웃</h3>
+                </div>
+                <div class="card__body" style="padding: 0;">
+                    <!-- Hero Section -->
+                    <div class="container-section container-section--xl" style="background: var(--ds-gray-100);">
+                        <div class="container">
+                            <div style="text-align: center;">
+                                <h1 style="color: var(--ds-gray-900);">Hero Section</h1>
+                                <p>Full-width background with contained content</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Features Section -->
+                    <div class="container-section">
+                        <div class="container">
+                            <h2>Features</h2>
+                            <div class="grid grid--gap-md">
+                                <div class="grid__col grid__col--4">
+                                    <div class="demo-box">Feature 1</div>
+                                </div>
+                                <div class="grid__col grid__col--4">
+                                    <div class="demo-box">Feature 2</div>
+                                </div>
+                                <div class="grid__col grid__col--4">
+                                    <div class="demo-box">Feature 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="container-section" style="background: var(--ds-gray-50);">
+                        <div class="container container--md">
+                            <h2>Content Section</h2>
+                            <p>Narrower container for better readability of text content. Using container--md to limit width to 768px.</p>
+                        </div>
+                    </div>
+
+                    <!-- Footer Section -->
+                    <div class="container-section container-section--sm" style="background: var(--ds-gray-900);">
+                        <div class="container" style="text-align: center; color: var(--ds-gray-100);">
+                            <p>© 2024 BRICKS Design System</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Properties Reference</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Max Width</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.container</code></td>
+                                <td>1200px</td>
+                                <td>Default container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--sm</code></td>
+                                <td>640px</td>
+                                <td>Small container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--md</code></td>
+                                <td>768px</td>
+                                <td>Medium container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--lg</code></td>
+                                <td>1440px</td>
+                                <td>Large container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--xl</code></td>
+                                <td>1920px</td>
+                                <td>Extra large container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--fluid</code></td>
+                                <td>100%</td>
+                                <td>Full width container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--responsive</code></td>
+                                <td>Breakpoint-based</td>
+                                <td>Responsive container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--center</code></td>
+                                <td>-</td>
+                                <td>Centered vertically and horizontally</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--no-padding</code></td>
+                                <td>-</td>
+                                <td>Remove padding</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--padding-[size]</code></td>
+                                <td>-</td>
+                                <td>Padding variations (sm, md, lg, xl)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-section</code></td>
+                                <td>-</td>
+                                <td>Container for sections (48px padding)</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-with-sidebar</code></td>
+                                <td>-</td>
+                                <td>Container with sidebar layout</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
         <style>
-            .container {
-                width: 100%;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 24px;
+            .demo-box {
+                background: var(--ds-gray-100);
+                border: 1px solid var(--ds-gray-300);
+                padding: 16px;
+                text-align: center;
+                border-radius: 4px;
+                color: var(--ds-gray-700);
+                font-size: 14px;
+                font-weight: 500;
             }
-            .container--sm {
-                max-width: 640px;
+
+            .demo-full-width {
+                background: var(--ds-gray-50);
+                padding: 24px 0;
             }
-            .container--md {
-                max-width: 768px;
+
+            .demo-container-visible {
+                background: var(--ds-white);
+                padding: 24px;
+                border: 1px dashed var(--ds-gray-400);
+                border-radius: 4px;
             }
-            .container--lg {
-                max-width: 1440px;
+
+            .demo-container-nested {
+                background: var(--ds-white);
+                padding: 24px;
+                margin-top: 16px;
+                border: 1px dashed var(--ds-gray-400);
+                border-radius: 4px;
             }
-            .container--xl {
-                max-width: 1920px;
-            }
-            .container--fluid {
-                max-width: 100%;
-            }
-            .container--no-padding {
-                padding: 0;
-            }
-            .container--padding-sm {
-                padding: 0 16px;
-            }
-            .container--padding-md {
-                padding: 0 24px;
-            }
-            .container--padding-lg {
-                padding: 0 32px;
-            }
-            .container--responsive {
-                max-width: 100%;
-            }
-            @media (min-width: 640px) {
-                .container--responsive {
-                    max-width: 768px;
-                }
-            }
-            @media (min-width: 1024px) {
-                .container--responsive {
-                    max-width: 1200px;
-                }
-            }
-            @media (min-width: 1440px) {
-                .container--responsive {
-                    max-width: 1440px;
-                }
+
+            .code {
+                background: var(--ds-gray-900);
+                color: var(--ds-gray-100);
+                padding: 16px;
+                border-radius: 4px;
+                overflow-x: auto;
+                font-family: monospace;
+                font-size: 13px;
+                line-height: 1.5;
             }
         </style>
     </div>
+
+    <script src="../../bricks/js/bricks_core.js"></script>
 </body>
 </html>

@@ -4,36 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breadcrumb - BRICKS Design System</title>
+    <style>
+        /* Demo styles */
+        .demo-breadcrumb {
+            margin-bottom: 16px;
+        }
+        .demo-container {
+            background: var(--ds-gray-50);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: auto;
+        }
+        .demo-dark {
+            background: var(--ds-gray-900);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+    </style>
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Breadcrumb</h1>
-            <p class="vp-doc-description">
-                현재 페이지의 위치를 계층적으로 표시하는 브레드크럼 컴포넌트입니다.
+        <header class="header">
+            <h1 class="header__title">Breadcrumb Components</h1>
+            <p class="header__description">
+                현재 페이지의 위치를 계층적으로 표시하는 브레드크럼 컴포넌트입니다. 사용자의 탐색을 돕고 사이트 구조를 이해하기 쉽게 만듭니다.
             </p>
-        </div>
-        
-        <h2>Basic Breadcrumb</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Home</a>
-                        </li>
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Library</a>
-                        </li>
-                        <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">
-                            Data
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        
-        <pre><code>&lt;nav aria-label="breadcrumb"&gt;
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card">
+                <div class="card__body">
+                    <nav aria-label="breadcrumb" data-breadcrumb>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">Home</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">Library</a>
+                            </li>
+                            <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">
+                                Data
+                            </li>
+                        </ol>
+                    </nav>
+                    <pre class="code-block"><code>&lt;nav aria-label="breadcrumb" data-breadcrumb&gt;
     &lt;ol class="breadcrumb"&gt;
         &lt;li class="breadcrumb__item"&gt;
             &lt;a href="#" class="breadcrumb__link"&gt;Home&lt;/a&gt;
@@ -46,213 +64,452 @@
         &lt;/li&gt;
     &lt;/ol&gt;
 &lt;/nav&gt;</code></pre>
-        
-        <h2>Breadcrumb with Icons</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-home"></use>
-                                </svg>
-                                Home
-                            </a>
-                        </li>
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">
-                                <svg class="icon icon--sm">
-                                    <use href="../../design-system/icon/icon-sprite.svg#icon-folder"></use>
-                                </svg>
-                                Documents
-                            </a>
-                        </li>
-                        <li class="breadcrumb__item breadcrumb__item--active">
-                            <svg class="icon icon--sm">
-                                <use href="../../design-system/icon/icon-sprite.svg#icon-file"></use>
-                            </svg>
-                            Report.pdf
-                        </li>
-                    </ol>
-                </nav>
+                </div>
             </div>
-        </div>
-        
-        <h2>Custom Separators</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb--slash">
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Home</a>
-                        </li>
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Products</a>
-                        </li>
-                        <li class="breadcrumb__item breadcrumb__item--active">
-                            Item
-                        </li>
-                    </ol>
-                </nav>
-                
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb--arrow">
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Home</a>
-                        </li>
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Products</a>
-                        </li>
-                        <li class="breadcrumb__item breadcrumb__item--active">
-                            Item
-                        </li>
-                    </ol>
-                </nav>
-                
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb--dot">
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Home</a>
-                        </li>
-                        <li class="breadcrumb__item">
-                            <a href="#" class="breadcrumb__link">Products</a>
-                        </li>
-                        <li class="breadcrumb__item breadcrumb__item--active">
-                            Item
-                        </li>
-                    </ol>
-                </nav>
+        </section>
+
+        <!-- With Icons -->
+        <section class="section">
+            <h2 class="section__title">With Icons</h2>
+            <div class="card">
+                <div class="card__body">
+                    <nav aria-label="breadcrumb" data-breadcrumb>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">
+                                    <svg class="breadcrumb__icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                    </svg>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">
+                                    <svg class="breadcrumb__icon" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
+                                    </svg>
+                                    Documents
+                                </a>
+                            </li>
+                            <li class="breadcrumb__item breadcrumb__item--active">
+                                <svg class="breadcrumb__icon" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
+                                </svg>
+                                Report.pdf
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
-        </div>
-        
-        <h2>Breadcrumb in Card</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="card">
-                    <div class="card__body">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb--bg">
+        </section>
+
+        <!-- Custom Separators -->
+        <section class="section">
+            <h2 class="section__title">Custom Separators</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Slash (Default)</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--slash">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Products</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Item Detail
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Arrow</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--arrow">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Products</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Item Detail
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Chevron</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--chevron">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Products</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Item Detail
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Dot</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--dot">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Products</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Item Detail
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Pipe</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--pipe">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Products</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Item Detail
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sizes -->
+        <section class="section">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Small</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--sm">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Library</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Data
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Default</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Library</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Data
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="demo-breadcrumb">
+                        <h3 class="card__subtitle">Large</h3>
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--lg">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Library</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Data
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- With Background -->
+        <section class="section">
+            <h2 class="section__title">With Background</h2>
+            <div class="card">
+                <div class="card__body">
+                    <nav aria-label="breadcrumb" data-breadcrumb>
+                        <ol class="breadcrumb breadcrumb--bg">
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">Analytics</a>
+                            </li>
+                            <li class="breadcrumb__item breadcrumb__item--active">
+                                Overview
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark Theme -->
+        <section class="section">
+            <h2 class="section__title">Dark Theme</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="demo-dark">
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--dark">
                                 <li class="breadcrumb__item">
                                     <a href="#" class="breadcrumb__link">Dashboard</a>
                                 </li>
                                 <li class="breadcrumb__item">
-                                    <a href="#" class="breadcrumb__link">Analytics</a>
+                                    <a href="#" class="breadcrumb__link">Settings</a>
                                 </li>
                                 <li class="breadcrumb__item breadcrumb__item--active">
-                                    Overview
+                                    Profile
                                 </li>
                             </ol>
                         </nav>
-                        <h2 style="margin-top: 16px;">Page Content</h2>
-                        <p>Your page content goes here...</p>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.breadcrumb</code></td>
-                    <td>Base breadcrumb container</td>
-                </tr>
-                <tr>
-                    <td><code>.breadcrumb__item</code></td>
-                    <td>Individual breadcrumb item</td>
-                </tr>
-                <tr>
-                    <td><code>.breadcrumb__link</code></td>
-                    <td>Breadcrumb link</td>
-                </tr>
-                <tr>
-                    <td><code>.breadcrumb__item--active</code></td>
-                    <td>Active/current page</td>
-                </tr>
-                <tr>
-                    <td><code>.breadcrumb--slash</code></td>
-                    <td>Slash separator</td>
-                </tr>
-                <tr>
-                    <td><code>.breadcrumb--arrow</code></td>
-                    <td>Arrow separator</td>
-                </tr>
-                <tr>
-                    <td><code>.breadcrumb--dot</code></td>
-                    <td>Dot separator</td>
-                </tr>
-                <tr>
-                    <td><code>.breadcrumb--bg</code></td>
-                    <td>With background</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <style>
-            .breadcrumb {
-                display: flex;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                font-size: 14px;
-            }
-            .breadcrumb__item {
-                display: flex;
-                align-items: center;
-            }
-            .breadcrumb__item:not(:last-child)::after {
-                content: '/';
-                margin: 0 12px;
-                color: var(--vp-c-text-3);
-            }
-            .breadcrumb__link {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-                color: var(--vp-c-text-2);
-                text-decoration: none;
-                transition: color 0.2s;
-            }
-            .breadcrumb__link:hover {
-                color: var(--color-primary-500);
-            }
-            .breadcrumb__item--active {
-                color: var(--vp-c-text-1);
-                font-weight: 500;
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
-            .breadcrumb--slash .breadcrumb__item:not(:last-child)::after {
-                content: '/';
-            }
-            .breadcrumb--arrow .breadcrumb__item:not(:last-child)::after {
-                content: '→';
-            }
-            .breadcrumb--dot .breadcrumb__item:not(:last-child)::after {
-                content: '•';
-            }
-            .breadcrumb--bg {
-                background: var(--vp-c-bg-soft);
-                padding: 8px 16px;
-                border-radius: 6px;
-            }
-            .card {
-                background: white;
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 8px;
-            }
-            .card__body {
-                padding: 24px;
-            }
-        </style>
+        </section>
+
+        <!-- Truncate Long Items -->
+        <section class="section">
+            <h2 class="section__title">Truncate Long Items</h2>
+            <div class="card">
+                <div class="card__body">
+                    <nav aria-label="breadcrumb" data-breadcrumb>
+                        <ol class="breadcrumb breadcrumb--truncate">
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">Home</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">This is a very long category name that should be truncated</a>
+                            </li>
+                            <li class="breadcrumb__item">
+                                <a href="#" class="breadcrumb__link">Another long subcategory name here</a>
+                            </li>
+                            <li class="breadcrumb__item breadcrumb__item--active">
+                                Current Page
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive (Mobile) -->
+        <section class="section">
+            <h2 class="section__title">Responsive (Mobile)</h2>
+            <div class="card">
+                <div class="card__body">
+                    <p class="card__description">On mobile devices, only shows first and last two items with ellipsis</p>
+                    <div class="demo-container" style="max-width: 400px;">
+                        <nav aria-label="breadcrumb" data-breadcrumb>
+                            <ol class="breadcrumb breadcrumb--responsive">
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Home</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Category</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Subcategory</a>
+                                </li>
+                                <li class="breadcrumb__item">
+                                    <a href="#" class="breadcrumb__link">Product</a>
+                                </li>
+                                <li class="breadcrumb__item breadcrumb__item--active">
+                                    Detail
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integration Example -->
+        <section class="section">
+            <h2 class="section__title">Integration Example</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="card">
+                        <div class="card__body">
+                            <nav aria-label="breadcrumb" data-breadcrumb data-max-items="5">
+                                <ol class="breadcrumb breadcrumb--bg breadcrumb--arrow">
+                                    <li class="breadcrumb__item">
+                                        <a href="#" class="breadcrumb__link">
+                                            <svg class="breadcrumb__icon" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                            </svg>
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb__item">
+                                        <a href="#" class="breadcrumb__link">E-Commerce</a>
+                                    </li>
+                                    <li class="breadcrumb__item">
+                                        <a href="#" class="breadcrumb__link">Products</a>
+                                    </li>
+                                    <li class="breadcrumb__item">
+                                        <a href="#" class="breadcrumb__link">Electronics</a>
+                                    </li>
+                                    <li class="breadcrumb__item breadcrumb__item--active">
+                                        Laptop Pro 2024
+                                    </li>
+                                </ol>
+                            </nav>
+                            <div style="margin-top: 24px;">
+                                <h2 style="margin-bottom: 12px;">Laptop Pro 2024</h2>
+                                <p>High-performance laptop with the latest technology for professional use.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties -->
+        <section class="section">
+            <h2 class="section__title">Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb</code></td>
+                                <td>Base breadcrumb container</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb__item</code></td>
+                                <td>Individual breadcrumb item</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb__link</code></td>
+                                <td>Breadcrumb link</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb__icon</code></td>
+                                <td>Icon within breadcrumb</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb__item--active</code></td>
+                                <td>Active/current page</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--sm</code></td>
+                                <td>Small size</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--lg</code></td>
+                                <td>Large size</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--slash</code></td>
+                                <td>Slash separator (default)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--arrow</code></td>
+                                <td>Arrow separator</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--chevron</code></td>
+                                <td>Chevron separator</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--dot</code></td>
+                                <td>Dot separator</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--pipe</code></td>
+                                <td>Pipe separator</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--bg</code></td>
+                                <td>With background</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--dark</code></td>
+                                <td>Dark theme</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--truncate</code></td>
+                                <td>Truncate long items</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">.breadcrumb--responsive</code></td>
+                                <td>Responsive for mobile</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Attributes -->
+        <section class="section">
+            <h2 class="section__title">Data Attributes</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code-inline">data-breadcrumb</code></td>
+                                <td>Initialize breadcrumb component</td>
+                                <td><code class="code-inline">data-breadcrumb</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code-inline">data-max-items</code></td>
+                                <td>Maximum items to display before collapsing</td>
+                                <td><code class="code-inline">data-max-items="5"</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 </html>

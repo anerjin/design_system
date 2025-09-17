@@ -59,12 +59,12 @@ body {
 }
 
 /* Remove list styles */
-ol, ul {
+/* ol, ul {
   list-style: none;
-}
+} */
 
 /* Links */
-a {
+/* a {
   color: inherit;
   text-decoration: none;
   transition: var(--ds-transition-colors);
@@ -72,10 +72,10 @@ a {
 
 a:hover {
   color: var(--ds-brand-primary);
-}
+} */
 
 /* Make images easier to work with */
-img,
+/* img,
 picture,
 video,
 canvas,
@@ -83,24 +83,24 @@ svg {
   display: block;
   max-width: 100%;
   height: auto;
-}
+} */
 
 /* Inherit fonts for inputs and buttons */
-input,
+/* input,
 button,
 textarea,
 select {
   font: inherit;
   color: inherit;
-}
+} */
 
 /* Remove button styling */
-button {
+/* button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-}
+} */
 
 /* Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
@@ -108,10 +108,10 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Tables */
-table {
+/* table {
   border-collapse: collapse;
   border-spacing: 0;
-}
+} */
 
 /* Blockquote */
 blockquote, q {

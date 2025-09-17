@@ -4,490 +4,569 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flexbox - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../bricks/css/bricks.css">
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Flexbox</h1>
-            <p class="vp-doc-description">
+        <header class="docs__header">
+            <h1 class="docs__title">Flexbox</h1>
+            <p class="docs__description">
                 유연하고 강력한 레이아웃을 위한 Flexbox 유틸리티 클래스입니다.
             </p>
-        </div>
-        
-        <h2>Flex Container</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="flex">
-                    <div class="demo-item">Item 1</div>
-                    <div class="demo-item">Item 2</div>
-                    <div class="demo-item">Item 3</div>
+        </header>
+
+        <section class="section">
+            <h2 class="section__title">Basic Flex Container</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">기본 Flex 컨테이너</h3>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="flex"&gt;
+                <div class="card__body">
+                    <div class="flex">
+                        <div class="demo-item">Item 1</div>
+                        <div class="demo-item">Item 2</div>
+                        <div class="demo-item">Item 3</div>
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <pre class="code"><code>&lt;div class="flex"&gt;
     &lt;div&gt;Item 1&lt;/div&gt;
     &lt;div&gt;Item 2&lt;/div&gt;
     &lt;div&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        
-        <h2>Flex Direction</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                <div>
-                    <h4>Row (Default)</h4>
-                    <div class="flex flex--row">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Flex Direction</h2>
+            <div class="grid grid--2-cols">
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Row (Default)</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="flex flex--row">
+                            <div class="demo-item">1</div>
+                            <div class="demo-item">2</div>
+                            <div class="demo-item">3</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h4>Row Reverse</h4>
-                    <div class="flex flex--row-reverse">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Row Reverse</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="flex flex--row-reverse">
+                            <div class="demo-item">1</div>
+                            <div class="demo-item">2</div>
+                            <div class="demo-item">3</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h4>Column</h4>
-                    <div class="flex flex--column">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Column</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="flex flex--column">
+                            <div class="demo-item">1</div>
+                            <div class="demo-item">2</div>
+                            <div class="demo-item">3</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h4>Column Reverse</h4>
-                    <div class="flex flex--column-reverse">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Column Reverse</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="flex flex--column-reverse">
+                            <div class="demo-item">1</div>
+                            <div class="demo-item">2</div>
+                            <div class="demo-item">3</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Justify Content</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div>
-                    <h4>Start (Default)</h4>
-                    <div class="flex flex--justify-start" style="background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Center</h4>
-                    <div class="flex flex--justify-center" style="background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>End</h4>
-                    <div class="flex flex--justify-end" style="background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Space Between</h4>
-                    <div class="flex flex--justify-between" style="background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Space Around</h4>
-                    <div class="flex flex--justify-around" style="background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Space Evenly</h4>
-                    <div class="flex flex--justify-evenly" style="background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Align Items</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div>
-                    <h4>Start</h4>
-                    <div class="flex flex--align-start" style="height: 100px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item" style="height: 60px;">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Center</h4>
-                    <div class="flex flex--align-center" style="height: 100px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item" style="height: 60px;">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>End</h4>
-                    <div class="flex flex--align-end" style="height: 100px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item" style="height: 60px;">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Stretch</h4>
-                    <div class="flex flex--align-stretch" style="height: 100px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Baseline</h4>
-                    <div class="flex flex--align-baseline" style="height: 100px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item" style="font-size: 20px;">1</div>
-                        <div class="demo-item" style="font-size: 14px;">2</div>
-                        <div class="demo-item" style="font-size: 28px;">3</div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Justify Content</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <h4>Start (Default)</h4>
+                            <div class="flex flex--justify-start demo-container">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Center</h4>
+                            <div class="flex flex--justify-center demo-container">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>End</h4>
+                            <div class="flex flex--justify-end demo-container">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Space Between</h4>
+                            <div class="flex flex--justify-between demo-container">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Space Around</h4>
+                            <div class="flex flex--justify-around demo-container">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Space Evenly</h4>
+                            <div class="flex flex--justify-evenly demo-container">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Flex Wrap</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div>
-                    <h4>No Wrap (Default)</h4>
-                    <div class="flex flex--nowrap" style="width: 300px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item" style="min-width: 100px;">Item 1</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 2</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 3</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 4</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Wrap</h4>
-                    <div class="flex flex--wrap" style="width: 300px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item" style="min-width: 100px;">Item 1</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 2</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 3</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 4</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Wrap Reverse</h4>
-                    <div class="flex flex--wrap-reverse" style="width: 300px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item" style="min-width: 100px;">Item 1</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 2</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 3</div>
-                        <div class="demo-item" style="min-width: 100px;">Item 4</div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Align Items</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <h4>Start</h4>
+                            <div class="flex flex--align-start demo-container-tall">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item" style="height: 60px;">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Center</h4>
+                            <div class="flex flex--align-center demo-container-tall">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item" style="height: 60px;">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>End</h4>
+                            <div class="flex flex--align-end demo-container-tall">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item" style="height: 60px;">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Stretch</h4>
+                            <div class="flex flex--align-stretch demo-container-tall">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Baseline</h4>
+                            <div class="flex flex--align-baseline demo-container-tall">
+                                <div class="demo-item" style="font-size: 20px;">1</div>
+                                <div class="demo-item" style="font-size: 14px;">2</div>
+                                <div class="demo-item" style="font-size: 28px;">3</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Flex Gap</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div>
-                    <h4>Small Gap (8px)</h4>
-                    <div class="flex flex--gap-sm">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Flex Wrap</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <h4>No Wrap (Default)</h4>
+                            <div class="flex flex--nowrap demo-container" style="width: 300px; overflow: auto;">
+                                <div class="demo-item" style="min-width: 100px;">Item 1</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 2</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 3</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 4</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Wrap</h4>
+                            <div class="flex flex--wrap demo-container" style="width: 300px;">
+                                <div class="demo-item" style="min-width: 100px;">Item 1</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 2</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 3</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 4</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Wrap Reverse</h4>
+                            <div class="flex flex--wrap-reverse demo-container" style="width: 300px;">
+                                <div class="demo-item" style="min-width: 100px;">Item 1</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 2</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 3</div>
+                                <div class="demo-item" style="min-width: 100px;">Item 4</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h4>Medium Gap (16px)</h4>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Flex Gap</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <h4>No Gap (0px)</h4>
+                            <div class="flex flex--gap-0">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Small Gap (8px)</h4>
+                            <div class="flex flex--gap-sm">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Medium Gap (16px)</h4>
+                            <div class="flex flex--gap-md">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Large Gap (24px)</h4>
+                            <div class="flex flex--gap-lg">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Extra Large Gap (32px)</h4>
+                            <div class="flex flex--gap-xl">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>2X Large Gap (48px)</h4>
+                            <div class="flex flex--gap-2xl">
+                                <div class="demo-item">1</div>
+                                <div class="demo-item">2</div>
+                                <div class="demo-item">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Flex Item Properties</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <h4>Flex Grow</h4>
+                            <div class="flex demo-container">
+                                <div class="demo-item flex__item--grow-0">No grow</div>
+                                <div class="demo-item flex__item--grow">Grow</div>
+                                <div class="demo-item flex__item--grow-0">No grow</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Flex Shrink</h4>
+                            <div class="flex demo-container" style="width: 300px;">
+                                <div class="demo-item flex__item--shrink-0" style="min-width: 150px;">No shrink</div>
+                                <div class="demo-item flex__item--shrink" style="min-width: 150px;">Shrink</div>
+                                <div class="demo-item flex__item--shrink-0" style="min-width: 150px;">No shrink</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4>Flex Basis</h4>
+                            <div class="flex flex--gap-md demo-container">
+                                <div class="demo-item flex__item--basis-0">Basis 0</div>
+                                <div class="demo-item flex__item--basis-auto">Basis Auto</div>
+                                <div class="demo-item flex__item--basis-full">Basis 100%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Align Self</h2>
+            <div class="card">
+                <div class="card__body">
+                    <div class="flex demo-container-tall">
+                        <div class="demo-item flex__item--self-start">Start</div>
+                        <div class="demo-item flex__item--self-center">Center</div>
+                        <div class="demo-item flex__item--self-end">End</div>
+                        <div class="demo-item flex__item--self-stretch">Stretch</div>
+                        <div class="demo-item flex__item--self-baseline">Baseline</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Order</h2>
+            <div class="card">
+                <div class="card__body">
                     <div class="flex flex--gap-md">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Large Gap (24px)</h4>
-                    <div class="flex flex--gap-lg">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4>Extra Large Gap (32px)</h4>
-                    <div class="flex flex--gap-xl">
-                        <div class="demo-item">1</div>
-                        <div class="demo-item">2</div>
-                        <div class="demo-item">3</div>
+                        <div class="demo-item flex__item--order-3">Order 3</div>
+                        <div class="demo-item flex__item--order-1">Order 1</div>
+                        <div class="demo-item flex__item--order-last">Last</div>
+                        <div class="demo-item flex__item--order-2">Order 2</div>
+                        <div class="demo-item flex__item--order-first">First</div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Flex Grow & Shrink</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container" style="display: flex; flex-direction: column; gap: 16px;">
-                <div>
-                    <h4>Flex Grow</h4>
-                    <div class="flex" style="background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item flex__item--grow-0">No grow</div>
-                        <div class="demo-item flex__item--grow">Grow</div>
-                        <div class="demo-item flex__item--grow-0">No grow</div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Complex Layout Example</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">웹 페이지 레이아웃</h3>
+                </div>
+                <div class="card__body">
+                    <div class="flex flex--column flex--gap-md">
+                        <header class="flex flex--justify-between flex--align-center demo-container">
+                            <div class="demo-item">Logo</div>
+                            <nav class="flex flex--gap-md">
+                                <div class="demo-item">Home</div>
+                                <div class="demo-item">About</div>
+                                <div class="demo-item">Services</div>
+                                <div class="demo-item">Contact</div>
+                            </nav>
+                        </header>
+
+                        <main class="flex flex--gap-md">
+                            <aside class="demo-item" style="flex: 0 0 200px;">Sidebar</aside>
+                            <article class="demo-item flex__item--grow">Main Content</article>
+                            <aside class="demo-item" style="flex: 0 0 150px;">Widget</aside>
+                        </main>
+
+                        <footer class="flex flex--justify-center demo-container">
+                            <div class="demo-item">© 2024 BRICKS Design System</div>
+                        </footer>
                     </div>
                 </div>
-                
-                <div>
-                    <h4>Flex Shrink</h4>
-                    <div class="flex" style="width: 300px; background: var(--vp-c-bg-soft); padding: 12px;">
-                        <div class="demo-item flex__item--shrink-0" style="min-width: 150px;">No shrink</div>
-                        <div class="demo-item flex__item--shrink" style="min-width: 150px;">Shrink</div>
-                        <div class="demo-item flex__item--shrink-0" style="min-width: 150px;">No shrink</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Responsive Flexbox</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">반응형 플렉스박스 클래스</h3>
+                </div>
+                <div class="card__body">
+                    <div class="flex flex--column flex--md-row flex--gap-md">
+                        <div class="demo-item flex__item--grow">Mobile: Column</div>
+                        <div class="demo-item flex__item--grow">Tablet: Row</div>
+                        <div class="demo-item flex__item--grow">Desktop: Row</div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <h2>Align Self</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="flex" style="height: 150px; background: var(--vp-c-bg-soft); padding: 12px;">
-                    <div class="demo-item flex__item--self-start">Start</div>
-                    <div class="demo-item flex__item--self-center">Center</div>
-                    <div class="demo-item flex__item--self-end">End</div>
-                    <div class="demo-item flex__item--self-stretch">Stretch</div>
+                <div class="card__footer">
+                    <pre class="code"><code>&lt;div class="flex flex--column flex--md-row flex--gap-md"&gt;
+    &lt;div class="flex__item--grow"&gt;Item 1&lt;/div&gt;
+    &lt;div class="flex__item--grow"&gt;Item 2&lt;/div&gt;
+    &lt;div class="flex__item--grow"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
                 </div>
             </div>
-        </div>
-        
-        <h2>Complex Layout Example</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="flex flex--column flex--gap-md">
-                    <header class="flex flex--justify-between flex--align-center" style="background: var(--vp-c-bg-soft); padding: 16px;">
-                        <div class="demo-item">Logo</div>
-                        <nav class="flex flex--gap-md">
-                            <div class="demo-item">Home</div>
-                            <div class="demo-item">About</div>
-                            <div class="demo-item">Contact</div>
-                        </nav>
-                    </header>
-                    
-                    <main class="flex flex--gap-md">
-                        <aside class="demo-item" style="flex: 0 0 200px;">Sidebar</aside>
-                        <article class="demo-item flex__item--grow">Main Content</article>
-                        <aside class="demo-item" style="flex: 0 0 150px;">Widget</aside>
-                    </main>
-                    
-                    <footer class="flex flex--justify-center" style="background: var(--vp-c-bg-soft); padding: 16px;">
-                        <div class="demo-item">Footer</div>
-                    </footer>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Properties Reference</h2>
+            <div class="card">
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>CSS Property</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.flex</code></td>
+                                <td>display: flex</td>
+                                <td>Flex container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--inline</code></td>
+                                <td>display: inline-flex</td>
+                                <td>Inline flex container</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--row</code></td>
+                                <td>flex-direction: row</td>
+                                <td>Row direction</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--column</code></td>
+                                <td>flex-direction: column</td>
+                                <td>Column direction</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--wrap</code></td>
+                                <td>flex-wrap: wrap</td>
+                                <td>Allow wrapping</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--justify-center</code></td>
+                                <td>justify-content: center</td>
+                                <td>Center horizontally</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--align-center</code></td>
+                                <td>align-items: center</td>
+                                <td>Center vertically</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--gap-[size]</code></td>
+                                <td>gap: [size]</td>
+                                <td>Gap between items</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex__item--grow</code></td>
+                                <td>flex-grow: 1</td>
+                                <td>Allow item to grow</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex__item--shrink-0</code></td>
+                                <td>flex-shrink: 0</td>
+                                <td>Prevent shrinking</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex__item--order-[n]</code></td>
+                                <td>order: [n]</td>
+                                <td>Item order</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex__item--self-center</code></td>
+                                <td>align-self: center</td>
+                                <td>Align self center</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>CSS Property</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.flex</code></td>
-                    <td>display: flex</td>
-                    <td>Flex container</td>
-                </tr>
-                <tr>
-                    <td><code>.flex--inline</code></td>
-                    <td>display: inline-flex</td>
-                    <td>Inline flex container</td>
-                </tr>
-                <tr>
-                    <td><code>.flex--row</code></td>
-                    <td>flex-direction: row</td>
-                    <td>Row direction</td>
-                </tr>
-                <tr>
-                    <td><code>.flex--column</code></td>
-                    <td>flex-direction: column</td>
-                    <td>Column direction</td>
-                </tr>
-                <tr>
-                    <td><code>.flex--wrap</code></td>
-                    <td>flex-wrap: wrap</td>
-                    <td>Allow wrapping</td>
-                </tr>
-                <tr>
-                    <td><code>.flex--justify-center</code></td>
-                    <td>justify-content: center</td>
-                    <td>Center horizontally</td>
-                </tr>
-                <tr>
-                    <td><code>.flex--align-center</code></td>
-                    <td>align-items: center</td>
-                    <td>Center vertically</td>
-                </tr>
-                <tr>
-                    <td><code>.flex--gap-[size]</code></td>
-                    <td>gap: [size]</td>
-                    <td>Gap between items</td>
-                </tr>
-                <tr>
-                    <td><code>.flex__item--grow</code></td>
-                    <td>flex-grow: 1</td>
-                    <td>Allow item to grow</td>
-                </tr>
-                <tr>
-                    <td><code>.flex__item--shrink-0</code></td>
-                    <td>flex-shrink: 0</td>
-                    <td>Prevent shrinking</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
         <style>
-            .flex {
-                display: flex;
-            }
-            .flex--inline {
-                display: inline-flex;
-            }
-            .flex--row {
-                flex-direction: row;
-            }
-            .flex--row-reverse {
-                flex-direction: row-reverse;
-            }
-            .flex--column {
-                flex-direction: column;
-            }
-            .flex--column-reverse {
-                flex-direction: column-reverse;
-            }
-            .flex--nowrap {
-                flex-wrap: nowrap;
-            }
-            .flex--wrap {
-                flex-wrap: wrap;
-            }
-            .flex--wrap-reverse {
-                flex-wrap: wrap-reverse;
-            }
-            .flex--justify-start {
-                justify-content: flex-start;
-            }
-            .flex--justify-center {
-                justify-content: center;
-            }
-            .flex--justify-end {
-                justify-content: flex-end;
-            }
-            .flex--justify-between {
-                justify-content: space-between;
-            }
-            .flex--justify-around {
-                justify-content: space-around;
-            }
-            .flex--justify-evenly {
-                justify-content: space-evenly;
-            }
-            .flex--align-start {
-                align-items: flex-start;
-            }
-            .flex--align-center {
-                align-items: center;
-            }
-            .flex--align-end {
-                align-items: flex-end;
-            }
-            .flex--align-stretch {
-                align-items: stretch;
-            }
-            .flex--align-baseline {
-                align-items: baseline;
-            }
-            .flex--gap-sm {
-                gap: 8px;
-            }
-            .flex--gap-md {
-                gap: 16px;
-            }
-            .flex--gap-lg {
-                gap: 24px;
-            }
-            .flex--gap-xl {
-                gap: 32px;
-            }
-            .flex__item--grow {
-                flex-grow: 1;
-            }
-            .flex__item--grow-0 {
-                flex-grow: 0;
-            }
-            .flex__item--shrink {
-                flex-shrink: 1;
-            }
-            .flex__item--shrink-0 {
-                flex-shrink: 0;
-            }
-            .flex__item--self-start {
-                align-self: flex-start;
-            }
-            .flex__item--self-center {
-                align-self: center;
-            }
-            .flex__item--self-end {
-                align-self: flex-end;
-            }
-            .flex__item--self-stretch {
-                align-self: stretch;
-            }
             .demo-item {
-                background: var(--color-primary-100);
-                border: 1px solid var(--color-primary-300);
+                background: var(--ds-prime-alpha-10);
+                border: 1px solid var(--ds-prime-alpha-30);
                 padding: 12px 16px;
                 border-radius: 4px;
-                color: var(--color-primary-700);
+                color: var(--ds-prime);
                 font-size: 14px;
                 text-align: center;
+                font-weight: 500;
+            }
+
+            .demo-container {
+                background: var(--ds-gray-50);
+                padding: 12px;
+                border-radius: 4px;
+            }
+
+            .demo-container-tall {
+                background: var(--ds-gray-50);
+                padding: 12px;
+                border-radius: 4px;
+                height: 120px;
+            }
+
+            .grid {
+                display: grid;
+                gap: 24px;
+            }
+
+            .grid--2-cols {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: 768px) {
+                .grid--2-cols {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .code {
+                background: var(--ds-gray-900);
+                color: var(--ds-gray-100);
+                padding: 16px;
+                border-radius: 4px;
+                overflow-x: auto;
+                font-family: monospace;
+                font-size: 13px;
+                line-height: 1.5;
             }
         </style>
     </div>
+
+    <script src="../../bricks/js/bricks_core.js"></script>
 </body>
 </html>

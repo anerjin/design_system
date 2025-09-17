@@ -75,7 +75,7 @@ h6 {
   letter-spacing: var(--ds-heading-6-spacing);
 }
 
-p {
+/* p {
   margin: 0 0 1rem;
   font-size: var(--ds-body-size);
   font-weight: var(--ds-body-weight);
@@ -96,7 +96,7 @@ a:hover {
 
 strong, b {
   font-weight: var(--ds-font-bold);
-}
+} */
 
 em, i {
   font-style: italic;
@@ -140,7 +140,7 @@ pre code {
 }
 
 /* === Lists === */
-ul, ol {
+/* ul, ol {
   margin: 0 0 1rem;
   padding-left: 1.5rem;
   font-family: var(--ds-font-sans);
@@ -149,10 +149,10 @@ ul, ol {
 li {
   margin-bottom: 0.25rem;
   line-height: var(--ds-body-line);
-}
+} */
 
 /* === Tables === */
-table {
+/* table {
   width: 100%;
   margin: 0 0 1rem;
   border-collapse: collapse;
@@ -172,10 +172,10 @@ td {
   padding: 0.75rem;
   border-bottom: 1px solid var(--ds-color-border-subtle);
   color: var(--ds-text-secondary);
-}
+} */
 
 /* === Forms === */
-input, textarea, select {
+/* input, textarea, select {
   font-family: var(--ds-font-sans);
   font-size: var(--ds-text-base);
   line-height: var(--ds-leading-normal);
@@ -187,7 +187,7 @@ button {
   font-size: var(--ds-text-base);
   font-weight: var(--ds-font-medium);
   line-height: var(--ds-leading-normal);
-}
+} */
 
 /* === Blockquote === */
 blockquote {
@@ -206,19 +206,19 @@ hr {
 }
 
 /* === Selection === */
-::selection {
+/* ::selection {
   background-color: var(--ds-gray-200);
-  color: var(--ds-text-primary);
+  color: var(--ds-text-primary); */
 }
 
 /* === Focus Styles === */
-:focus-visible {
+/* :focus-visible {
   outline: 2px solid var(--ds-black);
   outline-offset: 2px;
-}
+} */
 
 /* === Dark Mode === */
-[data-theme="dark"] code {
+/* [data-theme="dark"] code {
   background-color: var(--ds-gray-100);
 }
 
@@ -237,4 +237,4 @@ hr {
 
 [data-theme="dark"] :focus-visible {
   outline-color: var(--ds-white);
-}
+} */
