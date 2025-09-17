@@ -7,7 +7,7 @@
 .breadcrumb__link:focus {outline:none; color:var(--ds-prime);}
 
 /* Active/Current item */
-.breadcrumb__item--active {color:var(--ds-gray-900); font-weight:500;}
+.breadcrumb__item--active {color:var(--ds-prime); font-weight:500;}
 .breadcrumb__item--active .breadcrumb__link {color:inherit; pointer-events:none;}
 
 /* Icons */
@@ -35,7 +35,7 @@
 .breadcrumb--dark {background-color:var(--ds-gray-800);}
 .breadcrumb--dark .breadcrumb__link {color:var(--ds-gray-400);}
 .breadcrumb--dark .breadcrumb__link:hover {color:var(--ds-prime);}
-.breadcrumb--dark .breadcrumb__item--active {color:var(--ds-gray-100);}
+.breadcrumb--dark .breadcrumb__item--active {color:var(--ds-prime);}
 
 /* Truncate long items */
 .breadcrumb--truncate .breadcrumb__link {max-width:150px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}

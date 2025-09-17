@@ -9,11 +9,11 @@
 .toggle__thumb {position:absolute; left:3px; top:50%; transform:translateY(-50%); width:18px; height:18px; border-radius:50%; background-color:var(--ds-white); transition:var(--ds-transition-all);}
 
 /* Active/Checked State */
-.toggle--active .toggle__track {background-color:var(--ds-black);}
+.toggle--active .toggle__track {background-color:var(--ds-prime);}
 .toggle--active .toggle__thumb {transform:translateX(24px) translateY(-50%);}
 
 /* Toggle States */
-.toggle:focus-visible .toggle__track {box-shadow:0 0 0 3px rgba(0,0,0,0.1);}
+.toggle:focus-visible .toggle__track {box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
 .toggle:disabled .toggle__track {opacity:0.5; cursor:not-allowed;}
 .toggle:disabled .toggle__thumb {cursor:not-allowed;}
 

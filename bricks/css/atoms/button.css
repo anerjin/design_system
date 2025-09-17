@@ -90,11 +90,11 @@
 /* Switch Toggle Button */
 .btn-switch {position:relative; display:inline-flex; align-items:center; cursor:pointer; background:none; border:none; padding:0;}
 .btn-switch__track {display:inline-block; width:44px; height:24px; background:var(--ds-gray-400); border-radius:9999px; transition:var(--ds-transition-all); position:relative;}
-.btn-switch__thumb {position:absolute; top:2px; left:2px; width:20px; height:20px; background:white; border-radius:50%; transition:transform var(--ds-duration-200) ease; box-shadow:var(--ds-shadow-sm);}
+.btn-switch__thumb {position:absolute; top:2px; left:2px; width:20px; height:20px; background:var(--ds-white); border-radius:50%; transition:transform var(--ds-duration-200) ease; box-shadow:var(--ds-shadow-sm);}
 .btn-switch__label {margin-left:var(--ds-space-2); color:var(--ds-text-primary);}
-.btn-switch--active .btn-switch__track {background:var(--ds-black);}
+.btn-switch--active .btn-switch__track {background:var(--ds-prime);}
 .btn-switch--active .btn-switch__thumb {transform:translateX(20px);}
-.btn-switch:focus-visible .btn-switch__track {box-shadow:0 0 0 3px rgba(0,0,0,0.1);}
+.btn-switch:focus-visible .btn-switch__track {box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
 .btn-switch:disabled {cursor:not-allowed; opacity:0.5;}
 .btn-switch:disabled .btn-switch__track {background:var(--ds-gray-300);}
 

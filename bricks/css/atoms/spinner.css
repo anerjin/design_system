@@ -21,7 +21,7 @@
 .spinner--warning {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-warning);}
 .spinner--danger {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-danger);}
 .spinner--info {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-info);}
-.spinner--white {border-color:rgba(255,255,255,0.3); border-top-color:var(--ds-white);}
+.spinner--white {border-color:color-mix(in srgb, var(--ds-white) 30%, transparent); border-top-color:var(--ds-white);}
 
 /* Dots Spinner */
 .spinner--dots {display:inline-flex; align-items:center; gap:4px; border:none; animation:none;}
@@ -85,6 +85,6 @@
 .spinner--bars.spinner--white span {background-color:var(--ds-white);}
 
 /* Loading Overlay */
-.spinner-overlay {display:flex; justify-content:center; align-items:center; position:fixed; z-index:9999; top:0; left:0; right:0; bottom:0; background-color:rgba(255, 255, 255, 0.9);}
+.spinner-overlay {display:flex; justify-content:center; align-items:center; position:fixed; z-index:9999; top:0; left:0; right:0; bottom:0; background-color:var(--ds-white-alpha-90);}
 .spinner-container {text-align:center;}
 .spinner-text {margin-top:16px; color:var(--ds-gray-600); font-size:14px;}

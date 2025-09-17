@@ -24,7 +24,7 @@
 .tabs--pills .tabs__nav {padding:4px; border-bottom:none; border-radius:8px; background-color:var(--ds-gray-100); gap:8px;}
 .tabs--pills .tabs__button {padding:8px 16px; border-radius:6px;}
 .tabs--pills .tabs__button:hover {background-color:var(--ds-gray-50);}
-.tabs--pills .tabs__button--active {background-color:var(--ds-white); color:var(--ds-prime); box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);}
+.tabs--pills .tabs__button--active {background-color:var(--ds-white); color:var(--ds-prime); box-shadow:var(--ds-shadow-elevation-1);}
 .tabs--pills .tabs__button--active::after {display:none;}
 /* Sizes */
 .tabs--sm .tabs__button {padding:8px 12px; font-size:13px;}
@@ -36,4 +36,4 @@
 .tabs__button-icon {display:inline-flex; align-items:center; gap:8px;}
 .tabs__button-icon svg {width:16px; height:16px;}
 /* Badge in tab */
-.tabs__button-badge {display:inline-block; margin-left:8px; padding:2px 6px; border-radius:10px; background-color:var(--ds-prime); color:white; font-size:11px; font-weight:500; line-height:1;}
+.tabs__button-badge {display:inline-block; margin-left:8px; padding:2px 6px; border-radius:10px; background-color:var(--ds-prime); color:var(--ds-white); font-size:11px; font-weight:500; line-height:1;}

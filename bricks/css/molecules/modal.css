@@ -1,11 +1,11 @@
 /* Modal Component Styles */
-.modal {display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; overflow:auto; background-color:rgba(0, 0, 0, 0.5); animation:fadeIn 0.2s;}
+.modal {display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; overflow:auto; background-color:var(--ds-black-alpha-50); animation:fadeIn 0.2s;}
 .modal--open {display:flex; justify-content:center; align-items:center;}
 @keyframes fadeIn {
   from {opacity:0;}
   to {opacity:1;}
 }
-.modal__dialog {display:flex; flex-direction:column; position:relative; width:90%; max-width:500px; max-height:90vh; border-radius:8px; background-color:var(--ds-white); box-shadow:0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); animation:slideIn 0.2s;}
+.modal__dialog {display:flex; flex-direction:column; position:relative; width:90%; max-width:500px; max-height:90vh; border-radius:8px; background-color:var(--ds-white); box-shadow:0 20px 25px -5px color-mix(in srgb, var(--ds-black) 10%, transparent), 0 10px 10px -5px color-mix(in srgb, var(--ds-black) 4%, transparent); animation:slideIn 0.2s;}
 @keyframes slideIn {
   from {opacity:0; transform:translateY(-20px);}
   to {opacity:1; transform:translateY(0);}
@@ -44,4 +44,4 @@
 .modal--dark .modal__header,
 .modal--dark .modal__footer {border-color:var(--ds-gray-700);}
 .modal--dark .modal__close {color:var(--ds-gray-400);}
-.modal--dark .modal__close:hover {background-color:rgba(255, 255, 255, 0.1);}
+.modal--dark .modal__close:hover {background-color:color-mix(in srgb, var(--ds-white) 10%, transparent);}

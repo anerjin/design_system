@@ -142,13 +142,13 @@ q:before, q:after {
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid var(--ds-brand-primary);
+  outline: 2px solid var(--ds-prime);
   outline-offset: 2px;
 }
 
 /* Selection */
 ::selection {
-  background-color: var(--ds-brand-primary);
+  background-color: var(--ds-prime);
   color: var(--ds-text-inverse);
 }
 

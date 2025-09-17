@@ -2,7 +2,7 @@
 .dropdown {display:inline-block; position:relative;}
 .dropdown__toggle {display:inline-flex; align-items:center; padding:8px 12px; border:1px solid var(--ds-gray-200); border-radius:6px; background-color:var(--ds-white); color:var(--ds-black); font-size:14px; font-weight:500; cursor:pointer; gap:4px;transition:all 0.2s;}
 .dropdown__toggle:hover {background-color:var(--ds-gray-50);}
-.dropdown__toggle:focus {outline:none; box-shadow:0 0 0 3px rgba(139, 92, 246, 0.1);}
+.dropdown__toggle:focus {outline:none; box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
 
 /* Dropdown menu with animation */
 @keyframes dropdownFadeIn {
@@ -61,7 +61,8 @@
   border:1px solid var(--ds-gray-200);
   border-radius:8px;
   background-color:var(--ds-white);
-  box-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow:0 10px 15px -3px color-mix(in srgb, var(--ds-black) 10%, transparent),
+             0 4px 6px -2px color-mix(in srgb, var(--ds-black) 5%, transparent);
   opacity: 0;
   transform: translateY(-8px);
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -114,7 +115,7 @@
 .dropdown__item {display:block; width:100%; padding:8px 16px; border:none; background:none; color:var(--ds-black); font-size:14px; text-decoration:none; text-align:left; cursor:pointer; transition:background-color 0.2s;}
 .dropdown__item:hover {background-color:var(--ds-gray-50);}
 .dropdown__item:focus {outline:none; background-color:var(--ds-gray-50);}
-.dropdown__item--active {background-color:var(--ds-blue-50); color:var(--ds-blue-600);}
+.dropdown__item--active {background-color:var(--ds-prime-alpha-20); color:var(--ds-prime);}
 .dropdown__item--disabled {color:var(--ds-gray-400); cursor:not-allowed; pointer-events:none;}
 
 /* Dropdown header */

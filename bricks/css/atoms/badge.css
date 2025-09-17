@@ -30,12 +30,12 @@
 .badge--outline-info {background:transparent; color:var(--ds-color-info); box-shadow:inset 0 0 0 1px var(--ds-color-info);}
 
 /* Badge Soft Variants */
-.badge--soft-primary {background:rgba(0,0,0,0.1); color:var(--ds-black);}
-.badge--soft-secondary {background:rgba(120,120,120,0.1); color:var(--ds-gray-600);}
-.badge--soft-success {background:rgba(100,166,68,0.1); color:var(--ds-color-success);}
-.badge--soft-danger {background:rgba(237,85,101,0.1); color:var(--ds-color-danger);}
-.badge--soft-warning {background:rgba(252,110,81,0.1); color:var(--ds-color-warning);}
-.badge--soft-info {background:rgba(28,182,237,0.1); color:var(--ds-color-info);}
+.badge--soft-primary {background:var(--ds-black-alpha-10); color:var(--ds-black);}
+.badge--soft-secondary {background:color-mix(in srgb, var(--ds-gray-600) 12%, transparent); color:var(--ds-gray-600);}
+.badge--soft-success {background:color-mix(in srgb, var(--ds-color-success) 12%, transparent); color:var(--ds-color-success);}
+.badge--soft-danger {background:color-mix(in srgb, var(--ds-color-danger) 12%, transparent); color:var(--ds-color-danger);}
+.badge--soft-warning {background:color-mix(in srgb, var(--ds-color-warning) 12%, transparent); color:var(--ds-color-warning);}
+.badge--soft-info {background:color-mix(in srgb, var(--ds-color-info) 12%, transparent); color:var(--ds-color-info);}
 
 /* Badge Pill */
 .badge--pill {border-radius:999px;}
@@ -67,7 +67,7 @@
 
 /* Tag Clickable */
 .tag--clickable {cursor:pointer;}
-.tag--clickable:hover {transform:translateY(-1px); box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+.tag--clickable:hover {transform:translateY(-1px); box-shadow:var(--ds-shadow-sm);}
 .tag--clickable:active {transform:translateY(0); box-shadow:none;}
 
 /* Tag with Remove */

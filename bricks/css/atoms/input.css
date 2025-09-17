@@ -5,7 +5,7 @@
 
 /* Base Input */
 .input {display:block; width:100%; padding:0 var(--ds-space-3); height:40px; font-size:var(--ds-text-base); font-family:var(--ds-font-sans); line-height:1; color:var(--ds-text-primary); background:var(--ds-white); border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); transition:var(--ds-transition-all);}
-.input:focus {outline:none; border-color:var(--ds-black); box-shadow:0 0 0 3px rgba(0,0,0,0.1);}
+.input:focus {outline:none; border-color:var(--ds-prime); box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
 .input:disabled {background:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed;}
 .input:readonly {background:var(--ds-gray-50);}
 .input::placeholder {color:var(--ds-gray-400);}
@@ -19,17 +19,17 @@
 
 /* Input States */
 .input--success {border-color:var(--ds-color-success);}
-.input--success:focus {border-color:var(--ds-color-success); box-shadow:0 0 0 3px rgba(100,166,68,0.1);}
+.input--success:focus {border-color:var(--ds-color-success); box-shadow:0 0 0 3px color-mix(in srgb, var(--ds-color-success) 10%, transparent);}
 
 .input--warning {border-color:var(--ds-color-warning);}
-.input--warning:focus {border-color:var(--ds-color-warning); box-shadow:0 0 0 3px rgba(252,110,81,0.1);}
+.input--warning:focus {border-color:var(--ds-color-warning); box-shadow:0 0 0 3px color-mix(in srgb, var(--ds-color-warning) 10%, transparent);}
 
 .input--error {border-color:var(--ds-color-danger);}
-.input--error:focus {border-color:var(--ds-color-danger); box-shadow:0 0 0 3px rgba(237,85,101,0.1);}
+.input--error:focus {border-color:var(--ds-color-danger); box-shadow:0 0 0 3px color-mix(in srgb, var(--ds-color-danger) 10%, transparent);}
 
 /* Textarea */
 .textarea {display:block; width:100%; padding:var(--ds-space-3); min-height:100px; font-size:var(--ds-text-base); font-family:var(--ds-font-sans); line-height:1.5; color:var(--ds-text-primary); background:var(--ds-white); border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); resize:vertical; transition:var(--ds-transition-all);}
-.textarea:focus {outline:none; border-color:var(--ds-black); box-shadow:0 0 0 3px rgba(0,0,0,0.1);}
+.textarea:focus {outline:none; border-color:var(--ds-prime); box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
 .textarea:disabled {background:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed; resize:none;}
 .textarea:readonly {background:var(--ds-gray-50); resize:none;}
 .textarea::placeholder {color:var(--ds-gray-400);}
