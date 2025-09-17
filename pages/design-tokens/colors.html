@@ -3,523 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colors - BRICK Design System</title>
+    <title>Colors - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../bricks/css/bricks.css">
 </head>
 <body>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Color System</h1>
-            <p class="vp-doc-description">
-                BRICK 디자인 시스템의 컬러 체계 - Core Black & White + Extended Palette
-            </p>
-        </div>
+        <header class="docs__header">
+            <h1 class="docs__title">Color System</h1>
+            <p class="docs__description">BRICKS 디자인 시스템의 코어 팔레트와 세멘틱 토큰을 한눈에 확인하세요.</p>
+        </header>
 
-        <h2>Core Colors</h2>
-        <div class="color-group">
-            <div class="card" style="background: var(--ds-black); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Black</span>
-                    <span class="color-value">#000000</span>
-                    <span class="color-var">--ds-black</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-white); color: var(--ds-black);">
-                <div class="card__body text-center">
-                    <span class="color-name">White</span>
-                    <span class="color-value">#FFFFFF</span>
-                    <span class="color-var">--ds-white</span>
-                </div>
-            </div>
-        </div>
-
-        <h2>Gray Scale - 13 Levels</h2>
-        <p>정밀한 계층 구조와 깊이 표현을 위한 13단계 그레이 스케일</p>
-        <div class="color-palette">
-            <div class="card" style="background: var(--ds-gray-0);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 0</span>
-                    <span class="color-value">#FFFFFF</span>
-                    <span class="color-var">--ds-gray-0</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-50);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 50</span>
-                    <span class="color-value">#FAFAFA</span>
-                    <span class="color-var">--ds-gray-50</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-100);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 100</span>
-                    <span class="color-value">#F5F5F5</span>
-                    <span class="color-var">--ds-gray-100</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-200);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 200</span>
-                    <span class="color-value">#E8E8E8</span>
-                    <span class="color-var">--ds-gray-200</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-300);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 300</span>
-                    <span class="color-value">#D4D4D4</span>
-                    <span class="color-var">--ds-gray-300</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-400);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 400</span>
-                    <span class="color-value">#A1A1A1</span>
-                    <span class="color-var">--ds-gray-400</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-500); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 500</span>
-                    <span class="color-value">#787878</span>
-                    <span class="color-var">--ds-gray-500</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-600); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 600</span>
-                    <span class="color-value">#525252</span>
-                    <span class="color-var">--ds-gray-600</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-700); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 700</span>
-                    <span class="color-value">#393939</span>
-                    <span class="color-var">--ds-gray-700</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-800); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 800</span>
-                    <span class="color-value">#262626</span>
-                    <span class="color-var">--ds-gray-800</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-900); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 900</span>
-                    <span class="color-value">#171717</span>
-                    <span class="color-var">--ds-gray-900</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-950); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 950</span>
-                    <span class="color-value">#0A0A0A</span>
-                    <span class="color-var">--ds-gray-950</span>
-                </div>
-            </div>
-            <div class="card" style="background: var(--ds-gray-1000); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Gray 1000</span>
-                    <span class="color-value">#000000</span>
-                    <span class="color-var">--ds-gray-1000</span>
-                </div>
-            </div>
-        </div>
-
-        <h2>Semantic UI Colors</h2>
-        <div class="semantic-section">
-            <h3>Status Colors</h3>
-            <div class="color-palette">
-                <div class="card" style="background: var(--ds-color-success); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Success</span>
-                        <span class="color-value">#64a644</span>
-                        <span class="color-var">--ds-color-success</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-warning); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Warning</span>
-                        <span class="color-value">#fc6e51</span>
-                        <span class="color-var">--ds-color-warning</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-danger); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Danger</span>
-                        <span class="color-value">#ed5565</span>
-                        <span class="color-var">--ds-color-danger</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-info); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Info</span>
-                        <span class="color-value">#1cb6ed</span>
-                        <span class="color-var">--ds-color-info</span>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Extended Palette</h3>
-            <div class="color-palette">
-                <div class="card" style="background: var(--ds-color-pink); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Pink</span>
-                        <span class="color-value">#ec87c0</span>
-                        <span class="color-var">--ds-color-pink</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-purple); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Purple</span>
-                        <span class="color-value">#ac92ec</span>
-                        <span class="color-var">--ds-color-purple</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-yellow); color: var(--ds-black);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Yellow</span>
-                        <span class="color-value">#ffce54</span>
-                        <span class="color-var">--ds-color-yellow</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-green); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Green</span>
-                        <span class="color-value">#a0d468</span>
-                        <span class="color-var">--ds-color-green</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-mint); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Mint</span>
-                        <span class="color-value">#48cfad</span>
-                        <span class="color-var">--ds-color-mint</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-lightblue); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Light Blue</span>
-                        <span class="color-value">#4fc1e9</span>
-                        <span class="color-var">--ds-color-lightblue</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-blue); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Blue</span>
-                        <span class="color-value">#5d9cec</span>
-                        <span class="color-var">--ds-color-blue</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-dark); color: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Dark</span>
-                        <span class="color-value">#434a54</span>
-                        <span class="color-var">--ds-color-dark</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-color-light); color: var(--ds-black);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Light</span>
-                        <span class="color-value">#aab2bd</span>
-                        <span class="color-var">--ds-color-light</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2>Layout Colors</h2>
-        <div class="semantic-section">
-            <h3>Backgrounds</h3>
-            <div class="color-palette">
-                <div class="card" style="background: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Background</span>
-                        <span class="color-value">#FFFFFF</span>
-                        <span class="color-var">--ds-color-background</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-gray-50);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Surface</span>
-                        <span class="color-value">#FAFAFA</span>
-                        <span class="color-var">--ds-color-surface</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-gray-100);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Surface Hover</span>
-                        <span class="color-value">#F5F5F5</span>
-                        <span class="color-var">--ds-color-surface-hover</span>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Text</h3>
-            <div class="color-palette">
-                <div class="card" style="background: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name" style="color: var(--ds-black);">Primary Text</span>
-                        <span class="color-value">#000000</span>
-                        <span class="color-var">--ds-text-primary</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name" style="color: var(--ds-gray-600);">Secondary Text</span>
-                        <span class="color-value">#525252</span>
-                        <span class="color-var">--ds-text-secondary</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name" style="color: var(--ds-gray-500);">Tertiary Text</span>
-                        <span class="color-value">#787878</span>
-                        <span class="color-var">--ds-text-tertiary</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-white);">
-                    <div class="card__body text-center">
-                        <span class="color-name" style="color: var(--ds-gray-400);">Disabled Text</span>
-                        <span class="color-value">#A1A1A1</span>
-                        <span class="color-var">--ds-text-disabled</span>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Borders</h3>
-            <div class="color-palette">
-                <div class="card" style="background: var(--ds-gray-200);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Border Default</span>
-                        <span class="color-value">#E8E8E8</span>
-                        <span class="color-var">--ds-color-border</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-gray-100);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Border Subtle</span>
-                        <span class="color-value">#F5F5F5</span>
-                        <span class="color-var">--ds-color-border-subtle</span>
-                    </div>
-                </div>
-                <div class="card" style="background: var(--ds-gray-300);">
-                    <div class="card__body text-center">
-                        <span class="color-name">Border Strong</span>
-                        <span class="color-value">#D4D4D4</span>
-                        <span class="color-var">--ds-color-border-strong</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2>Interactive Elements</h2>
-        <div class="color-palette">
-            <div class="card interactive" style="background: var(--ds-black); color: var(--ds-white);">
-                <div class="card__body text-center">
-                    <span class="color-name">Primary Button</span>
-                    <span class="color-value">#000000</span>
-                    <span class="color-var">--ds-button-primary-bg</span>
-                    <div class="hover-state" style="background: var(--ds-gray-800); color: var(--ds-white);">Hover: #262626</div>
-                </div>
-            </div>
-            <div class="card interactive" style="background: var(--ds-white); border: 2px solid var(--ds-gray-300);">
-                <div class="card__body text-center">
-                    <span class="color-name">Secondary Button</span>
-                    <span class="color-value">#FFFFFF</span>
-                    <span class="color-var">--ds-button-secondary-bg</span>
-                    <div class="hover-state" style="background: var(--ds-gray-100);">Hover: #F5F5F5</div>
-                </div>
-            </div>
-        </div>
-
-        <h2>Usage Guidelines</h2>
-        <div class="card-group card-group--cols-2">
+        <section class="section color-section">
+            <h2 class="section__title" id="core-palette">Core Palette</h2>
             <div class="card">
                 <div class="card__header">
-                    <h3 class="card__title">색상 사용 원칙</h3>
+                    <h2 class="card__title">기본 팔레트</h2>
+                    <p class="card__subtitle">핵심 브랜드 컬러와 베이스 컬러입니다.</p>
                 </div>
                 <div class="card__body">
-                    <ul>
-                        <li><strong>Core Colors:</strong> 주요 UI 요소와 텍스트</li>
-                        <li><strong>Gray Scale:</strong> 계층 구조와 깊이 표현</li>
-                        <li><strong>Semantic Colors:</strong> 상태 피드백 (성공, 경고, 위험, 정보)</li>
-                        <li><strong>Extended Palette:</strong> 특별한 강조나 브랜딩 요소</li>
-                    </ul>
+                    <div class="swatch-grid swatch-grid--cols-3">
+                        <div class="color-swatch" style="--swatch-color: var(--ds-prime);">
+                            <span class="color-swatch__name">Prime</span>
+                            <span class="color-swatch__value">#8E51FF</span>
+                            <span class="color-swatch__var">--ds-prime</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-black);">
+                            <span class="color-swatch__name">Black</span>
+                            <span class="color-swatch__value">#000000</span>
+                            <span class="color-swatch__var">--ds-black</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-white); --swatch-text: var(--ds-gray-800);">
+                            <span class="color-swatch__name">White</span>
+                            <span class="color-swatch__value">#FFFFFF</span>
+                            <span class="color-swatch__var">--ds-white</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <section class="section color-section">
+            <h2 class="section__title" id="gray-scale">Gray Scale</h2>
             <div class="card">
                 <div class="card__header">
-                    <h3 class="card__title">접근성 고려사항</h3>
+                    <h2 class="card__title">13단계 그레이</h2>
+                    <p class="card__subtitle">레이어, 텍스트 계층, 보더에 활용하는 기본 중립 팔레트입니다.</p>
                 </div>
                 <div class="card__body">
-                    <ul>
-                        <li><strong>Large Text (18pt+):</strong> Minimum 3:1 contrast</li>
-                        <li><strong>Normal Text:</strong> Minimum 4.5:1 contrast</li>
-                        <li><strong>UI Components:</strong> Minimum 3:1 contrast</li>
-                        <li><strong>WCAG AAA:</strong> 7:1 for normal text</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <h2>Component Examples</h2>
-
-        <h3>Card Components with Color System</h3>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="example-grid">
-                    <!-- Basic Card with Gray Scale -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h4 class="card__title">Default Card</h4>
+                    <div class="swatch-grid swatch-grid--cols-6">
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-0); --swatch-text: var(--ds-gray-800);">
+                            <span class="color-swatch__name">Gray 0</span>
+                            <span class="color-swatch__value">#FFFFFF</span>
+                            <span class="color-swatch__var">--ds-gray-0</span>
                         </div>
-                        <div class="card__body">
-                            <p style="color: var(--ds-text-primary);">Primary text color</p>
-                            <p style="color: var(--ds-text-secondary);">Secondary text color</p>
-                            <p style="color: var(--ds-text-tertiary);">Tertiary text color</p>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-50); --swatch-text: var(--ds-gray-800);">
+                            <span class="color-swatch__name">Gray 50</span>
+                            <span class="color-swatch__value">#FAFAFA</span>
+                            <span class="color-swatch__var">--ds-gray-50</span>
                         </div>
-                    </div>
-
-                    <!-- Card with Status Colors -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h4 class="card__title" style="color: var(--ds-color-success);">Success Card</h4>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-100); --swatch-text: var(--ds-gray-800);">
+                            <span class="color-swatch__name">Gray 100</span>
+                            <span class="color-swatch__value">#F5F5F5</span>
+                            <span class="color-swatch__var">--ds-gray-100</span>
                         </div>
-                        <div class="card__body">
-                            <p>Card with success color accent</p>
-                            <span class="badge" style="background: var(--ds-color-success); color: white; padding: 4px 8px; border-radius: 4px;">Active</span>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-200); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">Gray 200</span>
+                            <span class="color-swatch__value">#E8E8E8</span>
+                            <span class="color-swatch__var">--ds-gray-200</span>
                         </div>
-                    </div>
-
-                    <!-- Card with Warning Accent -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h4 class="card__title" style="color: var(--ds-color-warning);">Warning Card</h4>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-300); --swatch-text: var(--ds-gray-1000);">
+                            <span class="color-swatch__name">Gray 300</span>
+                            <span class="color-swatch__value">#D4D4D4</span>
+                            <span class="color-swatch__var">--ds-gray-300</span>
                         </div>
-                        <div class="card__body">
-                            <p>Card with warning color accent</p>
-                            <span class="badge" style="background: var(--ds-color-warning); color: white; padding: 4px 8px; border-radius: 4px;">Pending</span>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-400); --swatch-text: var(--ds-gray-1000);">
+                            <span class="color-swatch__name">Gray 400</span>
+                            <span class="color-swatch__value">#A1A1A1</span>
+                            <span class="color-swatch__var">--ds-gray-400</span>
                         </div>
-                    </div>
-
-                    <!-- Card with Info Accent -->
-                    <div class="card">
-                        <div class="card__header">
-                            <h4 class="card__title" style="color: var(--ds-color-info);">Information Card</h4>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-500);">
+                            <span class="color-swatch__name">Gray 500</span>
+                            <span class="color-swatch__value">#787878</span>
+                            <span class="color-swatch__var">--ds-gray-500</span>
                         </div>
-                        <div class="card__body">
-                            <p>Card with info color accent</p>
-                            <span class="badge" style="background: var(--ds-color-info); color: white; padding: 4px 8px; border-radius: 4px;">New</span>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-600);">
+                            <span class="color-swatch__name">Gray 600</span>
+                            <span class="color-swatch__value">#525252</span>
+                            <span class="color-swatch__var">--ds-gray-600</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h3>Color Usage in Different Card Variants</h3>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="example-grid">
-                    <!-- Elevated Card with Background Colors -->
-                    <div class="card card--elevated" style="background: var(--ds-color-surface);">
-                        <div class="card__body">
-                            <h4>Surface Color Card</h4>
-                            <p>Using <code>--ds-color-surface</code> as background</p>
-                            <div style="margin-top: 12px; padding: 8px; background: var(--ds-color-background); border-radius: 4px;">
-                                Nested background color
-                            </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-700);">
+                            <span class="color-swatch__name">Gray 700</span>
+                            <span class="color-swatch__value">#393939</span>
+                            <span class="color-swatch__var">--ds-gray-700</span>
                         </div>
-                    </div>
-
-                    <!-- Card with Extended Palette -->
-                    <div class="card">
-                        <div class="card__body">
-                            <h4>Extended Palette Usage</h4>
-                            <div style="display: flex; gap: 8px; margin-top: 12px;">
-                                <span style="display: inline-block; padding: 4px 8px; background: var(--ds-color-purple); color: white; border-radius: 4px; font-size: 12px;">Purple</span>
-                                <span style="display: inline-block; padding: 4px 8px; background: var(--ds-color-pink); color: white; border-radius: 4px; font-size: 12px;">Pink</span>
-                                <span style="display: inline-block; padding: 4px 8px; background: var(--ds-color-mint); color: white; border-radius: 4px; font-size: 12px;">Mint</span>
-                                <span style="display: inline-block; padding: 4px 8px; background: var(--ds-color-yellow); color: var(--ds-black); border-radius: 4px; font-size: 12px;">Yellow</span>
-                            </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-800);">
+                            <span class="color-swatch__name">Gray 800</span>
+                            <span class="color-swatch__value">#262626</span>
+                            <span class="color-swatch__var">--ds-gray-800</span>
                         </div>
-                    </div>
-
-                    <!-- Card with Gray Scale Hierarchy -->
-                    <div class="card">
-                        <div class="card__body">
-                            <h4>Gray Scale Hierarchy</h4>
-                            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                                <div style="padding: 8px; background: var(--ds-gray-50); border-radius: 4px;">Gray 50 - Background</div>
-                                <div style="padding: 8px; background: var(--ds-gray-100); border-radius: 4px;">Gray 100 - Surface</div>
-                                <div style="padding: 8px; background: var(--ds-gray-200); border-radius: 4px;">Gray 200 - Border</div>
-                            </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-900);">
+                            <span class="color-swatch__name">Gray 900</span>
+                            <span class="color-swatch__value">#171717</span>
+                            <span class="color-swatch__var">--ds-gray-900</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-950);">
+                            <span class="color-swatch__name">Gray 950</span>
+                            <span class="color-swatch__value">#0A0A0A</span>
+                            <span class="color-swatch__var">--ds-gray-950</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-gray-1000);">
+                            <span class="color-swatch__name">Gray 1000</span>
+                            <span class="color-swatch__value">#000000</span>
+                            <span class="color-swatch__var">--ds-gray-1000</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <h3>Interactive Color States</h3>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
+        <section class="section color-section">
+            <h2 class="section__title" id="semantic-colors">Semantic &amp; Extended</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">상태 &amp; 확장 팔레트</h2>
+                    <p class="card__subtitle">상태 피드백, 브랜딩 포인트에 사용하는 컬러들입니다.</p>
+                </div>
+                <div class="card__body">
+                    <div class="swatch-grid swatch-grid--cols-4">
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-success);">
+                            <span class="color-swatch__name">Success</span>
+                            <span class="color-swatch__value">#64A644</span>
+                            <span class="color-swatch__var">--ds-color-success</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-warning);">
+                            <span class="color-swatch__name">Warning</span>
+                            <span class="color-swatch__value">#FC6E51</span>
+                            <span class="color-swatch__var">--ds-color-warning</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-danger);">
+                            <span class="color-swatch__name">Danger</span>
+                            <span class="color-swatch__value">#ED5565</span>
+                            <span class="color-swatch__var">--ds-color-danger</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-info);">
+                            <span class="color-swatch__name">Info</span>
+                            <span class="color-swatch__value">#1CB6ED</span>
+                            <span class="color-swatch__var">--ds-color-info</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-pink);">
+                            <span class="color-swatch__name">Pink</span>
+                            <span class="color-swatch__value">#EC87C0</span>
+                            <span class="color-swatch__var">--ds-color-pink</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-purple);">
+                            <span class="color-swatch__name">Purple</span>
+                            <span class="color-swatch__value">#AC92EC</span>
+                            <span class="color-swatch__var">--ds-color-purple</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-yellow); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">Yellow</span>
+                            <span class="color-swatch__value">#FFCE54</span>
+                            <span class="color-swatch__var">--ds-color-yellow</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-green);">
+                            <span class="color-swatch__name">Green</span>
+                            <span class="color-swatch__value">#A0D468</span>
+                            <span class="color-swatch__var">--ds-color-green</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-mint);">
+                            <span class="color-swatch__name">Mint</span>
+                            <span class="color-swatch__value">#48CFAD</span>
+                            <span class="color-swatch__var">--ds-color-mint</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-lightblue);">
+                            <span class="color-swatch__name">Light Blue</span>
+                            <span class="color-swatch__value">#4FC1E9</span>
+                            <span class="color-swatch__var">--ds-color-lightblue</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-blue);">
+                            <span class="color-swatch__name">Blue</span>
+                            <span class="color-swatch__value">#5D9CEC</span>
+                            <span class="color-swatch__var">--ds-color-blue</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-dark);">
+                            <span class="color-swatch__name">Dark</span>
+                            <span class="color-swatch__value">#434A54</span>
+                            <span class="color-swatch__var">--ds-color-dark</span>
+                        </div>
+                        <div class="color-swatch" style="--swatch-color: var(--ds-color-light); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">Light</span>
+                            <span class="color-swatch__value">#AAB2BD</span>
+                            <span class="color-swatch__var">--ds-color-light</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section color-section">
+            <h2 class="section__title" id="alpha-palette">Alpha Variants</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">투명도 컬러</h2>
+                    <p class="card__subtitle">배경 오버레이, 강조 효과를 위한 알파 변형입니다.</p>
+                </div>
+                <div class="card__body">
+                    <div class="swatch-grid swatch-grid--cols-4">
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-white-alpha-10); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">White 10%</span>
+                            <span class="color-swatch__value">rgba(255,255,255,0.1)</span>
+                            <span class="color-swatch__var">--ds-white-alpha-10</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-white-alpha-20); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">White 20%</span>
+                            <span class="color-swatch__value">rgba(255,255,255,0.2)</span>
+                            <span class="color-swatch__var">--ds-white-alpha-20</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-white-alpha-30); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">White 30%</span>
+                            <span class="color-swatch__value">rgba(255,255,255,0.3)</span>
+                            <span class="color-swatch__var">--ds-white-alpha-30</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-white-alpha-50); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">White 50%</span>
+                            <span class="color-swatch__value">rgba(255,255,255,0.5)</span>
+                            <span class="color-swatch__var">--ds-white-alpha-50</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-white-alpha-80); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">White 80%</span>
+                            <span class="color-swatch__value">rgba(255,255,255,0.8)</span>
+                            <span class="color-swatch__var">--ds-white-alpha-80</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-white-alpha-90); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">White 90%</span>
+                            <span class="color-swatch__value">rgba(255,255,255,0.9)</span>
+                            <span class="color-swatch__var">--ds-white-alpha-90</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-black-alpha-10);">
+                            <span class="color-swatch__name">Black 10%</span>
+                            <span class="color-swatch__value">rgba(0,0,0,0.1)</span>
+                            <span class="color-swatch__var">--ds-black-alpha-10</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-black-alpha-20);">
+                            <span class="color-swatch__name">Black 20%</span>
+                            <span class="color-swatch__value">rgba(0,0,0,0.2)</span>
+                            <span class="color-swatch__var">--ds-black-alpha-20</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-black-alpha-30);">
+                            <span class="color-swatch__name">Black 30%</span>
+                            <span class="color-swatch__value">rgba(0,0,0,0.3)</span>
+                            <span class="color-swatch__var">--ds-black-alpha-30</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-black-alpha-50);">
+                            <span class="color-swatch__name">Black 50%</span>
+                            <span class="color-swatch__value">rgba(0,0,0,0.5)</span>
+                            <span class="color-swatch__var">--ds-black-alpha-50</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-black-alpha-80);">
+                            <span class="color-swatch__name">Black 80%</span>
+                            <span class="color-swatch__value">rgba(0,0,0,0.8)</span>
+                            <span class="color-swatch__var">--ds-black-alpha-80</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-black-alpha-90);">
+                            <span class="color-swatch__name">Black 90%</span>
+                            <span class="color-swatch__value">rgba(0,0,0,0.9)</span>
+                            <span class="color-swatch__var">--ds-black-alpha-90</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-prime-alpha-10); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">Prime 10%</span>
+                            <span class="color-swatch__value">rgba(142,81,255,0.1)</span>
+                            <span class="color-swatch__var">--ds-prime-alpha-10</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-prime-alpha-20); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">Prime 20%</span>
+                            <span class="color-swatch__value">rgba(142,81,255,0.2)</span>
+                            <span class="color-swatch__var">--ds-prime-alpha-20</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-prime-alpha-30); --swatch-text: var(--ds-gray-900);">
+                            <span class="color-swatch__name">Prime 30%</span>
+                            <span class="color-swatch__value">rgba(142,81,255,0.3)</span>
+                            <span class="color-swatch__var">--ds-prime-alpha-30</span>
+                        </div>
+                        <div class="color-swatch color-swatch--alpha" style="--swatch-color: var(--ds-prime-alpha-50);">
+                            <span class="color-swatch__name">Prime 50%</span>
+                            <span class="color-swatch__value">rgba(142,81,255,0.5)</span>
+                            <span class="color-swatch__var">--ds-prime-alpha-50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section color-section">
+            <h2 class="section__title" id="semantic-alias">Semantic Tokens</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">세멘틱 매핑</h2>
+                    <p class="card__subtitle">레이아웃, 텍스트, 버튼 토큰이 코어 팔레트와 어떻게 연결되는지 보여줍니다.</p>
+                </div>
+                <div class="card__body">
+                    <div class="semantic-grid">
+                        <div class="semantic-card">
+                            <h3>Background &amp; Surface</h3>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-color-background); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-gray-900);">
+                                <span class="semantic-chip__name">Background</span>
+                                <span class="semantic-chip__value">--ds-color-background → #FFFFFF</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-color-surface); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-gray-800);">
+                                <span class="semantic-chip__name">Surface</span>
+                                <span class="semantic-chip__value">--ds-color-surface → #FAFAFA</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-color-surface-hover); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-gray-800);">
+                                <span class="semantic-chip__name">Surface Hover</span>
+                                <span class="semantic-chip__value">--ds-color-surface-hover → #F5F5F5</span>
+                            </div>
+                        </div>
+                        <div class="semantic-card">
+                            <h3>Text</h3>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-white); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-text-primary);">
+                                <span class="semantic-chip__name">Primary</span>
+                                <span class="semantic-chip__value">--ds-text-primary → #000000</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-white); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-text-secondary);">
+                                <span class="semantic-chip__name">Secondary</span>
+                                <span class="semantic-chip__value">--ds-text-secondary → #525252</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-white); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-text-tertiary);">
+                                <span class="semantic-chip__name">Tertiary</span>
+                                <span class="semantic-chip__value">--ds-text-tertiary → #787878</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-white); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-text-disabled);">
+                                <span class="semantic-chip__name">Disabled</span>
+                                <span class="semantic-chip__value">--ds-text-disabled → #A1A1A1</span>
+                            </div>
+                        </div>
+                        <div class="semantic-card">
+                            <h3>Border &amp; Buttons</h3>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-gray-200); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-gray-700);">
+                                <span class="semantic-chip__name">Border</span>
+                                <span class="semantic-chip__value">--ds-color-border → #E8E8E8</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-gray-100); --chip-border: var(--ds-gray-200); --chip-text: var(--ds-gray-700);">
+                                <span class="semantic-chip__name">Border Subtle</span>
+                                <span class="semantic-chip__value">--ds-color-border-subtle → #F5F5F5</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-button-primary-bg); --chip-border: var(--ds-button-primary-bg); --chip-text: var(--ds-button-primary-text);">
+                                <span class="semantic-chip__name">Primary Button</span>
+                                <span class="semantic-chip__value">#000000 / #FFFFFF</span>
+                            </div>
+                            <div class="semantic-chip" style="--chip-bg: var(--ds-button-secondary-bg); --chip-border: var(--ds-button-secondary-border); --chip-text: var(--ds-button-secondary-text);">
+                                <span class="semantic-chip__name">Secondary Button</span>
+                                <span class="semantic-chip__value">#FFFFFF / #000000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section color-section">
+            <h2 class="section__title" id="usage">Usage Guidelines</h2>
+            <div class="card-group card-group--cols-2">
                 <div class="card">
                     <div class="card__header">
-                        <h4 class="card__title">Interactive Elements</h4>
+                        <h3 class="card__title">색상 사용 원칙</h3>
                     </div>
                     <div class="card__body">
-                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                            <button style="padding: 8px 16px; background: var(--ds-button-primary-bg); color: var(--ds-button-primary-text); border: none; border-radius: 6px; cursor: pointer;">Primary Button</button>
-                            <button style="padding: 8px 16px; background: var(--ds-button-secondary-bg); color: var(--ds-black); border: 2px solid var(--ds-button-secondary-border); border-radius: 6px; cursor: pointer;">Secondary Button</button>
-                            <button style="padding: 8px 16px; background: var(--ds-color-danger); color: white; border: none; border-radius: 6px; cursor: pointer;">Danger Button</button>
-                            <button style="padding: 8px 16px; background: transparent; color: var(--ds-text-disabled); border: 2px solid var(--ds-color-border); border-radius: 6px; cursor: not-allowed;" disabled>Disabled Button</button>
-                        </div>
+                        <ul class="guideline-list">
+                            <li><strong>Core Colors</strong>: 주요 인터랙션과 포커스 포인트에 사용</li>
+                            <li><strong>Gray Scale</strong>: 배경, 보더, 타이포 계층에 활용</li>
+                            <li><strong>Semantic Colors</strong>: 상태 피드백(성공/경고/정보/위험)</li>
+                            <li><strong>Extended Palette</strong>: 브랜딩 및 하이라이트 요소</li>
+                        </ul>
                     </div>
-                    <div class="card__footer" style="background: var(--ds-gray-50); border-top: 1px solid var(--ds-color-border);">
-                        <p style="color: var(--ds-text-secondary); font-size: 14px;">Footer with subtle background and border</p>
+                </div>
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">접근성 체크</h3>
+                    </div>
+                    <div class="card__body">
+                        <ul class="guideline-list">
+                            <li><strong>핵심 텍스트</strong>: 최소 대비 4.5:1</li>
+                            <li><strong>대형 텍스트</strong>: 최소 대비 3:1</li>
+                            <li><strong>버튼 &amp; 아이콘</strong>: 최소 대비 3:1</li>
+                            <li><strong>하이라이트</strong>: 상태색과 대비를 유지</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="section color-section">
+            <h2 class="section__title" id="component-examples">Component Examples</h2>
+            <div class="vp-demo">
+                <div class="vp-demo-container">
+                    <div class="example-grid">
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title">Default Card</h4>
+                            </div>
+                            <div class="card__body">
+                                <p style="color: var(--ds-text-primary);">Primary text color</p>
+                                <p style="color: var(--ds-text-secondary);">Secondary text color</p>
+                                <p style="color: var(--ds-text-tertiary);">Tertiary text color</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title" style="color: var(--ds-color-success);">Success Card</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>성공 상태 강조에 사용</p>
+                                <span class="badge badge--soft-success">Active</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title" style="color: var(--ds-color-warning);">Warning Card</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>경고 상태 강조에 사용</p>
+                                <span class="badge" style="background: var(--ds-color-warning);">Pending</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header">
+                                <h4 class="card__title" style="color: var(--ds-color-info);">Information Card</h4>
+                            </div>
+                            <div class="card__body">
+                                <p>정보 메시지나 배지에 적용</p>
+                                <span class="badge" style="background: var(--ds-color-info);">New</span>
+                            </div>
+                        </div>
+                        <div class="card card--elevated" style="background: var(--ds-color-surface);">
+                            <div class="card__body">
+                                <h4>Surface Color Card</h4>
+                                <p>Surface 계열 토큰으로 레이어를 구성합니다.</p>
+                                <div style="margin-top: 12px; padding: 8px; background: var(--ds-color-background); border-radius: 4px;">Nested background</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__body">
+                                <h4>Extended Palette</h4>
+                                <div class="chip-row">
+                                    <span class="chip" style="background: var(--ds-color-purple);">Purple</span>
+                                    <span class="chip" style="background: var(--ds-color-pink);">Pink</span>
+                                    <span class="chip" style="background: var(--ds-color-mint);">Mint</span>
+                                    <span class="chip chip--dark" style="background: var(--ds-color-yellow); color: var(--ds-gray-900);">Yellow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <style>
-            /* === Colors Page Specific Styles === */
-.color-group {display:grid; margin:32px 0; grid-template-columns:repeat(2, 1fr);gap:24px;}
-.color-palette {display:grid; margin:24px 0; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));gap:16px;}
-.text-center {text-align:center;}
-.card__body .color-name,
-.card__body .color-value,
-.card__body .color-var {display:block;}
-.color-name {margin-bottom:8px; font-size:14px; font-weight:600;}
-.color-value {margin:8px 0 4px; opacity:0.8; font-size:12px; font-family:var(--ds-font-mono);}
-.color-var {margin-top:4px; opacity:0.6; font-size:11px; font-family:var(--ds-font-mono);}
-.semantic-section {margin:32px 0;}
-.semantic-section h3 {margin:24px 0 16px; color:var(--ds-gray-600); font-size:18px;}
-.interactive .hover-state {position:absolute; left:50%; bottom:8px; padding:4px 8px; border-radius:4px; opacity:0; font-size:10px; white-space:nowrap; transform:translateX(-50%);}
-.interactive:hover .hover-state {opacity:1;}
-/* Card Group Layout */
-.card-group {display:grid; gap:24px; margin:32px 0;}
-.card-group--cols-2 {grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));}
-.card ul {padding:0; list-style:none;}
-.card li {padding:8px 0; border-bottom:1px solid var(--ds-gray-100);}
-.card li:last-child {border-bottom:none;}
+            .card__subtitle {
+                margin-top: 8px;
+                font-size: 14px;
+                color: var(--ds-text-secondary);
+            }
 
-/* Example Grid Layout */
-.example-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;}
+            .swatch-grid {
+                display: grid;
+                gap: 16px;
+            }
 
-/* Import card styles */
-.card {background:var(--ds-white); border:1px solid var(--ds-gray-200); border-radius:var(--ds-radius-lg); overflow:hidden; transition:all 0.3s ease;}
-.card:hover {box-shadow:var(--ds-shadow-md); transform:translateY(-2px);}
-.card__header {padding:16px; border-bottom:1px solid var(--ds-gray-100);}
-.card__title {margin:0; font-size:16px; font-weight:600;}
-.card__description {margin:0; color:var(--ds-text-secondary); font-size:14px;}
-.card__body {padding:24px 16px;}
-.card__footer {padding:16px; border-top:1px solid var(--ds-gray-100);}
-.card--elevated {box-shadow:var(--ds-shadow-md);}
-.card--bordered {border:2px solid var(--ds-gray-300);}
-.card--flat {border:1px solid var(--ds-gray-100); box-shadow:none;}
+            .swatch-grid--cols-3 {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .swatch-grid--cols-4 {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .swatch-grid--cols-6 {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+
+            .color-swatch {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 6px;
+                padding: 16px;
+                border-radius: 8px;
+                background: var(--swatch-color);
+                color: var(--swatch-text, var(--ds-white));
+                box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .color-swatch--alpha {
+                background: none;
+                color: var(--swatch-text, var(--ds-white));
+            }
+
+            .color-swatch--alpha::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: linear-gradient(45deg, rgba(0,0,0,0.08) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.08) 75%, rgba(0,0,0,0.08)),
+                                  linear-gradient(45deg, rgba(0,0,0,0.08) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.08) 75%, rgba(0,0,0,0.08));
+                background-size: 20px 20px;
+                background-position: 0 0, 10px 10px;
+                z-index: 0;
+            }
+
+            .color-swatch--alpha::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: var(--swatch-color);
+                z-index: 0;
+            }
+
+            .color-swatch__name,
+            .color-swatch__value,
+            .color-swatch__var {
+                position: relative;
+                z-index: 1;
+                display: block;
+                font-family: var(--ds-font-sans);
+            }
+
+            .color-swatch__name {
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .color-swatch__value {
+                font-size: 12px;
+                font-family: var(--ds-font-mono);
+                opacity: 0.85;
+            }
+
+            .color-swatch__var {
+                font-size: 11px;
+                font-family: var(--ds-font-mono);
+                opacity: 0.7;
+            }
+
+            .semantic-grid {
+                display: grid;
+                gap: 16px;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+
+            .semantic-card {
+                background: var(--ds-gray-50);
+                border: 1px dashed var(--ds-gray-200);
+                border-radius: 8px;
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .semantic-card h3 {
+                margin: 0;
+                font-size: 16px;
+                color: var(--ds-gray-700);
+            }
+
+            .semantic-chip {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                padding: 12px;
+                border-radius: 6px;
+                background: var(--chip-bg, var(--ds-white));
+                border: 1px solid var(--chip-border, var(--ds-gray-200));
+                color: var(--chip-text, var(--ds-gray-800));
+            }
+
+            .semantic-chip__name {
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .semantic-chip__value {
+                font-size: 11px;
+                font-family: var(--ds-font-mono);
+                opacity: 0.8;
+            }
+
+            .guideline-list {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-size: 14px;
+                color: var(--ds-text-secondary);
+            }
+
+            .guideline-list strong {
+                color: var(--ds-text-primary);
+            }
+
+            .example-grid {
+                display: grid;
+                gap: 16px;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+
+            .chip-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 12px;
+            }
+
+            .chip {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 4px 10px;
+                border-radius: 999px;
+                color: var(--ds-white);
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .chip--dark {
+                color: var(--ds-gray-900);
+            }
+
+            .badge--soft-success {
+                background: rgba(100, 166, 68, 0.12);
+                color: var(--ds-color-success);
+            }
+
+            .color-section .card {
+                border: 1px solid var(--ds-gray-200);
+                box-shadow: none;
+            }
+
+            .color-section .card:hover {
+                box-shadow: var(--ds-shadow-sm);
+                transform: translateY(-1px);
+            }
+
+            @media (max-width: 768px) {
+                .swatch-grid--cols-6 {
+                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                }
+            }
         </style>
     </div>
 </body>

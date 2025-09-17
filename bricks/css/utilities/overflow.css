@@ -1,266 +1,73 @@
 /* Overflow Utilities */
 
 /* Overflow */
-.overflow-auto {
-  overflow: auto !important;
-}
-
-.overflow-hidden {
-  overflow: hidden !important;
-}
-
-.overflow-visible {
-  overflow: visible !important;
-}
-
-.overflow-scroll {
-  overflow: scroll !important;
-}
-
-.overflow-clip {
-  overflow: clip !important;
-}
-
+.overflow-auto {overflow:auto !important;}
+.overflow-hidden {overflow:hidden !important;}
+.overflow-visible {overflow:visible !important;}
+.overflow-scroll {overflow:scroll !important;}
+.overflow-clip {overflow:clip !important;}
 /* Overflow X */
-.overflow-x-auto {
-  overflow-x: auto !important;
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden !important;
-}
-
-.overflow-x-visible {
-  overflow-x: visible !important;
-}
-
-.overflow-x-scroll {
-  overflow-x: scroll !important;
-}
-
-.overflow-x-clip {
-  overflow-x: clip !important;
-}
-
+.overflow-x-auto {overflow-x:auto !important;}
+.overflow-x-hidden {overflow-x:hidden !important;}
+.overflow-x-visible {overflow-x:visible !important;}
+.overflow-x-scroll {overflow-x:scroll !important;}
+.overflow-x-clip {overflow-x:clip !important;}
 /* Overflow Y */
-.overflow-y-auto {
-  overflow-y: auto !important;
-}
-
-.overflow-y-hidden {
-  overflow-y: hidden !important;
-}
-
-.overflow-y-visible {
-  overflow-y: visible !important;
-}
-
-.overflow-y-scroll {
-  overflow-y: scroll !important;
-}
-
-.overflow-y-clip {
-  overflow-y: clip !important;
-}
-
+.overflow-y-auto {overflow-y:auto !important;}
+.overflow-y-hidden {overflow-y:hidden !important;}
+.overflow-y-visible {overflow-y:visible !important;}
+.overflow-y-scroll {overflow-y:scroll !important;}
+.overflow-y-clip {overflow-y:clip !important;}
 /* Scroll behavior */
-.scroll-smooth {
-  scroll-behavior: smooth !important;
-}
-
-.scroll-auto {
-  scroll-behavior: auto !important;
-}
-
+.scroll-smooth {scroll-behavior:smooth !important;}
+.scroll-auto {scroll-behavior:auto !important;}
 /* Overscroll behavior */
-.overscroll-auto {
-  overscroll-behavior: auto !important;
-}
-
-.overscroll-contain {
-  overscroll-behavior: contain !important;
-}
-
-.overscroll-none {
-  overscroll-behavior: none !important;
-}
-
-.overscroll-x-auto {
-  overscroll-behavior-x: auto !important;
-}
-
-.overscroll-x-contain {
-  overscroll-behavior-x: contain !important;
-}
-
-.overscroll-x-none {
-  overscroll-behavior-x: none !important;
-}
-
-.overscroll-y-auto {
-  overscroll-behavior-y: auto !important;
-}
-
-.overscroll-y-contain {
-  overscroll-behavior-y: contain !important;
-}
-
-.overscroll-y-none {
-  overscroll-behavior-y: none !important;
-}
-
+.overscroll-auto {overscroll-behavior:auto !important;}
+.overscroll-contain {overscroll-behavior:contain !important;}
+.overscroll-none {overscroll-behavior:none !important;}
+.overscroll-x-auto {overscroll-behavior-x:auto !important;}
+.overscroll-x-contain {overscroll-behavior-x:contain !important;}
+.overscroll-x-none {overscroll-behavior-x:none !important;}
+.overscroll-y-auto {overscroll-behavior-y:auto !important;}
+.overscroll-y-contain {overscroll-behavior-y:contain !important;}
+.overscroll-y-none {overscroll-behavior-y:none !important;}
 /* Text overflow */
-.text-truncate {
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-.text-clip {
-  overflow: hidden !important;
-  text-overflow: clip !important;
-  white-space: nowrap !important;
-}
-
-.text-overflow-ellipsis {
-  text-overflow: ellipsis !important;
-}
-
-.text-overflow-clip {
-  text-overflow: clip !important;
-}
-
+.text-truncate {overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important;}
+.text-clip {overflow:hidden !important; text-overflow:clip !important; white-space:nowrap !important;}
+.text-overflow-ellipsis {text-overflow:ellipsis !important;}
+.text-overflow-clip {text-overflow:clip !important;}
 /* Multi-line truncation */
-.text-truncate-1 {
-  overflow: hidden !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 1 !important;
-  -webkit-box-orient: vertical !important;
-}
-
-.text-truncate-2 {
-  overflow: hidden !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-}
-
-.text-truncate-3 {
-  overflow: hidden !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 3 !important;
-  -webkit-box-orient: vertical !important;
-}
-
-.text-truncate-4 {
-  overflow: hidden !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 4 !important;
-  -webkit-box-orient: vertical !important;
-}
-
-.text-truncate-5 {
-  overflow: hidden !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 5 !important;
-  -webkit-box-orient: vertical !important;
-}
-
-.text-truncate-6 {
-  overflow: hidden !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 6 !important;
-  -webkit-box-orient: vertical !important;
-}
-
+.text-truncate-1 {display:-webkit-box !important; overflow:hidden !important; -webkit-line-clamp:1 !important; -webkit-box-orient:vertical !important;}
+.text-truncate-2 {display:-webkit-box !important; overflow:hidden !important; -webkit-line-clamp:2 !important; -webkit-box-orient:vertical !important;}
+.text-truncate-3 {display:-webkit-box !important; overflow:hidden !important; -webkit-line-clamp:3 !important; -webkit-box-orient:vertical !important;}
+.text-truncate-4 {display:-webkit-box !important; overflow:hidden !important; -webkit-line-clamp:4 !important; -webkit-box-orient:vertical !important;}
+.text-truncate-5 {display:-webkit-box !important; overflow:hidden !important; -webkit-line-clamp:5 !important; -webkit-box-orient:vertical !important;}
+.text-truncate-6 {display:-webkit-box !important; overflow:hidden !important; -webkit-line-clamp:6 !important; -webkit-box-orient:vertical !important;}
 /* White space */
-.text-wrap {
-  white-space: normal !important;
-}
-
-.text-nowrap {
-  white-space: nowrap !important;
-}
-
-.text-pre {
-  white-space: pre !important;
-}
-
-.text-pre-line {
-  white-space: pre-line !important;
-}
-
-.text-pre-wrap {
-  white-space: pre-wrap !important;
-}
-
-.text-break-spaces {
-  white-space: break-spaces !important;
-}
-
+.text-wrap {white-space:normal !important;}
+.text-nowrap {white-space:nowrap !important;}
+.text-pre {white-space:pre !important;}
+.text-pre-line {white-space:pre-line !important;}
+.text-pre-wrap {white-space:pre-wrap !important;}
+.text-break-spaces {white-space:break-spaces !important;}
 /* Word break */
-.break-normal {
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-}
-
-.break-words {
-  overflow-wrap: break-word !important;
-}
-
-.break-all {
-  word-break: break-all !important;
-}
-
-.break-keep {
-  word-break: keep-all !important;
-}
-
+.break-normal {word-break:normal !important;overflow-wrap:normal !important;}
+.break-words {overflow-wrap:break-word !important;}
+.break-all {word-break:break-all !important;}
+.break-keep {word-break:keep-all !important;}
 /* Hyphens */
-.hyphens-none {
-  hyphens: none !important;
-}
-
-.hyphens-manual {
-  hyphens: manual !important;
-}
-
-.hyphens-auto {
-  hyphens: auto !important;
-}
-
+.hyphens-none {hyphens:none !important;}
+.hyphens-manual {hyphens:manual !important;}
+.hyphens-auto {hyphens:auto !important;}
 /* Scrollbar styling (webkit only) */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: var(--vp-c-bg-soft);
-  border-radius: 4px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: var(--vp-c-divider);
-  border-radius: 4px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: var(--vp-c-text-3);
-}
-
+.scrollbar-thin::-webkit-scrollbar {width:8px; height:8px;}
+.scrollbar-none::-webkit-scrollbar {display:none;}
+.scrollbar-thin::-webkit-scrollbar-track {border-radius:4px; background:var(--vp-c-bg-soft);}
+.scrollbar-thin::-webkit-scrollbar-thumb {border-radius:4px; background:var(--vp-c-divider);}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {background:var(--vp-c-text-3);}
 /* Firefox scrollbar */
-.scrollbar-thin {
-  scrollbar-width: thin;
-}
-
-.scrollbar-none {
-  scrollbar-width: none;
-}
+.scrollbar-thin {scrollbar-width:thin;}
+.scrollbar-none {scrollbar-width:none;}
 
 /* Responsive overflow utilities */
 @media (min-width: 640px) {

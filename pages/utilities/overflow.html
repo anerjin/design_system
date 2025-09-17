@@ -4,455 +4,448 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overflow - BRICKS Design System</title>
+    <link rel="stylesheet" href="../../bricks/css/bricks.css">
 </head>
 <body>
+    <div id="top"></div>
     <div class="vp-doc">
-        <div class="vp-doc-header">
-            <h1 class="vp-doc-title">Overflow</h1>
-            <p class="vp-doc-description">
-                콘텐츠가 컨테이너를 넘어갈 때의 동작을 제어하는 유틸리티 클래스입니다.
-            </p>
-        </div>
-        
-        <h2>Overflow Visible</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="overflow-demo">
-                    <h4>Overflow Visible (Default)</h4>
-                    <div class="overflow-visible demo-container">
-                        <div class="demo-content">
-                            This content is longer than the container and will overflow visibly. 
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            The content extends beyond the boundaries of the container.
-                        </div>
-                    </div>
+        <header class="docs__header">
+            <h1 class="docs__title">Overflow</h1>
+            <p class="docs__description">콘텐츠가 영역을 넘칠 때의 처리 방식을 카드 예제로 살펴봅니다.</p>
+        </header>
+
+        <section class="section">
+            <h2 class="section__title" id="overflow-basics">Overflow Basics</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">기본 오버플로우 타입</h2>
+                    <p class="card__subtitle">`.overflow-*` 클래스로 영역 밖의 콘텐츠를 제어합니다.</p>
                 </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="overflow-visible"&gt;
-    Content that overflows...
-&lt;/div&gt;</code></pre>
-        
-        <h2>Overflow Hidden</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="overflow-demo">
-                    <h4>Overflow Hidden</h4>
-                    <div class="overflow-hidden demo-container">
-                        <div class="demo-content">
-                            This content is longer than the container but will be hidden when it overflows. 
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            You can't see this part because it's hidden by the overflow property.
+                <div class="card__body">
+                    <div class="card-group card-group--cols-2 utility-card-group">
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Visible &amp; Hidden</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="demo-pane">
+                                    <div class="demo-viewport overflow-visible">
+                                        <strong>Visible</strong>
+                                        <p class="demo-copy">이 텍스트는 박스를 넘어가도 그대로 표시됩니다.</p>
+                                    </div>
+                                    <div class="demo-viewport overflow-hidden">
+                                        <strong>Hidden</strong>
+                                        <p class="demo-copy">이 텍스트는 박스를 넘으면 잘립니다.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <pre><code>&lt;div class="overflow-hidden"&gt;
-    Content that will be clipped...
-&lt;/div&gt;</code></pre>
-        
-        <h2>Overflow Scroll</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="overflow-demo">
-                    <h4>Overflow Scroll</h4>
-                    <div class="overflow-scroll demo-container">
-                        <div class="demo-content">
-                            This content is longer than the container. Scrollbars will always be visible, even if content doesn't overflow.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Overflow Auto</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="overflow-demo">
-                    <h4>Overflow Auto</h4>
-                    <div class="overflow-auto demo-container">
-                        <div class="demo-content">
-                            This content is longer than the container. Scrollbars will appear only when needed.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <h2>Overflow X and Y</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="overflow-demo-grid">
-                    <div>
-                        <h4>Overflow-X Auto</h4>
-                        <div class="overflow-x-auto demo-container">
-                            <div class="demo-content-wide">
-                                This_is_a_very_long_line_of_text_that_will_cause_horizontal_overflow_and_require_horizontal_scrolling
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Auto &amp; Scroll</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="demo-pane">
+                                    <div class="demo-viewport overflow-auto">
+                                        <strong>Auto</strong>
+                                        <p class="demo-copy">필요할 때만 스크롤바를 노출합니다. Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                    <div class="demo-viewport overflow-scroll">
+                                        <strong>Scroll</strong>
+                                        <p class="demo-copy">항상 스크롤바를 노출합니다. Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div>
-                        <h4>Overflow-Y Auto</h4>
-                        <div class="overflow-y-auto demo-container">
-                            <div class="demo-content">
-                                Line 1<br>
-                                Line 2<br>
-                                Line 3<br>
-                                Line 4<br>
-                                Line 5<br>
-                                Line 6<br>
-                                Line 7<br>
-                                Line 8<br>
-                                Line 9<br>
-                                Line 10<br>
+                </div>
+                <div class="card__footer">
+                    <pre class="code"><code>&lt;div class="overflow-hidden"&gt;넘치는 텍스트...&lt;/div&gt;
+&lt;div class="overflow-auto"&gt;스크롤이 필요한 경우만 나타납니다&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title" id="overflow-axis">Axis Control</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">축별 스크롤 제어</h2>
+                    <p class="card__subtitle">`.overflow-x-*`, `.overflow-y-*` 조합으로 방향을 지정합니다.</p>
+                </div>
+                <div class="card__body">
+                    <div class="card-group card-group--cols-2 utility-card-group">
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Horizontal</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="demo-viewport demo-viewport--wide overflow-x-auto">
+                                    <div class="demo-inline">
+                                        This_is_a_very_long_line_that_requires_horizontal_scrolling_to_view_everything_properly
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div>
-                        <h4>Overflow-X Hidden</h4>
-                        <div class="overflow-x-hidden demo-container">
-                            <div class="demo-content-wide">
-                                This_is_a_very_long_line_that_will_be_clipped_horizontally_without_showing_scrollbar
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Vertical</h3>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4>Overflow-Y Scroll</h4>
-                        <div class="overflow-y-scroll demo-container">
-                            <div class="demo-content">
-                                Content with vertical scroll always visible<br>
-                                Even if content fits
+                            <div class="card__body">
+                                <div class="demo-viewport demo-viewport--tall overflow-y-auto">
+                                    <ul class="demo-list">
+                                        <li>줄 1</li>
+                                        <li>줄 2</li>
+                                        <li>줄 3</li>
+                                        <li>줄 4</li>
+                                        <li>줄 5</li>
+                                        <li>줄 6</li>
+                                        <li>줄 7</li>
+                                        <li>줄 8</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Text Overflow</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <div class="text-overflow-demo">
-                    <h4>Text Ellipsis</h4>
-                    <div class="text-truncate demo-text">
-                        This is a very long text that will be truncated with an ellipsis when it overflows the container
-                    </div>
-                    
-                    <h4 style="margin-top: 24px;">Text Clip</h4>
-                    <div class="text-clip demo-text">
-                        This is a very long text that will be clipped without an ellipsis when it overflows the container
-                    </div>
-                    
-                    <h4 style="margin-top: 24px;">Text Wrap</h4>
-                    <div class="text-wrap demo-text">
-                        This is a very long text that will wrap to the next line when it reaches the edge of the container
-                    </div>
-                    
-                    <h4 style="margin-top: 24px;">Text No-Wrap</h4>
-                    <div class="text-nowrap demo-text" style="overflow-x: auto;">
-                        This is a very long text that will not wrap to the next line and will continue on the same line causing horizontal overflow
+        </section>
+
+        <section class="section">
+            <h2 class="section__title" id="overflow-behavior">Scroll Behavior</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">스크롤 &amp; 오버스크롤</h2>
+                    <p class="card__subtitle">스무스 스크롤과 오버스크롤 제어를 조합한 예시입니다.</p>
+                </div>
+                <div class="card__body">
+                    <div class="card-group card-group--cols-2 utility-card-group">
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Smooth Scroll</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="demo-scroll-area scroll-smooth overflow-y-auto">
+                                    <a href="#top" class="badge badge--soft-secondary" style="align-self:flex-start;">Top anchor</a>
+                                    <p class="demo-copy">버튼을 눌러 스무스하게 이동하세요.</p>
+                                    <a href="#smooth-target" class="btn btn--secondary btn--sm">Move to Target</a>
+                                    <div style="height: 160px;"></div>
+                                    <div id="smooth-target" class="demo-anchor">Target</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Overscroll</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="demo-scroll-area overscroll-contain">
+                                    <p class="demo-copy">`.overscroll-contain`은 바운스나 하위 스크롤 전달을 막습니다.</p>
+                                    <div class="demo-viewport demo-viewport--tall overflow-auto">
+                                        <p class="demo-copy">내부 스크롤 영역</p>
+                                        <p class="demo-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p class="demo-copy">Suspendisse potenti. Integer posuere erat a ante venenatis.</p>
+                                        <p class="demo-copy">Aliquam erat volutpat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <h2>Practical Examples</h2>
-        <div class="vp-demo">
-            <div class="vp-demo-container">
-                <h4>Scrollable Code Block</h4>
-                <div class="overflow-auto" style="background: var(--vp-c-code-block-bg); padding: 16px; border-radius: 8px; max-height: 200px;">
-                    <pre style="margin: 0; color: var(--vp-c-text-code);"><code>function calculateComplexAlgorithm(data) {
-    // This is a long code example that demonstrates scrollable content
-    const result = [];
-    
-    for (let i = 0; i < data.length; i++) {
-        const item = data[i];
-        
-        if (item.type === 'important') {
-            result.push({
-                id: item.id,
-                value: item.value * 2,
-                timestamp: new Date().toISOString(),
-                metadata: {
-                    processed: true,
-                    processor: 'v2.0',
-                    confidence: 0.95
-                }
-            });
-        }
-    }
-    
-    return result.filter(item => item.value > 100)
-                 .sort((a, b) => b.value - a.value)
-                 .slice(0, 10);
+        </section>
+
+        <section class="section">
+            <h2 class="section__title" id="overflow-text">Text Overflow</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">텍스트 트렁케이션</h2>
+                    <p class="card__subtitle">`.text-truncate`와 `-truncate-n` 클래스로 줄 수를 제한합니다.</p>
+                </div>
+                <div class="card__body">
+                    <div class="card-group card-group--cols-3 utility-card-group">
+                        <div class="card utility-card">
+                            <div class="card__body">
+                                <h3 class="card__title">Single Line</h3>
+                                <p class="text-truncate demo-text-block">This headline is intentionally long so that it demonstrates single-line truncation with an ellipsis.</p>
+                            </div>
+                        </div>
+                        <div class="card utility-card">
+                            <div class="card__body">
+                                <h3 class="card__title">Three Lines</h3>
+                                <p class="text-truncate-3 demo-text-block">멀티 라인 텍스트를 3줄까지만 보여주고 나머지는 숨깁니다. 다양한 콘텐츠를 깔끔하게 정리할 때 유용합니다.</p>
+                            </div>
+                        </div>
+                        <div class="card utility-card">
+                            <div class="card__body">
+                                <h3 class="card__title">No Wrap</h3>
+                                <p class="text-nowrap demo-text-block">이 텍스트는 줄바꿈 없이 계속 이어져 레이아웃을 한 줄에 유지합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title" id="overflow-patterns">Practical Patterns</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">실전 활용</h2>
+                    <p class="card__subtitle">스크롤 가능한 코드 블록과 테이블, 카드 예제를 제공합니다.</p>
+                </div>
+                <div class="card__body">
+                    <div class="card-group card-group--cols-2 utility-card-group">
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Scrollable Code</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="demo-code overflow-auto">
+<pre><code>function buildList(data) {
+  return data
+    .filter(item =&gt; item.active)
+    .map(item =&gt; ({
+      id: item.id,
+      name: item.name,
+      updated: new Date(item.updated).toLocaleDateString(),
+    }));
 }</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card utility-card">
+                            <div class="card__header">
+                                <h3 class="card__title">Horizontal Table</h3>
+                            </div>
+                            <div class="card__body">
+                                <div class="overflow-x-auto demo-table-wrapper">
+                                    <table class="vp-table" style="min-width: 560px;">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Team</th>
+                                                <th>Role</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>001</td>
+                                                <td>Jenna Cole</td>
+                                                <td>jenna.cole@example.com</td>
+                                                <td>Product</td>
+                                                <td>PM</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>002</td>
+                                                <td>Marco Lee</td>
+                                                <td>marco.lee@example.com</td>
+                                                <td>Design</td>
+                                                <td>Lead</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>003</td>
+                                                <td>Ria Patel</td>
+                                                <td>ria.patel@example.com</td>
+                                                <td>Engineering</td>
+                                                <td>Staff</td>
+                                                <td>Active</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card utility-card" style="margin-top: 16px; max-width: 360px;">
+                        <div class="card__header">
+                            <h3 class="card__title">Truncated Card</h3>
+                        </div>
+                        <div class="card__body">
+                            <h4 class="text-truncate demo-text-block" style="margin-bottom: 12px;">This Card Title Is Longer Than The Width Allows</h4>
+                            <p class="text-truncate-3 demo-text-block">
+                                긴 설명 문장을 3줄까지만 노출하여 카드 높이를 일정하게 유지합니다. 제품 피드 리스트나 알림 모듈에 활용할 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                
-                <h4 style="margin-top: 24px;">Scrollable Table</h4>
-                <div class="overflow-x-auto">
-                    <table class="vp-table" style="min-width: 600px;">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title" id="overflow-reference">Reference Table</h2>
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__title">클래스 요약</h2>
+                </div>
+                <div class="card__body">
+                    <table class="vp-table">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Department</th>
-                                <th>Role</th>
-                                <th>Status</th>
+                                <th>Class</th>
+                                <th>CSS Property</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>001</td>
-                                <td>John Doe</td>
-                                <td>john.doe@example.com</td>
-                                <td>Engineering</td>
-                                <td>Senior Developer</td>
-                                <td>Active</td>
+                                <td><code>.overflow-[visible|hidden|auto|scroll]</code></td>
+                                <td>overflow</td>
+                                <td>전체 방향 오버플로우 제어</td>
                             </tr>
                             <tr>
-                                <td>002</td>
-                                <td>Jane Smith</td>
-                                <td>jane.smith@example.com</td>
-                                <td>Design</td>
-                                <td>UX Designer</td>
-                                <td>Active</td>
+                                <td><code>.overflow-x|y-[auto|hidden|scroll|visible]</code></td>
+                                <td>overflow-x / overflow-y</td>
+                                <td>축별 스크롤 정책</td>
                             </tr>
                             <tr>
-                                <td>003</td>
-                                <td>Bob Johnson</td>
-                                <td>bob.johnson@example.com</td>
-                                <td>Marketing</td>
-                                <td>Marketing Manager</td>
-                                <td>Active</td>
+                                <td><code>.scroll-[smooth|auto]</code></td>
+                                <td>scroll-behavior</td>
+                                <td>스크롤 애니메이션</td>
+                            </tr>
+                            <tr>
+                                <td><code>.overscroll-[auto|contain|none]</code></td>
+                                <td>overscroll-behavior</td>
+                                <td>오버스크롤 처리</td>
+                            </tr>
+                            <tr>
+                                <td><code>.text-truncate(-n)</code></td>
+                                <td>text-overflow / line-clamp</td>
+                                <td>텍스트 줄 제한</td>
+                            </tr>
+                            <tr>
+                                <td><code>.text-[wrap|nowrap|clip]</code></td>
+                                <td>white-space</td>
+                                <td>줄바꿈 옵션</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                
-                <h4 style="margin-top: 24px;">Card with Truncated Text</h4>
-                <div class="card" style="max-width: 300px;">
-                    <div class="card__body">
-                        <h3 class="text-truncate">This is a very long card title that needs to be truncated</h3>
-                        <p class="text-truncate-3">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                            nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                </div>
             </div>
-        </div>
-        
-        <h2>Properties</h2>
-        <table class="vp-table">
-            <thead>
-                <tr>
-                    <th>Class</th>
-                    <th>CSS Property</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>.overflow-visible</code></td>
-                    <td>overflow: visible</td>
-                    <td>Content can overflow</td>
-                </tr>
-                <tr>
-                    <td><code>.overflow-hidden</code></td>
-                    <td>overflow: hidden</td>
-                    <td>Hide overflow content</td>
-                </tr>
-                <tr>
-                    <td><code>.overflow-scroll</code></td>
-                    <td>overflow: scroll</td>
-                    <td>Always show scrollbars</td>
-                </tr>
-                <tr>
-                    <td><code>.overflow-auto</code></td>
-                    <td>overflow: auto</td>
-                    <td>Show scrollbars when needed</td>
-                </tr>
-                <tr>
-                    <td><code>.overflow-x-auto</code></td>
-                    <td>overflow-x: auto</td>
-                    <td>Horizontal scroll when needed</td>
-                </tr>
-                <tr>
-                    <td><code>.overflow-y-auto</code></td>
-                    <td>overflow-y: auto</td>
-                    <td>Vertical scroll when needed</td>
-                </tr>
-                <tr>
-                    <td><code>.text-truncate</code></td>
-                    <td>text-overflow: ellipsis</td>
-                    <td>Truncate with ellipsis</td>
-                </tr>
-                <tr>
-                    <td><code>.text-clip</code></td>
-                    <td>text-overflow: clip</td>
-                    <td>Clip overflow text</td>
-                </tr>
-                <tr>
-                    <td><code>.text-wrap</code></td>
-                    <td>white-space: normal</td>
-                    <td>Wrap text normally</td>
-                </tr>
-                <tr>
-                    <td><code>.text-nowrap</code></td>
-                    <td>white-space: nowrap</td>
-                    <td>Prevent text wrapping</td>
-                </tr>
-            </tbody>
-        </table>
-        
+        </section>
+
         <style>
-            .overflow-visible {
-                overflow: visible !important;
+            .utility-card-group {
+                gap: 16px;
             }
-            .overflow-hidden {
-                overflow: hidden !important;
+
+            .utility-card {
+                border: 1px solid var(--ds-gray-200);
+                box-shadow: none;
             }
-            .overflow-scroll {
-                overflow: scroll !important;
+
+            .card__subtitle {
+                margin-top: 8px;
+                color: var(--ds-text-secondary);
+                font-size: 14px;
             }
-            .overflow-auto {
-                overflow: auto !important;
+
+            .demo-pane {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
             }
-            .overflow-x-visible {
-                overflow-x: visible !important;
+
+            .demo-viewport {
+                background: var(--ds-gray-50);
+                border: 1px dashed var(--ds-gray-300);
+                border-radius: 6px;
+                padding: 16px;
+                color: var(--ds-gray-700);
             }
-            .overflow-x-hidden {
-                overflow-x: hidden !important;
+
+            .demo-viewport--wide {
+                white-space: nowrap;
             }
-            .overflow-x-scroll {
-                overflow-x: scroll !important;
+
+            .demo-viewport--tall {
+                max-height: 160px;
             }
-            .overflow-x-auto {
-                overflow-x: auto !important;
+
+            .demo-inline {
+                min-width: 520px;
+                color: var(--ds-gray-700);
             }
-            .overflow-y-visible {
-                overflow-y: visible !important;
+
+            .demo-list {
+                margin: 0;
+                padding-left: 18px;
+                color: var(--ds-gray-700);
+                line-height: 1.6;
             }
-            .overflow-y-hidden {
-                overflow-y: hidden !important;
-            }
-            .overflow-y-scroll {
-                overflow-y: scroll !important;
-            }
-            .overflow-y-auto {
-                overflow-y: auto !important;
-            }
-            
-            .text-truncate {
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-                white-space: nowrap !important;
-            }
-            .text-truncate-3 {
-                overflow: hidden !important;
-                display: -webkit-box !important;
-                -webkit-line-clamp: 3 !important;
-                -webkit-box-orient: vertical !important;
-            }
-            .text-clip {
-                overflow: hidden !important;
-                text-overflow: clip !important;
-                white-space: nowrap !important;
-            }
-            .text-wrap {
-                white-space: normal !important;
-            }
-            .text-nowrap {
-                white-space: nowrap !important;
-            }
-            
-            .demo-container {
-                width: 300px;
-                height: 150px;
-                background: var(--vp-c-bg-soft);
-                border: 2px solid var(--vp-c-divider);
+
+            .demo-scroll-area {
+                background: var(--ds-gray-50);
+                border: 1px dashed var(--ds-gray-300);
                 border-radius: 8px;
                 padding: 16px;
-                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                height: 260px;
+                overflow-y: auto;
             }
-            
-            .demo-content {
-                background: var(--color-primary-100);
-                border: 1px solid var(--color-primary-300);
-                padding: 12px;
+
+            .demo-anchor {
+                background: var(--ds-white);
+                border: 1px solid var(--ds-gray-300);
                 border-radius: 4px;
-                color: var(--color-primary-700);
+                padding: 12px;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .demo-copy {
+                margin: 8px 0 0;
                 font-size: 14px;
                 line-height: 1.5;
+                color: var(--ds-text-secondary);
             }
-            
-            .demo-content-wide {
-                background: var(--color-primary-100);
-                border: 1px solid var(--color-primary-300);
-                padding: 12px;
-                border-radius: 4px;
-                color: var(--color-primary-700);
-                font-size: 14px;
-                white-space: nowrap;
-                width: 500px;
-            }
-            
+
             .demo-text {
-                width: 300px;
-                padding: 12px;
-                background: var(--vp-c-bg-soft);
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 4px;
-                font-size: 14px;
-            }
-            
-            .overflow-demo h4,
-            .text-overflow-demo h4 {
-                margin-bottom: 12px;
-                color: var(--vp-c-text-1);
-            }
-            
-            .overflow-demo-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-            
-            .card {
-                background: white;
-                border: 1px solid var(--vp-c-divider);
-                border-radius: 8px;
-            }
-            .card__body {
-                padding: 16px;
-            }
-            .card h3 {
-                margin: 0 0 12px 0;
-                font-size: 18px;
-            }
-            .card p {
-                margin: 0;
-                color: var(--vp-c-text-2);
+                color: var(--ds-text-secondary);
                 font-size: 14px;
                 line-height: 1.6;
             }
+
+            .demo-text-block {
+                color: var(--ds-gray-700);
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .demo-code {
+                background: var(--ds-gray-50);
+                border: 1px dashed var(--ds-gray-300);
+                border-radius: 8px;
+                padding: 16px;
+                max-height: 220px;
+            }
+
+            .demo-table-wrapper {
+                background: var(--ds-gray-50);
+                border: 1px dashed var(--ds-gray-300);
+                border-radius: 8px;
+            }
+
+            .code {
+                background: var(--ds-gray-900);
+                color: var(--ds-gray-100);
+                padding: 16px;
+                border-radius: 4px;
+                overflow-x: auto;
+                font-family: monospace;
+                font-size: 13px;
+                line-height: 1.5;
+            }
         </style>
     </div>
+
+    <script src="../../bricks/js/bricks_core.js"></script>
 </body>
 </html>
