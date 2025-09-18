@@ -16,9 +16,10 @@
 
         <!-- Basic Usage -->
         <section class="section">
-            <div class="card">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h2 class="card__title">Basic Usage</h2>
+                    <h3 class="card__title">Default Example</h3>
                 </div>
                 <div class="card__body">
                     <div class="demo-radios">
@@ -37,23 +38,28 @@
                             <span class="radio__label">Option 2</span>
                         </label>
                     </div>
-                    <pre class="code-block"><code>&lt;label class="radio"&gt;
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+<pre><code class="language-html">&lt;label class="radio"&gt;
     &lt;input type="radio" class="radio__input" name="group"&gt;
     &lt;span class="radio__circle"&gt;
         &lt;span class="radio__dot"&gt;&lt;/span&gt;
     &lt;/span&gt;
     &lt;span class="radio__label"&gt;Option&lt;/span&gt;
 &lt;/label&gt;</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
-        <!-- Radio States -->
+        <!-- States -->
         <section class="section">
-            <h2 class="section__title">Radio States</h2>
+            <h2 class="section__title">States</h2>
             <p>다양한 상태의 라디오 버튼</p>
 
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
                     <h3 class="card__title">Interactive States</h3>
                 </div>
@@ -95,37 +101,49 @@
             </div>
         </section>
 
-        <!-- Radio Sizes -->
+        <!-- Sizes -->
         <section class="section">
-            <h2 class="section__title">Radio Sizes</h2>
-            <p>다양한 크기의 라디오 버튼</p>
-
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">Size Variations</h3>
-                </div>
-                <div class="card__body">
-                    <div class="sizes-list">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
                         <label class="radio radio--sm">
-                            <input type="radio" class="radio__input" name="size" checked>
+                            <input type="radio" class="radio__input" name="size-sm" checked>
                             <span class="radio__circle">
                                 <span class="radio__dot"></span>
                             </span>
                             <span class="radio__label">Small</span>
                         </label>
                         <code class="code-inline">.radio--sm</code>
+                    </div>
+                </div>
 
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
                         <label class="radio">
-                            <input type="radio" class="radio__input" name="size">
+                            <input type="radio" class="radio__input" name="size-md">
                             <span class="radio__circle">
                                 <span class="radio__dot"></span>
                             </span>
                             <span class="radio__label">Medium (Default)</span>
                         </label>
-                        <code class="code-inline">default</code>
+                        <p class="text-muted">Default size</p>
+                    </div>
+                </div>
 
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
                         <label class="radio radio--lg">
-                            <input type="radio" class="radio__input" name="size">
+                            <input type="radio" class="radio__input" name="size-lg">
                             <span class="radio__circle">
                                 <span class="radio__dot"></span>
                             </span>
@@ -137,11 +155,11 @@
             </div>
         </section>
 
-        <!-- Radio Variants -->
+        <!-- Variations -->
         <section class="section">
-            <h2 class="section__title">Radio Variants</h2>
+            <h2 class="section__title">Variations</h2>
             <div class="card-group card-group--cols-3">
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Primary</h3>
                     </div>
@@ -157,7 +175,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Success</h3>
                     </div>
@@ -173,7 +191,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Warning</h3>
                     </div>
@@ -189,7 +207,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Danger</h3>
                     </div>
@@ -204,6 +222,22 @@
                         <code class="code-inline">.radio--danger</code>
                     </div>
                 </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark</h3>
+                    </div>
+                    <div class="card__body">
+                        <label class="radio radio--dark">
+                            <input type="radio" class="radio__input" name="dark" checked>
+                            <span class="radio__circle">
+                                <span class="radio__dot"></span>
+                            </span>
+                            <span class="radio__label">Dark</span>
+                        </label>
+                        <code class="code-inline">.radio--dark</code>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -211,7 +245,7 @@
         <section class="section">
             <h2 class="section__title">Radio Group Examples</h2>
 
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
                     <h3 class="card__title">Vertical Group with Description</h3>
                 </div>
@@ -252,7 +286,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card card--gray mt-4">
                 <div class="card__header">
                     <h3 class="card__title">Inline Radio Group</h3>
                 </div>
@@ -296,7 +330,7 @@
         <section class="section">
             <h2 class="section__title">Advanced Examples</h2>
 
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
                     <h3 class="card__title">Payment Method Selection</h3>
                 </div>
@@ -336,7 +370,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card card--gray mt-4">
                 <div class="card__header">
                     <h3 class="card__title">Radio Cards Grid Layout</h3>
                 </div>
@@ -383,10 +417,189 @@
             </div>
         </section>
 
-        <!-- Properties Table -->
+        <!-- Accessibility -->
         <section class="section">
-            <h2 class="section__title">Properties</h2>
-            <div class="card">
+            <h2 class="section__title">Accessibility</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Native Radio Accessibility</h3>
+                </div>
+                <div class="card__body">
+                    <p>Radio 컴포넌트는 Native HTML을 사용하여 자동으로 접근성을 제공합니다:</p>
+                    <ul>
+                        <li><strong>Native 시멘틱</strong> - <code>&lt;input type="radio"&gt;</code>는 이미 radio 역할을 가짐</li>
+                        <li><strong>암묵적 라벨 연결</strong> - <code>&lt;label&gt;</code>로 감싼 구조로 자동 연결</li>
+                        <li><strong>그룹화</strong> - <code>name</code> 속성으로 자동 그룹화</li>
+                        <li><strong>상태 관리</strong> - <code>checked</code>와 <code>disabled</code> 속성으로 충분</li>
+                        <li><strong>키보드 내비게이션</strong> - 브라우저가 자동으로 화살표키 내비게이션 지원</li>
+                        <li><strong>포커스 관리</strong> - Native roving tabindex 자동 처리</li>
+                    </ul>
+                    <div style="margin-top: 16px; padding: 12px; background: var(--ds-info-50); border-radius: 6px; border-left: 4px solid var(--ds-color-info);">
+                        <p style="margin: 0; font-size: 14px;">
+                            <strong>💡 Tip:</strong> Native radio는 JavaScript 없이도 완벽한 접근성을 제공합니다.
+                            추가 ARIA 속성은 불필요하며 오히려 혼란을 야기할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card--gray mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Keyboard Navigation</h3>
+                </div>
+                <div class="card__body">
+                    <p>완전한 키보드 내비게이션을 지원합니다:</p>
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>키</th>
+                                <th>동작</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>라디오 그룹으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Arrow Up/Left</kbd></td>
+                                <td>이전 라디오로 이동 및 선택</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Arrow Down/Right</kbd></td>
+                                <td>다음 라디오로 이동 및 선택</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Home</kbd></td>
+                                <td>첫 번째 라디오로 이동 및 선택</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>End</kbd></td>
+                                <td>마지막 라디오로 이동 및 선택</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Space</kbd> / <kbd>Enter</kbd></td>
+                                <td>현재 라디오 선택</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card card--gray mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Focus Management</h3>
+                </div>
+                <div class="card__body">
+                    <ul>
+                        <li><strong>Native roving tabindex</strong> - 라디오 그룹당 하나의 Tab Stop</li>
+                        <li><strong>자동 포커스 관리</strong> - 선택된 라디오 또는 첫 번째 라디오가 Tab 포커스를 받음</li>
+                        <li><strong>화살표키 내비게이션</strong> - 방향키로 그룹 내 이동 및 자동 선택 (브라우저 기본 동작)</li>
+                        <li><strong>비활성 항목 처리</strong> - disabled 라디오는 자동으로 건너뜀 (브라우저 기본 동작)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card--gray mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Screen Reader Support</h3>
+                </div>
+                <div class="card__body">
+                    <p>Native radio의 우수한 스크린 리더 지원:</p>
+                    <ul>
+                        <li><strong>자동 상태 알림</strong> - Native radio가 선택됨/해제됨 상태를 자동으로 전달</li>
+                        <li><strong>암묵적 라벨 연결</strong> - <code>&lt;label&gt;</code>로 감싼 구조로 라벨 자동 읽기</li>
+                        <li><strong>그룹 인식</strong> - <code>name</code> 속성으로 그룹화된 라디오 인식</li>
+                        <li><strong>시각적 요소 숨김</strong> - <code>aria-hidden="true"</code>로 장식 요소 제외</li>
+                        <li><strong>키보드 내비게이션</strong> - 화살표키로 그룹 내 이동 지원</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card--gray mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Implementation Example</h3>
+                </div>
+                <div class="card__body">
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+<pre><code class="language-html">&lt;!-- Simple and Accessible Radio Group (Native HTML) --&gt;
+&lt;fieldset class="radio-group"&gt;
+    &lt;legend&gt;Choose your option:&lt;/legend&gt;
+
+    &lt;label class="radio"&gt;
+        &lt;input type="radio"
+               class="radio__input"
+               name="options"
+               value="option1"
+               checked&gt;
+        &lt;span class="radio__circle" aria-hidden="true"&gt;
+            &lt;span class="radio__dot"&gt;&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;span class="radio__label"&gt;
+            &lt;strong&gt;Option 1&lt;/strong&gt;
+            &lt;span class="radio__description"&gt;
+                Description for option 1
+            &lt;/span&gt;
+        &lt;/span&gt;
+    &lt;/label&gt;
+
+    &lt;label class="radio"&gt;
+        &lt;input type="radio"
+               class="radio__input"
+               name="options"
+               value="option2"&gt;
+        &lt;span class="radio__circle" aria-hidden="true"&gt;
+            &lt;span class="radio__dot"&gt;&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;span class="radio__label"&gt;
+            Option 2
+        &lt;/span&gt;
+    &lt;/label&gt;
+
+    &lt;label class="radio"&gt;
+        &lt;input type="radio"
+               class="radio__input"
+               name="options"
+               value="option3"
+               disabled&gt;
+        &lt;span class="radio__circle" aria-hidden="true"&gt;
+            &lt;span class="radio__dot"&gt;&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;span class="radio__label"&gt;
+            Option 3 (Disabled)
+        &lt;/span&gt;
+    &lt;/label&gt;
+&lt;/fieldset&gt;
+
+&lt;script&gt;
+// Native JavaScript로 간단하게 제어
+const radios = document.querySelectorAll('input[name="options"]');
+
+// 변경 감지
+radios.forEach(radio =&gt; {
+    radio.addEventListener('change', (e) =&gt; {
+        console.log('선택된 값:', e.target.value);
+    });
+});
+
+// 프로그래밍적으로 선택
+document.querySelector('input[name="options"][value="option2"]').checked = true;
+
+// 현재 선택된 값 가져오기
+const selected = document.querySelector('input[name="options"]:checked')?.value;
+&lt;/script&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
                 <div class="card__body">
                     <table class="properties-table">
                         <thead>
@@ -421,6 +634,10 @@
                                 <td>Danger color variant</td>
                             </tr>
                             <tr>
+                                <td><code>.radio--dark</code></td>
+                                <td>Dark color variant</td>
+                            </tr>
+                            <tr>
                                 <td><code>.radio-group</code></td>
                                 <td>Radio group container</td>
                             </tr>
@@ -447,9 +664,9 @@
             .card-group--cols-3 {grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));}
 
             /* Code styles */
-            .code-block {margin-top:16px; padding:16px; border-radius:6px; background:var(--vp-c-code-block-bg); overflow-x:auto;}
-            .code-block code {font-size:14px; font-family:monospace; line-height:1.5;}
-            .code-inline {display:block; margin-top:8px; padding:2px 6px; border-radius:4px; background:var(--vp-c-code-inline-bg); color:var(--vp-c-text-2); font-size:13px; font-family:monospace;}
+            /* .code-block {margin-top:16px; padding:16px; border-radius:6px; background:var(--vp-c-code-block-bg); overflow-x:auto;} */
+            /* .code-block code {font-size:14px; font-family:monospace; line-height:1.5;} */
+            /* .code-inline {display:block; margin-top:8px; padding:2px 6px; border-radius:4px; background:var(--vp-c-code-inline-bg); color:var(--vp-c-text-2); font-size:13px; font-family:monospace;} */
          /* Demo styles */
             .demo-radios {display:flex; flex-direction:column; gap:12px;}
             .states-list {display:flex; flex-direction:column; gap:16px;}

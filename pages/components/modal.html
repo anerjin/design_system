@@ -22,17 +22,17 @@
                 </div>
                 <div class="card__body">
                     <div class="demo-modals">
-                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-basic')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-basic')" aria-label="Open basic modal dialog" aria-haspopup="dialog">
                             Open Basic Modal
                         </button>
                     </div>
-                    <pre class="code-block"><code>&lt;div class="modal" id="modal-basic"&gt;
+                    <pre class="code-block"><code>&lt;div class="modal" id="modal-basic" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body"&gt;
     &lt;div class="modal__dialog"&gt;
         &lt;div class="modal__header"&gt;
-            &lt;h3 class="modal__title"&gt;Modal Title&lt;/h3&gt;
-            &lt;button type="button" class="modal__close"&gt;×&lt;/button&gt;
+            &lt;h3 class="modal__title" id="modal-title"&gt;Modal Title&lt;/h3&gt;
+            &lt;button type="button" class="modal__close" aria-label="Close modal"&gt;×&lt;/button&gt;
         &lt;/div&gt;
-        &lt;div class="modal__body"&gt;
+        &lt;div class="modal__body" id="modal-body"&gt;
             &lt;p&gt;Modal content goes here&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class="modal__footer"&gt;
@@ -54,7 +54,7 @@
                         <h3 class="card__title">Small Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-sm')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-sm')" aria-label="Open small modal dialog" aria-haspopup="dialog">
                             Open Small Modal
                         </button>
                         <code class="code-inline">.modal__dialog--sm</code>
@@ -65,7 +65,7 @@
                         <h3 class="card__title">Large Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-lg')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-lg')" aria-label="Open large modal dialog" aria-haspopup="dialog">
                             Open Large Modal
                         </button>
                         <code class="code-inline">.modal__dialog--lg</code>
@@ -76,7 +76,7 @@
                         <h3 class="card__title">Extra Large Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-xl')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-xl')" aria-label="Open extra large modal dialog" aria-haspopup="dialog">
                             Open XL Modal
                         </button>
                         <code class="code-inline">.modal__dialog--xl</code>
@@ -87,7 +87,7 @@
                         <h3 class="card__title">Fullscreen Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-fullscreen')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-fullscreen')" aria-label="Open fullscreen modal dialog" aria-haspopup="dialog">
                             Open Fullscreen Modal
                         </button>
                         <code class="code-inline">.modal__dialog--fullscreen</code>
@@ -105,7 +105,7 @@
                         <h3 class="card__title">Default Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-default')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-default')" aria-label="Open default modal dialog" aria-haspopup="dialog">
                             Open Default Modal
                         </button>
                         <code class="code-inline">Default theme</code>
@@ -116,7 +116,7 @@
                         <h3 class="card__title">Dark Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-dark')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-dark')" aria-label="Open dark modal dialog" aria-haspopup="dialog">
                             Open Dark Modal
                         </button>
                         <code class="code-inline">.modal--dark</code>
@@ -134,7 +134,7 @@
                         <h3 class="card__title">Form Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-form')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-form')" aria-label="Open form modal dialog" aria-haspopup="dialog">
                             Open Form Modal
                         </button>
                         <p class="text-sm text-muted">Modal containing a form card with input fields</p>
@@ -145,7 +145,7 @@
                         <h3 class="card__title">Gallery Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-gallery')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-gallery')" aria-label="Open gallery modal dialog" aria-haspopup="dialog">
                             Open Gallery Modal
                         </button>
                         <p class="text-sm text-muted">Modal with image gallery cards</p>
@@ -156,7 +156,7 @@
                         <h3 class="card__title">Settings Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--primary" onclick="BRICKS.Modal.open('modal-settings')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-settings')" aria-label="Open settings modal dialog" aria-haspopup="dialog">
                             Open Settings Modal
                         </button>
                         <p class="text-sm text-muted">Modal with tabbed settings cards</p>
@@ -167,7 +167,7 @@
                         <h3 class="card__title">Confirmation Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--danger" onclick="BRICKS.Modal.open('modal-confirm')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-confirm')" aria-label="Open delete confirmation dialog" aria-haspopup="dialog">
                             Delete Item
                         </button>
                         <p class="text-sm text-muted">Simple confirmation dialog</p>
@@ -185,7 +185,7 @@
                         <h3 class="card__title">Centered Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-centered')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-centered')" aria-label="Open centered modal dialog" aria-haspopup="dialog">
                             Open Centered Modal
                         </button>
                         <code class="code-inline">.modal--centered</code>
@@ -196,7 +196,7 @@
                         <h3 class="card__title">Scrollable Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-scrollable')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-scrollable')" aria-label="Open scrollable modal dialog" aria-haspopup="dialog">
                             Open Scrollable Modal
                         </button>
                         <code class="code-inline">.modal__dialog--scrollable</code>
@@ -207,7 +207,7 @@
                         <h3 class="card__title">Static Backdrop</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-static')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-static')" aria-label="Open static modal dialog" aria-haspopup="dialog">
                             Open Static Modal
                         </button>
                         <code class="code-inline">.modal--static</code>
@@ -218,7 +218,7 @@
                         <h3 class="card__title">No Header Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.open('modal-no-header')">
+                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-no-header')" aria-label="Open headerless modal dialog" aria-haspopup="dialog">
                             Open Headerless Modal
                         </button>
                         <code class="code-inline">Without .modal__header</code>
@@ -333,13 +333,13 @@
         <!-- All Modal Examples (Hidden by default) -->
 
         <!-- Basic Modal -->
-        <div id="modal-basic" class="modal">
+        <div id="modal-basic" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-basic-title" aria-describedby="modal-basic-body">
             <div class="modal__dialog">
                 <div class="modal__header">
-                    <h3 class="modal__title">Basic Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-basic')">×</button>
+                    <h3 class="modal__title" id="modal-basic-title">Basic Modal</h3>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-basic')" aria-label="Close modal">×</button>
                 </div>
-                <div class="modal__body">
+                <div class="modal__body" id="modal-basic-body">
                     <div class="card">
                         <div class="card__body">
                             <p>This is a basic modal dialog with a card inside. It demonstrates the standard modal layout with header, body, and footer.</p>
@@ -359,7 +359,7 @@
             <div class="modal__dialog modal__dialog--sm">
                 <div class="modal__header">
                     <h3 class="modal__title">Small Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-sm')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-sm')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <p>This is a small modal with 400px max-width.</p>
@@ -374,7 +374,7 @@
             <div class="modal__dialog modal__dialog--lg">
                 <div class="modal__header">
                     <h3 class="modal__title">Large Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-lg')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-lg')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card-group card-group--cols-2">
@@ -406,7 +406,7 @@
             <div class="modal__dialog modal__dialog--xl">
                 <div class="modal__header">
                     <h3 class="modal__title">Extra Large Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-xl')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-xl')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card-group card-group--cols-3">
@@ -446,7 +446,7 @@
             <div class="modal__dialog modal__dialog--fullscreen">
                 <div class="modal__header">
                     <h3 class="modal__title">Fullscreen Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-fullscreen')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-fullscreen')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card">
@@ -493,7 +493,7 @@
             <div class="modal__dialog">
                 <div class="modal__header">
                     <h3 class="modal__title">Default Theme</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-default')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-default')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card">
@@ -512,7 +512,7 @@
             <div class="modal__dialog">
                 <div class="modal__header">
                     <h3 class="modal__title">Dark Theme</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-dark')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-dark')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card card--dark">
@@ -532,7 +532,7 @@
             <div class="modal__dialog modal__dialog--lg">
                 <div class="modal__header">
                     <h3 class="modal__title">User Information Form</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-form')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-form')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card">
@@ -566,7 +566,7 @@
             <div class="modal__dialog modal__dialog--xl">
                 <div class="modal__header">
                     <h3 class="modal__title">Image Gallery</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-gallery')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-gallery')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card-group card-group--cols-3">
@@ -610,7 +610,7 @@
             <div class="modal__dialog modal__dialog--lg">
                 <div class="modal__header">
                     <h3 class="modal__title">Settings</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-settings')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-settings')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card-group card-group--cols-1">
@@ -657,7 +657,7 @@
             <div class="modal__dialog modal__dialog--sm">
                 <div class="modal__header">
                     <h3 class="modal__title">Confirm Deletion</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-confirm')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-confirm')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card card--outlined">
@@ -679,7 +679,7 @@
             <div class="modal__dialog">
                 <div class="modal__header">
                     <h3 class="modal__title">Centered Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-centered')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-centered')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card">
@@ -698,7 +698,7 @@
             <div class="modal__dialog modal__dialog--scrollable">
                 <div class="modal__header">
                     <h3 class="modal__title">Scrollable Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-scrollable')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-scrollable')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card">
@@ -734,7 +734,7 @@
             <div class="modal__dialog">
                 <div class="modal__header">
                     <h3 class="modal__title">Static Backdrop Modal</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-static')">×</button>
+                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-static')" aria-label="Close modal">×</button>
                 </div>
                 <div class="modal__body">
                     <div class="card card--outlined">

@@ -4,7 +4,7 @@
 ======================================== */
 
 /* Base Spinner */
-.spinner {display:inline-block; width:24px; height:24px; border:3px solid var(--ds-gray-300); border-top:3px solid var(--ds-black); border-radius:50%; animation:spin 1s linear infinite;}
+.spinner {display:inline-block; width:24px; height:24px; border:3px solid var(--ds-gray-300); border-top:3px solid var(--ds-prime); border-radius:50%; animation:spin 1s linear infinite;}
 @keyframes spin {
   0% {transform:rotate(0deg);}
   100% {transform:rotate(360deg);}
@@ -21,11 +21,12 @@
 .spinner--warning {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-warning);}
 .spinner--danger {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-danger);}
 .spinner--info {border-color:var(--ds-gray-300); border-top-color:var(--ds-color-info);}
+.spinner--dark {border-color:var(--ds-gray-300); border-top-color:var(--ds-gray-900);}
 .spinner--white {border-color:color-mix(in srgb, var(--ds-white) 30%, transparent); border-top-color:var(--ds-white);}
 
 /* Dots Spinner */
 .spinner--dots {display:inline-flex; align-items:center; gap:4px; border:none; animation:none;}
-.spinner--dots span {display:inline-block; width:8px; min-width:8px; height:8px; min-height:8px; border-radius:50%; background-color:var(--ds-black); animation:dot-pulse 1.4s ease-in-out infinite;}
+.spinner--dots span {display:inline-block; width:8px; min-width:8px; height:8px; min-height:8px; border-radius:50%; background-color:var(--ds-prime); animation:dot-pulse 1.4s ease-in-out infinite;}
 .spinner--dots span:nth-child(1) {animation-delay:-0.32s;}
 .spinner--dots span:nth-child(2) {animation-delay:-0.16s;}
 @keyframes dot-pulse {
@@ -44,10 +45,11 @@
 .spinner--dots.spinner--warning span {background-color:var(--ds-color-warning);}
 .spinner--dots.spinner--danger span {background-color:var(--ds-color-danger);}
 .spinner--dots.spinner--info span {background-color:var(--ds-color-info);}
+.spinner--dots.spinner--dark span {background-color:var(--ds-gray-900);}
 .spinner--dots.spinner--white span {background-color:var(--ds-white);}
 
 /* Pulse Spinner */
-.spinner--pulse {border:none; border-radius:50%; background-color:var(--ds-black); animation:pulse 1.5s ease-in-out infinite;}
+.spinner--pulse {border:none; border-radius:50%; background-color:var(--ds-prime); animation:pulse 1.5s ease-in-out infinite;}
 @keyframes pulse {
   0% {opacity:1; transform:scale(0);}
   100% {opacity:0; transform:scale(1);}
@@ -58,11 +60,12 @@
 .spinner--pulse.spinner--warning {background-color:var(--ds-color-warning);}
 .spinner--pulse.spinner--danger {background-color:var(--ds-color-danger);}
 .spinner--pulse.spinner--info {background-color:var(--ds-color-info);}
+.spinner--pulse.spinner--dark {background-color:var(--ds-gray-900);}
 .spinner--pulse.spinner--white {background-color:var(--ds-white);}
 
 /* Bars Spinner */
 .spinner--bars {display:inline-flex; align-items:center; gap:2px; border:none; animation:none;}
-.spinner--bars span {display:inline-block; width:3px; height:20px; background-color:var(--ds-black); animation:bar-scale 1s ease-in-out infinite;}
+.spinner--bars span {display:inline-block; width:3px; height:20px; background-color:var(--ds-prime); animation:bar-scale 1s ease-in-out infinite;}
 .spinner--bars span:nth-child(1) {animation-delay:-0.3s;}
 .spinner--bars span:nth-child(2) {animation-delay:-0.2s;}
 .spinner--bars span:nth-child(3) {animation-delay:-0.1s;}
@@ -82,6 +85,7 @@
 .spinner--bars.spinner--warning span {background-color:var(--ds-color-warning);}
 .spinner--bars.spinner--danger span {background-color:var(--ds-color-danger);}
 .spinner--bars.spinner--info span {background-color:var(--ds-color-info);}
+.spinner--bars.spinner--dark span {background-color:var(--ds-gray-900);}
 .spinner--bars.spinner--white span {background-color:var(--ds-white);}
 
 /* Loading Overlay */

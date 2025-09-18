@@ -36,7 +36,7 @@
   --ds-border-color-white: var(--ds-white);
 
   /* Monochrome semantic borders */
-  --ds-border-color-primary: var(--ds-black);
+  --ds-border-color-primary: var(--ds-prime);
   --ds-border-color-secondary: var(--ds-gray-600);
   --ds-border-color-disabled: var(--ds-gray-300);
 }

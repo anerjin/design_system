@@ -44,7 +44,7 @@
                     <div class="sizes-list">
                         <div class="progress-wrapper-item">
                             <span class="label">Extra Small (2px)</span>
-                            <div class="progress progress--xs">
+                            <div class="progress progress--xs progress--dark">
                                 <div class="progress__bar" style="width: 30%"></div>
                             </div>
                             <code class="code-inline">.progress--xs</code>
@@ -52,7 +52,7 @@
 
                         <div class="progress-wrapper-item">
                             <span class="label">Small (4px)</span>
-                            <div class="progress progress--sm">
+                            <div class="progress progress--sm progress--dark">
                                 <div class="progress__bar" style="width: 45%"></div>
                             </div>
                             <code class="code-inline">.progress--sm</code>
@@ -60,7 +60,7 @@
 
                         <div class="progress-wrapper-item">
                             <span class="label">Medium (8px)</span>
-                            <div class="progress">
+                            <div class="progress progress--dark">
                                 <div class="progress__bar" style="width: 60%"></div>
                             </div>
                             <code class="code-inline">default</code>
@@ -68,7 +68,7 @@
 
                         <div class="progress-wrapper-item">
                             <span class="label">Large (12px)</span>
-                            <div class="progress progress--lg">
+                            <div class="progress progress--lg progress--dark">
                                 <div class="progress__bar" style="width: 75%"></div>
                             </div>
                             <code class="code-inline">.progress--lg</code>
@@ -76,7 +76,7 @@
 
                         <div class="progress-wrapper-item">
                             <span class="label">Extra Large (16px)</span>
-                            <div class="progress progress--xl">
+                            <div class="progress progress--xl progress--dark">
                                 <div class="progress__bar" style="width: 90%"></div>
                             </div>
                             <code class="code-inline">.progress--xl</code>
@@ -149,6 +149,18 @@
                         <code class="code-inline">.progress--info</code>
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="progress progress--dark">
+                            <div class="progress__bar" style="width: 65%"></div>
+                        </div>
+                        <code class="code-inline">.progress--dark</code>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -168,7 +180,7 @@
                                 <span>File Upload</span>
                                 <span>60%</span>
                             </div>
-                            <div class="progress">
+                            <div class="progress progress--dark">
                                 <div class="progress__bar" style="width: 60%"></div>
                             </div>
                         </div>
@@ -216,7 +228,7 @@
                     <h3 class="card__title">Striped Progress</h3>
                 </div>
                 <div class="card__body">
-                    <div class="progress progress--striped">
+                    <div class="progress progress--striped progress--dark">
                         <div class="progress__bar" style="width: 40%"></div>
                     </div>
                     <code class="code-inline">.progress--striped</code>
@@ -228,7 +240,7 @@
                     <h3 class="card__title">Animated Stripes</h3>
                 </div>
                 <div class="card__body">
-                    <div class="progress progress--striped progress--animated">
+                    <div class="progress progress--striped progress--animated progress--dark">
                         <div class="progress__bar" style="width: 60%"></div>
                     </div>
                     <code class="code-inline">.progress--striped .progress--animated</code>
@@ -240,7 +252,7 @@
                     <h3 class="card__title">Indeterminate Progress</h3>
                 </div>
                 <div class="card__body">
-                    <div class="progress progress--indeterminate">
+                    <div class="progress progress--indeterminate progress--dark">
                         <div class="progress__bar"></div>
                     </div>
                     <code class="code-inline">.progress--indeterminate</code>
@@ -330,7 +342,111 @@
                             </div>
                             <span class="label">Large</span>
                         </div>
+
+                        <div class="circular-item">
+                            <div class="progress-circular">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar progress-circular__bar--dark"
+                                        stroke-dasharray="65, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">65%</span>
+                            </div>
+                            <span class="label">Dark</span>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Animated Circular Progress (Fill Animation)</h3>
+                </div>
+                <div class="card__body">
+                    <div class="circular-list">
+                        <div class="circular-item">
+                            <div class="progress-circular progress-circular--animated">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar"
+                                        style="--progress-value: 60"
+                                        stroke-dasharray="60, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">60%</span>
+                            </div>
+                            <span class="label">Download</span>
+                        </div>
+
+                        <div class="circular-item">
+                            <div class="progress-circular progress-circular--animated">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar progress-circular__bar--success"
+                                        style="--progress-value: 85"
+                                        stroke-dasharray="85, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">85%</span>
+                            </div>
+                            <span class="label">Upload</span>
+                        </div>
+
+                        <div class="circular-item">
+                            <div class="progress-circular progress-circular--lg progress-circular--animated">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar progress-circular__bar--info"
+                                        style="--progress-value: 45"
+                                        stroke-dasharray="45, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">45%</span>
+                            </div>
+                            <span class="label">Processing</span>
+                        </div>
+
+                        <div class="circular-item">
+                            <div class="progress-circular progress-circular--animated">
+                                <svg class="progress-circular__svg" viewBox="0 0 36 36">
+                                    <path class="progress-circular__bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="progress-circular__bar progress-circular__bar--dark"
+                                        style="--progress-value: 70"
+                                        stroke-dasharray="70, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="progress-circular__text">70%</span>
+                            </div>
+                            <span class="label">Dark</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 16px; color: var(--ds-gray-600); font-size: 13px;">* 페이지 로드 시 0%에서 목표 값까지 애니메이션으로 채워집니다.</p>
                 </div>
             </div>
         </section>
@@ -351,7 +467,7 @@
                             <span class="step-label">Step 3</span>
                             <span class="step-label">Step 4</span>
                         </div>
-                        <div class="progress">
+                        <div class="progress progress--dark">
                             <div class="progress__bar" style="width: 50%"></div>
                         </div>
                     </div>
@@ -429,6 +545,10 @@
                                 <td>Info color variant</td>
                             </tr>
                             <tr>
+                                <td><code>.progress--dark</code></td>
+                                <td>Dark color variant</td>
+                            </tr>
+                            <tr>
                                 <td><code>.progress--striped</code></td>
                                 <td>Striped pattern</td>
                             </tr>
@@ -482,6 +602,7 @@
             .progress-circular__bar--warning {stroke:var(--ds-color-warning);}
             .progress-circular__bar--danger {stroke:var(--ds-color-danger);}
             .progress-circular__bar--info {stroke:var(--ds-color-info);}
+            .progress-circular__bar--dark {stroke:var(--ds-gray-900);}
 
             /* Circular list */
             .circular-list {display:flex; align-items:center; gap:32px;}
@@ -492,7 +613,7 @@
             .step-labels {display:flex; justify-content:space-between; margin-bottom:12px;}
             .step-label {font-size:13px; color:var(--ds-gray-500); font-weight:500;}
             .step-label--completed {color:var(--ds-color-success);}
-            .step-label--active {color:var(--ds-black); font-weight:600;}
+            .step-label--active {color:var(--ds-prime); font-weight:600;}
 
             /* Stacked progress */
             .stacked-progress .progress {display:flex; overflow:visible;}

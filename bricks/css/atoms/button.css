@@ -12,9 +12,9 @@
 .btn--md {padding:var(--ds-space-3) var(--ds-space-5); border-radius:var(--ds-border-radius-md); font-size:var(--ds-text-base);}
 .btn--lg {padding:var(--ds-space-4) var(--ds-space-6); border-radius:var(--ds-border-radius-lg); font-size:var(--ds-text-lg);}
 .btn--xl {padding:var(--ds-space-5) var(--ds-space-8); border-radius:var(--ds-border-radius-lg); font-size:var(--ds-text-xl);}
-/* Primary Button - Black */
-.btn--primary {border-color:var(--ds-black); background:var(--ds-black); box-shadow:var(--ds-shadow-md); color:var(--ds-white);}
-.btn--primary:hover:not(:disabled) {border-color:var(--ds-gray-800); background:var(--ds-gray-800); box-shadow:var(--ds-shadow-lg);}
+/* Primary Button - Prime Color */
+.btn--primary {border-color:var(--ds-prime); background:var(--ds-prime); box-shadow:var(--ds-shadow-md); color:var(--ds-white);}
+.btn--primary:hover:not(:disabled) {border-color:var(--ds-prime); background:var(--ds-prime); opacity:0.9; box-shadow:var(--ds-shadow-lg);}
 .btn--primary:active:not(:disabled) {box-shadow:var(--ds-shadow-sm); transform:translateY(0);}
 /* Secondary Button - Gray */
 .btn--secondary {border-color:var(--ds-gray-300); background:var(--ds-white); box-shadow:var(--ds-shadow-sm); color:var(--ds-black);}
@@ -49,8 +49,8 @@
 .btn--ghost:hover:not(:disabled) {background:var(--ds-gray-50);}
 .btn--ghost:active:not(:disabled) {background:var(--ds-gray-100); transform:translateY(0);}
 /* Outline Variants */
-.btn--outline-primary {border-color:var(--ds-black); background:transparent; box-shadow:none; color:var(--ds-black);}
-.btn--outline-primary:hover:not(:disabled) {background:var(--ds-black); box-shadow:var(--ds-shadow-md); color:var(--ds-white);}
+.btn--outline-primary {border-color:var(--ds-prime); background:transparent; box-shadow:none; color:var(--ds-prime);}
+.btn--outline-primary:hover:not(:disabled) {background:var(--ds-prime); box-shadow:var(--ds-shadow-md); color:var(--ds-white);}
 .btn--outline-secondary {border-color:var(--ds-gray-400); background:transparent; box-shadow:none; color:var(--ds-gray-600);}
 .btn--outline-secondary:hover:not(:disabled) {border-color:var(--ds-gray-500); background:var(--ds-gray-100); box-shadow:var(--ds-shadow-sm); color:var(--ds-black);}
 .btn--outline-success {border-color:var(--ds-color-success); background:transparent; box-shadow:none; color:var(--ds-color-success);}

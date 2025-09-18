@@ -23,6 +23,7 @@
 @import url('../../bricks/css/tokens/spacing.css');
 @import url('../../bricks/css/tokens/shadows.css');
 @import url('../../bricks/css/tokens/borders.css');
+@import url('../../bricks/css/tokens/semantic.css');
 
 /* === Component Styles - Atoms === */
 @import url('../../bricks/css/atoms/button.css');

@@ -14,6 +14,9 @@
 
 /* Toggle States */
 .toggle:focus-visible .toggle__track {box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
+.toggle--focus .toggle__track {box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
+.toggle:hover:not(:disabled) .toggle__track {box-shadow:0 0 0 2px var(--ds-prime-alpha-10);}
+.toggle:disabled {cursor:not-allowed;}
 .toggle:disabled .toggle__track {opacity:0.5; cursor:not-allowed;}
 .toggle:disabled .toggle__thumb {cursor:not-allowed;}
 
@@ -38,10 +41,12 @@
 .toggle--green.toggle--active .toggle__track {background-color:var(--ds-color-green);}
 .toggle--lightblue.toggle--active .toggle__track {background-color:var(--ds-color-lightblue);}
 .toggle--blue.toggle--active .toggle__track {background-color:var(--ds-color-blue);}
+.toggle--dark.toggle--active .toggle__track {background-color:var(--ds-gray-900);}
 
 /* Toggle with Icons */
 .toggle--icons .toggle__thumb {display:flex; align-items:center; justify-content:center;}
-.toggle__icon {position:absolute; font-size:10px; color:var(--ds-gray-600); transition:opacity 0.3s; pointer-events:none;}
+.toggle__icon {position:absolute; display:flex; align-items:center; justify-content:center; color:var(--ds-gray-600); transition:opacity 0.3s; pointer-events:none;}
+.toggle__icon svg {width:12px; height:12px;}
 .toggle__icon--on {opacity:0;}
 .toggle__icon--off {opacity:1;}
 .toggle--active .toggle__icon--on {opacity:1;}

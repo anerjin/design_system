@@ -5,7 +5,7 @@
 
 /* Base Progress Bar */
 .progress {width:100%; height:8px; overflow:hidden; border-radius:4px; background-color:var(--ds-gray-200);}
-.progress__bar {height:100%; border-radius:4px; background-color:var(--ds-black); transition:width 0.3s ease;}
+.progress__bar {height:100%; border-radius:4px; background-color:var(--ds-prime); transition:width 0.3s ease;}
 
 /* Progress Sizes */
 .progress--xs {height:2px;}
@@ -18,6 +18,7 @@
 .progress--warning .progress__bar {background-color:var(--ds-color-warning);}
 .progress--danger .progress__bar {background-color:var(--ds-color-danger);}
 .progress--info .progress__bar {background-color:var(--ds-color-info);}
+.progress--dark .progress__bar {background-color:var(--ds-gray-900);}
 
 /* Striped Progress */
 .progress--striped .progress__bar {background-image:linear-gradient( 45deg, color-mix(in srgb, var(--ds-white) 15%, transparent) 25%, transparent 25%, transparent 50%, color-mix(in srgb, var(--ds-white) 15%, transparent) 50%, color-mix(in srgb, var(--ds-white) 15%, transparent) 75%, transparent 75%, transparent ); background-size:1rem 1rem;}
@@ -36,8 +37,8 @@
 /* Circular Progress */
 .progress-circular {display:inline-block; position:relative; width:80px; height:80px;}
 .progress-circular__svg {transform:rotate(-90deg);}
-.progress-circular__bg {fill:none;stroke:var(--ds-gray-200);stroke-width:8;}
-.progress-circular__bar {fill:none;stroke:var(--ds-black);stroke-width:8;stroke-linecap:round;transition:stroke-dasharray 0.3s ease;}
+.progress-circular__bg {fill:none;stroke:var(--ds-gray-200);stroke-width:3;}
+.progress-circular__bar {fill:none;stroke:var(--ds-prime);stroke-width:3;stroke-linecap:round;transition:stroke-dasharray 0.3s ease;}
 .progress-circular__text {position:absolute; top:50%; left:50%; color:var(--ds-gray-700); font-size:16px; font-weight:500; transform:translate(-50%, -50%);}
 
 /* Circular Sizes */
@@ -51,4 +52,23 @@
 @keyframes indeterminate {
   0% {transform:translateX(-100%);}
   100% {transform:translateX(400%);}
+}
+
+/* Animated Circular Progress - Fill Animation */
+.progress-circular--animated .progress-circular__bar {animation:circular-fill 2s ease-out forwards;}
+@keyframes circular-fill {
+  0% {stroke-dasharray:0, 100;}
+  100% {stroke-dasharray:var(--progress-value, 75), 100;}
+}
+
+/* Circular Spinner/Loader */
+.progress-circular--spinner .progress-circular__svg {animation:rotate 2s linear infinite;}
+.progress-circular--spinner .progress-circular__bar {stroke-dasharray:25, 100; animation:circular-dash 1.5s ease-in-out infinite;}
+@keyframes rotate {
+  100% {transform:rotate(270deg);}
+}
+@keyframes circular-dash {
+  0% {stroke-dasharray:1, 100; stroke-dashoffset:0;}
+  50% {stroke-dasharray:89, 100; stroke-dashoffset:-35;}
+  100% {stroke-dasharray:89, 100; stroke-dashoffset:-124;}
 }

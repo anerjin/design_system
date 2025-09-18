@@ -6,404 +6,566 @@
     <title>Select - BRICKS Design System</title>
 </head>
 <body>
-<div class="vp-doc">
-    <div class="vp-doc-header">
-        <h1 class="vp-doc-title">Select</h1>
-        <p class="vp-doc-description">
-            드롭다운 선택 컴포넌트로 사용자가 옵션 목록에서 하나 이상의 항목을 선택할 수 있습니다.
-        </p>
-    </div>
+    <div class="vp-doc">
+        <!-- Page Header -->
+        <header class="header">
+            <h1 class="header__title">Select Components</h1>
+            <p class="header__description">
+                드롭다운 선택 컴포넌트로 사용자가 옵션 목록에서 하나 이상의 항목을 선택할 수 있습니다. 접근성과 사용성을 고려하여 설계되었습니다.
+            </p>
+        </header>
 
-    <!-- Basic Select -->
-    <h2>Basic Select</h2>
-    <p>기본 드롭다운 선택 컴포넌트</p>
-    
-    <div class="select-examples">
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Default Select</h3>
-            </div>
-            <div class="card__body">
-                <select class="select">
-                    <option>선택하세요...</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                    <option>Option 4</option>
-                </select>
-                <code class="code-inline">.select</code>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">With Selected Value</h3>
-            </div>
-            <div class="card__body">
-                <select class="select">
-                    <option>Choose category</option>
-                    <option selected>Technology</option>
-                    <option>Business</option>
-                    <option>Design</option>
-                </select>
-                <code class="code-inline">selected attribute</code>
-            </div>
-        </div>
-    </div>
+        <!-- Basic Usage -->
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Default Select</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <select class="select">
+                            <option>선택하세요...</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                            <option>Option 4</option>
+                        </select>
+                    </div>
 
-    <!-- Select Sizes -->
-    <h2>Select Sizes</h2>
-    <p>다양한 크기의 선택 컴포넌트</p>
-    
-    <div class="select-sizes">
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Size Variations</h3>
+                    <!-- Code Example -->
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;select class="select"&gt;
+  &lt;option&gt;선택하세요...&lt;/option&gt;
+  &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;option&gt;Option 2&lt;/option&gt;
+  &lt;option&gt;Option 3&lt;/option&gt;
+  &lt;option&gt;Option 4&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
             </div>
-            <div class="card__body">
-                <div class="size-examples">
-                    <div class="size-example">
+        </section>
+
+        <!-- Select Sizes -->
+        <section class="section">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Select Sizes</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper" style="display: flex; flex-direction: column; gap: 16px;">
                         <select class="select select--xs">
                             <option>Extra Small</option>
                             <option>Option 1</option>
                         </select>
-                        <code class="code-inline">.select--xs</code>
-                    </div>
-                    <div class="size-example">
                         <select class="select select--sm">
                             <option>Small Size</option>
                             <option>Option 1</option>
                         </select>
-                        <code class="code-inline">.select--sm</code>
-                    </div>
-                    <div class="size-example">
-                        <select class="select select--md">
-                            <option>Medium (Default)</option>
+                        <select class="select">
+                            <option>Default Size</option>
                             <option>Option 1</option>
                         </select>
-                        <code class="code-inline">.select--md</code>
-                    </div>
-                    <div class="size-example">
                         <select class="select select--lg">
                             <option>Large Size</option>
                             <option>Option 1</option>
                         </select>
-                        <code class="code-inline">.select--lg</code>
-                    </div>
-                    <div class="size-example">
                         <select class="select select--xl">
                             <option>Extra Large</option>
                             <option>Option 1</option>
                         </select>
-                        <code class="code-inline">.select--xl</code>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;select class="select select--xs"&gt;...&lt;/select&gt;
+&lt;select class="select select--sm"&gt;...&lt;/select&gt;
+&lt;select class="select"&gt;...&lt;/select&gt;
+&lt;select class="select select--lg"&gt;...&lt;/select&gt;
+&lt;select class="select select--xl"&gt;...&lt;/select&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Select States -->
+        <section class="section">
+            <h2 class="section__title">States</h2>
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Interactive States</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-states">
+                        <div class="state-example">
+                            <h4>Normal</h4>
+                            <select class="select">
+                                <option>Normal select</option>
+                                <option>Option 1</option>
+                            </select>
+                        </div>
+                        <div class="state-example">
+                            <h4>Focus</h4>
+                            <select class="select" style="border-color: var(--ds-prime); box-shadow: 0 0 0 3px var(--ds-prime-alpha-20);">
+                                <option>Focus state</option>
+                                <option>Option 1</option>
+                            </select>
+                        </div>
+                        <div class="state-example">
+                            <h4>Success</h4>
+                            <select class="select select--success">
+                                <option>Valid selection</option>
+                                <option>Option 1</option>
+                            </select>
+                        </div>
+                        <div class="state-example">
+                            <h4>Error</h4>
+                            <select class="select select--error">
+                                <option>Invalid selection</option>
+                                <option>Option 1</option>
+                            </select>
+                        </div>
+                        <div class="state-example">
+                            <h4>Warning</h4>
+                            <select class="select select--warning">
+                                <option>Warning select</option>
+                                <option>Option 1</option>
+                            </select>
+                        </div>
+                        <div class="state-example">
+                            <h4>Disabled</h4>
+                            <select class="select" disabled>
+                                <option>Disabled select</option>
+                                <option>Option 1</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Select States -->
-    <h2>Select States</h2>
-    <p>다양한 상태의 선택 컴포넌트</p>
-    
-    <div class="select-states">
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Normal State</h3>
-            </div>
-            <div class="card__body">
-                <select class="select">
-                    <option>Normal select</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                </select>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Success State</h3>
-            </div>
-            <div class="card__body">
-                <select class="select select--success">
-                    <option>Valid selection</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                </select>
-                <code class="code-inline">.select--success</code>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Warning State</h3>
-            </div>
-            <div class="card__body">
-                <select class="select select--warning">
-                    <option>Warning select</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                </select>
-                <code class="code-inline">.select--warning</code>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Error State</h3>
-            </div>
-            <div class="card__body">
-                <select class="select select--error">
-                    <option>Invalid selection</option>
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                </select>
-                <code class="code-inline">.select--error</code>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Disabled State</h3>
-            </div>
-            <div class="card__body">
-                <select class="select" disabled>
-                    <option>Disabled select</option>
-                    <option>Option 1</option>
-                </select>
-                <code class="code-inline">disabled</code>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Read-only State</h3>
-            </div>
-            <div class="card__body">
-                <select class="select" style="pointer-events: none; opacity: 0.7;">
-                    <option>Read-only select</option>
-                    <option>Option 1</option>
-                </select>
-                <code class="code-inline">readonly style</code>
-            </div>
-        </div>
-    </div>
+        <!-- Variations -->
+        <section class="section">
+            <h2 class="section__title">Variations</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Multiple Selection</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <select class="select" multiple size="6">
+                                <option>JavaScript</option>
+                                <option selected>TypeScript</option>
+                                <option>Python</option>
+                                <option selected>React</option>
+                                <option>Vue</option>
+                                <option>Angular</option>
+                            </select>
+                        </div>
+                        <p class="text-muted">Ctrl/Cmd + Click으로 여러 항목 선택</p>
 
-    <!-- Multiple Select & Option Groups -->
-    <h2>Multiple Select & Option Groups</h2>
-    <p>여러 옵션 선택과 그룹 구성</p>
-    
-    <div class="select-special">
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Multiple Selection</h3>
-            </div>
-            <div class="card__body">
-                <select class="select" multiple size="6">
-                    <option>JavaScript</option>
-                    <option selected>TypeScript</option>
-                    <option>Python</option>
-                    <option selected>React</option>
-                    <option>Vue</option>
-                    <option>Angular</option>
-                </select>
-                <p class="help-text">Ctrl/Cmd + Click으로 여러 항목 선택</p>
-                <code class="code-inline">multiple size="6"</code>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">Grouped Options</h3>
-            </div>
-            <div class="card__body">
-                <select class="select">
-                    <option>Select Technology</option>
-                    <optgroup label="Frontend">
-                        <option>React</option>
-                        <option>Vue</option>
-                        <option>Angular</option>
-                    </optgroup>
-                    <optgroup label="Backend">
-                        <option>Node.js</option>
-                        <option>Python</option>
-                        <option>Java</option>
-                    </optgroup>
-                    <optgroup label="Database">
-                        <option>MySQL</option>
-                        <option>PostgreSQL</option>
-                        <option>MongoDB</option>
-                    </optgroup>
-                </select>
-                <code class="code-inline">&lt;optgroup&gt;</code>
-            </div>
-        </div>
-    </div>
-
-    <!-- Select Group -->
-    <h2>Select with Addons</h2>
-    <p>추가 요소가 포함된 선택 컴포넌트</p>
-    
-    <div class="select-addons">
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">With Prepend</h3>
-            </div>
-            <div class="card__body">
-                <div class="select-group">
-                    <span class="select-group__prepend">Category</span>
-                    <select class="select">
-                        <option>Choose...</option>
-                        <option>Technology</option>
-                        <option>Business</option>
-                    </select>
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;select class="select" multiple size="6"&gt;
+  &lt;option&gt;JavaScript&lt;/option&gt;
+  &lt;option selected&gt;TypeScript&lt;/option&gt;
+  &lt;option&gt;Python&lt;/option&gt;
+  &lt;option selected&gt;React&lt;/option&gt;
+  &lt;option&gt;Vue&lt;/option&gt;
+  &lt;option&gt;Angular&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
                 </div>
-                <code class="code-inline">.select-group__prepend</code>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card__header">
-                <h3 class="card__title">With Append</h3>
-            </div>
-            <div class="card__body">
-                <div class="select-group">
-                    <select class="select">
-                        <option>Select timezone</option>
-                        <option>UTC+09:00</option>
-                        <option>UTC+00:00</option>
-                    </select>
-                    <span class="select-group__append">KST</span>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Grouped Options</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <select class="select">
+                                <option>Select Technology</option>
+                                <optgroup label="Frontend">
+                                    <option>React</option>
+                                    <option>Vue</option>
+                                    <option>Angular</option>
+                                </optgroup>
+                                <optgroup label="Backend">
+                                    <option>Node.js</option>
+                                    <option>Python</option>
+                                    <option>Java</option>
+                                </optgroup>
+                                <optgroup label="Database">
+                                    <option>MySQL</option>
+                                    <option>PostgreSQL</option>
+                                    <option>MongoDB</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;select class="select"&gt;
+  &lt;option&gt;Select Technology&lt;/option&gt;
+  &lt;optgroup label="Frontend"&gt;
+    &lt;option&gt;React&lt;/option&gt;
+    &lt;option&gt;Vue&lt;/option&gt;
+    &lt;option&gt;Angular&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label="Backend"&gt;
+    &lt;option&gt;Node.js&lt;/option&gt;
+    &lt;option&gt;Python&lt;/option&gt;
+    &lt;option&gt;Java&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
                 </div>
-                <code class="code-inline">.select-group__append</code>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Select with Icon</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="select-wrapper">
+                                <select class="select">
+                                    <option>Choose country...</option>
+                                    <option>🇰🇷 Korea</option>
+                                    <option>🇺🇸 United States</option>
+                                    <option>🇯🇵 Japan</option>
+                                    <option>🇨🇳 China</option>
+                                </select>
+                            </div>
+                        </div>
+                        <code class="code-inline">Icons in options</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Select with Prefix/Suffix</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="select-group">
+                                <span class="select-group__prepend">Category</span>
+                                <select class="select">
+                                    <option>Choose...</option>
+                                    <option>Technology</option>
+                                    <option>Business</option>
+                                    <option>Design</option>
+                                </select>
+                            </div>
+
+                            <div class="select-group mt20">
+                                <select class="select">
+                                    <option>Select timezone</option>
+                                    <option>UTC+09:00</option>
+                                    <option>UTC+00:00</option>
+                                    <option>UTC-05:00</option>
+                                </select>
+                                <span class="select-group__append">KST</span>
+                            </div>
+                        </div>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div class="select-group"&gt;
+  &lt;span class="select-group__prepend"&gt;Category&lt;/span&gt;
+  &lt;select class="select"&gt;
+    &lt;option&gt;Choose...&lt;/option&gt;
+    &lt;option&gt;Technology&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Properties -->
-    <h2>Properties</h2>
-    <table class="props-table">
-        <thead>
-            <tr>
-                <th>Class</th>
-                <th>Description</th>
-                <th>Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><span class="props-table__name">.select</span></td>
-                <td>Base select class</td>
-                <td>All select elements</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--xs</span></td>
-                <td>Extra small size</td>
-                <td>Compact UI</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--sm</span></td>
-                <td>Small size</td>
-                <td>Reduced height</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--md</span></td>
-                <td>Medium size (default)</td>
-                <td>Standard forms</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--lg</span></td>
-                <td>Large size</td>
-                <td>Prominent UI</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--xl</span></td>
-                <td>Extra large size</td>
-                <td>Hero sections</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--success</span></td>
-                <td>Success state</td>
-                <td>Valid input</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--warning</span></td>
-                <td>Warning state</td>
-                <td>Attention needed</td>
-            </tr>
-            <tr>
-                <td><span class="props-table__name">.select--error</span></td>
-                <td>Error state</td>
-                <td>Invalid input</td>
-            </tr>
-        </tbody>
-    </table>
+        <!-- Form Integration -->
+        <section class="section">
+            <h2 class="section__title">Form Integration</h2>
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Select in Form Groups</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper" style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Form Group with Label -->
+                        <div class="form-group">
+                            <label for="country-select" class="form-group__label">Country *</label>
+                            <select class="select" id="country-select" required>
+                                <option value="">Select your country...</option>
+                                <option value="kr">Korea</option>
+                                <option value="us">United States</option>
+                                <option value="jp">Japan</option>
+                            </select>
+                            <span class="form-group__help">Please select your country of residence.</span>
+                        </div>
 
-    <!-- Accessibility -->
-    <h2>Accessibility</h2>
-    <div class="accessibility-section">
-        <ul>
-            <li>✅ Always use <code>&lt;label&gt;</code> elements with select inputs</li>
-            <li>✅ Use <code>aria-label</code> when labels aren't visible</li>
-            <li>✅ Provide <code>aria-describedby</code> for help text</li>
-            <li>✅ Use <code>required</code> attribute for mandatory fields</li>
-            <li>✅ Group related options with <code>&lt;optgroup&gt;</code></li>
-            <li>✅ Ensure keyboard navigation works properly</li>
-            <li>✅ Provide clear default options</li>
-        </ul>
+                        <!-- Form Group with Error -->
+                        <div class="form-group">
+                            <label for="department-select" class="form-group__label">Department *</label>
+                            <select class="select select--error" id="department-select" required aria-invalid="true" aria-describedby="department-error">
+                                <option value="">Choose department...</option>
+                                <option value="dev">Development</option>
+                                <option value="design">Design</option>
+                                <option value="marketing">Marketing</option>
+                            </select>
+                            <span class="form-group__error" id="department-error">Please select a department.</span>
+                        </div>
+
+                        <!-- Form Group with Success -->
+                        <div class="form-group">
+                            <label for="skill-select" class="form-group__label">Skills</label>
+                            <select class="select select--success" id="skill-select" multiple size="4" aria-describedby="skill-success">
+                                <option value="js" selected>JavaScript</option>
+                                <option value="ts" selected>TypeScript</option>
+                                <option value="react">React</option>
+                                <option value="vue">Vue</option>
+                            </select>
+                            <span class="form-group__success" style="color: var(--ds-success); font-size: var(--ds-text-xs);" id="skill-success">Great selection of skills!</span>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="form-group"&gt;
+  &lt;label for="country-select" class="form-group__label"&gt;Country *&lt;/label&gt;
+  &lt;select class="select" id="country-select" required&gt;
+    &lt;option value=""&gt;Select your country...&lt;/option&gt;
+    &lt;option value="kr"&gt;Korea&lt;/option&gt;
+    &lt;option value="us"&gt;United States&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;span class="form-group__help"&gt;Please select your country of residence.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>ARIA Attributes</h3>
+                    <p>선택 컴포넌트는 다음과 같은 접근성 기능을 지원합니다:</p>
+                    <ul>
+                        <li><code>aria-label</code> - 보이지 않는 레이블이 필요한 경우</li>
+                        <li><code>aria-describedby</code> - 도움말 텍스트나 오류 메시지 연결</li>
+                        <li><code>aria-invalid</code> - 선택 오류 상태 표시</li>
+                        <li><code>aria-required</code> - 필수 선택 필드 표시</li>
+                        <li><code>aria-multiselectable</code> - 다중 선택 가능 여부</li>
+                    </ul>
+
+                    <h3>Keyboard Support</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>다음 폼 요소로 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>↑</kbd> / <kbd>↓</kbd></td>
+                                <td>옵션 간 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Enter</kbd></td>
+                                <td>현재 옵션 선택</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Space</kbd></td>
+                                <td>드롭다운 열기/닫기</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Home</kbd> / <kbd>End</kbd></td>
+                                <td>첫 번째/마지막 옵션으로 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Ctrl + Click</kbd></td>
+                                <td>다중 선택 모드에서 개별 선택</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li>모든 select 요소에는 연관된 <code>&lt;label&gt;</code> 요소가 있어야 합니다</li>
+                        <li>필수 필드는 <code>required</code> 속성과 함께 시각적 표시를 제공합니다</li>
+                        <li>관련 옵션은 <code>&lt;optgroup&gt;</code>으로 그룹화합니다</li>
+                        <li>첫 번째 옵션은 명확한 지시문을 제공합니다 (예: "선택하세요...")</li>
+                        <li>충분한 색상 대비를 유지합니다 (WCAG 2.1 AA 기준)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.select</code></td>
+                                <td>Base select class</td>
+                                <td>All select elements</td>
+                            </tr>
+                            <tr>
+                                <td><code>.select--{size}</code></td>
+                                <td>Select size</td>
+                                <td>xs, sm, lg, xl</td>
+                            </tr>
+                            <tr>
+                                <td><code>.select--success</code></td>
+                                <td>Success state</td>
+                                <td>Valid selection</td>
+                            </tr>
+                            <tr>
+                                <td><code>.select--warning</code></td>
+                                <td>Warning state</td>
+                                <td>Attention needed</td>
+                            </tr>
+                            <tr>
+                                <td><code>.select--error</code></td>
+                                <td>Error state</td>
+                                <td>Invalid selection</td>
+                            </tr>
+                            <tr>
+                                <td><code>.select-group</code></td>
+                                <td>Group wrapper</td>
+                                <td>Select with addons</td>
+                            </tr>
+                            <tr>
+                                <td><code>.select-group__prepend</code></td>
+                                <td>Prepend element</td>
+                                <td>Before select</td>
+                            </tr>
+                            <tr>
+                                <td><code>.select-group__append</code></td>
+                                <td>Append element</td>
+                                <td>After select</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>HTML Attributes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>multiple</code></td>
+                                <td>Enable multiple selection</td>
+                                <td><code>&lt;select multiple&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>size</code></td>
+                                <td>Number of visible options</td>
+                                <td><code>&lt;select size="5"&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>disabled</code></td>
+                                <td>Disable select</td>
+                                <td><code>&lt;select disabled&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>required</code></td>
+                                <td>Make field required</td>
+                                <td><code>&lt;select required&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>selected</code></td>
+                                <td>Pre-select option</td>
+                                <td><code>&lt;option selected&gt;</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>항상 명확한 레이블 제공</li>
+                                <li>첫 번째 옵션으로 명확한 지시문 제공</li>
+                                <li>관련 옵션은 optgroup으로 그룹화</li>
+                                <li>적절한 기본값 설정 (필요한 경우)</li>
+                                <li>옵션 수가 많은 경우 검색 기능 고려</li>
+                                <li>모바일에서 native select 활용</li>
+                                <li>필수 필드 명확하게 표시</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>너무 많은 옵션 나열 (7±2 규칙)</li>
+                                <li>불명확하거나 모호한 옵션 텍스트</li>
+                                <li>중요한 선택을 기본값으로 설정</li>
+                                <li>비슷한 옵션을 섞어서 배치</li>
+                                <li>긴 옵션 텍스트 사용</li>
+                                <li>select를 navigation으로 사용</li>
+                                <li>다중 선택을 과도하게 사용</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    
-    <style>
-    /* Select Page Specific Styles */
-    .select-examples {display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:var(--ds-space-4); margin:var(--ds-space-6) 0;}
-    @media (min-width:768px) {
-        .select-examples {grid-template-columns:repeat(2, 1fr);}
-    }
-    
-    .select-sizes {margin:var(--ds-space-6) 0;}
-    .size-examples {display:flex; flex-direction:column; gap:var(--ds-space-4);}
-    .size-example {display:flex; align-items:center; gap:var(--ds-space-4);}
-    .size-example .select {flex:1; max-width:400px;}
-    .size-example .code-inline {min-width:100px; font-size:var(--ds-text-xs); color:var(--ds-gray-600);}
-    
-    .select-states {display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:var(--ds-space-4); margin:var(--ds-space-6) 0;}
-    @media (min-width:768px) {
-        .select-states {grid-template-columns:repeat(2, 1fr);}
-    }
-    
-    .select-special {display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:var(--ds-space-4); margin:var(--ds-space-6) 0;}
-    @media (min-width:768px) {
-        .select-special {grid-template-columns:repeat(2, 1fr);}
-    }
-    
-    .select-addons {display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:var(--ds-space-4); margin:var(--ds-space-6) 0;}
-    @media (min-width:768px) {
-        .select-addons {grid-template-columns:repeat(2, 1fr);}
-    }
-    
-    .card__body {display:flex; flex-direction:column; gap:var(--ds-space-3);}
-    .card__body .select {width:100%;}
-    .code-inline {display:inline-block; padding:var(--ds-space-1) var(--ds-space-2); background:var(--ds-gray-100); border-radius:var(--ds-radius-sm); font-family:var(--ds-font-mono); font-size:var(--ds-text-xs); color:var(--ds-gray-700);}
-    
-    .help-text {margin-top:var(--ds-space-2); font-size:var(--ds-text-sm); color:var(--ds-gray-600);}
-    
-    /* Props Table */
-    .props-table {width:100%; border-collapse:collapse; margin:var(--ds-space-6) 0;}
-    .props-table thead {background:var(--ds-gray-50); border-bottom:2px solid var(--ds-gray-200);}
-    .props-table th {padding:var(--ds-space-3) var(--ds-space-4); text-align:left; font-weight:var(--ds-font-semibold); font-size:var(--ds-text-sm); color:var(--ds-gray-700);}
-    .props-table tbody tr {border-bottom:1px solid var(--ds-gray-100);}
-    .props-table tbody tr:hover {background:var(--ds-gray-50);}
-    .props-table td {padding:var(--ds-space-3) var(--ds-space-4); font-size:var(--ds-text-sm);}
-    .props-table__name {font-family:var(--ds-font-mono); font-size:var(--ds-text-sm); color:var(--ds-black); background:var(--ds-gray-100); padding:var(--ds-space-1) var(--ds-space-2); border-radius:var(--ds-radius-sm);}
-    
-    /* Accessibility Section */
-    .accessibility-section {background:var(--ds-gray-50); border-radius:var(--ds-radius-lg); padding:var(--ds-space-4); margin:var(--ds-space-6) 0;}
-    .accessibility-section ul {list-style:none; padding:0; margin:0;}
-    .accessibility-section li {padding:var(--ds-space-2) 0; border-bottom:1px solid var(--ds-gray-100);}
-    .accessibility-section li:last-child {border-bottom:none;}
-    .accessibility-section code {background:var(--ds-white); padding:var(--ds-space-1) var(--ds-space-2); border-radius:var(--ds-radius-sm); font-family:var(--ds-font-mono); font-size:var(--ds-text-xs);}
-    </style>
-</div>
-</div>
 </body>
 </html>

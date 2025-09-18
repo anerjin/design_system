@@ -13,7 +13,12 @@
       "Bash(do)",
       "Bash(sed:*)",
       "Bash(done)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "WebFetch(domain:adrianroselli.com)",
+      "WebFetch(domain:www.sarasoueidan.com)",
+      "WebFetch(domain:scottaohara.github.io)",
+      "Bash(del \"E:\\github\\design_system\\private_project_design_system\\bricks\\js\\components\\checkbox-simplified.js\")",
+      "WebFetch(domain:boxicons.com)"
     ],
     "deny": [],
     "ask": []

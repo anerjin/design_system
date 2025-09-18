@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template - BRICKS Design System</title>
+</head>
+<body>
+    <div class="vp-doc">
+        <!-- Page Header -->
+        <header class="header">
+            <h1 class="header__title">Component Template</h1>
+            <p class="header__description">
+                BRICKS Design System의 컴포넌트 페이지를 위한 표준 템플릿입니다. 일관성 있는 문서화와 예제 표시를 위해 이 템플릿을 사용하세요.
+            </p>
+        </header>
+
+        <!-- Basic Usage Section -->
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Default Example</h3>
+                </div>
+                <div class="card__body">
+                    <!-- Component Example Here -->
+                    <div class="example-wrapper">
+                        <!-- Your component markup -->
+                    </div>
+
+                    <!-- Code Example -->
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;!-- Component HTML --&gt;
+&lt;div class="component"&gt;
+    Example markup
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variations Section -->
+        <section class="section">
+            <h2 class="section__title">Variations</h2>
+
+            <!-- Multiple Cards for Different Variations -->
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Variation 1</h3>
+                    </div>
+                    <div class="card__body">
+                        <!-- Variation example -->
+                        <div class="example-wrapper">
+                            <!-- Component variation -->
+                        </div>
+                        <code class="code-inline">.modifier-class</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Variation 2</h3>
+                    </div>
+                    <div class="card__body">
+                        <!-- Variation example -->
+                        <div class="example-wrapper">
+                            <!-- Component variation -->
+                        </div>
+                        <code class="code-inline">.modifier-class-2</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sizes Section (Optional) -->
+        <section class="section">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <!-- Small size example -->
+                        <code class="code-inline">.component--sm</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
+                        <!-- Default size example -->
+                        <p class="text-muted">Default size</p>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <!-- Large size example -->
+                        <code class="code-inline">.component--lg</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- States Section -->
+        <section class="section">
+            <h2 class="section__title">States</h2>
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Interactive States</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-states">
+                        <!-- Different state examples -->
+                        <div class="state-example">
+                            <h4>Normal</h4>
+                            <!-- Normal state -->
+                        </div>
+                        <div class="state-example">
+                            <h4>Hover</h4>
+                            <!-- Hover state -->
+                        </div>
+                        <div class="state-example">
+                            <h4>Active</h4>
+                            <!-- Active state -->
+                        </div>
+                        <div class="state-example">
+                            <h4>Disabled</h4>
+                            <!-- Disabled state -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>ARIA Attributes</h3>
+                    <p>This component implements the following accessibility features:</p>
+                    <ul>
+                        <li><code>aria-label</code> - Provides accessible name</li>
+                        <li><code>role</code> - Defines semantic role</li>
+                        <li><code>aria-current</code> - Indicates current state</li>
+                        <li><code>aria-disabled</code> - Indicates disabled state</li>
+                    </ul>
+
+                    <h3>Keyboard Support</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>Navigate between focusable elements</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Enter</kbd></td>
+                                <td>Activate the focused element</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Space</kbd></td>
+                                <td>Activate buttons and checkboxes</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Esc</kbd></td>
+                                <td>Close or cancel the current operation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Properties & Classes</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class/Property</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.component</code></td>
+                                <td>Base component class</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.component--{size}</code></td>
+                                <td>Size modifier</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.component--{variant}</code></td>
+                                <td>Style variant</td>
+                                <td>primary, secondary</td>
+                            </tr>
+                            <tr>
+                                <td><code>data-component</code></td>
+                                <td>JavaScript initialization</td>
+                                <td>Required for JS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>JavaScript Methods</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>init()</code></td>
+                                <td>-</td>
+                                <td>Initialize all components</td>
+                            </tr>
+                            <tr>
+                                <td><code>destroy()</code></td>
+                                <td>element</td>
+                                <td>Remove component instance</td>
+                            </tr>
+                            <tr>
+                                <td><code>update()</code></td>
+                                <td>options</td>
+                                <td>Update component options</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Events</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Description</th>
+                                <th>Event Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>component:init</code></td>
+                                <td>Fired when component initializes</td>
+                                <td><code>{ element }</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>component:change</code></td>
+                                <td>Fired when state changes</td>
+                                <td><code>{ oldValue, newValue }</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>component:destroy</code></td>
+                                <td>Fired when component is destroyed</td>
+                                <td><code>{ element }</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>Use semantic HTML elements</li>
+                                <li>Provide appropriate ARIA labels</li>
+                                <li>Ensure keyboard accessibility</li>
+                                <li>Test with screen readers</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>Rely solely on color to convey information</li>
+                                <li>Remove focus indicators</li>
+                                <li>Use placeholder text as labels</li>
+                                <li>Forget to test on mobile devices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

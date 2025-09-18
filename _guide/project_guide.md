@@ -109,18 +109,53 @@ BRICKS는 "벽돌"처럼 견고하고 재사용 가능한 컴포넌트를 조립
 
 ## 기술 방법론
 
-### 1. 컴포넌트 개발 프로세스
+### 1. 페이지 동작 구조
+
+#### 1.1 Single Page Application (SPA) 구조
+```
+index.html (메인 페이지)
+├── 전역 CSS 로드 (layout/css/index.css)
+├── 전역 JavaScript 로드
+│   ├── layout/js/theme-toggle.js
+│   └── bricks/js/bricks_loader.js
+└── iframe으로 개별 페이지 로드
+    └── pages/elements/checkbox.html (예시)
+```
+
+#### 1.2 JavaScript 로딩 계층
+```
+[Level 1: index.html]
+    ↓
+bricks/js/bricks_loader.js (또는 bricks_core.js)
+    ↓
+[Level 2: Component Scripts]
+    ├── components/dropdown.js
+    ├── components/modal.js
+    ├── components/toggle.js
+    ├── components/checkbox.js ← Select All, Indeterminate 기능
+    ├── components/radio.js
+    └── ... 기타 컴포넌트
+```
+
+#### 1.3 중요 원칙
+- **절대 개별 페이지(pages/*.html)에서 JavaScript 로드 금지**
+- 모든 JavaScript는 index.html에서 전역으로 로드
+- 개별 페이지는 순수 HTML/CSS와 인라인 스크립트만 포함
+- BRICKS 객체는 전역(window.BRICKS)에서 접근
+
+### 2. 컴포넌트 개발 프로세스
 
 ```mermaid
 graph LR
     A[디자인 스펙] --> B[HTML 구조]
     B --> C[CSS 스타일]
     C --> D[접근성 검증]
-    D --> E[반응형 테스트]
-    E --> F[프레임워크 포팅]
+    D --> E[JavaScript 동작]
+    E --> F[반응형 테스트]
+    F --> G[프레임워크 포팅]
 ```
 
-### 2. 파일 구조 전략
+### 3. 파일 구조 전략
 
 ```
 bricks/
@@ -175,14 +210,16 @@ bricks/
 ### Phase 2: Core Components (Week 3-4)
 - [ ] **Atoms 개발**
   - [ ] Button (기본, 아이콘, 로딩 상태)
-  - [ ] Input (텍스트, 체크박스, 라디오)
+  - [x] Checkbox (Native HTML + Select All, Indeterminate)
+  - [x] Radio (Native HTML + Roving Tabindex)
+  - [ ] Input (텍스트 필드)
   - [ ] Badge, Label, Tag
   - [ ] Icon System
-- [ ] **Molecules 개발**
-  - [ ] Card
+- [x] **Molecules 개발**
+  - [x] Card
   - [ ] Form Group
-  - [ ] Dropdown
-  - [ ] Alert
+  - [x] Dropdown
+  - [x] Alert
 
 ### Phase 3: Complex Components (Week 5-6)
 - [ ] **Organisms 개발**
@@ -238,21 +275,47 @@ bricks/
 
 ## 프레임워크 통합 계획
 
-### 1. Vanilla JavaScript
+### 1. JavaScript 아키텍처
+
+#### 1.1 로더 시스템
 ```javascript
-// bricks.js - 순수 JS 구현
-class BricksButton {
-  constructor(element, options) {
-    this.element = element;
-    this.options = { ...defaultOptions, ...options };
-    this.init();
-  }
-  
-  init() {
-    this.bindEvents();
-    this.applyStyles();
-  }
-}
+// bricks_loader.js - 컴포넌트 동적 로딩
+const components = [
+    'components/dropdown.js',
+    'components/modal.js',
+    'components/checkbox.js',  // Select All, Indeterminate 기능
+    'components/radio.js',     // Roving Tabindex
+    // ... 기타 컴포넌트
+];
+
+// 순차 로딩 후 초기화
+loadScripts(components, () => {
+    BRICKS.init(); // 모든 컴포넌트 초기화
+});
+```
+
+#### 1.2 컴포넌트 구조
+```javascript
+// components/checkbox.js - IIFE 패턴
+(function(global) {
+    "use strict";
+
+    global.BRICKS = global.BRICKS || {};
+
+    global.BRICKS.Checkbox = {
+        init: function() {
+            // Select All 패턴 초기화
+            this.initSelectAll();
+            // Indeterminate 상태 처리
+            this.initIndeterminate();
+        },
+
+        // API 메서드들
+        setChecked: function(selector, checked) {},
+        setIndeterminate: function(selector, indeterminate) {},
+        getCheckedValues: function(groupSelector) {}
+    };
+})(window);
 ```
 
 ### 2. React 컴포넌트
@@ -395,27 +458,7 @@ const StyledButton = styled.button`
 https://tairo.cssninja.io/dashboards
 ---
 
-*Last Updated: 2025.01.11*
+*Last Updated: 2025.01.18*
 
 
 
-
-  아직 생성되지 않은 페이지들:
-  - Elements: checkbox, radio, toggle, avatar, progress, spinner
-  - Components: alert, card, modal, dropdown, tabs, accordion, pagination, breadcrumb, navbar, table
-  - Layout: grid, container, flexbox
-  - Utilities: display, position, overflow
-
-
-
-
-
-명령 예제.
-pages/elements/spinner.html 을 수정하는데 대칭되는 css 파일을 찾고 대칭되는 css의 변수값이 잘못되어 있으면 수정해 주고
-예제에 필요한 ui는 html파일 안에 작성해
-
-문제가 있을경우만 대칭되는 파일을 수정하고 그렇지 않는 경우는 수정하지마.
-
-_guide/brick_detail_make.md 을 참조하고 
-
-예제를 만드는데 pages/components/card.html 의 요소를 적절히 사용하면 좋겠어.

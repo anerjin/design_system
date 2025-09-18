@@ -10,7 +10,7 @@
 .radio__input:checked ~ .radio__circle {border-color:var(--ds-prime);}
 .radio__dot {display:none; position:absolute; top:50%; left:50%; width:8px; height:8px; border-radius:50%; background-color:var(--ds-prime); transform:translate(-50%, -50%);}
 .radio__input:checked ~ .radio__circle .radio__dot {display:block;}
-.radio__label {margin-left:var(--ds-space-2); color:var(--ds-text-primary); font-size:var(--ds-text-base);}
+.radio__label {margin-left:var(--ds-space-2); font-size:var(--ds-text-base);}
 
 /* Radio States */
 .radio__input:focus-visible ~ .radio__circle {box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
@@ -34,6 +34,8 @@
 .radio--danger .radio__input:checked ~ .radio__circle .radio__dot {background-color:var(--ds-color-danger);}
 .radio--info .radio__input:checked ~ .radio__circle {border-color:var(--ds-color-info);}
 .radio--info .radio__input:checked ~ .radio__circle .radio__dot {background-color:var(--ds-color-info);}
+.radio--dark .radio__input:checked ~ .radio__circle {border-color:var(--ds-gray-900);}
+.radio--dark .radio__input:checked ~ .radio__circle .radio__dot {background-color:var(--ds-gray-900);}
 
 /* Radio Group */
 .radio-group {display:flex; flex-direction:column; gap:var(--ds-space-3);}

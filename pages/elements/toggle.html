@@ -16,40 +16,46 @@
 
         <!-- Basic Usage -->
         <section class="section">
-            <div class="card">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h2 class="card__title">Basic Usage</h2>
+                    <h3 class="card__title">Default Example</h3>
                 </div>
                 <div class="card__body">
                     <div class="demo-toggles">
-                        <button class="toggle" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
                         </button>
                     </div>
-                    <pre class="code-block"><code>&lt;button class="toggle" onclick="this.classList.toggle('toggle--active')"&gt;
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+<pre><code class="language-html">&lt;button class="toggle" onclick="this.classList.toggle('toggle--active')"&gt;
     &lt;span class="toggle__track"&gt;
         &lt;span class="toggle__thumb"&gt;&lt;/span&gt;
     &lt;/span&gt;
 &lt;/button&gt;</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
-        <!-- Toggle States -->
+        <!-- States -->
         <section class="section">
-            <h2 class="section__title">Toggle States</h2>
+            <h2 class="section__title">States</h2>
             <p>다양한 상태의 토글 스위치</p>
 
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
                     <h3 class="card__title">Interactive States</h3>
                 </div>
                 <div class="card__body">
                     <div class="states-list">
                         <div class="toggle-wrapper">
-                            <button class="toggle" onclick="this.classList.toggle('toggle--active')">
+                            <button class="toggle">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
@@ -58,7 +64,7 @@
                         </div>
 
                         <div class="toggle-wrapper">
-                            <button class="toggle toggle--active" onclick="this.classList.toggle('toggle--active')">
+                            <button class="toggle toggle--active">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
@@ -88,61 +94,73 @@
             </div>
         </section>
 
-        <!-- Toggle Sizes -->
+        <!-- Sizes -->
         <section class="section">
-            <h2 class="section__title">Toggle Sizes</h2>
-            <p>다양한 크기의 토글 스위치</p>
-
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">Size Variations</h3>
-                </div>
-                <div class="card__body">
-                    <div class="sizes-list">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
                         <div class="toggle-wrapper">
-                            <button class="toggle toggle--sm toggle--active" onclick="this.classList.toggle('toggle--active')">
+                            <button class="toggle toggle--sm toggle--active">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
                             </button>
                             <span class="toggle__label">Small</span>
-                            <code class="code-inline">.toggle--sm</code>
                         </div>
+                        <code class="code-inline">.toggle--sm</code>
+                    </div>
+                </div>
 
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
                         <div class="toggle-wrapper">
-                            <button class="toggle toggle--active" onclick="this.classList.toggle('toggle--active')">
+                            <button class="toggle toggle--active">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
                             </button>
                             <span class="toggle__label">Medium (Default)</span>
-                            <code class="code-inline">default</code>
                         </div>
+                        <p class="text-muted">Default size</p>
+                    </div>
+                </div>
 
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
                         <div class="toggle-wrapper">
-                            <button class="toggle toggle--lg toggle--active" onclick="this.classList.toggle('toggle--active')">
+                            <button class="toggle toggle--lg toggle--active">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
                             </button>
                             <span class="toggle__label">Large</span>
-                            <code class="code-inline">.toggle--lg</code>
                         </div>
+                        <code class="code-inline">.toggle--lg</code>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Toggle Variants -->
+        <!-- Variations -->
         <section class="section">
-            <h2 class="section__title">Toggle Variants</h2>
+            <h2 class="section__title">Variations</h2>
             <div class="card-group card-group--cols-4">
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Primary</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
@@ -151,12 +169,12 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Success</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--success toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--success toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
@@ -165,12 +183,12 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Warning</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--warning toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--warning toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
@@ -179,12 +197,12 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Danger</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--danger toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--danger toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
@@ -193,12 +211,12 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Info</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--info toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--info toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
@@ -207,12 +225,12 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Purple</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--purple toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--purple toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
@@ -221,12 +239,12 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Pink</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--pink toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--pink toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
@@ -235,17 +253,31 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Mint</h3>
                     </div>
                     <div class="card__body">
-                        <button class="toggle toggle--mint toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--mint toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb"></span>
                             </span>
                         </button>
                         <code class="code-inline">.toggle--mint</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark</h3>
+                    </div>
+                    <div class="card__body">
+                        <button class="toggle toggle--dark toggle--active">
+                            <span class="toggle__track">
+                                <span class="toggle__thumb"></span>
+                            </span>
+                        </button>
+                        <code class="code-inline">.toggle--dark</code>
                     </div>
                 </div>
             </div>
@@ -254,7 +286,7 @@
         <!-- Advanced Examples -->
         <section class="section">
             <h2 class="section__title">Advanced Examples</h2>
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
                     <h3 class="card__title">Toggle with Labels</h3>
                 </div>
@@ -262,7 +294,7 @@
                     <div class="toggle-group">
                         <div class="toggle-item">
                             <label for="notifications">Enable notifications</label>
-                            <button class="toggle toggle--success toggle--active" onclick="this.classList.toggle('toggle--active')" id="notifications">
+                            <button class="toggle toggle--success toggle--active" id="notifications">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
@@ -270,7 +302,7 @@
                         </div>
                         <div class="toggle-item">
                             <label for="darkmode">Dark mode</label>
-                            <button class="toggle toggle--info" onclick="this.classList.toggle('toggle--active')" id="darkmode">
+                            <button class="toggle toggle--info" id="darkmode">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
@@ -278,7 +310,7 @@
                         </div>
                         <div class="toggle-item">
                             <label for="autosave">Auto-save</label>
-                            <button class="toggle toggle--warning toggle--active" onclick="this.classList.toggle('toggle--active')" id="autosave">
+                            <button class="toggle toggle--warning toggle--active" id="autosave">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
@@ -286,7 +318,7 @@
                         </div>
                         <div class="toggle-item">
                             <label for="analytics">Analytics tracking</label>
-                            <button class="toggle toggle--purple" onclick="this.classList.toggle('toggle--active')" id="analytics">
+                            <button class="toggle toggle--purple" id="analytics">
                                 <span class="toggle__track">
                                     <span class="toggle__thumb"></span>
                                 </span>
@@ -296,30 +328,46 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card card--gray mt-4">
                 <div class="card__header">
                     <h3 class="card__title">Toggle with Icons</h3>
                 </div>
                 <div class="card__body">
                     <div class="toggle-wrapper">
-                        <button class="toggle toggle--icons toggle--active" onclick="this.classList.toggle('toggle--active')">
+                        <button class="toggle toggle--icons toggle--dark toggle--active">
                             <span class="toggle__track">
                                 <span class="toggle__thumb">
-                                    <span class="toggle__icon toggle__icon--on">✓</span>
-                                    <span class="toggle__icon toggle__icon--off">✕</span>
+                                    <span class="toggle__icon toggle__icon--on">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="toggle__icon toggle__icon--off">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="5"></circle>
+                                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                        </svg>
+                                    </span>
                                 </span>
                             </span>
                         </button>
-                        <span class="toggle__label">Show/Hide icons</span>
+                        <span class="toggle__label">Dark/Light Mode</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Properties Table -->
+        <!-- API Reference -->
         <section class="section">
-            <h2 class="section__title">Properties</h2>
-            <div class="card">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
                 <div class="card__body">
                     <table class="properties-table">
                         <thead>
@@ -374,6 +422,10 @@
                                 <td>Mint color variant</td>
                             </tr>
                             <tr>
+                                <td><code>.toggle--dark</code></td>
+                                <td>Dark color variant</td>
+                            </tr>
+                            <tr>
                                 <td><code>.toggle--icons</code></td>
                                 <td>Toggle with icons</td>
                             </tr>
@@ -382,6 +434,147 @@
                 </div>
             </div>
         </section>
+
+        <!-- Accessibility -->
+        <section class="section">
+            <h2 class="section__title">Accessibility</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Keyboard Navigation</h3>
+                </div>
+                <div class="card__body">
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>키</th>
+                                <th>동작</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>Space</code></td>
+                                <td>토글 전환</td>
+                                <td>스위치를 켜거나 끕니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>Enter</code></td>
+                                <td>토글 전환</td>
+                                <td>스위치를 켜거나 끕니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>ArrowRight</code></td>
+                                <td>켜기</td>
+                                <td>스위치가 꺼져있을 때 켭니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>ArrowLeft</code></td>
+                                <td>끄기</td>
+                                <td>스위치가 켜져있을 때 끕니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>Tab</code></td>
+                                <td>포커스 이동</td>
+                                <td>다음 요소로 포커스를 이동합니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>Shift + Tab</code></td>
+                                <td>포커스 역방향 이동</td>
+                                <td>이전 요소로 포커스를 이동합니다</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card card--gray mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">ARIA Attributes</h3>
+                </div>
+                <div class="card__body">
+                    <table class="properties-table">
+                        <thead>
+                            <tr>
+                                <th>속성</th>
+                                <th>값</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>role="switch"</code></td>
+                                <td>switch</td>
+                                <td>요소가 토글 스위치임을 나타냅니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-checked</code></td>
+                                <td>true / false</td>
+                                <td>스위치의 현재 상태를 표시합니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-disabled</code></td>
+                                <td>true / false</td>
+                                <td>스위치의 비활성화 상태를 표시합니다</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-label</code></td>
+                                <td>문자열</td>
+                                <td>스위치의 목적을 설명하는 레이블</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-labelledby</code></td>
+                                <td>ID 참조</td>
+                                <td>연결된 레이블 요소의 ID</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card card--gray mt-4">
+                <div class="card__header">
+                    <h3 class="card__title">Implementation Example</h3>
+                </div>
+                <div class="card__body">
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+<pre><code class="language-html">&lt;!-- 접근성을 준수하는 토글 스위치 --&gt;
+&lt;button class="toggle"
+        role="switch"
+        aria-checked="false"
+        aria-label="알림 설정"&gt;
+    &lt;span class="toggle__track"&gt;
+        &lt;span class="toggle__thumb"&gt;&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- 레이블과 함께 사용하는 경우 --&gt;
+&lt;div class="toggle-wrapper"&gt;
+    &lt;button class="toggle"
+            id="notifications-toggle"
+            role="switch"
+            aria-checked="false"&gt;
+        &lt;span class="toggle__track"&gt;
+            &lt;span class="toggle__thumb"&gt;&lt;/span&gt;
+        &lt;/span&gt;
+    &lt;/button&gt;
+    &lt;label for="notifications-toggle" class="toggle__label"&gt;
+        알림 받기
+    &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript 이벤트 리스너 --&gt;
+&lt;script&gt;
+// toggleChange 커스텀 이벤트 사용
+document.querySelector('.toggle').addEventListener('toggleChange', function(e) {
+    console.log('Toggle state:', e.detail.checked);
+});
+&lt;/script&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
         <style>
             /* Layout styles */
             .header {margin-bottom:32px;}
