@@ -4,8 +4,8 @@
 ======================================== */
 
 /* Base Avatar */
-.avatar {display:inline-flex; justify-content:center; align-items:center; position:relative; width:40px; height:40px; overflow:hidden; border-radius:50%; background-color:var(--ds-gray-200); color:var(--ds-gray-700); font-weight:500;}
-.avatar__image {width:100%; height:100%; object-fit:cover;}
+.avatar {display:inline-flex; justify-content:center; align-items:center; position:relative; width:40px; height:40px; border-radius:50%; background-color:var(--ds-gray-200); color:var(--ds-gray-700); font-weight:500;}
+.avatar__image {width:100%; height:100%; object-fit:cover; border-radius:50%;}
 .avatar__text {font-size:14px; text-transform:uppercase;}
 
 /* Avatar Sizes */
@@ -34,3 +34,21 @@
 .avatar-group .avatar {margin-left:-8px; border:2px solid var(--ds-white);}
 .avatar-group .avatar:first-child {margin-left:0;}
 .avatar-group__more {display:inline-flex; justify-content:center; align-items:center; width:40px; height:40px; margin-left:-8px; border:2px solid var(--ds-white); border-radius:50%; background-color:var(--ds-gray-200); color:var(--ds-gray-600); font-size:12px; font-weight:500;}
+.avatar-group--sm .avatar-group__more {width:32px; height:32px; font-size:11px;}
+.avatar-group--lg .avatar-group__more {width:48px; height:48px; font-size:14px;}
+
+/* Avatar Initial Colors */
+.avatar--initials {background:var(--ds-gray-400);}
+.avatar--initials.avatar--primary {background:var(--ds-black);}
+.avatar--initials.avatar--success {background:var(--ds-color-success);}
+.avatar--initials.avatar--warning {background:var(--ds-color-warning);}
+.avatar--initials.avatar--danger {background:var(--ds-color-danger);}
+.avatar--initials.avatar--info {background:var(--ds-color-info);}
+.avatar--initials .avatar__text {color:var(--ds-white);}
+
+/* User Cards Example */
+.user-cards {display:flex; gap:24px; flex-wrap:wrap;}
+.user-card {display:flex; align-items:center; gap:12px; padding:12px; border:1px solid var(--ds-gray-200); border-radius:8px; min-width:250px;}
+.user-info {display:flex; flex-direction:column; gap:2px;}
+.user-name {font-weight:600; color:var(--ds-gray-900);}
+.user-role {font-size:13px; color:var(--ds-gray-600);}

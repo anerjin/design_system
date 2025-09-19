@@ -4,525 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grid System - BRICKS Design System</title>
-    <link rel="stylesheet" href="../../bricks/css/bricks.css">
 </head>
 <body>
     <div class="vp-doc">
-        <header class="docs__header">
-            <h1 class="docs__title">Grid System</h1>
-            <p class="docs__description">
-                유연하고 반응형인 12 컬럼 그리드 시스템입니다.
+        <header class="header">
+            <h1 class="header__title">Grid System</h1>
+            <p class="header__description">
+                BRICKS의 12 컬럼 그리드는 반응형 레이아웃을 위한 기본 틀을 제공합니다. 템플릿 구조에 맞춰 기본 구성, 브레이크포인트, 정렬 설정을 살펴보세요.
             </p>
         </header>
 
         <section class="section">
-            <h2 class="section__title">Basic Grid</h2>
-            <div class="card">
+            <h2 class="section__title">Basic Structure</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h3 class="card__title">12 컬럼 기본 그리드</h3>
+                    <h3 class="card__title">Column Combinations</h3>
                 </div>
                 <div class="card__body">
-                    <div class="grid">
-                        <div class="grid__col grid__col--12">
-                            <div class="demo-box">12 columns</div>
+                    <p class="text-muted">`.grid` 컨테이너와 `.grid__col--{n}` 클래스를 조합해 원하는 비율의 레이아웃을 구축합니다.</p>
+                    <div class="layout-stack-sm">
+                        <div class="grid grid-demo-surface">
+                            <div class="grid__col grid__col--12"><div class="grid-demo__cell">12</div></div>
+                        </div>
+                        <div class="grid grid-demo-surface">
+                            <div class="grid__col grid__col--6"><div class="grid-demo__cell">6</div></div>
+                            <div class="grid__col grid__col--6"><div class="grid-demo__cell">6</div></div>
+                        </div>
+                        <div class="grid grid-demo-surface">
+                            <div class="grid__col grid__col--4"><div class="grid-demo__cell">4</div></div>
+                            <div class="grid__col grid__col--4"><div class="grid-demo__cell">4</div></div>
+                            <div class="grid__col grid__col--4"><div class="grid-demo__cell">4</div></div>
+                        </div>
+                        <div class="grid grid-demo-surface">
+                            <div class="grid__col grid__col--3"><div class="grid-demo__cell">3</div></div>
+                            <div class="grid__col grid__col--3"><div class="grid-demo__cell">3</div></div>
+                            <div class="grid__col grid__col--3"><div class="grid-demo__cell">3</div></div>
+                            <div class="grid__col grid__col--3"><div class="grid-demo__cell">3</div></div>
                         </div>
                     </div>
-                    <div class="grid" style="margin-top: 8px;">
-                        <div class="grid__col grid__col--6">
-                            <div class="demo-box">6 columns</div>
-                        </div>
-                        <div class="grid__col grid__col--6">
-                            <div class="demo-box">6 columns</div>
-                        </div>
-                    </div>
-                    <div class="grid" style="margin-top: 8px;">
-                        <div class="grid__col grid__col--4">
-                            <div class="demo-box">4 columns</div>
-                        </div>
-                        <div class="grid__col grid__col--4">
-                            <div class="demo-box">4 columns</div>
-                        </div>
-                        <div class="grid__col grid__col--4">
-                            <div class="demo-box">4 columns</div>
-                        </div>
-                    </div>
-                    <div class="grid" style="margin-top: 8px;">
-                        <div class="grid__col grid__col--3">
-                            <div class="demo-box">3</div>
-                        </div>
-                        <div class="grid__col grid__col--3">
-                            <div class="demo-box">3</div>
-                        </div>
-                        <div class="grid__col grid__col--3">
-                            <div class="demo-box">3</div>
-                        </div>
-                        <div class="grid__col grid__col--3">
-                            <div class="demo-box">3</div>
-                        </div>
-                    </div>
-                    <div class="grid" style="margin-top: 8px;">
-                        <div class="grid__col grid__col--2">
-                            <div class="demo-box">2</div>
-                        </div>
-                        <div class="grid__col grid__col--2">
-                            <div class="demo-box">2</div>
-                        </div>
-                        <div class="grid__col grid__col--2">
-                            <div class="demo-box">2</div>
-                        </div>
-                        <div class="grid__col grid__col--2">
-                            <div class="demo-box">2</div>
-                        </div>
-                        <div class="grid__col grid__col--2">
-                            <div class="demo-box">2</div>
-                        </div>
-                        <div class="grid__col grid__col--2">
-                            <div class="demo-box">2</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="grid"&gt;
-    &lt;div class="grid__col grid__col--6"&gt;6 columns&lt;/div&gt;
-    &lt;div class="grid__col grid__col--6"&gt;6 columns&lt;/div&gt;
+                    <details class="code-details mt20">
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;grid&quot;&gt;
+    &lt;div class=&quot;grid__col grid__col--6&quot;&gt;6&lt;/div&gt;
+    &lt;div class=&quot;grid__col grid__col--6&quot;&gt;6&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section__title">Responsive Grid</h2>
-            <div class="card">
+            <h2 class="section__title">Responsive Columns</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h3 class="card__title">반응형 그리드 시스템</h3>
+                    <h3 class="card__title">Breakpoint Overrides</h3>
                 </div>
                 <div class="card__body">
-                    <div class="grid">
-                        <div class="grid__col grid__col--12 grid__col--md-6 grid__col--lg-4">
-                            <div class="demo-box">12 / md:6 / lg:4</div>
+                    <p class="text-muted">`.grid__col--{bp}-{n}` 형태의 클래스를 사용하면 특정 브레이크포인트 이상에서 컬럼 폭을 재정의할 수 있습니다.</p>
+                    <div class="layout-stack-sm">
+                        <div class="grid grid-demo-surface">
+                            <div class="grid__col grid__col--12 grid__col--md-6 grid__col--lg-4"><div class="grid-demo__cell">12 → md:6 → lg:4</div></div>
+                            <div class="grid__col grid__col--12 grid__col--md-6 grid__col--lg-4"><div class="grid-demo__cell">12 → md:6 → lg:4</div></div>
+                            <div class="grid__col grid__col--12 grid__col--md-12 grid__col--lg-4"><div class="grid-demo__cell">12 → md:12 → lg:4</div></div>
                         </div>
-                        <div class="grid__col grid__col--12 grid__col--md-6 grid__col--lg-4">
-                            <div class="demo-box">12 / md:6 / lg:4</div>
-                        </div>
-                        <div class="grid__col grid__col--12 grid__col--md-12 grid__col--lg-4">
-                            <div class="demo-box">12 / md:12 / lg:4</div>
-                        </div>
-                    </div>
-                    <div class="grid" style="margin-top: 16px;">
-                        <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-4 grid__col--lg-3">
-                            <div class="demo-box">Responsive</div>
-                        </div>
-                        <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-4 grid__col--lg-3">
-                            <div class="demo-box">Responsive</div>
-                        </div>
-                        <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-4 grid__col--lg-3">
-                            <div class="demo-box">Responsive</div>
-                        </div>
-                        <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-12 grid__col--lg-3">
-                            <div class="demo-box">Responsive</div>
+                        <div class="grid grid-demo-surface">
+                            <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-4 grid__col--lg-3"><div class="grid-demo__cell">sm:6 / md:4 / lg:3</div></div>
+                            <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-4 grid__col--lg-3"><div class="grid-demo__cell">반응형</div></div>
+                            <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-4 grid__col--lg-3"><div class="grid-demo__cell">반응형</div></div>
+                            <div class="grid__col grid__col--12 grid__col--sm-6 grid__col--md-12 grid__col--lg-3"><div class="grid-demo__cell">lg 이하 전체 폭</div></div>
                         </div>
                     </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="grid"&gt;
-    &lt;div class="grid__col grid__col--12 grid__col--md-6 grid__col--lg-4"&gt;
-        Responsive column
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section__title">Grid Gap</h2>
-            <div class="card">
+            <h2 class="section__title">Gap &amp; Alignment</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Grid Gap Tokens</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">`.grid--gap-*`는 spacing 토큰을 사용해 컬럼과 로우 간격을 조정합니다.</p>
+                        <div class="layout-stack-sm">
+                            <div class="grid grid--gap-0 grid-demo-surface"><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-0</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-0</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-0</div></div></div>
+                            <div class="grid grid--gap-sm grid-demo-surface"><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-sm</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-sm</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-sm</div></div></div>
+                            <div class="grid grid--gap-md grid-demo-surface"><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-md</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-md</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-md</div></div></div>
+                            <div class="grid grid--gap-lg grid-demo-surface"><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-lg</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-lg</div></div><div class="grid__col grid__col--4"><div class="grid-demo__cell">gap-lg</div></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Justify &amp; Align</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">`.grid--justify-*`와 `.grid--align-*`로 그리드 내 아이템 정렬을 제어합니다.</p>
+                        <div class="layout-stack-sm">
+                            <div class="grid grid--justify-start grid-demo-surface"><div class="grid__col grid__col--3"><div class="grid-demo__cell">Start</div></div><div class="grid__col grid__col--3"><div class="grid-demo__cell">Start</div></div><div class="grid__col grid__col--3"><div class="grid-demo__cell">Start</div></div></div>
+                            <div class="grid grid--justify-center grid-demo-surface"><div class="grid__col grid__col--3"><div class="grid-demo__cell">Center</div></div><div class="grid__col grid__col--3"><div class="grid-demo__cell">Center</div></div></div>
+                            <div class="grid grid--justify-between grid-demo-surface"><div class="grid__col grid__col--3"><div class="grid-demo__cell">Between</div></div><div class="grid__col grid__col--3"><div class="grid-demo__cell">Between</div></div><div class="grid__col grid__col--3"><div class="grid-demo__cell">Between</div></div></div>
+                            <div class="grid grid--align-center grid-demo-surface" style="min-height:140px;">
+                                <div class="grid__col grid__col--4"><div class="grid-demo__cell" style="height:48px;">Align</div></div>
+                                <div class="grid__col grid__col--4"><div class="grid-demo__cell" style="height:80px;">Align</div></div>
+                                <div class="grid__col grid__col--4"><div class="grid-demo__cell" style="height:32px;">Align</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Layout Pattern</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h3 class="card__title">그리드 간격 설정</h3>
+                    <h3 class="card__title">Card Grid Example</h3>
                 </div>
                 <div class="card__body">
-                    <div>
-                        <h4>No Gap (Default)</h4>
-                        <div class="grid">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">No gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">No gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">No gap</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 24px;">
-                        <h4>Small Gap (8px)</h4>
-                        <div class="grid grid--gap-sm">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Small gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Small gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Small gap</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 24px;">
-                        <h4>Medium Gap (16px)</h4>
+                    <p class="text-muted">`.grid grid--gap-md`와 반응형 컬럼을 조합해 카드형 갤러리를 구성할 수 있습니다.</p>
+                    <div class="example-wrapper">
                         <div class="grid grid--gap-md">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Medium gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Medium gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Medium gap</div>
-                            </div>
+                            <article class="grid__col grid__col--12 grid__col--sm-6 grid__col--lg-4">
+                                <div class="layout-box layout-box--accent">Feature Card</div>
+                            </article>
+                            <article class="grid__col grid__col--12 grid__col--sm-6 grid__col--lg-4">
+                                <div class="layout-box layout-box--accent">Feature Card</div>
+                            </article>
+                            <article class="grid__col grid__col--12 grid__col--sm-6 grid__col--lg-4">
+                                <div class="layout-box layout-box--accent">Feature Card</div>
+                            </article>
                         </div>
                     </div>
-
-                    <div style="margin-top: 24px;">
-                        <h4>Large Gap (24px)</h4>
-                        <div class="grid grid--gap-lg">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Large gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Large gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Large gap</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 24px;">
-                        <h4>Extra Large Gap (32px)</h4>
-                        <div class="grid grid--gap-xl">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">XL gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">XL gap</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">XL gap</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Grid Alignment</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">그리드 정렬</h3>
-                </div>
-                <div class="card__body">
-                    <div>
-                        <h4>Horizontal Alignment</h4>
-                        <div class="demo-container">
-                            <div class="grid grid--justify-start">
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">Start</div>
-                                </div>
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">Start</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="demo-container" style="margin-top: 16px;">
-                            <div class="grid grid--justify-center">
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">Center</div>
-                                </div>
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">Center</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="demo-container" style="margin-top: 16px;">
-                            <div class="grid grid--justify-end">
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">End</div>
-                                </div>
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">End</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="demo-container" style="margin-top: 16px;">
-                            <div class="grid grid--justify-between">
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">Between</div>
-                                </div>
-                                <div class="grid__col grid__col--3">
-                                    <div class="demo-box">Between</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 32px;">
-                        <h4>Vertical Alignment</h4>
-                        <div class="grid grid--align-start demo-container-tall">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Top</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box" style="height: 80px;">Top</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Top</div>
-                            </div>
-                        </div>
-
-                        <div class="grid grid--align-center demo-container-tall" style="margin-top: 16px;">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Middle</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box" style="height: 80px;">Middle</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Middle</div>
-                            </div>
-                        </div>
-
-                        <div class="grid grid--align-end demo-container-tall" style="margin-top: 16px;">
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Bottom</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box" style="height: 80px;">Bottom</div>
-                            </div>
-                            <div class="grid__col grid__col--4">
-                                <div class="demo-box">Bottom</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Offset Columns</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">컬럼 오프셋</h3>
-                </div>
-                <div class="card__body">
-                    <div class="grid">
-                        <div class="grid__col grid__col--4 grid__col--offset-4">
-                            <div class="demo-box">Offset 4</div>
-                        </div>
-                    </div>
-                    <div class="grid" style="margin-top: 8px;">
-                        <div class="grid__col grid__col--3 grid__col--offset-3">
-                            <div class="demo-box">Offset 3</div>
-                        </div>
-                        <div class="grid__col grid__col--3">
-                            <div class="demo-box">Normal</div>
-                        </div>
-                    </div>
-                    <div class="grid" style="margin-top: 8px;">
-                        <div class="grid__col grid__col--2 grid__col--offset-2">
-                            <div class="demo-box">2</div>
-                        </div>
-                        <div class="grid__col grid__col--2 grid__col--offset-4">
-                            <div class="demo-box">2</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="grid"&gt;
-    &lt;div class="grid__col grid__col--4 grid__col--offset-4"&gt;
-        Centered column
-    &lt;/div&gt;
+                    <details class="code-details mt20">
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;grid grid--gap-md&quot;&gt;
+    &lt;article class=&quot;grid__col grid__col--12 grid__col--sm-6 grid__col--lg-4&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;...&lt;/div&gt;
+    &lt;/article&gt;
+    ...
 &lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section__title">Auto Width Columns</h2>
-            <div class="card">
+            <h2 class="section__title">Reference</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h3 class="card__title">자동 너비 컬럼</h3>
+                    <h3 class="card__title">Utility Summary</h3>
                 </div>
-                <div class="card__body">
-                    <div class="grid">
-                        <div class="grid__col grid__col--auto">
-                            <div class="demo-box">Auto width</div>
-                        </div>
-                        <div class="grid__col grid__col--6">
-                            <div class="demo-box">6 columns</div>
-                        </div>
-                        <div class="grid__col grid__col--auto">
-                            <div class="demo-box">Auto</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Nested Grid</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">중첩 그리드</h3>
-                </div>
-                <div class="card__body">
-                    <div class="grid">
-                        <div class="grid__col grid__col--8">
-                            <div class="demo-box" style="padding: 16px;">
-                                <div>Parent Column (8)</div>
-                                <div class="grid grid--gap-sm" style="margin-top: 16px;">
-                                    <div class="grid__col grid__col--6">
-                                        <div class="demo-box demo-box--nested">Nested 6</div>
-                                    </div>
-                                    <div class="grid__col grid__col--6">
-                                        <div class="demo-box demo-box--nested">Nested 6</div>
-                                    </div>
-                                    <div class="grid__col grid__col--4">
-                                        <div class="demo-box demo-box--nested">Nested 4</div>
-                                    </div>
-                                    <div class="grid__col grid__col--4">
-                                        <div class="demo-box demo-box--nested">Nested 4</div>
-                                    </div>
-                                    <div class="grid__col grid__col--4">
-                                        <div class="demo-box demo-box--nested">Nested 4</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__col grid__col--4">
-                            <div class="demo-box" style="height: 100%;">Side Column (4)</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Complex Layout Example</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">복잡한 레이아웃 예제</h3>
-                </div>
-                <div class="card__body">
-                    <!-- Dashboard Layout -->
-                    <div class="grid grid--gap-md">
-                        <div class="grid__col grid__col--12">
-                            <div class="demo-box">Header</div>
-                        </div>
-                        <div class="grid__col grid__col--12 grid__col--md-3">
-                            <div class="demo-box" style="height: 200px;">Sidebar</div>
-                        </div>
-                        <div class="grid__col grid__col--12 grid__col--md-9">
-                            <div class="grid grid--gap-sm">
-                                <div class="grid__col grid__col--12 grid__col--lg-4">
-                                    <div class="demo-box">Widget 1</div>
-                                </div>
-                                <div class="grid__col grid__col--12 grid__col--lg-4">
-                                    <div class="demo-box">Widget 2</div>
-                                </div>
-                                <div class="grid__col grid__col--12 grid__col--lg-4">
-                                    <div class="demo-box">Widget 3</div>
-                                </div>
-                                <div class="grid__col grid__col--12">
-                                    <div class="demo-box" style="height: 120px;">Main Content</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__col grid__col--12">
-                            <div class="demo-box">Footer</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Properties Reference</h2>
-            <div class="card">
                 <div class="card__body">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Class</th>
                                 <th>Description</th>
+                                <th>Notes</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><code>.grid</code></td>
-                                <td>Grid container</td>
+                                <td>그리드 컨테이너 활성화</td>
+                                <td>12 컬럼 시스템 기반</td>
                             </tr>
                             <tr>
-                                <td><code>.grid__col</code></td>
-                                <td>Grid column</td>
+                                <td><code>.grid__col--{n}</code></td>
+                                <td>n/12 만큼의 폭 사용</td>
+                                <td>1 ≤ n ≤ 12</td>
                             </tr>
                             <tr>
-                                <td><code>.grid__col--[1-12]</code></td>
-                                <td>Column width (1-12)</td>
+                                <td><code>.grid__col--{bp}-{n}</code></td>
+                                <td>브레이크포인트별 재정의</td>
+                                <td>bp = sm / md / lg / xl</td>
                             </tr>
                             <tr>
-                                <td><code>.grid__col--auto</code></td>
-                                <td>Auto width column</td>
+                                <td><code>.grid--gap-{token}</code></td>
+                                <td>컬럼·로우 간격 설정</td>
+                                <td>0, sm, md, lg, xl 지원</td>
                             </tr>
                             <tr>
-                                <td><code>.grid__col--sm-[1-12]</code></td>
-                                <td>Small screen column (≥640px)</td>
+                                <td><code>.grid--justify-*</code></td>
+                                <td>수평 정렬(start/center/end/between)</td>
+                                <td>주로 카드 나열에서 사용</td>
                             </tr>
                             <tr>
-                                <td><code>.grid__col--md-[1-12]</code></td>
-                                <td>Medium screen column (≥768px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid__col--lg-[1-12]</code></td>
-                                <td>Large screen column (≥1024px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid__col--xl-[1-12]</code></td>
-                                <td>Extra large screen column (≥1280px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid__col--offset-[1-11]</code></td>
-                                <td>Column offset</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid--gap-sm</code></td>
-                                <td>Small gap (8px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid--gap-md</code></td>
-                                <td>Medium gap (16px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid--gap-lg</code></td>
-                                <td>Large gap (24px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid--gap-xl</code></td>
-                                <td>Extra large gap (32px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid--justify-[position]</code></td>
-                                <td>Horizontal alignment</td>
-                            </tr>
-                            <tr>
-                                <td><code>.grid--align-[position]</code></td>
-                                <td>Vertical alignment</td>
+                                <td><code>.grid--align-*</code></td>
+                                <td>수직 정렬(start/center/end/stretch)</td>
+                                <td>높이가 다른 카드 정렬</td>
                             </tr>
                         </tbody>
                     </table>
@@ -530,50 +207,36 @@
             </div>
         </section>
 
-        <style>
-            .demo-box {
-                background: var(--ds-gray-100);
-                border: 1px solid var(--ds-gray-300);
-                padding: 16px;
-                text-align: center;
-                border-radius: 4px;
-                color: var(--ds-gray-700);
-                font-size: 14px;
-                font-weight: 500;
-            }
-
-            .demo-box--nested {
-                background: var(--ds-gray-200);
-                padding: 12px;
-                font-size: 13px;
-            }
-
-            .demo-container {
-                background: var(--ds-gray-50);
-                padding: 12px;
-                border-radius: 4px;
-            }
-
-            .demo-container-tall {
-                background: var(--ds-gray-50);
-                padding: 12px;
-                border-radius: 4px;
-                height: 120px;
-            }
-
-            .code {
-                background: var(--ds-gray-900);
-                color: var(--ds-gray-100);
-                padding: 16px;
-                border-radius: 4px;
-                overflow-x: auto;
-                font-family: monospace;
-                font-size: 13px;
-                line-height: 1.5;
-            }
-        </style>
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>레이아웃을 설계할 때 모바일 우선으로 100% 폭에서 시작합니다.</li>
+                                <li>브레이크포인트 재정의를 최소화해 유지보수를 쉽게 유지합니다.</li>
+                                <li>gap 토큰을 사용해 디자인 시스템 간격을 일관되게 적용합니다.</li>
+                                <li>정렬 유틸리티로 홀수 개 카드도 중앙 정렬하여 균형을 맞춥니다.</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>그리드 안에서 임의의 마진을 섞어 gap과 충돌하지 않도록 합니다.</li>
+                                <li>불필요하게 많은 브레이크포인트를 선언해 CSS를 복잡하게 만들지 않습니다.</li>
+                                <li>컬럼 합이 12를 초과하지 않았는지 항상 확인합니다.</li>
+                                <li>한 컬럼에 너무 많은 콘텐츠를 넣어 가독성이 흐트러지지 않도록 합니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <script src="../../bricks/js/bricks_core.js"></script>
 </body>
 </html>

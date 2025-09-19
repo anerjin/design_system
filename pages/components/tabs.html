@@ -8,227 +8,376 @@
 <body>
     <div class="vp-doc">
         <header class="header">
-            <h1 class="header__title">Tabs Components</h1>
+            <h1 class="header__title">Tabs Component</h1>
             <p class="header__description">
-                BRICKS Design System의 탭 컴포넌트입니다. 콘텐츠를 탭으로 구분하여 보여주는 다양한 변형과 기능을 지원합니다.
+                BRICKS Design System의 탭 컴포넌트는 콘텐츠를 구조적으로 나누고 빠르게 전환할 수 있는 인터페이스를 제공합니다.
+                아래 템플릿을 기준으로 기본 사용법, 변형, 사이즈, 접근성 가이드까지 일관되게 확인할 수 있습니다.
             </p>
         </header>
 
-        <!-- Basic Tabs -->
         <section class="section">
-            <div class="card">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h2 class="card__title">Basic Tabs</h2>
+                    <h3 class="card__title">Default Tabs</h3>
                 </div>
                 <div class="card__body">
-                    <div class="tabs" data-tabs>
-                        <div class="tabs__nav">
-                            <button type="button" class="tabs__button tabs__button--active" data-tab="tab1">Tab 1</button>
-                            <button type="button" class="tabs__button" data-tab="tab2">Tab 2</button>
-                            <button type="button" class="tabs__button" data-tab="tab3">Tab 3</button>
-                        </div>
-                        <div class="tabs__content">
-                            <div class="tabs__panel tabs__panel--active" id="tab1">
-                                <h4>Tab 1 Content</h4>
-                                <p>This is the content for the first tab. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="text-muted">기본 탭은 수평 방향으로 콘텐츠를 구분하며, <code class="code-inline">data-tabs</code> 속성을 통해 자동으로 초기화됩니다.</p>
+                    <div class="example-wrapper tabs-example">
+                        <div class="tabs" data-tabs>
+                            <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-basic-panel-1" id="tabs-basic-tab-1" tabindex="0" data-tab="tabs-basic-panel-1">Overview</button>
+                                <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-basic-panel-2" id="tabs-basic-tab-2" tabindex="-1" data-tab="tabs-basic-panel-2">Specifications</button>
+                                <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-basic-panel-3" id="tabs-basic-tab-3" tabindex="-1" data-tab="tabs-basic-panel-3">Reviews</button>
                             </div>
-                            <div class="tabs__panel" id="tab2">
-                                <h4>Tab 2 Content</h4>
-                                <p>This is the content for the second tab. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                            <div class="tabs__panel" id="tab3">
-                                <h4>Tab 3 Content</h4>
-                                <p>This is the content for the third tab. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <div class="tabs__content">
+                                <div class="tabs__panel tabs__panel--active" id="tabs-basic-panel-1" role="tabpanel" aria-labelledby="tabs-basic-tab-1" aria-hidden="false" tabindex="0">
+                                    <h4>Overview</h4>
+                                    <p>제품의 핵심 정보를 빠르게 확인할 수 있는 개요 탭입니다.</p>
+                                </div>
+                                <div class="tabs__panel" id="tabs-basic-panel-2" role="tabpanel" aria-labelledby="tabs-basic-tab-2" aria-hidden="true" tabindex="0">
+                                    <h4>Specifications</h4>
+                                    <p>상세 스펙과 기술 정보를 구조화하여 제공합니다.</p>
+                                </div>
+                                <div class="tabs__panel" id="tabs-basic-panel-3" role="tabpanel" aria-labelledby="tabs-basic-tab-3" aria-hidden="true" tabindex="0">
+                                    <h4>Reviews</h4>
+                                    <p>사용자 리뷰와 평점을 모아 보여주는 섹션입니다.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <details class="code-details">
-                        <summary class="code-summary">코드 보기</summary>
-                        <pre class="code-block"><code>&lt;!-- Tabs with Accessibility --&gt;
-&lt;div class="tabs" data-tabs&gt;
-    &lt;!-- Tab navigation with ARIA attributes --&gt;
-    &lt;div class="tabs__nav" role="tablist" aria-orientation="horizontal"&gt;
-        &lt;!-- Animated indicator bar (자동 생성됨) --&gt;
-        &lt;!-- &lt;div class="tabs__indicator"&gt;&lt;/div&gt; --&gt;
-
-        &lt;button type="button"
-                class="tabs__button tabs__button--active"
-                role="tab"
-                aria-selected="true"
-                aria-controls="tab1"
-                id="tab1-button"
-                tabindex="0"
-                data-tab="tab1"&gt;
-            Tab 1
-        &lt;/button&gt;
-        &lt;button type="button"
-                class="tabs__button"
-                role="tab"
-                aria-selected="false"
-                aria-controls="tab2"
-                id="tab2-button"
-                tabindex="-1"
-                data-tab="tab2"&gt;
-            Tab 2
-        &lt;/button&gt;
-        &lt;button type="button"
-                class="tabs__button"
-                role="tab"
-                aria-selected="false"
-                aria-controls="tab3"
-                id="tab3-button"
-                tabindex="-1"
-                data-tab="tab3"&gt;
-            Tab 3
-        &lt;/button&gt;
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;tabs&quot; data-tabs&gt;
+    &lt;div class=&quot;tabs__nav&quot; role=&quot;tablist&quot; aria-orientation=&quot;horizontal&quot;&gt;
+        &lt;button type=&quot;button&quot;
+                class=&quot;tabs__button tabs__button--active&quot;
+                role=&quot;tab&quot;
+                aria-selected=&quot;true&quot;
+                aria-controls=&quot;tabs-basic-panel-1&quot;
+                id=&quot;tabs-basic-tab-1&quot;
+                tabindex=&quot;0&quot;
+                data-tab=&quot;tabs-basic-panel-1&quot;&gt;Overview&lt;/button&gt;
+        &lt;button type=&quot;button&quot;
+                class=&quot;tabs__button&quot;
+                role=&quot;tab&quot;
+                aria-selected=&quot;false&quot;
+                aria-controls=&quot;tabs-basic-panel-2&quot;
+                id=&quot;tabs-basic-tab-2&quot;
+                tabindex=&quot;-1&quot;
+                data-tab=&quot;tabs-basic-panel-2&quot;&gt;Specifications&lt;/button&gt;
+        &lt;button type=&quot;button&quot;
+                class=&quot;tabs__button&quot;
+                role=&quot;tab&quot;
+                aria-selected=&quot;false&quot;
+                aria-controls=&quot;tabs-basic-panel-3&quot;
+                id=&quot;tabs-basic-tab-3&quot;
+                tabindex=&quot;-1&quot;
+                data-tab=&quot;tabs-basic-panel-3&quot;&gt;Reviews&lt;/button&gt;
     &lt;/div&gt;
-
-    &lt;!-- Tab content panels --&gt;
-    &lt;div class="tabs__content"&gt;
-        &lt;div class="tabs__panel tabs__panel--active"
-             id="tab1"
-             role="tabpanel"
-             aria-labelledby="tab1-button"
-             aria-hidden="false"
-             tabindex="0"&gt;
-            &lt;h4&gt;Tab 1 Content&lt;/h4&gt;
-            &lt;p&gt;This is the content for the first tab.&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class="tabs__panel"
-             id="tab2"
-             role="tabpanel"
-             aria-labelledby="tab2-button"
-             aria-hidden="true"
-             tabindex="0"&gt;
-            &lt;h4&gt;Tab 2 Content&lt;/h4&gt;
-            &lt;p&gt;This is the content for the second tab.&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class="tabs__panel"
-             id="tab3"
-             role="tabpanel"
-             aria-labelledby="tab3-button"
-             aria-hidden="true"
-             tabindex="0"&gt;
-            &lt;h4&gt;Tab 3 Content&lt;/h4&gt;
-            &lt;p&gt;This is the content for the third tab.&lt;/p&gt;
-        &lt;/div&gt;
+    &lt;div class=&quot;tabs__content&quot;&gt;
+        &lt;div class=&quot;tabs__panel tabs__panel--active&quot;
+             id=&quot;tabs-basic-panel-1&quot;
+             role=&quot;tabpanel&quot;
+             aria-labelledby=&quot;tabs-basic-tab-1&quot;
+             aria-hidden=&quot;false&quot;
+             tabindex=&quot;0&quot;&gt;...&lt;/div&gt;
+        &lt;div class=&quot;tabs__panel&quot;
+             id=&quot;tabs-basic-panel-2&quot;
+             role=&quot;tabpanel&quot;
+             aria-labelledby=&quot;tabs-basic-tab-2&quot;
+             aria-hidden=&quot;true&quot;
+             tabindex=&quot;0&quot;&gt;...&lt;/div&gt;
+        &lt;div class=&quot;tabs__panel&quot;
+             id=&quot;tabs-basic-panel-3&quot;
+             role=&quot;tabpanel&quot;
+             aria-labelledby=&quot;tabs-basic-tab-3&quot;
+             aria-hidden=&quot;true&quot;
+             tabindex=&quot;0&quot;&gt;...&lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                    <details class="code-details mt20">
+                        <summary class="code-summary">JavaScript Example</summary>
+                        <div class="code-block">
+                            <pre><code class="language-js">document.addEventListener('DOMContentLoaded', () =&gt; {
+    BRICKS.Tabs.init();
 
-&lt;script&gt;
-// 탭 이벤트 리스너 예제
-document.querySelector('[data-tabs]').addEventListener('tabChange', (e) =&gt; {
-    console.log('Tab changed:', e.detail);
-    // e.detail.tab - 활성화된 탭 ID
-    // e.detail.button - 활성 탭 버튼
-    // e.detail.panel - 활성 탭 패널
-});
-&lt;/script&gt;</code></pre>
+    const productTabs = document.querySelector('.tabs');
+    productTabs.addEventListener('tabChange', (event) =&gt; {
+        console.log('탭 변경:', event.detail.tab);
+    });
+});</code></pre>
+                        </div>
                     </details>
                 </div>
             </div>
         </section>
 
-        <!-- Tabs with Icons -->
         <section class="section">
-            <h2 class="section__title">Tabs with Icons</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">Icon Tabs</h3>
-                </div>
-                <div class="card__body">
-                    <div class="tabs" data-tabs>
-                        <div class="tabs__nav">
-                            <button type="button" class="tabs__button tabs__button--active tabs__button-icon" data-tab="home">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.4 0 .77-.24.92-.62.15-.37.07-.8-.22-1.09l-8.99-9a.996.996 0 0 0-1.41 0l-9.01 9c-.29.29-.37.72-.22 1.09s.52.62.92.62Zm9-8.59 6 6V20H6v-9.59z"/>
-                                </svg>
-                                Home
-                            </button>
-                            <button type="button" class="tabs__button tabs__button-icon" data-tab="profile">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5m0-8c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1m6-7h4c2.76 0 5 2.24 5 5H5c0-2.76 2.24-5 5-5"/>
-                                </svg>
-                                Profile
-                            </button>
-                            <button type="button" class="tabs__button tabs__button-icon" data-tab="settings">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4m0 6c-1.08 0-2-.92-2-2s.92-2 2-2 2 .92 2 2-.92 2-2 2"/>
-                                    <path d="m20.42 13.4-.51-.29c.05-.37.08-.74.08-1.11s-.03-.74-.08-1.11l.51-.29c.96-.55 1.28-1.78.73-2.73l-1-1.73a2.006 2.006 0 0 0-2.73-.73l-.53.31c-.58-.46-1.22-.83-1.9-1.11v-.6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v.6c-.67.28-1.31.66-1.9 1.11l-.53-.31c-.96-.55-2.18-.22-2.73.73l-1 1.73c-.55.96-.22 2.18.73 2.73l.51.29c-.05.37-.08.74-.08 1.11s.03.74.08 1.11l-.51.29c-.96.55-1.28 1.78-.73 2.73l1 1.73c.55.95 1.77 1.28 2.73.73l.53-.31c.58.46 1.22.83 1.9 1.11v.6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-.6a8.7 8.7 0 0 0 1.9-1.11l.53.31c.95.55 2.18.22 2.73-.73l1-1.73c.55-.96.22-2.18-.73-2.73m-2.59-2.78c.11.45.17.92.17 1.38s-.06.92-.17 1.38a1 1 0 0 0 .47 1.11l1.12.65-1 1.73-1.14-.66c-.38-.22-.87-.16-1.19.14-.68.65-1.51 1.13-2.38 1.4-.42.13-.71.52-.71.96v1.3h-2v-1.3c0-.44-.29-.83-.71-.96-.88-.27-1.7-.75-2.38-1.4a1.01 1.01 0 0 0-1.19-.15l-1.14.66-1-1.73 1.12-.65c.39-.22.58-.68.47-1.11-.11-.45-.17-.92-.17-1.38s.06-.93.17-1.38A1 1 0 0 0 5.7 9.5l-1.12-.65 1-1.73 1.14.66c.38.22.87.16 1.19-.14.68-.65 1.51-1.13 2.38-1.4.42-.13.71-.52.71-.96v-1.3h2v1.3c0 .44.29.83.71.96.88.27 1.7.75 2.38 1.4.32.31.81.36 1.19.14l1.14-.66 1 1.73-1.12.65c-.39.22-.58.68-.47 1.11Z"/>
-                                </svg>
-                                Settings
-                            </button>
-                        </div>
-                        <div class="tabs__content">
-                            <div class="tabs__panel tabs__panel--active" id="home">
-                                <h4>Home Content</h4>
-                                <p>Welcome to your dashboard. Here you can see an overview of your account.</p>
-                            </div>
-                            <div class="tabs__panel" id="profile">
-                                <h4>Profile Content</h4>
-                                <p>Manage your profile information and preferences here.</p>
-                            </div>
-                            <div class="tabs__panel" id="settings">
-                                <h4>Settings Content</h4>
-                                <p>Configure your application settings and preferences.</p>
-                            </div>
-                        </div>
+            <h2 class="section__title">Variations</h2>
+            <div class="card-group card-group--cols-1">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Tabs with Icons</h3>
                     </div>
-                    <code class="code-inline">.tabs__button-icon</code>
+                    <div class="card__body">
+                        <p class="text-muted">아이콘과 라벨을 함께 배치하여 정보를 빠르게 식별할 수 있습니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs" data-tabs>
+                                <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                    <button type="button" class="tabs__button tabs__button--active tabs__button-icon" role="tab" aria-selected="true" aria-controls="tabs-icon-panel-1" id="tabs-icon-tab-1" tabindex="0" data-tab="tabs-icon-panel-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.4 0 .77-.24.92-.62.15-.37.07-.8-.22-1.09l-8.99-9a.996.996 0 0 0-1.41 0l-9.01 9c-.29.29-.37.72-.22 1.09s.52.62.92.62Zm9-8.59 6 6V20H6v-9.59z"/></svg>
+                                        Home
+                                    </button>
+                                    <button type="button" class="tabs__button tabs__button-icon" role="tab" aria-selected="false" aria-controls="tabs-icon-panel-2" id="tabs-icon-tab-2" tabindex="-1" data-tab="tabs-icon-panel-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5m0-8c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1m6-7h4c2.76 0 5 2.24 5 5H5c0-2.76 2.24-5 5-5"/></svg>
+                                        Profile
+                                    </button>
+                                    <button type="button" class="tabs__button tabs__button-icon" role="tab" aria-selected="false" aria-controls="tabs-icon-panel-3" id="tabs-icon-tab-3" tabindex="-1" data-tab="tabs-icon-panel-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m20.42 13.4-.51-.29c.05-.37.08-.74.08-1.11s-.03-.74-.08-1.11l.51-.29c.96-.55 1.28-1.78.73-2.73l-1-1.73a2.006 2.006 0 0 0-2.73-.73l-.53.31c-.58-.46-1.22-.83-1.9-1.11v-.6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v.6c-.67.28-1.31.66-1.9 1.11l-.53-.31c-.96-.55-2.18-.22-2.73.73l-1 1.73c-.55.96-.22 2.18.73 2.73l.51.29c-.05.37-.08.74-.08 1.11s.03.74.08 1.11l-.51.29c-.96.55-1.28 1.78-.73 2.73l1 1.73c.55.95 1.77 1.28 2.73.73l.53-.31c.58.46 1.22.83 1.9 1.11v.6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-.6a8.7 8.7 0 0 0 1.9-1.11l.53.31c.95.55 2.18.22 2.73-.73l1-1.73c.55-.96.22-2.18-.73-2.73m-2.59-2.78c.11.45.17.92.17 1.38s-.06.92-.17 1.38a1 1 0 0 0 .47 1.11l1.12.65-1 1.73-1.14-.66c-.38-.22-.87-.16-1.19.14-.68.65-1.51 1.13-2.38 1.4-.42.13-.71.52-.71.96v1.3h-2v-1.3c0-.44-.29-.83-.71-.96-.88-.27-1.7-.75-2.38-1.4a1.01 1.01 0 0 0-1.19-.15l-1.14.66-1-1.73 1.12-.65c.39-.22.58-.68.47-1.11-.11-.45-.17-.92-.17-1.38s.06-.93.17-1.38A1 1 0 0 0 5.7 9.5l-1.12-.65 1-1.73 1.14.66c.38.22.87.16 1.19-.14.68-.65 1.51-1.13 2.38-1.4.42-.13.71-.52.71-.96v-1.3h2v1.3c0 .44.29.83.71.96.88.27 1.7.75 2.38 1.4.32.31.81.36 1.19.14l1.14-.66 1 1.73-1.12.65c-.39.22-.58.68-.47 1.11Z"/></svg>
+                                        Settings
+                                    </button>
+                                </div>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-icon-panel-1" role="tabpanel" aria-labelledby="tabs-icon-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>홈 대시보드의 주요 정보를 빠르게 확인하세요.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-icon-panel-2" role="tabpanel" aria-labelledby="tabs-icon-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>프로필 정보를 업데이트하고 선호도를 설정합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-icon-panel-3" role="tabpanel" aria-labelledby="tabs-icon-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>개인화 설정과 환경 설정을 구성합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.tabs__button-icon</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Vertical Tabs</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">설정 페이지처럼 상세한 내용을 나눌 때 수직 레이아웃을 사용합니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs tabs--vertical" data-tabs id="settings-tabs">
+                                <div class="tabs__nav" role="tablist" aria-orientation="vertical">
+                                    <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-vertical-panel-1" id="tabs-vertical-tab-1" tabindex="0" data-tab="tabs-vertical-panel-1">General</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-vertical-panel-2" id="tabs-vertical-tab-2" tabindex="-1" data-tab="tabs-vertical-panel-2">Security</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-vertical-panel-3" id="tabs-vertical-tab-3" tabindex="-1" data-tab="tabs-vertical-panel-3">Notifications</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-vertical-panel-4" id="tabs-vertical-tab-4" tabindex="-1" data-tab="tabs-vertical-panel-4">Billing</button>
+                                </div>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-vertical-panel-1" role="tabpanel" aria-labelledby="tabs-vertical-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>프로필 정보와 언어 설정을 변경합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-vertical-panel-2" role="tabpanel" aria-labelledby="tabs-vertical-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>비밀번호, 2단계 인증 등 보안 정책을 구성합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-vertical-panel-3" role="tabpanel" aria-labelledby="tabs-vertical-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>이메일, 푸시 알림 등 알림 채널을 제어합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-vertical-panel-4" role="tabpanel" aria-labelledby="tabs-vertical-tab-4" aria-hidden="true" tabindex="0">
+                                        <p>결제 수단과 청구 내역을 검토하세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.tabs--vertical</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Pill Style Tabs</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">필터 또는 카테고리 전환처럼 부드러운 배경 이동이 필요한 경우에 사용합니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs tabs--pills" data-tabs>
+                                <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                    <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-pill-panel-1" id="tabs-pill-tab-1" tabindex="0" data-tab="tabs-pill-panel-1">All</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-pill-panel-2" id="tabs-pill-tab-2" tabindex="-1" data-tab="tabs-pill-panel-2">Design</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-pill-panel-3" id="tabs-pill-tab-3" tabindex="-1" data-tab="tabs-pill-panel-3">Development</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-pill-panel-4" id="tabs-pill-tab-4" tabindex="-1" data-tab="tabs-pill-panel-4">QA</button>
+                                </div>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-pill-panel-1" role="tabpanel" aria-labelledby="tabs-pill-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>전체 작업 목록을 확인합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-pill-panel-2" role="tabpanel" aria-labelledby="tabs-pill-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>디자인 진행 상황과 피그마 링크를 정리합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-pill-panel-3" role="tabpanel" aria-labelledby="tabs-pill-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>개발 태스크와 배포 일정을 추적합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-pill-panel-4" role="tabpanel" aria-labelledby="tabs-pill-tab-4" aria-hidden="true" tabindex="0">
+                                        <p>QA 체크리스트와 버그 현황을 확인합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.tabs--pills</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Justified Tabs</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">전체 너비를 균등하게 나눠 네비게이션을 정렬합니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs tabs--justified" data-tabs>
+                                <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                    <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-justified-panel-1" id="tabs-justified-tab-1" tabindex="0" data-tab="tabs-justified-panel-1">Summary</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-justified-panel-2" id="tabs-justified-tab-2" tabindex="-1" data-tab="tabs-justified-panel-2">Details</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-justified-panel-3" id="tabs-justified-tab-3" tabindex="-1" data-tab="tabs-justified-panel-3">Files</button>
+                                </div>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-justified-panel-1" role="tabpanel" aria-labelledby="tabs-justified-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>프로젝트의 주요 하이라이트를 확인하세요.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-justified-panel-2" role="tabpanel" aria-labelledby="tabs-justified-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>세부 작업과 담당자를 표 형태로 제공합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-justified-panel-3" role="tabpanel" aria-labelledby="tabs-justified-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>관련 문서와 파일을 한 곳에서 관리합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.tabs--justified</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Tabs with Badges</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">알림 수량이나 상태를 표시할 때 배지를 함께 노출합니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs" data-tabs>
+                                <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                    <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-badge-panel-1" id="tabs-badge-tab-1" tabindex="0" data-tab="tabs-badge-panel-1">Inbox <span class="tabs__button-badge">3</span></button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-badge-panel-2" id="tabs-badge-tab-2" tabindex="-1" data-tab="tabs-badge-panel-2">Sent</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-badge-panel-3" id="tabs-badge-tab-3" tabindex="-1" data-tab="tabs-badge-panel-3">Drafts <span class="tabs__button-badge">12</span></button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-badge-panel-4" id="tabs-badge-tab-4" tabindex="-1" data-tab="tabs-badge-panel-4" disabled aria-disabled="true">Archived</button>
+                                </div>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-badge-panel-1" role="tabpanel" aria-labelledby="tabs-badge-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>받은 편지함에 3개의 새로운 메시지가 있습니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-badge-panel-2" role="tabpanel" aria-labelledby="tabs-badge-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>보낸 편지함을 최신 상태로 유지하세요.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-badge-panel-3" role="tabpanel" aria-labelledby="tabs-badge-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>임시 저장된 메시지가 12개 있습니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-badge-panel-4" role="tabpanel" aria-labelledby="tabs-badge-tab-4" aria-hidden="true" tabindex="0">
+                                        <p>보관함 콘텐츠는 관리자 권한이 필요합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.tabs__button-badge</code>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Tab Sizes -->
         <section class="section">
-            <h2 class="section__title">Tab Sizes</h2>
-            <div class="card-group card-group--cols-2">
-                <div class="card">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card-group card-group--cols-1">
+                <div class="card card--gray">
                     <div class="card__header">
-                        <h3 class="card__title">Small Tabs</h3>
+                        <h3 class="card__title">Small</h3>
                     </div>
                     <div class="card__body">
-                        <div class="tabs tabs--sm" data-tabs>
-                            <div class="tabs__nav">
-                                <button type="button" class="tabs__button tabs__button--active" data-tab="sm1">Small 1</button>
-                                <button type="button" class="tabs__button" data-tab="sm2">Small 2</button>
-                                <button type="button" class="tabs__button" data-tab="sm3">Small 3</button>
-                            </div>
-                            <div class="tabs__content">
-                                <div class="tabs__panel tabs__panel--active" id="sm1">
-                                    <p>Small tab content 1</p>
+                        <p class="text-muted">페이지 내 보조 네비게이션 또는 공간이 제한된 영역에 적합합니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs tabs--sm" data-tabs>
+                                <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                    <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-size-sm-panel-1" id="tabs-size-sm-tab-1" tabindex="0" data-tab="tabs-size-sm-panel-1">Plan</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-size-sm-panel-2" id="tabs-size-sm-tab-2" tabindex="-1" data-tab="tabs-size-sm-panel-2">Usage</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-size-sm-panel-3" id="tabs-size-sm-tab-3" tabindex="-1" data-tab="tabs-size-sm-panel-3">History</button>
                                 </div>
-                                <div class="tabs__panel" id="sm2">
-                                    <p>Small tab content 2</p>
-                                </div>
-                                <div class="tabs__panel" id="sm3">
-                                    <p>Small tab content 3</p>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-size-sm-panel-1" role="tabpanel" aria-labelledby="tabs-size-sm-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>현재 플랜 정보를 확인하세요.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-size-sm-panel-2" role="tabpanel" aria-labelledby="tabs-size-sm-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>API 사용량과 할당량을 추적합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-size-sm-panel-3" role="tabpanel" aria-labelledby="tabs-size-sm-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>송장 및 결제 내역을 검토합니다.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <code class="code-inline">.tabs--sm</code>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
-                        <h3 class="card__title">Large Tabs</h3>
+                        <h3 class="card__title">Default</h3>
                     </div>
                     <div class="card__body">
-                        <div class="tabs tabs--lg" data-tabs>
-                            <div class="tabs__nav">
-                                <button type="button" class="tabs__button tabs__button--active" data-tab="lg1">Large 1</button>
-                                <button type="button" class="tabs__button" data-tab="lg2">Large 2</button>
-                                <button type="button" class="tabs__button" data-tab="lg3">Large 3</button>
+                        <p class="text-muted">가장 일반적인 사이즈로 데스크톱과 모바일에 모두 대응합니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs" data-tabs>
+                                <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                    <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-size-default-panel-1" id="tabs-size-default-tab-1" tabindex="0" data-tab="tabs-size-default-panel-1">Active</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-size-default-panel-2" id="tabs-size-default-tab-2" tabindex="-1" data-tab="tabs-size-default-panel-2">Completed</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-size-default-panel-3" id="tabs-size-default-tab-3" tabindex="-1" data-tab="tabs-size-default-panel-3">Archived</button>
+                                </div>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-size-default-panel-1" role="tabpanel" aria-labelledby="tabs-size-default-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>진행 중인 작업을 전체적으로 파악합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-size-default-panel-2" role="tabpanel" aria-labelledby="tabs-size-default-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>완료된 항목을 검토하고 성과를 분석합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-size-default-panel-3" role="tabpanel" aria-labelledby="tabs-size-default-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>아카이브된 자료를 참고용으로 보관합니다.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tabs__content">
-                                <div class="tabs__panel tabs__panel--active" id="lg1">
-                                    <p>Large tab content 1</p>
+                        </div>
+                        <code class="code-inline">.tabs</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">헤더 네비게이션이나 주요 정보 전환에 활용합니다.</p>
+                        <div class="example-wrapper tabs-example">
+                            <div class="tabs tabs--lg" data-tabs>
+                                <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
+                                    <button type="button" class="tabs__button tabs__button--active" role="tab" aria-selected="true" aria-controls="tabs-size-lg-panel-1" id="tabs-size-lg-tab-1" tabindex="0" data-tab="tabs-size-lg-panel-1">Dashboard</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-size-lg-panel-2" id="tabs-size-lg-tab-2" tabindex="-1" data-tab="tabs-size-lg-panel-2">Insights</button>
+                                    <button type="button" class="tabs__button" role="tab" aria-selected="false" aria-controls="tabs-size-lg-panel-3" id="tabs-size-lg-tab-3" tabindex="-1" data-tab="tabs-size-lg-panel-3">Reporting</button>
                                 </div>
-                                <div class="tabs__panel" id="lg2">
-                                    <p>Large tab content 2</p>
-                                </div>
-                                <div class="tabs__panel" id="lg3">
-                                    <p>Large tab content 3</p>
+                                <div class="tabs__content">
+                                    <div class="tabs__panel tabs__panel--active" id="tabs-size-lg-panel-1" role="tabpanel" aria-labelledby="tabs-size-lg-tab-1" aria-hidden="false" tabindex="0">
+                                        <p>핵심 지표와 위젯을 한눈에 확인합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-size-lg-panel-2" role="tabpanel" aria-labelledby="tabs-size-lg-tab-2" aria-hidden="true" tabindex="0">
+                                        <p>분석 리포트와 인사이트를 탐색합니다.</p>
+                                    </div>
+                                    <div class="tabs__panel" id="tabs-size-lg-panel-3" role="tabpanel" aria-labelledby="tabs-size-lg-tab-3" aria-hidden="true" tabindex="0">
+                                        <p>맞춤형 리포트를 생성하고 공유합니다.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -238,264 +387,137 @@ document.querySelector('[data-tabs]').addEventListener('tabChange', (e) =&gt; {
             </div>
         </section>
 
-        <!-- Vertical Tabs -->
         <section class="section">
-            <h2 class="section__title">Vertical Tabs</h2>
-            <div class="card">
+            <h2 class="section__title">States</h2>
+            <div class="card card--gray mb40">
                 <div class="card__header">
-                    <h3 class="card__title">Vertical Layout</h3>
+                    <h3 class="card__title">Interactive States</h3>
                 </div>
                 <div class="card__body">
-                    <div class="tabs tabs--vertical" data-tabs>
-                        <div class="tabs__nav">
-                            <button type="button" class="tabs__button tabs__button--active" data-tab="general">General</button>
-                            <button type="button" class="tabs__button" data-tab="security">Security</button>
-                            <button type="button" class="tabs__button" data-tab="privacy">Privacy</button>
-                            <button type="button" class="tabs__button" data-tab="notifications">Notifications</button>
+                    <p class="text-muted">각 상태별 시각 피드백을 확인하여 접근성과 사용성을 검증하세요.</p>
+                    <div class="demo-states tabs-state-example">
+                        <div class="state-example">
+                            <h4>Default</h4>
+                            <button type="button" class="tabs__button tabs-state-button">Label</button>
+                            <p class="text-muted">비활성화 전 기본 탭은 중립 색상을 사용합니다.</p>
                         </div>
-                        <div class="tabs__content">
-                            <div class="tabs__panel tabs__panel--active" id="general">
-                                <h4>General Settings</h4>
-                                <p>Configure your general account settings here. You can update your personal information, change your email preferences, and manage your display name.</p>
-                            </div>
-                            <div class="tabs__panel" id="security">
-                                <h4>Security Settings</h4>
-                                <p>Manage your security preferences including two-factor authentication, password policies, and trusted devices.</p>
-                            </div>
-                            <div class="tabs__panel" id="privacy">
-                                <h4>Privacy Settings</h4>
-                                <p>Control your privacy settings, data sharing preferences, and visibility options for your profile.</p>
-                            </div>
-                            <div class="tabs__panel" id="notifications">
-                                <h4>Notification Settings</h4>
-                                <p>Manage your notification preferences including email alerts, push notifications, and in-app messages.</p>
-                            </div>
+                        <div class="state-example">
+                            <h4>Hover</h4>
+                            <button type="button" class="tabs__button tabs-state-button is-hover">Label</button>
+                            <p class="text-muted">호버 시 텍스트 대비가 높아져 선택 가능성을 강조합니다.</p>
+                        </div>
+                        <div class="state-example">
+                            <h4>Active</h4>
+                            <button type="button" class="tabs__button tabs__button--active tabs-state-button">Label</button>
+                            <p class="text-muted">현재 탭은 브랜드 컬러로 표시되어 위치를 명확히 합니다.</p>
+                        </div>
+                        <div class="state-example">
+                            <h4>Focus</h4>
+                            <button type="button" class="tabs__button tabs-state-button is-focus">Label</button>
+                            <p class="text-muted">키보드 포커스 시 명확한 윤곽선이 나타납니다.</p>
+                        </div>
+                        <div class="state-example">
+                            <h4>Disabled</h4>
+                            <button type="button" class="tabs__button tabs-state-button" disabled aria-disabled="true">Label</button>
+                            <p class="text-muted">사용 불가 상태는 낮은 불투명도와 커서 제어로 표현합니다.</p>
                         </div>
                     </div>
-                    <code class="code-inline">.tabs--vertical</code>
                 </div>
             </div>
         </section>
 
-        <!-- Pill Tabs -->
         <section class="section">
-            <h2 class="section__title">Pill Style Tabs</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">Pills Variant</h3>
-                </div>
-                <div class="card__body">
-                    <div class="tabs tabs--pills" data-tabs>
-                        <div class="tabs__nav">
-                            <button type="button" class="tabs__button tabs__button--active" data-tab="all">All</button>
-                            <button type="button" class="tabs__button" data-tab="active">Active</button>
-                            <button type="button" class="tabs__button" data-tab="completed">Completed</button>
-                            <button type="button" class="tabs__button" data-tab="archived">Archived</button>
-                        </div>
-                        <div class="tabs__content">
-                            <div class="tabs__panel tabs__panel--active" id="all">
-                                <p>Showing all items (24 total)</p>
-                            </div>
-                            <div class="tabs__panel" id="active">
-                                <p>Showing active items (12 active)</p>
-                            </div>
-                            <div class="tabs__panel" id="completed">
-                                <p>Showing completed items (8 completed)</p>
-                            </div>
-                            <div class="tabs__panel" id="archived">
-                                <p>Showing archived items (4 archived)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <code class="code-inline">.tabs--pills</code>
-                </div>
-            </div>
-        </section>
-
-        <!-- Justified Tabs -->
-        <section class="section">
-            <h2 class="section__title">Justified Tabs</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">Full Width Tabs</h3>
-                </div>
-                <div class="card__body">
-                    <div class="tabs tabs--justified" data-tabs>
-                        <div class="tabs__nav">
-                            <button type="button" class="tabs__button tabs__button--active" data-tab="j1">Tab 1</button>
-                            <button type="button" class="tabs__button" data-tab="j2">Tab 2</button>
-                            <button type="button" class="tabs__button" data-tab="j3">Tab 3</button>
-                        </div>
-                        <div class="tabs__content">
-                            <div class="tabs__panel tabs__panel--active" id="j1">
-                                <p>Justified tab content 1</p>
-                            </div>
-                            <div class="tabs__panel" id="j2">
-                                <p>Justified tab content 2</p>
-                            </div>
-                            <div class="tabs__panel" id="j3">
-                                <p>Justified tab content 3</p>
-                            </div>
-                        </div>
-                    </div>
-                    <code class="code-inline">.tabs--justified</code>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tabs with Badge -->
-        <section class="section">
-            <h2 class="section__title">Tabs with Badges</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">Badge Indicators</h3>
-                </div>
-                <div class="card__body">
-                    <div class="tabs" data-tabs>
-                        <div class="tabs__nav">
-                            <button type="button" class="tabs__button tabs__button--active" data-tab="inbox">
-                                Inbox
-                                <span class="tabs__button-badge">3</span>
-                            </button>
-                            <button type="button" class="tabs__button" data-tab="sent">
-                                Sent
-                            </button>
-                            <button type="button" class="tabs__button" data-tab="drafts">
-                                Drafts
-                                <span class="tabs__button-badge">12</span>
-                            </button>
-                            <button type="button" class="tabs__button" disabled>
-                                Disabled
-                            </button>
-                        </div>
-                        <div class="tabs__content">
-                            <div class="tabs__panel tabs__panel--active" id="inbox">
-                                <p>You have 3 new messages in your inbox</p>
-                            </div>
-                            <div class="tabs__panel" id="sent">
-                                <p>Your sent messages</p>
-                            </div>
-                            <div class="tabs__panel" id="drafts">
-                                <p>You have 12 draft messages</p>
-                            </div>
-                        </div>
-                    </div>
-                    <code class="code-inline">.tabs__button-badge</code>
-                </div>
-            </div>
-        </section>
-
-        <!-- Accessibility -->
-        <section class="section">
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
                     <h2 class="card__title">Accessibility</h2>
                 </div>
                 <div class="card__body">
                     <h3>ARIA Attributes</h3>
-                    <p>Tabs component는 다음과 같은 ARIA 속성들을 자동으로 적용합니다:</p>
+                    <p>스크린 리더와의 호환을 위해 핵심 ARIA 속성이 자동으로 연결됩니다.</p>
                     <ul>
-                        <li><code>role="tablist"</code> - 탭 네비게이션 컨테이너</li>
-                        <li><code>role="tab"</code> - 각 탭 버튼</li>
-                        <li><code>role="tabpanel"</code> - 각 탭 콘텐츠 패널</li>
-                        <li><code>aria-selected</code> - 선택된 탭 상태 표시</li>
-                        <li><code>aria-controls</code> - 탭과 패널 연결</li>
-                        <li><code>aria-labelledby</code> - 패널과 탭 레이블 연결</li>
-                        <li><code>aria-orientation</code> - 탭 방향 (horizontal/vertical)</li>
-                        <li><code>aria-hidden</code> - 숨겨진 패널 상태</li>
+                        <li><code>role="tablist"</code> – 탭 네비게이션 컨테이너.</li>
+                        <li><code>role="tab"</code> – 각 탭 버튼을 버튼 대신 탭으로 선언.</li>
+                        <li><code>role="tabpanel"</code> – 탭 콘텐츠를 패널로 명시.</li>
+                        <li><code>aria-controls</code> / <code>aria-labelledby</code> – 탭과 패널 간 연결.</li>
+                        <li><code>aria-selected</code> – 현재 활성 탭을 표현.</li>
+                        <li><code>aria-hidden</code> – 비활성 패널을 화면 판독기에서 제외.</li>
+                        <li><code>aria-disabled</code> – 비활성 탭 버튼을 알림.</li>
                     </ul>
 
-                    <h3>Keyboard Navigation</h3>
-                    <p>모든 탭 컴포넌트는 완전한 키보드 내비게이션을 지원합니다:</p>
+                    <h3>Keyboard Support</h3>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>키</th>
-                                <th>동작</th>
+                                <th>Key</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><kbd>Tab</kbd></td>
-                                <td>다음 포커스 가능한 요소로 이동</td>
+                                <td>포커스를 탭 그룹으로 이동합니다.</td>
                             </tr>
                             <tr>
-                                <td><kbd>Shift + Tab</kbd></td>
-                                <td>이전 포커스 가능한 요소로 이동</td>
+                                <td><kbd>Shift</kbd> + <kbd>Tab</kbd></td>
+                                <td>이전 포커스 가능한 요소로 이동합니다.</td>
                             </tr>
                             <tr>
                                 <td><kbd>ArrowLeft</kbd> / <kbd>ArrowUp</kbd></td>
-                                <td>이전 탭으로 이동 (순환)</td>
+                                <td>이전 활성 탭으로 순환 이동합니다.</td>
                             </tr>
                             <tr>
                                 <td><kbd>ArrowRight</kbd> / <kbd>ArrowDown</kbd></td>
-                                <td>다음 탭으로 이동 (순환)</td>
+                                <td>다음 활성 탭으로 순환 이동합니다.</td>
                             </tr>
                             <tr>
                                 <td><kbd>Home</kbd></td>
-                                <td>첫 번째 탭으로 이동</td>
+                                <td>첫 번째 사용 가능한 탭으로 이동합니다.</td>
                             </tr>
                             <tr>
                                 <td><kbd>End</kbd></td>
-                                <td>마지막 탭으로 이동</td>
+                                <td>마지막 사용 가능한 탭으로 이동합니다.</td>
                             </tr>
                             <tr>
                                 <td><kbd>Enter</kbd> / <kbd>Space</kbd></td>
-                                <td>포커스된 탭 선택</td>
+                                <td>포커스된 탭을 활성화합니다.</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <h3>Focus Management</h3>
                     <ul>
-                        <li>활성 탭만 Tab 키로 접근 가능 (<code>tabindex="0"</code>)</li>
-                        <li>비활성 탭은 방향키로만 접근 (<code>tabindex="-1"</code>)</li>
-                        <li>탭 패널도 Tab 키로 접근 가능하여 내부 콘텐츠로 이동 가능</li>
-                        <li>포커스 스타일이 명확하게 표시됨</li>
+                        <li>활성 탭만 <code>tabindex="0"</code> 값을 가지며, 나머지는 <code>-1</code>로 설정됩니다.</li>
+                        <li>탭 클릭 시 포커스가 패널로 이동하지 않으므로 키보드 탐색 흐름이 유지됩니다.</li>
+                        <li>모든 패널은 <code>tabindex="0"</code>으로 설정되어 내부 콘텐츠로 바로 이동할 수 있습니다.</li>
+                        <li>인디케이터는 화면 판독기에 노출되지 않으며 시각적 피드백만 제공합니다.</li>
                     </ul>
 
-                    <h3>Animated Indicator</h3>
-                    <p>활성 탭을 시각적으로 표시하는 애니메이션 인디케이터 바가 자동으로 추가됩니다:</p>
-                    <ul>
-                        <li>탭 전환 시 부드럽게 이동하는 인디케이터</li>
-                        <li>기본 탭과 justified 탭에서 작동</li>
-                        <li>Pills 스타일과 Vertical 탭에서는 비활성화 (별도 스타일 사용)</li>
-                        <li>창 크기 변경 시 자동으로 위치 재조정</li>
-                    </ul>
-
-                    <h3>Screen Reader Support</h3>
-                    <p>스크린 리더 사용자를 위한 완전한 지원:</p>
-                    <ul>
-                        <li>탭 선택 상태가 명확하게 전달됨</li>
-                        <li>탭과 콘텐츠 간의 관계가 적절히 연결됨</li>
-                        <li>탭 방향(수평/수직)이 전달됨</li>
-                        <li>숨겨진 패널 콘텐츠는 읽히지 않음</li>
-                    </ul>
-
-                    <div class="code-block">
-                        <code>// JavaScript Events
-tabContainer.addEventListener('tabChange', (e) => {
-    console.log('Tab changed to:', e.detail.tab);
-    console.log('Active button:', e.detail.button);
-    console.log('Active panel:', e.detail.panel);
-});</code>
-                    </div>
+                    <details class="code-details mt20">
+                        <summary class="code-summary">접근성 이벤트 핸들링</summary>
+                        <div class="code-block">
+                            <pre><code class="language-js">const settingsTabs = document.querySelector('#settings-tabs');
+settingsTabs?.addEventListener('tabChange', (event) =&gt; {
+    const { button, panel } = event.detail;
+    button.focus();
+    panel.setAttribute('aria-hidden', 'false');
+});</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
-        <!-- API Reference -->
         <section class="section">
             <h2 class="section__title">API Reference</h2>
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h3 class="card__title">Classes & Properties</h3>
+                    <h3 class="card__title">Properties &amp; Classes</h3>
                 </div>
                 <div class="card__body">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Class</th>
+                                <th>Class / Attribute</th>
                                 <th>Description</th>
                                 <th>Values</th>
                             </tr>
@@ -503,68 +525,99 @@ tabContainer.addEventListener('tabChange', (e) => {
                         <tbody>
                             <tr>
                                 <td><code>.tabs</code></td>
-                                <td>Base tabs container</td>
-                                <td>Required</td>
+                                <td>탭 컨테이너의 루트 요소</td>
+                                <td>필수</td>
+                            </tr>
+                            <tr>
+                                <td><code>data-tabs</code></td>
+                                <td>JavaScript 초기화를 트리거</td>
+                                <td>필수</td>
                             </tr>
                             <tr>
                                 <td><code>.tabs__nav</code></td>
-                                <td>Tab navigation container</td>
-                                <td>Contains buttons</td>
+                                <td>탭 버튼이 포함되는 래퍼</td>
+                                <td>1개</td>
                             </tr>
                             <tr>
                                 <td><code>.tabs__button</code></td>
-                                <td>Tab button</td>
-                                <td>Clickable tab</td>
-                            </tr>
-                            <tr>
-                                <td><code>.tabs__button--active</code></td>
-                                <td>Active tab button</td>
-                                <td>Current tab</td>
+                                <td>탭 트리거 역할의 버튼</td>
+                                <td>여러 개</td>
                             </tr>
                             <tr>
                                 <td><code>.tabs__content</code></td>
-                                <td>Tab panels container</td>
-                                <td>Contains panels</td>
+                                <td>패널을 감싸는 컨테이너</td>
+                                <td>1개</td>
                             </tr>
                             <tr>
                                 <td><code>.tabs__panel</code></td>
-                                <td>Tab panel</td>
-                                <td>Content area</td>
+                                <td>각 탭이 참조하는 콘텐츠 영역</td>
+                                <td>여러 개</td>
                             </tr>
                             <tr>
-                                <td><code>.tabs__panel--active</code></td>
-                                <td>Active tab panel</td>
-                                <td>Visible panel</td>
+                                <td><code>.tabs__indicator</code></td>
+                                <td>활성 탭 표시용 인디케이터 (자동 생성)</td>
+                                <td>선택</td>
                             </tr>
                             <tr>
-                                <td><code>.tabs--{size}</code></td>
-                                <td>Tab sizes</td>
+                                <td><code>.tabs--sm</code>, <code>.tabs--lg</code></td>
+                                <td>사이즈 변형</td>
                                 <td>sm, lg</td>
                             </tr>
                             <tr>
-                                <td><code>.tabs--vertical</code></td>
-                                <td>Vertical tabs layout</td>
-                                <td>Side navigation</td>
+                                <td><code>.tabs--vertical</code>, <code>.tabs--pills</code>, <code>.tabs--justified</code></td>
+                                <td>레이아웃 / 스타일 변형</td>
+                                <td>vertical, pills, justified</td>
                             </tr>
                             <tr>
-                                <td><code>.tabs--pills</code></td>
-                                <td>Pill style tabs</td>
-                                <td>Rounded tabs</td>
+                                <td><code>.tabs__button-icon</code>, <code>.tabs__button-badge</code></td>
+                                <td>아이콘 / 배지 확장</td>
+                                <td>선택</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>JavaScript Methods</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>BRICKS.Tabs.init()</code></td>
+                                <td>-</td>
+                                <td>페이지 내 모든 <code>data-tabs</code> 요소를 초기화합니다.</td>
                             </tr>
                             <tr>
-                                <td><code>.tabs--justified</code></td>
-                                <td>Justified tabs</td>
-                                <td>Full width</td>
+                                <td><code>BRICKS.Tabs.switchTo(container, tabId)</code></td>
+                                <td><code>container</code>, <code>tabId</code></td>
+                                <td>프로그래밍 방식으로 특정 탭을 활성화합니다.</td>
                             </tr>
                             <tr>
-                                <td><code>.tabs__button-icon</code></td>
-                                <td>Tab with icon</td>
-                                <td>Icon + text</td>
+                                <td><code>BRICKS.Tabs.enableTab(container, tabId, enable)</code></td>
+                                <td><code>container</code>, <code>tabId</code>, <code>enable=true</code></td>
+                                <td>특정 탭 버튼을 활성/비활성 상태로 토글합니다.</td>
                             </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Events</h3>
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <td><code>.tabs__button-badge</code></td>
-                                <td>Tab badge</td>
-                                <td>Number indicator</td>
+                                <th>Event</th>
+                                <th>Description</th>
+                                <th>Event Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>tabChange</code></td>
+                                <td>탭 전환 시 발생하며 현재 탭 정보를 제공합니다.</td>
+                                <td><code>{ tab, button, panel, container }</code></td>
                             </tr>
                         </tbody>
                     </table>
@@ -572,109 +625,36 @@ tabContainer.addEventListener('tabChange', (e) => {
             </div>
         </section>
 
-        <style>
-            /* Demo specific styles */
-            .code-details {
-                margin-top: var(--ds-space-3);
-                border: 1px solid var(--ds-gray-200);
-                border-radius: var(--ds-border-radius-md);
-                overflow: hidden;
-            }
-
-            .code-summary {
-                padding: var(--ds-space-3);
-                background: var(--ds-gray-50);
-                cursor: pointer;
-                font-weight: var(--ds-font-medium);
-                color: var(--ds-gray-700);
-                transition: background-color 0.2s;
-                user-select: none;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            .code-summary:hover {
-                background: var(--ds-gray-100);
-            }
-
-            .code-summary::marker,
-            .code-summary::-webkit-details-marker {
-                display: none;
-            }
-
-            .code-summary::after {
-                content: '▼';
-                font-size: 12px;
-                transition: transform 0.2s;
-                color: var(--ds-gray-500);
-            }
-
-            .code-details[open] .code-summary::after {
-                transform: rotate(180deg);
-            }
-
-            .code-details[open] .code-summary {
-                border-bottom: 1px solid var(--ds-gray-200);
-            }
-
-            .code-details .code-block {
-                margin: 0;
-                border-radius: 0;
-            }
-
-            .code-inline {
-                display: inline-block;
-                margin-top: var(--ds-space-2);
-                padding: var(--ds-space-1) var(--ds-space-2);
-                background: var(--ds-gray-100);
-                border-radius: var(--ds-border-radius-sm);
-                font-size: var(--ds-text-xs);
-                font-family: monospace;
-            }
-
-            .code-block {
-                background: var(--ds-gray-50);
-                padding: var(--ds-space-3);
-                border-radius: var(--ds-border-radius-md);
-                overflow-x: auto;
-                font-family: monospace;
-                font-size: var(--ds-text-sm);
-                line-height: 1.5;
-                margin-top: var(--ds-space-3);
-            }
-
-            /* Table styles */
-            .table {
-                width: 100%;
-                border-collapse: collapse;
-                font-size: var(--ds-text-sm);
-            }
-
-            .table th {
-                padding: var(--ds-space-3);
-                border-bottom: 2px solid var(--ds-gray-200);
-                background: var(--ds-gray-50);
-                color: var(--ds-black);
-                font-weight: var(--ds-font-semibold);
-                text-align: left;
-            }
-
-            .table td {
-                padding: var(--ds-space-3);
-                border-bottom: 1px solid var(--ds-gray-100);
-                color: var(--ds-gray-600);
-                vertical-align: top;
-            }
-
-            .table code {
-                padding: var(--ds-space-1) var(--ds-space-2);
-                background: var(--ds-gray-100);
-                border-radius: var(--ds-border-radius-sm);
-                font-size: var(--ds-text-xs);
-                font-family: monospace;
-            }
-        </style>
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>탭 네비게이션이 3~7개 사이일 때 사용해 인지 부하를 줄입니다.</li>
+                                <li>각 탭 콘텐츠는 문장보다 섹션 단위로 구성해 맥락을 유지하세요.</li>
+                                <li>aria 속성과 키보드 패턴이 자동 적용되는 기본 마크업을 유지합니다.</li>
+                                <li>반응형 환경에서 탭이 여러 줄로 래핑되지 않도록 라벨 길이를 검토합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>상태 필터처럼 실시간 데이터가 많은 경우 탭 대신 드롭다운을 고려합니다.</li>
+                                <li>탭 콘텐츠 간 논리적 연관성이 없는 항목을 한 그룹에 배치하지 않습니다.</li>
+                                <li>탭 버튼을 링크로 대체하거나 <code>role</code> 속성을 제거하지 않습니다.</li>
+                                <li>새로운 변형을 추가할 때 템플릿 구조를 벗어난 HTML을 작성하지 않습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 </html>

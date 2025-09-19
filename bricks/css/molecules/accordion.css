@@ -5,7 +5,7 @@
 .accordion__header {display:flex; justify-content:space-between; align-items:center; width:100%; padding:16px 20px; border:none; background-color:var(--ds-white); color:var(--ds-gray-900); font-size:14px; font-weight:500; text-align:left; cursor:pointer; transition:background-color 0.2s;}
 .accordion__header:hover {background-color:var(--ds-gray-50);}
 .accordion__header:focus {outline:none; background-color:var(--ds-gray-50);}
-.accordion__header--active {background-color:var(--ds-prime-alpha-20); color:var(--ds-prime);}
+.accordion__header--active {background-color:var(--ds-gray-50); color:var(--ds-dark);}
 .accordion__icon {flex-shrink:0; width:20px; height:20px; color:var(--ds-gray-500); transition:transform 0.3s;}
 .accordion__header--active .accordion__icon {transform:rotate(180deg);}
 .accordion__content {max-height:0; overflow:hidden; transition:max-height 0.3s ease-out;}

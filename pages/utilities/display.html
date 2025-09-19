@@ -3,117 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display - BRICKS Design System</title>
-    <link rel="stylesheet" href="../../bricks/css/bricks.css">
+    <title>Display Utilities - BRICKS Design System</title>
 </head>
 <body>
     <div class="vp-doc">
-        <header class="docs__header">
-            <h1 class="docs__title">Display</h1>
-            <p class="docs__description">요소의 표시 방식을 제어하는 유틸리티 클래스와 실사용 패턴입니다.</p>
+        <header class="header">
+            <h1 class="header__title">Display Utilities</h1>
+            <p class="header__description">
+                요소의 표시 방식을 제어하는 `.d-*` 유틸리티를 템플릿 기반으로 정리했습니다. 기본 타입, 숨김 처리, 플렉스/그리드 전환, 반응형 표시 전략을 예제로 확인하세요.
+            </p>
         </header>
 
         <section class="section">
-            <h2 class="section__title" id="display-basic">Display Types</h2>
-            <div class="card">
+            <h2 class="section__title">Display Types</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h2 class="card__title">기본 표시 타입</h2>
-                    <p class="card__subtitle">Block, inline, inline-block 상태를 카드 예제로 비교합니다.</p>
+                    <h3 class="card__title">Block · Inline · Inline-block</h3>
                 </div>
                 <div class="card__body">
-                    <div class="card-group utility-card-group">
-                        <div class="card utility-card">
-                            <div class="card__header">
-                                <h3 class="card__title">Block</h3>
-                            </div>
+                    <div class="card-group card-group--cols-3">
+                        <div class="card card--gray">
+                            <div class="card__header"><h4 class="card__title">Block</h4></div>
                             <div class="card__body">
-                                <div class="demo-surface">
-                                    <div class="d-block demo-element">Block 요소 1</div>
-                                    <div class="d-block demo-element">Block 요소 2</div>
+                                <div class="utility-surface utility-surface--stack">
+                                    <div class="d-block utility-element">Block 요소 1</div>
+                                    <div class="d-block utility-element">Block 요소 2</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card utility-card">
-                            <div class="card__header">
-                                <h3 class="card__title">Inline</h3>
-                            </div>
+                        <div class="card card--gray">
+                            <div class="card__header"><h4 class="card__title">Inline</h4></div>
                             <div class="card__body">
-                                <div class="demo-surface demo-surface--row">
-                                    <span class="d-inline demo-element">Inline 1</span>
-                                    <span class="d-inline demo-element">Inline 2</span>
-                                    <span class="d-inline demo-element">Inline 3</span>
+                                <div class="utility-surface utility-surface--row">
+                                    <span class="d-inline utility-element">Inline 1</span>
+                                    <span class="d-inline utility-element">Inline 2</span>
+                                    <span class="d-inline utility-element">Inline 3</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="card utility-card">
-                            <div class="card__header">
-                                <h3 class="card__title">Inline Block</h3>
-                            </div>
+                        <div class="card card--gray">
+                            <div class="card__header"><h4 class="card__title">Inline-block</h4></div>
                             <div class="card__body">
-                                <div class="demo-surface demo-surface--row">
-                                    <div class="d-inline-block demo-element demo-element--fixed">Inline Block 1</div>
-                                    <div class="d-inline-block demo-element demo-element--fixed">Inline Block 2</div>
-                                    <div class="d-inline-block demo-element demo-element--fixed">Inline Block 3</div>
+                                <div class="utility-surface utility-surface--row">
+                                    <div class="d-inline-block utility-element utility-element--fixed">Inline Block</div>
+                                    <div class="d-inline-block utility-element utility-element--fixed">Inline Block</div>
+                                    <div class="d-inline-block utility-element utility-element--fixed">Inline Block</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="d-block"&gt;Block element&lt;/div&gt;
-&lt;span class="d-inline"&gt;Inline element&lt;/span&gt;
-&lt;div class="d-inline-block"&gt;Inline block element&lt;/div&gt;</code></pre>
+                    <details class="code-details mt20">
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;d-block&quot;&gt;Block element&lt;/div&gt;
+&lt;span class=&quot;d-inline&quot;&gt;Inline element&lt;/span&gt;
+&lt;div class=&quot;d-inline-block&quot;&gt;Inline block element&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section__title" id="display-hidden">Hide Elements</h2>
-            <div class="card">
+            <h2 class="section__title">Hide Elements</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h2 class="card__title">요소 숨기기</h2>
-                    <p class="card__subtitle">`.d-none` 클래스를 사용하면 레이아웃에서 요소가 완전히 제거됩니다.</p>
+                    <h3 class="card__title">`.d-none` Utility</h3>
                 </div>
                 <div class="card__body">
-                    <div class="demo-surface demo-surface--stack">
-                        <div class="demo-element">이 요소는 보입니다</div>
-                        <div class="d-none demo-element">이 텍스트는 DOM에는 있지만 화면에는 보이지 않습니다</div>
-                        <div class="demo-element">다시 보이는 요소</div>
+                    <p class="text-muted">요소를 레이아웃에서 완전히 제거할 때 사용합니다. 접근성의 경우 스크린 리더용 텍스트는 별도 클래스를 사용하는 것이 좋습니다.</p>
+                    <div class="utility-surface utility-surface--stack">
+                        <div class="utility-element">이 요소는 보입니다</div>
+                        <div class="d-none utility-element">이 텍스트는 DOM에는 있지만 화면에는 보이지 않습니다</div>
+                        <div class="utility-element">다시 보이는 요소</div>
                     </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="d-none"&gt;콘텐츠&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section__title" id="display-flex">Flex &amp; Inline Flex</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h2 class="card__title">Flex &amp; Inline Flex</h2>
-                    <p class="card__subtitle">정렬과 간격을 유연하게 조정할 수 있는 레이아웃입니다.</p>
+            <h2 class="section__title">Flex &amp; Inline Flex</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Flex</h3></div>
+                    <div class="card__body">
+                        <div class="utility-surface utility-surface--row d-flex" style="gap:var(--ds-space-2);">
+                            <div class="utility-element">Flex item</div>
+                            <div class="utility-element">Flex item</div>
+                            <div class="utility-element">Flex item</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card__body">
-                    <div class="demo-surface demo-surface--stack">
-                        <div class="d-flex demo-row">
-                            <div class="demo-element">Flex 1</div>
-                            <div class="demo-element">Flex 2</div>
-                            <div class="demo-element">Flex 3</div>
-                        </div>
-                        <div class="responsive-note">
-                            <span class="badge badge--soft-secondary">Tip</span>
-                            <p class="responsive-note__text">`.d-inline-flex`는 인라인 흐름을 유지하면서도 내부 요소는 flex 레이아웃을 따릅니다.</p>
-                        </div>
-                        <div class="demo-inline-group">
-                            <span class="d-inline-flex demo-row">
-                                <span class="demo-element">Inline Flex 1</span>
-                                <span class="demo-element">Inline Flex 2</span>
-                            </span>
-                            <span class="d-inline-flex demo-row">
-                                <span class="demo-element">Inline Flex 3</span>
-                                <span class="demo-element">Inline Flex 4</span>
-                            </span>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Inline Flex</h3></div>
+                    <div class="card__body">
+                        <div class="utility-surface utility-surface--row d-inline-flex" style="gap:var(--ds-space-2);">
+                            <div class="utility-element">Inline flex</div>
+                            <div class="utility-element">Inline flex</div>
                         </div>
                     </div>
                 </div>
@@ -121,50 +107,34 @@
         </section>
 
         <section class="section">
-            <h2 class="section__title" id="display-grid-table">Grid &amp; Table</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h2 class="card__title">Grid &amp; Table</h2>
-                    <p class="card__subtitle">격자와 테이블 디스플레이 비교 예시입니다.</p>
-                </div>
-                <div class="card__body">
-                    <div class="card-group card-group--cols-2 utility-card-group">
-                        <div class="card utility-card">
-                            <div class="card__header">
-                                <h3 class="card__title">Grid</h3>
-                            </div>
-                            <div class="card__body">
-                                <div class="demo-surface">
-                                    <div class="d-grid demo-grid">
-                                        <div class="demo-element">1</div>
-                                        <div class="demo-element">2</div>
-                                        <div class="demo-element">3</div>
-                                        <div class="demo-element">4</div>
-                                        <div class="demo-element">5</div>
-                                        <div class="demo-element">6</div>
-                                    </div>
-                                </div>
-                            </div>
+            <h2 class="section__title">Grid · Table Display</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">`.d-grid`</h3></div>
+                    <div class="card__body">
+                        <div class="utility-surface d-grid" style="grid-template-columns:repeat(3, minmax(0, 1fr)); gap:var(--ds-space-2);">
+                            <div class="utility-element">1</div>
+                            <div class="utility-element">2</div>
+                            <div class="utility-element">3</div>
+                            <div class="utility-element">4</div>
+                            <div class="utility-element">5</div>
+                            <div class="utility-element">6</div>
                         </div>
-                        <div class="card utility-card">
-                            <div class="card__header">
-                                <h3 class="card__title">Table</h3>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">`.d-table`</h3></div>
+                    <div class="card__body">
+                        <div class="utility-surface d-table" style="width:100%;">
+                            <div class="d-table-row">
+                                <div class="d-table-cell utility-element">헤더 1</div>
+                                <div class="d-table-cell utility-element">헤더 2</div>
+                                <div class="d-table-cell utility-element">헤더 3</div>
                             </div>
-                            <div class="card__body">
-                                <div class="demo-surface">
-                                    <div class="d-table demo-table">
-                                        <div class="d-table-row">
-                                            <div class="d-table-cell demo-element">헤더 1</div>
-                                            <div class="d-table-cell demo-element">헤더 2</div>
-                                            <div class="d-table-cell demo-element">헤더 3</div>
-                                        </div>
-                                        <div class="d-table-row">
-                                            <div class="d-table-cell demo-element">셀 1</div>
-                                            <div class="d-table-cell demo-element">셀 2</div>
-                                            <div class="d-table-cell demo-element">셀 3</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="d-table-row">
+                                <div class="d-table-cell utility-element">셀 1</div>
+                                <div class="d-table-cell utility-element">셀 2</div>
+                                <div class="d-table-cell utility-element">셀 3</div>
                             </div>
                         </div>
                     </div>
@@ -173,40 +143,28 @@
         </section>
 
         <section class="section">
-            <h2 class="section__title" id="display-responsive">Responsive Visibility</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h2 class="card__title">반응형 표시</h2>
-                    <p class="card__subtitle">뷰포트에 따라 노출 상태를 바꾸는 패턴입니다.</p>
-                </div>
+            <h2 class="section__title">Responsive Visibility</h2>
+            <div class="card card--gray">
+                <div class="card__header"><h3 class="card__title">Breakpoint Helpers</h3></div>
                 <div class="card__body">
-                    <div class="demo-surface demo-surface--stack">
-                        <div class="card utility-card utility-card--inline">
-                            <div class="card__header">
-                                <h3 class="card__title">모바일에서 숨기기</h3>
-                            </div>
+                    <div class="utility-surface utility-surface--stack">
+                        <div class="card card--gray">
+                            <div class="card__header"><h4 class="card__title">모바일에서 숨기기</h4></div>
                             <div class="card__body">
-                                <div class="d-none d-sm-block demo-element">sm 이상에서만 보입니다</div>
+                                <div class="utility-element d-none d-sm-block">`d-none d-sm-block` → sm 이상에서만 보임</div>
                             </div>
                         </div>
-                        <div class="card utility-card utility-card--inline">
-                            <div class="card__header">
-                                <h3 class="card__title">데스크톱에서 숨기기</h3>
-                            </div>
+                        <div class="card card--gray">
+                            <div class="card__header"><h4 class="card__title">데스크톱에서 숨기기</h4></div>
                             <div class="card__body">
-                                <div class="d-block d-lg-none demo-element">lg 미만에서만 보입니다</div>
+                                <div class="utility-element d-block d-lg-none">`d-lg-none` → lg 미만에서만 보임</div>
                             </div>
                         </div>
-                        <div class="card utility-card utility-card--inline">
-                            <div class="card__header">
-                                <h3 class="card__title">타입 전환</h3>
-                            </div>
+                        <div class="card card--gray">
+                            <div class="card__header"><h4 class="card__title">접근성 숨김</h4></div>
                             <div class="card__body">
-                                <div class="d-block d-md-flex demo-row">
-                                    <div class="demo-element">모바일: block</div>
-                                    <div class="demo-element">태블릿+: flex</div>
-                                    <div class="demo-element">항상 표시</div>
-                                </div>
+                                <span class="sr-only">스크린 리더 전용 텍스트</span>
+                                <p class="utility-copy">`.sr-only`을 함께 사용해 시각적으로 숨기되 스크린 리더에는 노출합니다.</p>
                             </div>
                         </div>
                     </div>
@@ -215,35 +173,11 @@
         </section>
 
         <section class="section">
-            <h2 class="section__title" id="display-print-visibility">Print &amp; Visibility</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h2 class="card__title">Print &amp; Visibility</h2>
-                    <p class="card__subtitle">출력 환경과 시각적 힌트 제어를 함께 확인합니다.</p>
-                </div>
+            <h2 class="section__title">Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header"><h3 class="card__title">Classes &amp; Properties</h3></div>
                 <div class="card__body">
-                    <div class="demo-surface demo-surface--stack">
-                        <div class="demo-element">항상 보이는 요소</div>
-                        <div class="d-print-none demo-element">인쇄 시 숨김</div>
-                        <div class="d-none d-print-block demo-element">인쇄 전용 요소</div>
-                        <div class="demo-surface demo-surface--row">
-                            <button type="button" class="btn btn--primary visible">Visible</button>
-                            <button type="button" class="btn btn--primary invisible">Invisible (공간만 차지)</button>
-                            <button type="button" class="btn btn--secondary visible">Always visible</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title" id="display-reference">Reference Table</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h2 class="card__title">클래스 요약</h2>
-                </div>
-                <div class="card__body">
-                    <table class="vp-table">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>Class</th>
@@ -253,59 +187,34 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td><code>.d-block</code> / <code>.d-inline</code> / <code>.d-inline-block</code></td>
+                                <td><code>display</code></td>
+                                <td>기본 display 타입 전환</td>
+                            </tr>
+                            <tr>
                                 <td><code>.d-none</code></td>
-                                <td>display: none</td>
-                                <td>요소 숨김</td>
+                                <td><code>display: none</code></td>
+                                <td>요소 완전 숨김</td>
                             </tr>
                             <tr>
-                                <td><code>.d-block</code></td>
-                                <td>display: block</td>
-                                <td>Block 레이아웃</td>
-                            </tr>
-                            <tr>
-                                <td><code>.d-inline</code></td>
-                                <td>display: inline</td>
-                                <td>Inline 레이아웃</td>
-                            </tr>
-                            <tr>
-                                <td><code>.d-inline-block</code></td>
-                                <td>display: inline-block</td>
-                                <td>Inline-block 레이아웃</td>
-                            </tr>
-                            <tr>
-                                <td><code>.d-flex</code></td>
-                                <td>display: flex</td>
-                                <td>Flex 컨테이너</td>
+                                <td><code>.d-flex</code> / <code>.d-inline-flex</code></td>
+                                <td><code>display: flex|inline-flex</code></td>
+                                <td>플렉스 컨테이너</td>
                             </tr>
                             <tr>
                                 <td><code>.d-grid</code></td>
-                                <td>display: grid</td>
-                                <td>Grid 컨테이너</td>
+                                <td><code>display: grid</code></td>
+                                <td>CSS Grid 컨테이너</td>
                             </tr>
                             <tr>
-                                <td><code>.d-table</code></td>
-                                <td>display: table</td>
-                                <td>Table 레이아웃</td>
+                                <td><code>.d-table</code> / <code>.d-table-row</code> / <code>.d-table-cell</code></td>
+                                <td>table 관련 display</td>
+                                <td>테이블 레이아웃 시뮬레이션</td>
                             </tr>
                             <tr>
-                                <td><code>.visible</code></td>
-                                <td>visibility: visible</td>
-                                <td>강제로 표시</td>
-                            </tr>
-                            <tr>
-                                <td><code>.invisible</code></td>
-                                <td>visibility: hidden</td>
-                                <td>공간 유지, 비표시</td>
-                            </tr>
-                            <tr>
-                                <td><code>.d-[breakpoint]-[type]</code></td>
-                                <td>Responsive display</td>
-                                <td>브레이크포인트별 디스플레이 전환</td>
-                            </tr>
-                            <tr>
-                                <td><code>.d-print-[type]</code></td>
-                                <td>Print display</td>
-                                <td>인쇄 시 표시 타입</td>
+                                <td><code>.d-{bp}-none</code>, <code>.d-{bp}-block</code> 등</td>
+                                <td>브레이크포인트별 display</td>
+                                <td>sm, md, lg, xl 접두사 지원</td>
                             </tr>
                         </tbody>
                     </table>
@@ -313,121 +222,34 @@
             </div>
         </section>
 
-        <style>
-            .utility-card-group {
-                gap: 16px;
-            }
-
-            .utility-card {
-                box-shadow: none;
-                border: 1px solid var(--ds-gray-200);
-            }
-
-            .utility-card--inline {
-                max-width: 320px;
-            }
-
-            .card__subtitle {
-                margin-top: 8px;
-                color: var(--ds-text-secondary);
-                font-size: 14px;
-            }
-
-            .demo-surface {
-                background: var(--ds-gray-50);
-                border: 1px dashed var(--ds-gray-300);
-                border-radius: 6px;
-                padding: 16px;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .demo-surface--row {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 12px;
-                align-items: center;
-            }
-
-            .demo-surface--stack {
-                gap: 16px;
-            }
-
-            .demo-element {
-                background: var(--ds-gray-100);
-                border: 1px solid var(--ds-gray-300);
-                border-radius: 4px;
-                color: var(--ds-gray-700);
-                font-size: 14px;
-                font-weight: 500;
-                padding: 12px 16px;
-                text-align: center;
-            }
-
-            .demo-element--fixed {
-                width: 120px;
-            }
-
-            .demo-row {
-                display: flex;
-                gap: 12px;
-                flex-wrap: wrap;
-                align-items: center;
-            }
-
-            .demo-inline-group {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-
-            .demo-grid {
-                grid-template-columns: repeat(3, minmax(80px, 1fr));
-                gap: 12px;
-            }
-
-            .demo-table {
-                width: 100%;
-                border-collapse: separate;
-                border-spacing: 12px;
-            }
-
-            .responsive-note {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                background: var(--ds-gray-100);
-                border: 1px solid var(--ds-gray-200);
-                border-radius: 6px;
-                padding: 8px 12px;
-            }
-
-            .responsive-note__text {
-                margin: 0;
-                font-size: 13px;
-                color: var(--ds-text-secondary);
-            }
-
-            .code {
-                background: var(--ds-gray-900);
-                color: var(--ds-gray-100);
-                padding: 16px;
-                border-radius: 4px;
-                overflow-x: auto;
-                font-family: monospace;
-                font-size: 13px;
-                line-height: 1.5;
-            }
-
-            @media (max-width: 768px) {
-                .utility-card--inline {
-                    max-width: 100%;
-                }
-            }
-        </style>
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header"><h3 class="card__title">Do's and Don'ts</h3></div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>레이아웃 전환 전에 의미론적 HTML 구조를 먼저 정의합니다.</li>
+                                <li>반응형 display 클래스를 조합해 필요한 뷰포트에만 컴포넌트를 노출합니다.</li>
+                                <li>스크린 리더 접근성을 위해 `sr-only`와 함께 사용하여 정보를 완전히 숨기지 않도록 합니다.</li>
+                                <li>플렉스/그리드 전환은 재사용 가능한 패턴으로 캡슐화해서 유지보수를 쉽게 합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>동일한 요소에 여러 display 클래스를 중첩하여 우선순위 충돌을 만들지 않습니다.</li>
+                                <li>콘텐츠를 숨길 때 `visibility: hidden` 대신 `d-none`만 사용하는 경우 포커스 이동 가능성을 확인합니다.</li>
+                                <li>JS로 display를 토글할 때 클래스와 인라인 스타일을 혼용하지 않습니다.</li>
+                                <li>랜더링 이슈 없이도 단순히 여백 조정을 위해 display 속성을 변경하지 않습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <script src="../../bricks/js/bricks_core.js"></script>
 </body>
 </html>

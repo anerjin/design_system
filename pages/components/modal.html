@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="vp-doc">
+        <!-- Page Header -->
         <header class="header">
             <h1 class="header__title">Modal Components</h1>
             <p class="header__description">
@@ -14,19 +15,24 @@
             </p>
         </header>
 
-        <!-- Basic Usage -->
+        <!-- Basic Usage Section -->
         <section class="section">
-            <div class="card">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h2 class="card__title">Basic Usage</h2>
+                    <h3 class="card__title">Default Modal</h3>
                 </div>
                 <div class="card__body">
-                    <div class="demo-modals">
+                    <div class="example-wrapper">
                         <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-basic')" aria-label="Open basic modal dialog" aria-haspopup="dialog">
                             Open Basic Modal
                         </button>
                     </div>
-                    <pre class="code-block"><code>&lt;div class="modal" id="modal-basic" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body"&gt;
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="modal" id="modal-basic" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body"&gt;
     &lt;div class="modal__dialog"&gt;
         &lt;div class="modal__header"&gt;
             &lt;h3 class="modal__title" id="modal-title"&gt;Modal Title&lt;/h3&gt;
@@ -41,200 +47,287 @@
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
-        <!-- Modal Sizes -->
+        <!-- Modal Sizes Section -->
         <section class="section">
             <h2 class="section__title">Modal Sizes</h2>
             <div class="card-group card-group--cols-2">
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Small Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-sm')" aria-label="Open small modal dialog" aria-haspopup="dialog">
-                            Open Small Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-sm')" aria-label="Open small modal dialog" aria-haspopup="dialog">
+                                Open Small Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal__dialog--sm</code>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Large Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-lg')" aria-label="Open large modal dialog" aria-haspopup="dialog">
-                            Open Large Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-lg')" aria-label="Open large modal dialog" aria-haspopup="dialog">
+                                Open Large Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal__dialog--lg</code>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Extra Large Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-xl')" aria-label="Open extra large modal dialog" aria-haspopup="dialog">
-                            Open XL Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-xl')" aria-label="Open extra large modal dialog" aria-haspopup="dialog">
+                                Open XL Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal__dialog--xl</code>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Fullscreen Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-fullscreen')" aria-label="Open fullscreen modal dialog" aria-haspopup="dialog">
-                            Open Fullscreen Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-fullscreen')" aria-label="Open fullscreen modal dialog" aria-haspopup="dialog">
+                                Open Fullscreen Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal__dialog--fullscreen</code>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Modal Themes -->
+        <!-- Modal Themes Section -->
         <section class="section">
             <h2 class="section__title">Modal Themes</h2>
             <div class="card-group card-group--cols-2">
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Default Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-default')" aria-label="Open default modal dialog" aria-haspopup="dialog">
-                            Open Default Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-default')" aria-label="Open default modal dialog" aria-haspopup="dialog">
+                                Open Default Modal
+                            </button>
+                        </div>
                         <code class="code-inline">Default theme</code>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Dark Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-dark')" aria-label="Open dark modal dialog" aria-haspopup="dialog">
-                            Open Dark Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-dark')" aria-label="Open dark modal dialog" aria-haspopup="dialog">
+                                Open Dark Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal--dark</code>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Modal with Cards -->
+        <!-- Modal with Cards Section -->
         <section class="section">
             <h2 class="section__title">Modal with Card Components</h2>
             <div class="card-group card-group--cols-2">
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Form Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-form')" aria-label="Open form modal dialog" aria-haspopup="dialog">
-                            Open Form Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-form')" aria-label="Open form modal dialog" aria-haspopup="dialog">
+                                Open Form Modal
+                            </button>
+                        </div>
                         <p class="text-sm text-muted">Modal containing a form card with input fields</p>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Gallery Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-gallery')" aria-label="Open gallery modal dialog" aria-haspopup="dialog">
-                            Open Gallery Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-gallery')" aria-label="Open gallery modal dialog" aria-haspopup="dialog">
+                                Open Gallery Modal
+                            </button>
+                        </div>
                         <p class="text-sm text-muted">Modal with image gallery cards</p>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Settings Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-settings')" aria-label="Open settings modal dialog" aria-haspopup="dialog">
-                            Open Settings Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-settings')" aria-label="Open settings modal dialog" aria-haspopup="dialog">
+                                Open Settings Modal
+                            </button>
+                        </div>
                         <p class="text-sm text-muted">Modal with tabbed settings cards</p>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Confirmation Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-confirm')" aria-label="Open delete confirmation dialog" aria-haspopup="dialog">
-                            Delete Item
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-confirm')" aria-label="Open delete confirmation dialog" aria-haspopup="dialog">
+                                Delete Item
+                            </button>
+                        </div>
                         <p class="text-sm text-muted">Simple confirmation dialog</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Special Features -->
+        <!-- Special Features Section -->
         <section class="section">
             <h2 class="section__title">Special Features</h2>
             <div class="card-group card-group--cols-2">
-                <div class="card">
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Centered Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-centered')" aria-label="Open centered modal dialog" aria-haspopup="dialog">
-                            Open Centered Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-centered')" aria-label="Open centered modal dialog" aria-haspopup="dialog">
+                                Open Centered Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal--centered</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div class="modal modal--centered"&gt;
+    &lt;div class="modal__dialog"&gt;
+        &lt;!-- Modal content --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </details>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Scrollable Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-scrollable')" aria-label="Open scrollable modal dialog" aria-haspopup="dialog">
-                            Open Scrollable Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-scrollable')" aria-label="Open scrollable modal dialog" aria-haspopup="dialog">
+                                Open Scrollable Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal__dialog--scrollable</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div class="modal"&gt;
+    &lt;div class="modal__dialog modal__dialog--scrollable"&gt;
+        &lt;!-- Modal content --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </details>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">Static Backdrop</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-static')" aria-label="Open static modal dialog" aria-haspopup="dialog">
-                            Open Static Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-static')" aria-label="Open static modal dialog" aria-haspopup="dialog">
+                                Open Static Modal
+                            </button>
+                        </div>
                         <code class="code-inline">.modal--static</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div class="modal modal--static"&gt;
+    &lt;div class="modal__dialog"&gt;
+        &lt;!-- Modal content --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </details>
                     </div>
                 </div>
-                <div class="card">
+
+                <div class="card card--gray">
                     <div class="card__header">
                         <h3 class="card__title">No Header Modal</h3>
                     </div>
                     <div class="card__body">
-                        <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-no-header')" aria-label="Open headerless modal dialog" aria-haspopup="dialog">
-                            Open Headerless Modal
-                        </button>
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-no-header')" aria-label="Open headerless modal dialog" aria-haspopup="dialog">
+                                Open Headerless Modal
+                            </button>
+                        </div>
                         <code class="code-inline">Without .modal__header</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div class="modal"&gt;
+    &lt;div class="modal__dialog"&gt;
+        &lt;div class="modal__body"&gt;
+            &lt;!-- Content without header --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- API Reference -->
-        <section class="section">
+        <section class="section mb40">
             <h2 class="section__title">API Reference</h2>
-            <div class="card">
+            <div class="card card--gray">
                 <div class="card__header">
                     <h3 class="card__title">Classes & Properties</h3>
                 </div>
                 <div class="card__body">
+                    <h3>Modal Classes</h3>
                     <table class="table">
                         <thead>
                             <tr>
@@ -269,36 +362,62 @@
                                 <td>Dark theme variant</td>
                                 <td>Theme modifier</td>
                             </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Dialog Classes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Max Width</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td><code>.modal__dialog</code></td>
                                 <td>Modal dialog container</td>
-                                <td>Content wrapper</td>
+                                <td>500px</td>
                             </tr>
                             <tr>
                                 <td><code>.modal__dialog--sm</code></td>
-                                <td>Small dialog (400px max-width)</td>
-                                <td>Size modifier</td>
+                                <td>Small dialog</td>
+                                <td>400px</td>
                             </tr>
                             <tr>
                                 <td><code>.modal__dialog--lg</code></td>
-                                <td>Large dialog (800px max-width)</td>
-                                <td>Size modifier</td>
+                                <td>Large dialog</td>
+                                <td>800px</td>
                             </tr>
                             <tr>
                                 <td><code>.modal__dialog--xl</code></td>
-                                <td>Extra large dialog (1200px max-width)</td>
-                                <td>Size modifier</td>
+                                <td>Extra large dialog</td>
+                                <td>1200px</td>
                             </tr>
                             <tr>
                                 <td><code>.modal__dialog--fullscreen</code></td>
                                 <td>Full screen dialog</td>
-                                <td>Size modifier</td>
+                                <td>100%</td>
                             </tr>
                             <tr>
                                 <td><code>.modal__dialog--scrollable</code></td>
                                 <td>Scrollable body content</td>
-                                <td>Overflow modifier</td>
+                                <td>-</td>
                             </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Modal Elements</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td><code>.modal__header</code></td>
                                 <td>Modal header section</td>
@@ -326,6 +445,76 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>ARIA Attributes</h3>
+                    <ul>
+                        <li><code>role="dialog"</code> - 다이얼로그 역할 정의</li>
+                        <li><code>aria-modal="true"</code> - 모달 다이얼로그임을 명시</li>
+                        <li><code>aria-labelledby</code> - 모달 제목과 연결</li>
+                        <li><code>aria-describedby</code> - 모달 설명과 연결</li>
+                        <li><code>aria-hidden="true"</code> - 숨겨진 모달 상태</li>
+                    </ul>
+
+                    <h3>Keyboard Navigation</h3>
+                    <ul>
+                        <li><kbd>Tab</kbd> - 포커스 이동</li>
+                        <li><kbd>Shift</kbd> + <kbd>Tab</kbd> - 역방향 포커스 이동</li>
+                        <li><kbd>Escape</kbd> - 모달 닫기</li>
+                        <li><kbd>Enter</kbd> - 기본 액션 실행</li>
+                    </ul>
+
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li>모달 열릴 때 첫 번째 포커스 가능 요소로 포커스 이동</li>
+                        <li>모달 내에서만 포커스 순환 (Focus Trap)</li>
+                        <li>모달 닫힐 때 트리거 요소로 포커스 복귀</li>
+                        <li>배경 클릭으로 닫기 옵션 제공 (static 제외)</li>
+                        <li>명확한 닫기 버튼 제공</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>중요한 사용자 상호작용에 사용</li>
+                                <li>명확한 제목과 설명 제공</li>
+                                <li>적절한 크기 선택</li>
+                                <li>키보드 탐색 지원</li>
+                                <li>모달 내용은 간결하게 유지</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>과도한 모달 중첩 금지</li>
+                                <li>자동으로 열리는 모달 최소화</li>
+                                <li>복잡한 폼은 페이지로 대체</li>
+                                <li>중요 정보만 모달에 표시 금지</li>
+                                <li>모바일에서 과도한 크기 사용 금지</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -766,46 +955,6 @@
                 </div>
             </div>
         </div>
-
-        <style>
-            /* Demo specific styles */
-            .demo-modals { display: flex; gap: var(--ds-space-3); flex-wrap: wrap; align-items: flex-start; margin-bottom: var(--ds-space-4); }
-            .code-inline { display: inline-block; margin-top: var(--ds-space-2); padding: var(--ds-space-1) var(--ds-space-2); background: var(--ds-gray-100); border-radius: var(--ds-border-radius-sm); font-size: var(--ds-text-xs); }
-            .code-block { background: var(--ds-gray-50); padding: var(--ds-space-3); border-radius: var(--ds-border-radius-md); overflow-x: auto; }
-            .text-sm { font-size: var(--ds-text-sm); }
-            .text-muted { color: var(--ds-gray-600); }
-
-            /* Button styles for demo */
-            /* .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--ds-space-2) var(--ds-space-3); border: 1px solid transparent; border-radius: var(--ds-border-radius-md); font-size: var(--ds-text-sm); font-weight: var(--ds-font-medium); text-decoration: none; cursor: pointer; transition: all 0.2s; }
-            .btn--primary { background: var(--ds-black); color: var(--ds-white); border-color: var(--ds-black); }
-            .btn--primary:hover { background: var(--ds-gray-800); border-color: var(--ds-gray-800); }
-            .btn--secondary { background: var(--ds-gray-100); color: var(--ds-black); border-color: var(--ds-gray-200); }
-            .btn--secondary:hover { background: var(--ds-gray-200); }
-            .btn--ghost { background: transparent; color: var(--ds-black); border-color: var(--ds-gray-200); }
-            .btn--ghost:hover { background: var(--ds-gray-50); }
-            .btn--danger { background: var(--ds-red-500); color: var(--ds-white); border-color: var(--ds-red-500); }
-            .btn--danger:hover { background: var(--ds-red-600); border-color: var(--ds-red-600); }
-            .btn--sm { padding: var(--ds-space-1) var(--ds-space-2); font-size: var(--ds-text-xs); } */
-
-            /* Form styles for demo */
-            .form-group { margin-bottom: var(--ds-space-3); }
-            .form-group label { display: block; margin-bottom: var(--ds-space-1); font-weight: var(--ds-font-medium); }
-            .form-control { width: 100%; padding: var(--ds-space-2); border: 1px solid var(--ds-gray-200); border-radius: var(--ds-border-radius-sm); font-size: var(--ds-text-sm); }
-            .form-control:focus { outline: none; border-color: var(--ds-black); }
-
-            /* Settings styles for demo */
-            .settings-item { display: flex; justify-content: space-between; align-items: center; padding: var(--ds-space-2) 0; border-bottom: 1px solid var(--ds-gray-100); }
-            .settings-item:last-child { border-bottom: none; }
-
-            /* Dark card variant for demo */
-            .card--dark { background: var(--ds-gray-800); color: var(--ds-white); }
-
-            /* Utility classes */
-            .mt-2 { margin-top: var(--ds-space-2); }
-            .mt-3 { margin-top: var(--ds-space-3); }
-
- 
-        </style>
     </div>
 </body>
 </html>

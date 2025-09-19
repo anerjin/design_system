@@ -4,330 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Container - BRICKS Design System</title>
-    <link rel="stylesheet" href="../../bricks/css/bricks.css">
 </head>
 <body>
     <div class="vp-doc">
-        <header class="docs__header">
-            <h1 class="docs__title">Container</h1>
-            <p class="docs__description">
-                콘텐츠를 중앙에 정렬하고 최대 너비를 제한하는 컨테이너 레이아웃입니다.
+        <header class="header">
+            <h1 class="header__title">Container Layout</h1>
+            <p class="header__description">
+                컨테이너는 콘텐츠 폭을 제한하고 중앙에 정렬하는 레이아웃의 기본 단위입니다. 아래 예제는 템플릿 구조에 맞춰 기본 사용법과 변형, 실전 패턴을 정리한 것입니다.
             </p>
         </header>
 
         <section class="section">
-            <h2 class="section__title">Basic Container</h2>
-            <div class="card">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
                 <div class="card__header">
-                    <h3 class="card__title">기본 컨테이너</h3>
-                </div>
-                <div class="card__body" style="padding: 0;">
-                    <div class="demo-full-width">
-                        <div class="container demo-container-visible">
-                            <p>This is a basic container. It centers the content and has a maximum width of 1200px. The content will be responsive and adapt to different screen sizes while maintaining proper margins.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="container"&gt;
-    &lt;p&gt;Content inside container&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Container Sizes</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">다양한 크기의 컨테이너</h3>
-                </div>
-                <div class="card__body" style="padding: 0;">
-                    <div class="demo-full-width">
-                        <div class="container container--sm demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Small Container (max: 640px)
-                            </div>
-                        </div>
-
-                        <div class="container container--md demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Medium Container (max: 768px)
-                            </div>
-                        </div>
-
-                        <div class="container demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Default Container (max: 1200px)
-                            </div>
-                        </div>
-
-                        <div class="container container--lg demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Large Container (max: 1440px)
-                            </div>
-                        </div>
-
-                        <div class="container container--xl demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Extra Large Container (max: 1920px)
-                            </div>
-                        </div>
-
-                        <div class="container container--fluid demo-container-visible">
-                            <div class="demo-box">
-                                Fluid Container (no max width)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Container Padding</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">패딩 옵션</h3>
-                </div>
-                <div class="card__body" style="padding: 0;">
-                    <div class="demo-full-width">
-                        <div class="container container--no-padding demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Container without padding
-                            </div>
-                        </div>
-
-                        <div class="container container--padding-sm demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Container with small padding (16px)
-                            </div>
-                        </div>
-
-                        <div class="container container--padding-md demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Container with medium padding (24px)
-                            </div>
-                        </div>
-
-                        <div class="container container--padding-lg demo-container-visible" style="margin-bottom: 16px;">
-                            <div class="demo-box">
-                                Container with large padding (32px)
-                            </div>
-                        </div>
-
-                        <div class="container container--padding-xl demo-container-visible">
-                            <div class="demo-box">
-                                Container with extra large padding (48px)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Centered Container</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">화면 중앙 정렬 컨테이너</h3>
-                </div>
-                <div class="card__body" style="padding: 0; height: 400px;">
-                    <div class="container container--center" style="min-height: 400px;">
-                        <div class="demo-box" style="width: 100%; max-width: 400px;">
-                            <h3>Centered Content</h3>
-                            <p>This content is centered both horizontally and vertically</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="container container--center"&gt;
-    &lt;div&gt;Centered content&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Responsive Container</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">반응형 컨테이너</h3>
-                </div>
-                <div class="card__body" style="padding: 0;">
-                    <div class="demo-full-width">
-                        <div class="container container--responsive demo-container-visible">
-                            <h3>Responsive Container</h3>
-                            <p>This container adjusts its max-width based on screen size:</p>
-                            <ul>
-                                <li>Mobile (&lt;640px): Full width with padding</li>
-                                <li>Small (640px+): 640px max-width</li>
-                                <li>Medium (768px+): 768px max-width</li>
-                                <li>Large (1024px+): 1024px max-width</li>
-                                <li>XL (1280px+): 1280px max-width</li>
-                                <li>2XL (1536px+): 1536px max-width</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Container with Sidebar</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">사이드바 레이아웃</h3>
+                    <h3 class="card__title">Default Container</h3>
                 </div>
                 <div class="card__body">
-                    <div class="container-with-sidebar">
-                        <div class="container-with-sidebar__main">
-                            <div class="demo-box" style="height: 200px;">
-                                <h3>Main Content</h3>
-                                <p>This is the main content area. It will grow to fill available space.</p>
-                            </div>
-                        </div>
-                        <div class="container-with-sidebar__sidebar">
-                            <div class="demo-box" style="height: 200px;">
-                                <h3>Sidebar</h3>
-                                <p>Fixed width sidebar (300px)</p>
+                    <p class="text-muted">`.container`는 최대 1200px 너비를 갖고, 뷰포트에 따라 좌우 여백을 자동으로 조정합니다.</p>
+                    <div class="example-wrapper">
+                        <div class="layout-surface layout-surface--plain">
+                            <div class="container">
+                                <div class="layout-box">
+                                    기본 컨테이너는 데스크톱에서 1200px까지 확장되고, 더 작은 화면에서는 좌우 여백을 유지한 채 100% 폭을 차지합니다.
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="container-with-sidebar container-with-sidebar--left" style="margin-top: 24px;">
-                        <div class="container-with-sidebar__main">
-                            <div class="demo-box" style="height: 200px;">
-                                <h3>Main Content</h3>
-                                <p>Main content with sidebar on left</p>
-                            </div>
-                        </div>
-                        <div class="container-with-sidebar__sidebar">
-                            <div class="demo-box" style="height: 200px;">
-                                <h3>Left Sidebar</h3>
-                                <p>Sidebar positioned on the left</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__footer">
-                    <pre class="code"><code>&lt;div class="container-with-sidebar"&gt;
-    &lt;div class="container-with-sidebar__main"&gt;
-        Main content
-    &lt;/div&gt;
-    &lt;div class="container-with-sidebar__sidebar"&gt;
-        Sidebar content
-    &lt;/div&gt;
+                    <details class="code-details mt20">
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+    &lt;p&gt;Centered content with max-width&lt;/p&gt;
 &lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section__title">Nested Containers</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">중첩 컨테이너</h3>
-                </div>
-                <div class="card__body" style="padding: 0;">
-                    <div class="container demo-container-visible" style="padding: 24px;">
-                        <h3>Outer Container</h3>
-                        <p>This is the outer container with default max-width (1200px).</p>
-
-                        <div class="container container--sm demo-container-nested">
-                            <h4>Inner Container</h4>
-                            <p>This is a nested container with smaller max-width (640px).</p>
-                        </div>
+            <h2 class="section__title">Size Variations</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Preset Widths</h3>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Container Sections</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">섹션별 컨테이너</h3>
-                </div>
-                <div class="card__body" style="padding: 0;">
-                    <div class="container-section container-section--sm" style="background: var(--ds-gray-50);">
-                        <div class="container">
-                            <h2>Small Section</h2>
-                            <p>Section with small padding (24px top/bottom)</p>
-                        </div>
-                    </div>
-
-                    <div class="container-section" style="background: var(--ds-white);">
-                        <div class="container">
-                            <h2>Default Section</h2>
-                            <p>Section with default padding (48px top/bottom)</p>
-                        </div>
-                    </div>
-
-                    <div class="container-section container-section--lg" style="background: var(--ds-gray-50);">
-                        <div class="container">
-                            <h2>Large Section</h2>
-                            <p>Section with large padding (64px top/bottom)</p>
-                        </div>
-                    </div>
-
-                    <div class="container-section container-section--xl" style="background: var(--ds-white);">
-                        <div class="container">
-                            <h2>Extra Large Section</h2>
-                            <p>Section with extra large padding (96px top/bottom)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Full Page Layout Example</h2>
-            <div class="card">
-                <div class="card__header">
-                    <h3 class="card__title">전체 페이지 레이아웃</h3>
-                </div>
-                <div class="card__body" style="padding: 0;">
-                    <!-- Hero Section -->
-                    <div class="container-section container-section--xl" style="background: var(--ds-gray-100);">
-                        <div class="container">
-                            <div style="text-align: center;">
-                                <h1 style="color: var(--ds-gray-900);">Hero Section</h1>
-                                <p>Full-width background with contained content</p>
+                    <div class="card__body">
+                        <p class="text-muted">다양한 화면 밀도를 지원하기 위해 다섯 가지 고정 폭 프리셋과 유동형 컨테이너를 제공합니다.</p>
+                        <div class="layout-stack">
+                            <div class="layout-surface">
+                                <div class="container container--sm">
+                                    <div class="layout-box">`.container--sm` · 640px</div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Features Section -->
-                    <div class="container-section">
-                        <div class="container">
-                            <h2>Features</h2>
-                            <div class="grid grid--gap-md">
-                                <div class="grid__col grid__col--4">
-                                    <div class="demo-box">Feature 1</div>
+                            <div class="layout-surface">
+                                <div class="container container--md">
+                                    <div class="layout-box">`.container--md` · 768px</div>
                                 </div>
-                                <div class="grid__col grid__col--4">
-                                    <div class="demo-box">Feature 2</div>
+                            </div>
+                            <div class="layout-surface">
+                                <div class="container">
+                                    <div class="layout-box">`.container` · 1200px</div>
                                 </div>
-                                <div class="grid__col grid__col--4">
-                                    <div class="demo-box">Feature 3</div>
+                            </div>
+                            <div class="layout-surface">
+                                <div class="container container--lg">
+                                    <div class="layout-box">`.container--lg` · 1440px</div>
+                                </div>
+                            </div>
+                            <div class="layout-surface">
+                                <div class="container container--xl">
+                                    <div class="layout-box">`.container--xl` · 1920px</div>
+                                </div>
+                            </div>
+                            <div class="layout-surface layout-surface--muted">
+                                <div class="container container--fluid">
+                                    <div class="layout-box">`.container--fluid` · width: 100%</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Content Section -->
-                    <div class="container-section" style="background: var(--ds-gray-50);">
-                        <div class="container container--md">
-                            <h2>Content Section</h2>
-                            <p>Narrower container for better readability of text content. Using container--md to limit width to 768px.</p>
-                        </div>
+                    <div class="card__footer">
+                        <code class="code-inline">.container--sm</code>
+                        <code class="code-inline">.container--md</code>
+                        <code class="code-inline">.container--lg</code>
+                        <code class="code-inline">.container--xl</code>
+                        <code class="code-inline">.container--fluid</code>
                     </div>
+                </div>
 
-                    <!-- Footer Section -->
-                    <div class="container-section container-section--sm" style="background: var(--ds-gray-900);">
-                        <div class="container" style="text-align: center; color: var(--ds-gray-100);">
-                            <p>© 2024 BRICKS Design System</p>
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Padding Options</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">컨테이너 내부 여백은 페이지 특성에 따라 유연하게 선택합니다.</p>
+                        <div class="layout-stack">
+                            <div class="layout-surface layout-surface--muted">
+                                <div class="container container--no-padding">
+                                    <div class="layout-box">`.container--no-padding` · padding: 0</div>
+                                </div>
+                            </div>
+                            <div class="layout-surface">
+                                <div class="container container--padding-sm">
+                                    <div class="layout-box">`.container--padding-sm` · padding: 16px</div>
+                                </div>
+                            </div>
+                            <div class="layout-surface">
+                                <div class="container container--padding-md">
+                                    <div class="layout-box">`.container--padding-md` · padding: 24px</div>
+                                </div>
+                            </div>
+                            <div class="layout-surface">
+                                <div class="container container--padding-lg">
+                                    <div class="layout-box">`.container--padding-lg` · padding: 32px</div>
+                                </div>
+                            </div>
+                            <div class="layout-surface">
+                                <div class="container container--padding-xl">
+                                    <div class="layout-box">`.container--padding-xl` · padding: 48px</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -335,77 +133,137 @@
         </section>
 
         <section class="section">
-            <h2 class="section__title">Properties Reference</h2>
-            <div class="card">
+            <h2 class="section__title">Layout Patterns</h2>
+            <div class="card-group card-group--cols-1">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Centered Content</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">`container--center`는 뷰포트 내에서 콘텐츠를 수직·수평 중앙에 배치합니다.</p>
+                        <div class="layout-surface layout-centered layout-centered--column">
+                            <div class="container container--center">
+                                <div class="layout-box layout-box--accent" style="min-width:240px;">
+                                    대화나 빈 상태 화면처럼 중앙 정렬이 필요한 경우 사용합니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <details class="code-details">
+                            <summary class="code-summary">HTML 코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div class=&quot;container container--center&quot;&gt;
+    &lt;div class=&quot;empty-state&quot;&gt;Centered box&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Responsive Breakpoints</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">`.container--responsive`는 Tailwind 스타일 브레이크포인트에 맞춰 점진적으로 최대 너비를 확장합니다.</p>
+                        <div class="example-wrapper">
+                            <div class="layout-surface layout-surface--plain">
+                                <div class="container container--responsive">
+                                    <div class="layout-box">
+                                        모바일에서는 패딩만 유지되고, <strong>sm</strong> = 640px, <strong>md</strong> = 768px, <strong>lg</strong> = 1024px, <strong>xl</strong> = 1280px, <strong>2xl</strong> = 1536px으로 차례대로 확장됩니다.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Sidebar Layout</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">`.container-with-sidebar`는 고정 폭 사이드바와 가변 본문을 구성하는 헬퍼입니다.</p>
+                        <div class="layout-surface layout-surface--plain">
+                            <div class="container-with-sidebar layout-sidebar">
+                                <div class="container-with-sidebar__main layout-sidebar__main">
+                                    <div class="layout-box">메인 콘텐츠 (flex:1)</div>
+                                </div>
+                                <div class="container-with-sidebar__sidebar layout-sidebar__aside">
+                                    <div class="layout-box">사이드바 (300px)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-surface layout-surface--plain mt20">
+                            <div class="container-with-sidebar container-with-sidebar--left layout-sidebar layout-sidebar--reverse">
+                                <div class="container-with-sidebar__main layout-sidebar__main">
+                                    <div class="layout-box">좌측 고정 사이드바 패턴</div>
+                                </div>
+                                <div class="container-with-sidebar__sidebar layout-sidebar__aside">
+                                    <div class="layout-box">비주얼 또는 필터</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <code class="code-inline">.container-with-sidebar</code>
+                        <code class="code-inline">.container-with-sidebar--left</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Class Mapping</h3>
+                </div>
                 <div class="card__body">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Class</th>
-                                <th>Max Width</th>
                                 <th>Description</th>
+                                <th>Max Width / Padding</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><code>.container</code></td>
+                                <td>기본 중앙 정렬 컨테이너</td>
                                 <td>1200px</td>
-                                <td>Default container</td>
                             </tr>
                             <tr>
-                                <td><code>.container--sm</code></td>
-                                <td>640px</td>
-                                <td>Small container</td>
-                            </tr>
-                            <tr>
-                                <td><code>.container--md</code></td>
-                                <td>768px</td>
-                                <td>Medium container</td>
-                            </tr>
-                            <tr>
-                                <td><code>.container--lg</code></td>
-                                <td>1440px</td>
-                                <td>Large container</td>
-                            </tr>
-                            <tr>
-                                <td><code>.container--xl</code></td>
-                                <td>1920px</td>
-                                <td>Extra large container</td>
+                                <td><code>.container--sm</code> / <code>.container--md</code> / <code>.container--lg</code> / <code>.container--xl</code></td>
+                                <td>브레이크포인트별 고정 폭</td>
+                                <td>640 / 768 / 1440 / 1920px</td>
                             </tr>
                             <tr>
                                 <td><code>.container--fluid</code></td>
+                                <td>전체 폭 사용</td>
                                 <td>100%</td>
-                                <td>Full width container</td>
                             </tr>
                             <tr>
                                 <td><code>.container--responsive</code></td>
-                                <td>Breakpoint-based</td>
-                                <td>Responsive container</td>
+                                <td>뷰포트에 따라 점진적 확장</td>
+                                <td>640 → 1536px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container--padding-{size}</code></td>
+                                <td>내부 패딩 조정 (<code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>)</td>
+                                <td>16 · 24 · 32 · 48px</td>
                             </tr>
                             <tr>
                                 <td><code>.container--center</code></td>
+                                <td>수직·수평 중앙 정렬</td>
                                 <td>-</td>
-                                <td>Centered vertically and horizontally</td>
-                            </tr>
-                            <tr>
-                                <td><code>.container--no-padding</code></td>
-                                <td>-</td>
-                                <td>Remove padding</td>
-                            </tr>
-                            <tr>
-                                <td><code>.container--padding-[size]</code></td>
-                                <td>-</td>
-                                <td>Padding variations (sm, md, lg, xl)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.container-section</code></td>
-                                <td>-</td>
-                                <td>Container for sections (48px padding)</td>
                             </tr>
                             <tr>
                                 <td><code>.container-with-sidebar</code></td>
-                                <td>-</td>
-                                <td>Container with sidebar layout</td>
+                                <td>고정 폭 사이드바 + 가변 본문</td>
+                                <td>aside 300px</td>
                             </tr>
                         </tbody>
                     </table>
@@ -413,51 +271,36 @@
             </div>
         </section>
 
-        <style>
-            .demo-box {
-                background: var(--ds-gray-100);
-                border: 1px solid var(--ds-gray-300);
-                padding: 16px;
-                text-align: center;
-                border-radius: 4px;
-                color: var(--ds-gray-700);
-                font-size: 14px;
-                font-weight: 500;
-            }
-
-            .demo-full-width {
-                background: var(--ds-gray-50);
-                padding: 24px 0;
-            }
-
-            .demo-container-visible {
-                background: var(--ds-white);
-                padding: 24px;
-                border: 1px dashed var(--ds-gray-400);
-                border-radius: 4px;
-            }
-
-            .demo-container-nested {
-                background: var(--ds-white);
-                padding: 24px;
-                margin-top: 16px;
-                border: 1px dashed var(--ds-gray-400);
-                border-radius: 4px;
-            }
-
-            .code {
-                background: var(--ds-gray-900);
-                color: var(--ds-gray-100);
-                padding: 16px;
-                border-radius: 4px;
-                overflow-x: auto;
-                font-family: monospace;
-                font-size: 13px;
-                line-height: 1.5;
-            }
-        </style>
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>페이지 유형에 맞춰 적절한 최대 너비(콘텐츠 가독성)를 선택합니다.</li>
+                                <li>반응형 레이아웃에서는 <code>.container--responsive</code>와 사이즈 프리셋을 혼합해 사용합니다.</li>
+                                <li>내부 패딩 클래스로 헤더·본문·푸터 등 레이아웃 간 간격을 통일합니다.</li>
+                                <li>사이드바 레이아웃에는 가변 컨텐츠 영역이 충분히 남도록 최소 폭을 검토합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>컨테이너 안에 또 다른 고정 폭 컨테이너를 중첩해 과도한 여백을 만들지 않습니다.</li>
+                                <li>본문 텍스트가 너무 긴 경우 <code>.container--fluid</code>만으로 레이아웃을 구성하지 않습니다.</li>
+                                <li>임베드나 미디어가 있을 때는 패딩이 제거된 상태에서 경계가 맞는지 확인하지 않고 배포하지 않습니다.</li>
+                                <li>사이드바 레이아웃을 모바일에 그대로 적용해 좌우 스크롤을 강제하지 않습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <script src="../../bricks/js/bricks_core.js"></script>
 </body>
 </html>

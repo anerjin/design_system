@@ -23,69 +23,85 @@
 
                 pagination.setAttribute('data-bricks-pagination-initialized', 'true');
 
+                const paginationInstance = global.BRICKS.Pagination;
+
                 // 페이지 링크들에 이벤트 바인딩
-                const links = pagination.querySelectorAll('.pagination__link:not(.pagination__link--disabled)');
-
+                const links = pagination.querySelectorAll('.pagination__link');
                 links.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-
-                        const page = link.getAttribute('data-page');
-                        if (!page) return;
-
-                        // 현재 활성 페이지 찾기
-                        const currentActive = pagination.querySelector('.pagination__link--active');
-                        let currentPage = 1;
-
-                        if (currentActive) {
-                            const currentPageAttr = currentActive.getAttribute('data-page');
-                            currentPage = currentPageAttr ? parseInt(currentPageAttr) : 1;
-                        }
-
-                        // 총 페이지 수 가져오기
-                        const totalPages = parseInt(pagination.getAttribute('data-total-pages')) || 0;
-
-                        // 새 페이지 번호 계산
-                        let newPage = currentPage;
-
-                        if (page === 'prev') {
-                            newPage = Math.max(1, currentPage - 1);
-                        } else if (page === 'next') {
-                            newPage = totalPages ? Math.min(totalPages, currentPage + 1) : currentPage + 1;
-                        } else {
-                            newPage = parseInt(page);
-                        }
-
-                        // 같은 페이지면 무시
-                        if (newPage === currentPage) {
-                            return;
-                        }
-
-                        // 페이지 변경
-                        global.BRICKS.Pagination.changePage(pagination, newPage, currentPage);
-
-                        // 커스텀 이벤트 발생
-                        const event = new CustomEvent('pageChange', {
-                            detail: {
-                                page: newPage,
-                                previousPage: currentPage,
-                                pagination: pagination
-                            }
-                        });
-                        pagination.dispatchEvent(event);
-                    });
-
-                    // 키보드 접근성
-                    link.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            link.click();
-                        }
-                    });
+                    paginationInstance.attachLinkEvents(link, pagination);
                 });
 
-                // 초기 상태 설정
-                global.BRICKS.Pagination.updateState(pagination);
+                if (pagination.hasAttribute('data-dynamic')) {
+                    const active = pagination.querySelector('.pagination__link--active');
+                    const currentPage = active ? parseInt(active.getAttribute('data-page')) || 1 : 1;
+                    paginationInstance.generatePages(pagination, currentPage);
+                } else {
+                    paginationInstance.updateState(pagination);
+                }
+            });
+        },
+
+        attachLinkEvents: function(link, pagination) {
+            if (!link) return;
+
+            const handler = (e) => {
+                e.preventDefault();
+
+                if (link.classList.contains('pagination__link--disabled') || link.getAttribute('aria-disabled') === 'true') {
+                    return;
+                }
+
+                const pageAttr = link.getAttribute('data-page');
+                if (!pageAttr) return;
+
+                const currentActive = pagination.querySelector('.pagination__link--active');
+                let currentPage = currentActive ? parseInt(currentActive.getAttribute('data-page')) || 1 : 1;
+                const bounds = global.BRICKS.Pagination.getPageBounds(pagination);
+
+                let newPage = currentPage;
+
+                if (pageAttr === 'prev') {
+                    newPage = Math.max(bounds.min, currentPage - 1);
+                } else if (pageAttr === 'next') {
+                    newPage = Math.min(bounds.max, currentPage + 1);
+                } else {
+                    const parsed = parseInt(pageAttr, 10);
+                    if (!isNaN(parsed)) {
+                        newPage = parsed;
+                    }
+                }
+
+                newPage = Math.min(Math.max(newPage, bounds.min), bounds.max);
+
+                if (newPage === currentPage) {
+                    return;
+                }
+
+                if (!pagination.hasAttribute('data-dynamic')) {
+                    const candidate = pagination.querySelector(`[data-page="${newPage}"]`);
+                    if (!candidate) {
+                        return;
+                    }
+                }
+
+                global.BRICKS.Pagination.changePage(pagination, newPage, currentPage);
+
+                const event = new CustomEvent('pageChange', {
+                    detail: {
+                        page: newPage,
+                        previousPage: currentPage,
+                        pagination: pagination
+                    }
+                });
+                pagination.dispatchEvent(event);
+            };
+
+            link.addEventListener('click', handler);
+            link.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handler(e);
+                }
             });
         },
 
@@ -104,12 +120,11 @@
                 newActiveLink.setAttribute('aria-current', 'page');
             }
 
-            // 이전/다음 버튼 상태 업데이트
-            global.BRICKS.Pagination.updateState(pagination);
-
             // 동적 페이지네이션인 경우 페이지 번호 재생성
             if (pagination.hasAttribute('data-dynamic')) {
                 global.BRICKS.Pagination.generatePages(pagination, newPage);
+            } else {
+                global.BRICKS.Pagination.updateState(pagination);
             }
         },
 
@@ -118,13 +133,13 @@
             const currentActive = pagination.querySelector('.pagination__link--active');
             if (!currentActive) return;
 
-            const currentPage = parseInt(currentActive.getAttribute('data-page')) || 1;
-            const totalPages = parseInt(pagination.getAttribute('data-total-pages')) || 0;
+            const bounds = this.getPageBounds(pagination);
+            const currentPage = parseInt(currentActive.getAttribute('data-page')) || bounds.min;
 
             // 이전 버튼
             const prevButton = pagination.querySelector('.pagination__link--prev');
             if (prevButton) {
-                if (currentPage <= 1) {
+                if (currentPage <= bounds.min) {
                     prevButton.classList.add('pagination__link--disabled');
                     prevButton.setAttribute('aria-disabled', 'true');
                     prevButton.setAttribute('tabindex', '-1');
@@ -137,8 +152,8 @@
 
             // 다음 버튼
             const nextButton = pagination.querySelector('.pagination__link--next');
-            if (nextButton && totalPages > 0) {
-                if (currentPage >= totalPages) {
+            if (nextButton) {
+                if (currentPage >= bounds.max) {
                     nextButton.classList.add('pagination__link--disabled');
                     nextButton.setAttribute('aria-disabled', 'true');
                     nextButton.setAttribute('tabindex', '-1');
@@ -159,11 +174,13 @@
             if (!list) return;
 
             // 기존 페이지 번호 제거 (이전/다음 버튼 제외)
-            const items = list.querySelectorAll('.pagination__item');
+            const items = Array.from(list.querySelectorAll('.pagination__item'));
             items.forEach(item => {
                 const link = item.querySelector('.pagination__link');
-                if (link && !link.classList.contains('pagination__link--prev') &&
-                    !link.classList.contains('pagination__link--next')) {
+                const isPrev = link && link.classList.contains('pagination__link--prev');
+                const isNext = link && link.classList.contains('pagination__link--next');
+
+                if (!isPrev && !isNext) {
                     item.remove();
                 }
             });
@@ -225,21 +242,7 @@
                     link.textContent = page;
                     item.appendChild(link);
 
-                    // 이벤트 리스너 추가
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const newPage = parseInt(link.getAttribute('data-page'));
-                        global.BRICKS.Pagination.changePage(pagination, newPage, currentPage);
-
-                        const event = new CustomEvent('pageChange', {
-                            detail: {
-                                page: newPage,
-                                previousPage: currentPage,
-                                pagination: pagination
-                            }
-                        });
-                        pagination.dispatchEvent(event);
-                    });
+                    global.BRICKS.Pagination.attachLinkEvents(link, pagination);
                 }
 
                 if (nextButton) {
@@ -248,6 +251,8 @@
                     list.appendChild(item);
                 }
             });
+
+            global.BRICKS.Pagination.updateState(pagination);
         },
 
         // 프로그래밍적으로 페이지 설정
@@ -263,9 +268,33 @@
                 ? (parseInt(currentActive.getAttribute('data-page')) || 1)
                 : 1;
 
-            if (page !== currentPage) {
-                global.BRICKS.Pagination.changePage(paginationEl, page, currentPage);
+            const bounds = this.getPageBounds(paginationEl);
+            const targetPage = Math.min(Math.max(page, bounds.min), bounds.max);
+
+            if (targetPage !== currentPage) {
+                global.BRICKS.Pagination.changePage(paginationEl, targetPage, currentPage);
             }
+        },
+
+        getPageBounds: function(pagination) {
+            const totalPagesAttr = parseInt(pagination.getAttribute('data-total-pages'), 10);
+            if (!isNaN(totalPagesAttr) && totalPagesAttr > 0) {
+                return { min: 1, max: totalPagesAttr };
+            }
+
+            const numericPages = Array.from(pagination.querySelectorAll('.pagination__link'))
+                .map(link => link.getAttribute('data-page'))
+                .filter(value => value && value !== 'prev' && value !== 'next')
+                .map(value => parseInt(value, 10))
+                .filter(value => !isNaN(value));
+
+            if (numericPages.length === 0) {
+                return { min: 1, max: 1 };
+            }
+
+            const min = Math.min(...numericPages);
+            const max = Math.max(...numericPages);
+            return { min, max };
         }
     };
 

@@ -72,3 +72,27 @@
   50% {stroke-dasharray:89, 100; stroke-dashoffset:-35;}
   100% {stroke-dasharray:89, 100; stroke-dashoffset:-124;}
 }
+
+/* Circular Progress Colors */
+.progress-circular__bar--success {stroke:var(--ds-color-success);}
+.progress-circular__bar--warning {stroke:var(--ds-color-warning);}
+.progress-circular__bar--danger {stroke:var(--ds-color-danger);}
+.progress-circular__bar--info {stroke:var(--ds-color-info);}
+.progress-circular__bar--dark {stroke:var(--ds-gray-900);}
+
+
+/* Multi-step Progress */
+.multi-step {display:flex; flex-direction:column; gap:12px;}
+.step-labels {display:flex; justify-content:space-between; margin-bottom:4px;}
+.step-label {color:var(--ds-gray-500); font-size:14px; font-weight:500;}
+.step-label--completed {color:var(--ds-color-success);}
+.step-label--active {color:var(--ds-prime); font-weight:600;}
+
+/* Stacked Progress */
+.stacked-progress {display:flex; flex-direction:column; gap:12px;}
+.stacked-legend {display:flex; gap:20px; flex-wrap:wrap;}
+.legend-item {display:flex; align-items:center; gap:8px; font-size:13px;}
+.legend-color {display:inline-block; width:12px; height:12px; border-radius:2px;}
+.legend-color--success {background:var(--ds-color-success);}
+.legend-color--warning {background:var(--ds-color-warning);}
+.legend-color--danger {background:var(--ds-color-danger);}

@@ -362,7 +362,7 @@
             <h2 class="section__title" id="component-examples">Component Examples</h2>
             <div class="vp-demo">
                 <div class="vp-demo-container">
-                    <div class="example-grid">
+                    <div class="example-grid card-group--cols-2">
                         <div class="card">
                             <div class="card__header">
                                 <h4 class="card__title">Default Card</h4>
@@ -424,200 +424,38 @@
         </section>
 
         <style>
-            .card__subtitle {
-                margin-top: 8px;
-                font-size: 14px;
-                color: var(--ds-text-secondary);
-            }
-
-            .swatch-grid {
-                display: grid;
-                gap: 16px;
-            }
-
-            .swatch-grid--cols-3 {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            }
-
-            .swatch-grid--cols-4 {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            }
-
-            .swatch-grid--cols-6 {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            }
-
-            .color-swatch {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 6px;
-                padding: 16px;
-                border-radius: 8px;
-                background: var(--swatch-color);
-                color: var(--swatch-text, var(--ds-white));
-                box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .color-swatch--alpha {
-                background: none;
-                color: var(--swatch-text, var(--ds-white));
-            }
-
-            .color-swatch--alpha::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background-image: linear-gradient(45deg, rgba(0,0,0,0.08) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.08) 75%, rgba(0,0,0,0.08)),
-                                  linear-gradient(45deg, rgba(0,0,0,0.08) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.08) 75%, rgba(0,0,0,0.08));
-                background-size: 20px 20px;
-                background-position: 0 0, 10px 10px;
-                z-index: 0;
-            }
-
-            .color-swatch--alpha::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: var(--swatch-color);
-                z-index: 0;
-            }
-
+            .card__subtitle {margin-top:8px; color:var(--ds-text-secondary); font-size:14px;}
+            .swatch-grid {display:grid; gap:16px;}
+            .swatch-grid--cols-3 {grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));}
+            .swatch-grid--cols-4 {grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));}
+            .swatch-grid--cols-6 {grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));}
+            .color-swatch {display:flex; justify-content:center; align-items:flex-start; flex-direction:column; position:relative; padding:16px; overflow:hidden; border-radius:8px; background:var(--swatch-color); box-shadow:inset 0 0 0 1px rgba(0, 0, 0, 0.04); color:var(--swatch-text, var(--ds-white)); gap:6px;}
+            .color-swatch--alpha {background:none; color:var(--swatch-text, var(--ds-white));}
+            .color-swatch--alpha::before {content:""; position:absolute; z-index:0; background-image:linear-gradient(45deg, rgba(0,0,0,0.08) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.08) 75%, rgba(0,0,0,0.08)), linear-gradient(45deg, rgba(0,0,0,0.08) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.08) 75%, rgba(0,0,0,0.08)); background-position:0 0, 10px 10px; background-size:20px 20px; inset:0;}
+            .color-swatch--alpha::after {content:""; position:absolute; z-index:0; background:var(--swatch-color); inset:0;}
             .color-swatch__name,
             .color-swatch__value,
-            .color-swatch__var {
-                position: relative;
-                z-index: 1;
-                display: block;
-                font-family: var(--ds-font-sans);
-            }
-
-            .color-swatch__name {
-                font-size: 14px;
-                font-weight: 600;
-            }
-
-            .color-swatch__value {
-                font-size: 12px;
-                font-family: var(--ds-font-mono);
-                opacity: 0.85;
-            }
-
-            .color-swatch__var {
-                font-size: 11px;
-                font-family: var(--ds-font-mono);
-                opacity: 0.7;
-            }
-
-            .semantic-grid {
-                display: grid;
-                gap: 16px;
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
-
-            .semantic-card {
-                background: var(--ds-gray-50);
-                border: 1px dashed var(--ds-gray-200);
-                border-radius: 8px;
-                padding: 16px;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .semantic-card h3 {
-                margin: 0;
-                font-size: 16px;
-                color: var(--ds-gray-700);
-            }
-
-            .semantic-chip {
-                display: flex;
-                flex-direction: column;
-                gap: 2px;
-                padding: 12px;
-                border-radius: 6px;
-                background: var(--chip-bg, var(--ds-white));
-                border: 1px solid var(--chip-border, var(--ds-gray-200));
-                color: var(--chip-text, var(--ds-gray-800));
-            }
-
-            .semantic-chip__name {
-                font-size: 13px;
-                font-weight: 600;
-            }
-
-            .semantic-chip__value {
-                font-size: 11px;
-                font-family: var(--ds-font-mono);
-                opacity: 0.8;
-            }
-
-            .guideline-list {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                font-size: 14px;
-                color: var(--ds-text-secondary);
-            }
-
-            .guideline-list strong {
-                color: var(--ds-text-primary);
-            }
-
-            .example-grid {
-                display: grid;
-                gap: 16px;
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
-
-            .chip-row {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-                margin-top: 12px;
-            }
-
-            .chip {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 4px 10px;
-                border-radius: 999px;
-                color: var(--ds-white);
-                font-size: 12px;
-                font-weight: 600;
-            }
-
-            .chip--dark {
-                color: var(--ds-gray-900);
-            }
-
-            .badge--soft-success {
-                background: rgba(100, 166, 68, 0.12);
-                color: var(--ds-color-success);
-            }
-
-            .color-section .card {
-                border: 1px solid var(--ds-gray-200);
-                box-shadow: none;
-            }
-
-            .color-section .card:hover {
-                box-shadow: var(--ds-shadow-sm);
-                transform: translateY(-1px);
-            }
-
-            @media (max-width: 768px) {
-                .swatch-grid--cols-6 {
-                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                }
+            .color-swatch__var {display:block; position:relative; z-index:1; font-family:var(--ds-font-sans);}
+            .color-swatch__name {font-size:14px; font-weight:600;}
+            .color-swatch__value {opacity:0.85; font-size:12px; font-family:var(--ds-font-mono);}
+            .color-swatch__var {opacity:0.7; font-size:11px; font-family:var(--ds-font-mono);}
+            .semantic-grid {display:grid; gap:16px;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));}
+            .semantic-card {display:flex; flex-direction:column; padding:16px; border:1px dashed var(--ds-gray-200); border-radius:8px; background:var(--ds-gray-50); gap:12px;}
+            .semantic-card h3 {margin:0; color:var(--ds-gray-700); font-size:16px;}
+            .semantic-chip {display:flex; flex-direction:column; padding:12px; border:1px solid var(--chip-border, var(--ds-gray-200)); border-radius:6px; background:var(--chip-bg, var(--ds-white)); color:var(--chip-text, var(--ds-gray-800)); gap:2px;}
+            .semantic-chip__name {font-size:13px; font-weight:600;}
+            .semantic-chip__value {opacity:0.8; font-size:11px; font-family:var(--ds-font-mono);}
+            .guideline-list {display:flex; flex-direction:column; margin:0; padding:0; list-style:none; color:var(--ds-text-secondary); font-size:14px; gap:8px;}
+            .guideline-list strong {color:var(--ds-text-primary);}
+            .example-grid {display:grid; gap:16px;}
+            .chip-row {display:flex; flex-wrap:wrap; margin-top:12px; gap:8px;}
+            .chip {display:inline-flex; justify-content:center; align-items:center; padding:4px 10px; border-radius:999px; color:var(--ds-white); font-size:12px; font-weight:600;}
+            .chip--dark {color:var(--ds-gray-900);}
+            .badge--soft-success {background:rgba(100, 166, 68, 0.12); color:var(--ds-color-success);}
+            .color-section .card {border:1px solid var(--ds-gray-200); box-shadow:none;}
+            .color-section .card:hover {box-shadow:var(--ds-shadow-sm); transform:translateY(-1px);}
+            @media (max-width:768px) {
+                .swatch-grid--cols-6 {grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));}
             }
         </style>
     </div>
