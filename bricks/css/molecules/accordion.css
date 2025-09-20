@@ -38,9 +38,3 @@
 .accordion--warning .accordion__header--active {background-color:color-mix(in srgb, var(--ds-color-warning) 12%, transparent); color:var(--ds-color-warning);}
 .accordion--danger .accordion__header--active {background-color:color-mix(in srgb, var(--ds-color-danger) 12%, transparent); color:var(--ds-color-danger);}
 
-/* Dark theme */
-.accordion--dark {border-color:var(--ds-gray-700); background-color:var(--ds-gray-900);}
-.accordion--dark .accordion__item {border-color:var(--ds-gray-700);}
-.accordion--dark .accordion__header {background-color:transparent; color:var(--ds-gray-100);}
-.accordion--dark .accordion__header:hover,
-.accordion--dark .accordion__header--active {background-color:color-mix(in srgb, var(--ds-white) 5%, transparent);}

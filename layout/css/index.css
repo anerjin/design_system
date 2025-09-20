@@ -9,9 +9,6 @@
 @import url('../../bricks/css/base/reset.css');
 @import url('../../bricks/css/base/base.css');
 
-/* === Icons === */
-@import url('../../bricks/icon/icons.css');
-
 /* === Layout Styles (from bricks/css/layout) === */
 @import url('../../bricks/css/layout/container.css');
 @import url('../../bricks/css/layout/grid.css');
@@ -23,7 +20,6 @@
 @import url('../../bricks/css/tokens/spacing.css');
 @import url('../../bricks/css/tokens/shadows.css');
 @import url('../../bricks/css/tokens/borders.css');
-@import url('../../bricks/css/tokens/semantic.css');
 
 /* === Component Styles - Atoms === */
 @import url('../../bricks/css/atoms/button.css');
@@ -39,7 +35,6 @@
 
 /* === Component Styles - Molecules === */
 @import url('../../bricks/css/molecules/card.css');
-@import url('../../bricks/css/molecules/form-group.css');
 @import url('../../bricks/css/molecules/alert.css');
 @import url('../../bricks/css/molecules/modal.css');
 @import url('../../bricks/css/molecules/dropdown.css');

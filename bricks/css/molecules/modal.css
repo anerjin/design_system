@@ -25,7 +25,7 @@
 .modal__close {display:flex; justify-content:center; align-items:center; width:32px; height:32px; padding:0; border:none; border-radius:8px; background:none; color:var(--ds-gray-600); font-size:24px; line-height:1; cursor:pointer; transition:background-color 0.2s;}
 .modal__close:hover {background-color:var(--ds-gray-100);}
 .modal__body {padding:24px; overflow-y:auto;flex:1;}
-.modal__footer {display:flex; justify-content:flex-end; align-items:center; flex-shrink:0; padding:16px 24px; border-top:1px solid var(--ds-gray-200); gap:12px;}
+.modal__footer {display:flex; justify-content:center; align-items:center; flex-shrink:0; padding:16px 24px; border-top:1px solid var(--ds-gray-200); gap:12px;}
 
 /* Centered */
 .modal--centered .modal__dialog {display:flex; align-items:center; min-height:calc(100% - 3rem);}
@@ -41,9 +41,3 @@
   20%, 40%, 60%, 80% {transform:translateX(10px);}
 }
 
-/* Dark theme */
-.modal--dark .modal__dialog {background-color:var(--ds-gray-900); color:var(--ds-white);}
-.modal--dark .modal__header,
-.modal--dark .modal__footer {border-color:var(--ds-gray-700);}
-.modal--dark .modal__close {color:var(--ds-gray-400);}
-.modal--dark .modal__close:hover {background-color:color-mix(in srgb, var(--ds-white) 10%, transparent);}

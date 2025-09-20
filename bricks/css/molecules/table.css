@@ -56,14 +56,6 @@
 .table__status--info {background-color:var(--ds-color-info); color:var(--ds-white);}
 /* Actions cell */
 .table__actions {display:flex; gap:8px;}
-/* Dark theme */
-.table--dark {background-color:var(--ds-gray-900); color:var(--ds-gray-100);}
-.table--dark th {background-color:var(--ds-black-alpha-20); color:var(--ds-gray-100);}
-.table--dark td {color:var(--ds-gray-300);}
-.table--dark th,
-.table--dark td {border-color:var(--ds-white-alpha-10);}
-.table--dark.table--striped tbody tr:nth-child(even) {background-color:var(--ds-white-alpha-10);}
-.table--dark.table--hover tbody tr:hover {background-color:var(--ds-white-alpha-20);}
 /* Loading state */
 .table--loading {position:relative; opacity:0.5; pointer-events:none;}
 .table__loading-overlay {display:flex; justify-content:center; align-items:center; position:absolute; top:0; left:0; right:0; bottom:0; background-color:var(--ds-white-alpha-80);}

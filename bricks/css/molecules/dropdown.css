@@ -170,7 +170,3 @@
 .dropdown--lg .dropdown__item {padding:10px 20px; font-size:16px;}
 
 
-/* Dark theme arrow color using filter */
-.dropdown--dark .dropdown__toggle::after {
-  filter: invert(1) grayscale(100%) brightness(2);
-}

@@ -1,7 +1,9 @@
 /* ========================================
-   BRICK Design System - Base Styles
-   기본 HTML 요소 스타일링
+   BRICK Design System - Base Styles & Semantic Tokens
+   기본 HTML 요소 스타일링 및 시맨틱 토큰
 ======================================== */
+
+/* === Semantic Tokens === */
 
 /* === Global Defaults === */
 html {
@@ -206,10 +208,11 @@ hr {
 }
 
 /* === Selection === */
-/* ::selection {
+/*
+::selection {
   background-color: var(--ds-gray-200);
   color: var(--ds-text-primary); */
-}
+/* } */
 
 /* === Focus Styles === */
 /* :focus-visible {

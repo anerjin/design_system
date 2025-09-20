@@ -42,7 +42,7 @@
             &lt;p&gt;Modal content goes here&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class="modal__footer"&gt;
-            &lt;button class="btn btn--ghost"&gt;Cancel&lt;/button&gt;
+            &lt;button class="btn btn--secondary"&gt;Cancel&lt;/button&gt;
             &lt;button class="btn btn--primary"&gt;Confirm&lt;/button&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -115,39 +115,6 @@
             </div>
         </section>
 
-        <!-- Modal Themes Section -->
-        <section class="section">
-            <h2 class="section__title">Modal Themes</h2>
-            <div class="card-group card-group--cols-2">
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Default Modal</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-default')" aria-label="Open default modal dialog" aria-haspopup="dialog">
-                                Open Default Modal
-                            </button>
-                        </div>
-                        <code class="code-inline">Default theme</code>
-                    </div>
-                </div>
-
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Dark Modal</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <button type="button" class="btn btn--dark" onclick="BRICKS.Modal.open('modal-dark')" aria-label="Open dark modal dialog" aria-haspopup="dialog">
-                                Open Dark Modal
-                            </button>
-                        </div>
-                        <code class="code-inline">.modal--dark</code>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Modal with Cards Section -->
         <section class="section">
@@ -357,11 +324,6 @@
                                 <td>Static backdrop (no close on click)</td>
                                 <td>Interaction modifier</td>
                             </tr>
-                            <tr>
-                                <td><code>.modal--dark</code></td>
-                                <td>Dark theme variant</td>
-                                <td>Theme modifier</td>
-                            </tr>
                         </tbody>
                     </table>
 
@@ -537,7 +499,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-basic')">Cancel</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-basic')">Cancel</button>
                     <button type="button" class="btn btn--primary">Confirm</button>
                 </div>
             </div>
@@ -554,7 +516,7 @@
                     <p>This is a small modal with 400px max-width.</p>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-sm')">Close</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-sm')">Close</button>
                 </div>
             </div>
         </div>
@@ -586,7 +548,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-lg')">Close</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-lg')">Close</button>
                 </div>
             </div>
         </div>
@@ -626,7 +588,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-xl')">Close</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-xl')">Close</button>
                 </div>
             </div>
         </div>
@@ -672,49 +634,11 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-fullscreen')">Close</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-fullscreen')">Close</button>
                 </div>
             </div>
         </div>
 
-        <!-- Theme Modals -->
-        <div id="modal-default" class="modal">
-            <div class="modal__dialog">
-                <div class="modal__header">
-                    <h3 class="modal__title">Default Theme</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-default')" aria-label="Close modal">×</button>
-                </div>
-                <div class="modal__body">
-                    <div class="card">
-                        <div class="card__body">
-                            <p>This modal uses the default light theme with white background.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-default')">Close</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal-dark" class="modal modal--dark">
-            <div class="modal__dialog">
-                <div class="modal__header">
-                    <h3 class="modal__title">Dark Theme</h3>
-                    <button type="button" class="modal__close" onclick="BRICKS.Modal.close('modal-dark')" aria-label="Close modal">×</button>
-                </div>
-                <div class="modal__body">
-                    <div class="card card--dark">
-                        <div class="card__body">
-                            <p>This modal uses the dark theme with dark background and light text.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-dark')">Close</button>
-                </div>
-            </div>
-        </div>
 
         <!-- Complex Modals -->
         <div id="modal-form" class="modal">
@@ -745,7 +669,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-form')">Cancel</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-form')">Cancel</button>
                     <button type="button" class="btn btn--primary">Save Information</button>
                 </div>
             </div>
@@ -789,7 +713,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-gallery')">Close Gallery</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-gallery')">Close Gallery</button>
                     <button type="button" class="btn btn--primary">Download Selected</button>
                 </div>
             </div>
@@ -836,7 +760,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-settings')">Cancel</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-settings')">Cancel</button>
                     <button type="button" class="btn btn--primary">Save Settings</button>
                 </div>
             </div>
@@ -857,7 +781,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-confirm')">Cancel</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-confirm')">Cancel</button>
                     <button type="button" class="btn btn--danger">Delete Item</button>
                 </div>
             </div>
@@ -878,7 +802,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-centered')">Close</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-centered')">Close</button>
                 </div>
             </div>
         </div>
@@ -914,7 +838,7 @@
                     </div>
                 </div>
                 <div class="modal__footer">
-                    <button type="button" class="btn btn--ghost" onclick="BRICKS.Modal.close('modal-scrollable')">Close</button>
+                    <button type="button" class="btn btn--secondary" onclick="BRICKS.Modal.close('modal-scrollable')">Close</button>
                 </div>
             </div>
         </div>
@@ -948,7 +872,7 @@
                             <p>This modal doesn't have a header section. The content starts directly with the body.</p>
                             <p>You can still include a close button within the body if needed.</p>
                             <div style="text-align: right; margin-top: 1rem;">
-                                <button type="button" class="btn btn--ghost btn--sm" onclick="BRICKS.Modal.close('modal-no-header')">Close</button>
+                                <button type="button" class="btn btn--secondary btn--sm" onclick="BRICKS.Modal.close('modal-no-header')">Close</button>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
 
 :root {
   /* === Core Colors === */
-  --ds-prime: #8e51ff;
+  --ds-prime: #000000;
   --ds-black: #000000;
   --ds-white: #FFFFFF;
 
@@ -60,10 +60,10 @@
   --ds-black-alpha-90: rgba(0, 0, 0, 0.9);
 
   /* Prime color with transparency */
-  --ds-prime-alpha-10: rgba(142, 81, 255, 0.1);
-  --ds-prime-alpha-20: rgba(142, 81, 255, 0.2);
-  --ds-prime-alpha-30: rgba(142, 81, 255, 0.3);
-  --ds-prime-alpha-50: rgba(142, 81, 255, 0.5);
+  --ds-prime-alpha-10: rgba(0, 0, 0, 0.1);
+  --ds-prime-alpha-20: rgba(0, 0, 0, 0.2);
+  --ds-prime-alpha-30: rgba(0, 0, 0, 0.3);
+  --ds-prime-alpha-50: rgba(0, 0, 0, 0.5);
 
   /* === Opacity Values === */
   --ds-opacity-0: 0;

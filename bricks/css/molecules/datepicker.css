@@ -26,7 +26,7 @@
 .datepicker__weekdays {display:grid; grid-template-columns:repeat(7, 1fr); gap:var(--ds-space-1); margin-bottom:var(--ds-space-1); font-size:var(--ds-text-xs); color:var(--ds-gray-500); text-align:center; text-transform:uppercase;}
 
 .datepicker__grid {display:grid; grid-template-columns:repeat(7, 1fr); gap:var(--ds-space-1);} 
-.datepicker__cell {position:relative; width:100%; padding:var(--ds-space-2) 0; border-radius:var(--ds-radius-md); background:transparent; border:1px solid transparent; font-size:var(--ds-text-sm); color:var(--ds-gray-700); cursor:pointer; display:flex; align-items:center; justify-content:center;}
+.datepicker__cell {position:relative; width:100%; padding:10px 0; border-radius:var(--ds-radius-full); background:transparent; border:1px solid transparent; font-size:var(--ds-text-sm); color:var(--ds-gray-700); cursor:pointer; display:flex; align-items:center; justify-content:center;}
 .datepicker__cell:hover {background:var(--ds-gray-100);}
 .datepicker__cell:focus-visible {outline:2px solid var(--ds-prime-alpha-30); outline-offset:2px;}
 .datepicker__cell[aria-selected="true"] {background:var(--ds-prime); color:var(--ds-white); border-color:var(--ds-prime); font-weight:var(--ds-font-semibold);}

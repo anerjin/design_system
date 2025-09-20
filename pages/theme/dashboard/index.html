@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme - Dashboard</title>
+</head>
+<body>
+    <div class="vp-doc">
+        <header class="header">
+            <h1 class="header__title">Theme: Dashboard</h1>
+            <p class="header__description">
+                테마 페이지 구성을 위한 기본 대시보드 템플릿입니다. 그리드, 카드, 헤더, 사이드 패널 등 레이아웃 블록을 조합해 페이지를 구성합니다.
+            </p>
+        </header>
+
+        <!-- Page Header Bar -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="page-bar" style="display:flex; align-items:center; gap:12px; justify-content:space-between;">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <h2 class="section__title" style="margin:0;">대시보드</h2>
+                            <span class="badge">Beta</span>
+                        </div>
+                        <div style="display:flex; gap:8px;">
+                            <button class="btn btn--ghost btn--sm">
+                                <i class='bx bx-download'></i>
+                                Export
+                            </button>
+                            <button class="btn btn--primary btn--sm">
+                                <i class='bx bx-plus'></i>
+                                New
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPI Cards -->
+        <section class="section">
+            <div class="card-group card-group--cols-4">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Revenue</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="text-2xl" style="font-weight:600;">$24,500</div>
+                        <div class="text-muted">+12% vs last week</div>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Orders</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="text-2xl" style="font-weight:600;">1,284</div>
+                        <div class="text-muted">+5% vs last week</div>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Users</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="text-2xl" style="font-weight:600;">8,930</div>
+                        <div class="text-muted">+2% vs last week</div>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Bounce</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="text-2xl" style="font-weight:600;">32%</div>
+                        <div class="text-muted">-1.2% vs last week</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Grid -->
+        <section class="section">
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Recent Activity</h3>
+                    </div>
+                    <div class="card__body">
+                        <ul class="list" style="margin:0; padding-left:16px;">
+                            <li>Order #10293 has been shipped</li>
+                            <li>User maria joined the workspace</li>
+                            <li>New comment on ticket #4820</li>
+                            <li>Inventory report generated</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Quick Actions</h3>
+                    </div>
+                    <div class="card__body">
+                        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                            <button class="btn btn--secondary btn--sm">
+                                <i class='bx bx-cog'></i>
+                                Settings
+                            </button>
+                            <button class="btn btn--secondary btn--sm">
+                                <i class='bx bx-user'></i>
+                                Invite
+                            </button>
+                            <button class="btn btn--secondary btn--sm">
+                                <i class='bx bx-upload'></i>
+                                Import
+                            </button>
+                            <button class="btn btn--secondary btn--sm">
+                                <i class='bx bx-help-circle'></i>
+                                Help
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API/Guidelines -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">구성 가이드</h3>
+                </div>
+                <div class="card__body">
+                    <ul>
+                        <li>그리드: <code class="code-inline">card-group--cols-*</code>를 사용해 컬럼 수 제어</li>
+                        <li>카드: <code class="code-inline">card</code>, <code class="code-inline">card--gray</code>, <code class="code-inline">card__header</code>, <code class="code-inline">card__body</code></li>
+                        <li>버튼: <code class="code-inline">btn</code>, 사이즈/변형 클래스 조합 사용</li>
+                        <li>아이콘: Boxicons Regular 사용</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

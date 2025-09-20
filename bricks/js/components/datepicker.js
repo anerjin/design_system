@@ -10,8 +10,57 @@
 
     const DAY_MS = 24 * 60 * 60 * 1000;
     const WEEK_LENGTH = 7;
-    const WEEKDAY_LABELS = ['월', '화', '수', '목', '금', '토', '일'];
-    const MONTH_LABELS = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+
+    // 로케일별 설정
+    const LOCALE_CONFIG = {
+        'ko': {
+            weekdays: ['월', '화', '수', '목', '금', '토', '일'],
+            months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+            yearSuffix: '년',
+            format: 'YYYY/MM/DD',
+            placeholder: 'YYYY/MM/DD'
+        },
+        'en': {
+            weekdays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            yearSuffix: '',
+            format: 'MM/DD/YYYY',
+            placeholder: 'MM/DD/YYYY'
+        },
+        'zh': {
+            weekdays: ['一', '二', '三', '四', '五', '六', '日'],
+            months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            yearSuffix: '年',
+            format: 'YYYY-MM-DD',
+            placeholder: 'YYYY-MM-DD'
+        },
+        'ja': {
+            weekdays: ['月', '火', '水', '木', '金', '土', '日'],
+            months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            yearSuffix: '年',
+            format: 'YYYY/MM/DD',
+            placeholder: 'YYYY/MM/DD'
+        }
+    };
+
+    // 브라우저 로케일 감지
+    function detectLocale() {
+        const browserLang = navigator.language || navigator.userLanguage || 'en';
+        const langCode = browserLang.split('-')[0];
+        return LOCALE_CONFIG[langCode] ? langCode : 'en';
+    }
+
+    // 현재 로케일 가져오기
+    function getCurrentLocale() {
+        const savedLocale = localStorage.getItem('ds-locale');
+        return savedLocale || detectLocale();
+    }
+
+    // 로케일 설정 가져오기
+    function getLocaleConfig() {
+        const locale = getCurrentLocale();
+        return LOCALE_CONFIG[locale] || LOCALE_CONFIG['en'];
+    }
 
     function createDate(year, month, day) {
         return new Date(year, month, day, 12, 0, 0, 0);
@@ -23,6 +72,19 @@
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
+    }
+
+    // 로케일에 맞게 날짜 포맷팅
+    function formatDate(date, format) {
+        if (!date) return '';
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+
+        return format
+            .replace('YYYY', year)
+            .replace('MM', month)
+            .replace('DD', day);
     }
 
     function isSameDate(a, b) {
@@ -72,11 +134,49 @@
         return isNaN(parsed.getTime()) ? null : parsed;
     }
 
+    // 로케일 형식의 날짜 문자열을 파싱
+    function parseLocaleDateString(value, format) {
+        if (!value || !format) return null;
+
+        // 날짜 구성 요소 추출을 위한 정규식
+        const datePattern = /(\d{1,4})/g;
+        const parts = value.match(datePattern);
+
+        if (!parts || parts.length < 3) return null;
+
+        let year, month, day;
+
+        // 형식에 따라 파싱
+        if (format.indexOf('YYYY') === 0) {
+            // YYYY가 앞에 오는 경우 (ko, zh, ja)
+            year = parseInt(parts[0], 10);
+            month = parseInt(parts[1], 10) - 1; // 월은 0부터 시작
+            day = parseInt(parts[2], 10);
+        } else if (format.indexOf('MM') === 0) {
+            // MM이 앞에 오는 경우 (en)
+            month = parseInt(parts[0], 10) - 1;
+            day = parseInt(parts[1], 10);
+            year = parseInt(parts[2], 10);
+        } else if (format.indexOf('DD') === 0) {
+            // DD가 앞에 오는 경우 (일부 유럽 형식)
+            day = parseInt(parts[0], 10);
+            month = parseInt(parts[1], 10) - 1;
+            year = parseInt(parts[2], 10);
+        }
+
+        const date = new Date(year, month, day);
+        return isNaN(date.getTime()) ? null : date;
+    }
+
     class Datepicker {
         constructor(root) {
             this.root = root;
             this.id = root.getAttribute('id') || `datepicker-${Math.random().toString(36).slice(2, 8)}`;
             this.root.setAttribute('id', this.id);
+
+            // 로케일 설정 로드
+            this.localeConfig = getLocaleConfig();
+            this.locale = getCurrentLocale();
 
             this.inline = root.hasAttribute('data-inline');
             this.mode = root.getAttribute('data-mode') || 'single';
@@ -88,6 +188,13 @@
             this.viewDate = startOfMonth(this.focusedDate);
 
             this.inputs = Array.from(root.querySelectorAll('.datepicker__input'));
+            // input placeholder 업데이트
+            this.inputs.forEach(input => {
+                if (!input.getAttribute('data-original-placeholder')) {
+                    input.setAttribute('data-original-placeholder', input.placeholder || '');
+                }
+                input.placeholder = this.localeConfig.placeholder;
+            });
             this.toggle = root.querySelector('[data-datepicker-toggle]');
             this.popover = root.querySelector('.datepicker__popover');
             this.grid = root.querySelector('.datepicker__grid');
@@ -302,9 +409,14 @@
         render() {
             this.clampViewDate();
             this.populateControls();
+            this.updateWeekdays();
+            this.updateControlsOrder();
 
             if (this.label) {
-                const formatter = new Intl.DateTimeFormat('ko-KR', { year: 'numeric', month: 'long' });
+                const localeCode = this.locale === 'en' ? 'en-US' :
+                                 this.locale === 'zh' ? 'zh-CN' :
+                                 this.locale === 'ja' ? 'ja-JP' : 'ko-KR';
+                const formatter = new Intl.DateTimeFormat(localeCode, { year: 'numeric', month: 'long' });
                 this.label.textContent = formatter.format(this.viewDate);
             }
 
@@ -423,24 +535,34 @@
         updateInputs() {
             if (!this.inputs.length) return;
 
+            const notSelectedText = this.locale === 'en' ? 'Not selected' :
+                                    this.locale === 'zh' ? '未选择' :
+                                    this.locale === 'ja' ? '未選択' : '선택되지 않음';
+            const startDateText = this.locale === 'en' ? 'Start date' :
+                                 this.locale === 'zh' ? '开始日期' :
+                                 this.locale === 'ja' ? '開始日' : '시작일';
+            const endDateText = this.locale === 'en' ? 'End date' :
+                               this.locale === 'zh' ? '结束日期' :
+                               this.locale === 'ja' ? '終了日' : '종료일';
+
             if (this.mode === 'single') {
-                const value = toISODate(this.selected);
+                const value = this.selected ? formatDate(this.selected, this.localeConfig.format) : '';
                 const label = this.inputs[0]?.getAttribute('data-format') || 'date';
                 if (this.inputs[0]) {
                     this.inputs[0].value = value;
                     this.inputs[0].setAttribute('aria-live', 'polite');
-                    this.inputs[0].setAttribute('aria-label', `${label}: ${value || '선택되지 않음'}`);
+                    this.inputs[0].setAttribute('aria-label', `${label}: ${value || notSelectedText}`);
                 }
             } else {
-                const start = this.selected?.start ? toISODate(this.selected.start) : '';
-                const end = this.selected?.end ? toISODate(this.selected.end) : '';
+                const start = this.selected?.start ? formatDate(this.selected.start, this.localeConfig.format) : '';
+                const end = this.selected?.end ? formatDate(this.selected.end, this.localeConfig.format) : '';
                 if (this.inputs[0]) {
                     this.inputs[0].value = start;
-                    this.inputs[0].setAttribute('aria-label', `시작일: ${start || '선택되지 않음'}`);
+                    this.inputs[0].setAttribute('aria-label', `${startDateText}: ${start || notSelectedText}`);
                 }
                 if (this.inputs[1]) {
                     this.inputs[1].value = end;
-                    this.inputs[1].setAttribute('aria-label', `종료일: ${end || '선택되지 않음'}`);
+                    this.inputs[1].setAttribute('aria-label', `${endDateText}: ${end || notSelectedText}`);
                 }
             }
         }
@@ -461,30 +583,53 @@
                 this.root.appendChild(region);
             }
 
-            const formatter = new Intl.DateTimeFormat('ko-KR', { dateStyle: 'long' });
+            const localeCode = this.locale === 'en' ? 'en-US' :
+                             this.locale === 'zh' ? 'zh-CN' :
+                             this.locale === 'ja' ? 'ja-JP' : 'ko-KR';
+            const formatter = new Intl.DateTimeFormat(localeCode, { dateStyle: 'long' });
+
+            const selectedDateText = this.locale === 'en' ? 'Selected date' :
+                                    this.locale === 'zh' ? '选择的日期' :
+                                    this.locale === 'ja' ? '選択された日付' : '선택된 날짜';
+            const noDateText = this.locale === 'en' ? 'No date selected' :
+                              this.locale === 'zh' ? '未选择日期' :
+                              this.locale === 'ja' ? '日付が選択されていません' : '선택된 날짜 없음';
+            const selectedPeriodText = this.locale === 'en' ? 'Selected period' :
+                                      this.locale === 'zh' ? '选择的期间' :
+                                      this.locale === 'ja' ? '選択された期間' : '선택된 기간';
+            const undefinedText = this.locale === 'en' ? 'undefined' :
+                                 this.locale === 'zh' ? '未定' :
+                                 this.locale === 'ja' ? '未定' : '미정';
+
             if (this.mode === 'single') {
-                region.textContent = this.selected ? `선택된 날짜 ${formatter.format(this.selected)}` : '선택된 날짜 없음';
+                region.textContent = this.selected ? `${selectedDateText} ${formatter.format(this.selected)}` : noDateText;
             } else {
-                const start = this.selected?.start ? formatter.format(this.selected.start) : '미정';
-                const end = this.selected?.end ? formatter.format(this.selected.end) : '미정';
-                region.textContent = `선택된 기간 ${start} - ${end}`;
+                const start = this.selected?.start ? formatter.format(this.selected.start) : undefinedText;
+                const end = this.selected?.end ? formatter.format(this.selected.end) : undefinedText;
+                region.textContent = `${selectedPeriodText} ${start} - ${end}`;
             }
         }
 
         announceSelection() {
-            const formatter = new Intl.DateTimeFormat('ko-KR', { dateStyle: 'long' });
+            const localeCode = this.locale === 'en' ? 'en-US' :
+                             this.locale === 'zh' ? 'zh-CN' :
+                             this.locale === 'ja' ? 'ja-JP' : 'ko-KR';
+            const formatter = new Intl.DateTimeFormat(localeCode, { dateStyle: 'long' });
             if (this.mode === 'single' && this.selected) {
                 this.root.dispatchEvent(new CustomEvent('datepicker:change', {
                     detail: {
-                        value: toISODate(this.selected),
+                        value: formatDate(this.selected, this.localeConfig.format),
+                        isoValue: toISODate(this.selected),
                         label: formatter.format(this.selected)
                     }
                 }));
             } else if (this.mode === 'range') {
                 this.root.dispatchEvent(new CustomEvent('datepicker:change', {
                     detail: {
-                        start: this.selected?.start ? toISODate(this.selected.start) : null,
-                        end: this.selected?.end ? toISODate(this.selected.end) : null
+                        start: this.selected?.start ? formatDate(this.selected.start, this.localeConfig.format) : null,
+                        end: this.selected?.end ? formatDate(this.selected.end, this.localeConfig.format) : null,
+                        isoStart: this.selected?.start ? toISODate(this.selected.start) : null,
+                        isoEnd: this.selected?.end ? toISODate(this.selected.end) : null
                     }
                 }));
             }
@@ -519,7 +664,7 @@
             if (this.monthSelect) {
                 const currentMonth = this.viewDate.getMonth();
                 this.monthSelect.innerHTML = '';
-                MONTH_LABELS.forEach((label, index) => {
+                this.localeConfig.months.forEach((label, index) => {
                     const option = document.createElement('option');
                     option.value = String(index);
                     option.textContent = label;
@@ -548,7 +693,7 @@
                 for (let year = minYear; year <= maxYear; year++) {
                     const option = document.createElement('option');
                     option.value = String(year);
-                    option.textContent = `${year}년`;
+                    option.textContent = `${year}${this.localeConfig.yearSuffix}`;
                     this.yearSelect.appendChild(option);
                 }
                 this.yearSelect.value = String(viewYear);
@@ -566,6 +711,48 @@
                 const maxView = startOfMonth(this.maxDate);
                 if (this.viewDate > maxView) {
                     this.viewDate = new Date(maxView.getTime());
+                }
+            }
+        }
+
+        updateWeekdays() {
+            const weekdaysElement = this.root.querySelector('.datepicker__weekdays');
+            if (weekdaysElement) {
+                weekdaysElement.innerHTML = this.localeConfig.weekdays
+                    .map(day => `<span>${day}</span>`)
+                    .join('');
+            }
+        }
+
+        updateControlsOrder() {
+            const controlsContainer = this.root.querySelector('.datepicker__controls');
+            if (!controlsContainer || !this.monthSelect || !this.yearSelect) return;
+
+            // 로케일에 따라 년/월 순서 조정
+            // 한국, 중국, 일본은 년도가 먼저
+            const yearFirst = ['ko', 'zh', 'ja'].includes(this.locale);
+
+            // 각 select의 wrapper 찾기 (span.datepicker__select-wrapper)
+            const monthWrapper = this.monthSelect.closest('.datepicker__select-wrapper');
+            const yearWrapper = this.yearSelect.closest('.datepicker__select-wrapper');
+
+            if (!monthWrapper || !yearWrapper) return;
+
+            // 현재 순서 확인
+            const elements = Array.from(controlsContainer.querySelectorAll('.datepicker__select-wrapper'));
+            const currentMonthIndex = elements.indexOf(monthWrapper);
+            const currentYearIndex = elements.indexOf(yearWrapper);
+
+            // 순서가 잘못된 경우에만 변경
+            if (yearFirst && currentMonthIndex !== -1 && currentYearIndex !== -1) {
+                if (currentMonthIndex < currentYearIndex) {
+                    // 년도를 월 앞으로 이동
+                    controlsContainer.insertBefore(yearWrapper, monthWrapper);
+                }
+            } else if (!yearFirst && currentMonthIndex !== -1 && currentYearIndex !== -1) {
+                if (currentYearIndex < currentMonthIndex) {
+                    // 월을 년도 앞으로 이동
+                    controlsContainer.insertBefore(monthWrapper, yearWrapper);
                 }
             }
         }
@@ -592,6 +779,40 @@
                     root.__bricksDatepicker = new Datepicker(root);
                 }
             });
+        },
+
+        // 로케일 변경 메소드
+        setLocale: function(locale) {
+            if (!LOCALE_CONFIG[locale]) {
+                console.warn(`Unsupported locale: ${locale}. Using 'en' instead.`);
+                locale = 'en';
+            }
+
+            localStorage.setItem('ds-locale', locale);
+
+            // 모든 datepicker 인스턴스 업데이트
+            document.querySelectorAll('[data-datepicker]').forEach(root => {
+                if (root.__bricksDatepicker) {
+                    const picker = root.__bricksDatepicker;
+                    picker.locale = locale;
+                    picker.localeConfig = LOCALE_CONFIG[locale];
+                    // input placeholder 업데이트
+                    picker.inputs.forEach(input => {
+                        input.placeholder = LOCALE_CONFIG[locale].placeholder;
+                    });
+                    picker.render();
+                }
+            });
+        },
+
+        // 현재 로케일 가져오기
+        getLocale: function() {
+            return getCurrentLocale();
+        },
+
+        // 지원하는 로케일 목록
+        getSupportedLocales: function() {
+            return Object.keys(LOCALE_CONFIG);
         }
     };
 

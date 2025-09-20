@@ -1,6 +1,6 @@
 /**
  * BRICKS Design System - Code Highlighter Component
- * 코드 하이라이팅을 위한 Prism.js 통합 컴포넌트
+ * 간단한 코드 하이라이팅 및 복사 기능
  */
 
 (function(global) {
@@ -10,114 +10,189 @@
 
     /**
      * Code Highlighter Component
-     * Prism.js를 사용한 코드 구문 강조 기능
+     * HTML 엔티티 처리 및 복사 기능
      */
     global.BRICKS.CodeHighlighter = {
-        // 지원되는 언어 목록
-        supportedLanguages: ['html', 'css', 'javascript', 'json', 'bash', 'typescript', 'jsx', 'tsx', 'scss', 'yaml'],
-
-        // 테마 옵션
-        themes: {
-            'vscode-dark': 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-vsc-dark-plus.min.css',
-            'tomorrow': 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css',
-            'okaidia': 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css',
-            'solarized': 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-solarizedlight.min.css'
-        },
-
-        // 현재 로드된 컴포넌트 추적
-        loadedComponents: new Set(),
-
+        // 초기화
         init: function(options = {}) {
-            const theme = options.theme || 'vscode-dark';
-            const autoLoad = options.autoLoad !== false;
+            // 모든 코드 블록 처리
+            this.processAllCodeBlocks();
 
-            // Prism.js 로드 확인
-            if (typeof Prism === 'undefined') {
-                console.warn('Prism.js is not loaded. Loading from CDN...');
-                this.loadPrismCore(theme, () => {
-                    if (autoLoad) {
-                        this.highlightAll();
-                    }
-                });
+            // 동적으로 추가되는 코드 블록 감지
+            this.setupObserver();
+        },
+
+        // 모든 코드 블록 처리
+        processAllCodeBlocks: function() {
+            const codeBlocks = document.querySelectorAll('pre code[class*="language-"]');
+            codeBlocks.forEach(block => this.processCodeBlock(block));
+        },
+
+        // 개별 코드 블록 처리
+        processCodeBlock: function(element) {
+            if (element.dataset.processed) return;
+
+            // 처리됨 표시
+            element.dataset.processed = 'true';
+
+            // HTML 엔티티 디코딩 및 재인코딩
+            this.fixHTMLEntities(element);
+
+            // 복사 버튼 추가
+            this.addCopyButton(element);
+
+            // 기본 스타일 적용
+            this.applyBasicStyling(element);
+        },
+
+        // HTML 엔티티 문제 해결
+        fixHTMLEntities: function(element) {
+            // 현재 내용 가져오기
+            let content = element.innerHTML;
+
+            // 이미 엔티티로 변환된 경우 그대로 유지
+            if (content.includes('&lt;') || content.includes('&gt;')) {
+                // 텍스트로 디코딩
+                const temp = document.createElement('div');
+                temp.innerHTML = content;
+                const decodedText = temp.textContent || temp.innerText || '';
+
+                // 원본 텍스트 저장 (복사용)
+                element.dataset.originalCode = decodedText;
+
+                // HTML로 다시 표시 (< > 를 엔티티로 변환)
+                element.textContent = decodedText;
             } else {
-                // 테마 로드
-                this.loadTheme(theme);
-
-                if (autoLoad) {
-                    this.highlightAll();
-                }
+                // 원본 텍스트 저장
+                element.dataset.originalCode = element.textContent;
             }
-
-            // 자동 언어 감지 및 컴포넌트 로드
-            this.setupAutoLoader();
         },
 
-        // Prism.js 코어 로드
-        loadPrismCore: function(theme, callback) {
-            // 테마 CSS 로드
-            this.loadTheme(theme);
+        // 기본 스타일링 적용
+        applyBasicStyling: function(element) {
+            const language = this.getLanguage(element);
 
-            // Prism.js 코어 스크립트 로드
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js';
-            script.onload = () => {
-                // 기본 언어 컴포넌트 로드
-                this.loadLanguage('markup', () => {
-                    this.loadLanguage('css', () => {
-                        this.loadLanguage('javascript', callback);
-                    });
+            // 언어별 간단한 하이라이팅
+            if (language === 'html' || language === 'xml') {
+                this.highlightHTML(element);
+            } else if (language === 'css') {
+                this.highlightCSS(element);
+            } else if (language === 'javascript' || language === 'js') {
+                this.highlightJavaScript(element);
+            }
+        },
+
+        // HTML 하이라이팅
+        highlightHTML: function(element) {
+            let code = element.innerHTML;
+
+            // 태그 하이라이팅
+            code = code.replace(/(&lt;\/?)([a-zA-Z0-9]+)(.*?)(&gt;)/g,
+                '$1<span class="tag">$2</span>$3$4');
+
+            // 속성명 하이라이팅
+            code = code.replace(/(\s)([a-zA-Z-]+)(=)/g,
+                '$1<span class="attr">$2</span>$3');
+
+            // 속성값 하이라이팅
+            code = code.replace(/(=)(&quot;|")([^"]*?)(&quot;|")/g,
+                '$1$2<span class="string">$3</span>$4');
+
+            element.innerHTML = code;
+        },
+
+        // CSS 하이라이팅
+        highlightCSS: function(element) {
+            let code = element.innerHTML;
+
+            // 선택자 하이라이팅
+            code = code.replace(/([.#]?[a-zA-Z0-9_-]+)(\s*{)/g,
+                '<span class="selector">$1</span>$2');
+
+            // 속성명 하이라이팅
+            code = code.replace(/([a-zA-Z-]+)(:)/g,
+                '<span class="property">$1</span>$2');
+
+            // 값 하이라이팅
+            code = code.replace(/:\s*([^;}\n]+)/g, function(match, value) {
+                return ': <span class="value">' + value + '</span>';
+            });
+
+            element.innerHTML = code;
+        },
+
+        // JavaScript 하이라이팅
+        highlightJavaScript: function(element) {
+            let code = element.innerHTML;
+
+            // 키워드 하이라이팅
+            const keywords = ['const', 'let', 'var', 'function', 'class', 'if', 'else', 'for', 'while', 'return', 'new', 'this', 'async', 'await'];
+            keywords.forEach(keyword => {
+                const regex = new RegExp('\\b(' + keyword + ')\\b', 'g');
+                code = code.replace(regex, '<span class="keyword">$1</span>');
+            });
+
+            // 문자열 하이라이팅 (간단한 버전)
+            code = code.replace(/(['"`])([^'"`]*)(['"`])/g,
+                '<span class="string">$1$2$3</span>');
+
+            // 숫자 하이라이팅
+            code = code.replace(/\b(\d+)\b/g,
+                '<span class="number">$1</span>');
+
+            element.innerHTML = code;
+        },
+
+        // 언어 감지
+        getLanguage: function(element) {
+            const className = element.className;
+            const match = className.match(/language-(\w+)/);
+            return match ? match[1] : 'text';
+        },
+
+        // 복사 버튼 추가
+        addCopyButton: function(element) {
+            const pre = element.closest('pre');
+            if (!pre || pre.querySelector('.code-copy-button')) return;
+
+            const button = document.createElement('button');
+            button.className = 'code-copy-button';
+            button.innerHTML = '📋 복사';
+            button.onclick = () => {
+                // 원본 코드 가져오기
+                const code = element.dataset.originalCode || element.textContent;
+
+                navigator.clipboard.writeText(code).then(() => {
+                    button.innerHTML = '✅ 복사됨!';
+                    setTimeout(() => {
+                        button.innerHTML = '📋 복사';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('복사 실패:', err);
+                    button.innerHTML = '❌ 실패';
+                    setTimeout(() => {
+                        button.innerHTML = '📋 복사';
+                    }, 2000);
                 });
             };
-            document.head.appendChild(script);
+
+            pre.style.position = 'relative';
+            pre.appendChild(button);
         },
 
-        // 테마 로드
-        loadTheme: function(themeName) {
-            // 기존 테마 제거
-            const existingTheme = document.querySelector('link[data-prism-theme]');
-            if (existingTheme) {
-                existingTheme.remove();
-            }
-
-            // 새 테마 추가
-            const themeUrl = this.themes[themeName] || this.themes['vscode-dark'];
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = themeUrl;
-            link.setAttribute('data-prism-theme', themeName);
-            document.head.appendChild(link);
-        },
-
-        // 언어 컴포넌트 동적 로드
-        loadLanguage: function(language, callback) {
-            if (this.loadedComponents.has(language)) {
-                if (callback) callback();
-                return;
-            }
-
-            const script = document.createElement('script');
-            script.src = `https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-${language}.min.js`;
-            script.onload = () => {
-                this.loadedComponents.add(language);
-                if (callback) callback();
-            };
-            script.onerror = () => {
-                console.warn(`Failed to load Prism language: ${language}`);
-                if (callback) callback();
-            };
-            document.head.appendChild(script);
-        },
-
-        // 자동 언어 감지 및 로더 설정
-        setupAutoLoader: function() {
-            // MutationObserver로 동적으로 추가되는 코드 블록 감지
+        // MutationObserver 설정
+        setupObserver: function() {
             const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
                     mutation.addedNodes.forEach((node) => {
                         if (node.nodeType === 1) { // Element node
-                            const codeBlocks = node.querySelectorAll('pre code[class*="language-"]');
-                            if (codeBlocks.length > 0) {
-                                this.highlightElements(codeBlocks);
+                            const codeBlocks = node.querySelectorAll ?
+                                node.querySelectorAll('pre code[class*="language-"]') : [];
+                            codeBlocks.forEach(block => this.processCodeBlock(block));
+
+                            // 노드 자체가 코드 블록인 경우
+                            if (node.matches && node.matches('pre code[class*="language-"]')) {
+                                this.processCodeBlock(node);
                             }
                         }
                     });
@@ -133,107 +208,15 @@
             }
         },
 
-        // 모든 코드 블록 하이라이팅
+        // 모든 코드 블록 다시 하이라이팅
         highlightAll: function() {
-            const codeBlocks = document.querySelectorAll('pre code[class*="language-"]');
-            this.highlightElements(codeBlocks);
-        },
-
-        // 특정 요소들 하이라이팅
-        highlightElements: function(elements) {
-            elements.forEach(element => {
-                // 언어 추출
-                const className = element.className;
-                const match = className.match(/language-(\w+)/);
-                if (match) {
-                    const language = match[1];
-
-                    // 언어 컴포넌트 로드 후 하이라이팅
-                    this.loadLanguage(language, () => {
-                        if (typeof Prism !== 'undefined') {
-                            Prism.highlightElement(element);
-                        }
-                    });
-                }
+            // 기존 processed 마크 제거
+            document.querySelectorAll('[data-processed]').forEach(el => {
+                delete el.dataset.processed;
             });
-        },
 
-        // 단일 코드 블록 하이라이팅
-        highlight: function(element, language) {
-            if (!element) return;
-
-            // 언어 클래스 추가
-            element.className = `language-${language}`;
-
-            // 언어 컴포넌트 로드 후 하이라이팅
-            this.loadLanguage(language, () => {
-                if (typeof Prism !== 'undefined') {
-                    Prism.highlightElement(element);
-                }
-            });
-        },
-
-        // 라인 번호 추가
-        addLineNumbers: function(element) {
-            if (!element) return;
-
-            const pre = element.closest('pre');
-            if (pre) {
-                pre.classList.add('line-numbers');
-
-                // Line numbers 플러그인 로드
-                if (!this.loadedComponents.has('line-numbers')) {
-                    const script = document.createElement('script');
-                    script.src = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js';
-                    script.onload = () => {
-                        this.loadedComponents.add('line-numbers');
-
-                        // Line numbers CSS 로드
-                        const link = document.createElement('link');
-                        link.rel = 'stylesheet';
-                        link.href = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css';
-                        document.head.appendChild(link);
-
-                        // 다시 하이라이팅
-                        if (typeof Prism !== 'undefined') {
-                            Prism.highlightElement(element);
-                        }
-                    };
-                    document.head.appendChild(script);
-                }
-            }
-        },
-
-        // 복사 버튼 추가
-        addCopyButton: function(element) {
-            if (!element) return;
-
-            const pre = element.closest('pre');
-            if (pre && !pre.querySelector('.code-copy-button')) {
-                const button = document.createElement('button');
-                button.className = 'code-copy-button';
-                button.innerHTML = '📋 복사';
-                button.onclick = () => {
-                    const code = element.textContent;
-                    navigator.clipboard.writeText(code).then(() => {
-                        button.innerHTML = '✅ 복사됨!';
-                        setTimeout(() => {
-                            button.innerHTML = '📋 복사';
-                        }, 2000);
-                    });
-                };
-
-                pre.style.position = 'relative';
-                pre.appendChild(button);
-            }
-        },
-
-        // 테마 변경
-        changeTheme: function(themeName) {
-            if (this.themes[themeName]) {
-                this.loadTheme(themeName);
-                this.highlightAll();
-            }
+            // 다시 처리
+            this.processAllCodeBlocks();
         }
     };
 
@@ -242,44 +225,151 @@
 // 스타일 추가
 const style = document.createElement('style');
 style.textContent = `
+    /* 코드 블록 기본 스타일 */
+    pre code[class*="language-"] {
+        display: block;
+        padding: 1rem;
+        overflow-x: auto;
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
     /* 복사 버튼 스타일 */
     .code-copy-button {
         position: absolute;
         top: 8px;
         right: 8px;
         padding: 4px 12px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 4px;
-        color: #d4d4d4;
+        color: #666;
         font-size: 12px;
         cursor: pointer;
         transition: all 0.2s;
-        backdrop-filter: blur(10px);
+        opacity: 0;
+    }
+
+    pre:hover .code-copy-button {
+        opacity: 1;
     }
 
     .code-copy-button:hover {
+        background: rgba(0, 0, 0, 0.2);
+        border-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* 다크 모드 복사 버튼 */
+    [data-theme="dark"] .code-copy-button {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #d4d4d4;
+    }
+
+    [data-theme="dark"] .code-copy-button:hover {
         background: rgba(255, 255, 255, 0.2);
         border-color: rgba(255, 255, 255, 0.3);
     }
 
+    /* 간단한 구문 하이라이팅 스타일 */
+    code .keyword {
+        color: #0070f3;
+        font-weight: bold;
+    }
+
+    code .string {
+        color: #22863a;
+    }
+
+    code .number {
+        color: #e36209;
+    }
+
+    code .tag {
+        color: #22863a;
+        font-weight: bold;
+    }
+
+    code .attr {
+        color: #6f42c1;
+    }
+
+    code .selector {
+        color: #6f42c1;
+        font-weight: bold;
+    }
+
+    code .property {
+        color: #005cc5;
+    }
+
+    code .value {
+        color: #22863a;
+    }
+
+    /* 다크 모드 하이라이팅 색상 */
+    [data-theme="dark"] code .keyword {
+        color: #7dd3fc;
+    }
+
+    [data-theme="dark"] code .string {
+        color: #86efac;
+    }
+
+    [data-theme="dark"] code .number {
+        color: #fbbf24;
+    }
+
+    [data-theme="dark"] code .tag {
+        color: #86efac;
+    }
+
+    [data-theme="dark"] code .attr {
+        color: #c084fc;
+    }
+
+    [data-theme="dark"] code .selector {
+        color: #c084fc;
+    }
+
+    [data-theme="dark"] code .property {
+        color: #7dd3fc;
+    }
+
+    [data-theme="dark"] code .value {
+        color: #86efac;
+    }
+
     /* 코드 블록 스크롤바 스타일 */
-    .code-block::-webkit-scrollbar {
+    pre::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
 
-    .code-block::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, 0.1);
+    pre::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
         border-radius: 4px;
     }
 
-    .code-block::-webkit-scrollbar-thumb {
+    pre::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    pre::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] pre::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    [data-theme="dark"] pre::-webkit-scrollbar-thumb {
         background: rgba(255, 255, 255, 0.2);
-        border-radius: 4px;
     }
 
-    .code-block::-webkit-scrollbar-thumb:hover {
+    [data-theme="dark"] pre::-webkit-scrollbar-thumb:hover {
         background: rgba(255, 255, 255, 0.3);
     }
 `;

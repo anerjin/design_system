@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Dashboard - Full Page</title>
+    <link rel="stylesheet" href="../../layout/css/index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('ds-theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="vp-doc" style="max-width: none;">
+        <header class="header" style="padding-top:24px;">
+            <h1 class="header__title">Theme: Dashboard (Full Size)</h1>
+            <p class="header__description">
+                디자인 시스템 컴포넌트를 활용해 풀사이즈 레이아웃으로 구성된 대시보드 예제입니다.
+            </p>
+        </header>
+
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__body" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <h2 class="section__title" style="margin:0;">대시보드</h2>
+                        <span class="badge">Example</span>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                        <button class="btn btn--ghost btn--sm"><i class='bx bx-filter'></i> Filters</button>
+                        <button class="btn btn--primary btn--sm"><i class='bx bx-plus'></i> New</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card-group card-group--cols-4">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Revenue</h3></div>
+                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">$24,500</div><div class="text-muted">+12% vs last week</div></div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Orders</h3></div>
+                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">1,284</div><div class="text-muted">+5% vs last week</div></div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Users</h3></div>
+                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">8,930</div><div class="text-muted">+2% vs last week</div></div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Bounce</h3></div>
+                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">32%</div><div class="text-muted">-1.2% vs last week</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Recent Activity</h3></div>
+                    <div class="card__body">
+                        <ul class="list" style="margin:0; padding-left:16px;">
+                            <li>Order #10293 has been shipped</li>
+                            <li>User maria joined the workspace</li>
+                            <li>New comment on ticket #4820</li>
+                            <li>Inventory report generated</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Quick Actions</h3></div>
+                    <div class="card__body">
+                        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                            <button class="btn btn--secondary btn--sm"><i class='bx bx-cog'></i> Settings</button>
+                            <button class="btn btn--secondary btn--sm"><i class='bx bx-user'></i> Invite</button>
+                            <button class="btn btn--secondary btn--sm"><i class='bx bx-upload'></i> Import</button>
+                            <button class="btn btn--secondary btn--sm"><i class='bx bx-help-circle'></i> Help</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header"><h3 class="card__title">구성 가이드</h3></div>
+                <div class="card__body">
+                    <ul>
+                        <li>그리드: <code class="code-inline">card-group--cols-*</code>로 레이아웃 구성</li>
+                        <li>카드: <code class="code-inline">card</code>, <code class="code-inline">card--gray</code>, <code class="code-inline">card__header</code>, <code class="code-inline">card__body</code></li>
+                        <li>버튼/아이콘: Boxicons Regular 활용</li>
+                        <li>테마: <code class="code-inline">data-theme</code> 및 토큰 변수 기반</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="/bricks/js/bricks_loader.js"></script>
+</body>
+</html>

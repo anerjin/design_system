@@ -36,17 +36,6 @@
 /* Mobile toggle */
 .navbar__toggle {display:none; justify-content:center; align-items:center; width:36px; height:36px; padding:0; border:none; border-radius:6px; background:none; color:var(--ds-gray-900); cursor:pointer;}
 .navbar__toggle:hover {background-color:var(--ds-gray-50);}
-/* Dark theme */
-.navbar--dark {border-bottom-color:var(--ds-white-alpha-10); background-color:var(--ds-gray-900);}
-.navbar--dark .navbar__brand,
-.navbar--dark .navbar__link,
-.navbar--dark .navbar__dropdown-toggle {color:var(--ds-gray-100);}
-.navbar--dark .navbar__link:hover,
-.navbar--dark .navbar__dropdown-toggle:hover,
-.navbar--dark .navbar__link--active {color:var(--ds-prime);}
-.navbar--dark .navbar__dropdown-menu {border-color:var(--ds-white-alpha-10); background-color:var(--ds-gray-800);}
-.navbar--dark .navbar__dropdown-item {color:var(--ds-gray-100);}
-.navbar--dark .navbar__dropdown-item:hover {background-color:var(--ds-white-alpha-10);}
 /* Fixed/Sticky */
 .navbar--fixed {position:fixed; z-index:1000; top:0; left:0; right:0;}
 .navbar--sticky {position:sticky; z-index:1000; top:0;}

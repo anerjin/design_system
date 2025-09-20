@@ -1,4 +1,7 @@
-/* Template Page Specific Styles */
+/* ========================================
+   BRICK Design System - Template Styles
+   공통 페이지 템플릿 및 예제 스타일
+======================================== */
 /* Example Wrapper */
 .example-wrapper {margin-bottom:var(--ds-space-3); padding:var(--ds-space-4); border:1px solid var(--ds-gray-200); border-radius:var(--ds-border-radius-md); background-color:var(--ds-white);}
 /* Code Details */
@@ -32,11 +35,11 @@ code:not([class*="language-"]) {display:inline-block; padding:2px 6px; border:1p
 .guidelines h4 {margin-bottom:var(--ds-space-2); font-size:var(--ds-text-base); font-weight:var(--ds-font-semibold);}
 .guidelines ul {margin:0; padding-left:var(--ds-space-4); font-size:var(--ds-text-sm); line-height:1.8;}
 /* Table */
-/* .table {width:100%; margin-top:var(--ds-space-3); border-collapse:collapse; font-size:var(--ds-text-sm);}
+.table {width:100%; margin-top:var(--ds-space-3); border-collapse:collapse; font-size:var(--ds-text-sm);}
 .table th {padding:var(--ds-space-3); border-bottom:2px solid var(--ds-gray-200); background:var(--ds-gray-50); color:var(--ds-black); font-weight:var(--ds-font-semibold); text-align:left;}
 .table td {padding:var(--ds-space-3); border-bottom:1px solid var(--ds-gray-100); color:var(--ds-gray-700); vertical-align:top;}
 .table code {padding:2px 4px; border-radius:var(--ds-border-radius-sm); background:var(--ds-gray-100); font-size:var(--ds-text-xs);}
-.table kbd {display:inline-block; padding:2px 6px; border:1px solid var(--ds-gray-300); border-radius:var(--ds-border-radius-sm); background:var(--ds-white); box-shadow:0 1px 0 rgba(0,0,0,0.1); font-size:var(--ds-text-xs); font-weight:var(--ds-font-medium); font-family:inherit;} */
+.table kbd {display:inline-block; padding:2px 6px; border:1px solid var(--ds-gray-300); border-radius:var(--ds-border-radius-sm); background:var(--ds-white); box-shadow:0 1px 0 rgba(0,0,0,0.1); font-size:var(--ds-text-xs); font-weight:var(--ds-font-medium); font-family:inherit;}
 /* Text Utilities */
 .text-muted {color:var(--ds-gray-600); font-size:var(--ds-text-sm);}
 /* Spacing Utilities */
@@ -90,18 +93,6 @@ code:not([class*="language-"]) {display:inline-block; padding:2px 6px; border:1p
 /* Ensure nested cards in demos have proper spacing */
 .card .card {margin:0;}
 
-/* Button styles for demo */
-/* .btn {display:inline-flex; align-items:center; justify-content:center; padding:var(--ds-space-2) var(--ds-space-3); border:1px solid transparent; border-radius:var(--ds-radius-md); font-size:var(--ds-text-sm); font-weight:var(--ds-font-medium); text-decoration:none; cursor:pointer; transition:all 0.2s;}
-.btn--primary {background:var(--ds-black); color:var(--ds-white); border-color:var(--ds-black);}
-.btn--primary:hover {background:var(--ds-gray-800); border-color:var(--ds-gray-800);}
-.btn--dark {background:var(--ds-gray-900); color:var(--ds-white); border-color:var(--ds-gray-900);}
-.btn--dark:hover {background:var(--ds-gray-800); border-color:var(--ds-gray-800);}
-.btn--ghost {background:transparent; color:var(--ds-black); border-color:var(--ds-gray-200);}
-.btn--ghost:hover {background:var(--ds-gray-50);}
-.btn--danger {background:var(--ds-red-500); color:var(--ds-white); border-color:var(--ds-red-500);}
-.btn--danger:hover {background:var(--ds-red-600); border-color:var(--ds-red-600);}
-.btn--sm {padding:var(--ds-space-1) var(--ds-space-2); font-size:var(--ds-text-xs);} */
-
 /* Modal Demo Styles */
 .demo-modals {display:flex; gap:var(--ds-space-3); flex-wrap:wrap; align-items:flex-start; margin-bottom:var(--ds-space-4);}
 
@@ -148,6 +139,53 @@ code:not([class*="language-"]) {display:inline-block; padding:2px 6px; border:1p
 .breadcrumb-state-example .breadcrumb__link {pointer-events:none; text-decoration:none;} /* Static preview */
 .breadcrumb-state-example .breadcrumb__link.is-hover {color:var(--ds-prime); text-decoration:underline;} /* Hover feedback */
 .breadcrumb-state-example .breadcrumb__link.is-visited {color:var(--ds-gray-500);} /* Visited color */
+
+/* ========================================
+   Color Swatches for Design Tokens
+======================================== */
+.color-grid {display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:var(--ds-space-3); margin-bottom:var(--ds-space-4);}
+.color-swatch {display:flex; flex-direction:column; border:1px solid var(--ds-gray-200); border-radius:var(--ds-border-radius-md); overflow:hidden;}
+.color-swatch__color {height:80px; width:100%;}
+.color-swatch__info {padding:var(--ds-space-2); background:var(--ds-white);}
+.color-swatch__name {font-weight:var(--ds-font-semibold); font-size:var(--ds-text-sm); margin-bottom:4px;}
+.color-swatch__value {font-family:var(--ds-font-mono); font-size:var(--ds-text-xs); color:var(--ds-gray-600);}
+
+/* ========================================
+   Typography Examples
+======================================== */
+.typography-example {margin-bottom:var(--ds-space-4); padding:var(--ds-space-3); border-left:3px solid var(--ds-gray-300);}
+.typography-label {font-size:var(--ds-text-xs); color:var(--ds-gray-600); margin-bottom:var(--ds-space-1); text-transform:uppercase; letter-spacing:0.05em;}
+
+/* ========================================
+   Spacing Visualization
+======================================== */
+.spacing-demo {display:flex; align-items:center; gap:var(--ds-space-3); margin-bottom:var(--ds-space-2);}
+.spacing-box {background:var(--ds-prime-alpha-20); border:1px solid var(--ds-prime-alpha-40);}
+.spacing-label {font-family:var(--ds-font-mono); font-size:var(--ds-text-xs); color:var(--ds-gray-700);}
+
+/* ========================================
+   Interactive Component States
+======================================== */
+.interactive-demo {padding:var(--ds-space-4); background:var(--ds-gray-50); border-radius:var(--ds-border-radius-md);}
+.state-preview {display:flex; align-items:center; gap:var(--ds-space-3); padding:var(--ds-space-2);}
+.state-label {min-width:100px; font-size:var(--ds-text-sm); color:var(--ds-gray-700);}
+.states-list {display:flex; justify-content:space-between;}
+/* ========================================
+   Component Properties Table
+======================================== */
+.props-table {width:100%; border-collapse:collapse; margin-top:var(--ds-space-3);}
+.props-table th {background:var(--ds-gray-100); padding:var(--ds-space-2) var(--ds-space-3); text-align:left; font-weight:var(--ds-font-semibold); font-size:var(--ds-text-sm); border-bottom:2px solid var(--ds-gray-300);}
+.props-table td {padding:var(--ds-space-2) var(--ds-space-3); border-bottom:1px solid var(--ds-gray-200); font-size:var(--ds-text-sm);}
+.props-table .prop-name {font-family:var(--ds-font-mono); font-weight:var(--ds-font-medium); color:var(--ds-prime);}
+.props-table .prop-type {font-family:var(--ds-font-mono); font-size:var(--ds-text-xs); color:var(--ds-gray-600);}
+.props-table .prop-default {font-family:var(--ds-font-mono); font-size:var(--ds-text-xs); color:var(--ds-gray-700);}
+
+/* ========================================
+   Layout Helpers
+======================================== */
+.flex-demo {display:flex; gap:var(--ds-space-2); padding:var(--ds-space-3); background:var(--ds-gray-100); border-radius:var(--ds-border-radius-md);}
+.grid-demo {display:grid; gap:var(--ds-space-2); padding:var(--ds-space-3); background:var(--ds-gray-100); border-radius:var(--ds-border-radius-md);}
+.layout-box {padding:var(--ds-space-3); background:var(--ds-white); border:1px solid var(--ds-gray-300); border-radius:var(--ds-border-radius-sm); text-align:center; font-size:var(--ds-text-sm); color:var(--ds-gray-700);}
 
 /* Navbar Component Examples */
 .navbar-example-dark .btn {border-color:var(--ds-gray-100); color:var(--ds-gray-100);} /* Improve contrast on dark background */
@@ -240,3 +278,13 @@ code:not([class*="language-"]) {display:inline-block; padding:2px 6px; border:1p
     .table th,
     .table td {padding:var(--ds-space-2);}
 }
+
+/* Toggle wrapper styles */
+.toggle-wrapper {display:flex; align-items:center; gap:12px;}
+.toggle__label {font-size:14px; color:var(--ds-gray-700);}
+
+/* Toggle group styles */
+.toggle-group {padding:16px; border:1px solid var(--ds-gray-300); border-radius:8px;}
+.toggle-item {display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
+.toggle-item:last-child {margin-bottom:0;}
+.toggle-item label {font-size:14px; color:var(--ds-gray-700);}

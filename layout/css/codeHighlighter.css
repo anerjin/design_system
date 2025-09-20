@@ -19,7 +19,7 @@
     font-family: 'Consolas', 'Monaco', 'Courier New', Courier, monospace;
     font-size: 14px;
     text-align: left;
-    white-space: pre;
+    white-space: pre-wrap;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
@@ -35,7 +35,7 @@
 }
 
 .code-block code[class*="language-"] {
-    padding: 0;
+    padding: 20px;
 }
 
 /* Inline code */
