@@ -1,0 +1,123 @@
+/* ========================================
+   Settings Page Layout
+   Full width layout with sidebar
+======================================== */
+:root {--sidebar-width:240px;--header-height:64px;--content-max-width:800px;}
+/* Reset and Base */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {background-color:var(--ds-gray-50); color:var(--ds-gray-900); font-size:var(--ds-text-base, 14px); font-family:var(--ds-font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif); line-height:1.5;}
+/* App Layout Container */
+.app-layout {display:flex; width:100%; min-height:100vh;}
+/* ========================================
+   Sidebar - Fixed dark colors (no dark mode changes)
+======================================== */
+.sidebar {display:flex; flex-direction:column; position:fixed; z-index:100; top:0; left:0; width:var(--sidebar-width); height:100vh; background:#171717;/* Fixed dark gray - not affected by theme */ color:#FFFFFF;/* Fixed white text */}
+.sidebar__header {    padding: 0 20px;
+    border-bottom: 1px solid #262626;
+    height: 64px;
+    display: flex
+;}
+.sidebar__brand {display:flex; align-items:center; color:#FFFFFF;/* Fixed white */ font-size:18px; font-weight:600; gap:10px;letter-spacing:-0.02em;}
+.sidebar__logo {flex-shrink:0; font-size:24px; line-height:1;}
+.sidebar__brand-text {flex:1; font-size:20px;}
+.sidebar__nav {padding:20px 0; flex:1;overflow-y:auto;}
+.sidebar__link {display:flex; align-items:center; position:relative; padding:12px 20px; color:#A1A1A1;/* Fixed medium gray */ font-size:14px; font-weight:500; text-decoration:none; gap:12px;transition:all 0.2s ease;}
+.sidebar__link:hover {background:#262626;/* Fixed darker gray */ color:#FFFFFF;/* Fixed white */}
+.sidebar__link--active {background:#262626;/* Fixed darker gray */ color:#FFFFFF;/* Fixed white */}
+.sidebar__link--active::before {content:''; position:absolute; top:0; left:0; bottom:0; width:3px; background:#FFFFFF;/* Fixed white accent */}
+.sidebar__icon {flex-shrink:0; font-size:20px; line-height:1;}
+.sidebar__link-text {flex:1;}
+.sidebar__footer {padding:20px 0; border-top:1px solid #262626;/* Fixed border color */}
+
+/* Sidebar submenu styles */
+.sidebar__item {position:relative;}
+.sidebar__item--has-submenu .sidebar__link {padding-right:40px;}
+.sidebar__arrow {position:absolute; right:20px; top:50%; transform:translateY(-50%); font-size:16px; line-height:1; transition:transform 0.2s ease;}
+.sidebar__item--open .sidebar__arrow {transform:translateY(-50%) rotate(90deg);}
+
+.sidebar__submenu {display:none; background:#0F0F0F; overflow:hidden;}
+.sidebar__submenu--open {display:block;}
+.sidebar__submenu-link {display:block; padding:10px 20px 10px 52px; color:#787878; font-size:13px; text-decoration:none; transition:all 0.2s ease;}
+.sidebar__submenu-link:hover {color:#FFFFFF; background:#1F1F1F;}
+.sidebar__submenu-link--active {color:#FFFFFF; background:#1F1F1F;}
+
+
+/* ========================================
+   Main Content Area
+======================================== */
+.main-content {display:flex; flex-direction:column; min-height:100vh; margin-left:var(--sidebar-width); background:var(--ds-white); flex:1;}
+/* ========================================
+   Header
+======================================== */
+.header {display:flex; justify-content:space-between; align-items:center; position:sticky; z-index:90; top:0; height:var(--header-height); padding:0 32px; border-bottom:1px solid var(--ds-gray-200); background:var(--ds-white); overflow:visible;}
+.header__left {display:flex; align-items:center; gap:16px;}
+/* Business dropdown customization */
+.header__left .dropdown {position:relative; z-index:1000;}
+.header__left .dropdown__toggle {padding-right:36px; gap:8px;}
+.header__left .dropdown__toggle svg:first-child {width:20px; height:20px;}
+.header__left .dropdown__menu {z-index:1001; min-width:200px;}
+.header__right {display:flex; align-items:center; gap:16px;}
+.header__actions {display:flex; align-items:center; gap:16px;}
+/* Dark mode toggle custom styles */
+#darkModeToggle {flex-shrink:0;}
+#darkModeToggle .toggle__icon {position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); display:flex; align-items:center; justify-content:center;}
+#darkModeToggle .toggle__icon i {line-height:1;}
+.header__user {flex-shrink:0;}
+.header__user .dropdown {position:relative; display:flex;}
+.header__user .dropdown__toggle {padding:0; background:none; border:none;}
+.header__user .dropdown__toggle::after {display:none;}
+.header__user .dropdown__toggle--avatar {cursor:pointer; transition:opacity 0.2s ease;}
+.header__user .dropdown__toggle--avatar:hover {opacity:0.8;}
+.header__user .dropdown__menu {right:0; left:auto; min-width:240px;}
+.dropdown__header {padding:12px 16px;}
+.dropdown__user-info {display:flex; flex-direction:column; gap:2px;}
+.dropdown__user-name {color:var(--ds-gray-900); font-size:14px; font-weight:600;}
+.dropdown__user-email {color:var(--ds-gray-600); font-size:12px;}
+.dropdown__item {display:flex; align-items:center; gap:10px; padding:10px 16px; color:var(--ds-gray-700); font-size:14px; text-decoration:none; transition:background-color 0.2s ease;}
+.dropdown__item:hover {background-color:var(--ds-gray-50);}
+.dropdown__item--danger {color:var(--ds-red-600);}
+.dropdown__item--danger:hover {background-color:var(--ds-red-50);}
+/* ========================================
+   Page Content
+======================================== */
+.page-content {width:100%; margin:0 auto; padding:40px; flex:1;}
+.page-header {margin-bottom:40px;}
+.page-title {margin-bottom:8px; color:var(--ds-gray-900); font-size:28px; font-weight:700; letter-spacing:-0.02em;}
+.page-subtitle {color:var(--ds-gray-600); font-size:14px; line-height:1.5;}
+/* ========================================
+   Settings Section
+======================================== */
+.settings-section {padding-top:32px; max-width:960px;}
+.settings-section__header {margin-bottom:32px;}
+.settings-section__title {margin-bottom:4px; color:var(--ds-gray-900); font-size:18px; font-weight:600;}
+.settings-section__description {color:var(--ds-gray-600); font-size:14px;}
+/* ========================================
+   Form Elements
+======================================== */
+.form-group {margin-bottom:24px;}
+.form-label {display:block; margin-bottom:8px; color:var(--ds-gray-700); font-size:14px; font-weight:500;}
+.form-hint {margin-left:8px; color:var(--ds-gray-500); font-size:12px; font-weight:400;}
+.form-row {display:grid; grid-template-columns:1fr 1fr;gap:16px;}
+/* Profile Photo Section */
+.profile-photo {display:flex; align-items:center; padding:16px 0; gap:24px;}
+.profile-photo .avatar {border:3px solid var(--ds-gray-200);}
+.profile-photo__actions {display:flex; gap:12px;}
+/* Override tabs indicator for this page */
+.tabs__nav {position:relative; margin-bottom:0;}
+.tabs__indicator {position:absolute; z-index:1; bottom:-2px; height:2px; background-color:var(--ds-gray-900); transition:left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);}
+.tabs__button--active {color:var(--ds-gray-900);}
+/* Input Group Overrides for this page */
+.input-group {display:flex; align-items:stretch;}
+.input-group__prepend {display:flex; align-items:center; padding:0 14px; border:1px solid var(--ds-gray-300); border-right:0; border-radius:var(--ds-radius-md, 6px) 0 0 var(--ds-radius-md, 6px); background:var(--ds-gray-50); color:var(--ds-gray-600); font-size:14px;}
+.input-group .input {border-radius:0 var(--ds-radius-md, 6px) var(--ds-radius-md, 6px) 0; flex:1;}
+/* Responsive */
+@media (max-width:1024px) {
+  .page-content {padding:32px 24px;}
+}
+@media (max-width:768px) {
+  .sidebar {transform:translateX(-100%);transition:transform 0.3s ease;}
+  .sidebar--open {transform:translateX(0);}
+  .main-content {margin-left:0;}
+  .page-content {padding:24px 16px;}
+  .form-row {grid-template-columns:1fr;}
+}

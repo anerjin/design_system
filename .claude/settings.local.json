@@ -19,7 +19,8 @@
       "WebFetch(domain:scottaohara.github.io)",
       "Bash(del \"E:\\github\\design_system\\private_project_design_system\\bricks\\js\\components\\checkbox-simplified.js\")",
       "WebFetch(domain:boxicons.com)",
-      "Bash(del \"E:\\github\\design_system\\private_project_design_system\\bricks\\css\\tokens\\semantic.css\")"
+      "Bash(del \"E:\\github\\design_system\\private_project_design_system\\bricks\\css\\tokens\\semantic.css\")",
+      "Bash(start index.html)"
     ],
     "deny": [],
     "ask": []

@@ -30,7 +30,8 @@
         'components/breadcrumb.js',
         'components/navbar.js',
         'components/table.js',
-        'components/checkbox.js'
+        'components/checkbox.js',
+        'components/chart.js'
     ];
 
     // 스크립트를 순차적으로 로드
@@ -73,7 +74,7 @@
         window.BRICKS.init = function() {
             const componentNames = [
                 'Dropdown', 'Modal', 'Toggle', 'Alert', 'Tabs',
-                'Accordion', 'Datepicker', 'Pagination', 'Breadcrumb', 'Navbar', 'Table', 'Radio', 'Checkbox'
+                'Accordion', 'Datepicker', 'Pagination', 'Breadcrumb', 'Navbar', 'Table', 'Radio', 'Checkbox', 'Chart'
             ];
 
             componentNames.forEach(name => {

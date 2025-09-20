@@ -4,7 +4,7 @@
 ======================================== */
 
 /* Base Card */
-.card {display:flex; flex-direction:column; background:var(--ds-white); border:1px solid var(--ds-gray-200); border-radius:var(--ds-radius-lg);}
+.card {display:flex; flex-direction:column; background:var(--ds-white); border:1px solid var(--ds-gray-200); border-radius:var(--ds-radius-xl);}
 /* .card:hover {box-shadow:var(--ds-shadow-md); transform:translateY(-2px);} */
 
 /* Card Variants */

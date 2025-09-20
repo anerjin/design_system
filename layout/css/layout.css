@@ -27,11 +27,7 @@ body {margin:0; background:var(--ds-white); color:var(--ds-black);}
 .vp-nav-left {display:flex; align-items:center; gap:24px;}
 .vp-nav-logo {display:flex; align-items:center; color:var(--ds-black); font-size:24px; font-weight:700; text-decoration:none; gap:12px;}
 .vp-nav-logo-icon {display:flex; justify-content:center; align-items:center; width:32px; height:32px; border-radius:8px; background:var(--ds-black); color:var(--ds-white);}
-.vp-nav-search {position:relative;}
-.vp-nav-search-input {width:200px; height:32px; padding:0 12px 0 32px; border:1px solid var(--ds-gray-200); border-radius:20px; outline:none; background:var(--ds-gray-50); color:var(--ds-black); font-size:13px;}
-.vp-nav-search-input::placeholder {color:var(--ds-gray-400);}
-.vp-nav-search-input:focus {width:240px; border-color:var(--ds-black); background:var(--ds-white);}
-.vp-nav-search-icon {position:absolute; top:50%; left:10px; width:14px; height:14px; color:var(--ds-gray-400); transform:translateY(-50%);pointer-events:none;}
+
 .vp-nav-right {display:flex; align-items:center; gap:12px;}
 .vp-nav-social {display:flex; align-items:center; gap:4px;}
 .vp-nav-social-link {display:flex; justify-content:center; align-items:center; width:36px; height:36px; border-radius:8px; color:var(--ds-gray-600);}
@@ -52,6 +48,9 @@ body {margin:0; background:var(--ds-white); color:var(--ds-black);}
 .vp-sidebar-link {display:flex; align-items:center; position:relative; padding:6px 12px; border-radius:6px; color:var(--ds-gray-600); font-size:14px; text-decoration:none;}
 .vp-sidebar-link:hover {background:var(--ds-gray-50); color:var(--ds-black);}
 .vp-sidebar-link.active {background:var(--ds-gray-100); color:var(--ds-black); font-weight:500;}
+.vp-sidebar-link i {font-size:16px; color:var(--ds-gray-400); margin-right:8px;}
+.vp-sidebar-link:hover i {color:var(--ds-gray-600);}
+.vp-sidebar-link.active i {color:var(--ds-black);}
 .vp-sidebar-link-text {overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1;}
 .vp-sidebar-link-badge {display:inline-flex; justify-content:center; align-items:center; min-width:20px; height:20px; margin-left:4px; padding:0 6px; border-radius:10px; background:var(--ds-black); color:var(--ds-white); font-size:11px; font-weight:600;}
 /* === Main Content Area === */
@@ -65,13 +64,13 @@ body {margin:0; background:var(--ds-white); color:var(--ds-black);}
 .vp-doc-title {margin-bottom:12px; color:var(--ds-black); font-size:2.4rem; font-weight:700; line-height:1.25; letter-spacing:-0.02em;}
 .vp-doc-description {color:var(--ds-gray-600); font-size:16px; line-height:1.75;}
 /* Content Typography */
-.vp-doc h3 {margin-top:32px; margin-bottom:12px; font-size:20px; font-weight:600; line-height:1.25; letter-spacing:-0.01em;}
-.vp-doc h4 {margin-top:24px; margin-bottom:8px; font-size:16px; font-weight:600; line-height:1.5;} */
-.vp-doc p {margin:16px 0; color:var(--ds-gray-600); line-height:1.75;}
-.vp-doc ul, .vp-doc ol {margin:16px 0; padding-left:24px; color:var(--ds-gray-600);}
-.vp-doc li {margin:8px 0; line-height:1.75;}
+.vp-doc > h3 {margin-top:32px; margin-bottom:12px; font-size:20px; font-weight:600; line-height:1.25; letter-spacing:-0.01em;}
+.vp-doc > h4 {margin-top:24px; margin-bottom:8px; font-size:16px; font-weight:600; line-height:1.5;} */
+.vp-doc > p {margin:16px 0; color:var(--ds-gray-600); line-height:1.75;}
+.vp-doc  ul, .vp-doc  ol {margin:16px 0; padding-left:24px; color:var(--ds-gray-600);}
+.vp-doc > li {margin:8px 0; line-height:1.75;}
 .vp-doc .section .section__title {margin:40px 0 10px;}
-.vp-doc a:hover {color:var(--ds-gray-900); text-decoration:underline;} */
+.vp-doc > a:hover {color:var(--ds-gray-900); text-decoration:underline;} */
 /* Component Demo */
 .vp-demo {margin:32px 0; overflow:hidden; border:1px solid var(--ds-gray-200); border-radius:8px;}
 .vp-demo-container {display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:center; position:relative; min-height:200px; padding:24px; background:var(--ds-gray-50); background-image:linear-gradient(45deg, var(--ds-gray-100) 25%, transparent 25%), linear-gradient(-45deg, var(--ds-gray-100) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ds-gray-100) 75%), linear-gradient(-45deg, transparent 75%, var(--ds-gray-100) 75%); background-position:0 0, 0 8px, 8px -8px, -8px 0px; background-size:16px 16px;}

@@ -9,12 +9,13 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
     <!-- BRICK Design System - Complete Bundle -->
-    <link rel="stylesheet" href="layout/css/index.css">
-    <link rel="stylesheet" href="layout/css/template.css">
-    <link rel="stylesheet" href="layout/css/codeHighlighter.css">
+    <link rel="stylesheet" href="../../layout/css/index.css">
+    <link rel="stylesheet" href="../../layout/css/template.css">
 
     <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- Theme Toggle Script -->
     <script>
@@ -49,6 +50,44 @@
                             <div class="vp-nav-dropdown" id="components-menu">
                                 <div class="vp-nav-dropdown-content">
                                     <div class="vp-nav-dropdown-group">
+                                        <div class="vp-nav-dropdown-title">Getting Started</div>
+                                        <a href="pages/getting-started/introduction.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Introduction
+                                        </a>
+                                        <a href="pages/getting-started/installation.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Installation
+                                        </a>
+                                        <a href="pages/getting-started/configuration.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Configuration
+                                        </a>
+                                    </div>
+                                    <div class="vp-nav-dropdown-group">
+                                        <div class="vp-nav-dropdown-title">Design Tokens</div>
+                                        <a href="pages/design-tokens/colors.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Colors
+                                        </a>
+                                        <a href="pages/design-tokens/typography.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Typography
+                                        </a>
+                                        <a href="pages/design-tokens/spacing.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Spacing
+                                        </a>
+                                        <a href="pages/design-tokens/shadows.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Shadows
+                                        </a>
+                                        <a href="pages/design-tokens/borders.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Borders
+                                        </a>
+                                    </div>
+                                    <div class="vp-nav-dropdown-group">
                                         <div class="vp-nav-dropdown-title">Elements</div>
                                         <a href="pages/elements/button.html" class="vp-nav-dropdown-link">
                                             <i class='bx bx-radio-circle'></i>
@@ -69,6 +108,26 @@
                                         <a href="pages/elements/radio.html" class="vp-nav-dropdown-link">
                                             <i class='bx bx-radio-circle'></i>
                                             Radio
+                                        </a>
+                                        <a href="pages/elements/toggle.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Toggle
+                                        </a>
+                                        <a href="pages/elements/badge.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Badge
+                                        </a>
+                                        <a href="pages/elements/avatar.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Avatar
+                                        </a>
+                                        <a href="pages/elements/progress.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Progress
+                                        </a>
+                                        <a href="pages/elements/spinner.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Spinner
                                         </a>
                                     </div>
                                     <div class="vp-nav-dropdown-group">
@@ -93,9 +152,37 @@
                                             <i class='bx bx-radio-circle'></i>
                                             Tabs
                                         </a>
+                                        <a href="pages/components/accordion.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Accordion
+                                        </a>
+                                        <a href="pages/components/pagination.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Pagination
+                                        </a>
+                                        <a href="pages/components/datepicker.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Datepicker
+                                        </a>
+                                        <a href="pages/components/breadcrumb.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Breadcrumb
+                                        </a>
+                                        <a href="pages/components/navbar.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Navbar
+                                        </a>
+                                        <a href="pages/components/table.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Table
+                                        </a>
+                                        <a href="pages/components/chart.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Chart
+                                        </a>
                                     </div>
                                     <div class="vp-nav-dropdown-group">
-                                        <div class="vp-nav-dropdown-title">Layout Components</div>
+                                        <div class="vp-nav-dropdown-title">Layout</div>
                                         <a href="pages/layout/grid.html" class="vp-nav-dropdown-link">
                                             <i class='bx bx-grid-alt'></i>
                                             Grid System
@@ -109,6 +196,21 @@
                                             Flexbox
                                         </a>
                                     </div>
+                                    <div class="vp-nav-dropdown-group">
+                                        <div class="vp-nav-dropdown-title">Utilities</div>
+                                        <a href="pages/utilities/display.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Display
+                                        </a>
+                                        <a href="pages/utilities/position.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Position
+                                        </a>
+                                        <a href="pages/utilities/overflow.html" class="vp-nav-dropdown-link">
+                                            <i class='bx bx-radio-circle'></i>
+                                            Overflow
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -120,53 +222,31 @@
                             </button>
                             <div class="vp-nav-dropdown" id="theme-menu">
                                 <div class="vp-nav-dropdown-content">
-                                    <a href="theme/dashboard/index.html" class="vp-nav-dropdown-link">
-                                        <i class='bx bx-tachometer'></i>
+                                    <a href="theme/dashboard/index.html" target="_blank" class="vp-nav-dropdown-link">
+                                        <i class='bx bx-grid-alt'></i>
                                         <div>
                                             <div class="vp-nav-dropdown-link-title">Dashboard</div>
                                             <div class="vp-nav-dropdown-link-desc">Admin dashboard layout</div>
                                         </div>
                                     </a>
-                                    <a href="#" class="vp-nav-dropdown-link">
-                                        <i class='bx bx-home-alt'></i>
+                                    <a href="theme/setting/index.html" target="_blank" class="vp-nav-dropdown-link">
+                                        <i class='bx bx-cog'></i>
                                         <div>
-                                            <div class="vp-nav-dropdown-link-title">Landing Page</div>
-                                            <div class="vp-nav-dropdown-link-desc">Marketing landing page</div>
+                                            <div class="vp-nav-dropdown-link-title">Settings</div>
+                                            <div class="vp-nav-dropdown-link-desc">Account & workspace settings</div>
                                         </div>
                                     </a>
-                                    <a href="#" class="vp-nav-dropdown-link">
-                                        <i class='bx bx-news'></i>
+                                    <a href="theme/widget/index.html" target="_blank" class="vp-nav-dropdown-link">
+                                        <i class='bx bx-widget'></i>
                                         <div>
-                                            <div class="vp-nav-dropdown-link-title">Blog Layout</div>
-                                            <div class="vp-nav-dropdown-link-desc">Blog and article layouts</div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="vp-nav-dropdown-link">
-                                        <i class='bx bx-shopping-bag'></i>
-                                        <div>
-                                            <div class="vp-nav-dropdown-link-title">E-Commerce</div>
-                                            <div class="vp-nav-dropdown-link-desc">Shop and product layouts</div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="vp-nav-dropdown-link">
-                                        <i class='bx bx-book-open'></i>
-                                        <div>
-                                            <div class="vp-nav-dropdown-link-title">Documentation</div>
-                                            <div class="vp-nav-dropdown-link-desc">Docs and wiki layouts</div>
+                                            <div class="vp-nav-dropdown-link-title">Widget</div>
+                                            <div class="vp-nav-dropdown-link-desc">Analytics widgets showcase</div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </nav>
-
-                    <div class="vp-nav-search">
-                        <svg class="vp-nav-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                        <input type="text" class="vp-nav-search-input" placeholder="Search...">
-                    </div>
                 </div>
                 
                 <div class="vp-nav-right">
@@ -215,16 +295,19 @@
                         <ul class="vp-sidebar-items">
                             <li class="vp-sidebar-item">
                                 <a href="pages/getting-started/introduction.html" class="vp-sidebar-link active">
+                                    <i class='bx bx-book-open'></i>
                                     <span class="vp-sidebar-link-text">Introduction</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/getting-started/installation.html" class="vp-sidebar-link">
+                                    <i class='bx bx-download'></i>
                                     <span class="vp-sidebar-link-text">Installation</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/getting-started/configuration.html" class="vp-sidebar-link">
+                                    <i class='bx bx-slider-alt'></i>
                                     <span class="vp-sidebar-link-text">Configuration</span>
                                 </a>
                             </li>
@@ -242,26 +325,31 @@
                         <ul class="vp-sidebar-items">
                             <li class="vp-sidebar-item">
                                 <a href="pages/design-tokens/colors.html" class="vp-sidebar-link">
+                                    <i class='bx bx-palette'></i>
                                     <span class="vp-sidebar-link-text">Colors</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/design-tokens/typography.html" class="vp-sidebar-link">
+                                    <i class='bx bx-font'></i>
                                     <span class="vp-sidebar-link-text">Typography</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/design-tokens/spacing.html" class="vp-sidebar-link">
+                                    <i class='bx bx-ruler'></i>
                                     <span class="vp-sidebar-link-text">Spacing</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/design-tokens/shadows.html" class="vp-sidebar-link">
+                                    <i class='bx bx-brightness-half'></i>
                                     <span class="vp-sidebar-link-text">Shadows</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/design-tokens/borders.html" class="vp-sidebar-link">
+                                    <i class='bx bx-border-all'></i>
                                     <span class="vp-sidebar-link-text">Borders</span>
                                 </a>
                             </li>
@@ -274,52 +362,62 @@
                         <ul class="vp-sidebar-items">
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/button.html" class="vp-sidebar-link">
+                                    <i class='bx bx-rectangle'></i>
                                     <span class="vp-sidebar-link-text">Button</span>
                                     <!-- <span class="vp-sidebar-link-badge">New</span> -->
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/input.html" class="vp-sidebar-link">
+                                    <i class='bx bx-edit-alt'></i>
                                     <span class="vp-sidebar-link-text">Input</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/select.html" class="vp-sidebar-link">
+                                    <i class='bx bx-chevron-down-circle'></i>
                                     <span class="vp-sidebar-link-text">Select</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/checkbox.html" class="vp-sidebar-link">
+                                    <i class='bx bx-checkbox'></i>
                                     <span class="vp-sidebar-link-text">Checkbox</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/radio.html" class="vp-sidebar-link">
+                                    <i class='bx bx-radio-circle'></i>
                                     <span class="vp-sidebar-link-text">Radio</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/toggle.html" class="vp-sidebar-link">
+                                    <i class='bx bx-toggle-left'></i>
                                     <span class="vp-sidebar-link-text">Toggle</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/badge.html" class="vp-sidebar-link">
+                                    <i class='bx bx-badge'></i>
                                     <span class="vp-sidebar-link-text">Badge</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/avatar.html" class="vp-sidebar-link">
+                                    <i class='bx bx-user-circle'></i>
                                     <span class="vp-sidebar-link-text">Avatar</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/progress.html" class="vp-sidebar-link">
+                                    <i class='bx bx-loader-circle'></i>
                                     <span class="vp-sidebar-link-text">Progress</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/elements/spinner.html" class="vp-sidebar-link">
+                                    <i class='bx bx-loader'></i>
                                     <span class="vp-sidebar-link-text">Spinner</span>
                                 </a>
                             </li>
@@ -332,57 +430,74 @@
                         <ul class="vp-sidebar-items">
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/alert.html" class="vp-sidebar-link">
+                                    <i class='bx bx-error-circle'></i>
                                     <span class="vp-sidebar-link-text">Alert</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/card.html" class="vp-sidebar-link">
+                                    <i class='bx bx-card'></i>
                                     <span class="vp-sidebar-link-text">Card</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/modal.html" class="vp-sidebar-link">
+                                    <i class='bx bx-window-alt'></i>
                                     <span class="vp-sidebar-link-text">Modal</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/dropdown.html" class="vp-sidebar-link">
+                                    <i class='bx bx-chevron-down-square'></i>
                                     <span class="vp-sidebar-link-text">Dropdown</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/tabs.html" class="vp-sidebar-link">
+                                    <i class='bx bx-layout'></i>
                                     <span class="vp-sidebar-link-text">Tabs</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/accordion.html" class="vp-sidebar-link">
+                                    <i class='bx bx-menu-alt-left'></i>
                                     <span class="vp-sidebar-link-text">Accordion</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/pagination.html" class="vp-sidebar-link">
+                                    <i class='bx bx-dots-horizontal-rounded'></i>
                                     <span class="vp-sidebar-link-text">Pagination</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/datepicker.html" class="vp-sidebar-link">
+                                    <i class='bx bx-calendar'></i>
                                     <span class="vp-sidebar-link-text">Datepicker</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/breadcrumb.html" class="vp-sidebar-link">
+                                    <i class='bx bx-chevrons-right'></i>
                                     <span class="vp-sidebar-link-text">Breadcrumb</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/navbar.html" class="vp-sidebar-link">
+                                    <i class='bx bx-navigation'></i>
                                     <span class="vp-sidebar-link-text">Navbar</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/components/table.html" class="vp-sidebar-link">
+                                    <i class='bx bx-table'></i>
                                     <span class="vp-sidebar-link-text">Table</span>
+                                </a>
+                            </li>
+                            <li class="vp-sidebar-item">
+                                <a href="pages/components/chart.html" class="vp-sidebar-link">
+                                    <i class='bx bx-chart'></i>
+                                    <span class="vp-sidebar-link-text">Chart</span>
                                 </a>
                             </li>
                         </ul>
@@ -394,16 +509,19 @@
                         <ul class="vp-sidebar-items">
                             <li class="vp-sidebar-item">
                                 <a href="pages/layout/grid.html" class="vp-sidebar-link">
+                                    <i class='bx bx-grid-alt'></i>
                                     <span class="vp-sidebar-link-text">Grid System</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/layout/container.html" class="vp-sidebar-link">
+                                    <i class='bx bx-box'></i>
                                     <span class="vp-sidebar-link-text">Container</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/layout/flexbox.html" class="vp-sidebar-link">
+                                    <i class='bx bx-layout'></i>
                                     <span class="vp-sidebar-link-text">Flexbox</span>
                                 </a>
                             </li>
@@ -416,16 +534,19 @@
                         <ul class="vp-sidebar-items">
                             <li class="vp-sidebar-item">
                                 <a href="pages/utilities/display.html" class="vp-sidebar-link">
+                                    <i class='bx bx-desktop'></i>
                                     <span class="vp-sidebar-link-text">Display</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/utilities/position.html" class="vp-sidebar-link">
+                                    <i class='bx bx-move'></i>
                                     <span class="vp-sidebar-link-text">Position</span>
                                 </a>
                             </li>
                             <li class="vp-sidebar-item">
                                 <a href="pages/utilities/overflow.html" class="vp-sidebar-link">
+                                    <i class='bx bx-dots-horizontal-rounded'></i>
                                     <span class="vp-sidebar-link-text">Overflow</span>
                                 </a>
                             </li>

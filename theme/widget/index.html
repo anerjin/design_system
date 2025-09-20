@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Dashboard - Full Page</title>
+    <title>Widgets</title>
+
+    <!-- Design System CSS -->
     <link rel="stylesheet" href="../../layout/css/index.css">
+
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="assets/css/layout.css">
+
+    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Theme Toggle Script -->
     <script>
         (function() {
             const theme = localStorage.getItem('ds-theme') || 'light';
@@ -16,91 +28,474 @@
     </script>
 </head>
 <body>
-    <div class="vp-doc" style="max-width: none;">
-        <header class="header" style="padding-top:24px;">
-            <h1 class="header__title">Theme: Dashboard (Full Size)</h1>
-            <p class="header__description">
-                디자인 시스템 컴포넌트를 활용해 풀사이즈 레이아웃으로 구성된 대시보드 예제입니다.
-            </p>
-        </header>
+    <!-- Top Navigation -->
+    <nav class="navbar navbar--sticky">
+        <div class="navbar__container">
+            <a href="#" class="navbar__brand">
+                <i class='bx bx-layer' style="font-size: 28px;"></i>
+                <span>BRICKS</span>
+            </a>
 
-        <section class="section">
-            <div class="card card--gray">
-                <div class="card__body" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <h2 class="section__title" style="margin:0;">대시보드</h2>
-                        <span class="badge">Example</span>
+            <div class="navbar__menu">
+                <a href="#" class="navbar__link">
+                    <i class='bx bx-grid-alt'></i>
+                    Dashboard
+                </a>
+                <a href="../setting/index.html" class="navbar__link">
+                    <i class='bx bx-cog'></i>
+                    Settings
+                </a>
+                <a href="#" class="navbar__link navbar__link--active">
+                    <i class='bx bx-widget'></i>
+                    Widget
+                </a>
+            </div>
+
+            <div class="navbar__actions">
+                <!-- Theme Toggle -->
+                <button class="navbar__icon-btn" id="themeToggle" title="Toggle dark mode">
+                    <i class='bx bx-sun' id="themeIcon" style="font-size: 20px;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="widget-container">
+
+        <!-- Widgets Grid -->
+        <div class="widgets-grid">
+            <!-- Row 1 -->
+            <!-- Expenses Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Expenses</span>
                     </div>
-                    <div style="display:flex; gap:8px;">
-                        <button class="btn btn--ghost btn--sm"><i class='bx bx-filter'></i> Filters</button>
-                        <button class="btn btn--primary btn--sm"><i class='bx bx-plus'></i> New</button>
+                    <div class="widget-value">$5,216.72</div>
+                    <div class="widget-change positive">+131% since last month</div>
+                    <div class="widget-chart-bar">
+                        <canvas id="expensesChart"></canvas>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="card-group card-group--cols-4">
-                <div class="card card--gray">
-                    <div class="card__header"><h3 class="card__title">Revenue</h3></div>
-                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">$24,500</div><div class="text-muted">+12% vs last week</div></div>
-                </div>
-                <div class="card card--gray">
-                    <div class="card__header"><h3 class="card__title">Orders</h3></div>
-                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">1,284</div><div class="text-muted">+5% vs last week</div></div>
-                </div>
-                <div class="card card--gray">
-                    <div class="card__header"><h3 class="card__title">Users</h3></div>
-                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">8,930</div><div class="text-muted">+2% vs last week</div></div>
-                </div>
-                <div class="card card--gray">
-                    <div class="card__header"><h3 class="card__title">Bounce</h3></div>
-                    <div class="card__body"><div class="text-2xl" style="font-weight:600;">32%</div><div class="text-muted">-1.2% vs last week</div></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="card-group card-group--cols-2">
-                <div class="card card--gray">
-                    <div class="card__header"><h3 class="card__title">Recent Activity</h3></div>
-                    <div class="card__body">
-                        <ul class="list" style="margin:0; padding-left:16px;">
-                            <li>Order #10293 has been shipped</li>
-                            <li>User maria joined the workspace</li>
-                            <li>New comment on ticket #4820</li>
-                            <li>Inventory report generated</li>
-                        </ul>
+            <!-- Balance Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Balance</span>
+                    </div>
+                    <div class="widget-value">$90,745.21</div>
+                    <div class="widget-change positive">+21.3% since last month</div>
+                    <div class="widget-chart-line">
+                        <canvas id="balanceChart"></canvas>
                     </div>
                 </div>
-                <div class="card card--gray">
-                    <div class="card__header"><h3 class="card__title">Quick Actions</h3></div>
-                    <div class="card__body">
-                        <div style="display:flex; flex-wrap:wrap; gap:8px;">
-                            <button class="btn btn--secondary btn--sm"><i class='bx bx-cog'></i> Settings</button>
-                            <button class="btn btn--secondary btn--sm"><i class='bx bx-user'></i> Invite</button>
-                            <button class="btn btn--secondary btn--sm"><i class='bx bx-upload'></i> Import</button>
-                            <button class="btn btn--secondary btn--sm"><i class='bx bx-help-circle'></i> Help</button>
+            </div>
+
+            <!-- Fine Tuning Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Fine Tuning</span>
+                    </div>
+                    <div class="widget-tuning">
+                        <div class="tuning-labels">
+                            <span>Hi</span>
+                            <span>Lo</span>
+                            <span>4K</span>
+                            <span>8K</span>
+                            <span>12K</span>
+                        </div>
+                        <div class="tuning-bars">
+                            <canvas id="tuningChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="card card--gray">
-                <div class="card__header"><h3 class="card__title">구성 가이드</h3></div>
+            <!-- Stock Widget -->
+            <div class="card card--elevated">
                 <div class="card__body">
-                    <ul>
-                        <li>그리드: <code class="code-inline">card-group--cols-*</code>로 레이아웃 구성</li>
-                        <li>카드: <code class="code-inline">card</code>, <code class="code-inline">card--gray</code>, <code class="code-inline">card__header</code>, <code class="code-inline">card__body</code></li>
-                        <li>버튼/아이콘: Boxicons Regular 활용</li>
-                        <li>테마: <code class="code-inline">data-theme</code> 및 토큰 변수 기반</li>
-                    </ul>
+                    <div class="widget-header">
+                        <span class="widget-title">Haynes Ltd.</span>
+                        <span class="widget-subtitle">DMX-RTW • May 3rd 6:04pm EST</span>
+                    </div>
+                    <div class="widget-stock">
+                        <div class="stock-value">3,618</div>
+                        <div class="stock-change positive">▲ 0.110 (4.966%)</div>
+                    </div>
+                    <div class="stock-info">
+                        <div class="stock-row">
+                            <span>Open</span>
+                            <span>3,618</span>
+                            <span>Market Cap</span>
+                            <span>93.8M</span>
+                        </div>
+                        <div class="stock-row">
+                            <span>High</span>
+                            <span>3,623</span>
+                            <span>P/E ratio</span>
+                            <span>20.10</span>
+                        </div>
+                        <div class="stock-row">
+                            <span>Low</span>
+                            <span>3,612</span>
+                            <span>Dividend yield</span>
+                            <span>1.65%</span>
+                        </div>
+                        <div class="stock-row">
+                            <span>Average</span>
+                            <span>3,612</span>
+                            <span>Scatter</span>
+                            <span>2.41%</span>
+                        </div>
+                    </div>
+                    <div class="widget-progress">
+                        <div class="progress-header">
+                            <span>Completed steps: 9/12</span>
+                            <span>Remaining: 22%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress__bar" style="width: 78%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Row 2 -->
+            <!-- Team Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Team</span>
+                        <button class="widget-action">
+                            <i class='bx bx-plus'></i>
+                        </button>
+                    </div>
+                    <div class="widget-subtitle">Manage member permissions</div>
+                    <div class="team-list">
+                        <div class="team-member">
+                            <div class="avatar avatar--sm">
+                                <img src="https://ui-avatars.com/api/?name=Jane+Cooper&background=6366f1&color=fff" alt="Jane Cooper" class="avatar__image">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name">Jane Cooper</div>
+                                <div class="member-email">janecooper@mail.com</div>
+                            </div>
+                            <span class="member-role">admin</span>
+                            <button class="member-menu">
+                                <i class='bx bx-chevron-down'></i>
+                            </button>
+                        </div>
+                        <div class="team-member">
+                            <div class="avatar avatar--sm">
+                                <img src="https://ui-avatars.com/api/?name=Aria+Smith&background=8b5cf6&color=fff" alt="Aria Smith" class="avatar__image">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name">Aria Smith</div>
+                                <div class="member-email">ariasmith@mail.com</div>
+                            </div>
+                            <span class="member-role">member</span>
+                            <button class="member-menu">
+                                <i class='bx bx-chevron-down'></i>
+                            </button>
+                        </div>
+                        <div class="team-member">
+                            <div class="avatar avatar--sm">
+                                <img src="https://ui-avatars.com/api/?name=Kelly+Johnson&background=ec4899&color=fff" alt="Kelly Johnson" class="avatar__image">
+                            </div>
+                            <div class="member-info">
+                                <div class="member-name">Kelly Johnson</div>
+                                <div class="member-email">kellyjohnson@mail.com</div>
+                            </div>
+                            <span class="member-role">member</span>
+                            <button class="member-menu">
+                                <i class='bx bx-chevron-down'></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completion Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Completion</span>
+                    </div>
+                    <div class="widget-completion">
+                        <div class="completion-chart">
+                            <canvas id="completionChart"></canvas>
+                            <div class="completion-value">76%</div>
+                        </div>
+                        <div class="completion-text">code reviewed</div>
+                        <div class="completion-subtext">Over the last 15 days</div>
+                    </div>
+                    <div class="completion-tags">
+                        <span class="badge badge--primary badge--lg">JavaScript</span>
+                        <span class="badge badge--soft-primary badge--lg">React</span>
+                        <span class="badge badge--soft-primary badge--lg">Tailwind CSS</span>
+                    </div>
+                    <div class="completion-tags">
+                        <span class="badge badge--outline-primary badge--lg">Next</span>
+                        <span class="badge badge--outline-primary badge--lg">Vue</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Balance Graph Widget -->
+            <div class="card card--elevated widget-wide">
+                <div class="card__body">
+                    <div class="widget-header">
+                    <span class="widget-title">Balance</span>
+                </div>
+                <div class="widget-value">$90,745.21</div>
+                <div class="widget-change positive">+21.3% since last month</div>
+                <div class="widget-chart-area">
+                    <canvas id="balanceAreaChart"></canvas>
+                </div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <!-- Settings Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Settings</span>
+                    </div>
+                    <div class="widget-subtitle">Manage your preferences here</div>
+
+                    <div class="settings-group">
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Notifications</div>
+                                <div class="setting-desc">Receive e-mail notifications</div>
+                            </div>
+                            <button class="toggle toggle--active">
+                                <span class="toggle__track">
+                                    <span class="toggle__thumb"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">API Access</div>
+                                <div class="setting-desc">Enable access to the API</div>
+                            </div>
+                            <button class="toggle">
+                                <span class="toggle__track">
+                                    <span class="toggle__thumb"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Auto Updates</div>
+                                <div class="setting-desc">Keep up to date</div>
+                            </div>
+                            <button class="toggle toggle--active">
+                                <span class="toggle__track">
+                                    <span class="toggle__thumb"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Backup</div>
+                                <div class="setting-desc">Automatic backups</div>
+                            </div>
+                            <button class="toggle">
+                                <span class="toggle__track">
+                                    <span class="toggle__thumb"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn--primary">Save Preferences</button>
+
+                    <div class="payment-section">
+                        <div class="payment-header">Pay with credit card</div>
+                        <div class="payment-desc">Enter your credit card information</div>
+                        <div class="credit-card">
+                            <div class="card-type">Mastercard</div>
+                            <div class="card-number">•••• •••• •••• ••••</div>
+                            <div class="card-holder">John Smith</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Message Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">New Message</span>
+                        <button class="widget-close">
+                            <i class='bx bx-x'></i>
+                        </button>
+                    </div>
+                    <div class="widget-subtitle">You have received a new message</div>
+
+                    <div class="message-sender">
+                        <div class="avatar">
+                            <img src="https://ui-avatars.com/api/?name=Christina+Keller&background=10b981&color=fff" alt="Christina" class="avatar__image">
+                        </div>
+                        <div class="sender-info">
+                            <div class="sender-label">SENT BY</div>
+                            <div class="sender-name">Christina Keller</div>
+                        </div>
+                    </div>
+
+                    <div class="message-content">
+                        <div class="message-subject">
+                            <i class='bx bx-circle-half'></i>
+                            Project review
+                        </div>
+                        <div class="message-text">
+                            We need to review the last quarter and plan the next one. Can you prepare the slides and all the required data?
+                        </div>
+                        <div class="message-time">19 minutes ago</div>
+                    </div>
+
+                    <div class="message-reply">
+                        <input type="text" placeholder="Reply to Christina..." class="input">
+                    </div>
+
+                    <button class="btn btn--dark">Send Message</button>
+                </div>
+            </div>
+
+            <!-- Suppliers Widget -->
+            <div class="card card--elevated widget-wide">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Suppliers</span>
+                    </div>
+                    <div class="widget-subtitle">Manage your suppliers and orders</div>
+
+                    <div class="input-icon input-icon--left">
+                        <span class="input-icon__icon input-icon__icon--left">
+                            <i class='bx bx-search'></i>
+                        </span>
+                        <input type="text" placeholder="Filter suppliers..." class="input input--lg">
+                    </div>
+
+                    <table class="suppliers-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Pending</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Agro Supply</td>
+                                <td>contact@agrosupply.co</td>
+                                <td>$879.12</td>
+                                <td><button class="btn-dots"><i class='bx bx-dots-horizontal-rounded'></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Farmers Market</td>
+                                <td>clients@farmersmarket.com</td>
+                                <td>$1548.97</td>
+                                <td><button class="btn-dots"><i class='bx bx-dots-horizontal-rounded'></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Green Fields</td>
+                                <td>supply@greenfields.com</td>
+                                <td>$2546.21</td>
+                                <td><button class="btn-dots"><i class='bx bx-dots-horizontal-rounded'></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Organic Food</td>
+                                <td>contact@organicfood.com</td>
+                                <td>$753.46</td>
+                                <td><button class="btn-dots"><i class='bx bx-dots-horizontal-rounded'></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Fresh Produce</td>
+                                <td>buy@freshme.fd</td>
+                                <td>$1284.56</td>
+                                <td><button class="btn-dots"><i class='bx bx-dots-horizontal-rounded'></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Healthy Harvest</td>
+                                <td>contact@hh.co</td>
+                                <td>$692.79</td>
+                                <td><button class="btn-dots"><i class='bx bx-dots-horizontal-rounded'></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <nav class="pagination" data-pagination>
+                        <ul class="pagination__list">
+                            <li class="pagination__item"><a href="#" class="pagination__link pagination__link--prev" data-page="prev"><i class='bx bx-chevron-left'></i></a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link pagination__link--active" aria-current="page" data-page="1">1</a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link" data-page="2">2</a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link" data-page="3">3</a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link" data-page="4">4</a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link" data-page="5">5</a></li>
+                            <li class="pagination__item"><span class="pagination__link pagination__link--disabled">...</span></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link" data-page="64">64</a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link pagination__link--next" data-page="next"><i class='bx bx-chevron-right'></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+                
+            <!-- Sign In Widget -->
+            <div class="card card--elevated">
+                <div class="card__body">
+                    <div class="widget-header">
+                        <span class="widget-title">Sign in</span>
+                    </div>
+                    <div class="widget-subtitle">Enter your account info to sign in</div>
+    
+                    <form class="signin-form">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" class="input">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter your password" class="input">
+                        </div>
+                        <div class="form-checkbox">
+                            <label>
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" class="link">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Sign In</button>
+                    </form>
+    
+                    <div class="signin-divider">or continue with</div>
+    
+                    <div class="social-buttons">
+                        <button class="btn btn--outline-secondary btn--sm">
+                            <i class='bx bxl-google'></i>
+                        </button>
+                        <button class="btn btn--outline-secondary btn--sm">
+                            <i class='bx bxl-github'></i>
+                        </button>
+                        <button class="btn btn--outline-secondary btn--sm">
+                            <i class='bx bxl-twitter'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <script src="/bricks/js/bricks_loader.js"></script>
+
+    <!-- Scripts -->
+    <script src="../../bricks/js/bricks_loader.js"></script>
+    <script src="assets/js/layout.js"></script>
 </body>
 </html>
