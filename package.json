@@ -4,9 +4,28 @@
   "description": "BRICKS - Simple text-based design system with dark/light mode",
   "main": "index.html",
   "scripts": {
-    "serve": "python -m http.server 8000"
+    "serve": "python -m http.server 8000",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf bricks/js/*.js bricks/js/*.d.ts bricks/js/*.map"
   },
-  "keywords": ["design-system", "ui", "components"],
+  "keywords": [
+    "design-system",
+    "ui",
+    "components"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anerjin/private_project_design_system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anerjin/private_project_design_system/issues"
+  },
+  "homepage": "https://github.com/anerjin/private_project_design_system#readme",
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.2"
+  }
 }
