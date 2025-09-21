@@ -25,7 +25,16 @@
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
       "Bash(tree:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git mv:*)",
+      "Bash(powershell:*)",
+      "Bash(tasklist)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(xcopy:*)"
     ],
     "deny": [],
     "ask": []
