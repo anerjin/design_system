@@ -1,0 +1,63 @@
+/* Tabs Component Styles */
+.tabs {width:100%;}
+.tabs__nav {display:flex; align-items:center; position:relative; margin-bottom:24px; border-bottom:2px solid var(--ds-gray-200);}
+
+/* Animated Indicator Bar */
+.tabs__indicator {position:absolute; bottom:-2px; height:2px; background-color:var(--ds-prime); transition:left 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); z-index:1; will-change:left, width;}
+
+/* Tab Buttons */
+.tabs__button {position:relative; padding:12px 16px; border:none; background:none; color:var(--ds-gray-600); font-size:14px; font-weight:500; white-space:nowrap; cursor:pointer; transition:color 0.2s;}
+.tabs__button:hover {color:var(--ds-gray-900);}
+.tabs__button:focus-visible {outline:2px solid var(--ds-prime-alpha-20); outline-offset:2px; border-radius:4px;}
+.tabs__button--active {color:var(--ds-prime);}
+.tabs__button:disabled {color:var(--ds-gray-400); cursor:not-allowed; opacity:0.6;}
+/* Tab content */
+.tabs__content {padding:0;}
+.tabs__panel {display:none;}
+.tabs__panel--active {display:block; animation:fadeIn 0.3s;}
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+/* Vertical tabs */
+.tabs--vertical {display:flex; gap:24px;}
+.tabs--vertical .tabs__nav {align-items:stretch; flex-direction:column; min-width:200px; margin-right:24px; margin-bottom:0; border-right:2px solid var(--ds-gray-200); border-bottom:none; position:relative;}
+.tabs--vertical .tabs__button {padding:12px 20px; text-align:left; position:relative;}
+/* Vertical sliding indicator */
+.tabs--vertical .tabs__indicator {
+  position:absolute;
+  right:-2px;
+  width:2px;
+  background-color:var(--ds-prime);
+  transition:top 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index:1;
+}
+.tabs--vertical .tabs__content {flex:1;}
+/* Pills style */
+.tabs--pills .tabs__nav {padding:4px; border-bottom:none; border-radius:8px; background-color:var(--ds-gray-100); gap:8px; position:relative; display:flex; align-items:center;}
+.tabs--pills .tabs__button {padding:8px 16px; border-radius:6px; position:relative; z-index:2;}
+.tabs--pills .tabs__button:hover {background-color:var(--ds-gray-50);}
+.tabs--pills .tabs__button--active {color:var(--ds-prime);}
+/* Pills sliding background */
+.tabs--pills .tabs__indicator {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  height:calc(100% - 8px);
+  background-color:var(--ds-white);
+  box-shadow:var(--ds-shadow-elevation-1);
+  border-radius:6px;
+  transition:left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index:1;
+}
+/* Sizes */
+.tabs--sm .tabs__button {padding:8px 12px; font-size:13px;}
+.tabs--lg .tabs__button {padding:16px 24px; font-size:16px;}
+/* Justified */
+.tabs--justified .tabs__nav {display:flex;}
+.tabs--justified .tabs__button {text-align:center; flex:1;}
+/* With icons */
+.tabs__button-icon {display:inline-flex; align-items:center; gap:8px;}
+.tabs__button-icon svg {width:16px; height:16px;}
+/* Badge in tab */
+.tabs__button-badge {display:inline-block; margin-left:8px; padding:2px 6px; border-radius:10px; background-color:var(--ds-prime); color:var(--ds-white); font-size:11px; font-weight:500; line-height:1;}

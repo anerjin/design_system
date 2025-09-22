@@ -93,6 +93,17 @@ export interface PaginationOptions extends ComponentOptions {
   showPrevNext?: boolean;
 }
 
+// Toast interface
+export interface ToastOptions {
+  type?: 'success' | 'warning' | 'danger' | 'error' | 'info';
+  title?: string | null;
+  description?: string;
+  position?: string;
+  duration?: number;
+  dismissible?: boolean;
+  clearExisting?: boolean;
+}
+
 // Global BRICKS namespace
 declare global {
   interface Window {
@@ -103,6 +114,33 @@ declare global {
       register(name: string, component: any): void;
       unregister(name: string): void;
       get(name: string): any;
+      // Component specific namespaces
+      Toast?: {
+        show(message: string, options?: ToastOptions): HTMLElement;
+        success(message: string, options?: ToastOptions): HTMLElement;
+        error(message: string, options?: ToastOptions): HTMLElement;
+        warning(message: string, options?: ToastOptions): HTMLElement;
+        info(message: string, options?: ToastOptions): HTMLElement;
+        clearAll(): void;
+      };
+      Alert?: {
+        dismiss(element: string | HTMLElement): void;
+        init(): void;
+      };
+      Breadcrumb?: {
+        init(): void;
+        bindEvents(element: HTMLElement): void;
+      };
+      Chart?: any;
+      Checkbox?: any;
+      Datepicker?: any;
+      Dropdown?: any;
+      Modal?: any;
+      Navbar?: any;
+      Pagination?: any;
+      Table?: any;
+      Tabs?: any;
+      Toggle?: any;
     };
   }
 }

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Settings</title>
+
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="../../core/styles/bundle.css">
+    <link rel="stylesheet" href="../../layout/css/template.css">
+
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="assets/css/layout.css">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('ds-theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <div class="sidebar__brand">
+                    <i class='bx bx-layer sidebar__logo'></i>
+                    <span class="sidebar__brand-text">BRICKS</span>
+                </div>
+            </div>
+
+            <nav class="sidebar__nav">
+                <a href="#" class="sidebar__link">
+                    <i class='bx bx-grid-alt sidebar__icon'></i>
+                    <span class="sidebar__link-text">Dashboard</span>
+                </a>
+
+                <div class="sidebar__item sidebar__item--has-submenu">
+                    <a href="#" class="sidebar__link">
+                        <i class='bx bx-store sidebar__icon'></i>
+                        <span class="sidebar__link-text">Storefront</span>
+                        <i class='bx bx-chevron-right sidebar__arrow'></i>
+                    </a>
+                    <div class="sidebar__submenu">
+                        <a href="#" class="sidebar__submenu-link">Store Settings</a>
+                        <a href="#" class="sidebar__submenu-link">Theme Editor</a>
+                        <a href="#" class="sidebar__submenu-link">Customization</a>
+                    </div>
+                </div>
+
+                <a href="#" class="sidebar__link">
+                    <i class='bx bx-credit-card sidebar__icon'></i>
+                    <span class="sidebar__link-text">Payments</span>
+                </a>
+
+                <div class="sidebar__item sidebar__item--has-submenu">
+                    <a href="#" class="sidebar__link">
+                        <i class='bx bx-package sidebar__icon'></i>
+                        <span class="sidebar__link-text">Products</span>
+                        <i class='bx bx-chevron-right sidebar__arrow'></i>
+                    </a>
+                    <div class="sidebar__submenu">
+                        <a href="#" class="sidebar__submenu-link">All Products</a>
+                        <a href="#" class="sidebar__submenu-link">Categories</a>
+                        <a href="#" class="sidebar__submenu-link">Inventory</a>
+                        <a href="#" class="sidebar__submenu-link">Collections</a>
+                    </div>
+                </div>
+
+                <a href="#" class="sidebar__link">
+                    <i class='bx bx-message-square-dots sidebar__icon'></i>
+                    <span class="sidebar__link-text">Messages</span>
+                </a>
+            </nav>
+
+            <div class="sidebar__footer">
+                <div class="sidebar__item sidebar__item--has-submenu sidebar__item--open">
+                    <a href="#" class="sidebar__link sidebar__link--active">
+                        <i class='bx bx-cog sidebar__icon'></i>
+                        <span class="sidebar__link-text">Settings</span>
+                        <i class='bx bx-chevron-right sidebar__arrow'></i>
+                    </a>
+                    <div class="sidebar__submenu sidebar__submenu--open">
+                        <a href="#" class="sidebar__submenu-link sidebar__submenu-link--active">Account</a>
+                        <a href="#" class="sidebar__submenu-link">Preferences</a>
+                        <a href="#" class="sidebar__submenu-link">Security</a>
+                        <a href="#" class="sidebar__submenu-link">Notifications</a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="header">
+                <div class="header__left">
+                    <div class="dropdown" id="businessDropdown">
+                        <button class="dropdown__toggle">
+                            <i class='bx bx-dots-horizontal-rounded' style='font-size: 20px;'></i>
+                            <span>Business</span>
+                        </button>
+                        <div class="dropdown__menu">
+                            <a href="#" class="dropdown__item">Business Overview</a>
+                            <a href="#" class="dropdown__item">Analytics</a>
+                            <a href="#" class="dropdown__item">Reports</a>
+                            <div class="dropdown__divider"></div>
+                            <a href="#" class="dropdown__item">Settings</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header__right">
+                    <div class="header__actions">
+                        <!-- Dark Mode Toggle -->
+                        <button class="toggle" id="darkModeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+                            <span class="toggle__track">
+                                <span class="toggle__thumb">
+                                    <span class="toggle__icon toggle__icon--on">
+                                        <i class='bx bx-moon' style='font-size: 12px;'></i>
+                                    </span>
+                                    <span class="toggle__icon toggle__icon--off">
+                                        <i class='bx bx-sun' style='font-size: 12px;'></i>
+                                    </span>
+                                </span>
+                            </span>
+                        </button>
+
+                        <div class="header__user">
+                            <div class="dropdown" id="userDropdown">
+                                <button class="dropdown__toggle dropdown__toggle--avatar">
+                                    <div class="avatar avatar--sm">
+                                        <img src="https://i.pravatar.cc/40?img=5" alt="User Avatar" class="avatar__image">
+                                    </div>
+                                </button>
+                                <div class="dropdown__menu dropdown__menu--right">
+                                    <div class="dropdown__header">
+                                        <div class="dropdown__user-info">
+                                            <div class="dropdown__user-name">Christina Keller</div>
+                                            <div class="dropdown__user-email">christina.keller@mail.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown__divider"></div>
+                                    <a href="#" class="dropdown__item">
+                                        <i class='bx bx-user' style='font-size: 16px;'></i>
+                                        Profile
+                                    </a>
+                                    <a href="#" class="dropdown__item">
+                                        <i class='bx bx-cog' style='font-size: 16px;'></i>
+                                        Settings
+                                    </a>
+                                    <a href="#" class="dropdown__item">
+                                        <i class='bx bx-help-circle' style='font-size: 16px;'></i>
+                                        Help & Support
+                                    </a>
+                                    <div class="dropdown__divider"></div>
+                                    <a href="#" class="dropdown__item dropdown__item--danger">
+                                        <i class='bx bx-log-out' style='font-size: 16px;'></i>
+                                        Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1 class="page-title">Manage your account</h1>
+                    <p class="page-subtitle">Make sure to check your preferences and update your account settings, accordingly to your needs.</p>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="tabs" data-tabs>
+                    <div class="tabs__nav">
+                        <button class="tabs__button tabs__button--active" data-tab="profile">Profile</button>
+                        <button class="tabs__button" data-tab="workspaces">Workspaces</button>
+                        <button class="tabs__button" data-tab="wallet">Wallet</button>
+                        <button class="tabs__button" data-tab="integrations">Integrations</button>
+                        <button class="tabs__button" data-tab="billing">Billing</button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tabs__content">
+                        <!-- Profile Tab -->
+                        <div class="tabs__panel tabs__panel--active" id="profile">
+                            <div class="settings-section">
+                                <div class="settings-section__header">
+                                    <h2 class="settings-section__title">Personal info</h2>
+                                    <p class="settings-section__description">Tell us a bit about yourself</p>
+                                </div>
+
+                                <!-- Profile Photo -->
+                                <div class="form-group">
+                                    <label class="form-label">Profile Photo</label>
+                                    <div class="profile-photo">
+                                        <div class="avatar avatar--xl">
+                                            <img src="https://i.pravatar.cc/80?img=5" alt="Profile" class="avatar__image">
+                                        </div>
+                                        <div class="profile-photo__actions">
+                                            <button class="btn btn--secondary btn--sm">Remove</button>
+                                            <button class="btn btn--dark btn--sm">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Name Fields -->
+                                <div class="form-group">
+                                    <label class="form-label">First & Last Name</label>
+                                    <div class="form-row">
+                                        <input type="text" class="input" placeholder="First Name" value="Christina">
+                                        <input type="text" class="input" placeholder="Last Name" value="Keller">
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="input" value="christina.keller@mail.com">
+                                </div>
+
+                                <!-- Bio -->
+                                <div class="form-group">
+                                    <label class="form-label">Write Your Bio</label>
+                                    <textarea class="textarea" placeholder="Short bio..."></textarea>
+                                </div>
+
+                                <!-- Username -->
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        Username
+                                        <span class="form-hint">You can change it later</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group__prepend">users/</div>
+                                        <input type="text" class="input" value="christinaOne">
+                                    </div>
+                                </div>
+
+                                <!-- Website -->
+                                <div class="form-group">
+                                    <label class="form-label">Website</label>
+                                    <div class="input-group">
+                                        <div class="input-group__prepend">https://</div>
+                                        <input type="text" class="input" value="christina-one.com">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Workspaces Tab -->
+                        <div class="tabs__panel" id="workspaces">
+                            <div class="settings-section">
+                                <h2 class="settings-section__title">Workspaces</h2>
+                                <p class="settings-section__description">Manage your workspaces and team settings</p>
+                            </div>
+                        </div>
+
+                        <!-- Wallet Tab -->
+                        <div class="tabs__panel" id="wallet">
+                            <div class="settings-section">
+                                <h2 class="settings-section__title">Wallet</h2>
+                                <p class="settings-section__description">Manage your payment methods and wallet</p>
+                            </div>
+                        </div>
+
+                        <!-- Integrations Tab -->
+                        <div class="tabs__panel" id="integrations">
+                            <div class="settings-section">
+                                <h2 class="settings-section__title">Integrations</h2>
+                                <p class="settings-section__description">Connect third-party services to your account</p>
+                            </div>
+                        </div>
+
+                        <!-- Billing Tab -->
+                        <div class="tabs__panel" id="billing">
+                            <div class="settings-section">
+                                <h2 class="settings-section__title">Billing</h2>
+                                <p class="settings-section__description">Manage your subscription and billing information</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../core/scripts/bricks_loader.js"></script>
+    <script src="assets/js/layout.js"></script>
+</body>
+</html>

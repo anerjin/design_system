@@ -1,32 +1,169 @@
 # BRICKS 디자인 시스템
 
-BRICKS는 HTML/CSS/JS만으로 구성된 경량 텍스트 중심 디자인 시스템입니다. 번들러 없이도 다크·라이트 테마를 일관되게 제공하며, 문서화·프로토타이핑·빠른 UI 실험을 위한 카탈로그를 제공합니다.
+BRICKS는 HTML/CSS/JS 기반의 모던한 디자인 시스템으로, TypeScript와 React를 지원하며 다크·라이트 테마를 제공합니다. 컴포넌트 기반 아키텍처로 문서화·프로토타이핑·빠른 UI 개발을 지원합니다.
 
-## 프로젝트 구조
-- `bricks/` — 소스 에셋. CSS는 `tokens/`(전역 변수), `base/`, `atoms/`, `molecules/`, `layout/`, `utilities/`로 나뉩니다. 상호작용 스크립트는 `js/bricks_core.js`, 아이콘은 `icon/`에 있습니다.
-- `pages/` — 도메인별 데모와 문서 페이지(`pages/components`, `pages/utilities` 등). 컴포넌트를 확장할 때 여기의 HTML 샘플을 추가·수정합니다.
-- `_guide/` — 참고 리서치, 스크린샷, 디자인 노트를 위한 영역.
-- `index.html` — 카탈로그 홈 진입점.
+## ✨ 주요 특징
 
-## 시작하기
-1. 최초 1회 `npm install`로 의존성을 설치합니다(파이썬 서버 실행 스크립트용).
-2. 루트에서 `npm run serve` 또는 `python -m http.server 8000`으로 카탈로그를 띄운 뒤 `http://localhost:8000`에 접속합니다.
-3. `bricks/`나 `pages/` 하위 파일을 수정하고 저장한 뒤 브라우저를 새로고침하여 변경 사항을 확인합니다. 기본적으로 핫 리로드는 제공되지 않습니다.
+- 🎨 **다크/라이트 테마** - 자동 테마 전환 지원
+- 📦 **모듈식 구조** - Atomic Design 패턴 적용
+- 🔧 **TypeScript 지원** - 완전한 타입 정의
+- ⚛️ **React 컴포넌트** - React 버전 제공
+- 📚 **종합 문서** - 인터랙티브 카탈로그 제공
+- ♿ **접근성** - WCAG 2.1 AA 준수
 
-## 작업 규칙
-- **CSS:** 두 칸 들여쓰기, BEM 기반 네이밍(`.dropdown__menu--fixed` 등), 선언은 토큰 → 컴포넌트 순으로 정리합니다. 필요한 경우에만 주석을 간결하게 남깁니다.
-- **JavaScript:** `bricks_core.js`에서 네 칸 들여쓰기, `BRICKS` 네임스페이스에 기능을 추가하고 ES5 호환성을 유지합니다.
-- **에셋:** 소문자-케밥 케이스 파일명을 사용하며 관련 문서는 `_guide/`와 함께 관리합니다.
+## 📁 프로젝트 구조
 
-## 수동 테스트
-변경 시 해당되는 `pages/` 데모를 직접 확인합니다. 다음 사항을 중점적으로 검증하세요.
-- 라이트/다크 테마 모두 정상 표시되는지
-- 스크립트 컴포넌트의 키보드 상호작용(포커스 이동, Escape 키)
-- 스크롤·리사이즈 시 고정 드롭다운 등 위치 동작
-문제가 있거나 추후 개선이 필요하다면 `_guide/project_guide.md`에 메모를 남깁니다.
+```
+private_project_design_system/
+├── core/                  # 핵심 디자인 시스템
+│   ├── styles/           # CSS 스타일
+│   │   ├── tokens/       # 디자인 토큰 (색상, 타이포그래피 등)
+│   │   ├── base/         # 리셋 및 기본 스타일
+│   │   ├── atoms/        # 기본 컴포넌트
+│   │   ├── molecules/    # 복합 컴포넌트
+│   │   ├── layout/       # 레이아웃 시스템
+│   │   ├── utilities/    # 유틸리티 클래스
+│   │   └── bundle.css    # 번들된 CSS
+│   └── scripts/          # JavaScript/TypeScript
+│       └── components/   # 컴포넌트 스크립트
+│
+├── src/                  # 소스 코드
+│   ├── components/       # TypeScript 컴포넌트
+│   ├── react/           # React 컴포넌트
+│   ├── types/           # TypeScript 타입 정의
+│   └── next/            # Next.js 컴포넌트
+│
+├── docs/                 # 문서 및 데모
+│   ├── components/       # 컴포넌트 데모
+│   ├── design-tokens/    # 토큰 문서
+│   ├── getting-started/  # 시작 가이드
+│   └── utilities/        # 유틸리티 문서
+│
+├── templates/            # 템플릿 예제
+│   ├── dashboard/        # 대시보드 템플릿
+│   ├── setting/         # 설정 페이지
+│   └── widget/          # 위젯 템플릿
+│
+├── dist/                # 빌드 결과물
+├── tests/               # 테스트 파일
+├── scripts/             # 빌드/배포 스크립트
+└── guides/              # 프로젝트 가이드
+```
 
-## 협업 노트
-커밋 메시지는 날짜 기반 프리픽스(`YYYYMMDD##_short-note`, 예: `20250917_02`)를 따릅니다. PR에는 간단한 요약, 시각 변경 시 전후 스크린샷 또는 GIF, 버그 수정 재현 단계, 토큰/클래스 이름 변경 시 영향 범위를 포함하세요. 자세한 기여 지침은 `AGENTS.md`를 참고합니다.
+## 🚀 시작하기
 
-## 라이선스
-이 저장소는 MIT License(필요 시 `LICENSE` 참고)로 배포됩니다.
+### 설치
+
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 시작
+npm run serve
+```
+
+브라우저에서 `http://localhost:8000`으로 접속하여 카탈로그를 확인합니다.
+
+### TypeScript 빌드
+
+```bash
+# TypeScript 컴파일
+npm run build
+
+# 파일 변경 감지 모드
+npm run watch
+
+# 전체 빌드 (CSS + TypeScript)
+npm run build:all
+```
+
+## 💻 개발 가이드
+
+### CSS 작성 규칙
+- **네이밍**: BEM 방법론 사용 (`.block__element--modifier`)
+- **들여쓰기**: 2 스페이스
+- **구조**: 토큰 → 베이스 → 컴포넌트 → 유틸리티 순서
+- **변수**: CSS 커스텀 속성 활용 (`--ds-*` 프리픽스)
+
+### TypeScript/JavaScript
+- **네임스페이스**: `BRICKS` 글로벌 네임스페이스 사용
+- **타입 정의**: `src/types/index.d.ts`에 인터페이스 정의
+- **컴포넌트**: `src/components/`에 TypeScript 버전 작성
+- **React**: `src/react/`에 React 컴포넌트 작성
+
+### 컴포넌트 개발
+1. `src/components/`에 TypeScript 파일 생성
+2. `src/types/`에 타입 정의 추가
+3. `docs/components/`에 데모 페이지 작성
+4. 테스트 작성 및 검증
+
+## 🧪 테스트
+
+```bash
+# 단위 테스트 실행 (추가 예정)
+npm test
+
+# E2E 테스트 (추가 예정)
+npm run test:e2e
+```
+
+수동 테스트 체크리스트:
+- ✅ 라이트/다크 테마 전환
+- ✅ 키보드 접근성 (Tab, Enter, Escape)
+- ✅ 반응형 레이아웃
+- ✅ 크로스 브라우저 호환성
+
+## 📦 빌드 및 배포
+
+```bash
+# 프로덕션 빌드
+npm run build:all
+
+# 정리
+npm run clean
+```
+
+## 🤝 기여하기
+
+### 브랜치 전략
+- `main` - 프로덕션 브랜치
+- `develop` - 개발 브랜치
+- `feature/*` - 기능 개발
+- `fix/*` - 버그 수정
+
+### 커밋 메시지
+```
+type(scope): description
+
+예시:
+feat(button): Add loading state
+fix(modal): Fix focus trap issue
+docs(readme): Update installation guide
+```
+
+### Pull Request
+- 간단한 설명과 변경 사항 포함
+- 시각적 변경 시 스크린샷 첨부
+- 관련 이슈 번호 연결
+
+## 📚 문서
+
+- [시작 가이드](docs/getting-started/introduction.html)
+- [컴포넌트 카탈로그](index.html)
+- [마이그레이션 가이드](MIGRATION.md)
+- [변경 로그](CHANGELOG.md)
+
+## 🔗 관련 링크
+
+- [GitHub Repository](https://github.com/anerjin/private_project_design_system)
+- [이슈 트래커](https://github.com/anerjin/private_project_design_system/issues)
+
+## 📄 라이선스
+
+MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참고하세요.
+
+---
+
+<p align="center">
+  Made with ❤️ by BRICKS Team
+</p>
