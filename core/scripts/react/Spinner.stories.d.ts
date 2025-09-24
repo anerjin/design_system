@@ -1,0 +1,21 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Spinner } from './Spinner';
+declare const meta: Meta<typeof Spinner>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const Sizes: Story;
+export declare const Types: Story;
+export declare const Variants: Story;
+export declare const TypeVariations: Story;
+export declare const WithLabels: Story;
+export declare const LabelPositions: Story;
+export declare const IconBasedSpinner: Story;
+export declare const InlineSpinners: Story;
+export declare const ButtonWithSpinner: Story;
+export declare const CardLoading: Story;
+export declare const Overlay: Story;
+export declare const FullScreenOverlay: Story;
+export declare const DataTable: Story;
+export declare const StatusMessages: Story;
+//# sourceMappingURL=Spinner.stories.d.ts.map

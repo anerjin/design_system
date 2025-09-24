@@ -177,7 +177,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(({
     setActiveDropdown(prev => prev === itemId ? null : itemId);
   };
 
-  const renderNavItem = (item: NavItem, level = 0) => {
+  const renderNavItem = (item: NavItem) => {
     const hasChildren = item.children && item.children.length > 0;
     const isDropdownOpen = activeDropdown === item.id;
 
@@ -229,7 +229,7 @@ export const Navbar = forwardRef<HTMLElement, NavbarProps>(({
           <i className="bx bx-chevron-down navbar__dropdown-arrow" />
         </button>
 
-        {!item.disabled && (
+        {!item.disabled && item.children && (
           <div className={`navbar__dropdown-menu ${isDropdownOpen ? 'navbar__dropdown-menu--open' : ''}`}>
           {item.children.map(child => (
             <a

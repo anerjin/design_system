@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 
 export interface ChartDataPoint {
   label: string;
@@ -302,11 +302,12 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(({
 
     // Handle click events
     const handleClick = (e: MouseEvent) => {
-      if (!onClick || !data) return;
+      if (!onClick || !data || !canvasRef.current) return;
 
+      const canvas = canvasRef.current;
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      // const y = e.clientY - rect.top; // Not used for bar chart click detection
 
       // Simple click detection for bar chart
       if (type === 'bar') {

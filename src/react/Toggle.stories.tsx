@@ -138,14 +138,6 @@ export const WithIcons: Story = {
         variant="success"
         defaultChecked
       />
-      <Toggle
-        label="Emoji Icons"
-        showIcons
-        onIcon="🌞"
-        offIcon="🌙"
-        variant="info"
-        defaultChecked
-      />
     </div>
   ),
 };

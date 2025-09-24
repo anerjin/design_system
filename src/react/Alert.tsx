@@ -233,7 +233,7 @@ Alert.displayName = 'Alert';
  * 토스트 알림을 생성하는 유틸리티 함수
  */
 export const toast = {
-  show: (props: Omit<AlertProps, 'toast'>) => {
+  show: (_props: Omit<AlertProps, 'toast'>) => {
     const toastContainer = document.getElementById('toast-container') || (() => {
       const container = document.createElement('div');
       container.id = 'toast-container';

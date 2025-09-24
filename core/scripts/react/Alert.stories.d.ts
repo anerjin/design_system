@@ -1,0 +1,20 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Alert } from './Alert';
+declare const meta: Meta<typeof Alert>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const WithTitleAndDescription: Story;
+export declare const Variants: Story;
+export declare const SolidVariants: Story;
+export declare const Sizes: Story;
+export declare const WithAccent: Story;
+export declare const WithIcon: Story;
+export declare const WithList: Story;
+export declare const WithActions: Story;
+export declare const Dismissible: Story;
+export declare const AutoClose: Story;
+export declare const ToastPositions: Story;
+export declare const ComplexExample: Story;
+export declare const NotificationExamples: Story;
+//# sourceMappingURL=Alert.stories.d.ts.map

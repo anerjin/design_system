@@ -5,7 +5,64 @@ const meta: Meta = {
   title: 'Elements/Shadows',
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: `
+# Shadows
+
+BRICKS 디자인 시스템의 그림자 효과는 깊이감과 계층 구조를 표현합니다.
+
+## 그림자 시스템
+
+### Box Shadows
+기본적인 그림자 효과로 요소에 깊이감을 더합니다.
+- xs부터 2xl까지 7단계 제공
+- 호버, 포커스 등 인터랙션에 활용
+
+### Inner Shadows
+요소 내부로 들어간 그림자 효과입니다.
+- 입력 필드나 눌린 버튼 상태 표현
+- 4단계의 깊이 제공
+
+### Elevation Levels
+Material Design에서 영감을 받은 일관된 높이 시스템입니다.
+- 0부터 5까지 6단계
+- 모달, 드롭다운 등 떠있는 요소에 사용
+
+### Focus Shadows
+접근성을 위한 포커스 상태 표시입니다.
+- 키보드 네비게이션 지원
+- 명확한 시각적 피드백
+
+### Text Shadows
+텍스트에 적용되는 그림자 효과입니다.
+- 가독성 향상
+- 시각적 강조
+
+## 사용 방법
+
+CSS 변수로 정의되어 있어 쉽게 사용할 수 있습니다:
+
+\`\`\`css
+.element {
+  box-shadow: var(--ds-shadow-md);
+}
+
+.element:hover {
+  box-shadow: var(--ds-shadow-lg);
+}
+
+.element:focus {
+  box-shadow: var(--ds-shadow-focus);
+}
+\`\`\`
+
+각 그림자 박스를 클릭하면 변수명이 클립보드에 복사됩니다.
+        `,
+      },
+    },
   },
+  tags: ['autodocs'],
 };
 
 export default meta;

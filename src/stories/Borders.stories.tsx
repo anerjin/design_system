@@ -5,7 +5,49 @@ const meta: Meta = {
   title: 'Elements/Borders',
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: `
+# Borders
+
+BRICKS 디자인 시스템의 테두리 체계는 일관된 UI를 위한 다양한 옵션을 제공합니다.
+
+## 테두리 시스템
+
+### Border Width
+0px부터 8px까지 5단계의 테두리 두께를 제공합니다.
+
+### Border Radius
+컴포넌트별로 최적화된 모서리 둥글기 옵션입니다.
+- **Small (2px)**: 체크박스, 라디오 버튼
+- **Base (4px)**: 작은 버튼, 태그
+- **Large (8px)**: 기본 버튼, 입력 필드
+- **Extra Large (12px)**: 카드, 패널
+- **Full (9999px)**: 아바타, 아이콘 버튼
+
+### Border Styles
+solid, dashed, dotted, double 등 다양한 스타일을 지원합니다.
+
+### Border Colors
+Gray Scale 기반의 테두리 색상 시스템입니다.
+
+## 사용 방법
+
+CSS 변수를 통해 일관된 테두리를 적용할 수 있습니다:
+
+\`\`\`css
+.card {
+  border: var(--ds-border-width-1) solid var(--ds-color-border);
+  border-radius: var(--ds-border-radius-lg);
+}
+\`\`\`
+
+모든 예제는 클릭하여 변수명을 복사할 수 있습니다.
+        `,
+      },
+    },
   },
+  tags: ['autodocs'],
 };
 
 export default meta;

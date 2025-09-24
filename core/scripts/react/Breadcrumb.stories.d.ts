@@ -1,0 +1,20 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Breadcrumb } from './Breadcrumb';
+declare const meta: Meta<typeof Breadcrumb>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const WithHomeIcon: Story;
+export declare const Separators: Story;
+export declare const Sizes: Story;
+export declare const WithBackground: Story;
+export declare const DarkTheme: Story;
+export declare const Truncated: Story;
+export declare const WithIcons: Story;
+export declare const CustomSeparator: Story;
+export declare const ResponsiveExample: Story;
+export declare const ECommerce: Story;
+export declare const Documentation: Story;
+export declare const FileSystem: Story;
+export declare const WithCustomClickHandler: Story;
+//# sourceMappingURL=Breadcrumb.stories.d.ts.map

@@ -5,7 +5,63 @@ const meta: Meta = {
   title: 'Elements/Spacing',
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: `
+# Spacing
+
+BRICKS 디자인 시스템의 간격 체계는 일관되고 조화로운 레이아웃을 만듭니다.
+
+## 간격 시스템
+
+### Spacing Scale
+4px를 기준으로 한 일관된 간격 시스템입니다.
+- 0부터 40까지의 세밀한 단계
+- px 단위로 정밀한 제어
+- 반응형 디자인 지원
+
+### Border Radius
+모서리 둥글기를 정의하는 반지름 값입니다.
+- none부터 full까지 9단계
+- 컴포넌트 유형별 최적화
+- 일관된 시각적 스타일
+
+### Container Widths
+반응형 레이아웃을 위한 컨테이너 너비입니다.
+- xs부터 7xl까지 12단계
+- 브레이크포인트별 최적화
+- 유연한 그리드 시스템
+
+### Z-Index Scale
+레이어 순서를 관리하는 z-index 값입니다.
+- 기본 0-50 스케일
+- 컴포넌트별 전용 값
+- 모달, 툴팁, 드롭다운 등
+
+## 사용 방법
+
+CSS 변수로 정의되어 있어 쉽게 사용할 수 있습니다:
+
+\`\`\`css
+.element {
+  padding: var(--ds-space-4);
+  margin-bottom: var(--ds-space-8);
+  gap: var(--ds-space-2);
+  border-radius: var(--ds-radius-md);
+}
+
+.container {
+  max-width: var(--ds-container-5xl);
+  z-index: var(--ds-z-modal);
+}
+\`\`\`
+
+각 간격 요소를 클릭하면 변수명이 클립보드에 복사됩니다.
+        `,
+      },
+    },
   },
+  tags: ['autodocs'],
 };
 
 export default meta;

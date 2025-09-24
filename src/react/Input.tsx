@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * 입력 필드 크기
    * @default 'md'

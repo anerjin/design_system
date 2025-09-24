@@ -205,7 +205,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(({
   ...props
 }, ref) => {
   const [internalSelection, setInternalSelection] = useState<string[]>(selectedRowKeys);
-  const [internalSort, setInternalSort] = useState(sortConfig);
+  const [internalSort, setInternalSort] = useState<{key: string; direction: 'asc' | 'desc'} | undefined>(sortConfig);
   const selectAllRef = useRef<HTMLInputElement>(null);
 
   const selection = onSelectionChange ? selectedRowKeys : internalSelection;
@@ -242,7 +242,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(({
     const column = columns.find(col => col.key === columnKey);
     if (!column?.sortable) return;
 
-    const newDirection =
+    const newDirection: 'asc' | 'desc' =
       internalSort?.key === columnKey && internalSort.direction === 'asc'
         ? 'desc'
         : 'asc';

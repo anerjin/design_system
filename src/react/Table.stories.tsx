@@ -203,7 +203,7 @@ export const WithActions: Story = {
         key: 'actions',
         label: 'Actions',
         align: 'center',
-        render: (_, row: Person) => (
+        render: (_: any, row: Person) => (
           <div style={{ display: 'flex', gap: '4px', justifyContent: 'center' }}>
             <Button size="sm" variant="ghost">
               <Icon name="edit" size={16} />

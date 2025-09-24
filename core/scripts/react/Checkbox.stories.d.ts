@@ -1,0 +1,22 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Checkbox } from './Checkbox';
+declare const meta: Meta<typeof Checkbox>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const Checked: Story;
+export declare const WithDescription: Story;
+export declare const Required: Story;
+export declare const Disabled: Story;
+export declare const DisabledChecked: Story;
+export declare const Indeterminate: Story;
+export declare const Sizes: Story;
+export declare const Variants: Story;
+export declare const Group: Story;
+export declare const CheckboxGroupDefault: Story;
+export declare const CheckboxGroupInline: Story;
+export declare const CheckboxGroupError: Story;
+export declare const CheckboxStates: Story;
+export declare const WithDescriptions: Story;
+export declare const CompleteExample: Story;
+//# sourceMappingURL=Checkbox.stories.d.ts.map

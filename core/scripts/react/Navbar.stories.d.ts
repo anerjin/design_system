@@ -1,0 +1,22 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Navbar } from './Navbar';
+declare const meta: Meta<typeof Navbar>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const WithIcons: Story;
+export declare const WithDropdowns: Story;
+export declare const DarkVariant: Story;
+export declare const LightVariant: Story;
+export declare const TransparentVariant: Story;
+export declare const CenterAligned: Story;
+export declare const RightAligned: Story;
+export declare const FixedTop: Story;
+export declare const Sticky: Story;
+export declare const WithRightContent: Story;
+export declare const NoShadow: Story;
+export declare const WithDisabledItems: Story;
+export declare const ComplexNavbar: Story;
+export declare const ECommerce: Story;
+export declare const Documentation: Story;
+//# sourceMappingURL=Navbar.stories.d.ts.map

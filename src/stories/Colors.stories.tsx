@@ -6,7 +6,45 @@ const meta: Meta = {
   title: 'Elements/Colors',
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: `
+# Colors
+
+BRICKS 디자인 시스템의 색상 체계는 일관성과 접근성을 고려하여 설계되었습니다.
+
+## 색상 시스템
+
+### Core Palette
+기본 브랜드 색상과 베이스 색상입니다.
+
+### Gray Scale
+13단계의 중립 색상으로 텍스트, 배경, 테두리에 사용됩니다.
+
+### Semantic Colors
+상태와 의미를 전달하는 색상입니다.
+
+### Alpha Colors
+투명도가 적용된 색상으로 오버레이나 배경에 사용됩니다.
+
+## 사용 방법
+
+CSS 변수로 정의되어 있어 쉽게 사용할 수 있습니다:
+
+\`\`\`css
+.element {
+  color: var(--ds-gray-900);
+  background-color: var(--ds-gray-50);
+  border-color: var(--ds-gray-300);
+}
+\`\`\`
+
+색상 칩을 클릭하면 변수명이 클립보드에 복사됩니다.
+        `,
+      },
+    },
   },
+  tags: ['autodocs'],
 };
 
 export default meta;

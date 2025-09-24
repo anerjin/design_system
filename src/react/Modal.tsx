@@ -306,10 +306,18 @@ export const ModalFooter: React.FC<{
 
 ModalFooter.displayName = 'ModalFooter';
 
-// Compound Component 패턴
-Modal.Header = ModalHeader;
-Modal.Title = ModalTitle;
-Modal.Body = ModalBody;
-Modal.Footer = ModalFooter;
+// Type for Modal with compound components
+type ModalComponent = typeof Modal & {
+  Header: typeof ModalHeader;
+  Title: typeof ModalTitle;
+  Body: typeof ModalBody;
+  Footer: typeof ModalFooter;
+};
 
-export default Modal;
+// Compound Component 패턴
+(Modal as ModalComponent).Header = ModalHeader;
+(Modal as ModalComponent).Title = ModalTitle;
+(Modal as ModalComponent).Body = ModalBody;
+(Modal as ModalComponent).Footer = ModalFooter;
+
+export default Modal as ModalComponent;

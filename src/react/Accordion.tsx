@@ -189,7 +189,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(({
             <div
               id={`accordion-content-${item.id}`}
               className={`accordion__content ${isOpen ? 'accordion__content--open' : ''}`}
-              ref={el => contentRefs.current[item.id] = el}
+              ref={el => { if (el) contentRefs.current[item.id] = el; }}
               aria-hidden={!isOpen}
             >
               <div className="accordion__body">

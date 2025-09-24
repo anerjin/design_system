@@ -15,7 +15,7 @@ export interface TypographyProps {
   /**
    * HTML element to render
    */
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
 
   /**
    * Text alignment
@@ -88,7 +88,7 @@ export interface TypographyProps {
   className?: string;
 }
 
-const variantMapping: Record<string, keyof JSX.IntrinsicElements> = {
+const variantMapping: Record<string, keyof React.JSX.IntrinsicElements> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',

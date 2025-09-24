@@ -1,0 +1,20 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import Modal from './Modal';
+declare const meta: Meta<typeof Modal>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const Small: Story;
+export declare const Large: Story;
+export declare const ExtraLarge: Story;
+export declare const FullScreen: Story;
+export declare const Centered: Story;
+export declare const WithoutCloseButton: Story;
+export declare const StaticBackdrop: Story;
+export declare const DisableEscapeKey: Story;
+export declare const ScrollableContent: Story;
+export declare const Sizes: Story;
+export declare const CompoundComponents: Story;
+export declare const ConfirmationModal: Story;
+export declare const FormModal: Story;
+//# sourceMappingURL=Modal.stories.d.ts.map

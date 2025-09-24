@@ -272,7 +272,7 @@ export const FAQ: Story = {
         items={[
           {
             id: 'faq1',
-            title: '📚 How do I install BRICKS?',
+            title: <><i className="bx bx-book"></i> How do I install BRICKS?</>,
             content: (
               <div>
                 <p>You can install BRICKS using npm or yarn:</p>
@@ -284,7 +284,7 @@ export const FAQ: Story = {
           },
           {
             id: 'faq2',
-            title: '🎨 Can I customize the theme?',
+            title: <><i className="bx bx-palette"></i> Can I customize the theme?</>,
             content: (
               <div>
                 <p>Yes! BRICKS supports extensive theming options:</p>
@@ -300,7 +300,7 @@ export const FAQ: Story = {
           },
           {
             id: 'faq3',
-            title: '♿ Is BRICKS accessible?',
+            title: <><i className="bx bx-accessibility"></i> Is BRICKS accessible?</>,
             content: (
               <div>
                 <p>Absolutely! All components are built with accessibility as a priority:</p>
@@ -316,7 +316,7 @@ export const FAQ: Story = {
           },
           {
             id: 'faq4',
-            title: '🚀 What frameworks are supported?',
+            title: <><i className="bx bx-rocket"></i> What frameworks are supported?</>,
             content: (
               <div>
                 <p>BRICKS currently supports:</p>
@@ -334,7 +334,7 @@ export const FAQ: Story = {
           },
           {
             id: 'faq5',
-            title: '💼 Is BRICKS free for commercial use?',
+            title: <><i className="bx bx-briefcase"></i> Is BRICKS free for commercial use?</>,
             content: (
               <div>
                 <p>

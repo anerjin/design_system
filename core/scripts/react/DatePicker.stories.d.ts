@@ -1,0 +1,27 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { DatePicker } from './DatePicker';
+declare const meta: Meta<typeof DatePicker>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const WithValue: Story;
+export declare const Formats: Story;
+export declare const Sizes: Story;
+export declare const WithMinMax: Story;
+export declare const DisabledDates: Story;
+export declare const Controlled: Story;
+export declare const WithError: Story;
+export declare const Disabled: Story;
+export declare const ReadOnly: Story;
+export declare const Required: Story;
+export declare const EnglishLocale: Story;
+export declare const NoClearButton: Story;
+export declare const NoTodayButton: Story;
+export declare const WithWeekNumbers: Story;
+export declare const WithTime: Story;
+export declare const RangeSelection: Story;
+export declare const WeekStartsMonday: Story;
+export declare const MultipleInstances: Story;
+export declare const BookingForm: Story;
+export declare const EventScheduler: Story;
+//# sourceMappingURL=DatePicker.stories.d.ts.map

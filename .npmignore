@@ -1,0 +1,25 @@
+# Source files (only dist is needed)
+src/
+!src/react/
+src/**/*.stories.tsx
+src/**/*.test.tsx
+
+# Config files
+.storybook/
+tsconfig.json
+tsconfig.lib.json
+vite.config.ts
+
+# Development files
+*.log
+.DS_Store
+node_modules/
+
+# Documentation
+*.md
+!README.md
+!USAGE.md
+
+# Build artifacts
+.cache/
+coverage/

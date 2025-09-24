@@ -1,20 +1,23 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "dist",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "rootDir": "./src",
-    "composite": false,
-    "incremental": false
+    "rootDir": "src",
+    "jsx": "react-jsx",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
   "include": [
-    "src/**/*"
+    "src/react/**/*",
+    "src/index.ts"
   ],
   "exclude": [
     "src/**/*.stories.tsx",
     "src/**/*.test.tsx",
-    "src/**/*.spec.tsx"
+    "src/components/**/*",
+    "src/stories/**/*"
   ]
 }

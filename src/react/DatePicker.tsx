@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef, useEffect, useCallback } from 'react';
+import React, { forwardRef, useState, useRef, useEffect } from 'react';
 
 export interface DatePickerProps {
   /**

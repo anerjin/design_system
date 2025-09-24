@@ -1,0 +1,20 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Radio } from './Radio';
+declare const meta: Meta<typeof Radio>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export declare const Default: Story;
+export declare const WithDescription: Story;
+export declare const Disabled: Story;
+export declare const Required: Story;
+export declare const Small: Story;
+export declare const Large: Story;
+export declare const Variants: Story;
+export declare const Sizes: Story;
+export declare const RadioGroupExample: Story;
+export declare const PaymentMethods: Story;
+export declare const RadioGroupVertical: Story;
+export declare const RadioGroupInline: Story;
+export declare const RadioStates: Story;
+export declare const CompleteExample: Story;
+//# sourceMappingURL=Radio.stories.d.ts.map

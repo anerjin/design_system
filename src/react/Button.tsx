@@ -127,7 +127,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {!loading && leftIcon && <span className="btn__icon">{leftIcon}</span>}
-      {!iconOnly && children}
+      {children}
       {!loading && rightIcon && <span className="btn__icon btn__icon--right">{rightIcon}</span>}
     </button>
   );
