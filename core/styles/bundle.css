@@ -42,8 +42,10 @@
 @import './molecules/breadcrumb.css';
 @import './molecules/table.css';
 @import './molecules/navbar.css';
+@import './molecules/tooltip.css';
 
 /* === Utility Classes === */
-@import './utilities/spacing.css';
 @import './utilities/display.css';
+@import './utilities/position.css';
+@import './utilities/overflow.css';
 @import './utilities/text.css';

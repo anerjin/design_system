@@ -45,6 +45,8 @@
 @import url('../../bricks/css/molecules/breadcrumb.css');
 @import url('../../bricks/css/molecules/navbar.css');
 @import url('../../bricks/css/molecules/table.css');
+@import url('../../bricks/css/molecules/datepicker.css');
+@import url('../../bricks/css/molecules/tooltip.css');
 
 /* === Utility Styles === */
 @import url('../../bricks/css/utilities/display.css');

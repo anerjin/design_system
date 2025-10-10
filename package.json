@@ -1,5 +1,5 @@
 {
-  "name": "@yourusername/bricks-design-system",
+  "name": "@ultraworks/bricks-design-system",
   "version": "1.0.0",
   "description": "BRICKS - Simple text-based design system with dark/light mode",
   "main": "dist/index.js",

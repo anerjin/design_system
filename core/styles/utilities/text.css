@@ -1,0 +1,77 @@
+/* Text Utilities */
+
+.link {
+  color: var(--ds-prime-600);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--ds-prime-700);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--ds-prime-alpha-30);
+  outline-offset: 2px;
+  border-radius: var(--ds-radius-sm);
+}
+
+/* Text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* Font weight */
+.font-normal { font-weight: var(--ds-font-normal); }
+.font-medium { font-weight: var(--ds-font-medium); }
+.font-semibold { font-weight: var(--ds-font-semibold); }
+.font-bold { font-weight: var(--ds-font-bold); }
+
+/* Font size */
+.text-xs { font-size: var(--ds-text-xs); }
+.text-sm { font-size: var(--ds-text-sm); }
+.text-base { font-size: var(--ds-text-base); }
+.text-lg { font-size: var(--ds-text-lg); }
+.text-xl { font-size: var(--ds-text-xl); }
+.text-2xl { font-size: var(--ds-text-2xl); }
+.text-3xl { font-size: var(--ds-text-3xl); }
+
+/* Text color */
+.text-muted { color: var(--ds-gray-600); }
+.text-primary { color: var(--ds-prime-600); }
+.text-success { color: var(--ds-green-600); }
+.text-warning { color: var(--ds-orange-600); }
+.text-danger { color: var(--ds-red-600); }
+
+/* Line height */
+.leading-none { line-height: 1; }
+.leading-tight { line-height: 1.25; }
+.leading-normal { line-height: 1.5; }
+.leading-relaxed { line-height: 1.75; }
+.leading-loose { line-height: 2; }
+
+/* Text transform */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+/* Text decoration */
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.no-underline { text-decoration: none; }
+
+/* Truncate */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Word break */
+.break-normal { word-break: normal; }
+.break-words { word-break: break-word; }
+.break-all { word-break: break-all; }

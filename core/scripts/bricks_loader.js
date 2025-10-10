@@ -26,6 +26,7 @@
         'components/tabs.js',
         'components/accordion.js',
         'components/datepicker.js',
+        'components/tooltip.js',
         'components/pagination.js',
         'components/breadcrumb.js',
         'components/navbar.js',
@@ -74,7 +75,7 @@
         window.BRICKS.init = function() {
             const componentNames = [
                 'Dropdown', 'Modal', 'Toggle', 'Alert', 'Tabs',
-                'Accordion', 'Datepicker', 'Pagination', 'Breadcrumb', 'Navbar', 'Table', 'Radio', 'Checkbox', 'Chart'
+                'Accordion', 'Datepicker', 'Tooltip', 'Pagination', 'Breadcrumb', 'Navbar', 'Table', 'Radio', 'Checkbox', 'Chart'
             ];
 
             componentNames.forEach(name => {
@@ -109,7 +110,7 @@
                         // BRICKS 컴포넌트 체크
                         const componentSelectors = [
                             '.dropdown', '.modal', '.toggle', '.alert',
-                            '[data-tabs]', '[data-accordion]', '[data-datepicker]', '[data-pagination]',
+                            '[data-tabs]', '[data-accordion]', '[data-datepicker]', '[data-tooltip]', '[data-pagination]',
                             '[data-breadcrumb]', '[data-navbar]', '[data-table]'
                         ];
 
