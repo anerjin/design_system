@@ -30,8 +30,8 @@ const Tooltip: React.FC<TooltipProps> = ({
   const triggerRef = useRef<HTMLSpanElement>(null);
   const bubbleRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLSpanElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
-  const [tooltipId] = useState(() => `tooltip-${Math.random().toString(36).substr(2, 9)}`);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const [tooltipId] = useState(() => `tooltip-${Math.random().toString(36).substring(2, 11)}`);
 
   const calculatePosition = useCallback(() => {
     if (!triggerRef.current || !wrapperRef.current || !bubbleRef.current) return;
@@ -132,6 +132,7 @@ const Tooltip: React.FC<TooltipProps> = ({
         window.removeEventListener('resize', handleReposition);
       };
     }
+    return undefined;
   }, [visible, calculatePosition]);
 
   useEffect(() => {

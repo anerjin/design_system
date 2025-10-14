@@ -52,17 +52,85 @@ private_project_design_system/
 
 ## 🚀 시작하기
 
-### 설치
+### NPM 패키지로 사용하기
+
+React 프로젝트에서 BRICKS 디자인 시스템을 사용하는 방법:
 
 ```bash
+# npm으로 설치
+npm install @ultraworks/bricks-design-system
+
+# 또는 yarn
+yarn add @ultraworks/bricks-design-system
+
+# peer dependencies도 함께 설치
+npm install react react-dom boxicons
+```
+
+**사용 예시:**
+
+```tsx
+// 1. CSS 스타일 임포트 (앱의 최상위에서 한 번만)
+import '@ultraworks/bricks-design-system/styles';
+
+// 2. 컴포넌트 임포트
+import { Button, Input, Modal, Card } from '@ultraworks/bricks-design-system';
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <Card>
+        <Card.Header>
+          <Card.Title>환영합니다</Card.Title>
+        </Card.Header>
+        <Card.Body>
+          <Input placeholder="이름을 입력하세요" />
+          <Button
+            variant="primary"
+            onClick={() => setIsOpen(true)}
+          >
+            모달 열기
+          </Button>
+        </Card.Body>
+      </Card>
+
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} title="알림">
+        <p>BRICKS 디자인 시스템을 사용해주셔서 감사합니다!</p>
+      </Modal>
+    </div>
+  );
+}
+```
+
+**개별 스타일 파일 임포트:**
+
+```tsx
+// 특정 스타일만 임포트 (선택적)
+import '@ultraworks/bricks-design-system/styles/base/reset.css';
+import '@ultraworks/bricks-design-system/styles/tokens/colors.css';
+```
+
+### 로컬 개발
+
+프로젝트를 클론하여 로컬에서 개발하는 방법:
+
+```bash
+# 저장소 클론
+git clone https://github.com/anerjin/private_project_design_system.git
+
 # 의존성 설치
 npm install
 
-# 개발 서버 시작
+# 스토리북 실행
+npm run storybook
+
+# 또는 정적 서버 실행
 npm run serve
 ```
 
-브라우저에서 `http://localhost:8000`으로 접속하여 카탈로그를 확인합니다.
+브라우저에서 `http://localhost:6006` (스토리북) 또는 `http://localhost:8000` (정적 서버)으로 접속하여 카탈로그를 확인합니다.
 
 ### TypeScript 빌드
 

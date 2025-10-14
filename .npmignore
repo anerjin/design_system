@@ -1,25 +1,59 @@
-# Source files (only dist is needed)
+# Source files
 src/
-!src/react/
-src/**/*.stories.tsx
-src/**/*.test.tsx
 
-# Config files
+# Documentation and demos
+docs/
+templates/
+guides/
+
+# Tests
+tests/
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Storybook
 .storybook/
+**/*.stories.tsx
+**/*.stories.ts
+
+# Build configuration
 tsconfig.json
 tsconfig.lib.json
 vite.config.ts
 
 # Development files
+.vscode/
+.idea/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Other
 .DS_Store
-node_modules/
+Thumbs.db
+*.swp
+*.swo
+*~
 
-# Documentation
-*.md
-!README.md
-!USAGE.md
+# Scripts
+scripts/
 
-# Build artifacts
-.cache/
+# Examples
+examples/
+demo/
+
+# Coverage
 coverage/
+.nyc_output/
