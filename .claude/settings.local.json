@@ -56,7 +56,8 @@
       "Bash(npm run build:lib:*)",
       "Bash(npm link:*)",
       "Bash(npm unlink:*)",
-      "Bash(npm pack)"
+      "Bash(npm pack)",
+      "WebFetch(domain:monet.design)"
     ],
     "deny": [],
     "ask": []

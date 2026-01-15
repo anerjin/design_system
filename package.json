@@ -1,76 +1,22 @@
 {
-  "name": "@ultraworks/bricks-design-system",
+  "name": "bricks-monorepo",
   "version": "1.0.0",
-  "description": "BRICKS - Simple text-based design system with dark/light mode",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "core/styles",
-    "README.md",
-    "LICENSE"
+  "private": true,
+  "description": "BRICKS Design System Monorepo",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./styles": "./core/styles/bundle.css",
-    "./styles/*": "./core/styles/*",
-    "./package.json": "./package.json"
-  },
   "scripts": {
-    "serve": "python3 -m http.server 8000",
-    "build": "tsc",
-    "watch": "tsc --watch",
-    "clean": "rm -rf dist",
-    "build:lib": "npm run clean && tsc --project tsconfig.lib.json",
-    "prepublishOnly": "npm run build:lib",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "dev": "npm run dev --workspace=apps/showcase",
+    "build": "npm run build --workspace=apps/showcase",
+    "build:bricks": "npm run build --workspace=packages/bricks",
+    "storybook": "npm run storybook --workspace=packages/bricks",
+    "build-storybook": "npm run build-storybook --workspace=packages/bricks"
   },
-  "keywords": [
-    "design-system",
-    "ui",
-    "components",
-    "react",
-    "typescript"
-  ],
-  "author": "",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anerjin/private_project_design_system.git"
   },
-  "bugs": {
-    "url": "https://github.com/anerjin/private_project_design_system/issues"
-  },
-  "homepage": "https://github.com/anerjin/private_project_design_system#readme",
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "boxicons": "^2.1.4"
-  },
-  "devDependencies": {
-    "@chromatic-com/storybook": "^1.9.0",
-    "@storybook/addon-essentials": "^8.3.6",
-    "@storybook/addon-interactions": "^8.3.6",
-    "@storybook/addon-links": "^8.3.6",
-    "@storybook/addon-onboarding": "^8.3.6",
-    "@storybook/blocks": "^8.3.6",
-    "@storybook/react": "^8.3.6",
-    "@storybook/react-vite": "^8.3.6",
-    "@storybook/test": "^8.3.6",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
-    "boxicons": "^2.1.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "storybook": "^8.3.6",
-    "typescript": "^5.7.3",
-    "vite": "^5.4.11"
-  }
+  "license": "MIT"
 }
