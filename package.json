@@ -22,7 +22,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "serve": "python -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
     "build": "tsc",
     "watch": "tsc --watch",
     "clean": "rm -rf dist",
