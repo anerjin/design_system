@@ -20,6 +20,9 @@
 # production
 /build
 
+# copied styles (auto-generated from bricks)
+/public/styles
+
 # misc
 .DS_Store
 *.pem

@@ -1,7 +1,5 @@
 /* BRICKS Design System - Global Styles */
-
-/* Import BRICKS CSS Variables & Components */
-@import "../../../packages/bricks/core/styles/bundle.css";
+/* Note: bundle.min.css is loaded via <link> tag in layout.tsx to avoid CSS duplication */
 
 /* Import Showcase Layout Styles */
 @import "./showcase.css";

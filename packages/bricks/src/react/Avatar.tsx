@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactNode } from 'react';
 
-export interface AvatarProps {
+export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Avatar size
    * @default 'md'
