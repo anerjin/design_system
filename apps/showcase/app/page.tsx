@@ -1,132 +1,220 @@
 import Link from "next/link";
-import { ServerButton } from 'bricks/src/next/ServerButton';
+
+const components = [
+  { name: "Accordion", category: "Data Display", description: "Expandable content sections", storybook: "components-accordion" },
+  { name: "Alert", category: "Feedback", description: "Contextual feedback messages", storybook: "components-alert" },
+  { name: "Avatar", category: "Data Display", description: "User profile images", storybook: "components-avatar" },
+  { name: "Badge", category: "Data Display", description: "Status indicators and labels", storybook: "components-badge" },
+  { name: "Breadcrumb", category: "Navigation", description: "Navigation path indicator", storybook: "components-breadcrumb" },
+  { name: "Button", category: "Actions", description: "Interactive action triggers", storybook: "components-button" },
+  { name: "Card", category: "Layout", description: "Content container with sections", storybook: "components-card" },
+  { name: "Chart", category: "Data Display", description: "Data visualization charts", storybook: "components-chart" },
+  { name: "Checkbox", category: "Forms", description: "Multiple selection input", storybook: "components-checkbox" },
+  { name: "DatePicker", category: "Forms", description: "Date selection input", storybook: "components-datepicker" },
+  { name: "Dropdown", category: "Navigation", description: "Expandable menu options", storybook: "components-dropdown" },
+  { name: "Input", category: "Forms", description: "Text input field", storybook: "components-input" },
+  { name: "Modal", category: "Overlays", description: "Dialog overlay component", storybook: "components-modal" },
+  { name: "Navbar", category: "Navigation", description: "Top navigation bar", storybook: "components-navbar" },
+  { name: "Pagination", category: "Navigation", description: "Page navigation control", storybook: "components-pagination" },
+  { name: "Progress", category: "Feedback", description: "Progress indicator bar", storybook: "components-progress" },
+  { name: "Radio", category: "Forms", description: "Single selection input", storybook: "components-radio" },
+  { name: "Select", category: "Forms", description: "Dropdown selection input", storybook: "components-select" },
+  { name: "Spinner", category: "Feedback", description: "Loading state indicator", storybook: "components-spinner" },
+  { name: "Table", category: "Data Display", description: "Tabular data display", storybook: "components-table" },
+  { name: "Tabs", category: "Navigation", description: "Tabbed content sections", storybook: "components-tabs" },
+  { name: "Toggle", category: "Forms", description: "On/off switch input", storybook: "components-toggle" },
+  { name: "Tooltip", category: "Overlays", description: "Hover information display", storybook: "components-tooltip" },
+  { name: "Typography", category: "Foundation", description: "Text styling components", storybook: "components-typography" },
+];
+
+const categories = ["All", "Actions", "Data Display", "Feedback", "Forms", "Layout", "Navigation", "Overlays", "Foundation"];
+
+const isProd = process.env.NODE_ENV === "production";
+const STORYBOOK_URL = isProd ? "/private_project_design_system/storybook" : "http://localhost:6006";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8">
-      <main className="max-w-6xl mx-auto">
-        {/* Hero Section */}
-        <section className="text-center py-20">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            BRICKS Design System
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            Next.js Integration with TypeScript & React
-          </p>
-
-          <div className="flex gap-4 justify-center">
-            <Link href="/components">
-              <ServerButton variant="primary" size="lg">
-                View Components →
-              </ServerButton>
-            </Link>
-            <Link href="/server-components">
-              <ServerButton variant="secondary" size="lg">
-                Server Components
-              </ServerButton>
-            </Link>
-          </div>
-        </section>
-
-        {/* Features Grid */}
-        <section className="py-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Feature Card 1 */}
-            <div className="p-6 border rounded-lg dark:border-gray-700 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">🎨 Design System</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Comprehensive design tokens, color palettes, typography, and spacing system.
-              </p>
-            </div>
-
-            {/* Feature Card 2 */}
-            <div className="p-6 border rounded-lg dark:border-gray-700 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">⚛️ React Components</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                11+ fully typed React components with TypeScript support.
-              </p>
-            </div>
-
-            {/* Feature Card 3 */}
-            <div className="p-6 border rounded-lg dark:border-gray-700 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">🌙 Dark Mode</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Built-in dark mode support with system preference detection.
-              </p>
-            </div>
-
-            {/* Feature Card 4 */}
-            <div className="p-6 border rounded-lg dark:border-gray-700 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">📚 Storybook</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Interactive component documentation with Storybook integration.
-              </p>
-            </div>
-
-            {/* Feature Card 5 */}
-            <div className="p-6 border rounded-lg dark:border-gray-700 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">🚀 Next.js Ready</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Optimized for Next.js App Router with Server Components support.
-              </p>
-            </div>
-
-            {/* Feature Card 6 */}
-            <div className="p-6 border rounded-lg dark:border-gray-700 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-2">♿ Accessible</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                WCAG compliant components with ARIA attributes and keyboard navigation.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Quick Links */}
-        <section className="py-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Quick Links</h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/components" className="text-blue-600 hover:underline">
-              Client Components Demo
-            </Link>
-            <span className="text-gray-400">•</span>
-            <Link href="/server-components" className="text-blue-600 hover:underline">
-              Server Components Demo
-            </Link>
-            <span className="text-gray-400">•</span>
+    <div className="page">
+      {/* Header */}
+      <header className="header">
+        <div className="header__inner">
+          <Link href="/" className="header__logo">
+            <span className="header__logo-icon">B</span>
+            <span className="header__logo-text">BRICKS</span>
+          </Link>
+          <nav className="header__nav">
+            <Link href="/components" className="header__nav-link">Components</Link>
             <a
-              href="http://localhost:6006"
+              href={STORYBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="header__nav-link"
             >
-              Storybook ↗
+              Storybook
             </a>
-            <span className="text-gray-400">•</span>
             <a
               href="https://github.com/anerjin/private_project_design_system"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="header__nav-link"
             >
-              GitHub ↗
+              GitHub
             </a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        {/* Hero Section */}
+        <section className="hero">
+          <div className="hero__inner">
+            <div className="hero__badge">
+              <span className="hero__badge-dot"></span>
+              {components.length}+ Components Available
+            </div>
+            <h1 className="hero__title">
+              Beautiful UI Components
+              <br />
+              <span className="hero__title-highlight">for Your Next Project</span>
+            </h1>
+            <p className="hero__description">
+              Build your next project with high-quality React components.
+              Fully typed with TypeScript, accessible, and customizable.
+            </p>
+            <div className="hero__actions">
+              <a
+                href={STORYBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary btn--lg"
+              >
+                Open Storybook
+              </a>
+              <a
+                href="https://github.com/anerjin/private_project_design_system"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--outline btn--lg"
+              >
+                View on GitHub
+              </a>
+            </div>
           </div>
         </section>
 
-        {/* Tech Stack */}
-        <section className="py-12 border-t dark:border-gray-700">
-          <h2 className="text-2xl font-semibold mb-6 text-center">Tech Stack</h2>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">TypeScript</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">React 19</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Next.js 15</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Tailwind CSS</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Storybook</span>
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">Vite</span>
+        {/* Stats Section */}
+        <section className="stats">
+          <div className="stats__inner">
+            <div className="stats__item">
+              <div className="stats__value">{components.length}+</div>
+              <div className="stats__label">Components</div>
+            </div>
+            <div className="stats__item">
+              <div className="stats__value">{categories.length - 1}</div>
+              <div className="stats__label">Categories</div>
+            </div>
+            <div className="stats__item">
+              <div className="stats__value">100%</div>
+              <div className="stats__label">TypeScript</div>
+            </div>
+            <div className="stats__item">
+              <div className="stats__value">A11y</div>
+              <div className="stats__label">Accessible</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Components Section */}
+        <section className="section">
+          <div className="section__inner">
+            <div className="section__header">
+              <h2 className="section__title">Explore Components</h2>
+              <p className="section__description">
+                Click any component to view interactive examples in Storybook.
+              </p>
+            </div>
+
+            {/* Category Filter */}
+            <div className="filter">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={`filter__btn ${category === "All" ? "filter__btn--active" : ""}`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+
+            {/* Components Grid */}
+            <div className="component-grid">
+              {components.map((component) => (
+                <a
+                  key={component.name}
+                  href={`${STORYBOOK_URL}/?path=/docs/${component.storybook}--docs`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="component-card"
+                >
+                  <div className="component-card__header">
+                    <div className="component-card__icon">
+                      {component.name.charAt(0)}
+                    </div>
+                    <span className="component-card__category">
+                      {component.category}
+                    </span>
+                  </div>
+                  <h3 className="component-card__name">{component.name}</h3>
+                  <p className="component-card__description">
+                    {component.description}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="cta">
+          <div className="cta__inner">
+            <h2 className="cta__title">Ready to Build?</h2>
+            <p className="cta__description">
+              Explore all components with interactive examples in Storybook.
+            </p>
+            <div className="cta__actions">
+              <a
+                href={STORYBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn cta__btn--white"
+              >
+                Open Storybook
+              </a>
+              <a
+                href="https://github.com/anerjin/private_project_design_system"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn cta__btn--outline"
+              >
+                View on GitHub
+              </a>
+            </div>
           </div>
         </section>
       </main>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer__inner">
+          <div className="footer__logo">
+            <span className="footer__logo-icon">B</span>
+            <span className="footer__logo-text">BRICKS Design System</span>
+          </div>
+          <div className="footer__text">
+            Built with Next.js, TypeScript, and BRICKS CSS
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

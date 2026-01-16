@@ -57,7 +57,8 @@
       "Bash(npm link:*)",
       "Bash(npm unlink:*)",
       "Bash(npm pack)",
-      "WebFetch(domain:monet.design)"
+      "WebFetch(domain:monet.design)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []
