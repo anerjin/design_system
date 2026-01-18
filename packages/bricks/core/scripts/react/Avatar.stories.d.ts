@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Avatar } from './Avatar';
 declare const meta: Meta<typeof Avatar>;
 export default meta;

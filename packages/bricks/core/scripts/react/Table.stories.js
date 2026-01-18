@@ -5,7 +5,7 @@ import { Badge } from './Badge';
 import { Button } from './Button';
 import { Icon } from './Icon';
 const meta = {
-    title: 'Components/Table',
+    title: 'Data Display/Table',
     component: Table,
     parameters: {
         layout: 'padded',

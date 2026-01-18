@@ -94,11 +94,27 @@ export declare const Alert: React.ForwardRefExoticComponent<AlertProps & React.R
  * 토스트 알림을 생성하는 유틸리티 함수
  */
 export declare const toast: {
-    show: (props: Omit<AlertProps, "toast">) => void;
-    success: (message: string, options?: Partial<AlertProps>) => void;
-    error: (message: string, options?: Partial<AlertProps>) => void;
-    warning: (message: string, options?: Partial<AlertProps>) => void;
-    info: (message: string, options?: Partial<AlertProps>) => void;
+    show: (props: Omit<AlertProps, "toast">) => {
+        id: string;
+        close: () => void;
+    };
+    success: (message: string, options?: Partial<AlertProps>) => {
+        id: string;
+        close: () => void;
+    };
+    error: (message: string, options?: Partial<AlertProps>) => {
+        id: string;
+        close: () => void;
+    };
+    warning: (message: string, options?: Partial<AlertProps>) => {
+        id: string;
+        close: () => void;
+    };
+    info: (message: string, options?: Partial<AlertProps>) => {
+        id: string;
+        close: () => void;
+    };
+    closeAll: () => void;
 };
 export default Alert;
 //# sourceMappingURL=Alert.d.ts.map

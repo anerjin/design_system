@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import Modal from './Modal';
 import { Button } from './Button';
 
 const meta: Meta<typeof Modal> = {
-  title: 'Components/Modal',
+  title: 'Feedback/Modal',
   component: Modal,
   parameters: {
     layout: 'centered',

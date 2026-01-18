@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Breadcrumb } from './Breadcrumb';
 const meta = {
-    title: 'Components/Breadcrumb',
+    title: 'Navigation/Breadcrumb',
     component: Breadcrumb,
     parameters: {
         layout: 'centered',

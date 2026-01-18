@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio } from './Radio';
 declare const meta: Meta<typeof Radio>;
 export default meta;

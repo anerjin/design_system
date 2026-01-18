@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-export interface IconProps {
+export interface IconProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * Icon name from Boxicons regular set
    */
@@ -33,14 +33,16 @@ export interface IconProps {
  * <Icon name="user" color="#333" />
  * ```
  */
-export const Icon: React.FC<IconProps> = ({
+export const Icon = forwardRef<HTMLElement, IconProps>(({
   name,
   size = 24,
   color = 'currentColor',
-  className = ''
-}) => {
+  className = '',
+  ...props
+}, ref) => {
   return (
     <i
+      ref={ref}
       className={`bx bx-${name} ${className}`}
       style={{
         fontSize: typeof size === 'number' ? `${size}px` : size,
@@ -49,8 +51,11 @@ export const Icon: React.FC<IconProps> = ({
         alignItems: 'center',
         justifyContent: 'center'
       }}
+      {...props}
     />
   );
-};
+});
+
+Icon.displayName = 'Icon';
 
 export default Icon;

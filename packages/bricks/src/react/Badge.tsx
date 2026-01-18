@@ -152,12 +152,18 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(({
   children,
   ...props
 }, ref) => {
+  const getVariantClass = (): string => {
+    if (!variant) return '';
+    if (type === 'solid') return `badge--${variant}`;
+    return `badge--${type}-${variant}`;
+  };
+
   const badgeClasses = [
     'badge',
-    variant ? `badge--${type === 'solid' ? '' : `${type}-`}${variant}` : '',
-    size !== 'md' ? `badge--${size}` : '',
-    shape === 'square' ? 'badge--square' : '',
-    dot ? 'badge--dot' : '',
+    getVariantClass(),
+    size !== 'md' && `badge--${size}`,
+    shape === 'square' && 'badge--square',
+    dot && 'badge--dot',
     className
   ].filter(Boolean).join(' ');
 

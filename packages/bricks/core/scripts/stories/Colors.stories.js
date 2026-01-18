@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Icon } from '../react/Icon';
 const meta = {
-    title: 'Elements/Colors',
+    title: 'Foundation/Colors',
     parameters: {
         layout: 'padded',
         docs: {

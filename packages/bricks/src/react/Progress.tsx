@@ -265,7 +265,7 @@ Progress.displayName = 'Progress';
 export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps>(({
   value = 0,
   size = 'md',
-  strokeWidth = 3,
+  strokeWidth = 4,
   variant = 'primary',
   showLabel = true,
   label,
@@ -275,22 +275,33 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
   ...props
 }, ref) => {
   const sizeMap = {
-    sm: 40,
-    md: 60,
-    lg: 80
+    sm: 48,
+    md: 80,
+    lg: 120
+  };
+
+  const strokeWidthMap = {
+    sm: 4,
+    md: 5,
+    lg: 6
   };
 
   const svgSize = sizeMap[size];
-  const radius = (svgSize - strokeWidth) / 2;
+  const actualStrokeWidth = strokeWidthMap[size];
+  const radius = (svgSize - actualStrokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
   const strokeDashoffset = circumference - (value / 100) * circumference;
 
   const circularClasses = [
     'progress-circular',
-    size !== 'md' ? `progress-circular--${size}` : '',
-    variant !== 'primary' ? `progress-circular--${variant}` : '',
-    indeterminate ? 'progress-circular--indeterminate' : '',
+    `progress-circular--${size}`,
+    indeterminate ? 'progress-circular--spinner' : '',
     className
+  ].filter(Boolean).join(' ');
+
+  const barClasses = [
+    'progress-circular__bar',
+    variant !== 'primary' ? `progress-circular__bar--${variant}` : ''
   ].filter(Boolean).join(' ');
 
   const renderLabel = () => {
@@ -305,8 +316,9 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
     <div
       ref={ref}
       className={circularClasses}
+      style={{ width: svgSize, height: svgSize }}
       role="progressbar"
-      aria-valuenow={value}
+      aria-valuenow={indeterminate ? undefined : value}
       aria-valuemin={0}
       aria-valuemax={100}
       {...props}
@@ -322,20 +334,16 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
           cx={svgSize / 2}
           cy={svgSize / 2}
           r={radius}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={strokeWidth}
+          strokeWidth={actualStrokeWidth}
         />
         <circle
-          className="progress-circular__bar"
+          className={barClasses}
           cx={svgSize / 2}
           cy={svgSize / 2}
           r={radius}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={strokeWidth}
+          strokeWidth={actualStrokeWidth}
           strokeDasharray={circumference}
-          strokeDashoffset={indeterminate ? undefined : strokeDashoffset}
+          strokeDashoffset={indeterminate ? circumference * 0.75 : strokeDashoffset}
           strokeLinecap="round"
           transform={`rotate(-90 ${svgSize / 2} ${svgSize / 2})`}
         />

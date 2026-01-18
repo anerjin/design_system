@@ -1,4 +1,5 @@
-import React, { useEffect, useState, forwardRef } from 'react';
+import React, { useEffect, useState, forwardRef, createElement } from 'react';
+import { createRoot, Root } from 'react-dom/client';
 
 export interface AlertProps {
   /**
@@ -229,29 +230,54 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(({
 
 Alert.displayName = 'Alert';
 
+// 토스트 인스턴스 관리
+const toastInstances: Map<string, { root: Root; element: HTMLDivElement }> = new Map();
+
 /**
  * 토스트 알림을 생성하는 유틸리티 함수
  */
 export const toast = {
-  show: (_props: Omit<AlertProps, 'toast'>) => {
+  show: (props: Omit<AlertProps, 'toast'>) => {
     const toastContainer = document.getElementById('toast-container') || (() => {
       const container = document.createElement('div');
       container.id = 'toast-container';
-      container.style.cssText = `
-        position: fixed;
-        z-index: 1000;
-        pointer-events: none;
-      `;
+      container.className = 'toast-container';
       document.body.appendChild(container);
       return container;
     })();
 
+    const toastId = `toast-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     const toastElement = document.createElement('div');
+    toastElement.id = toastId;
+    toastElement.style.pointerEvents = 'auto';
     toastContainer.appendChild(toastElement);
 
-    // React 컴포넌트를 DOM 요소에 렌더링하는 로직은
-    // 실제 사용 시 ReactDOM.render 또는 createRoot를 사용해야 합니다.
-    // 여기서는 구조만 제공합니다.
+    const root = createRoot(toastElement);
+
+    const handleClose = () => {
+      props.onClose?.();
+      setTimeout(() => {
+        root.unmount();
+        toastElement.remove();
+        toastInstances.delete(toastId);
+      }, 300);
+    };
+
+    root.render(
+      createElement(Alert, {
+        ...props,
+        toast: true,
+        onClose: handleClose,
+        visible: true
+      })
+    );
+
+    toastInstances.set(toastId, { root, element: toastElement });
+
+    return {
+      id: toastId,
+      close: handleClose
+    };
   },
 
   success: (message: string, options?: Partial<AlertProps>) => {
@@ -292,6 +318,14 @@ export const toast = {
       autoClose: 5000,
       ...options
     });
+  },
+
+  closeAll: () => {
+    toastInstances.forEach(({ root, element }) => {
+      root.unmount();
+      element.remove();
+    });
+    toastInstances.clear();
   }
 };
 

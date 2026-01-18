@@ -5,7 +5,7 @@ import { Button } from './Button';
 import { Card, CardBody } from './Card';
 import { Icon } from './Icon';
 const meta = {
-    title: 'Components/Spinner',
+    title: 'Feedback/Spinner',
     component: Spinner,
     parameters: {
         layout: 'centered',

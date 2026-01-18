@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { DatePicker } from './DatePicker';
 const meta = {
-    title: 'Components/DatePicker',
+    title: 'Data Entry/DatePicker',
     component: DatePicker,
     parameters: {
         layout: 'centered',

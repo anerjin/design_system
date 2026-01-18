@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Input, Textarea } from './Input';
 const meta = {
-    title: 'Components/Input',
+    title: 'Data Entry/Input',
     component: Input,
     parameters: {
         layout: 'centered',

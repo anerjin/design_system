@@ -112,8 +112,28 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedValues, setSelectedValues] = useState<string[]>(values);
+  const [minWidth, setMinWidth] = useState<number>(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const measureRef = useRef<HTMLDivElement>(null);
+
+  // 가장 긴 옵션 텍스트 기준으로 min-width 계산
+  useEffect(() => {
+    if (measureRef.current) {
+      const items = measureRef.current.querySelectorAll('.dropdown__measure-item');
+      let maxWidth = 0;
+      items.forEach((item) => {
+        const width = (item as HTMLElement).offsetWidth;
+        if (width > maxWidth) {
+          maxWidth = width;
+        }
+      });
+      // 패딩 및 화살표 공간 추가 (size에 따라 다름)
+      const paddingMap: Record<string, number> = { sm: 44, md: 52, lg: 60 };
+      const extraPadding = paddingMap[size] || 52;
+      setMinWidth(maxWidth + extraPadding);
+    }
+  }, [options, placeholder, size]);
 
   useEffect(() => {
     if (multiple && values) {
@@ -193,6 +213,27 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
 
   return (
     <div ref={ref} className={dropdownClasses} {...props}>
+      {/* 숨겨진 측정용 요소 - 가장 긴 옵션 텍스트 width 계산 */}
+      <div
+        ref={measureRef}
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          visibility: 'hidden',
+          height: 0,
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        <span className="dropdown__measure-item">{placeholder}</span>
+        {options.map((option) => (
+          <span key={option.value} className="dropdown__measure-item">
+            {typeof option.label === 'string' ? option.label : option.value}
+          </span>
+        ))}
+        {multiple && <span className="dropdown__measure-item">{options.length} selected</span>}
+      </div>
+
       <div ref={dropdownRef}>
         <button
           type="button"
@@ -201,19 +242,20 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
           disabled={disabled}
           aria-haspopup="listbox"
           aria-expanded={isOpen}
+          style={minWidth > 0 ? { minWidth: `${minWidth}px` } : undefined}
         >
           {searchable && isOpen ? (
             <input
               ref={inputRef}
               type="text"
+              className="dropdown__search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search..."
               onClick={(e) => e.stopPropagation()}
-              style={{ border: 'none', outline: 'none', background: 'transparent', flex: 1 }}
             />
           ) : (
-            <span style={{ flex: 1 }}>
+            <span className="dropdown__value">
               {getSelectedLabel()}
             </span>
           )}
@@ -230,6 +272,7 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
                 key={option.value}
                 className={[
                   'dropdown__item',
+                  multiple ? 'dropdown__item--checkbox' : '',
                   isSelected ? 'dropdown__item--active' : '',
                   option.disabled ? 'dropdown__item--disabled' : ''
                 ].filter(Boolean).join(' ')}
@@ -240,18 +283,23 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
                 type="button"
               >
                 {multiple && (
-                  <input
-                    type="checkbox"
-                    checked={isSelected}
-                    onChange={() => {}}
-                    disabled={option.disabled}
-                    style={{ marginRight: '8px' }}
-                  />
+                  <label className={`checkbox checkbox--sm ${option.disabled ? 'checkbox--disabled' : ''}`}>
+                    <input
+                      type="checkbox"
+                      className="checkbox__input"
+                      checked={isSelected}
+                      onChange={() => {}}
+                      disabled={option.disabled}
+                    />
+                    <span className="checkbox__box">
+                      <span className="checkbox__checkmark"></span>
+                    </span>
+                  </label>
                 )}
                 {option.icon && (
-                  <span style={{ marginRight: '8px' }}>{option.icon}</span>
+                  <span className="dropdown__item-icon">{option.icon}</span>
                 )}
-                {option.label}
+                <span className="dropdown__item-label">{option.label}</span>
               </button>
             );
           })}

@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
 const meta: Meta = {
-  title: 'Elements/Borders',
+  title: 'Foundation/Borders',
   parameters: {
     layout: 'padded',
     docs: {

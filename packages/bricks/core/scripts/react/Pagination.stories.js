@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { Pagination } from './Pagination';
 const meta = {
-    title: 'Components/Pagination',
+    title: 'Navigation/Pagination',
     component: Pagination,
     parameters: {
         layout: 'centered',

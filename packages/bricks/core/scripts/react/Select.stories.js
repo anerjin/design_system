@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { Select } from './Select';
 const meta = {
-    title: 'Components/Select',
+    title: 'Data Entry/Select',
     component: Select,
     parameters: {
         layout: 'centered',

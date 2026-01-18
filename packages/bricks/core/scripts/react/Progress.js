@@ -43,22 +43,31 @@ Progress.displayName = 'Progress';
  * <CircularProgress value={75} />
  * ```
  */
-export const CircularProgress = forwardRef(({ value = 0, size = 'md', strokeWidth = 3, variant = 'primary', showLabel = true, label, indeterminate = false, className, formatLabel, ...props }, ref) => {
+export const CircularProgress = forwardRef(({ value = 0, size = 'md', strokeWidth = 4, variant = 'primary', showLabel = true, label, indeterminate = false, className, formatLabel, ...props }, ref) => {
     const sizeMap = {
-        sm: 40,
-        md: 60,
-        lg: 80
+        sm: 48,
+        md: 80,
+        lg: 120
+    };
+    const strokeWidthMap = {
+        sm: 4,
+        md: 5,
+        lg: 6
     };
     const svgSize = sizeMap[size];
-    const radius = (svgSize - strokeWidth) / 2;
+    const actualStrokeWidth = strokeWidthMap[size];
+    const radius = (svgSize - actualStrokeWidth) / 2;
     const circumference = radius * 2 * Math.PI;
     const strokeDashoffset = circumference - (value / 100) * circumference;
     const circularClasses = [
         'progress-circular',
-        size !== 'md' ? `progress-circular--${size}` : '',
-        variant !== 'primary' ? `progress-circular--${variant}` : '',
-        indeterminate ? 'progress-circular--indeterminate' : '',
+        `progress-circular--${size}`,
+        indeterminate ? 'progress-circular--spinner' : '',
         className
+    ].filter(Boolean).join(' ');
+    const barClasses = [
+        'progress-circular__bar',
+        variant !== 'primary' ? `progress-circular__bar--${variant}` : ''
     ].filter(Boolean).join(' ');
     const renderLabel = () => {
         if (!showLabel && !label)
@@ -66,7 +75,7 @@ export const CircularProgress = forwardRef(({ value = 0, size = 'md', strokeWidt
         const labelContent = label || (formatLabel ? formatLabel(value) : `${Math.round(value)}%`);
         return _jsx("span", { className: "progress-circular__text", children: labelContent });
     };
-    return (_jsxs("div", { ref: ref, className: circularClasses, role: "progressbar", "aria-valuenow": value, "aria-valuemin": 0, "aria-valuemax": 100, ...props, children: [_jsxs("svg", { className: "progress-circular__svg", width: svgSize, height: svgSize, viewBox: `0 0 ${svgSize} ${svgSize}`, children: [_jsx("circle", { className: "progress-circular__bg", cx: svgSize / 2, cy: svgSize / 2, r: radius, fill: "none", stroke: "currentColor", strokeWidth: strokeWidth }), _jsx("circle", { className: "progress-circular__bar", cx: svgSize / 2, cy: svgSize / 2, r: radius, fill: "none", stroke: "currentColor", strokeWidth: strokeWidth, strokeDasharray: circumference, strokeDashoffset: indeterminate ? undefined : strokeDashoffset, strokeLinecap: "round", transform: `rotate(-90 ${svgSize / 2} ${svgSize / 2})` })] }), !indeterminate && renderLabel()] }));
+    return (_jsxs("div", { ref: ref, className: circularClasses, style: { width: svgSize, height: svgSize }, role: "progressbar", "aria-valuenow": indeterminate ? undefined : value, "aria-valuemin": 0, "aria-valuemax": 100, ...props, children: [_jsxs("svg", { className: "progress-circular__svg", width: svgSize, height: svgSize, viewBox: `0 0 ${svgSize} ${svgSize}`, children: [_jsx("circle", { className: "progress-circular__bg", cx: svgSize / 2, cy: svgSize / 2, r: radius, strokeWidth: actualStrokeWidth }), _jsx("circle", { className: barClasses, cx: svgSize / 2, cy: svgSize / 2, r: radius, strokeWidth: actualStrokeWidth, strokeDasharray: circumference, strokeDashoffset: indeterminate ? circumference * 0.75 : strokeDashoffset, strokeLinecap: "round", transform: `rotate(-90 ${svgSize / 2} ${svgSize / 2})` })] }), !indeterminate && renderLabel()] }));
 });
 CircularProgress.displayName = 'CircularProgress';
 /**

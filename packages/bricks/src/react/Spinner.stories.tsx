@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Spinner, SpinnerOverlay } from './Spinner';
 import { Button } from './Button';
@@ -6,7 +6,7 @@ import { Card, CardBody } from './Card';
 import { Icon } from './Icon';
 
 const meta: Meta<typeof Spinner> = {
-  title: 'Components/Spinner',
+  title: 'Feedback/Spinner',
   component: Spinner,
   parameters: {
     layout: 'centered',

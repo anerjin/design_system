@@ -4,7 +4,7 @@ import { Alert } from './Alert';
 import { Button } from './Button';
 import { Icon } from './Icon';
 const meta = {
-    title: 'Components/Alert',
+    title: 'Feedback/Alert',
     component: Alert,
     parameters: {
         layout: 'centered',

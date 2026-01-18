@@ -4,7 +4,7 @@ import { Progress, CircularProgress, MultiStepProgress } from './Progress';
 import { Button } from './Button';
 import { Icon } from './Icon';
 const meta = {
-    title: 'Components/Progress',
+    title: 'Data Display/Progress',
     component: Progress,
     parameters: {
         layout: 'padded',

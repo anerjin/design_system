@@ -1,5 +1,5 @@
 import React from 'react';
-export interface TypographyProps {
+export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
     /**
      * Typography variant
      * @default 'body1'

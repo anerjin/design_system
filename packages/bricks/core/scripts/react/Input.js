@@ -54,7 +54,7 @@ Input.displayName = 'Input';
  */
 export const Textarea = forwardRef(({ state, className, disabled, readOnly, ...props }, ref) => {
     const baseClasses = 'textarea';
-    const stateClass = state ? `input--${state}` : '';
+    const stateClass = state ? `textarea--${state}` : '';
     const textareaClasses = [
         baseClasses,
         stateClass,

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Tabs } from './Tabs';
 import { Badge } from './Badge';
 const meta = {
-    title: 'Components/Tabs',
+    title: 'Navigation/Tabs',
     component: Tabs,
     parameters: {
         layout: 'centered',

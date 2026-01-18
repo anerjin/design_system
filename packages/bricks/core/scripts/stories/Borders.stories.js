@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 const meta = {
-    title: 'Elements/Borders',
+    title: 'Foundation/Borders',
     parameters: {
         layout: 'padded',
         docs: {

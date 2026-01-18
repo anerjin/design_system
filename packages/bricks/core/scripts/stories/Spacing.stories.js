@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 const meta = {
-    title: 'Elements/Spacing',
+    title: 'Foundation/Spacing',
     parameters: {
         layout: 'padded',
         docs: {

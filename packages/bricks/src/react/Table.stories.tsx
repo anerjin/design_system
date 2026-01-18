@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Table, TableColumn } from './Table';
 import { Badge } from './Badge';
@@ -6,7 +6,7 @@ import { Button } from './Button';
 import { Icon } from './Icon';
 
 const meta: Meta<typeof Table> = {
-  title: 'Components/Table',
+  title: 'Data Display/Table',
   component: Table,
   parameters: {
     layout: 'padded',

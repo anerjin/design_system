@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { useState } from 'react';
 import { Accordion } from './Accordion';
 const meta = {
-    title: 'Components/Accordion',
+    title: 'General/Accordion',
     component: Accordion,
     parameters: {
         layout: 'centered',

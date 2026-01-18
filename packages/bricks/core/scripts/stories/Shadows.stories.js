@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 const meta = {
-    title: 'Elements/Shadows',
+    title: 'Foundation/Shadows',
     parameters: {
         layout: 'padded',
         docs: {

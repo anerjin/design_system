@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState, useEffect } from 'react';
 import { Progress, CircularProgress, MultiStepProgress } from './Progress';
 import { Button } from './Button';
 import { Icon } from './Icon';
 
 const meta: Meta<typeof Progress> = {
-  title: 'Components/Progress',
+  title: 'Data Display/Progress',
   component: Progress,
   parameters: {
     layout: 'padded',

@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { Checkbox, CheckboxGroup } from './Checkbox';
 const meta = {
-    title: 'Components/Checkbox',
+    title: 'Data Entry/Checkbox',
     component: Checkbox,
     parameters: {
         layout: 'centered',

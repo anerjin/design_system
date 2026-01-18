@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Typography } from './Typography';
 declare const meta: Meta<typeof Typography>;
 export default meta;

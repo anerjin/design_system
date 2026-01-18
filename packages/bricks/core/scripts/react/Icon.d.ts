@@ -1,5 +1,5 @@
 import React from 'react';
-export interface IconProps {
+export interface IconProps extends React.HTMLAttributes<HTMLElement> {
     /**
      * Icon name from Boxicons regular set
      */
@@ -28,6 +28,6 @@ export interface IconProps {
  * <Icon name="user" color="#333" />
  * ```
  */
-export declare const Icon: React.FC<IconProps>;
+export declare const Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<HTMLElement>>;
 export default Icon;
 //# sourceMappingURL=Icon.d.ts.map

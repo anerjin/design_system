@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { Dropdown } from './Dropdown';
 const meta = {
-    title: 'Components/Dropdown',
+    title: 'Data Entry/Dropdown',
     component: Dropdown,
     parameters: {
         layout: 'centered',

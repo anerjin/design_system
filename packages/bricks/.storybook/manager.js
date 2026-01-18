@@ -1,5 +1,5 @@
-import { addons } from '@storybook/manager-api';
-import { create } from '@storybook/theming/create';
+import { addons } from 'storybook/manager-api';
+import { create } from 'storybook/theming/create';
 
 const theme = create({
   base: 'light',
@@ -7,7 +7,6 @@ const theme = create({
   // Brand
   brandTitle: 'BRICKS Design System',
   brandUrl: 'https://github.com/anerjin/private_project_design_system',
-  brandImage: '/logo.svg', // 로고 이미지 경로 (public 폴더에 logo.svg 파일 추가 필요)
   brandTarget: '_self',
 
   // UI

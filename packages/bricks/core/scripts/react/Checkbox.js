@@ -20,12 +20,6 @@ export const Checkbox = forwardRef(({ size = 'md', variant, label, description, 
     useEffect(() => {
         if (finalRef.current) {
             finalRef.current.indeterminate = indeterminate;
-            if (indeterminate) {
-                finalRef.current.setAttribute('aria-checked', 'mixed');
-            }
-            else {
-                finalRef.current.removeAttribute('aria-checked');
-            }
         }
     }, [indeterminate, finalRef]);
     const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
@@ -40,7 +34,6 @@ export const Checkbox = forwardRef(({ size = 'md', variant, label, description, 
         // indeterminate 상태에서 변경 시 indeterminate 해제
         if (indeterminate && finalRef.current) {
             finalRef.current.indeterminate = false;
-            finalRef.current.removeAttribute('aria-checked');
         }
         onChange?.(event);
     };

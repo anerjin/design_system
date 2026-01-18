@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { useState } from 'react';
 import { Radio, RadioGroup } from './Radio';
 const meta = {
-    title: 'Components/Radio',
+    title: 'Data Entry/Radio',
     component: Radio,
     parameters: {
         layout: 'centered',

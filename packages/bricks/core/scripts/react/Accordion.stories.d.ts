@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Accordion } from './Accordion';
 declare const meta: Meta<typeof Accordion>;
 export default meta;

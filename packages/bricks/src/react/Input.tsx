@@ -167,7 +167,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
   ...props
 }, ref) => {
   const baseClasses = 'textarea';
-  const stateClass = state ? `input--${state}` : '';
+  const stateClass = state ? `textarea--${state}` : '';
 
   const textareaClasses = [
     baseClasses,

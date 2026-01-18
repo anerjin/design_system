@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Typography } from './Typography';
 const meta = {
-    title: 'Elements/Typography',
+    title: 'Foundation/Typography',
     component: Typography,
     parameters: {
         layout: 'centered',

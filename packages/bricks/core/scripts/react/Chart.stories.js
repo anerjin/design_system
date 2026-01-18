@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Chart } from './Chart';
 const meta = {
-    title: 'Components/Chart',
+    title: 'Data Display/Chart',
     component: Chart,
     parameters: {
         layout: 'centered',

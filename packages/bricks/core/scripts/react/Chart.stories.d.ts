@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Chart } from './Chart';
 declare const meta: Meta<typeof Chart>;
 export default meta;

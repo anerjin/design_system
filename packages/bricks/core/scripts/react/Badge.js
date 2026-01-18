@@ -11,12 +11,19 @@ import { forwardRef } from 'react';
  * ```
  */
 export const Badge = forwardRef(({ variant = 'primary', type = 'solid', size = 'md', shape = 'pill', dot = false, closable = false, onClose, className, children, ...props }, ref) => {
+    const getVariantClass = () => {
+        if (!variant)
+            return '';
+        if (type === 'solid')
+            return `badge--${variant}`;
+        return `badge--${type}-${variant}`;
+    };
     const badgeClasses = [
         'badge',
-        variant ? `badge--${type === 'solid' ? '' : `${type}-`}${variant}` : '',
-        size !== 'md' ? `badge--${size}` : '',
-        shape === 'square' ? 'badge--square' : '',
-        dot ? 'badge--dot' : '',
+        getVariantClass(),
+        size !== 'md' && `badge--${size}`,
+        shape === 'square' && 'badge--square',
+        dot && 'badge--dot',
         className
     ].filter(Boolean).join(' ');
     return (_jsxs("span", { ref: ref, className: badgeClasses, ...props, children: [children, closable && (_jsx("button", { type: "button", className: "badge__close", "aria-label": "\uC81C\uAC70", onClick: onClose, children: "\u00D7" }))] }));

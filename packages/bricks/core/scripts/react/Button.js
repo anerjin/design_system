@@ -1,4 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { forwardRef } from 'react';
 /**
  * BRICKS 디자인 시스템 Button 컴포넌트
  *
@@ -9,7 +10,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
  * </Button>
  * ```
  */
-export const Button = ({ variant = 'primary', size = 'md', fullWidth = false, loading = false, iconOnly = false, pill = false, rounded = 'md', leftIcon, rightIcon, disabled = false, onClick, children, className, ...props }) => {
+export const Button = forwardRef(({ variant = 'primary', size = 'md', fullWidth = false, loading = false, iconOnly = false, pill = false, rounded = 'md', leftIcon, rightIcon, disabled = false, onClick, children, className, ...props }, ref) => {
     const baseClasses = 'btn';
     const variantClass = `btn--${variant}`;
     const sizeClass = size !== 'md' ? `btn--${size}` : '';
@@ -29,7 +30,8 @@ export const Button = ({ variant = 'primary', size = 'md', fullWidth = false, lo
         roundedClass,
         className
     ].filter(Boolean).join(' ');
-    return (_jsxs("button", { className: classes, disabled: disabled || loading, onClick: onClick, "aria-busy": loading, "aria-disabled": disabled || loading, ...props, children: [!loading && leftIcon && _jsx("span", { className: "btn__icon", children: leftIcon }), children, !loading && rightIcon && _jsx("span", { className: "btn__icon btn__icon--right", children: rightIcon })] }));
-};
+    return (_jsxs("button", { ref: ref, className: classes, disabled: disabled || loading, onClick: onClick, "aria-busy": loading, "aria-disabled": disabled || loading, ...props, children: [!loading && leftIcon && _jsx("span", { className: "btn__icon", children: leftIcon }), children, !loading && rightIcon && _jsx("span", { className: "btn__icon btn__icon--right", children: rightIcon })] }));
+});
+Button.displayName = 'Button';
 export default Button;
 //# sourceMappingURL=Button.js.map

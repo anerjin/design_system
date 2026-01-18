@@ -3,7 +3,7 @@ import { Avatar, AvatarGroup } from './Avatar';
 import { Icon } from './Icon';
 import { Badge } from './Badge';
 const meta = {
-    title: 'Components/Avatar',
+    title: 'Data Display/Avatar',
     component: Avatar,
     parameters: {
         layout: 'centered',

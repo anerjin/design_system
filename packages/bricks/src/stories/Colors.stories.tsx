@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { Icon } from '../react/Icon';
 
 const meta: Meta = {
-  title: 'Elements/Colors',
+  title: 'Foundation/Colors',
   parameters: {
     layout: 'padded',
     docs: {

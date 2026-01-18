@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Navbar } from './Navbar';
 import { Button } from './Button';
 import { Icon } from './Icon';
 
 const meta: Meta<typeof Navbar> = {
-  title: 'Components/Navbar',
+  title: 'Navigation/Navbar',
   component: Navbar,
   parameters: {
     layout: 'fullscreen',

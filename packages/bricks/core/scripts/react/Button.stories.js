@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Button } from './Button';
 const meta = {
-    title: 'Components/Button',
+    title: 'General/Button',
     component: Button,
     parameters: {
         layout: 'centered',

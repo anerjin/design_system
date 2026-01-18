@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Badge } from './Badge';
 const meta = {
-    title: 'Components/Badge',
+    title: 'Data Display/Badge',
     component: Badge,
     parameters: {
         layout: 'centered',

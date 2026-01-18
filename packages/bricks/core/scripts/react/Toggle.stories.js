@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { Toggle } from './Toggle';
 const meta = {
-    title: 'Components/Toggle',
+    title: 'Data Entry/Toggle',
     component: Toggle,
     parameters: {
         layout: 'centered',
