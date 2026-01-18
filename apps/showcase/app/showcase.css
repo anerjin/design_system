@@ -1290,6 +1290,35 @@
   color: #fff;
 }
 
+/* Empty State */
+.bricks-list__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 32px;
+  text-align: center;
+}
+
+.bricks-list__empty-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  opacity: 0.5;
+}
+
+.bricks-list__empty-title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+}
+
+.bricks-list__empty-desc {
+  margin: 0;
+  font-size: 15px;
+  color: #666;
+}
+
 /* === BRICKS Components Page === */
 .bricks-components {
   min-height: calc(100vh - 60px);

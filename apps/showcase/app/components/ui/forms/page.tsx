@@ -2,28 +2,33 @@
 
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useState } from 'react';
-import { getComponentByKey, getVariantLabels, getCodeExamples, getComponentTags } from '../../../config/components';
-
-const component = getComponentByKey('forms')!;
-const variantLabels = getVariantLabels('forms');
-const codeExamples = getCodeExamples('forms');
-const componentTags = getComponentTags('forms');
+import { Suspense, useState, useEffect } from 'react';
+import config from './config';
+import './styles.css';
 
 function FormsContent() {
   const searchParams = useSearchParams();
   const variant = searchParams.get('variant') || 'search';
-  const label = variantLabels[variant] || 'Search Bar';
+  const variantConfig = config.variants.find(v => v.key === variant) || config.variants[0];
   const [copied, setCopied] = useState(false);
+  const [codeExample, setCodeExample] = useState('');
+
+  useEffect(() => {
+    // Load code example from file
+    fetch(`/api/code-example?path=components/ui/forms/examples/${variant}.example.tsx`)
+      .then(res => res.text())
+      .then(setCodeExample)
+      .catch(() => setCodeExample('// Code example not available'));
+  }, [variant]);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(codeExamples[variant] || codeExamples.search);
+    navigator.clipboard.writeText(codeExample);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleOpenNewWindow = () => {
-    window.open(`${component.embedPath}?variant=${variant}`, '_blank', 'noopener,noreferrer');
+    window.open(`/embed/ui/forms?variant=${variant}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -31,17 +36,17 @@ function FormsContent() {
       <div className="bricks-detail__breadcrumb">
         <Link href="/components">Components</Link>
         <span>/</span>
-        <span>{component.name}</span>
+        <span>{config.name}</span>
         <span>/</span>
-        <span>{label}</span>
+        <span>{variantConfig.label}</span>
       </div>
 
       <div className="bricks-detail__layout">
         <div className="bricks-detail__main">
           <div className="bricks-detail__header">
-            <h1 className="bricks-detail__title">{component.name} - {label}</h1>
+            <h1 className="bricks-detail__title">{config.name} - {variantConfig.label}</h1>
             <div className="bricks-detail__actions">
-              <button onClick={handleOpenNewWindow} className="bricks-detail__btn">
+              <button onClick={handleOpenNewWindow} className="btn btn--secondary btn--sm">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <polyline points="15 3 21 3 21 9" />
@@ -49,7 +54,7 @@ function FormsContent() {
                 </svg>
                 Open in New Window
               </button>
-              <button onClick={handleCopy} className="bricks-detail__btn">
+              <button onClick={handleCopy} className="btn btn--secondary btn--sm">
                 {copied ? '✓ Copied' : 'Copy Code'}
               </button>
             </div>
@@ -57,9 +62,9 @@ function FormsContent() {
 
           <div className="bricks-detail__preview">
             <iframe
-              src={`${component.embedPath}?variant=${variant}`}
+              src={`/embed/ui/forms?variant=${variant}`}
               className="bricks-detail__iframe"
-              title={`${component.name} Preview`}
+              title={`${config.name} Preview`}
             />
           </div>
 
@@ -68,7 +73,7 @@ function FormsContent() {
               <span className="bricks-detail__code-tab bricks-detail__code-tab--active">Code</span>
             </div>
             <div className="bricks-detail__code">
-              <pre><code>{codeExamples[variant] || codeExamples.search}</code></pre>
+              <pre><code>{codeExample}</code></pre>
             </div>
           </div>
         </div>
@@ -79,11 +84,11 @@ function FormsContent() {
             <dl className="bricks-detail__info-list">
               <div className="bricks-detail__info-item">
                 <dt>Category</dt>
-                <dd><span className="bricks-detail__badge">{component.name}</span></dd>
+                <dd><span className="bricks-detail__badge">{config.category}</span></dd>
               </div>
               <div className="bricks-detail__info-item">
                 <dt>Variant</dt>
-                <dd>{label}</dd>
+                <dd>{variantConfig.label}</dd>
               </div>
               <div className="bricks-detail__info-item">
                 <dt>Framework</dt>
@@ -95,7 +100,7 @@ function FormsContent() {
           <div className="bricks-detail__info">
             <h3 className="bricks-detail__info-title">Tags</h3>
             <div className="bricks-detail__tags">
-              {componentTags.map((tag) => (
+              {variantConfig.tags.map((tag) => (
                 <span key={tag} className="bricks-detail__tag">{tag}</span>
               ))}
             </div>
@@ -104,9 +109,9 @@ function FormsContent() {
           <div className="bricks-detail__info">
             <h3 className="bricks-detail__info-title">Related</h3>
             <ul className="bricks-detail__related">
-              {Object.entries(variantLabels).filter(([key]) => key !== variant).map(([key, val]) => (
-                <li key={key}>
-                  <Link href={`${component.basePath}?variant=${key}`}>{val}</Link>
+              {config.variants.filter(v => v.key !== variant).map((v) => (
+                <li key={v.key}>
+                  <Link href={`/components/ui/forms?variant=${v.key}`}>{v.label}</Link>
                 </li>
               ))}
             </ul>
@@ -117,7 +122,7 @@ function FormsContent() {
   );
 }
 
-export default function FormsSamplePage() {
+export default function FormsPage() {
   return (
     <Suspense fallback={<div className="bricks-detail__loading">Loading...</div>}>
       <FormsContent />

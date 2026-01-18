@@ -3,7 +3,7 @@ import Link from 'next/link';
 const isProd = process.env.NODE_ENV === "production";
 const STORYBOOK_URL = isProd ? "/private_project_design_system/storybook" : "http://localhost:6006";
 
-export default function ComponentsLayout({
+export default function LayoutsLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -18,8 +18,8 @@ export default function ComponentsLayout({
             <span className="bricks-header__logo-text">BRICKS</span>
           </Link>
           <nav className="bricks-header__nav">
-            <Link href="/layouts" className="bricks-header__link">Layouts</Link>
-            <Link href="/components" className="bricks-header__link bricks-header__link--active">Components</Link>
+            <Link href="/layouts" className="bricks-header__link bricks-header__link--active">Layouts</Link>
+            <Link href="/components" className="bricks-header__link">Components</Link>
             <a href={STORYBOOK_URL} target="_blank" rel="noopener noreferrer" className="bricks-header__link">
               Storybook
             </a>
