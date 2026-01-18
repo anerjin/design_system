@@ -4,17 +4,17 @@
 ======================================== */
 
 /* Base Select */
-.select {display:block; width:100%; padding:0 var(--ds-space-10) 0 var(--ds-space-3); height:40px; font-size:var(--ds-text-base); font-family:var(--ds-font-sans); line-height:1; color:var(--ds-black); background:var(--ds-white); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23393939' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right var(--ds-space-3) center; border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); appearance:none; cursor:pointer; transition:var(--ds-transition-all);}
+.select {display:block; width:100%; padding:0 var(--ds-space-10) 0 var(--ds-space-3); height:var(--ds-height-md); font-size:var(--ds-text-sm); font-family:var(--ds-font-sans); line-height:1; color:var(--ds-black); background:var(--ds-white); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23393939' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right var(--ds-space-3) center; border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); appearance:none; cursor:pointer; transition:var(--ds-transition-all);}
 .select:hover:not(:disabled) {border-color:var(--ds-gray-400);}
 .select:focus {outline:none; border-color:var(--ds-prime); box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
 .select:disabled {background:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed;}
 
-/* Select Sizes */
-.select--xs {height:24px; padding:0 var(--ds-space-8) 0 var(--ds-space-2); font-size:var(--ds-text-xs);}
-.select--sm {height:32px; padding:0 var(--ds-space-9) 0 var(--ds-space-2-5); font-size:var(--ds-text-sm);}
-.select--md {height:40px; padding:0 var(--ds-space-10) 0 var(--ds-space-3); font-size:var(--ds-text-base);}
-.select--lg {height:48px; padding:0 var(--ds-space-11) 0 var(--ds-space-4); font-size:var(--ds-text-lg);}
-.select--xl {height:56px; padding:0 var(--ds-space-12) 0 var(--ds-space-5); font-size:var(--ds-text-xl);}
+/* Select Sizes - height matches input, button, datepicker */
+.select--xs {height:var(--ds-height-xs); padding:0 var(--ds-space-8) 0 var(--ds-space-2); font-size:var(--ds-text-xs);}
+.select--sm {height:var(--ds-height-sm); padding:0 var(--ds-space-9) 0 var(--ds-space-2-5); font-size:var(--ds-text-xs);}
+.select--md {height:var(--ds-height-md); padding:0 var(--ds-space-10) 0 var(--ds-space-3); font-size:var(--ds-text-sm);}
+.select--lg {height:var(--ds-height-lg); padding:0 var(--ds-space-11) 0 var(--ds-space-4); font-size:var(--ds-text-base);}
+.select--xl {height:var(--ds-height-xl); padding:0 var(--ds-space-12) 0 var(--ds-space-5); font-size:var(--ds-text-lg);}
 
 /* Select States */
 .select--success {border-color:var(--ds-color-success);}

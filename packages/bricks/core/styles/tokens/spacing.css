@@ -81,6 +81,14 @@
   --ds-transition-shadow: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --ds-transition-transform: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
   
+  /* === Component Heights === */
+  /* 일관된 폼 컴포넌트 높이 (input, button, select, datepicker) */
+  --ds-height-xs: 1.5rem;    /* 24px */
+  --ds-height-sm: 2rem;      /* 32px */
+  --ds-height-md: 2.5rem;    /* 40px - default */
+  --ds-height-lg: 3rem;      /* 48px */
+  --ds-height-xl: 3.5rem;    /* 56px */
+
   /* === Duration === */
   --ds-duration-75: 75ms;
   --ds-duration-100: 100ms;

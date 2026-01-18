@@ -46,9 +46,7 @@
 .alert--dismissible {padding-right:48px;}
 .alert--dismissible .alert__close {position:absolute; top:12px; right:12px;}
 
-/* Alert with Border Accent */
-.alert--accent-left {border-left-width:4px; padding-left:16px;}
-.alert--accent-top {border-top-width:4px; padding-top:16px;}
+/* Alert with Border Accent - 제거됨 */
 
 /* Alert Sizes */
 .alert--sm {padding:8px 12px; font-size:13px;}

@@ -4,18 +4,18 @@
 ======================================== */
 
 /* Base Input */
-.input {display:block; width:100%; padding:0 var(--ds-space-3); height:40px; font-size:var(--ds-text-base); font-family:var(--ds-font-sans); line-height:1; color:var(--ds-text-primary); background:var(--ds-white); border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); transition:var(--ds-transition-all);}
+.input {display:block; width:100%; padding:0 var(--ds-space-3); height:var(--ds-height-md); font-size:var(--ds-text-sm); font-family:var(--ds-font-sans); line-height:1; color:var(--ds-text-primary); background:var(--ds-white); border:1px solid var(--ds-gray-300); border-radius:var(--ds-radius-md); transition:var(--ds-transition-all);}
 .input:focus {outline:none; border-color:var(--ds-prime); box-shadow:0 0 0 3px var(--ds-prime-alpha-20);}
 .input:disabled {background:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed;}
 .input:readonly {background:var(--ds-gray-50);}
 .input::placeholder {color:var(--ds-gray-400);}
 
-/* Input Sizes */
-.input--xs {height:24px; padding:0 var(--ds-space-2); font-size:var(--ds-text-xs);}
-.input--sm {height:32px; padding:0 var(--ds-space-2-5); font-size:var(--ds-text-sm);}
-.input--md {height:40px; padding:0 var(--ds-space-3); font-size:var(--ds-text-base);}
-.input--lg {height:48px; padding:0 var(--ds-space-4); font-size:var(--ds-text-lg);}
-.input--xl {height:56px; padding:0 var(--ds-space-5); font-size:var(--ds-text-xl);}
+/* Input Sizes - height matches button, select, datepicker */
+.input--xs {height:var(--ds-height-xs); padding:0 var(--ds-space-2); font-size:var(--ds-text-xs);}
+.input--sm {height:var(--ds-height-sm); padding:0 var(--ds-space-2-5); font-size:var(--ds-text-xs);}
+.input--md {height:var(--ds-height-md); padding:0 var(--ds-space-3); font-size:var(--ds-text-sm);}
+.input--lg {height:var(--ds-height-lg); padding:0 var(--ds-space-4); font-size:var(--ds-text-base);}
+.input--xl {height:var(--ds-height-xl); padding:0 var(--ds-space-5); font-size:var(--ds-text-lg);}
 
 /* Input States */
 .input--success {border-color:var(--ds-color-success);}

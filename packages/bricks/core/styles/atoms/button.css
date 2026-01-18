@@ -3,15 +3,15 @@
    Pure Black & White Button System
 ======================================== */
 /* Base Button */
-.btn {display:inline-flex; justify-content:center; align-items:center; position:relative; padding:var(--ds-space-3) var(--ds-space-5); border:var(--ds-border-width-1) solid transparent; border-radius:var(--ds-border-radius-md); font-size:var(--ds-text-sm); font-weight:var(--ds-font-semibold); font-family:var(--ds-font-sans); text-decoration:none; gap:10px; white-space:nowrap; cursor:pointer; transition:all var(--ds-duration-200) ease;user-select:none;letter-spacing:-0.01em;}
+.btn {display:inline-flex; justify-content:center; align-items:center; position:relative; height:var(--ds-height-md); padding:0 var(--ds-space-5); border:var(--ds-border-width-1) solid transparent; border-radius:var(--ds-border-radius-md); font-size:var(--ds-text-sm); font-weight:var(--ds-font-semibold); font-family:var(--ds-font-sans); text-decoration:none; gap:10px; white-space:nowrap; cursor:pointer; transition:all var(--ds-duration-200) ease;user-select:none;letter-spacing:-0.01em;}
 .btn:focus-visible {outline:0; box-shadow:0 0 0 var(--ds-border-width-4) var(--ds-gray-400);}
 .btn:disabled {opacity:0.5; box-shadow:none; cursor:not-allowed;}
-/* Button Sizes */
-.btn--xs {padding:var(--ds-space-1) var(--ds-space-3); border-radius:var(--ds-border-radius-sm); font-size:var(--ds-text-xs);}
-.btn--sm {padding:var(--ds-space-2) var(--ds-space-4); border-radius:var(--ds-border-radius-base); font-size:var(--ds-text-sm);}
-.btn--md {padding:var(--ds-space-3) var(--ds-space-5); border-radius:var(--ds-border-radius-md); font-size:var(--ds-text-base);}
-.btn--lg {padding:var(--ds-space-4) var(--ds-space-6); border-radius:var(--ds-border-radius-lg); font-size:var(--ds-text-lg);}
-.btn--xl {padding:var(--ds-space-5) var(--ds-space-8); border-radius:var(--ds-border-radius-lg); font-size:var(--ds-text-xl);}
+/* Button Sizes - height matches input, select, datepicker */
+.btn--xs {height:var(--ds-height-xs); padding:0 var(--ds-space-3); border-radius:var(--ds-border-radius-sm); font-size:var(--ds-text-xs);}
+.btn--sm {height:var(--ds-height-sm); padding:0 var(--ds-space-4); border-radius:var(--ds-border-radius-base); font-size:var(--ds-text-xs);}
+.btn--md {height:var(--ds-height-md); padding:0 var(--ds-space-5); border-radius:var(--ds-border-radius-md); font-size:var(--ds-text-sm);}
+.btn--lg {height:var(--ds-height-lg); padding:0 var(--ds-space-6); border-radius:var(--ds-border-radius-lg); font-size:var(--ds-text-base);}
+.btn--xl {height:var(--ds-height-xl); padding:0 var(--ds-space-8); border-radius:var(--ds-border-radius-lg); font-size:var(--ds-text-lg);}
 /* Primary Button - Prime Color */
 .btn--primary {border-color:var(--ds-prime); background:var(--ds-prime); box-shadow:var(--ds-shadow-md); color:var(--ds-white);}
 .btn--primary:hover:not(:disabled) {border-color:var(--ds-prime); background:var(--ds-prime); opacity:0.9; box-shadow:var(--ds-shadow-lg);}
