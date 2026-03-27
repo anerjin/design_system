@@ -1,0 +1,89 @@
+/* ========================================
+   BRICK Design System - Typography Tokens
+   Pretendard 폰트 기반 타이포그래피 시스템
+======================================== */
+
+/* Pretendard Font Import */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  /* === Font Families === */
+  --ds-font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ds-font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  
+  /* === Font Sizes === */
+  --ds-text-xs: 0.75rem;     /* 12px */
+  --ds-text-sm: 0.875rem;    /* 14px */
+  --ds-text-base: 1rem;      /* 16px */
+  --ds-text-lg: 1.125rem;    /* 18px */
+  --ds-text-xl: 1.25rem;     /* 20px */
+  --ds-text-2xl: 1.5rem;     /* 24px */
+  --ds-text-3xl: 1.875rem;   /* 30px */
+  --ds-text-4xl: 2.25rem;    /* 36px */
+  --ds-text-5xl: 3rem;       /* 48px */
+  
+  /* === Line Heights === */
+  --ds-leading-none: 1;
+  --ds-leading-tight: 1.25;
+  --ds-leading-snug: 1.375;
+  --ds-leading-normal: 1.5;
+  --ds-leading-relaxed: 1.625;
+  --ds-leading-loose: 2;
+  
+  /* === Font Weights === */
+  --ds-font-light: 300;
+  --ds-font-normal: 400;
+  --ds-font-medium: 500;
+  --ds-font-semibold: 600;
+  --ds-font-bold: 700;
+  --ds-font-extrabold: 800;
+  
+  /* === Letter Spacing === */
+  --ds-tracking-tighter: -0.05em;
+  --ds-tracking-tight: -0.025em;
+  --ds-tracking-normal: 0;
+  --ds-tracking-wide: 0.025em;
+  --ds-tracking-wider: 0.05em;
+  --ds-tracking-widest: 0.1em;
+  
+  /* === Text Styles === */
+  --ds-heading-1-size: var(--ds-text-4xl);
+  --ds-heading-1-weight: var(--ds-font-bold);
+  --ds-heading-1-line: var(--ds-leading-tight);
+  --ds-heading-1-spacing: var(--ds-tracking-tight);
+  
+  --ds-heading-2-size: var(--ds-text-3xl);
+  --ds-heading-2-weight: var(--ds-font-semibold);
+  --ds-heading-2-line: var(--ds-leading-tight);
+  --ds-heading-2-spacing: var(--ds-tracking-tight);
+  
+  --ds-heading-3-size: var(--ds-text-2xl);
+  --ds-heading-3-weight: var(--ds-font-semibold);
+  --ds-heading-3-line: var(--ds-leading-snug);
+  --ds-heading-3-spacing: var(--ds-tracking-normal);
+  
+  --ds-heading-4-size: var(--ds-text-xl);
+  --ds-heading-4-weight: var(--ds-font-semibold);
+  --ds-heading-4-line: var(--ds-leading-snug);
+  --ds-heading-4-spacing: var(--ds-tracking-normal);
+  
+  --ds-heading-5-size: var(--ds-text-lg);
+  --ds-heading-5-weight: var(--ds-font-medium);
+  --ds-heading-5-line: var(--ds-leading-normal);
+  --ds-heading-5-spacing: var(--ds-tracking-normal);
+  
+  --ds-heading-6-size: var(--ds-text-base);
+  --ds-heading-6-weight: var(--ds-font-medium);
+  --ds-heading-6-line: var(--ds-leading-normal);
+  --ds-heading-6-spacing: var(--ds-tracking-normal);
+  
+  --ds-body-size: var(--ds-text-base);
+  --ds-body-weight: var(--ds-font-normal);
+  --ds-body-line: var(--ds-leading-relaxed);
+  --ds-body-spacing: var(--ds-tracking-normal);
+  
+  --ds-small-size: var(--ds-text-sm);
+  --ds-small-weight: var(--ds-font-normal);
+  --ds-small-line: var(--ds-leading-normal);
+  --ds-small-spacing: var(--ds-tracking-normal);
+}

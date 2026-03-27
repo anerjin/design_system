@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <!-- Page Header -->
+        <header class="header">
+            <h1 class="header__title">Dropdown Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 드롭다운 컴포넌트입니다. 사용자가 선택할 수 있는 옵션 목록을 제공하는 다양한 변형과 기능을 지원합니다.
+            </p>
+        </header>
+
+        <!-- Basic Usage Section -->
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Default Dropdown</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="dropdown dropdown--select" id="dropdown-basic">
+                            <button class="dropdown__toggle" type="button">
+                                선택하세요
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">액션 1</a>
+                                <a href="#" class="dropdown__item">액션 2</a>
+                                <a href="#" class="dropdown__item">액션 3</a>
+                                <div class="dropdown__divider"></div>
+                                <a href="#" class="dropdown__item">분리된 링크</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="dropdown" id="dropdown-basic"&gt;
+    &lt;button class="dropdown__toggle" type="button"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="dropdown-basic-menu"&gt;
+        선택하세요
+        &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="dropdown__menu"
+         id="dropdown-basic-menu"
+         role="menu"
+         aria-labelledby="dropdown-basic-toggle"&gt;
+        &lt;a href="#" class="dropdown__item" role="menuitem" tabindex="-1"&gt;액션 1&lt;/a&gt;
+        &lt;a href="#" class="dropdown__item" role="menuitem" tabindex="-1"&gt;액션 2&lt;/a&gt;
+        &lt;div class="dropdown__divider"&gt;&lt;/div&gt;
+        &lt;a href="#" class="dropdown__item" role="menuitem" tabindex="-1"&gt;분리된 링크&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Select Dropdown Section -->
+        <section class="section">
+            <h2 class="section__title">Select Dropdown</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Selectable Values</h3>
+                </div>
+                <div class="card__body">
+                    <p class="mb-3">선택 가능한 드롭다운에서는 선택된 값이 토글 버튼에 표시됩니다.</p>
+                    <div class="example-wrapper">
+                        <div class="dropdown dropdown--select" id="dropdown-select">
+                            <button class="dropdown__toggle" type="button">
+                                옵션을 선택하세요
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">한국어</a>
+                                <a href="#" class="dropdown__item">English</a>
+                                <a href="#" class="dropdown__item">中文</a>
+                                <a href="#" class="dropdown__item">日本語</a>
+                                <a href="#" class="dropdown__item">Español</a>
+                            </div>
+                        </div>
+                        <div class="dropdown dropdown--select" id="dropdown-select2">
+                            <button class="dropdown__toggle" type="button">
+                                정렬 기준
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">최신순</a>
+                                <a href="#" class="dropdown__item">오래된순</a>
+                                <a href="#" class="dropdown__item">이름순</a>
+                                <a href="#" class="dropdown__item">크기순</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;!-- dropdown--select 클래스를 추가하면 선택된 값이 토글 버튼에 표시됩니다 --&gt;
+&lt;div class="dropdown dropdown--select"&gt;
+    &lt;button class="dropdown__toggle" type="button"&gt;
+        옵션을 선택하세요
+        &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="dropdown__menu"&gt;
+        &lt;a href="#" class="dropdown__item"&gt;한국어&lt;/a&gt;
+        &lt;a href="#" class="dropdown__item"&gt;English&lt;/a&gt;
+        &lt;a href="#" class="dropdown__item"&gt;中文&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown Sizes Section -->
+        <section class="section">
+            <h2 class="section__title">Dropdown Sizes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="dropdown dropdown--sm dropdown--select" id="dropdown-sm">
+                                <button class="dropdown__toggle" type="button">
+                                    Small
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--sm</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="dropdown dropdown--select" id="dropdown-md">
+                                <button class="dropdown__toggle" type="button">
+                                    Default
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">Default size</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="dropdown dropdown--lg dropdown--select" id="dropdown-lg">
+                                <button class="dropdown__toggle" type="button">
+                                    Large
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--lg</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown Directions Section -->
+        <section class="section">
+            <h2 class="section__title">Dropdown Directions</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Dropup</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper" style="padding: 60px 0 20px;">
+                            <div class="dropdown dropdown--dropup dropdown--select" id="dropdown-up">
+                                <button class="dropdown__toggle" type="button">
+                                    Dropup
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--dropup</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Dropright</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="dropdown dropdown--dropright dropdown--select" id="dropdown-right">
+                                <button class="dropdown__toggle" type="button">
+                                    Dropright
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown--dropright</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Alignment Section -->
+        <section class="section">
+            <h2 class="section__title">Menu Alignment</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Right Aligned</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper" style="text-align: right;">
+                            <div class="dropdown dropdown--select" id="dropdown-align-right">
+                                <button class="dropdown__toggle" type="button">
+                                    오른쪽 정렬
+                                </button>
+                                <div class="dropdown__menu dropdown__menu--right">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown__menu--right</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Center Aligned</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper" style="text-align: center;">
+                            <div class="dropdown dropdown--select" id="dropdown-align-center">
+                                <button class="dropdown__toggle" type="button">
+                                    중앙 정렬
+                                </button>
+                                <div class="dropdown__menu dropdown__menu--center">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown__menu--center</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown with Icons Section -->
+        <section class="section">
+            <h2 class="section__title">Dropdown with Icons</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Icon Menu Items</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="dropdown dropdown--select" id="dropdown-icon">
+                                <button class="dropdown__toggle" type="button">
+                                    <i class='bx bx-cog' width="16" height="16"></i>
+                                    설정
+                                </button>
+                                <div class="dropdown__menu">
+                                    <div class="dropdown__header">계정 설정</div>
+                                    <a href="#" class="dropdown__item dropdown__item-icon">
+                                        <i class='bx bx-user' width="16" height="16"></i>
+                                        프로필
+                                    </a>
+                                    <a href="#" class="dropdown__item dropdown__item-icon">
+                                        <i class='bx bx-cog' width="16" height="16"></i>
+                                        설정
+                                    </a>
+                                    <div class="dropdown__divider"></div>
+                                    <a href="#" class="dropdown__item dropdown__item-icon">
+                                        <i class='bx bx-log-out' width="16" height="16"></i>
+                                        로그아웃
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <code class="code-inline">.dropdown__item-icon</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;a href="#" class="dropdown__item dropdown__item-icon"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+    프로필
+&lt;/a&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">User Menu</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="dropdown dropdown--select" id="dropdown-complex">
+                                <button class="dropdown__toggle" type="button">
+                                    <i class='bx bx-user' width="16" height="16"></i>
+                                    사용자 메뉴
+                                </button>
+                                <div class="dropdown__menu">
+                                    <div class="dropdown__header">계정</div>
+                                    <a href="#" class="dropdown__item dropdown__item-icon">
+                                        <i class='bx bx-user' width="16" height="16"></i>
+                                        프로필
+                                    </a>
+                                    <a href="#" class="dropdown__item dropdown__item-icon">
+                                        <i class='bx bx-home' width="16" height="16"></i>
+                                        대시보드
+                                    </a>
+                                    <a href="#" class="dropdown__item dropdown__item-icon">
+                                        <i class='bx bx-bell' width="16" height="16"></i>
+                                        알림
+                                    </a>
+                                    <div class="dropdown__divider"></div>
+                                    <div class="dropdown__header">도움말</div>
+                                    <a href="#" class="dropdown__item">문서</a>
+                                    <a href="#" class="dropdown__item">지원</a>
+                                    <a href="#" class="dropdown__item dropdown__item--disabled">API (곧 출시)</a>
+                                    <div class="dropdown__divider"></div>
+                                    <a href="#" class="dropdown__item dropdown__item-icon">
+                                        <i class='bx bx-log-out' width="16" height="16"></i>
+                                        로그아웃
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown States Section -->
+        <section class="section">
+            <h2 class="section__title">Dropdown States</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Active & Disabled Items</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="dropdown dropdown--select" id="dropdown-states">
+                            <button class="dropdown__toggle" type="button">
+                                Mixed States
+                            </button>
+                            <div class="dropdown__menu">
+                                <a href="#" class="dropdown__item">Normal Item</a>
+                                <a href="#" class="dropdown__item dropdown__item--active">Active Item</a>
+                                <a href="#" class="dropdown__item dropdown__item--disabled">Disabled Item</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <code class="code-inline">.dropdown__item--active</code>
+                        <code class="code-inline">.dropdown__item--disabled</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fixed Position Dropdown Section -->
+        <section class="section">
+            <h2 class="section__title">Fixed Position Dropdown</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Overflow Container Example</h3>
+                </div>
+                <div class="card__body">
+                    <p class="mb-3">overflow:hidden 컨테이너 안에서도 드롭다운이 올바르게 표시됩니다.</p>
+                    <div class="example-wrapper">
+                        <div class="overflow-container">
+                            <p>이 컨테이너는 overflow:hidden이 적용되어 있습니다.</p>
+                            <div class="dropdown dropdown--fixed dropdown--select" id="dropdown-fixed">
+                                <button class="dropdown__toggle" type="button">
+                                    Fixed Position
+                                </button>
+                                <div class="dropdown__menu">
+                                    <a href="#" class="dropdown__item">옵션 1</a>
+                                    <a href="#" class="dropdown__item">옵션 2</a>
+                                    <a href="#" class="dropdown__item">옵션 3</a>
+                                    <a href="#" class="dropdown__item">옵션 4</a>
+                                    <a href="#" class="dropdown__item">옵션 5</a>
+                                </div>
+                            </div>
+                            <p style="margin-top: 20px;">아래 공간이 부족해도 드롭다운이 잘 표시됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <code class="code-inline">.dropdown--fixed</code>
+                        <p class="text-muted mt-2">드롭다운 메뉴를 body에 append하여 overflow 제약을 벗어납니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section mb40">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <h3>Dropdown Classes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.dropdown</code></td>
+                                <td>Base dropdown container</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__toggle</code></td>
+                                <td>Dropdown trigger button</td>
+                                <td>Button element</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__menu</code></td>
+                                <td>Dropdown menu container</td>
+                                <td>Menu content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__item</code></td>
+                                <td>Menu item</td>
+                                <td>Link or button</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__divider</code></td>
+                                <td>Menu divider line</td>
+                                <td>Separator</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__header</code></td>
+                                <td>Menu section header</td>
+                                <td>Text content</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--{size}</code></td>
+                                <td>Dropdown size</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--{direction}</code></td>
+                                <td>Menu direction</td>
+                                <td>dropup, dropright</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--select</code></td>
+                                <td>Select mode</td>
+                                <td>Updates button text</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--fixed</code></td>
+                                <td>Fixed position mode</td>
+                                <td>Escapes overflow</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown--open</code></td>
+                                <td>Open state (JS)</td>
+                                <td>Shows menu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Menu Classes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.dropdown__menu--{align}</code></td>
+                                <td>Menu alignment</td>
+                                <td>right, center</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__item--{state}</code></td>
+                                <td>Item state</td>
+                                <td>active, disabled</td>
+                            </tr>
+                            <tr>
+                                <td><code>.dropdown__item-icon</code></td>
+                                <td>Item with icon</td>
+                                <td>Icon + text layout</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>Keyboard Navigation</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>키</th>
+                                <th>동작</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Enter</kbd> / <kbd>Space</kbd></td>
+                                <td>토글 버튼에서</td>
+                                <td>드롭다운 메뉴를 열거나 닫습니다</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>ArrowDown</kbd></td>
+                                <td>토글 버튼에서</td>
+                                <td>드롭다운을 열고 첫 번째 아이템으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>ArrowDown</kbd></td>
+                                <td>메뉴 아이템에서</td>
+                                <td>다음 아이템으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>ArrowUp</kbd></td>
+                                <td>메뉴 아이템에서</td>
+                                <td>이전 아이템으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Home</kbd></td>
+                                <td>메뉴 아이템에서</td>
+                                <td>첫 번째 아이템으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>End</kbd></td>
+                                <td>메뉴 아이템에서</td>
+                                <td>마지막 아이템으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Enter</kbd> / <kbd>Space</kbd></td>
+                                <td>메뉴 아이템에서</td>
+                                <td>아이템 선택 및 드롭다운 닫기</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Escape</kbd></td>
+                                <td>언제든지</td>
+                                <td>드롭다운을 닫고 토글 버튼으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>메뉴 아이템에서</td>
+                                <td>드롭다운을 닫고 다음 요소로 포커스 이동</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>ARIA Attributes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>속성</th>
+                                <th>요소</th>
+                                <th>설명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>aria-expanded</code></td>
+                                <td>토글 버튼</td>
+                                <td>드롭다운 메뉴의 열림/닫힘 상태 표시</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-haspopup</code></td>
+                                <td>토글 버튼</td>
+                                <td>팝업 메뉴가 있음을 표시</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-controls</code></td>
+                                <td>토글 버튼</td>
+                                <td>제어하는 메뉴 요소의 ID 참조</td>
+                            </tr>
+                            <tr>
+                                <td><code>role="menu"</code></td>
+                                <td>드롭다운 메뉴</td>
+                                <td>메뉴 역할 정의</td>
+                            </tr>
+                            <tr>
+                                <td><code>role="menuitem"</code></td>
+                                <td>메뉴 아이템</td>
+                                <td>메뉴 항목 역할 정의</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-labelledby</code></td>
+                                <td>드롭다운 메뉴</td>
+                                <td>메뉴를 설명하는 토글 버튼 ID 참조</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-selected</code></td>
+                                <td>메뉴 아이템</td>
+                                <td>선택된 아이템 표시</td>
+                            </tr>
+                            <tr>
+                                <td><code>aria-disabled</code></td>
+                                <td>메뉴 아이템</td>
+                                <td>비활성화된 아이템 표시</td>
+                            </tr>
+                            <tr>
+                                <td><code>tabindex</code></td>
+                                <td>메뉴 아이템</td>
+                                <td>키보드 포커스 관리 (-1: 프로그램적으로만, 0: 포커스 가능)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>명확한 라벨 사용</li>
+                                <li>논리적인 항목 순서 유지</li>
+                                <li>적절한 아이콘으로 시각적 단서 제공</li>
+                                <li>키보드 탐색 지원</li>
+                                <li>선택된 항목 명확히 표시</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>너무 많은 옵션 제공 금지 (7±2 규칙)</li>
+                                <li>중첩된 드롭다운 과도 사용 금지</li>
+                                <li>모바일에서 작은 타겟 영역 금지</li>
+                                <li>자동으로 닫히는 타이밍 너무 빠르게 설정 금지</li>
+                                <li>중요한 액션만 드롭다운에 숨기기 금지</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

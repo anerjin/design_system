@@ -4,16 +4,12 @@
   "private": true,
   "description": "BRICKS Design System Monorepo",
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "packages/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=apps/showcase",
-    "build": "npm run build --workspace=apps/showcase",
     "build:bricks": "npm run build --workspace=packages/bricks",
     "storybook": "npm run storybook --workspace=packages/bricks",
-    "build-storybook": "npm run build-storybook --workspace=packages/bricks",
-    "build:all": "npm run build --workspace=apps/showcase && npm run build-storybook --workspace=packages/bricks -- -o ../../apps/showcase/out/storybook"
+    "build-storybook": "npm run build-storybook --workspace=packages/bricks"
   },
   "repository": {
     "type": "git",

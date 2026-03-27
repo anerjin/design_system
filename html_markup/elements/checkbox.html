@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <!-- Page Header -->
+        <header class="header">
+            <h1 class="header__title">Checkbox Components</h1>
+            <p class="header__description">
+                BRICKS Design System의 체크박스 컴포넌트입니다. 다중 선택을 위한 다양한 변형과 크기를 지원하며 접근성을 고려하여 설계되었습니다.
+            </p>
+        </header>
+
+        <!-- Basic Usage -->
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Default Checkbox</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <label class="checkbox">
+                            <input type="checkbox" class="checkbox__input">
+                            <span class="checkbox__box">
+                                <span class="checkbox__checkmark"></span>
+                            </span>
+                            <span class="checkbox__label">Default checkbox</span>
+                        </label>
+                    </div>
+
+                    <!-- Code Example -->
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;label class="checkbox"&gt;
+  &lt;input type="checkbox" class="checkbox__input"&gt;
+  &lt;span class="checkbox__box"&gt;
+    &lt;span class="checkbox__checkmark"&gt;&lt;/span&gt;
+  &lt;/span&gt;
+  &lt;span class="checkbox__label"&gt;Default checkbox&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkbox Sizes -->
+        <section class="section">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Checkbox Sizes</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper" style="display: flex; flex-direction: column; gap: 16px;">
+                        <label class="checkbox checkbox--xs">
+                            <input type="checkbox" class="checkbox__input" checked>
+                            <span class="checkbox__box">
+                                <span class="checkbox__checkmark"></span>
+                            </span>
+                            <span class="checkbox__label">Extra Small</span>
+                        </label>
+
+                        <label class="checkbox checkbox--sm">
+                            <input type="checkbox" class="checkbox__input" checked>
+                            <span class="checkbox__box">
+                                <span class="checkbox__checkmark"></span>
+                            </span>
+                            <span class="checkbox__label">Small</span>
+                        </label>
+
+                        <label class="checkbox">
+                            <input type="checkbox" class="checkbox__input" checked>
+                            <span class="checkbox__box">
+                                <span class="checkbox__checkmark"></span>
+                            </span>
+                            <span class="checkbox__label">Default Size</span>
+                        </label>
+
+                        <label class="checkbox checkbox--lg">
+                            <input type="checkbox" class="checkbox__input" checked>
+                            <span class="checkbox__box">
+                                <span class="checkbox__checkmark"></span>
+                            </span>
+                            <span class="checkbox__label">Large</span>
+                        </label>
+
+                        <label class="checkbox checkbox--xl">
+                            <input type="checkbox" class="checkbox__input" checked>
+                            <span class="checkbox__box">
+                                <span class="checkbox__checkmark"></span>
+                            </span>
+                            <span class="checkbox__label">Extra Large</span>
+                        </label>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;label class="checkbox checkbox--xs"&gt;...&lt;/label&gt;
+&lt;label class="checkbox checkbox--sm"&gt;...&lt;/label&gt;
+&lt;label class="checkbox"&gt;...&lt;/label&gt;
+&lt;label class="checkbox checkbox--lg"&gt;...&lt;/label&gt;
+&lt;label class="checkbox checkbox--xl"&gt;...&lt;/label&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkbox States -->
+        <section class="section">
+            <h2 class="section__title">States</h2>
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Interactive States</h3>
+                </div>
+                <div class="card__body">
+                    <div class="demo-states">
+                        <div class="state-example">
+                            <h4>Unchecked</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input">
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="state-example">
+                            <h4>Checked</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="state-example">
+                            <h4>Indeterminate</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" id="indeterminate-checkbox" aria-checked="mixed">
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="state-example">
+                            <h4>Focus</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box" style="box-shadow: 0 0 0 3px var(--ds-prime-alpha-20);">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="state-example">
+                            <h4>Disabled</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" disabled>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="state-example">
+                            <h4>Disabled Checked</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" checked disabled>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkbox Variants -->
+        <section class="section">
+            <h2 class="section__title">Variations</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary (Default)</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">Default Black</span>
+                            </label>
+                        </div>
+                        <code class="code-inline">Default</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <label class="checkbox checkbox--success">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">Success Green</span>
+                            </label>
+                        </div>
+                        <code class="code-inline">.checkbox--success</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Warning</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <label class="checkbox checkbox--warning">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">Warning Orange</span>
+                            </label>
+                        </div>
+                        <code class="code-inline">.checkbox--warning</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <label class="checkbox checkbox--danger">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">Danger Red</span>
+                            </label>
+                        </div>
+                        <code class="code-inline">.checkbox--danger</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Info</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <label class="checkbox checkbox--info">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">Info Blue</span>
+                            </label>
+                        </div>
+                        <code class="code-inline">.checkbox--info</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <label class="checkbox checkbox--dark">
+                                <input type="checkbox" class="checkbox__input" checked>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">Dark Gray</span>
+                            </label>
+                        </div>
+                        <code class="code-inline">.checkbox--dark</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkbox Groups -->
+        <section class="section">
+            <h2 class="section__title">Checkbox Groups</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Vertical Group</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <fieldset class="fieldset-custom">
+                                <legend>Select your interests:</legend>
+                                <div class="checkbox-group">
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox__input" name="interests" value="design">
+                                        <span class="checkbox__box">
+                                            <span class="checkbox__checkmark"></span>
+                                        </span>
+                                        <span class="checkbox__label">Design</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox__input" name="interests" value="development" checked>
+                                        <span class="checkbox__box">
+                                            <span class="checkbox__checkmark"></span>
+                                        </span>
+                                        <span class="checkbox__label">Development</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox__input" name="interests" value="marketing">
+                                        <span class="checkbox__box">
+                                            <span class="checkbox__checkmark"></span>
+                                        </span>
+                                        <span class="checkbox__label">Marketing</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <code class="code-inline">.checkbox-group</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Inline Group</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <fieldset class="fieldset-custom">
+                                <legend>Select languages:</legend>
+                                <div class="checkbox-group checkbox-group--inline">
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox__input" name="languages" value="js" checked>
+                                        <span class="checkbox__box">
+                                            <span class="checkbox__checkmark"></span>
+                                        </span>
+                                        <span class="checkbox__label">JavaScript</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox__input" name="languages" value="py" checked>
+                                        <span class="checkbox__box">
+                                            <span class="checkbox__checkmark"></span>
+                                        </span>
+                                        <span class="checkbox__label">Python</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" class="checkbox__input" name="languages" value="java">
+                                        <span class="checkbox__box">
+                                            <span class="checkbox__checkmark"></span>
+                                        </span>
+                                        <span class="checkbox__label">Java</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <code class="code-inline">.checkbox-group--inline</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features -->
+        <section class="section">
+            <h2 class="section__title">Special Features</h2>
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Select All Pattern</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <fieldset class="checkbox-group" data-required style="border: 1px solid var(--ds-gray-200); padding: 16px; border-radius: 8px;">
+                            <legend style="font-weight: bold;">알림 설정</legend>
+
+                            <label class="checkbox" style="font-weight: bold; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 2px solid var(--ds-gray-200);">
+                                <input type="checkbox" class="checkbox__input" data-checkbox-select-all>
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">모든 알림 받기</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" name="notifications" value="email">
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">이메일 알림</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" name="notifications" value="sms">
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">SMS 알림</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox__input" name="notifications" value="push">
+                                <span class="checkbox__box">
+                                    <span class="checkbox__checkmark"></span>
+                                </span>
+                                <span class="checkbox__label">푸시 알림</span>
+                            </label>
+                        </fieldset>
+                    </div>
+
+                    <p class="text-muted mt20">Select All 체크박스는 자동으로 indeterminate 상태를 관리합니다.</p>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;fieldset class="checkbox-group" data-required&gt;
+  &lt;legend&gt;알림 설정&lt;/legend&gt;
+
+  &lt;!-- Select All --&gt;
+  &lt;label class="checkbox"&gt;
+    &lt;input type="checkbox" class="checkbox__input" data-checkbox-select-all&gt;
+    &lt;span class="checkbox__box"&gt;
+      &lt;span class="checkbox__checkmark"&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span class="checkbox__label"&gt;모든 알림 받기&lt;/span&gt;
+  &lt;/label&gt;
+
+  &lt;!-- Individual Options --&gt;
+  &lt;label class="checkbox"&gt;
+    &lt;input type="checkbox" class="checkbox__input" name="notifications" value="email"&gt;
+    &lt;span class="checkbox__box"&gt;
+      &lt;span class="checkbox__checkmark"&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span class="checkbox__label"&gt;이메일 알림&lt;/span&gt;
+  &lt;/label&gt;
+
+  &lt;!-- More options... --&gt;
+&lt;/fieldset&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>ARIA Attributes</h3>
+                    <p>체크박스 컴포넌트는 다음과 같은 접근성 기능을 제공합니다:</p>
+                    <ul>
+                        <li><strong>Native 시맨틱</strong> - <code>&lt;input type="checkbox"&gt;</code>는 이미 체크박스 역할을 가짐</li>
+                        <li><code>aria-checked="mixed"</code> - Indeterminate 상태에서만 사용</li>
+                        <li><strong>암묵적 라벨 연결</strong> - <code>&lt;label&gt;</code>로 감싸진 구조로 자동 연결</li>
+                        <li><code>aria-describedby</code> - 추가 설명 텍스트 연결 (필요시)</li>
+                        <li><code>aria-required</code> - 필수 선택 그룹 표시</li>
+                        <li><code>aria-invalid</code> - 유효성 검사 상태 표시</li>
+                    </ul>
+
+                    <h3>Keyboard Support</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>체크박스 간 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Space</kbd></td>
+                                <td>체크박스 선택/해제 토글</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Indeterminate State</h3>
+                    <p>체크박스는 세 가지 상태를 지원합니다:</p>
+                    <ul>
+                        <li><strong>Unchecked</strong> - 빈 박스 표시 (기본값)</li>
+                        <li><strong>Checked</strong> - 체크 마크(✓) 표시</li>
+                        <li><strong>Indeterminate</strong> - 작은 사각형(■) 표시 (부분 선택)</li>
+                    </ul>
+                    <p><strong>사용 케이스:</strong> Indeterminate 상태는 주로 Select All 체크박스에서 하위 항목이 부분적으로만 선택되었을 때 사용됩니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.checkbox</code></td>
+                                <td>Base checkbox wrapper</td>
+                                <td>All checkboxes</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox--{size}</code></td>
+                                <td>Checkbox size</td>
+                                <td>xs, sm, lg, xl</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox--success</code></td>
+                                <td>Success variant</td>
+                                <td>Positive actions</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox--warning</code></td>
+                                <td>Warning variant</td>
+                                <td>Caution states</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox--danger</code></td>
+                                <td>Danger variant</td>
+                                <td>Destructive actions</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox--info</code></td>
+                                <td>Info variant</td>
+                                <td>Informational</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox--dark</code></td>
+                                <td>Dark variant</td>
+                                <td>Dark theme</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox-group</code></td>
+                                <td>Vertical group</td>
+                                <td>Related options</td>
+                            </tr>
+                            <tr>
+                                <td><code>.checkbox-group--inline</code></td>
+                                <td>Horizontal group</td>
+                                <td>Inline options</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>JavaScript Methods</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Parameters</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>setChecked()</code></td>
+                                <td>selector, value</td>
+                                <td>체크박스 선택/해제</td>
+                            </tr>
+                            <tr>
+                                <td><code>setIndeterminate()</code></td>
+                                <td>selector, value</td>
+                                <td>Indeterminate 상태 설정</td>
+                            </tr>
+                            <tr>
+                                <td><code>getCheckedValues()</code></td>
+                                <td>groupSelector</td>
+                                <td>선택된 값들 반환</td>
+                            </tr>
+                            <tr>
+                                <td><code>setCheckedValues()</code></td>
+                                <td>groupSelector, values</td>
+                                <td>값으로 체크박스 설정</td>
+                            </tr>
+                            <tr>
+                                <td><code>setAllChecked()</code></td>
+                                <td>groupSelector, value</td>
+                                <td>모든 체크박스 선택/해제</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Events</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Description</th>
+                                <th>Event Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>selectAllChange</code></td>
+                                <td>Select All 상태 변경</td>
+                                <td><code>{ checked, indeterminate }</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>requiredGroupValidate</code></td>
+                                <td>필수 그룹 검증</td>
+                                <td><code>{ valid }</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>indeterminateChange</code></td>
+                                <td>Indeterminate 변경</td>
+                                <td><code>{ indeterminate }</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>Native HTML 요소 우선 사용</li>
+                                <li>모든 체크박스에 명확한 레이블 제공</li>
+                                <li>관련 옵션은 fieldset으로 그룹화</li>
+                                <li>Select All 패턴에 indeterminate 상태 활용</li>
+                                <li>키보드 접근성 보장 (Tab, Space)</li>
+                                <li>충분한 터치 영역 확보 (최소 44x44px)</li>
+                                <li>선택 가능한 항목 수 제한 (7±2 규칙)</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>중복 ARIA 속성 사용</li>
+                                <li>레이블 없는 체크박스 배치</li>
+                                <li>색상만으로 상태 표시</li>
+                                <li>너무 작은 클릭 영역 설정</li>
+                                <li>체크박스를 라디오 버튼처럼 사용</li>
+                                <li>중요한 설정을 기본 체크 상태로</li>
+                                <li>긴 레이블 텍스트 사용</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+    // 페이지 스크립트 - Indeterminate 데모 설정
+    document.addEventListener('DOMContentLoaded', function() {
+        const indeterminateCheckbox = document.getElementById('indeterminate-checkbox');
+        if (indeterminateCheckbox) {
+            indeterminateCheckbox.indeterminate = true;
+        }
+    });
+    </script>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

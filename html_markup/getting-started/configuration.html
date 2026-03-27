@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <div class="vp-doc-header">
+            <h1 class="vp-doc-title">Configuration</h1>
+            <p class="vp-doc-description">
+                Customize BRICKS to perfectly match your brand identity. Every aspect of the design system can be configured through CSS variables.
+            </p>
+        </div>
+
+        <!-- Overview -->
+        <div class="vp-custom-block tip">
+            <div class="vp-custom-block-title">🎨 Complete Control</div>
+            <p>BRICKS uses CSS custom properties (variables) for all design tokens, making it easy to customize colors, typography, spacing, and more without modifying the source code.</p>
+        </div>
+
+        <!-- Quick Start -->
+        <h2 id="quick-customization">Quick Customization</h2>
+        <p>Create a custom theme in minutes by overriding CSS variables:</p>
+
+        <pre><code class="language-css">/* custom-theme.css */
+:root {
+  /* Brand Colors */
+  --ds-brand-primary: #5b21b6;    /* Your primary brand color */
+  --ds-brand-secondary: #ec4899;   /* Your secondary brand color */
+
+  /* Typography */
+  --ds-font-sans: 'Inter', system-ui, sans-serif;
+  --ds-font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing & Sizing */
+  --ds-radius-base: 12px;          /* Border radius */
+  --ds-spacing-unit: 4px;          /* Base spacing unit */
+}</code></pre>
+
+        <!-- Theme Configuration -->
+        <h2 id="theme-configuration">Theme Configuration</h2>
+
+        <div class="config-section">
+            <h3>Color System</h3>
+            <p>BRICKS provides a comprehensive color system with semantic naming:</p>
+
+            <div class="color-config">
+                <div class="config-card">
+                    <h4>Brand Colors</h4>
+                    <pre><code class="language-css">:root {
+  /* Primary Brand Colors */
+  --ds-brand-primary: #624bff;
+  --ds-brand-primary-hover: #5438ff;
+  --ds-brand-primary-active: #4525ff;
+
+  /* Secondary Brand Colors */
+  --ds-brand-secondary: #ff6b6b;
+  --ds-brand-secondary-hover: #ff5252;
+  --ds-brand-secondary-active: #ff3838;
+}</code></pre>
+                </div>
+
+                <div class="config-card">
+                    <h4>Semantic Colors</h4>
+                    <pre><code class="language-css">:root {
+  /* Status Colors */
+  --ds-color-success: #10b981;
+  --ds-color-warning: #f59e0b;
+  --ds-color-danger: #ef4444;
+  --ds-color-info: #3b82f6;
+
+  /* Text Colors */
+  --ds-text-primary: var(--ds-gray-900);
+  --ds-text-secondary: var(--ds-gray-600);
+  --ds-text-muted: var(--ds-gray-400);
+}</code></pre>
+                </div>
+
+                <div class="config-card">
+                    <h4>Gray Scale</h4>
+                    <pre><code class="language-css">:root {
+  /* Complete gray palette */
+  --ds-gray-50: #fafafa;
+  --ds-gray-100: #f4f4f5;
+  --ds-gray-200: #e4e4e7;
+  --ds-gray-300: #d4d4d8;
+  --ds-gray-400: #a1a1aa;
+  --ds-gray-500: #71717a;
+  --ds-gray-600: #52525b;
+  --ds-gray-700: #3f3f46;
+  --ds-gray-800: #27272a;
+  --ds-gray-900: #18181b;
+  --ds-gray-950: #09090b;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typography Configuration -->
+        <h2 id="typography">Typography Configuration</h2>
+
+        <div class="config-section">
+            <div class="config-grid">
+                <div class="config-card">
+                    <h4>Font Families</h4>
+                    <pre><code class="language-css">:root {
+  /* System Fonts */
+  --ds-font-sans: 'Pretendard', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ds-font-mono: 'Fira Code', 'Courier New',
+    monospace;
+
+  /* Heading Font (optional) */
+  --ds-font-heading: var(--ds-font-sans);
+}</code></pre>
+                </div>
+
+                <div class="config-card">
+                    <h4>Font Sizes</h4>
+                    <pre><code class="language-css">:root {
+  /* Type Scale */
+  --ds-text-xs: 0.75rem;     /* 12px */
+  --ds-text-sm: 0.875rem;    /* 14px */
+  --ds-text-base: 1rem;      /* 16px */
+  --ds-text-lg: 1.125rem;    /* 18px */
+  --ds-text-xl: 1.25rem;     /* 20px */
+  --ds-text-2xl: 1.5rem;     /* 24px */
+  --ds-text-3xl: 1.875rem;   /* 30px */
+  --ds-text-4xl: 2.25rem;    /* 36px */
+  --ds-text-5xl: 3rem;       /* 48px */
+}</code></pre>
+                </div>
+
+                <div class="config-card">
+                    <h4>Font Weights</h4>
+                    <pre><code class="language-css">:root {
+  /* Weight Scale */
+  --ds-font-light: 300;
+  --ds-font-normal: 400;
+  --ds-font-medium: 500;
+  --ds-font-semibold: 600;
+  --ds-font-bold: 700;
+  --ds-font-extrabold: 800;
+}</code></pre>
+                </div>
+
+                <div class="config-card">
+                    <h4>Line Heights</h4>
+                    <pre><code class="language-css">:root {
+  /* Line Height Scale */
+  --ds-leading-none: 1;
+  --ds-leading-tight: 1.25;
+  --ds-leading-snug: 1.375;
+  --ds-leading-normal: 1.5;
+  --ds-leading-relaxed: 1.625;
+  --ds-leading-loose: 2;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spacing System -->
+        <h2 id="spacing">Spacing System</h2>
+        <p>BRICKS uses a consistent 4px-based spacing system:</p>
+
+        <pre><code class="language-css">:root {
+  /* Base unit */
+  --ds-spacing-unit: 4px;
+
+  /* Spacing Scale */
+  --ds-space-0: 0;                           /* 0px */
+  --ds-space-1: calc(var(--ds-spacing-unit) * 1);   /* 4px */
+  --ds-space-2: calc(var(--ds-spacing-unit) * 2);   /* 8px */
+  --ds-space-3: calc(var(--ds-spacing-unit) * 3);   /* 12px */
+  --ds-space-4: calc(var(--ds-spacing-unit) * 4);   /* 16px */
+  --ds-space-5: calc(var(--ds-spacing-unit) * 5);   /* 20px */
+  --ds-space-6: calc(var(--ds-spacing-unit) * 6);   /* 24px */
+  --ds-space-8: calc(var(--ds-spacing-unit) * 8);   /* 32px */
+  --ds-space-10: calc(var(--ds-spacing-unit) * 10); /* 40px */
+  --ds-space-12: calc(var(--ds-spacing-unit) * 12); /* 48px */
+  --ds-space-16: calc(var(--ds-spacing-unit) * 16); /* 64px */
+  --ds-space-20: calc(var(--ds-spacing-unit) * 20); /* 80px */
+  --ds-space-24: calc(var(--ds-spacing-unit) * 24); /* 96px */
+}</code></pre>
+
+        <!-- Dark Mode -->
+        <h2 id="dark-mode">Dark Mode Configuration</h2>
+
+        <div class="dark-mode-section">
+            <h3>Automatic Dark Mode</h3>
+            <p>BRICKS automatically detects system preferences:</p>
+
+            <pre><code class="language-css">/* Automatic dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background Colors */
+    --ds-bg-primary: var(--ds-gray-950);
+    --ds-bg-secondary: var(--ds-gray-900);
+    --ds-bg-tertiary: var(--ds-gray-800);
+
+    /* Text Colors */
+    --ds-text-primary: var(--ds-gray-50);
+    --ds-text-secondary: var(--ds-gray-300);
+
+    /* Border Colors */
+    --ds-border: var(--ds-gray-800);
+    --ds-border-hover: var(--ds-gray-700);
+  }
+}</code></pre>
+
+            <h3>Manual Dark Mode Toggle</h3>
+            <p>Control dark mode with JavaScript:</p>
+
+            <div class="vp-tabs">
+                <div class="vp-tabs-nav">
+                    <button type="button" class="vp-tab active" data-tab="toggle">Toggle</button>
+                    <button type="button" class="vp-tab" data-tab="persist">With Persistence</button>
+                    <button type="button" class="vp-tab" data-tab="auto">Auto + Manual</button>
+                </div>
+                <div class="vp-tabs-content">
+                    <div class="vp-tab-panel active" id="toggle">
+                        <pre><code class="language-javascript">// Simple toggle
+function toggleDarkMode() {
+  document.documentElement.setAttribute(
+    'data-theme',
+    document.documentElement.getAttribute('data-theme') === 'dark'
+      ? 'light'
+      : 'dark'
+  );
+}</code></pre>
+                    </div>
+                    <div class="vp-tab-panel" id="persist">
+                        <pre><code class="language-javascript">// Toggle with localStorage persistence
+function toggleDarkMode() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+}
+
+// Load saved preference on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+});</code></pre>
+                    </div>
+                    <div class="vp-tab-panel" id="auto">
+                        <pre><code class="language-javascript">// Respect system preference with manual override
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme) {
+    // User has manually selected a theme
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  } else {
+    // Use system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  }
+}
+
+// Listen for system preference changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+  }
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Component Customization -->
+        <h2 id="components">Component Customization</h2>
+
+        <div class="component-config">
+            <h3>Button Configuration</h3>
+            <pre><code class="language-css">:root {
+  /* Button Sizing */
+  --btn-height-sm: 32px;
+  --btn-height-base: 40px;
+  --btn-height-lg: 48px;
+
+  /* Button Padding */
+  --btn-padding-x-sm: 12px;
+  --btn-padding-x-base: 20px;
+  --btn-padding-x-lg: 28px;
+
+  /* Button Typography */
+  --btn-font-size-sm: var(--ds-text-sm);
+  --btn-font-size-base: var(--ds-text-base);
+  --btn-font-size-lg: var(--ds-text-lg);
+  --btn-font-weight: var(--ds-font-medium);
+
+  /* Button Borders */
+  --btn-border-width: 1px;
+  --btn-border-radius: var(--ds-radius-base);
+
+  /* Button Transitions */
+  --btn-transition: all 0.2s ease;
+}</code></pre>
+
+            <h3>Form Controls</h3>
+            <pre><code class="language-css">:root {
+  /* Input Configuration */
+  --input-height: 40px;
+  --input-padding-x: 12px;
+  --input-border-width: 1px;
+  --input-border-color: var(--ds-gray-300);
+  --input-border-radius: var(--ds-radius-base);
+  --input-bg: var(--ds-white);
+  --input-text: var(--ds-gray-900);
+  --input-placeholder: var(--ds-gray-400);
+
+  /* Focus State */
+  --input-focus-border: var(--ds-brand-primary);
+  --input-focus-shadow: 0 0 0 3px rgb(99 102 241 / 0.1);
+}</code></pre>
+
+            <h3>Card Configuration</h3>
+            <pre><code class="language-css">:root {
+  /* Card Styles */
+  --card-bg: var(--ds-white);
+  --card-border: 1px solid var(--ds-gray-200);
+  --card-radius: var(--ds-radius-lg);
+  --card-padding: var(--ds-space-6);
+  --card-shadow: var(--ds-shadow-sm);
+
+  /* Card Hover */
+  --card-hover-shadow: var(--ds-shadow-md);
+  --card-hover-transform: translateY(-2px);
+}</code></pre>
+        </div>
+
+        <!-- Border Radius -->
+        <h2 id="borders">Borders & Radius</h2>
+
+        <pre><code class="language-css">:root {
+  /* Border Radius Scale */
+  --ds-radius-none: 0;
+  --ds-radius-sm: 4px;
+  --ds-radius-base: 8px;
+  --ds-radius-md: 12px;
+  --ds-radius-lg: 16px;
+  --ds-radius-xl: 24px;
+  --ds-radius-2xl: 32px;
+  --ds-radius-full: 9999px;
+
+  /* Border Widths */
+  --ds-border-none: 0;
+  --ds-border-1: 1px;
+  --ds-border-2: 2px;
+  --ds-border-4: 4px;
+}</code></pre>
+
+        <!-- Shadows -->
+        <h2 id="shadows">Shadow System</h2>
+
+        <pre><code class="language-css">:root {
+  /* Shadow Scale */
+  --ds-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ds-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                  0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --ds-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+                  0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ds-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+                  0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --ds-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+                  0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --ds-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --ds-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+}</code></pre>
+
+        <!-- Animation -->
+        <h2 id="animation">Animation & Transitions</h2>
+
+        <pre><code class="language-css">:root {
+  /* Transition Durations */
+  --ds-duration-instant: 50ms;
+  --ds-duration-fast: 150ms;
+  --ds-duration-base: 250ms;
+  --ds-duration-slow: 350ms;
+  --ds-duration-slower: 500ms;
+
+  /* Easing Functions */
+  --ds-ease-linear: linear;
+  --ds-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ds-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ds-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Common Transitions */
+  --ds-transition-colors: color var(--ds-duration-fast) var(--ds-ease-in-out),
+                          background-color var(--ds-duration-fast) var(--ds-ease-in-out),
+                          border-color var(--ds-duration-fast) var(--ds-ease-in-out);
+  --ds-transition-transform: transform var(--ds-duration-base) var(--ds-ease-in-out);
+  --ds-transition-shadow: box-shadow var(--ds-duration-base) var(--ds-ease-in-out);
+  --ds-transition-all: all var(--ds-duration-base) var(--ds-ease-in-out);
+}</code></pre>
+
+        <!-- Responsive Design -->
+        <h2 id="responsive">Responsive Breakpoints</h2>
+
+        <pre><code class="language-css">:root {
+  /* Breakpoint Values */
+  --screen-xs: 475px;
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-2xl: 1536px;
+
+  /* Container Max Widths */
+  --container-xs: 100%;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+}
+
+/* Usage Example */
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}</code></pre>
+
+        <!-- Complete Config Example -->
+        <h2 id="complete-example">Complete Configuration Example</h2>
+        <p>Here's a complete example of a custom theme configuration:</p>
+
+        <pre><code class="language-css">/* custom-bricks-theme.css */
+
+/* 1. Import base BRICKS styles */
+@import '@bricks/design-system/dist/bricks.css';
+
+/* 2. Override with your custom variables */
+:root {
+  /* === Brand Identity === */
+  --ds-brand-primary: #6366f1;      /* Indigo */
+  --ds-brand-secondary: #ec4899;     /* Pink */
+
+  /* === Typography === */
+  --ds-font-sans: 'Inter', system-ui, sans-serif;
+  --ds-font-heading: 'Poppins', var(--ds-font-sans);
+
+  /* === Spacing === */
+  --ds-spacing-unit: 4px;
+
+  /* === Components === */
+  --ds-radius-base: 12px;
+  --btn-height-base: 44px;
+  --input-height: 44px;
+
+  /* === Shadows === */
+  --ds-shadow-sm: 0 2px 8px rgb(0 0 0 / 0.08);
+  --ds-shadow-md: 0 4px 16px rgb(0 0 0 / 0.12);
+
+  /* === Transitions === */
+  --ds-duration-base: 200ms;
+}
+
+/* 3. Dark mode overrides */
+[data-theme="dark"] {
+  --ds-bg-primary: #0f0f0f;
+  --ds-bg-secondary: #1a1a1a;
+  --ds-text-primary: #f5f5f5;
+  --ds-border: #2a2a2a;
+}
+
+/* 4. Component-specific customizations */
+.btn--primary {
+  background: linear-gradient(135deg,
+    var(--ds-brand-primary) 0%,
+    var(--ds-brand-secondary) 100%);
+}
+
+/* 5. Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --ds-text-base: 15px;
+    --btn-height-base: 40px;
+  }
+}</code></pre>
+
+        <!-- Tips & Best Practices -->
+        <h2 id="best-practices">Best Practices</h2>
+
+        <div class="best-practices">
+            <div class="practice-card">
+                <div class="practice-icon">✅</div>
+                <h3>Do</h3>
+                <ul>
+                    <li>Use CSS variables for all customizations</li>
+                    <li>Create a separate theme file for your overrides</li>
+                    <li>Test your theme in both light and dark modes</li>
+                    <li>Use semantic color names for maintainability</li>
+                    <li>Document your custom variables</li>
+                </ul>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-icon">❌</div>
+                <h3>Don't</h3>
+                <ul>
+                    <li>Modify the core BRICKS files directly</li>
+                    <li>Use hard-coded colors in your components</li>
+                    <li>Override styles with <code>!important</code></li>
+                    <li>Break the spacing system consistency</li>
+                    <li>Ignore accessibility when customizing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <h2 id="resources">Additional Resources</h2>
+
+        <div class="resource-links">
+            <a href="#" class="resource-link">
+                <i class='bx bx-palette'></i>
+                <div>
+                    <h4>Theme Generator</h4>
+                    <p>Interactive tool to create custom themes</p>
+                </div>
+            </a>
+            <a href="#" class="resource-link">
+                <i class='bx bx-code-alt'></i>
+                <div>
+                    <h4>Example Themes</h4>
+                    <p>Pre-built themes for inspiration</p>
+                </div>
+            </a>
+            <a href="#" class="resource-link">
+                <i class='bx bx-book'></i>
+                <div>
+                    <h4>Variable Reference</h4>
+                    <p>Complete list of all CSS variables</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

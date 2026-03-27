@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <header class="header">
+            <h1 class="header__title">Table Component</h1>
+            <p class="header__description">
+                테이블은 구조화된 데이터를 행과 열로 정리합니다. 템플릿 레이아웃을 기반으로 기본 구조와 변형, 접근성 가이드를 제공합니다.
+            </p>
+        </header>
+
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Responsive Data Table</h3>
+                </div>
+                <div class="card__body">
+                    <p class="text-muted"><code class="code-inline">.table</code>과 <code class="code-inline">.table-responsive</code>를 조합해 가로 스크롤을 지원합니다.</p>
+                    <div class="example-wrapper table-example">
+                        <div class="table-responsive">
+                            <table class="table" data-table>
+                                <caption class="sr-only">Employee summary</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Location</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Start Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Taylor Reed</td>
+                                        <td>Product Manager</td>
+                                        <td>New York</td>
+                                        <td><span class="table__status table__status--success">Active</span></td>
+                                        <td>2022-06-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Casey Kim</td>
+                                        <td>UX Researcher</td>
+                                        <td>Seoul</td>
+                                        <td><span class="table__status table__status--info">Onboarding</span></td>
+                                        <td>2024-02-12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jordan Lee</td>
+                                        <td>Frontend Engineer</td>
+                                        <td>Remote</td>
+                                        <td><span class="table__status table__status--warning">Contract</span></td>
+                                        <td>2023-09-30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table class=&quot;table&quot; data-table&gt;
+        &lt;caption class=&quot;sr-only&quot;&gt;Employee summary&lt;/caption&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th scope=&quot;col&quot;&gt;Name&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Role&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Status&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;...&lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Variations</h2>
+            <div class="card-group card-group--cols-1">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Striped Rows</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">행 간 가독성을 높이기 위해 교차 배경을 적용합니다.</p>
+                        <div class="example-wrapper table-example">
+                            <table class="table table--striped" data-table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Product</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1023</td>
+                                        <td>Premium Plan</td>
+                                        <td>Subscription</td>
+                                        <td>$199</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1024</td>
+                                        <td>Starter Plan</td>
+                                        <td>Subscription</td>
+                                        <td>$49</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1025</td>
+                                        <td>One-time Audit</td>
+                                        <td>Service</td>
+                                        <td>$899</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <code class="code-inline">.table--striped</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Hoverable Rows</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">마우스 오버 시 행이 강조되어 선택 범위를 명확히 합니다.</p>
+                        <div class="example-wrapper table-example">
+                            <table class="table table--hover" data-table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Task</th>
+                                        <th scope="col">Assignee</th>
+                                        <th scope="col">Priority</th>
+                                        <th scope="col">Due</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Design landing page</td>
+                                        <td>Alex Han</td>
+                                        <td><span class="badge badge--danger">High</span></td>
+                                        <td>Mar 18</td>
+                                    </tr>
+                                    <tr>
+                                        <td>QA regression test</td>
+                                        <td>Mina Choi</td>
+                                        <td><span class="badge badge--warning">Medium</span></td>
+                                        <td>Mar 21</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Security review</td>
+                                        <td>Chris Lim</td>
+                                        <td><span class="badge badge--success">Low</span></td>
+                                        <td>Mar 25</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <code class="code-inline">.table--hover</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Sticky Header</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">긴 리스트에서 헤더를 고정해 열 이름을 항상 노출합니다.</p>
+                        <div class="example-wrapper table-example table-example--scroll">
+                            <div class="table-responsive">
+                                <table class="table table--sticky-header" data-table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Capital</th>
+                                            <th scope="col">Population</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Canada</td><td>Ottawa</td><td>38M</td></tr>
+                                        <tr><td>Germany</td><td>Berlin</td><td>83M</td></tr>
+                                        <tr><td>Japan</td><td>Tokyo</td><td>125M</td></tr>
+                                        <tr><td>Australia</td><td>Canberra</td><td>26M</td></tr>
+                                        <tr><td>France</td><td>Paris</td><td>68M</td></tr>
+                                        <tr><td>Brazil</td><td>Brasilia</td><td>214M</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <code class="code-inline">.table--sticky-header</code>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card-group card-group--cols-1 table-size-group">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">데이터가 촘촘한 분석 페이지에 적합합니다.</p>
+                        <div class="example-wrapper table-example">
+                            <table class="table table--sm" data-table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Metric</th>
+                                        <th scope="col">Today</th>
+                                        <th scope="col">Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Signups</td><td>420</td><td>+8%</td></tr>
+                                    <tr><td>Sessions</td><td>3,980</td><td>+3%</td></tr>
+                                    <tr><td>Conversion</td><td>4.2%</td><td>-0.6%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <code class="code-inline">.table--sm</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">가장 일반적인 행 높이로 다양한 상황에 대응합니다.</p>
+                        <div class="example-wrapper table-example">
+                            <table class="table" data-table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Column</th>
+                                        <th scope="col">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>ID</td><td>Primary key</td></tr>
+                                    <tr><td>Name</td><td>Human-readable label</td></tr>
+                                    <tr><td>Status</td><td>Current state</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-muted">Default size</p>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <p class="text-muted">프레젠테이션이나 읽기 위주 화면에서 사용합니다.</p>
+                        <div class="example-wrapper table-example">
+                            <table class="table table--lg" data-table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Plan</th>
+                                        <th scope="col">Benefits</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Free</td><td>Email support, 3 projects</td></tr>
+                                    <tr><td>Pro</td><td>Priority support, advanced analytics</td></tr>
+                                    <tr><td>Enterprise</td><td>Dedicated manager, custom SLAs</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <code class="code-inline">.table--lg</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">States</h2>
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Interactive &amp; Empty States</h3>
+                </div>
+                <div class="card__body">
+                    <p class="text-muted">데이터가 없거나 로딩 중일 때의 표현도 정의합니다.</p>
+                    <div class="demo-states table-state-example">
+                        <div class="state-example">
+                            <h4>Loading</h4>
+                            <div class="table-loading-preview">
+                                <table class="table table--loading" data-table>
+                                    <thead><tr><th>Column</th><th>Column</th></tr></thead>
+                                    <tbody><tr><td colspan="2">Loading data…</td></tr></tbody>
+                                </table>
+                                <div class="table__loading-overlay">Loading…</div>
+                            </div>
+                            <p class="text-muted"><code class="code-inline">.table--loading</code>과 오버레이를 함께 사용합니다.</p>
+                        </div>
+                        <div class="state-example">
+                            <h4>Empty</h4>
+                            <div class="table-empty-preview">
+                                <div class="table__empty">No records found</div>
+                            </div>
+                            <p class="text-muted">데이터가 없을 때 친절한 안내 문구를 제공합니다.</p>
+                        </div>
+                        <div class="state-example">
+                            <h4>Row Hover</h4>
+                            <table class="table table--hover" data-table>
+                                <tbody>
+                                    <tr class="is-hover"><td>Example row</td><td>Hover state</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="text-muted">사용자가 클릭 가능한 행임을 인지할 수 있습니다.</p>
+                        </div>
+                        <div class="state-example">
+                            <h4>Row Selected</h4>
+                            <table class="table" data-table>
+                                <tbody>
+                                    <tr class="is-selected"><td>Example row</td><td>Selected state</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="text-muted">선택된 행은 배경색이나 테두리로 구분합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>ARIA &amp; Semantics</h3>
+                    <p>테이블은 기본적으로 의미 있는 HTML 요소를 사용하므로 ARIA 사용을 최소화합니다.</p>
+                    <ul>
+                        <li><code>&lt;caption&gt;</code>으로 테이블 목적을 서술하거나 <code class="code-inline">aria-label</code>을 제공합니다.</li>
+                        <li><code>&lt;th scope="col|row"&gt;</code>를 사용해 헤더와 데이터 셀 관계를 명시합니다.</li>
+                        <li>정렬 가능 헤더에는 <code class="code-inline">aria-sort</code>를 업데이트합니다.</li>
+                        <li>반응형 래퍼 사용 시 키보드 스크롤이 가능하도록 <code class="code-inline">tabindex="0"</code>를 부여할 수 있습니다.</li>
+                    </ul>
+
+                    <h3>Keyboard Support</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>테이블 전체가 포커스 가능한 경우, 스크롤 영역을 탐색합니다.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Arrow Keys</kbd></td>
+                                <td>셀 내 입력 요소에 포커스가 있을 때 행/열 이동에 사용됩니다.</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Shift</kbd> + <kbd>Space</kbd></td>
+                                <td>데이터 그리드에서 행 선택을 토글하도록 확장 구현할 수 있습니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Properties &amp; Classes</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class / Attribute</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>.table</code></td><td>기본 테이블 스타일</td><td>필수</td></tr>
+                            <tr><td><code>.table-responsive</code></td><td>가로 스크롤을 위한 래퍼</td><td>필수 (모바일)</td></tr>
+                            <tr><td><code>.table--striped</code>, <code>.table--hover</code>, <code>.table--bordered</code></td><td>시각적 변형</td><td>striped, hover, bordered 등</td></tr>
+                            <tr><td><code>.table--sm</code>, <code>.table--lg</code>, <code>.table--compact</code></td><td>행 높이 변형</td><td>sm, lg, compact</td></tr>
+                            <tr><td><code>.table__status</code></td><td>상태 뱃지</td><td>success, warning, danger, info</td></tr>
+                            <tr><td><code>.table--sticky-header</code></td><td>헤더 고정</td><td>선택</td></tr>
+                            <tr><td><code>.table--loading</code>, <code>.table__empty</code></td><td>로딩/빈 상태 표현</td><td>선택</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>열 정렬 또는 필터를 제공할 경우 명확한 아이콘과 정렬 상태를 표시합니다.</li>
+                                <li>모바일에서는 중요 열만 우선 노출하고 나머지는 드로어 또는 세부 페이지로 제공합니다.</li>
+                                <li>숫자 데이터는 오른쪽 정렬로 가독성을 높입니다.</li>
+                                <li>행 클릭이 가능한 경우 커서와 호버 스타일을 일관되게 제공합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>스크롤 시 헤더가 사라져 데이터 의미를 잃지 않도록 합니다.</li>
+                                <li>긴 텍스트를 강제로 줄이는 대신 줄바꿈이나 툴팁을 활용합니다.</li>
+                                <li>로딩 중에 빈 상태 메시지를 그대로 노출하지 않습니다.</li>
+                                <li>도표로 표현해야 할 데이터를 테이블로만 제공하지 않습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

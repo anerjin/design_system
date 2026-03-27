@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <!-- Page Header -->
+        <header class="header">
+            <h1 class="header__title">Badge</h1>
+            <p class="header__description">
+                배지는 상태, 라벨, 카운트를 표시하는 작은 UI 컴포넌트입니다. 알림, 상태 표시기, 레이블링 등 다양한 용도로 활용됩니다.
+            </p>
+        </header>
+
+        <!-- Basic Usage Section -->
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Default Badge</h3>
+                </div>
+                <div class="card__body">
+                    <!-- Badge Examples -->
+                    <div class="example-wrapper">
+                        <span class="badge">Default</span>
+                        <span class="badge badge--primary">Primary</span>
+                        <span class="badge badge--secondary">Secondary</span>
+                    </div>
+
+                    <!-- Code Example -->
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;span class="badge"&gt;Default&lt;/span&gt;
+&lt;span class="badge badge--primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge--secondary"&gt;Secondary&lt;/span&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Variants Section -->
+        <section class="section">
+            <h2 class="section__title">Color Variants</h2>
+
+            <div class="card-group card-group--cols-4">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Primary</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--primary">Primary</span>
+                        </div>
+                        <code class="code-inline">.badge--primary</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Secondary</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--secondary">Secondary</span>
+                        </div>
+                        <code class="code-inline">.badge--secondary</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Success</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--success">Success</span>
+                        </div>
+                        <code class="code-inline">.badge--success</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Danger</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--danger">Danger</span>
+                        </div>
+                        <code class="code-inline">.badge--danger</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Warning</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--warning">Warning</span>
+                        </div>
+                        <code class="code-inline">.badge--warning</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Info</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--info">Info</span>
+                        </div>
+                        <code class="code-inline">.badge--info</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Light</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--light">Light</span>
+                        </div>
+                        <code class="code-inline">.badge--light</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Dark</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--dark">Dark</span>
+                        </div>
+                        <code class="code-inline">.badge--dark</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Style Variants Section -->
+        <section class="section">
+            <h2 class="section__title">Style Variants</h2>
+
+            <div class="card-group card-group--cols-3">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Pill Style</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--primary badge--pill">Primary</span>
+                            <span class="badge badge--success badge--pill">99+</span>
+                            <span class="badge badge--danger badge--pill">New</span>
+                        </div>
+                        <code class="code-inline">.badge--pill</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;span class="badge badge--primary badge--pill"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge--success badge--pill"&gt;99+&lt;/span&gt;
+&lt;span class="badge badge--danger badge--pill"&gt;New&lt;/span&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Outline Style</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--outline-primary">Primary</span>
+                            <span class="badge badge--outline-success">Success</span>
+                            <span class="badge badge--outline-danger">Danger</span>
+                        </div>
+                        <code class="code-inline">.badge--outline-*</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;span class="badge badge--outline-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge--outline-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge--outline-danger"&gt;Danger&lt;/span&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Soft Style</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--soft-primary">Primary</span>
+                            <span class="badge badge--soft-success">Success</span>
+                            <span class="badge badge--soft-danger">Danger</span>
+                        </div>
+                        <code class="code-inline">.badge--soft-*</code>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;span class="badge badge--soft-primary"&gt;Primary&lt;/span&gt;
+&lt;span class="badge badge--soft-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge--soft-danger"&gt;Danger&lt;/span&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sizes Section -->
+        <section class="section">
+            <h2 class="section__title">Sizes</h2>
+            <div class="card-group card-group--cols-3">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Small</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--primary badge--sm">Small</span>
+                        </div>
+                        <code class="code-inline">.badge--sm</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Default</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--primary">Default</span>
+                        </div>
+                        <p class="text-muted">Default size</p>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Large</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <span class="badge badge--primary badge--lg">Large</span>
+                        </div>
+                        <code class="code-inline">.badge--lg</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Features Section -->
+        <section class="section">
+            <h2 class="section__title">Special Features</h2>
+
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Badge with Dot Indicator</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <span class="badge badge--primary badge--dot">Active</span>
+                        <span class="badge badge--success badge--dot">Online</span>
+                        <span class="badge badge--danger badge--dot">Error</span>
+                        <span class="badge badge--warning badge--dot">Pending</span>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;span class="badge badge--primary badge--dot"&gt;Active&lt;/span&gt;
+&lt;span class="badge badge--success badge--dot"&gt;Online&lt;/span&gt;
+&lt;span class="badge badge--danger badge--dot"&gt;Error&lt;/span&gt;
+&lt;span class="badge badge--warning badge--dot"&gt;Pending&lt;/span&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Components Section -->
+        <section class="section">
+            <h2 class="section__title">Related Components</h2>
+
+            <!-- Tags -->
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Tags</h3>
+                </div>
+                <div class="card__body">
+                    <h4>Basic Tags</h4>
+                    <div class="example-wrapper tag-group">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Angular</span>
+                    </div>
+
+                    <h4 class="mt-4">Removable Tags</h4>
+                    <div class="example-wrapper tag-group">
+                        <span class="tag">
+                            JavaScript
+                            <button type="button" class="tag__remove" aria-label="Remove tag">×</button>
+                        </span>
+                        <span class="tag">
+                            React
+                            <button type="button" class="tag__remove" aria-label="Remove tag">×</button>
+                        </span>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;!-- Basic Tag --&gt;
+&lt;span class="tag"&gt;JavaScript&lt;/span&gt;
+
+&lt;!-- Removable Tag --&gt;
+&lt;span class="tag"&gt;
+    JavaScript
+    &lt;button type="button" class="tag__remove" aria-label="Remove tag"&gt;×&lt;/button&gt;
+&lt;/span&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Chips -->
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Chips</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="chip">
+                            <div class="chip__avatar">A</div>
+                            Avatar Chip
+                        </div>
+                        <div class="chip">
+                            <span class="chip__icon">📍</span>
+                            Location
+                        </div>
+                        <div class="chip">
+                            Filter
+                            <button type="button" class="chip__remove" aria-label="Remove chip">×</button>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;!-- Avatar Chip --&gt;
+&lt;div class="chip"&gt;
+    &lt;div class="chip__avatar"&gt;A&lt;/div&gt;
+    Avatar Chip
+&lt;/div&gt;
+
+&lt;!-- Icon Chip --&gt;
+&lt;div class="chip"&gt;
+    &lt;span class="chip__icon"&gt;📍&lt;/span&gt;
+    Location
+&lt;/div&gt;
+
+&lt;!-- Removable Chip --&gt;
+&lt;div class="chip"&gt;
+    Filter
+    &lt;button type="button" class="chip__remove" aria-label="Remove chip"&gt;×&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="section">
+            <h2 class="section__title">Use Cases</h2>
+
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">With Buttons</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <button type="button" class="btn btn--primary">
+                                Notifications
+                                <span class="badge badge--danger badge--pill ml-2">5</span>
+                            </button>
+                            <button type="button" class="btn btn--secondary ml-3">
+                                Messages
+                                <span class="badge badge--info ml-2">New</span>
+                            </button>
+                        </div>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;button type="button" class="btn btn--primary"&gt;
+    Notifications
+    &lt;span class="badge badge--danger badge--pill ml-2"&gt;5&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">In Lists</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="example-wrapper">
+                            <div class="list-item">
+                                <span>Inbox</span>
+                                <span class="badge badge--primary badge--pill">12</span>
+                            </div>
+                            <div class="list-item">
+                                <span>Drafts</span>
+                                <span class="badge badge--secondary badge--pill">3</span>
+                            </div>
+                            <div class="list-item">
+                                <span>Spam</span>
+                                <span class="badge badge--danger badge--pill">99+</span>
+                            </div>
+                        </div>
+
+                        <details class="code-details">
+                            <summary class="code-summary">코드 보기</summary>
+                            <div class="code-block">
+                                <pre><code class="language-html">&lt;div class="list-item"&gt;
+    &lt;span&gt;Inbox&lt;/span&gt;
+    &lt;span class="badge badge--primary badge--pill"&gt;12&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section mb40">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <h3>Badge Classes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.badge</code></td>
+                                <td>Base badge class</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--{color}</code></td>
+                                <td>Color variant</td>
+                                <td>primary, secondary, success, danger, warning, info, light, dark</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--{size}</code></td>
+                                <td>Size modifier</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--pill</code></td>
+                                <td>Pill style (rounded)</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--outline-{color}</code></td>
+                                <td>Outline style</td>
+                                <td>primary, secondary, success, danger, warning, info, dark</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--soft-{color}</code></td>
+                                <td>Soft background style</td>
+                                <td>primary, secondary, success, danger, warning, info, dark</td>
+                            </tr>
+                            <tr>
+                                <td><code>.badge--dot</code></td>
+                                <td>With dot indicator</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Related Component Classes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Component</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.tag</code></td>
+                                <td>Tag</td>
+                                <td>Base tag class</td>
+                            </tr>
+                            <tr>
+                                <td><code>.tag__remove</code></td>
+                                <td>Tag</td>
+                                <td>Remove button for tag</td>
+                            </tr>
+                            <tr>
+                                <td><code>.chip</code></td>
+                                <td>Chip</td>
+                                <td>Base chip class</td>
+                            </tr>
+                            <tr>
+                                <td><code>.chip__avatar</code></td>
+                                <td>Chip</td>
+                                <td>Avatar element in chip</td>
+                            </tr>
+                            <tr>
+                                <td><code>.chip__icon</code></td>
+                                <td>Chip</td>
+                                <td>Icon element in chip</td>
+                            </tr>
+                            <tr>
+                                <td><code>.chip__remove</code></td>
+                                <td>Chip</td>
+                                <td>Remove button for chip</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>ARIA Attributes</h3>
+                    <p>Badge 컴포넌트는 다음과 같은 접근성 기능을 구현합니다:</p>
+                    <ul>
+                        <li><code>aria-label</code> - 스크린 리더를 위한 레이블 제공</li>
+                        <li><code>role="status"</code> - 상태 정보임을 명시</li>
+                        <li><code>aria-live="polite"</code> - 동적 업데이트 알림</li>
+                    </ul>
+
+                    <h3>Color Contrast</h3>
+                    <p>모든 배지 색상은 WCAG AA 기준(4.5:1)을 충족합니다.</p>
+
+                    <h3>Keyboard Support</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>제거 가능한 태그/칩의 제거 버튼으로 포커스 이동</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Enter</kbd></td>
+                                <td>제거 버튼 활성화</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Space</kbd></td>
+                                <td>제거 버튼 활성화</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>짧고 명확한 텍스트 사용 (1-3글자 권장)</li>
+                                <li>컨텍스트에 맞는 색상 선택</li>
+                                <li>일관된 크기와 스타일 사용</li>
+                                <li>접근성을 위한 ARIA 레이블 제공</li>
+                                <li>큰 숫자는 "99+"와 같이 축약</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>너무 긴 텍스트 사용 금지</li>
+                                <li>한 화면에 너무 많은 배지 사용 금지</li>
+                                <li>의미 없는 색상 조합 사용 금지</li>
+                                <li>중요한 정보를 배지만으로 전달 금지</li>
+                                <li>애니메이션 과다 사용 금지</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

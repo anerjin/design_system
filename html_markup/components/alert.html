@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <!-- Page Header -->
+        <header class="header">
+            <h1 class="header__title">Alert Components</h1>
+            <p class="header__description">
+                사용자에게 중요한 정보를 전달하는 알림 컴포넌트입니다. 다양한 상태와 스타일을 제공합니다.
+            </p>
+        </header>
+
+        <!-- Basic Usage Section -->
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Default Alert</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="alert">
+                            This is a default alert message for general information.
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert"&gt;
+    This is a default alert message for general information.
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert Variants Section -->
+        <section class="section">
+            <h2 class="section__title">Alert Variants</h2>
+
+            <div class="card card--gray mb40">
+                <div class="card__header">
+                    <h3 class="card__title">Color Variants</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="demo-stack">
+                            <div class="alert alert--primary">
+                                <strong>Primary Alert:</strong> This is a primary themed alert message.
+                            </div>
+                            <div class="alert alert--secondary">
+                                <strong>Secondary Alert:</strong> This is a secondary themed alert message.
+                            </div>
+                            <div class="alert alert--success">
+                                <strong>Success!</strong> Your action has been completed successfully.
+                            </div>
+                            <div class="alert alert--warning">
+                                <strong>Warning!</strong> Please review this important information.
+                            </div>
+                            <div class="alert alert--danger">
+                                <strong>Error!</strong> Something went wrong. Please try again.
+                            </div>
+                            <div class="alert alert--info">
+                                <strong>Info:</strong> Here's some helpful information for you.
+                            </div>
+                            <div class="alert alert--light">
+                                <strong>Light Alert:</strong> A subtle light-themed alert.
+                            </div>
+                            <div class="alert alert--dark">
+                                <strong>Dark Alert:</strong> A dark-themed alert for contrast.
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--primary"&gt;
+    &lt;strong&gt;Primary Alert:&lt;/strong&gt; This is a primary themed alert message.
+&lt;/div&gt;
+
+&lt;div class="alert alert--success"&gt;
+    &lt;strong&gt;Success!&lt;/strong&gt; Your action has been completed successfully.
+&lt;/div&gt;
+
+&lt;div class="alert alert--warning"&gt;
+    &lt;strong&gt;Warning!&lt;/strong&gt; Please review this important information.
+&lt;/div&gt;
+
+&lt;div class="alert alert--danger"&gt;
+    &lt;strong&gt;Error!&lt;/strong&gt; Something went wrong. Please try again.
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Solid Variants</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="demo-stack">
+                            <div class="alert alert--solid-primary">
+                                <strong>Primary:</strong> Solid primary background alert.
+                            </div>
+                            <div class="alert alert--solid-secondary">
+                                <strong>Secondary:</strong> Solid secondary background alert.
+                            </div>
+                            <div class="alert alert--solid-success">
+                                <strong>Success:</strong> Action completed successfully!
+                            </div>
+                            <div class="alert alert--solid-warning">
+                                <strong>Warning:</strong> Important information to review.
+                            </div>
+                            <div class="alert alert--solid-danger">
+                                <strong>Danger:</strong> Critical error occurred.
+                            </div>
+                            <div class="alert alert--solid-info">
+                                <strong>Information:</strong> Useful tips and updates.
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--solid-success"&gt;
+    &lt;strong&gt;Success:&lt;/strong&gt; Action completed successfully!
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert with Icons Section -->
+        <section class="section">
+            <h2 class="section__title">Alert with Icons</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Icon Alerts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="demo-stack-lg">
+                            <div class="alert alert--info">
+                                <span class="alert__icon icon-info"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">System Update Available</div>
+                                    <div class="alert__description">Version 2.5.0 is now available with performance improvements and bug fixes.</div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert--success">
+                                <span class="alert__icon icon-success"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">Payment Successful</div>
+                                    <div class="alert__description">Your payment of $99.00 has been processed successfully.</div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert--warning">
+                                <span class="alert__icon icon-warning"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">Storage Almost Full</div>
+                                    <div class="alert__description">You're using 90% of your available storage. Consider upgrading your plan.</div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert--danger">
+                                <span class="alert__icon icon-danger"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">Connection Failed</div>
+                                    <div class="alert__description">Unable to connect to the server. Please check your internet connection.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--info"&gt;
+    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;div class="alert__content"&gt;
+        &lt;div class="alert__title"&gt;System Update Available&lt;/div&gt;
+        &lt;div class="alert__description"&gt;Version 2.5.0 is now available with performance improvements and bug fixes.&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert Sizes Section -->
+        <section class="section">
+            <h2 class="section__title">Alert Sizes</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Size Variations</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="demo-stack">
+                            <div class="alert alert--sm alert--info">
+                                <span class="alert__icon icon-info"></span>
+                                <div class="alert__content">Small alert with less padding</div>
+                            </div>
+
+                            <div class="alert alert--info">
+                                <span class="alert__icon icon-info"></span>
+                                <div class="alert__content">Default alert with standard padding</div>
+                            </div>
+
+                            <div class="alert alert--lg alert--info">
+                                <span class="alert__icon icon-info"></span>
+                                <div class="alert__content">Large alert with more padding</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;!-- Small Alert --&gt;
+&lt;div class="alert alert--sm alert--info"&gt;
+    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;div class="alert__content"&gt;Small alert with less padding&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Large Alert --&gt;
+&lt;div class="alert alert--lg alert--info"&gt;
+    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;div class="alert__content"&gt;Large alert with more padding&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dismissible Alerts Section -->
+        <section class="section">
+            <h2 class="section__title">Dismissible Alerts</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">With Close Button</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="demo-stack-lg">
+                            <div class="alert alert--warning alert--dismissible">
+                                <div class="alert__content">
+                                    <div class="alert__title">Session Expiring Soon</div>
+                                    <div class="alert__description">Your session will expire in 5 minutes. Save your work to avoid losing changes.</div>
+                                </div>
+                                <button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'">
+                                    <span class="icon-close"></span>
+                                </button>
+                            </div>
+
+                            <div class="alert alert--info alert--dismissible">
+                                <span class="alert__icon icon-info"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">Welcome to BRICKS</div>
+                                    <div class="alert__description">Check out our getting started guide for tips and tutorials.</div>
+                                </div>
+                                <button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'">
+                                    <span class="icon-close"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--warning alert--dismissible"&gt;
+    &lt;div class="alert__content"&gt;
+        &lt;div class="alert__title"&gt;Session Expiring Soon&lt;/div&gt;
+        &lt;div class="alert__description"&gt;Your session will expire in 5 minutes. Save your work to avoid losing changes.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'"&gt;
+        &lt;span class="icon-close"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Border Accent Alerts Section -->
+        <section class="section">
+            <h2 class="section__title">Border Accent</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Accent Borders</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="demo-stack">
+                            <div class="alert alert--success alert--accent-left">
+                                <span class="alert__icon icon-success"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">Left Accent Border</div>
+                                    <div class="alert__description">Alert with emphasized left border for better visibility.</div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert--danger alert--accent-top">
+                                <span class="alert__icon icon-danger"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">Top Accent Border</div>
+                                    <div class="alert__description">Alert with emphasized top border for critical messages.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--success alert--accent-left"&gt;
+    &lt;span class="alert__icon icon-success"&gt;&lt;/span&gt;
+    &lt;div class="alert__content"&gt;
+        &lt;div class="alert__title"&gt;Left Accent Border&lt;/div&gt;
+        &lt;div class="alert__description"&gt;Alert with emphasized left border for better visibility.&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert with Actions Section -->
+        <section class="section">
+            <h2 class="section__title">Alert with Actions</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Action Buttons</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="demo-stack-lg">
+                            <div class="alert alert--info">
+                                <div class="alert__content">
+                                    <div class="alert__title">Cookie Notice</div>
+                                    <div class="alert__description">We use cookies to enhance your browsing experience and analyze site traffic.</div>
+                                    <div class="alert__actions">
+                                        <button type="button" class="btn btn--sm btn--primary">Accept All</button>
+                                        <button type="button" class="btn btn--sm btn--outline">Customize</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert--warning">
+                                <span class="alert__icon icon-warning"></span>
+                                <div class="alert__content">
+                                    <div class="alert__title">Unsaved Changes</div>
+                                    <div class="alert__description">You have unsaved changes. Would you like to save them?</div>
+                                    <div class="alert__actions">
+                                        <button type="button" class="btn btn--sm btn--success">Save Changes</button>
+                                        <button type="button" class="btn btn--sm btn--ghost">Discard</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--warning"&gt;
+    &lt;span class="alert__icon icon-warning"&gt;&lt;/span&gt;
+    &lt;div class="alert__content"&gt;
+        &lt;div class="alert__title"&gt;Unsaved Changes&lt;/div&gt;
+        &lt;div class="alert__description"&gt;You have unsaved changes. Would you like to save them?&lt;/div&gt;
+        &lt;div class="alert__actions"&gt;
+            &lt;button type="button" class="btn btn--sm btn--success"&gt;Save Changes&lt;/button&gt;
+            &lt;button type="button" class="btn btn--sm btn--ghost"&gt;Discard&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert with List Section -->
+        <section class="section">
+            <h2 class="section__title">Alert with List</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">List Content</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="alert alert--danger">
+                            <span class="alert__icon icon-danger"></span>
+                            <div class="alert__content">
+                                <div class="alert__title">Form Validation Errors</div>
+                                <div class="alert__description">Please correct the following errors:</div>
+                                <ul class="alert__list">
+                                    <li>Email address is required</li>
+                                    <li>Password must be at least 8 characters</li>
+                                    <li>Please accept the terms and conditions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--danger"&gt;
+    &lt;span class="alert__icon icon-danger"&gt;&lt;/span&gt;
+    &lt;div class="alert__content"&gt;
+        &lt;div class="alert__title"&gt;Form Validation Errors&lt;/div&gt;
+        &lt;div class="alert__description"&gt;Please correct the following errors:&lt;/div&gt;
+        &lt;ul class="alert__list"&gt;
+            &lt;li&gt;Email address is required&lt;/li&gt;
+            &lt;li&gt;Password must be at least 8 characters&lt;/li&gt;
+            &lt;li&gt;Please accept the terms and conditions&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Complex Example Section -->
+        <section class="section">
+            <h2 class="section__title">Complex Examples</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Rich Content Alert</h3>
+                </div>
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div class="alert alert--solid-info alert--lg alert--dismissible">
+                            <span class="alert__icon icon-info"></span>
+                            <div class="alert__content">
+                                <div class="alert__title">System Maintenance Scheduled</div>
+                                <div class="alert__description">
+                                    We will be performing system maintenance on December 15, 2024 from 2:00 AM to 6:00 AM EST.
+                                </div>
+                                <ul class="alert__list">
+                                    <li>Services will be temporarily unavailable</li>
+                                    <li>All data will be backed up before maintenance</li>
+                                    <li>Email notifications will be sent before and after</li>
+                                </ul>
+                                <div class="alert__actions">
+                                    <button type="button" class="btn btn--sm btn--white">View Schedule</button>
+                                    <button type="button" class="btn btn--sm btn--outline-white">Set Reminder</button>
+                                </div>
+                            </div>
+                            <button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'">
+                                <span class="icon-close"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class="alert alert--solid-info alert--lg alert--dismissible"&gt;
+    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;div class="alert__content"&gt;
+        &lt;div class="alert__title"&gt;System Maintenance Scheduled&lt;/div&gt;
+        &lt;div class="alert__description"&gt;
+            We will be performing system maintenance on December 15, 2024 from 2:00 AM to 6:00 AM EST.
+        &lt;/div&gt;
+        &lt;ul class="alert__list"&gt;
+            &lt;li&gt;Services will be temporarily unavailable&lt;/li&gt;
+            &lt;li&gt;All data will be backed up before maintenance&lt;/li&gt;
+            &lt;li&gt;Email notifications will be sent before and after&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="alert__actions"&gt;
+            &lt;button type="button" class="btn btn--sm btn--white"&gt;View Schedule&lt;/button&gt;
+            &lt;button type="button" class="btn btn--sm btn--outline-white"&gt;Set Reminder&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'"&gt;
+        &lt;span class="icon-close"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section class="section mb40">
+            <h2 class="section__title">API Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Classes & Properties</h3>
+                </div>
+                <div class="card__body">
+                    <h3>Alert Classes</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.alert</code></td>
+                                <td>Base alert container</td>
+                                <td>Required</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert--{variant}</code></td>
+                                <td>Color variant</td>
+                                <td>primary, secondary, success, warning, danger, info, light, dark</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert--solid-{variant}</code></td>
+                                <td>Solid background variant</td>
+                                <td>primary, secondary, success, warning, danger, info</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert--{size}</code></td>
+                                <td>Size modifier</td>
+                                <td>sm, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert--dismissible</code></td>
+                                <td>Dismissible alert</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert--accent-{side}</code></td>
+                                <td>Accent border</td>
+                                <td>left, top</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Alert Elements</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.alert__icon</code></td>
+                                <td>Icon container</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert__content</code></td>
+                                <td>Content wrapper</td>
+                                <td>Required when using icon</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert__title</code></td>
+                                <td>Alert title</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert__description</code></td>
+                                <td>Alert description</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert__list</code></td>
+                                <td>List of items</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert__actions</code></td>
+                                <td>Action buttons container</td>
+                                <td>Optional</td>
+                            </tr>
+                            <tr>
+                                <td><code>.alert__close</code></td>
+                                <td>Close button</td>
+                                <td>With dismissible</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Section -->
+        <section class="section">
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h2 class="card__title">Accessibility</h2>
+                </div>
+                <div class="card__body">
+                    <h3>ARIA Attributes</h3>
+                    <p>Alert 컴포넌트는 다음과 같은 접근성 기능을 구현합니다:</p>
+                    <ul>
+                        <li><code>role="alert"</code> - 중요한 메시지임을 스크린 리더에 알림</li>
+                        <li><code>aria-label="Close"</code> - 닫기 버튼에 대한 설명</li>
+                        <li><code>aria-live="polite"</code> - 동적 알림에 사용</li>
+                        <li><code>aria-atomic="true"</code> - 전체 알림 내용 읽기</li>
+                    </ul>
+
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li>색상만으로 정보를 전달하지 않기 (아이콘, 텍스트 병행)</li>
+                        <li>중요도에 따른 적절한 역할 속성 사용</li>
+                        <li>키보드로 닫기 버튼 접근 가능</li>
+                        <li>충분한 색상 대비 유지</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>상태에 맞는 적절한 색상 사용</li>
+                                <li>중요한 정보는 제목과 설명 모두 제공</li>
+                                <li>닫을 수 있는 옵션 제공 (dismissible)</li>
+                                <li>액션이 필요한 경우 명확한 버튼 제공</li>
+                                <li>아이콘으로 시각적 단서 강화</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>너무 많은 알림 동시 표시 금지</li>
+                                <li>자동으로 사라지는 중요 정보 금지</li>
+                                <li>색상만으로 상태 구분 금지</li>
+                                <li>너무 긴 텍스트 사용 금지</li>
+                                <li>사용자 작업 방해하는 위치 금지</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

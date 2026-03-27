@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <header class="header">
+            <h1 class="header__title">Flexbox Utilities</h1>
+            <p class="header__description">
+                Flexbox 유틸리티는 정렬과 공간 분배를 빠르게 구성하도록 도와줍니다. 템플릿 구조에 맞춰 방향, 정렬, 랩핑, 간격 패턴을 예제로 정리했습니다.
+            </p>
+        </header>
+
+        <section class="section">
+            <h2 class="section__title">Basic Usage</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Row Layout</h3>
+                </div>
+                <div class="card__body">
+                    <p class="text-muted">`.flex`는 블록 요소를 플렉스 컨테이너로 전환하고, 기본적으로 가로 방향으로 아이템을 배치합니다.</p>
+                    <div class="example-wrapper">
+                        <div class="flex flex-demo">
+                            <div class="flex-demo__item">Item 1</div>
+                            <div class="flex-demo__item">Item 2</div>
+                            <div class="flex-demo__item">Item 3</div>
+                        </div>
+                    </div>
+                    <details class="code-details mt20">
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;flex&quot;&gt;
+    &lt;div&gt;Item 1&lt;/div&gt;
+    &lt;div&gt;Item 2&lt;/div&gt;
+    &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Direction &amp; Wrap</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Flex Direction</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="layout-stack-sm">
+                            <div>
+                                <p class="text-muted">Row (default)</p>
+                                <div class="flex flex--row flex-demo">
+                                    <div class="flex-demo__item">1</div>
+                                    <div class="flex-demo__item">2</div>
+                                    <div class="flex-demo__item">3</div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-muted">Row Reverse</p>
+                                <div class="flex flex--row-reverse flex-demo">
+                                    <div class="flex-demo__item">1</div>
+                                    <div class="flex-demo__item">2</div>
+                                    <div class="flex-demo__item">3</div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-muted">Column</p>
+                                <div class="flex flex--column flex-demo flex-demo--tall">
+                                    <div class="flex-demo__item">1</div>
+                                    <div class="flex-demo__item">2</div>
+                                    <div class="flex-demo__item">3</div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-muted">Column Reverse</p>
+                                <div class="flex flex--column-reverse flex-demo flex-demo--tall">
+                                    <div class="flex-demo__item">1</div>
+                                    <div class="flex-demo__item">2</div>
+                                    <div class="flex-demo__item">3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <code class="code-inline">.flex--row</code>
+                        <code class="code-inline">.flex--column</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Wrapping Strategy</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="layout-stack-sm">
+                            <div>
+                                <p class="text-muted">No Wrap (default)</p>
+                                <div class="flex flex--nowrap flex-demo flex-demo--inline" style="width:280px; overflow:auto;">
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-muted">Wrap</p>
+                                <div class="flex flex--wrap flex-demo" style="max-width:280px;">
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-muted">Wrap Reverse</p>
+                                <div class="flex flex--wrap-reverse flex-demo" style="max-width:280px;">
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                    <div class="flex-demo__item">Item</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <code class="code-inline">.flex--wrap</code>
+                        <code class="code-inline">.flex--wrap-reverse</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Alignment Controls</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Justify Content</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="layout-stack-sm">
+                            <div class="flex flex--justify-start flex-demo">
+                                <div class="flex-demo__item">Start</div>
+                                <div class="flex-demo__item">Start</div>
+                                <div class="flex-demo__item">Start</div>
+                            </div>
+                            <div class="flex flex--justify-center flex-demo">
+                                <div class="flex-demo__item">Center</div>
+                                <div class="flex-demo__item">Center</div>
+                                <div class="flex-demo__item">Center</div>
+                            </div>
+                            <div class="flex flex--justify-between flex-demo">
+                                <div class="flex-demo__item">Between</div>
+                                <div class="flex-demo__item">Between</div>
+                                <div class="flex-demo__item">Between</div>
+                            </div>
+                            <div class="flex flex--justify-evenly flex-demo">
+                                <div class="flex-demo__item">Evenly</div>
+                                <div class="flex-demo__item">Evenly</div>
+                                <div class="flex-demo__item">Evenly</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <code class="code-inline">.flex--justify-center</code>
+                        <code class="code-inline">.flex--justify-between</code>
+                        <code class="code-inline">.flex--justify-evenly</code>
+                    </div>
+                </div>
+
+                <div class="card card--gray">
+                    <div class="card__header">
+                        <h3 class="card__title">Align Items</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="layout-stack-sm">
+                            <div class="flex flex--align-start flex-demo flex-demo--tall">
+                                <div class="flex-demo__item">Start</div>
+                                <div class="flex-demo__item" style="height:60px;">Start</div>
+                                <div class="flex-demo__item">Start</div>
+                            </div>
+                            <div class="flex flex--align-center flex-demo flex-demo--tall">
+                                <div class="flex-demo__item">Center</div>
+                                <div class="flex-demo__item" style="height:60px;">Center</div>
+                                <div class="flex-demo__item">Center</div>
+                            </div>
+                            <div class="flex flex--align-end flex-demo flex-demo--tall">
+                                <div class="flex-demo__item">End</div>
+                                <div class="flex-demo__item" style="height:60px;">End</div>
+                                <div class="flex-demo__item">End</div>
+                            </div>
+                            <div class="flex flex--align-baseline flex-demo flex-demo--tall">
+                                <div class="flex-demo__item">Base</div>
+                                <div class="flex-demo__item" style="font-size:24px;">Baseline</div>
+                                <div class="flex-demo__item">Base</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <code class="code-inline">.flex--align-center</code>
+                        <code class="code-inline">.flex--align-end</code>
+                        <code class="code-inline">.flex--align-baseline</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Gap Scale</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Spacing Tokens</h3>
+                </div>
+                <div class="card__body">
+                    <p class="text-muted">`.flex--gap-*` 클래스는 공간 토큰을 사용해 아이템 간 간격을 지정합니다.</p>
+                    <div class="layout-stack-sm">
+                        <div class="flex flex--gap-0 flex-demo"><div class="flex-demo__item">gap-0</div><div class="flex-demo__item">gap-0</div><div class="flex-demo__item">gap-0</div></div>
+                        <div class="flex flex--gap-sm flex-demo"><div class="flex-demo__item">gap-sm</div><div class="flex-demo__item">gap-sm</div><div class="flex-demo__item">gap-sm</div></div>
+                        <div class="flex flex--gap-md flex-demo"><div class="flex-demo__item">gap-md</div><div class="flex-demo__item">gap-md</div><div class="flex-demo__item">gap-md</div></div>
+                        <div class="flex flex--gap-lg flex-demo"><div class="flex-demo__item">gap-lg</div><div class="flex-demo__item">gap-lg</div><div class="flex-demo__item">gap-lg</div></div>
+                        <div class="flex flex--gap-xl flex-demo"><div class="flex-demo__item">gap-xl</div><div class="flex-demo__item">gap-xl</div><div class="flex-demo__item">gap-xl</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Responsive Pattern</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Column to Row</h3>
+                </div>
+                <div class="card__body">
+                    <p class="text-muted">`.flex--column`과 `.flex--md-row`를 조합하면 모바일에서는 세로, 데스크톱에서는 가로 배치로 전환할 수 있습니다.</p>
+                    <div class="example-wrapper">
+                        <div class="flex flex--column flex--md-row flex--gap-md flex-demo">
+                            <div class="flex-demo__item" style="flex:1;">Card A</div>
+                            <div class="flex-demo__item" style="flex:1;">Card B</div>
+                            <div class="flex-demo__item" style="flex:1;">Card C</div>
+                        </div>
+                    </div>
+                    <details class="code-details mt20">
+                        <summary class="code-summary">HTML 코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;div class=&quot;flex flex--column flex--md-row flex--gap-md&quot;&gt;
+    &lt;article class=&quot;card&quot;&gt;...&lt;/article&gt;
+    &lt;article class=&quot;card&quot;&gt;...&lt;/article&gt;
+    &lt;article class=&quot;card&quot;&gt;...&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Utility Summary</h3>
+                </div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.flex</code> / <code>.flex--inline</code></td>
+                                <td>컨테이너를 flex 또는 inline-flex로 전환</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--row</code>, <code>.flex--column</code>, <code>.flex--row-reverse</code>, <code>.flex--column-reverse</code></td>
+                                <td>플렉스 방향 설정</td>
+                                <td>반응형 접두사 사용 가능</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--wrap</code>, <code>.flex--nowrap</code>, <code>.flex--wrap-reverse</code></td>
+                                <td>랩핑 전략 조정</td>
+                                <td>컨테이너 폭이 제한된 카드 레이아웃에서 활용</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--justify-*</code></td>
+                                <td>주 축 정렬 (start / center / end / between / around / evenly)</td>
+                                <td>네비게이션, 버튼 그룹 정렬</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--align-*</code></td>
+                                <td>교차 축 정렬 (start / center / end / stretch / baseline)</td>
+                                <td>높이가 다른 요소 정렬</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--gap-{token}</code></td>
+                                <td>아이템 간 간격 설정</td>
+                                <td>0, sm, md, lg, xl, 2xl 토큰 제공</td>
+                            </tr>
+                            <tr>
+                                <td><code>.flex--md-row</code> 등</td>
+                                <td>반응형 변형 프리픽스 (sm/md/lg/xl)</td>
+                                <td>컬럼 → 로우 전환 등 구성</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header">
+                    <h3 class="card__title">Do's and Don'ts</h3>
+                </div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>간단한 1차 정렬에는 Flexbox, 복잡한 다차원 정렬에는 Grid를 선택합니다.</li>
+                                <li>레이아웃 전환 시 반응형 접두사를 활용해 모바일 퍼스트 전략을 유지합니다.</li>
+                                <li>간격 조절은 `flex--gap-*` 토큰을 사용해 디자인 시스템 간격 스케일을 공유합니다.</li>
+                                <li>정렬이 필요한 요소는 가능한 한 동일한 높이 또는 패딩을 맞춰 시각적 안정감을 유지합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>플렉스 아이템에 임의의 마진을 섞어 gap과 혼용하지 않습니다.</li>
+                                <li>주 축 방향과 맞지 않는 정렬 클래스를 중복 선언하지 않습니다.</li>
+                                <li>복잡한 카드 레이아웃에서 wrap 사용 시 요소 폭이 깨지지 않는지 확인하지 않고 배포하지 않습니다.</li>
+                                <li>고정 높이 요소를 baseline 정렬에 사용해 예상치 못한 기준선을 만들지 않습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

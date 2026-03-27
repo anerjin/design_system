@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <!-- Page Header -->
+        <header class="header">
+            <h1 class="header__title">Typography</h1>
+            <p class="header__description">
+                Typography system providing consistent text styles and hierarchical structure across the design system.
+            </p>
+        </header>
+
+        <!-- Headings -->
+        <section class="section">
+            <h2 class="section__title">Headings</h2>
+            <p>Six levels of heading hierarchy</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <h1 style="margin: 0;">Heading 1 - 2.5rem/40px</h1>
+                            <h2 style="margin: 0;">Heading 2 - 2rem/32px</h2>
+                            <h3 style="margin: 0;">Heading 3 - 1.75rem/28px</h3>
+                            <h4 style="margin: 0;">Heading 4 - 1.5rem/24px</h4>
+                            <h5 style="margin: 0;">Heading 5 - 1.25rem/20px</h5>
+                            <h6 style="margin: 0;">Heading 6 - 1rem/16px</h6>
+                        </div>
+                    </div>
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Body Text -->
+        <section class="section">
+            <h2 class="section__title">Body Text</h2>
+            <p>Standard paragraph and body text styles</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <p class="text-xs">Extra small text (0.75rem/12px) - Used for captions and helper text</p>
+                            <p class="text-sm">Small text (0.875rem/14px) - Used for secondary information</p>
+                            <p class="text-base">Base text (1rem/16px) - Default body text size</p>
+                            <p class="text-lg">Large text (1.125rem/18px) - Used for emphasis</p>
+                            <p class="text-xl">Extra large text (1.25rem/20px) - Used for introductions</p>
+                            <p class="text-2xl">2X large text (1.5rem/24px) - Used for subtitles</p>
+                            <p class="text-3xl">3X large text (1.875rem/30px) - Used for display text</p>
+                        </div>
+                    </div>
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;p class="text-xs"&gt;Extra small text&lt;/p&gt;
+&lt;p class="text-sm"&gt;Small text&lt;/p&gt;
+&lt;p class="text-base"&gt;Base text&lt;/p&gt;
+&lt;p class="text-lg"&gt;Large text&lt;/p&gt;
+&lt;p class="text-xl"&gt;Extra large text&lt;/p&gt;
+&lt;p class="text-2xl"&gt;2X large text&lt;/p&gt;
+&lt;p class="text-3xl"&gt;3X large text&lt;/p&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Font Weight -->
+        <section class="section">
+            <h2 class="section__title">Font Weight</h2>
+            <p>Different font weights for emphasis and hierarchy</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <p class="font-light">Light weight text (300)</p>
+                            <p class="font-normal">Normal weight text (400)</p>
+                            <p class="font-medium">Medium weight text (500)</p>
+                            <p class="font-semibold">Semibold weight text (600)</p>
+                            <p class="font-bold">Bold weight text (700)</p>
+                            <p class="font-extrabold">Extrabold weight text (800)</p>
+                        </div>
+                    </div>
+                    <details class="code-details">
+                        <summary class="code-summary">코드 보기</summary>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;p class="font-light"&gt;Light weight text&lt;/p&gt;
+&lt;p class="font-normal"&gt;Normal weight text&lt;/p&gt;
+&lt;p class="font-medium"&gt;Medium weight text&lt;/p&gt;
+&lt;p class="font-semibold"&gt;Semibold weight text&lt;/p&gt;
+&lt;p class="font-bold"&gt;Bold weight text&lt;/p&gt;
+&lt;p class="font-extrabold"&gt;Extrabold weight text&lt;/p&gt;</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Text Alignment -->
+        <section class="section">
+            <h2 class="section__title">Text Alignment</h2>
+            <p>Control text alignment within containers</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <p class="text-left" style="background: var(--ds-gray-100); padding: 12px; border-radius: 4px;">Left aligned text</p>
+                            <p class="text-center" style="background: var(--ds-gray-100); padding: 12px; border-radius: 4px;">Center aligned text</p>
+                            <p class="text-right" style="background: var(--ds-gray-100); padding: 12px; border-radius: 4px;">Right aligned text</p>
+                            <p class="text-justify" style="background: var(--ds-gray-100); padding: 12px; border-radius: 4px;">Justified text alignment distributes text evenly across the full width of the container, creating clean edges on both sides.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Text Colors -->
+        <section class="section">
+            <h2 class="section__title">Text Colors</h2>
+            <p>Semantic text color utilities</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <p class="text-primary">Primary text color - Main content</p>
+                            <p class="text-secondary">Secondary text color - Supporting content</p>
+                            <p class="text-tertiary">Tertiary text color - Less important content</p>
+                            <p class="text-success">Success text color - Positive messages</p>
+                            <p class="text-danger">Danger text color - Error messages</p>
+                            <p class="text-warning">Warning text color - Warning messages</p>
+                            <p class="text-info">Info text color - Informational messages</p>
+                            <p class="text-muted">Muted text color - Disabled or inactive</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lists -->
+        <section class="section">
+            <h2 class="section__title">Lists</h2>
+            <p>Ordered and unordered list styles</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Unordered List</h4>
+                                <ul>
+                                    <li>First item in the list</li>
+                                    <li>Second item in the list</li>
+                                    <li>Third item in the list
+                                        <ul>
+                                            <li>Nested item one</li>
+                                            <li>Nested item two</li>
+                                        </ul>
+                                    </li>
+                                    <li>Fourth item in the list</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Ordered List</h4>
+                                <ol>
+                                    <li>First step in the process</li>
+                                    <li>Second step in the process</li>
+                                    <li>Third step in the process
+                                        <ol>
+                                            <li>Sub-step one</li>
+                                            <li>Sub-step two</li>
+                                        </ol>
+                                    </li>
+                                    <li>Fourth step in the process</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code & Preformatted -->
+        <section class="section">
+            <h2 class="section__title">Code & Preformatted</h2>
+            <p>Inline code and code blocks</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <p>Inline code like <code>const variable = "value";</code> can be used within text.</p>
+                            <pre style="background: var(--ds-gray-950, #030712); color: var(--ds-gray-100, #f3f4f6); padding: 16px; border-radius: 8px; overflow-x: auto;"><code>// Code block example
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+const message = greet("World");
+console.log(message);</code></pre>
+                            <p>Keyboard shortcut: <kbd style="background: var(--ds-gray-200); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--ds-gray-400); font-family: monospace;">Ctrl + C</kbd></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blockquote -->
+        <section class="section">
+            <h2 class="section__title">Blockquote</h2>
+            <p>Quote blocks for citations and emphasis</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <blockquote style="margin: 0; padding-left: 20px; border-left: 4px solid var(--ds-prime); color: var(--ds-gray-600); font-style: italic;">
+                            "Design is not just what it looks like and feels like. Design is how it works."
+                            <footer style="margin-top: 8px; font-style: normal; font-size: 0.875rem; color: var(--ds-gray-400);">— Steve Jobs</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Line Height -->
+        <section class="section">
+            <h2 class="section__title">Line Height</h2>
+            <p>Control spacing between lines of text</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="example-wrapper">
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Tight Line Height (1.25)</h4>
+                                <p style="margin: 0; line-height: 1.25;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Normal Line Height (1.5)</h4>
+                                <p style="margin: 0; line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Relaxed Line Height (1.75)</h4>
+                                <p style="margin: 0; line-height: 1.75;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Loose Line Height (2)</h4>
+                                <p style="margin: 0; line-height: 2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Scale -->
+        <section class="section">
+            <h2 class="section__title">Typography Scale</h2>
+            <p>Complete type scale reference</p>
+            <div class="example-wrapper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Token</th>
+                            <th>Size</th>
+                            <th>Pixels</th>
+                            <th>Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>--ds-text-xs</code></td><td>0.75rem</td><td>12px</td><td>Captions, labels</td></tr>
+                        <tr><td><code>--ds-text-sm</code></td><td>0.875rem</td><td>14px</td><td>Helper text, secondary</td></tr>
+                        <tr><td><code>--ds-text-base</code></td><td>1rem</td><td>16px</td><td>Body text (default)</td></tr>
+                        <tr><td><code>--ds-text-lg</code></td><td>1.125rem</td><td>18px</td><td>Emphasis text</td></tr>
+                        <tr><td><code>--ds-text-xl</code></td><td>1.25rem</td><td>20px</td><td>Section intros</td></tr>
+                        <tr><td><code>--ds-text-2xl</code></td><td>1.5rem</td><td>24px</td><td>Subtitles</td></tr>
+                        <tr><td><code>--ds-text-3xl</code></td><td>1.875rem</td><td>30px</td><td>Display text</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Accessibility -->
+        <section class="section">
+            <h2 class="section__title">Accessibility</h2>
+            <p>Guidelines for accessible typography</p>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px;">
+                        <li>Maintain proper heading hierarchy (h1 → h2 → h3, never skip levels)</li>
+                        <li>Ensure minimum font size of 14px for body text</li>
+                        <li>Use sufficient color contrast (WCAG 2.1 AA minimum 4.5:1)</li>
+                        <li>Keep line length between 45-75 characters for optimal readability</li>
+                        <li>Use relative units (rem, em) for scalable text</li>
+                        <li>Provide adequate line height (minimum 1.5 for body text)</li>
+                        <li>Use semantic HTML elements for text structure</li>
+                        <li>Support user font size preferences (respect browser zoom)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>

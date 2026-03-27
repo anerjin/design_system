@@ -1,0 +1,89 @@
+/* ========================================
+   BRICKS - Progress Component
+   BEM + Single-Line CSS Convention
+======================================== */
+
+/* Base Progress Bar */
+.progress {width:100%; height:8px; overflow:hidden; border-radius:4px; background-color:var(--ds-gray-200);}
+.progress__bar {height:100%; border-radius:4px; background-color:var(--ds-prime); transition:width 0.3s ease;}
+
+/* Progress Sizes */
+.progress--xs {height:2px;}
+.progress--sm {height:4px;}
+.progress--lg {height:12px;}
+.progress--xl {height:16px;}
+
+/* Progress Colors */
+.progress--success .progress__bar {background-color:var(--ds-color-success);}
+.progress--warning .progress__bar {background-color:var(--ds-color-warning);}
+.progress--danger .progress__bar {background-color:var(--ds-color-danger);}
+.progress--info .progress__bar {background-color:var(--ds-color-info);}
+.progress--dark .progress__bar {background-color:var(--ds-gray-900);}
+
+/* Striped Progress */
+.progress--striped .progress__bar {background-image:linear-gradient( 45deg, color-mix(in srgb, var(--ds-white) 15%, transparent) 25%, transparent 25%, transparent 50%, color-mix(in srgb, var(--ds-white) 15%, transparent) 50%, color-mix(in srgb, var(--ds-white) 15%, transparent) 75%, transparent 75%, transparent ); background-size:1rem 1rem;}
+
+/* Animated Progress */
+.progress--animated .progress__bar {animation:progress-bar-stripes 1s linear infinite;}
+@keyframes progress-bar-stripes {
+  from {background-position:1rem 0;}
+  to {background-position:0 0;}
+}
+
+/* Progress with Label */
+.progress-wrapper {position:relative;}
+.progress__label {position:absolute; top:50%; left:50%; color:var(--ds-white); font-size:12px; font-weight:500; text-shadow:0 1px 2px color-mix(in srgb, var(--ds-black) 20%, transparent); transform:translate(-50%, -50%);}
+
+/* Circular Progress */
+.progress-circular {display:inline-flex; align-items:center; justify-content:center; position:relative;}
+.progress-circular__svg {display:block;}
+.progress-circular__bg {fill:none; stroke:var(--ds-gray-200);}
+.progress-circular__bar {fill:none; stroke:var(--ds-prime); transition:stroke-dashoffset 0.3s ease;}
+.progress-circular__text {position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:var(--ds-gray-700); font-weight:600;}
+
+/* Circular Sizes */
+.progress-circular--sm {width:48px; height:48px;}
+.progress-circular--sm .progress-circular__text {font-size:var(--ds-text-xs);}
+.progress-circular--md {width:80px; height:80px;}
+.progress-circular--md .progress-circular__text {font-size:var(--ds-text-base);}
+.progress-circular--lg {width:120px; height:120px;}
+.progress-circular--lg .progress-circular__text {font-size:var(--ds-text-2xl);}
+
+/* Indeterminate Progress */
+.progress--indeterminate .progress__bar {width:30%; animation:indeterminate 1.5s ease-in-out infinite;}
+@keyframes indeterminate {
+  0% {transform:translateX(-100%);}
+  100% {transform:translateX(400%);}
+}
+
+/* Circular Spinner/Loader */
+.progress-circular--spinner .progress-circular__svg {animation:circular-rotate 1.4s linear infinite;}
+@keyframes circular-rotate {
+  0% {transform:rotate(0deg);}
+  100% {transform:rotate(360deg);}
+}
+
+/* Circular Progress Colors */
+.progress-circular__bar--secondary {stroke:var(--ds-gray-600);}
+.progress-circular__bar--success {stroke:var(--ds-color-success);}
+.progress-circular__bar--warning {stroke:var(--ds-color-warning);}
+.progress-circular__bar--danger {stroke:var(--ds-color-danger);}
+.progress-circular__bar--info {stroke:var(--ds-color-info);}
+.progress-circular__bar--dark {stroke:var(--ds-gray-900);}
+
+
+/* Multi-step Progress */
+.multi-step {display:flex; flex-direction:column; gap:12px;}
+.step-labels {display:flex; justify-content:space-between; margin-bottom:4px;}
+.step-label {color:var(--ds-gray-500); font-size:14px; font-weight:500;}
+.step-label--completed {color:var(--ds-color-success);}
+.step-label--active {color:var(--ds-prime); font-weight:600;}
+
+/* Stacked Progress */
+.stacked-progress {display:flex; flex-direction:column; gap:12px;}
+.stacked-legend {display:flex; gap:20px; flex-wrap:wrap;}
+.legend-item {display:flex; align-items:center; gap:8px; font-size:13px;}
+.legend-color {display:inline-block; width:12px; height:12px; border-radius:2px;}
+.legend-color--success {background:var(--ds-color-success);}
+.legend-color--warning {background:var(--ds-color-warning);}
+.legend-color--danger {background:var(--ds-color-danger);}

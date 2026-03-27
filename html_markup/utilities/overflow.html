@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow Utilities - BRICKS Design System</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/template.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="vp-doc">
+        <header class="header">
+            <h1 class="header__title">Overflow Utilities</h1>
+            <p class="header__description">
+                오버플로우 유틸리티는 콘텐츠가 영역을 넘어갈 때의 처리 방식을 제어합니다. 기본 타입, 축 제어, 텍스트 트렁케이션, 실전 패턴을 템플릿 기반으로 정리했습니다.
+            </p>
+        </header>
+
+        <section class="section">
+            <h2 class="section__title">Overflow Basics</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Visible · Hidden</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-pane">
+                            <div class="overflow-demo-viewport overflow-visible">
+                                <strong class="utility-copy">Visible</strong>
+                                <p class="overflow-demo-text">이 텍스트는 박스를 넘어도 그대로 표시됩니다.</p>
+                            </div>
+                            <div class="overflow-demo-viewport overflow-hidden">
+                                <strong class="utility-copy">Hidden</strong>
+                                <p class="overflow-demo-text">이 텍스트는 영역을 넘으면 잘립니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Auto · Scroll</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-pane">
+                            <div class="overflow-demo-viewport overflow-auto">
+                                <strong class="utility-copy">Auto</strong>
+                                <p class="overflow-demo-text">필요할 때만 스크롤바가 노출됩니다. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div class="overflow-demo-viewport overflow-scroll">
+                                <strong class="utility-copy">Scroll</strong>
+                                <p class="overflow-demo-text">항상 스크롤바를 표시합니다. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <details class="code-details mt20">
+                <summary class="code-summary">HTML 코드 보기</summary>
+                <div class="code-block">
+<pre><code class="language-html">&lt;div class=&quot;overflow-hidden&quot;&gt;잘려나갈 콘텐츠&lt;/div&gt;
+&lt;div class=&quot;overflow-auto&quot;&gt;필요 시 스크롤&lt;/div&gt;</code></pre>
+                </div>
+            </details>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Axis Control</h2>
+            <div class="card-group card-group--cols-1">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Horizontal Scroll</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-viewport overflow-demo-viewport--horizontal overflow-x-auto">
+                            <span class="overflow-demo-inline">This_is_a_very_long_line_that_requires_horizontal_scrolling_to_view_everything_properly</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Vertical Scroll</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-viewport overflow-demo-viewport--tall overflow-y-scroll">
+                            <p class="overflow-demo-text">`.overflow-y-scroll`은 세로 방향으로만 스크롤을 강제합니다.</p>
+                            <p class="overflow-demo-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="overflow-demo-text">Vivamus luctus urna sed urna ultricies ac tempor dui sagittis.</p>
+                            <p class="overflow-demo-text">Integer posuere erat a ante venenatis dapibus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Scroll Behavior</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Smooth Scroll</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-scroll scroll-smooth" id="overflow-top">
+                            <p class="overflow-demo-text">`.scroll-smooth`를 body 또는 특정 컨테이너에 적용하면 앵커 이동 시 부드럽게 스크롤됩니다.</p>
+                            <a href="#overflow-target" class="btn btn--secondary btn--sm" style="align-self:flex-start;">Target으로 이동</a>
+                            <div style="height:180px;"></div>
+                            <div id="overflow-target" class="overflow-demo-anchor">Target</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Overscroll Control</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-scroll-area overscroll-contain">
+                            <p class="overflow-demo-text">`.overscroll-contain`은 바운스 효과를 방지하고 내부 스크롤 영역에만 이벤트를 제한합니다.</p>
+                            <div class="overflow-demo-viewport overflow-demo-viewport--tall overflow-auto">
+                                <p class="overflow-demo-text">내부 스크롤 콘텐츠 1</p>
+                                <p class="overflow-demo-text">내부 스크롤 콘텐츠 2</p>
+                                <p class="overflow-demo-text">내부 스크롤 콘텐츠 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Text Overflow</h2>
+            <div class="card card--gray">
+                <div class="card__body">
+                    <div class="card-group card-group--cols-1">
+                        <div class="card">
+                            <div class="card__header"><h3 class="card__title">Single Line</h3></div>
+                            <div class="card__body">
+                                <p class="text-truncate text-demo-block">This headline is intentionally long so that it demonstrates single-line truncation with an ellipsis.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header"><h3 class="card__title">Multi Line (3)</h3></div>
+                            <div class="card__body">
+                                <p class="text-truncate-3 text-demo-block">멀티 라인 텍스트를 3줄까지만 보여주고 나머지는 숨깁니다. 다양한 콘텐츠를 깔끔하게 정리할 때 유용합니다.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__header"><h3 class="card__title">No Wrap</h3></div>
+                            <div class="card__body">
+                                <p class="text-nowrap text-demo-block">이 텍스트는 줄바꿈 없이 계속 이어져 레이아웃을 한 줄에 유지합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Practical Patterns</h2>
+            <div class="card-group card-group--cols-2">
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Scrollable Code Block</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-viewport overflow-auto">
+<pre><code class="language-js">function fetchData() {
+    return fetch('/api')
+        .then((res) =&gt; res.json())
+        .then((data) =&gt; console.log(data));
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card--gray">
+                    <div class="card__header"><h3 class="card__title">Table Wrapper</h3></div>
+                    <div class="card__body">
+                        <div class="overflow-demo-viewport overflow-auto">
+                            <table class="table">
+                                <thead><tr><th>Header</th><th>Header</th><th>Header</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Row 1</td><td>Row 1</td><td>Row 1</td></tr>
+                                    <tr><td>Row 2</td><td>Row 2</td><td>Row 2</td></tr>
+                                    <tr><td>Row 3</td><td>Row 3</td><td>Row 3</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Reference</h2>
+            <div class="card card--gray">
+                <div class="card__header"><h3 class="card__title">Class Summary</h3></div>
+                <div class="card__body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>.overflow-visible</code></td><td>넘치는 콘텐츠를 그대로 표시</td></tr>
+                            <tr><td><code>.overflow-hidden</code></td><td>넘치는 영역을 잘라내고 스크롤바 미표시</td></tr>
+                            <tr><td><code>.overflow-auto</code></td><td>필요 시에만 스크롤 표시</td></tr>
+                            <tr><td><code>.overflow-scroll</code></td><td>항상 스크롤바 표기</td></tr>
+                            <tr><td><code>.overflow-x-*</code> / <code>.overflow-y-*</code></td><td>축별 오버플로우 제어</td></tr>
+                            <tr><td><code>.text-truncate</code> / <code>.text-truncate-n</code></td><td>텍스트 길이 제한</td></tr>
+                            <tr><td><code>.scroll-smooth</code></td><td>부드러운 스크롤 애니메이션</td></tr>
+                            <tr><td><code>.overscroll-auto|contain|none</code></td><td>스크롤 전파 및 바운스 제어</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Usage Guidelines</h2>
+            <div class="card card--gray">
+                <div class="card__header"><h3 class="card__title">Do's and Don'ts</h3></div>
+                <div class="card__body">
+                    <div class="guidelines">
+                        <div class="guidelines__do">
+                            <h4>✅ Do</h4>
+                            <ul>
+                                <li>테이블, 코드, 로그 등 고정 폭 콘텐츠에는 `overflow-x-auto`를 사용해 모바일에서도 스크롤이 가능하도록 합니다.</li>
+                                <li>텍스트 트렁케이션 사용 시 전체 내용을 확인할 수 있는 대체 경로(툴팁, 상세 페이지)를 제공합니다.</li>
+                                <li>중첩 스크롤이 필요한 경우 `overscroll-contain`으로 바운스를 막아 UX 혼선을 줄입니다.</li>
+                                <li>앵커 스크롤이 많은 페이지는 `scroll-smooth`로 전환해 사용자 방향 감각을 유지합니다.</li>
+                            </ul>
+                        </div>
+                        <div class="guidelines__dont">
+                            <h4>❌ Don't</h4>
+                            <ul>
+                                <li>스크롤 영역이 많은 페이지에서 `overflow: hidden`을 남발해 키보드 접근성을 떨어뜨리지 않습니다.</li>
+                                <li>텍스트를 강제로 자를 때 중요한 정보가 손실되지 않는지 확인 없이 배포하지 않습니다.</li>
+                                <li>PC 환경에서 불필요하게 `overflow-scroll`을 사용해 항상 스크롤바가 보이게 하지 않습니다.</li>
+                                <li>스크롤 잠금이 필요한 모달에서 body 스크롤 제어를 잊지 않습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../assets/js/components.js"></script>
+</body>
+</html>
