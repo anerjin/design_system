@@ -23,8 +23,10 @@ There is no `apps/` directory and no Next.js showcase app.
   - `.storybook/` — Storybook 10 config (`@storybook/react-vite`)
 - **`html_markup/`** — static HTML docs site; `index.html` is a sidebar + iframe shell, page HTML
   lives under `getting-started/`, `design-tokens/`, `elements/`, `components/`, `layout/`, `utilities/`
-- **`.github/workflows/deploy.yml`** — builds Storybook into `_site/storybook` and copies
-  `html_markup` to `_site/`, then deploys to GitHub Pages on push to `main`
+- **`.github/workflows/ci.yml`** — build verification only (package build, CSS/JS bundles,
+  Storybook static build) on push to `main` and on pull requests. **Nothing is deployed.**
+  GitHub Pages is not enabled on this repository, and it is private, so a Pages deploy step
+  fails at `actions/configure-pages`. Don't add one back without the owner enabling Pages first.
 
 ## Commands
 

@@ -19,7 +19,9 @@
 - CSS 구조 정리 — `core/styles/` 하위에 `base` → `tokens` → `layout` → `atoms` → `molecules` → `utilities`
 - `CLAUDE.md` 를 실제 저장소 구조에 맞게 전면 재작성
 - `USAGE.md` 를 실제 패키지명(`@bricks/core`)과 export 경로 기준으로 재작성
-- GitHub Pages 워크플로우가 Storybook(`/storybook`)과 `html_markup`(`/`)을 배포하도록 수정
+- GitHub Actions 워크플로우를 `deploy.yml` → `ci.yml` 로 교체 — 이 저장소는 private 이고
+  Pages 가 활성화되어 있지 않아 배포가 불가능하므로, 빌드 검증(패키지 빌드 · CSS/JS 번들 ·
+  Storybook 정적 빌드)만 수행. 액션은 `@v5`, Node 는 22 로 상향
 
 ### ❌ 삭제됨
 - `apps/showcase` (Next.js 쇼케이스 앱) — 저장소에서 제거됨. 관련 npm 스크립트와 워크플로우 단계도 함께 정리

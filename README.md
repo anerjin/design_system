@@ -173,14 +173,20 @@ core/styles/
 
 ---
 
-## 배포
+## CI
 
-`main` 브랜치에 푸시하면 GitHub Actions 가 GitHub Pages 로 배포합니다.
+`main` 푸시와 모든 pull request 에서 [`.github/workflows/ci.yml`](./.github/workflows/ci.yml) 이
+빌드가 깨지지 않는지 검증합니다 — 패키지 타입 체크/컴파일, CSS·JS 번들, Storybook 정적 빌드.
 
-- `/` — `html_markup` 정적 문서 사이트
-- `/storybook/` — Storybook 정적 빌드
+자동 배포는 하지 않습니다. 문서 사이트를 호스팅하려면 아래 산출물을 직접 배포하세요.
 
-워크플로우: [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)
+```bash
+npm run build-storybook --workspace=packages/bricks -- -o _site/storybook
+cp -r html_markup/. _site/
+```
+
+`_site/` 를 정적 호스팅에 올리면 `/` 는 `html_markup` 문서 사이트, `/storybook/` 은
+Storybook 이 됩니다. (`_site/` 는 `.gitignore` 에 등록되어 있습니다.)
 
 ---
 
