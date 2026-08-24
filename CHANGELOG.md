@@ -7,33 +7,31 @@
 ## [Unreleased]
 
 ### 🚀 추가됨
-- TypeScript 지원 추가
-- React 컴포넌트 라이브러리 초기 버전
-- 디자인 토큰 시스템 구현
-- 다크/라이트 테마 자동 전환 기능
-- 접근성 개선 (WCAG 2.1 AA 준수)
+- TypeScript 지원 및 React 컴포넌트 라이브러리 (`@bricks/core`, 25종)
+- 디자인 토큰 시스템 (`--ds-*` CSS 변수)
+- `[data-theme="dark"]` 기반 다크/라이트 테마
+- Storybook 문서화 (405개 스토리, Foundation 카테고리 포함)
+- 루트 `README.md` 추가
 
 ### 🔄 변경됨
-- 프로젝트 구조 대규모 개선
-  - `bricks/` → `core/` 폴더명 변경
-  - `pages/` → `docs/` 폴더명 변경
-  - `theme/` → `templates/` 폴더명 변경
-  - `_guide/` → `guides/` 폴더명 변경
-- CSS 구조 개선
-  - `core/css/` → `core/styles/` 경로 변경
-  - `core/js/` → `core/scripts/` 경로 변경
-- 빌드 시스템 개선
-  - TypeScript 컴파일 설정 추가
-  - npm 스크립트 업데이트
+- npm workspaces 모노레포로 전환 — 디자인 시스템은 `packages/bricks` 로 이동
+- 정적 HTML 문서 사이트를 `html_markup/` 으로 분리 (사이드바 + iframe 프레임셋 구조)
+- CSS 구조 정리 — `core/styles/` 하위에 `base` → `tokens` → `layout` → `atoms` → `molecules` → `utilities`
+- `CLAUDE.md` 를 실제 저장소 구조에 맞게 전면 재작성
+- `USAGE.md` 를 실제 패키지명(`@bricks/core`)과 export 경로 기준으로 재작성
+- GitHub Pages 워크플로우가 Storybook(`/storybook`)과 `html_markup`(`/`)을 배포하도록 수정
 
-### 🐛 수정됨
-- 컴포넌트 JavaScript 파일들의 타입 안정성 향상
-- 경로 참조 오류 수정
+### ❌ 삭제됨
+- `apps/showcase` (Next.js 쇼케이스 앱) — 저장소에서 제거됨. 관련 npm 스크립트와 워크플로우 단계도 함께 정리
+- `MIGRATION.md` — 이미 완료된 v1→v2 폴더 이동 가이드로, 현재 존재하지 않는 경로를 안내하고 있어 삭제
+- 커밋되어 있던 `packages/bricks/core/scripts/` 생성물 289개 — `tsc` 산출물이므로 추적 해제 후 `.gitignore` 등록
+- `html_markup` 의 미참조 파일 — `index.json`, `assets/js/navigation.js`, `assets/js/codeHighlighter.js`, `assets/css/codeHighlighter.css`
 
 ### 📦 의존성
-- React 19.1.1 추가
-- TypeScript 5.9.2 추가
-- @types/react, @types/react-dom 추가
+- React 18.3.1 (peer: `^18.0.0 || ^19.0.0`)
+- TypeScript 5.7.3
+- Storybook 10.1.11 (`@storybook/react-vite`)
+- Vite 5.4.11
 
 ## [1.0.0] - 2024-09-21
 
