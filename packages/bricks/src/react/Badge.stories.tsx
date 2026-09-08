@@ -1,30 +1,38 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from './Badge';
+import type { BadgeVariant } from './Badge';
+import type { Color, Size } from './utils';
+
+const COLORS: Color[] = [
+  'neutral', 'primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error',
+];
+const VARIANTS: BadgeVariant[] = ['solid', 'outline', 'dash', 'soft', 'ghost'];
+const SIZES: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const meta: Meta<typeof Badge> = {
   title: 'Data Display/Badge',
   component: Badge,
   parameters: {
     layout: 'centered',
+    gallery: {
+      description: '상태나 개수를 나타내는 작은 표식. 5가지 스타일 × 8가지 색상.',
+      daisyui: 'badge',
+      props: [
+        { name: 'color', type: 'neutral | primary | … | error' },
+        { name: 'variant', type: 'solid | outline | dash | soft | ghost', defaultValue: 'solid' },
+        { name: 'size', type: 'xs | sm | md | lg | xl', defaultValue: 'md' },
+        { name: 'dot', type: 'boolean', defaultValue: 'false', description: '내용 없는 점 형태' },
+        { name: 'closable', type: 'boolean', defaultValue: 'false', description: '닫기 버튼 표시' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
-    },
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    shape: {
-      control: 'select',
-      options: ['pill', 'square'],
-    },
-    type: {
-      control: 'select',
-      options: ['solid', 'outline', 'soft'],
-    },
+    color: { control: 'select', options: COLORS },
+    variant: { control: 'select', options: VARIANTS },
+    size: { control: 'select', options: SIZES },
+    dot: { control: 'boolean' },
+    closable: { control: 'boolean' },
   },
 };
 
@@ -32,232 +40,81 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    children: 'Badge',
-  },
+  args: { children: 'Badge' },
 };
 
-export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Primary',
-  },
-};
-
-export const Success: Story = {
-  args: {
-    variant: 'success',
-    children: 'Success',
-  },
-};
-
-export const Danger: Story = {
-  args: {
-    variant: 'danger',
-    children: 'Danger',
-  },
-};
-
-export const Warning: Story = {
-  args: {
-    variant: 'warning',
-    children: 'Warning',
-  },
-};
-
-export const Info: Story = {
-  args: {
-    variant: 'info',
-    children: 'Info',
-  },
-};
-
-export const Rounded: Story = {
-  args: {
-    shape: 'pill',
-    children: 'Rounded',
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    type: 'outline',
-    variant: 'primary',
-    children: 'Outline',
-  },
-};
-
-export const Soft: Story = {
-  args: {
-    type: 'soft',
-    variant: 'primary',
-    children: 'Soft',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'sm',
-    children: 'Small',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'lg',
-    children: 'Large',
-  },
-};
-
-export const AllSizes: Story = {
+export const Colors: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-      <Badge size="sm">Small</Badge>
-      <Badge size="md">Medium</Badge>
-      <Badge size="lg">Large</Badge>
+    <div className="flex flex-wrap gap-2">
+      <Badge>default</Badge>
+      {COLORS.map((color) => <Badge key={color} color={color}>{color}</Badge>)}
     </div>
   ),
 };
 
-export const TypeComparison: Story = {
+export const Variants: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <span style={{ width: '80px', fontSize: '14px', color: '#6B7280' }}>Primary:</span>
-        <Badge variant="primary">Solid</Badge>
-        <Badge variant="primary" type="outline">Outline</Badge>
-        <Badge variant="primary" type="soft">Soft</Badge>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <span style={{ width: '80px', fontSize: '14px', color: '#6B7280' }}>Success:</span>
-        <Badge variant="success">Solid</Badge>
-        <Badge variant="success" type="outline">Outline</Badge>
-        <Badge variant="success" type="soft">Soft</Badge>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <span style={{ width: '80px', fontSize: '14px', color: '#6B7280' }}>Danger:</span>
-        <Badge variant="danger">Solid</Badge>
-        <Badge variant="danger" type="outline">Outline</Badge>
-        <Badge variant="danger" type="soft">Soft</Badge>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <span style={{ width: '80px', fontSize: '14px', color: '#6B7280' }}>Warning:</span>
-        <Badge variant="warning">Solid</Badge>
-        <Badge variant="warning" type="outline">Outline</Badge>
-        <Badge variant="warning" type="soft">Soft</Badge>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <span style={{ width: '80px', fontSize: '14px', color: '#6B7280' }}>Info:</span>
-        <Badge variant="info">Solid</Badge>
-        <Badge variant="info" type="outline">Outline</Badge>
-        <Badge variant="info" type="soft">Soft</Badge>
-      </div>
-    </div>
-  ),
-};
-
-export const WithNumber: Story = {
-  args: {
-    variant: 'danger',
-    shape: 'pill',
-    children: '99+',
-  },
-};
-
-export const StatusBadges: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-      <Badge variant="success">Active</Badge>
-      <Badge variant="warning">Pending</Badge>
-      <Badge variant="danger">Inactive</Badge>
-      <Badge variant="info">New</Badge>
-    </div>
-  ),
-};
-
-export const NotificationBadges: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <div style={{ position: 'relative', display: 'inline-block' }}>
-        <button className="btn btn--primary">
-          Messages
-        </button>
-        <Badge
-          variant="danger"
-          shape="pill"
-          size="sm"
-          style={{
-            position: 'absolute',
-            top: '-8px',
-            right: '-8px',
-          }}
-        >
-          5
-        </Badge>
-      </div>
-      <div style={{ position: 'relative', display: 'inline-block' }}>
-        <button className="btn btn--secondary">
-          Notifications
-        </button>
-        <Badge
-          variant="warning"
-          shape="pill"
-          size="sm"
-          style={{
-            position: 'absolute',
-            top: '-8px',
-            right: '-8px',
-          }}
-        >
-          12
-        </Badge>
-      </div>
-    </div>
-  ),
-};
-
-export const AllVariants: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Solid (Default)</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <Badge variant="primary">Primary</Badge>
-          <Badge variant="secondary">Secondary</Badge>
-          <Badge variant="success">Success</Badge>
-          <Badge variant="danger">Danger</Badge>
-          <Badge variant="warning">Warning</Badge>
-          <Badge variant="info">Info</Badge>
-          <Badge variant="light">Light</Badge>
-          <Badge variant="dark">Dark</Badge>
+    <div className="flex flex-col gap-3">
+      {VARIANTS.map((variant) => (
+        <div key={variant} className="flex flex-wrap items-center gap-2">
+          <span className="w-16 shrink-0 text-xs opacity-60">{variant}</span>
+          {COLORS.map((color) => (
+            <Badge key={color} variant={variant} color={color}>{color}</Badge>
+          ))}
         </div>
-      </div>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Outline</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <Badge variant="primary" type="outline">Primary</Badge>
-          <Badge variant="secondary" type="outline">Secondary</Badge>
-          <Badge variant="success" type="outline">Success</Badge>
-          <Badge variant="danger" type="outline">Danger</Badge>
-          <Badge variant="warning" type="outline">Warning</Badge>
-          <Badge variant="info" type="outline">Info</Badge>
-          <Badge variant="light" type="outline">Light</Badge>
-          <Badge variant="dark" type="outline">Dark</Badge>
-        </div>
-      </div>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Soft</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <Badge variant="primary" type="soft">Primary</Badge>
-          <Badge variant="secondary" type="soft">Secondary</Badge>
-          <Badge variant="success" type="soft">Success</Badge>
-          <Badge variant="danger" type="soft">Danger</Badge>
-          <Badge variant="warning" type="soft">Warning</Badge>
-          <Badge variant="info" type="soft">Info</Badge>
-          <Badge variant="light" type="soft">Light</Badge>
-          <Badge variant="dark" type="soft">Dark</Badge>
-        </div>
-      </div>
+      ))}
+    </div>
+  ),
+};
+
+export const Sizes: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      {SIZES.map((size) => <Badge key={size} color="primary" size={size}>{size}</Badge>)}
+    </div>
+  ),
+};
+
+/** 내용 없이 점만 찍는 형태 — 상태 표시에 쓴다 */
+export const Dots: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-wrap items-center gap-3">
+      {COLORS.map((color) => (
+        <span key={color} className="flex items-center gap-1.5 text-sm">
+          <Badge dot color={color} size="xs" />
+          {color}
+        </span>
+      ))}
+    </div>
+  ),
+};
+
+export const Closable: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-wrap gap-2">
+      <Badge closable color="primary">React</Badge>
+      <Badge closable variant="outline">TypeScript</Badge>
+      <Badge closable variant="soft" color="accent">Tailwind</Badge>
+    </div>
+  ),
+};
+
+/** 텍스트·버튼 안에 섞어 쓰기 */
+export const InContext: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <h2 className="flex items-center gap-2 text-xl font-semibold">
+        받은 편지함 <Badge color="error" size="sm">12</Badge>
+      </h2>
+      <p className="text-sm">
+        이 기능은 <Badge variant="outline" size="sm">베타</Badge> 단계입니다.
+      </p>
     </div>
   ),
 };

@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabs - BRICKS Design System</title>
+    <title>Tabs - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
         <header class="header">
             <h1 class="header__title">Tabs Component</h1>
             <p class="header__description">
-                BRICKS Design System의 탭 컴포넌트는 콘텐츠를 구조적으로 나누고 빠르게 전환할 수 있는 인터페이스를 제공합니다.
+                DOI INC Design System의 탭 컴포넌트는 콘텐츠를 구조적으로 나누고 빠르게 전환할 수 있는 인터페이스를 제공합니다.
                 아래 템플릿을 기준으로 기본 사용법, 변형, 사이즈, 접근성 가이드까지 일관되게 확인할 수 있습니다.
             </p>
         </header>
@@ -132,15 +133,15 @@
                             <div class="tabs" data-tabs>
                                 <div class="tabs__nav" role="tablist" aria-orientation="horizontal">
                                     <button type="button" class="tabs__button tabs__button--active tabs__button-icon" role="tab" aria-selected="true" aria-controls="tabs-icon-panel-1" id="tabs-icon-tab-1" tabindex="0" data-tab="tabs-icon-panel-1">
-                                        <i class='bx bx-home' aria-hidden="true"></i>
+                                        <i data-lucide='house' aria-hidden="true"></i>
                                         Home
                                     </button>
                                     <button type="button" class="tabs__button tabs__button-icon" role="tab" aria-selected="false" aria-controls="tabs-icon-panel-2" id="tabs-icon-tab-2" tabindex="-1" data-tab="tabs-icon-panel-2">
-                                        <i class='bx bx-user' aria-hidden="true"></i>
+                                        <i data-lucide='user-round' aria-hidden="true"></i>
                                         Profile
                                     </button>
                                     <button type="button" class="tabs__button tabs__button-icon" role="tab" aria-selected="false" aria-controls="tabs-icon-panel-3" id="tabs-icon-tab-3" tabindex="-1" data-tab="tabs-icon-panel-3">
-                                        <i class='bx bx-cog' aria-hidden="true"></i>
+                                        <i data-lucide='settings' aria-hidden="true"></i>
                                         Settings
                                     </button>
                                 </div>

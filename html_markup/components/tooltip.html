@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tooltip - BRICKS Design System</title>
+    <title>Tooltip - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
@@ -28,14 +29,14 @@
                             <div class="card__body" style="display:flex; gap:var(--ds-space-4);">
                                 <span class="tooltip">
                                     <button type="button" class="btn btn--ghost tooltip__trigger" data-tooltip="계정 설정을 열어 프로필과 보안 옵션을 확인하세요.">
-                                        <i class='bx bx-cog' aria-hidden="true"></i>
+                                        <i data-lucide='settings' aria-hidden="true"></i>
                                         계정 설정
                                     </button>
                                 </span>
 
                                 <span class="tooltip">
                                     <a href="#" class="tooltip__trigger" data-tooltip="신규 공지를 확인하세요.">
-                                        <i class='bx bx-bell' aria-hidden="true"></i>
+                                        <i data-lucide='bell' aria-hidden="true"></i>
                                         알림
                                     </a>
                                 </span>
@@ -90,7 +91,7 @@
                             <div class="card__body" style="display:flex; gap:var(--ds-space-4);">
                                 <span class="tooltip tooltip--light">
                                     <button class="tooltip__trigger" data-tooltip-template="tooltip-shortcut">
-                                        <i class='bx bx-command' aria-hidden="true"></i>
+                                        <i data-lucide='command' aria-hidden="true"></i>
                                         단축키
                                     </button>
                                 </span>

@@ -1,4 +1,14 @@
-# BRICKS Design System
+# DOI INC Design System
+
+> **현재 갤러리 개발 안내**: DOI 갤러리는 `apps/gallery`에 있습니다.
+> `npm run gallery`로 실행하고 http://localhost:5180/ 에서 확인하세요.
+> 모듈, 컴포넌트 검색, 사용 가이드와 반응형 미리보기를 제공합니다.
+> 현재 공유 스타일은 `packages/bricks/src/styles`의 `bricks-light` / `bricks-dark`
+> 테마와 18px 기본 글자 크기를 사용합니다.
+> 페이지 ID(`DOI-C-BUTTON` 등)를 전달받으면
+> `node apps/gallery/scripts/locate-page.mjs DOI-C-BUTTON`으로 화면과 소스 위치를 찾을 수 있습니다.
+> 구조·실행·검증에 관한 최신 내용은 [갤러리 안내](apps/gallery/README.md)를 참고하세요.
+> 아래의 `core/styles`, 25개 컴포넌트, BEM 관련 설명은 이전 구조에 대한 기록입니다.
 
 텍스트 기반의 미니멀한 디자인 시스템입니다. CSS 디자인 토큰과 React 컴포넌트를 함께 제공하며,
 다크/라이트 테마를 지원합니다.
@@ -116,8 +126,8 @@ export function Example() {
 | `@bricks/core/styles/bundle.min` | `core/styles/bundle.min.css` — 압축본 |
 | `@bricks/core/styles/*` | 개별 CSS 파일 |
 
-> 아이콘은 [boxicons](https://boxicons.com/) 를 사용합니다. `Icon` 컴포넌트를 쓰려면
-> `boxicons/css/boxicons.min.css` 를 함께 로드하세요.
+> 공식 아이콘은 [Lucide](https://lucide.dev/)입니다. `<Icon name="house" size={20} />`처럼 사용하며,
+> 별도의 아이콘 폰트나 CSS 로딩 없이 SVG로 표시됩니다. DOI-C-ICON에서 이름 검색과 코드 복사를 지원합니다.
 
 ---
 

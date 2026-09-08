@@ -1,0 +1,100 @@
+﻿/** Shared 16px rem scale. UI copy uses text-sm (14px), captions text-xs (12px). */
+html {
+  font-size: 100%;
+}
+.doi-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+@theme {
+  --font-sans:
+    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI',
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(20 / 14);
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(28 / 18);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.4;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.3;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.2;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.15;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1.1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1.05;
+}
+:root:root {
+  --cardtitle-fs: var(--text-base);
+  --card-fs: var(--text-sm);
+}
+@layer utilities {
+  /* Control size changes emphasize height and padding, with a compact type scale. */
+  :is(.btn-xs, .input-xs, .select-xs, .textarea-xs, .file-input-xs) {
+    --control-text-size: var(--text-xs);
+  }
+  :is(.btn-sm, .input-sm, .select-sm, .textarea-sm, .file-input-sm) {
+    --control-text-size: 0.8125rem;
+  }
+  :is(
+    .btn-md,
+    .input-md,
+    .select-md,
+    .textarea-md,
+    .file-input-md,
+    .btn-lg,
+    .input-lg,
+    .select-lg,
+    .textarea-lg,
+    .file-input-lg
+  ) {
+    --control-text-size: var(--text-sm);
+  }
+  :is(.btn-xl, .input-xl, .select-xl, .textarea-xl, .file-input-xl) {
+    --control-text-size: var(--text-base);
+  }
+  .btn {
+    --fontsize: var(--control-text-size, var(--text-sm));
+  }
+  :is(.input, .select, .textarea) {
+    --font-size-min: var(--control-text-size, var(--text-sm));
+  }
+  .file-input {
+    font-size: var(--control-text-size, var(--text-sm));
+  }
+  .file-input::file-selector-button {
+    font-size: inherit;
+  }
+  .card-xs .card-body {
+    --card-fs: var(--text-xs);
+  }
+  .card-md .card-title {
+    --cardtitle-fs: var(--text-base);
+  }
+  .card-lg .card-title {
+    --cardtitle-fs: var(--text-lg);
+  }
+  .card-xl .card-title {
+    --cardtitle-fs: var(--text-xl);
+  }
+  .card-lg .card-body {
+    --card-fs: var(--text-sm);
+  }
+  .card-xl .card-body {
+    --card-fs: var(--text-base);
+  }
+}
+.table {
+  word-break: keep-all;
+}

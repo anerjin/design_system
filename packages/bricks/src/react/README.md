@@ -1,10 +1,10 @@
-# BRICKS Design System - React Components
+# DOI INC Design System - React Components
 
-이 디렉토리는 BRICKS 디자인 시스템의 React 컴포넌트들을 포함합니다.
+이 디렉토리는 DOI INC 디자인 시스템의 React 컴포넌트들을 포함합니다.
 
 ## 🎯 개요
 
-기존 TypeScript 컴포넌트와 CSS 스타일을 기반으로 제작된 React 컴포넌트 라이브러리입니다. 모든 컴포넌트는 BRICKS CSS 클래스를 사용하여 일관된 스타일링을 제공합니다.
+기존 TypeScript 컴포넌트와 CSS 스타일을 기반으로 제작된 React 컴포넌트 라이브러리입니다. 모든 컴포넌트는 DOI INC CSS 클래스를 사용하여 일관된 스타일링을 제공합니다.
 
 ## 📦 컴포넌트 목록
 
@@ -96,7 +96,7 @@ className?: string
 
 ## 🎨 스타일링
 
-컴포넌트들은 `core/styles/` 디렉토리의 BRICKS CSS 클래스를 사용합니다:
+컴포넌트들은 `core/styles/` 디렉토리의 DOI INC CSS 클래스를 사용합니다:
 
 - `atoms/` - 기본 컴포넌트 스타일
 - `molecules/` - 복합 컴포넌트 스타일

@@ -15,10 +15,10 @@
 .datepicker__input:focus {outline:none; border-color:var(--ds-prime); box-shadow:0 0 0 3px var(--ds-prime-alpha-10);}
 .datepicker__input:disabled {background-color:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed;}
 .datepicker__icon {position:absolute; right:12px; top:50%; transform:translateY(-50%); color:var(--ds-gray-500); pointer-events:none; display:flex; align-items:center;}
-.datepicker__icon i {font-size:18px;}
+.datepicker__icon .lucide {font-size:18px;}
 .datepicker__clear {position:absolute; right:36px; top:50%; transform:translateY(-50%); display:flex; align-items:center; justify-content:center; width:20px; height:20px; border:none; border-radius:50%; background:transparent; color:var(--ds-gray-500); cursor:pointer; padding:0; transition:background-color 0.2s, color 0.2s;}
 .datepicker__clear:hover {background-color:var(--ds-gray-100); color:var(--ds-gray-700);}
-.datepicker__clear i {font-size:16px;}
+.datepicker__clear .lucide {font-size:16px;}
 
 .datepicker__popover {position:absolute; top:calc(100% + var(--ds-space-2)); left:0; z-index:100; width:310px; border:1px solid var(--ds-gray-200); border-radius:var(--ds-radius-lg); background:var(--ds-white); box-shadow:var(--ds-shadow-lg); padding:var(--ds-space-3); display:none;}
 .datepicker__popover[aria-hidden="false"] {display:block;}
@@ -62,24 +62,24 @@
 
 /* Size variations - height matches input, button, select */
 .datepicker--xs .datepicker__input {height:var(--ds-height-xs); padding:0 var(--ds-space-8) 0 var(--ds-space-2); font-size:var(--ds-text-xs);}
-.datepicker--xs .datepicker__icon i {font-size:14px;}
+.datepicker--xs .datepicker__icon .lucide {font-size:14px;}
 .datepicker--xs .datepicker__clear {right:28px; width:16px; height:16px;}
-.datepicker--xs .datepicker__clear i {font-size:12px;}
+.datepicker--xs .datepicker__clear .lucide {font-size:12px;}
 .datepicker--sm .datepicker__input {height:var(--ds-height-sm); padding:0 var(--ds-space-9) 0 var(--ds-space-2-5); font-size:var(--ds-text-xs);}
-.datepicker--sm .datepicker__icon i {font-size:16px;}
+.datepicker--sm .datepicker__icon .lucide {font-size:16px;}
 .datepicker--sm .datepicker__clear {right:32px; width:18px; height:18px;}
-.datepicker--sm .datepicker__clear i {font-size:14px;}
+.datepicker--sm .datepicker__clear .lucide {font-size:14px;}
 .datepicker--md .datepicker__input {height:var(--ds-height-md); padding:0 var(--ds-space-10) 0 var(--ds-space-3); font-size:var(--ds-text-sm);}
 .datepicker--lg .datepicker__input {height:var(--ds-height-lg); padding:0 var(--ds-space-11) 0 var(--ds-space-4); font-size:var(--ds-text-base);}
 .datepicker--lg .datepicker__icon {right:14px;}
-.datepicker--lg .datepicker__icon i {font-size:20px;}
+.datepicker--lg .datepicker__icon .lucide {font-size:20px;}
 .datepicker--lg .datepicker__clear {right:40px; width:22px; height:22px;}
-.datepicker--lg .datepicker__clear i {font-size:18px;}
+.datepicker--lg .datepicker__clear .lucide {font-size:18px;}
 .datepicker--xl .datepicker__input {height:var(--ds-height-xl); padding:0 var(--ds-space-12) 0 var(--ds-space-5); font-size:var(--ds-text-lg);}
 .datepicker--xl .datepicker__icon {right:16px;}
-.datepicker--xl .datepicker__icon i {font-size:22px;}
+.datepicker--xl .datepicker__icon .lucide {font-size:22px;}
 .datepicker--xl .datepicker__clear {right:44px; width:24px; height:24px;}
-.datepicker--xl .datepicker__clear i {font-size:20px;}
+.datepicker--xl .datepicker__clear .lucide {font-size:20px;}
 
 /* State variations */
 .datepicker--disabled .datepicker__input {background-color:var(--ds-gray-50); color:var(--ds-gray-400); cursor:not-allowed;}

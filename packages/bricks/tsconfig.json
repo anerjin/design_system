@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ES2020",
+    // Vite 기반 프로젝트이므로 번들러 해석을 쓴다.
+    // "node"로 두면 exports 맵을 쓰는 패키지(@storybook/react-vite 등)를 찾지 못한다.
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
-    "outDir": "./core/scripts",
+    // 이 설정은 타입 검사 전용이다. 배포물은 tsconfig.lib.json이 만든다.
+    "noEmit": true,
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": true,

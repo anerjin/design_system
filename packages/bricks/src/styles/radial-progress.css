@@ -1,0 +1,57 @@
+﻿/* One SVG stroke owns both end caps; no masks or separate moving dots. */
+.bricks-radial-progress {
+  --radial-stroke: clamp(1px, var(--thickness), calc(var(--size) / 3));
+  --radial-length: calc((var(--size) - var(--radial-stroke) - 2px) * 3.14159265359);
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+  position: relative;
+  vertical-align: middle;
+  font-size: var(--text-sm);
+  line-height: 1;
+}
+.bricks-radial-progress::before,
+.bricks-radial-progress::after {
+  content: none;
+  display: none;
+}
+.bricks-radial-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform: rotate(-90deg);
+}
+.bricks-radial-ring circle {
+  r: calc(50% - var(--radial-stroke) / 2 - 1px);
+  fill: none;
+  stroke-width: var(--radial-stroke);
+}
+.bricks-radial-track {
+  stroke: var(--color-base-300);
+}
+.bricks-radial-fill {
+  stroke: currentColor;
+  /* Include the two half-width caps in the visible progress length. */
+  stroke-dasharray: max(0px, calc(var(--radial-length) * var(--value) / 100 - var(--radial-stroke))) var(--radial-length);
+  stroke-dashoffset: calc(var(--radial-stroke) / -2);
+}
+.bricks-radial-fill[data-complete] {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+.bricks-radial-value {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100% - var(--radial-stroke) * 2 - 8px);
+  color: var(--color-base-content);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}

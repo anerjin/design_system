@@ -1,328 +1,249 @@
+import { Icon } from './Icon';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
+import type { ButtonColor, ButtonSize, ButtonVariant } from './Button';
+
+const COLORS: ButtonColor[] = [
+  'neutral',
+  'primary',
+  'secondary',
+  'accent',
+  'info',
+  'success',
+  'warning',
+  'error',
+];
+const VARIANTS: ButtonVariant[] = ['solid', 'surface', 'outline', 'dash', 'soft', 'ghost', 'link'];
+const SIZES: ButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const meta: Meta<typeof Button> = {
-  title: 'General/Button',
+  title: 'Actions/Button',
   component: Button,
   parameters: {
     layout: 'centered',
+    // 갤러리가 읽어 가는 메타데이터. 설명은 여기 한 곳에만 둔다.
+    gallery: {
+      description:
+        '알약 형태의 공통 버튼. 8가지 색상과 7가지 스타일을 제공하며, surface는 무채색 보조 동작에 사용한다. 아이콘 전용 버튼은 square와 circle 형태를 선택할 수 있다.',
+      daisyui: 'btn',
+      props: [
+        {
+          name: 'color',
+          type: 'neutral | primary | secondary | accent | info | success | warning | error',
+          description: '시맨틱 색상',
+        },
+        {
+          name: 'variant',
+          type: 'solid | surface | outline | dash | soft | ghost | link',
+          defaultValue: 'solid',
+        },
+        { name: 'size', type: 'xs | sm | md | lg | xl', defaultValue: 'md' },
+        { name: 'shape', type: 'square | circle', description: '아이콘 전용 버튼' },
+        {
+          name: 'as',
+          type: 'ElementType',
+          defaultValue: "'button'",
+          description: '링크에 버튼 모양을 입힐 때 "a"',
+        },
+        { name: 'loading', type: 'boolean', defaultValue: 'false', description: '스피너 표시 + 비활성' },
+        { name: 'block', type: 'boolean', defaultValue: 'false', description: '부모 너비를 채운다' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'link', 'ghost', 'outline-primary', 'outline-secondary', 'outline-success', 'outline-danger'],
-    },
-    size: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
-    },
-    pill: {
-      control: 'boolean',
-    },
-    fullWidth: {
-      control: 'boolean',
-    },
-    iconOnly: {
-      control: 'boolean',
-    },
-    loading: {
-      control: 'boolean',
-    },
-    disabled: {
-      control: 'boolean',
-    },
+    color: { control: 'select', options: COLORS },
+    variant: { control: 'select', options: VARIANTS },
+    size: { control: 'select', options: SIZES },
+    shape: { control: 'select', options: [undefined, 'square', 'circle'] },
+    wide: { control: 'boolean' },
+    block: { control: 'boolean' },
+    active: { control: 'boolean' },
+    loading: { control: 'boolean' },
+    disabled: { control: 'boolean' },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  args: {
+    children: 'Button',
+  },
+};
+
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    children: 'Primary Button',
+    color: 'primary',
+    children: 'Primary',
   },
 };
 
-export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-    children: 'Secondary Button',
-  },
-};
-
-export const Success: Story = {
-  args: {
-    variant: 'success',
-    children: 'Success Button',
-  },
-};
-
-export const Danger: Story = {
-  args: {
-    variant: 'danger',
-    children: 'Danger Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'sm',
-    children: 'Small Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'lg',
-    children: 'Large Button',
-  },
-};
-
-export const FullWidth: Story = {
-  args: {
-    fullWidth: true,
-    children: 'Full Width Button',
-  },
-};
-
-export const Loading: Story = {
-  args: {
-    loading: true,
-    children: 'Loading...',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    children: 'Disabled Button',
-  },
-};
-
-export const WithIcon: Story = {
-  args: {
-    leftIcon: <i className="bx bx-rocket"></i>,
-    children: 'Launch',
-  },
-};
-
-export const IconOnly: Story = {
-  args: {
-    iconOnly: true,
-    children: <i className="bx bx-cog"></i>,
-  },
-};
-
-export const Warning: Story = {
-  args: {
-    variant: 'warning',
-    children: 'Warning Button',
-  },
-};
-
-export const Info: Story = {
-  args: {
-    variant: 'info',
-    children: 'Info Button',
-  },
-};
-
-export const Light: Story = {
-  args: {
-    variant: 'light',
-    children: 'Light Button',
-  },
-};
-
-export const Dark: Story = {
-  args: {
-    variant: 'dark',
-    children: 'Dark Button',
-  },
-};
-
-export const Link: Story = {
-  args: {
-    variant: 'link',
-    children: 'Link Button',
-  },
-};
-
-export const Ghost: Story = {
-  args: {
-    variant: 'ghost',
-    children: 'Ghost Button',
-  },
-};
-
-export const OutlinePrimary: Story = {
-  args: {
-    variant: 'outline-primary',
-    children: 'Outline Primary',
-  },
-};
-
-export const OutlineSecondary: Story = {
-  args: {
-    variant: 'outline-secondary',
-    children: 'Outline Secondary',
-  },
-};
-
-export const OutlineSuccess: Story = {
-  args: {
-    variant: 'outline-success',
-    children: 'Outline Success',
-  },
-};
-
-export const OutlineDanger: Story = {
-  args: {
-    variant: 'outline-danger',
-    children: 'Outline Danger',
-  },
-};
-
-export const Pill: Story = {
-  args: {
-    variant: 'primary',
-    pill: true,
-    children: 'Pill Button',
-  },
-};
-
-export const ExtraSmall: Story = {
-  args: {
-    size: 'xs',
-    children: 'XS Button',
-  },
-};
-
-export const ExtraLarge: Story = {
-  args: {
-    size: 'xl',
-    children: 'XL Button',
-  },
-};
-
-export const AllVariants: Story = {
+/** 8가지 시맨틱 색상 */
+export const Colors: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Solid Variants</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="success">Success</Button>
-          <Button variant="danger">Danger</Button>
-          <Button variant="warning">Warning</Button>
-          <Button variant="info">Info</Button>
-          <Button variant="light">Light</Button>
-          <Button variant="dark">Dark</Button>
-        </div>
-      </div>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Outline Variants</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <Button variant="outline-primary">Primary</Button>
-          <Button variant="outline-secondary">Secondary</Button>
-          <Button variant="outline-success">Success</Button>
-          <Button variant="outline-danger">Danger</Button>
-        </div>
-      </div>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Special Variants</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="link">Link</Button>
-        </div>
-      </div>
+    <div className="flex flex-wrap gap-2">
+      <Button>default</Button>
+      {COLORS.map((color) => (
+        <Button key={color} color={color}>
+          {color}
+        </Button>
+      ))}
     </div>
   ),
 };
 
-export const AllSizes: Story = {
+/** 7가지 스타일. surface는 color와 무관하게 무채색 표면을 사용한다. */
+export const Variants: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-      <Button size="xs">XS Size</Button>
-      <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
-      <Button size="lg">Large</Button>
-      <Button size="xl">XL Size</Button>
+    <div className="flex flex-col gap-3">
+      {VARIANTS.map((variant) => (
+        <div key={variant} className="flex flex-wrap items-center gap-2">
+          <span className="w-16 shrink-0 text-xs opacity-60">{variant}</span>
+          {variant === 'surface' ? (
+            <>
+              <Button variant="surface">취소</Button>
+              <Button variant="surface" disabled>
+                비활성
+              </Button>
+            </>
+          ) : (
+            COLORS.map((color) => (
+              <Button key={color} variant={variant} color={color}>
+                {color}
+              </Button>
+            ))
+          )}
+        </div>
+      ))}
     </div>
   ),
 };
 
-export const RoundedVariations: Story = {
+export const Sizes: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Rounded Variations</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-          <Button rounded="none">No Rounding</Button>
-          <Button rounded="sm">Small Rounded</Button>
-          <Button rounded="md">Medium Rounded (Default)</Button>
-          <Button rounded="lg">Large Rounded</Button>
-          <Button rounded="xl">Extra Large Rounded</Button>
-          <Button rounded="full">Full Rounded</Button>
-          <Button pill>Pill Button</Button>
-        </div>
-      </div>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Different Sizes with Rounding</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-          <Button size="sm" rounded="none">Small None</Button>
-          <Button size="sm" rounded="sm">Small SM</Button>
-          <Button size="md" rounded="lg">Medium LG</Button>
-          <Button size="lg" rounded="xl">Large XL</Button>
-          <Button size="lg" rounded="full">Large Full</Button>
-        </div>
-      </div>
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6B7280' }}>Different Variants with Rounding</h4>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-          <Button variant="primary" rounded="none">Primary None</Button>
-          <Button variant="secondary" rounded="lg">Secondary LG</Button>
-          <Button variant="success" rounded="full">Success Full</Button>
-          <Button variant="danger" rounded="xl">Danger XL</Button>
-          <Button variant="outline-primary" rounded="full">Outline Full</Button>
-        </div>
-      </div>
+    <div className="flex flex-wrap items-center gap-2">
+      {SIZES.map((size) => (
+        <Button key={size} color="primary" size={size}>
+          {size}
+        </Button>
+      ))}
     </div>
   ),
 };
 
-export const ButtonStates: Story = {
+/** 아이콘 전용 버튼 */
+export const Shapes: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <Button>Normal</Button>
-        <Button disabled>Disabled</Button>
-        <Button loading>Loading</Button>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <Button variant="secondary">Normal</Button>
-        <Button variant="secondary" disabled>Disabled</Button>
-        <Button variant="secondary" loading>Loading</Button>
-      </div>
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-        <Button variant="outline-primary">Normal</Button>
-        <Button variant="outline-primary" disabled>Disabled</Button>
-        <Button variant="outline-primary" loading>Loading</Button>
-      </div>
+    <div className="flex flex-wrap items-center gap-2">
+      <Button shape="square" color="primary" aria-label="검색">
+        <Icon name="search" size="1em" />
+      </Button>
+      <Button shape="circle" color="primary" aria-label="검색">
+        <Icon name="search" size="1em" />
+      </Button>
+      <Button shape="square" variant="outline" aria-label="닫기">
+        <Icon name="x" size="1em" />
+      </Button>
+      <Button shape="circle" variant="ghost" aria-label="더보기">
+        <Icon name="ellipsis" size="1em" />
+      </Button>
     </div>
   ),
 };
 
-export const ButtonShapes: Story = {
+export const States: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-      <Button>Default Shape</Button>
-      <Button pill>Pill Shape</Button>
-      <Button iconOnly><i className="bx bx-rocket"></i></Button>
-      <Button iconOnly pill><i className="bx bx-heart"></i></Button>
+    <div className="flex flex-wrap items-center gap-2">
+      <Button color="primary">기본</Button>
+      <Button color="primary" active>
+        active
+      </Button>
+      <Button color="primary" disabled>
+        disabled
+      </Button>
+      <Button color="primary" loading>
+        로딩 중
+      </Button>
+      <Button loading />
+    </div>
+  ),
+};
+
+export const WithIcons: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Button color="primary" leftIcon={<Icon name="save" size="1em" />}>
+        저장
+      </Button>
+      <Button variant="outline" rightIcon={<Icon name="arrow-right" size="1em" />}>
+        다음
+      </Button>
+      <Button color="primary" leftIcon={<Icon name="trash-2" size="1em" />}>
+        삭제
+      </Button>
+    </div>
+  ),
+};
+
+/** 너비 조절 */
+export const Widths: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex w-full max-w-96 flex-col gap-2">
+      <Button color="primary">기본</Button>
+      <Button color="primary" wide>
+        wide
+      </Button>
+      <Button color="primary" block>
+        block
+      </Button>
+    </div>
+  ),
+};
+
+/**
+ * daisyUI의 `btn`은 `<a>`에도 정식으로 쓰인다.
+ * `as`를 주면 버튼 모양의 링크가 되고, 비활성은 `btn-disabled`로 처리된다.
+ */
+export const AsLink: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Button as="a" href="#" color="primary">
+        링크 버튼
+      </Button>
+      <Button as="a" href="#" variant="outline" leftIcon={<Icon name="external-link" size="1em" />}>
+        새 탭에서 열기
+      </Button>
+      <Button as="a" href="#" variant="ghost" disabled>
+        비활성 링크
+      </Button>
+    </div>
+  ),
+};
+
+/** daisyUI 테마에 따라 색이 바뀐다 — 툴바의 Theme을 바꿔 확인 */
+export const OnSurfaces: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-col gap-3">
+      {(['bg-base-100', 'bg-base-200', 'bg-base-300'] as const).map((bg) => (
+        <div key={bg} className={`${bg} flex flex-wrap gap-2 rounded-box p-4`}>
+          <span className="w-24 shrink-0 self-center text-xs opacity-60">{bg}</span>
+          <Button color="primary">primary</Button>
+          <Button color="secondary">secondary</Button>
+          <Button variant="outline">outline</Button>
+          <Button variant="ghost">ghost</Button>
+        </div>
+      ))}
     </div>
   ),
 };

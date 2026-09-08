@@ -1,322 +1,313 @@
-import React, { forwardRef, useMemo } from 'react';
 import { Icon } from './Icon';
+import React, { forwardRef, useMemo } from 'react';
+import { cx, type Color, type Size } from './utils';
 
-export interface PaginationProps {
-  /**
-   * Current active page
-   */
+export type PaginationAlign = 'start' | 'center' | 'end';
+
+const BTN_SIZE: Record<Size, string> = {
+  xs: 'btn-xs',
+  sm: 'btn-sm',
+  md: 'btn-md',
+  lg: 'btn-lg',
+  xl: 'btn-xl',
+};
+
+const ACTIVE_COLOR: Record<Color, string> = {
+  neutral: 'btn-neutral',
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  accent: 'btn-accent',
+  info: 'btn-info',
+  success: 'btn-success',
+  warning: 'btn-warning',
+  error: 'btn-error',
+};
+
+const ALIGN: Record<PaginationAlign, string> = {
+  start: 'justify-start',
+  center: 'justify-center',
+  end: 'justify-end',
+};
+
+export interface PaginationProps extends Omit<React.HTMLAttributes<HTMLElement>, 'onChange'> {
+  /** 현재 페이지 (1부터 시작) */
   currentPage: number;
 
-  /**
-   * Total number of pages
-   */
+  /** 전체 페이지 수 */
   totalPages: number;
 
-  /**
-   * Callback when page changes
-   */
+  /** 페이지가 바뀔 때 호출된다 */
   onPageChange: (page: number) => void;
 
   /**
-   * Number of visible page buttons (excluding prev/next)
+   * 한 번에 보여줄 페이지 버튼 수
    * @default 5
    */
   visiblePages?: number;
 
   /**
-   * Show first and last page buttons
+   * 처음/마지막 버튼 표시
    * @default false
    */
   showFirstLast?: boolean;
 
   /**
-   * Show previous and next buttons
+   * 이전/다음 버튼 표시
    * @default true
    */
   showPrevNext?: boolean;
 
   /**
-   * Show ellipsis for hidden pages
+   * 생략 부호 표시
    * @default true
    */
   showEllipsis?: boolean;
 
   /**
-   * Size variant
+   * 버튼 크기
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: Size;
 
   /**
-   * Shape variant
-   * @default 'default'
-   */
-  shape?: 'default' | 'rounded' | 'circle';
-
-  /**
-   * Color variant
+   * 현재 페이지 버튼의 색상
    * @default 'primary'
    */
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info';
+  color?: Color;
 
   /**
-   * Alignment
+   * 정렬
    * @default 'center'
    */
-  align?: 'left' | 'center' | 'right';
+  align?: PaginationAlign;
 
   /**
-   * Show page info (e.g., "Page 1 of 10")
+   * "N / M" 형태의 안내 표시
    * @default false
    */
   showPageInfo?: boolean;
 
   /**
-   * Show jump to page input
+   * 페이지 번호 직접 입력 칸 표시
    * @default false
    */
   showJumpTo?: boolean;
 
-  /**
-   * Previous button label
-   * @default 'Previous'
-   */
+  /** 이전 버튼 내용 */
   prevLabel?: React.ReactNode;
 
-  /**
-   * Next button label
-   * @default 'Next'
-   */
+  /** 다음 버튼 내용 */
   nextLabel?: React.ReactNode;
 
-  /**
-   * First button label
-   * @default 'First'
-   */
+  /** 처음 버튼 내용 */
   firstLabel?: React.ReactNode;
 
-  /**
-   * Last button label
-   * @default 'Last'
-   */
+  /** 마지막 버튼 내용 */
   lastLabel?: React.ReactNode;
 
   /**
-   * Disabled state
+   * 전체 비활성
    * @default false
    */
   disabled?: boolean;
-
-  /**
-   * Additional CSS class
-   */
-  className?: string;
-
-  /**
-   * aria-label for navigation
-   */
-  'aria-label'?: string;
 }
 
 /**
- * BRICKS Pagination Component
+ * DOI INC Pagination — daisyUI `join` + `btn` 기반
+ *
+ * daisyUI에는 전용 pagination 클래스가 없다. 버튼을 `join`으로 묶는 것이 공식 방식이다.
  *
  * @example
  * ```tsx
- * <Pagination
- *   currentPage={1}
- *   totalPages={10}
- *   onPageChange={(page) => console.log(page)}
- * />
+ * <Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
  * ```
  */
-export const Pagination = forwardRef<HTMLElement, PaginationProps>(({
-  currentPage,
-  totalPages,
-  onPageChange,
-  visiblePages = 5,
-  showFirstLast = false,
-  showPrevNext = true,
-  showEllipsis = true,
-  size = 'md',
-  shape = 'default',
-  variant = 'primary',
-  align = 'center',
-  showPageInfo = false,
-  showJumpTo = false,
-  prevLabel = <Icon name="chevron-left" />,
-  nextLabel = <Icon name="chevron-right" />,
-  firstLabel = <Icon name="chevrons-left" />,
-  lastLabel = <Icon name="chevrons-right" />,
-  disabled = false,
-  className,
-  'aria-label': ariaLabel = 'Pagination Navigation',
-  ...props
-}, ref) => {
-  const pageNumbers = useMemo(() => {
-    const pages: (number | string)[] = [];
-    const half = Math.floor(visiblePages / 2);
+export const Pagination = forwardRef<HTMLElement, PaginationProps>(
+  (
+    {
+      currentPage,
+      totalPages,
+      onPageChange,
+      visiblePages = 5,
+      showFirstLast = false,
+      showPrevNext = true,
+      showEllipsis = true,
+      size = 'md',
+      color = 'primary',
+      align = 'center',
+      showPageInfo = false,
+      showJumpTo = false,
+      prevLabel = <Icon name="chevron-left" size="1em" />,
+      nextLabel = <Icon name="chevron-right" size="1em" />,
+      firstLabel = <Icon name="chevrons-left" size="1em" />,
+      lastLabel = <Icon name="chevrons-right" size="1em" />,
+      disabled = false,
+      className,
+      'aria-label': ariaLabel = '페이지 이동',
+      ...props
+    },
+    ref,
+  ) => {
+    const pages = useMemo(() => {
+      const result: (number | 'ellipsis')[] = [];
+      const half = Math.floor(visiblePages / 2);
 
-    let start = Math.max(1, currentPage - half);
-    let end = Math.min(totalPages, currentPage + half);
+      let start = Math.max(1, currentPage - half);
+      let end = Math.min(totalPages, currentPage + half);
 
-    // Adjust if at the beginning or end
-    if (currentPage <= half) {
-      end = Math.min(totalPages, visiblePages);
-    } else if (currentPage + half >= totalPages) {
-      start = Math.max(1, totalPages - visiblePages + 1);
-    }
-
-    // Add first page and ellipsis
-    if (showEllipsis && start > 1) {
-      pages.push(1);
-      if (start > 2) {
-        pages.push('...');
+      if (currentPage <= half) {
+        end = Math.min(totalPages, visiblePages);
+      } else if (currentPage + half >= totalPages) {
+        start = Math.max(1, totalPages - visiblePages + 1);
       }
-    }
 
-    // Add page numbers
-    for (let i = start; i <= end; i++) {
-      pages.push(i);
-    }
-
-    // Add ellipsis and last page
-    if (showEllipsis && end < totalPages) {
-      if (end < totalPages - 1) {
-        pages.push('...');
+      if (showEllipsis && start > 1) {
+        result.push(1);
+        if (start > 2) result.push('ellipsis');
       }
-      pages.push(totalPages);
-    }
 
-    return pages;
-  }, [currentPage, totalPages, visiblePages, showEllipsis]);
+      for (let i = start; i <= end; i += 1) result.push(i);
 
-  const handlePageChange = (page: number) => {
-    if (!disabled && page !== currentPage && page >= 1 && page <= totalPages) {
+      if (showEllipsis && end < totalPages) {
+        if (end < totalPages - 1) result.push('ellipsis');
+        result.push(totalPages);
+      }
+
+      return result;
+    }, [currentPage, totalPages, visiblePages, showEllipsis]);
+
+    const go = (page: number) => {
+      if (disabled || page === currentPage || page < 1 || page > totalPages) return;
       onPageChange(page);
-    }
-  };
+    };
 
-  const handleJumpToPage = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      const input = e.target as HTMLInputElement;
-      const page = parseInt(input.value, 10);
-      if (!isNaN(page)) {
-        handlePageChange(Math.min(Math.max(1, page), totalPages));
-        input.value = '';
-      }
-    }
-  };
+    const btn = cx('join-item btn', BTN_SIZE[size]);
 
-  const paginationClasses = [
-    'pagination',
-    size !== 'md' ? `pagination--${size}` : '',
-    shape !== 'default' ? `pagination--${shape}` : '',
-    variant !== 'primary' ? `pagination--${variant}` : '',
-    align !== 'center' ? `pagination--align-${align}` : '',
-    disabled ? 'pagination--disabled' : '',
-    className
-  ].filter(Boolean).join(' ');
+    return (
+      <nav
+        ref={ref}
+        aria-label={ariaLabel}
+        className={cx(
+          'bricks-pagination flex w-full flex-wrap items-center gap-3',
+          showPrevNext && pages.length > 5 && 'pagination-compactable',
+          ALIGN[align],
+          className,
+        )}
+        {...props}
+      >
+        {showPageInfo && (
+          <span className="pagination-page-info text-sm opacity-60">
+            {currentPage} / {totalPages}
+          </span>
+        )}
 
-  return (
-    <nav ref={ref} className={paginationClasses} aria-label={ariaLabel} {...props}>
-      {showPageInfo && (
-        <div className="pagination__info">
-          Page {currentPage} of {totalPages}
-        </div>
-      )}
-
-      <ul className="pagination__list">
-        {showFirstLast && (
-          <li className="pagination__item">
+        <div className="join max-w-full overflow-x-auto">
+          {showFirstLast && (
             <button
-              className={`pagination__link pagination__link--first ${currentPage === 1 ? 'pagination__link--disabled' : ''}`}
-              onClick={() => handlePageChange(1)}
+              type="button"
+              className={cx(btn, 'pagination-first-last')}
+              onClick={() => go(1)}
               disabled={disabled || currentPage === 1}
-              aria-label="First page"
+              aria-label="첫 페이지"
             >
               {firstLabel}
             </button>
-          </li>
-        )}
+          )}
 
-        {showPrevNext && (
-          <li className="pagination__item">
+          {showPrevNext && (
             <button
-              className={`pagination__link pagination__link--prev ${currentPage === 1 ? 'pagination__link--disabled' : ''}`}
-              onClick={() => handlePageChange(currentPage - 1)}
+              type="button"
+              className={btn}
+              onClick={() => go(currentPage - 1)}
               disabled={disabled || currentPage === 1}
-              aria-label="Previous page"
+              aria-label="이전 페이지"
             >
               {prevLabel}
             </button>
-          </li>
-        )}
+          )}
 
-        {pageNumbers.map((page, index) => (
-          <li key={index} className="pagination__item">
-            {page === '...' ? (
-              <span className="pagination__ellipsis">{page}</span>
+          {pages.map((page, index) =>
+            page === 'ellipsis' ? (
+              <button
+                key={`ellipsis-${index}`}
+                type="button"
+                className={cx(btn, 'btn-disabled pagination-number')}
+                aria-hidden="true"
+                tabIndex={-1}
+              >
+                …
+              </button>
             ) : (
               <button
-                className={`pagination__link ${page === currentPage ? 'pagination__link--active' : ''}`}
-                onClick={() => handlePageChange(page as number)}
+                key={page}
+                type="button"
+                className={cx(btn, 'pagination-number', page === currentPage && ACTIVE_COLOR[color])}
+                onClick={() => go(page)}
                 disabled={disabled}
-                aria-label={`Page ${page}`}
+                aria-label={`${page} 페이지`}
                 aria-current={page === currentPage ? 'page' : undefined}
               >
                 {page}
               </button>
-            )}
-          </li>
-        ))}
+            ),
+          )}
 
-        {showPrevNext && (
-          <li className="pagination__item">
+          <span className={cx('pagination-compact-count join-item btn', BTN_SIZE[size], ACTIVE_COLOR[color], disabled && 'btn-disabled')} aria-live="polite">
+            <strong>{currentPage}</strong>
+            <span className="opacity-60">/ {totalPages}</span>
+          </span>
+
+          {showPrevNext && (
             <button
-              className={`pagination__link pagination__link--next ${currentPage === totalPages ? 'pagination__link--disabled' : ''}`}
-              onClick={() => handlePageChange(currentPage + 1)}
+              type="button"
+              className={btn}
+              onClick={() => go(currentPage + 1)}
               disabled={disabled || currentPage === totalPages}
-              aria-label="Next page"
+              aria-label="다음 페이지"
             >
               {nextLabel}
             </button>
-          </li>
-        )}
+          )}
 
-        {showFirstLast && (
-          <li className="pagination__item">
+          {showFirstLast && (
             <button
-              className={`pagination__link pagination__link--last ${currentPage === totalPages ? 'pagination__link--disabled' : ''}`}
-              onClick={() => handlePageChange(totalPages)}
+              type="button"
+              className={cx(btn, 'pagination-first-last')}
+              onClick={() => go(totalPages)}
               disabled={disabled || currentPage === totalPages}
-              aria-label="Last page"
+              aria-label="마지막 페이지"
             >
               {lastLabel}
             </button>
-          </li>
-        )}
-      </ul>
+          )}
+        </div>
 
-      {showJumpTo && (
-        <div className="pagination__jump">
-          <label className="pagination__jump-label">
-            Go to:
+        {showJumpTo && (
+          <label className="flex items-center gap-2 text-sm">
+            이동
             <input
               type="number"
-              min="1"
+              min={1}
               max={totalPages}
-              className="pagination__jump-input"
-              onKeyDown={handleJumpToPage}
+              className={cx('input w-20', size === 'lg' || size === 'xl' ? 'input-md' : 'input-sm')}
               disabled={disabled}
               placeholder="#"
+              onKeyDown={(event) => {
+                if (event.key !== 'Enter') return;
+                const input = event.currentTarget;
+                const page = Number.parseInt(input.value, 10);
+                if (!Number.isNaN(page)) {
+                  go(Math.min(Math.max(1, page), totalPages));
+                  input.value = '';
+                }
+              }}
             />
           </label>
-        </div>
-      )}
-    </nav>
-  );
-});
+        )}
+      </nav>
+    );
+  },
+);
 
 Pagination.displayName = 'Pagination';
 

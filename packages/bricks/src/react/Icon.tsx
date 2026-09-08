@@ -1,61 +1,35 @@
-import React, { forwardRef } from 'react';
+﻿import { forwardRef } from 'react';
+import type { LucideProps } from 'lucide-react';
+import { ICONS, type IconName } from './icon-registry';
 
-export interface IconProps extends React.HTMLAttributes<HTMLElement> {
-  /**
-   * Icon name from Boxicons regular set
-   */
-  name: string;
-
-  /**
-   * Icon size
-   * @default 24
-   */
-  size?: number | string;
-
-  /**
-   * Icon color
-   * @default 'currentColor'
-   */
-  color?: string;
-
-  /**
-   * Additional CSS class
-   */
-  className?: string;
+export type { IconName } from './icon-registry';
+export interface IconProps extends Omit<LucideProps, 'ref'> {
+  /** Lucide name from the project's shared icon vocabulary. */
+  name: IconName;
 }
 
-/**
- * Icon component using Boxicons
- *
- * @example
- * ```tsx
- * <Icon name="home" size={24} />
- * <Icon name="user" color="#333" />
- * ```
+/** Official DOI INC icon: Lucide SVG, currentColor and a 2px stroke by default.
+ * Decorative icons are hidden from assistive technology. Supply aria-label for standalone meaning.
+ * @example <Icon name="house" size={20} />
  */
-export const Icon = forwardRef<HTMLElement, IconProps>(({
-  name,
-  size = 24,
-  color = 'currentColor',
-  className = '',
-  ...props
-}, ref) => {
-  return (
-    <i
-      ref={ref}
-      className={`bx bx-${name} ${className}`}
-      style={{
-        fontSize: typeof size === 'number' ? `${size}px` : size,
-        color,
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-      {...props}
-    />
-  );
-});
-
+export const Icon = forwardRef<SVGSVGElement, IconProps>(
+  ({ name, size = 20, color = 'currentColor', strokeWidth = 2, className = '', ...props }, ref) => {
+    const Component = ICONS[name];
+    if (!Component) return null;
+    const labelled = !!(props['aria-label'] || props['aria-labelledby']);
+    return (
+      <Component
+        ref={ref}
+        size={size}
+        color={color}
+        strokeWidth={strokeWidth}
+        aria-hidden={labelled ? undefined : true}
+        role={labelled ? 'img' : undefined}
+        className={`doi-icon ${className}`.trim()}
+        {...props}
+      />
+    );
+  },
+);
 Icon.displayName = 'Icon';
-
 export default Icon;

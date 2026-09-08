@@ -1,179 +1,107 @@
-import React, { useState, useEffect, useRef, forwardRef } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
+import { cx, type Size } from './utils';
+
+export type TabsVariant = 'plain' | 'box' | 'border' | 'lift';
+export type TabsPlacement = 'top' | 'bottom';
+
+const VARIANT: Record<TabsVariant, string> = {
+  plain: '',
+  box: 'tabs-box',
+  border: 'tabs-border',
+  lift: 'tabs-lift',
+};
+
+const SIZE: Record<Size, string> = {
+  xs: 'tabs-xs',
+  sm: 'tabs-sm',
+  md: 'tabs-md',
+  lg: 'tabs-lg',
+  xl: 'tabs-xl',
+};
+
+const PLACEMENT: Record<TabsPlacement, string> = {
+  top: 'tabs-top',
+  bottom: 'tabs-bottom',
+};
 
 export interface TabItem {
-  /**
-   * 탭 식별자
-   */
+  /** 탭 식별자 */
   key: string;
 
-  /**
-   * 탭 레이블
-   */
+  /** 탭 라벨 */
   label: React.ReactNode;
 
-  /**
-   * 탭 내용
-   */
+  /** 탭 내용 */
   content: React.ReactNode;
 
-  /**
-   * 비활성화 여부
-   */
+  /** 비활성 여부 */
   disabled?: boolean;
 
-  /**
-   * 아이콘
-   */
+  /** 라벨 왼쪽 아이콘 */
   icon?: React.ReactNode;
 
-  /**
-   * 뱃지
-   */
+  /** 라벨 오른쪽 뱃지 */
   badge?: React.ReactNode;
 }
 
-export interface TabsProps {
-  /**
-   * 탭 목록
-   */
+export interface TabsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  /** 탭 목록 */
   items: TabItem[];
 
-  /**
-   * 활성 탭 키
-   */
+  /** 활성 탭 키 (제어) */
   activeKey?: string;
 
-  /**
-   * 기본 활성 탭 키
-   */
+  /** 처음 활성화될 탭 키 (비제어) */
   defaultActiveKey?: string;
 
   /**
-   * 탭 스타일
-   * @default 'default'
+   * 탭 외형
+   * @default 'border'
    */
-  variant?: 'default' | 'pills' | 'vertical';
+  variant?: TabsVariant;
 
   /**
    * 탭 크기
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: Size;
 
   /**
-   * 균등 분할
+   * 탭 줄의 위치
+   * @default 'top'
+   */
+  placement?: TabsPlacement;
+
+  /**
+   * 탭을 가로로 균등 분할한다
    * @default false
    */
   justified?: boolean;
 
-  /**
-   * 탭 변경 이벤트
-   */
+  /** 탭이 바뀔 때 호출된다 */
   onChange?: (activeKey: string) => void;
 
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
-
-  /**
-   * 탭 네비게이션 추가 CSS 클래스
-   */
+  /** 탭 줄에 적용할 추가 클래스 */
   navClassName?: string;
 
-  /**
-   * 탭 내용 추가 CSS 클래스
-   */
+  /** 내용 영역에 적용할 추가 클래스 */
   contentClassName?: string;
 }
 
-export interface TabNavProps {
-  /**
-   * 탭 목록
-   */
-  items: TabItem[];
-
-  /**
-   * 활성 탭 키
-   */
-  activeKey: string;
-
-  /**
-   * 탭 스타일
-   */
-  variant?: 'default' | 'pills' | 'vertical';
-
-  /**
-   * 탭 크기
-   */
-  size?: 'sm' | 'md' | 'lg';
-
-  /**
-   * 균등 분할
-   */
-  justified?: boolean;
-
-  /**
-   * 탭 클릭 이벤트
-   */
-  onTabClick?: (key: string) => void;
-
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
-
-  /**
-   * 인디케이터 스타일
-   */
-  indicatorStyle?: React.CSSProperties;
-}
-
-export interface TabPanelProps {
-  /**
-   * 패널 키
-   */
-  tabKey: string;
-
-  /**
-   * 활성 탭 키
-   */
-  activeKey: string;
-
-  /**
-   * 패널 내용
-   */
-  children: React.ReactNode;
-
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
-}
-
 /**
- * BRICKS 디자인 시스템 Tabs 컴포넌트
+ * DOI INC Tabs — daisyUI `tabs` 기반
+ *
+ * 이전 구현은 활성 탭 위치를 `getBoundingClientRect()`로 재서 인디케이터를 움직였다.
+ * daisyUI는 이걸 CSS로 처리하므로 측정 코드와 resize 리스너가 모두 사라졌다.
  *
  * @example
  * ```tsx
  * <Tabs
+ *   variant="box"
  *   items={[
- *     {
- *       key: 'tab1',
- *       label: '첫 번째 탭',
- *       content: <div>첫 번째 탭 내용</div>,
- *       icon: <HomeIcon />
- *     },
- *     {
- *       key: 'tab2',
- *       label: '두 번째 탭',
- *       content: <div>두 번째 탭 내용</div>,
- *       badge: <Badge>3</Badge>
- *     }
+ *     { key: 'a', label: '개요', content: <p>개요 내용</p> },
+ *     { key: 'b', label: '설정', content: <p>설정 내용</p> },
  *   ]}
- *   activeKey={activeTab}
- *   onChange={setActiveTab}
- *   variant="pills"
  * />
  * ```
  */
@@ -181,209 +109,89 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(({
   items,
   activeKey,
   defaultActiveKey,
-  variant = 'default',
+  variant = 'border',
   size = 'md',
+  placement = 'top',
   justified = false,
   onChange,
   className,
   navClassName,
-  contentClassName
+  contentClassName,
+  ...props
 }, ref) => {
-  const [currentActiveKey, setCurrentActiveKey] = useState(
-    activeKey || defaultActiveKey || items[0]?.key || ''
-  );
-  const [indicatorStyle, setIndicatorStyle] = useState({});
-  const navRef = useRef<HTMLDivElement>(null);
   const isControlled = activeKey !== undefined;
+  const [currentKey, setCurrentKey] = useState(
+    activeKey ?? defaultActiveKey ?? items[0]?.key ?? '',
+  );
 
-  // 제어 컴포넌트에서 activeKey가 변경되면 상태 업데이트
   useEffect(() => {
-    if (isControlled && activeKey) {
-      setCurrentActiveKey(activeKey);
-    }
+    if (isControlled && activeKey) setCurrentKey(activeKey);
   }, [activeKey, isControlled]);
 
-  // 인디케이터 위치 업데이트
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      updateIndicator();
-    }, 0);
-    return () => clearTimeout(timer);
-  }, [currentActiveKey, variant]);
-
-  const updateIndicator = () => {
-    if (!navRef.current) return;
-
-    const activeButton = navRef.current.querySelector(
-      `[data-tab-key="${currentActiveKey}"]`
-    ) as HTMLElement;
-
-    if (!activeButton) return;
-
-    const navRect = navRef.current.getBoundingClientRect();
-    const buttonRect = activeButton.getBoundingClientRect();
-
-    if (variant === 'vertical') {
-      setIndicatorStyle({
-        top: buttonRect.top - navRect.top,
-        height: buttonRect.height
-      });
-    } else {
-      setIndicatorStyle({
-        left: buttonRect.left - navRect.left,
-        width: buttonRect.width
-      });
-    }
-  };
-
-  // 윈도우 리사이즈 시 인디케이터 위치 재계산
-  useEffect(() => {
-    const handleResize = () => {
-      updateIndicator();
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [currentActiveKey, variant]);
-
-  const handleTabChange = (key: string) => {
-    if (!isControlled) {
-      setCurrentActiveKey(key);
-    }
+  const select = (key: string) => {
+    if (!isControlled) setCurrentKey(key);
     onChange?.(key);
   };
 
-  const tabsClasses = [
-    'tabs',
-    variant !== 'default' ? `tabs--${variant}` : '',
-    size !== 'md' ? `tabs--${size}` : '',
-    justified ? 'tabs--justified' : '',
-    className
-  ].filter(Boolean).join(' ');
+  const nav = (
+    <div
+      role="tablist"
+      className={cx(
+        'tabs',
+        VARIANT[variant],
+        SIZE[size],
+        PLACEMENT[placement],
+        justified && 'w-full [&>*]:flex-1',
+        navClassName,
+      )}
+    >
+      {items.map((item) => (
+        <button
+          key={item.key}
+          type="button"
+          role="tab"
+          id={`tab-${item.key}`}
+          aria-selected={currentKey === item.key}
+          aria-controls={`tabpanel-${item.key}`}
+          disabled={item.disabled}
+          className={cx(
+            'tab',
+            currentKey === item.key && 'tab-active',
+            item.disabled && 'tab-disabled',
+          )}
+          onClick={() => !item.disabled && select(item.key)}
+        >
+          {item.icon && <span className="me-1.5">{item.icon}</span>}
+          {item.label}
+          {item.badge && <span className="ms-1.5">{item.badge}</span>}
+        </button>
+      ))}
+    </div>
+  );
 
-  const activeItem = items.find(item => item.key === currentActiveKey);
+  const panels = (
+    <div className={cx('py-4', contentClassName)}>
+      {items.map((item) => (
+        <div
+          key={item.key}
+          id={`tabpanel-${item.key}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${item.key}`}
+          hidden={currentKey !== item.key}
+        >
+          {item.content}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
-    <div ref={ref} className={tabsClasses}>
-      <TabNav
-        ref={navRef}
-        items={items}
-        activeKey={currentActiveKey}
-        variant={variant}
-        size={size}
-        justified={justified}
-        onTabClick={handleTabChange}
-        className={navClassName}
-        indicatorStyle={indicatorStyle}
-      />
-
-      <div className={`tabs__content ${contentClassName || ''}`}>
-        {items.map(item => (
-          <TabPanel
-            key={item.key}
-            tabKey={item.key}
-            activeKey={currentActiveKey}
-          >
-            {item.content}
-          </TabPanel>
-        ))}
-      </div>
+    <div ref={ref} className={className} {...props}>
+      {placement === 'bottom' ? <>{panels}{nav}</> : <>{nav}{panels}</>}
     </div>
   );
 });
 
 Tabs.displayName = 'Tabs';
-
-/**
- * TabNav 컴포넌트 - 탭 네비게이션
- */
-export const TabNav = forwardRef<HTMLDivElement, TabNavProps>(({
-  items,
-  activeKey,
-  variant = 'default',
-  size = 'md',
-  justified = false,
-  onTabClick,
-  className,
-  indicatorStyle
-}, ref) => {
-  const navClasses = [
-    'tabs__nav',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={navClasses} role="tablist">
-      {items.map(item => (
-        <button
-          key={item.key}
-          type="button"
-          className={`tabs__button ${activeKey === item.key ? 'tabs__button--active' : ''}`}
-          role="tab"
-          aria-selected={activeKey === item.key}
-          aria-controls={`panel-${item.key}`}
-          disabled={item.disabled}
-          data-tab-key={item.key}
-          onClick={() => !item.disabled && onTabClick?.(item.key)}
-        >
-          {item.icon && (
-            <span className="tabs__button-icon">
-              {item.icon}
-              <span>{item.label}</span>
-            </span>
-          )}
-          {!item.icon && item.label}
-          {item.badge && (
-            <span className="tabs__button-badge">
-              {item.badge}
-            </span>
-          )}
-        </button>
-      ))}
-      <div className="tabs__indicator" style={indicatorStyle} />
-    </div>
-  );
-});
-
-TabNav.displayName = 'TabNav';
-
-/**
- * TabPanel 컴포넌트 - 탭 내용 패널
- */
-export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(({
-  tabKey,
-  activeKey,
-  children,
-  className
-}, ref) => {
-  const isActive = tabKey === activeKey;
-
-  const panelClasses = [
-    'tabs__panel',
-    isActive ? 'tabs__panel--active' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div
-      ref={ref}
-      id={`panel-${tabKey}`}
-      className={panelClasses}
-      role="tabpanel"
-      aria-labelledby={`tab-${tabKey}`}
-      hidden={!isActive}
-    >
-      {children}
-    </div>
-  );
-});
-
-TabPanel.displayName = 'TabPanel';
-
-// Compound Component 패턴을 위한 타입 확장
-export const TabsComponent = Object.assign(Tabs, {
-  Nav: TabNav,
-  Panel: TabPanel
-});
 
 export default Tabs;

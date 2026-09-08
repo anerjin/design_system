@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chart - BRICKS Design System</title>
+    <title>Chart - DOI INC Design System</title>
 
     <!-- Pretendard Font -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
-    <!-- BRICKS Design System CSS -->
+    <!-- DOI INC Design System CSS -->
     <link rel="stylesheet" href="../../layout/css/index.css">
 
     <!-- Chart Component CSS -->
     <link rel="stylesheet" href="../../core/styles/molecules/chart.css">
 
     <!-- Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -29,6 +28,8 @@
             }
         })();
     </script>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
@@ -344,7 +345,7 @@ const chart = new Chart(ctx, {
                 </div>
                 <div class="card__body">
                     <div class="alert alert--info">
-                        <i class='bx bx-info-circle alert__icon'></i>
+                        <i data-lucide='info' class='alert__icon'></i>
                         <div class="alert__content">
                             <strong>자동 테마 감지</strong>
                             <p>모든 차트는 테마 변경을 자동으로 감지하여 색상을 업데이트합니다. Light 모드에서는 검은색, Dark 모드에서는 흰색으로 표시됩니다.</p>

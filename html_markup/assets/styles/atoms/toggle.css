@@ -1,5 +1,5 @@
 /* ========================================
-   BRICKS - Toggle Switch Component
+   DOI INC - Toggle Switch Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -29,7 +29,7 @@
 .toggle--lg .toggle__thumb {left:3px; width:24px; height:24px;}
 .toggle--lg.toggle--active .toggle__thumb {transform:translateX(30px) translateY(-50%);}
 
-/* Toggle Variants - Using BRICKS color tokens */
+/* Toggle Variants - Using DOI INC color tokens */
 .toggle--success.toggle--active .toggle__track {background-color:var(--ds-color-success);}
 .toggle--warning.toggle--active .toggle__track {background-color:var(--ds-color-warning);}
 .toggle--danger.toggle--active .toggle__track {background-color:var(--ds-color-danger);}

@@ -1,5 +1,5 @@
 /**
- * BRICKS Design System - Component Interactions
+ * DOI INC Design System - Component Interactions
  * Auto-initializes interactive components on DOMContentLoaded
  */
 
@@ -7,7 +7,7 @@
   'use strict';
 
   // ========================================
-  // BRICKS Global Namespace
+  // DOI INC Global Namespace
   // ========================================
   window.BRICKS = window.BRICKS || {};
 
@@ -330,9 +330,9 @@
         var code = preview.querySelector('.component-preview__code:not([style*="display: none"]) code, .component-preview__code:not([style*="display:none"]) code');
         if (code) {
           navigator.clipboard.writeText(code.textContent).then(function() {
-            btn.innerHTML = '<i class="bx bx-check" style="font-size:16px;color:green;"></i>';
+            btn.innerHTML = '<i data-lucide="check" style="font-size:16px;color:green;"></i>';
             setTimeout(function() {
-              btn.innerHTML = '<i class="bx bx-copy" style="font-size:16px;"></i>';
+              btn.innerHTML = '<i data-lucide="copy" style="font-size:16px;"></i>';
             }, 2000);
           });
         }

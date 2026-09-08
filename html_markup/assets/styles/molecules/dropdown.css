@@ -200,7 +200,7 @@
 .dropdown--lg .dropdown__measure-item {font-size:var(--ds-text-base);}
 .dropdown--xl .dropdown__measure-item {font-size:var(--ds-text-lg);}
 
-/* Multiple Selection with BRICKS Checkbox */
+/* Multiple Selection with DOI INC Checkbox */
 .dropdown__item--checkbox {display:flex; align-items:center; gap:var(--ds-space-3);}
 .dropdown__item--checkbox .checkbox {pointer-events:none; flex-shrink:0;}
 .dropdown__item--checkbox .dropdown__item-label {flex:1;}

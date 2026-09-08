@@ -1,43 +1,44 @@
 {
   "name": "@bricks/core",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
-  "description": "BRICKS - Simple text-based design system with dark/light mode",
+  "description": "DOI INC - React design system built on Tailwind CSS v4 + daisyUI v5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": [
+    "*.css"
+  ],
   "files": [
     "dist",
-    "dist/bundle",
-    "core/styles",
+    "INTERACTIVE_COMPONENTS.md",
     "README.md"
   ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     },
-    "./bundle": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/bundle/bricks.es.js",
-      "require": "./dist/bundle/bricks.umd.js"
-    },
-    "./styles": "./core/styles/bundle.css",
-    "./styles/bundle": "./core/styles/bundle.built.css",
-    "./styles/bundle.min": "./core/styles/bundle.min.css",
-    "./styles/*": "./core/styles/*"
+    "./bundle": "./dist/bricks.umd.js",
+    "./styles": "./dist/bricks.css",
+    "./styles/min": "./dist/bricks.min.css",
+    "./styles/tokens": "./dist/bricks-tokens.css",
+    "./package.json": "./package.json"
   },
   "scripts": {
     "build": "tsc -p tsconfig.lib.json",
-    "build:css": "node scripts/build-css.js --minify",
+    "build:css": "node scripts/build-css.js",
     "build:js": "node scripts/build-js.js",
     "build:bundle": "npm run build:css && npm run build:js",
     "build:all": "npm run build && npm run build:bundle",
-    "watch": "tsc --watch",
-    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prepublishOnly": "npm run clean && npm run build:all",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build:legacy-icons": "node scripts/build-legacy-icons.cjs"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -48,14 +49,23 @@
     "@storybook/addon-docs": "^10.1.11",
     "@storybook/addon-links": "^10.1.11",
     "@storybook/react-vite": "^10.1.11",
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
-    "boxicons": "^2.1.4",
+    "daisyui": "^5.7.28",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "storybook": "^10.1.11",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.7.3",
     "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "chart.js": "^4.5.1",
+    "lucide-react": "^1.42.0",
+    "react-resizable-panels": "^4.12.4"
   }
 }

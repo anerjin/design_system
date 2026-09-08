@@ -1,413 +1,123 @@
 import React, { forwardRef } from 'react';
+import { cx, type Color, type Size } from './utils';
 
-export interface ProgressProps {
+const COLOR: Record<Color, string> = {
+  neutral: 'progress-neutral',
+  primary: 'progress-primary',
+  secondary: 'progress-secondary',
+  accent: 'progress-accent',
+  info: 'progress-info',
+  success: 'progress-success',
+  warning: 'progress-warning',
+  error: 'progress-error',
+};
+
+/** daisyUI progress에는 크기 클래스가 없어 높이 유틸리티로 조절한다 */
+const SIZE: Record<Size, string> = {
+  xs: 'h-1',
+  sm: 'h-1.5',
+  md: 'h-2',
+  lg: 'h-3',
+  xl: 'h-4',
+};
+
+export interface ProgressProps extends Omit<React.ProgressHTMLAttributes<HTMLProgressElement>, 'value' | 'max'> {
   /**
-   * Progress value (0-100)
+   * 진행 값
    * @default 0
    */
   value?: number;
 
   /**
-   * Maximum value
+   * 최대 값
    * @default 100
    */
   max?: number;
 
   /**
-   * Minimum value
-   * @default 0
-   */
-  min?: number;
-
-  /**
-   * Progress bar size
+   * 굵기
    * @default 'md'
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: Size;
+
+  /** 색상 */
+  color?: Color;
 
   /**
-   * Color variant
-   * @default 'primary'
-   */
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark';
-
-  /**
-   * Whether to show stripes
-   * @default false
-   */
-  striped?: boolean;
-
-  /**
-   * Whether to animate stripes
-   * @default false
-   */
-  animated?: boolean;
-
-  /**
-   * Whether progress is indeterminate
+   * 진행률을 알 수 없는 상태. 좌우로 움직이는 애니메이션이 된다.
    * @default false
    */
   indeterminate?: boolean;
 
-  /**
-   * Label to display
-   */
+  /** 막대 위에 표시할 설명 */
   label?: React.ReactNode;
 
   /**
-   * Whether to show label inside bar
+   * 오른쪽에 퍼센트를 표시한다
    * @default false
    */
-  showLabel?: boolean;
+  showValue?: boolean;
 
-  /**
-   * Label position
-   * @default 'inside'
-   */
-  labelPosition?: 'inside' | 'outside';
-
-  /**
-   * Additional CSS class
-   */
-  className?: string;
-
-  /**
-   * Bar CSS class
-   */
-  barClassName?: string;
-
-  /**
-   * Custom formatter for label
-   */
-  formatLabel?: (value: number, max: number) => React.ReactNode;
-
-  /**
-   * ARIA label
-   */
-  'aria-label'?: string;
-}
-
-export interface CircularProgressProps {
-  /**
-   * Progress value (0-100)
-   * @default 0
-   */
-  value?: number;
-
-  /**
-   * Circle size
-   * @default 'md'
-   */
-  size?: 'sm' | 'md' | 'lg';
-
-  /**
-   * Stroke width
-   * @default 3
-   */
-  strokeWidth?: number;
-
-  /**
-   * Color variant
-   * @default 'primary'
-   */
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark';
-
-  /**
-   * Whether to show percentage label
-   * @default true
-   */
-  showLabel?: boolean;
-
-  /**
-   * Custom label
-   */
-  label?: React.ReactNode;
-
-  /**
-   * Whether progress is indeterminate
-   * @default false
-   */
-  indeterminate?: boolean;
-
-  /**
-   * Additional CSS class
-   */
-  className?: string;
-
-  /**
-   * Custom formatter for label
-   */
-  formatLabel?: (value: number) => React.ReactNode;
-}
-
-export interface MultiStepProgressProps {
-  /**
-   * Current step (0-indexed)
-   */
-  currentStep: number;
-
-  /**
-   * Step labels
-   */
-  steps: string[];
-
-  /**
-   * Progress bar variant
-   * @default 'primary'
-   */
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark';
-
-  /**
-   * Additional CSS class
-   */
-  className?: string;
-
-  /**
-   * Whether to show step numbers
-   * @default false
-   */
-  showStepNumbers?: boolean;
+  /** 퍼센트 표시 형식을 바꾼다 */
+  formatValue?: (value: number, max: number) => React.ReactNode;
 }
 
 /**
- * BRICKS Progress Component
+ * DOI INC Progress — daisyUI `progress` 기반
+ *
+ * 네이티브 `<progress>` 요소를 쓴다. daisyUI에는 줄무늬(striped) 스타일이 없어
+ * 이전의 `striped` / `animated` 속성은 사라졌고, 값을 주지 않으면 자동으로
+ * 진행률 미상 애니메이션이 된다.
  *
  * @example
  * ```tsx
- * <Progress value={60} />
+ * <Progress value={60} color="primary" />
+ * <Progress indeterminate />
+ * <Progress value={80} label="업로드 중" showValue />
  * ```
  */
-export const Progress = forwardRef<HTMLDivElement, ProgressProps>(({
+export const Progress = forwardRef<HTMLProgressElement, ProgressProps>(({
   value = 0,
   max = 100,
-  min = 0,
   size = 'md',
-  variant = 'primary',
-  striped = false,
-  animated = false,
+  color,
   indeterminate = false,
   label,
-  showLabel = false,
-  labelPosition = 'inside',
+  showValue = false,
+  formatValue,
   className,
-  barClassName,
-  formatLabel,
-  'aria-label': ariaLabel,
   ...props
 }, ref) => {
-  const percentage = Math.min(Math.max(((value - min) / (max - min)) * 100, 0), 100);
+  const percentage = max > 0 ? Math.min(Math.max((value / max) * 100, 0), 100) : 0;
 
-  const progressClasses = [
-    'progress',
-    size !== 'md' ? `progress--${size}` : '',
-    variant !== 'primary' ? `progress--${variant}` : '',
-    striped ? 'progress--striped' : '',
-    animated ? 'progress--animated' : '',
-    indeterminate ? 'progress--indeterminate' : '',
-    className
-  ].filter(Boolean).join(' ');
+  const bar = (
+    <progress
+      ref={ref}
+      className={cx('progress w-full', color && COLOR[color], SIZE[size], className)}
+      // value를 주지 않으면 daisyUI가 진행률 미상 애니메이션을 보여준다
+      value={indeterminate ? undefined : value}
+      max={max}
+      {...props}
+    />
+  );
 
-  const barClasses = [
-    'progress__bar',
-    barClassName
-  ].filter(Boolean).join(' ');
-
-  const renderLabel = () => {
-    if (!showLabel && !label) return null;
-
-    const labelContent = label || (formatLabel ? formatLabel(value, max) : `${Math.round(percentage)}%`);
-
-    if (labelPosition === 'outside') {
-      return (
-        <div className="progress__label progress__label--outside">
-          {labelContent}
-        </div>
-      );
-    }
-
-    return <span className="progress__label">{labelContent}</span>;
-  };
+  if (!label && !showValue) return bar;
 
   return (
-    <div className="progress-wrapper">
-      {labelPosition === 'outside' && renderLabel()}
-      <div
-        ref={ref}
-        className={progressClasses}
-        role="progressbar"
-        aria-valuenow={value}
-        aria-valuemin={min}
-        aria-valuemax={max}
-        aria-label={ariaLabel || `Progress: ${Math.round(percentage)}%`}
-        {...props}
-      >
-        <div
-          className={barClasses}
-          style={!indeterminate ? { width: `${percentage}%` } : undefined}
-        >
-          {labelPosition === 'inside' && renderLabel()}
-        </div>
+    <div className="flex w-full flex-col gap-1">
+      <div className="flex items-center justify-between text-sm">
+        <span>{label}</span>
+        {showValue && (
+          <span className="opacity-60 tabular-nums">
+            {formatValue ? formatValue(value, max) : `${Math.round(percentage)}%`}
+          </span>
+        )}
       </div>
+      {bar}
     </div>
   );
 });
 
 Progress.displayName = 'Progress';
-
-/**
- * BRICKS Circular Progress Component
- *
- * @example
- * ```tsx
- * <CircularProgress value={75} />
- * ```
- */
-export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps>(({
-  value = 0,
-  size = 'md',
-  strokeWidth = 4,
-  variant = 'primary',
-  showLabel = true,
-  label,
-  indeterminate = false,
-  className,
-  formatLabel,
-  ...props
-}, ref) => {
-  const sizeMap = {
-    sm: 48,
-    md: 80,
-    lg: 120
-  };
-
-  const strokeWidthMap = {
-    sm: 4,
-    md: 5,
-    lg: 6
-  };
-
-  const svgSize = sizeMap[size];
-  const actualStrokeWidth = strokeWidthMap[size];
-  const radius = (svgSize - actualStrokeWidth) / 2;
-  const circumference = radius * 2 * Math.PI;
-  const strokeDashoffset = circumference - (value / 100) * circumference;
-
-  const circularClasses = [
-    'progress-circular',
-    `progress-circular--${size}`,
-    indeterminate ? 'progress-circular--spinner' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const barClasses = [
-    'progress-circular__bar',
-    variant !== 'primary' ? `progress-circular__bar--${variant}` : ''
-  ].filter(Boolean).join(' ');
-
-  const renderLabel = () => {
-    if (!showLabel && !label) return null;
-
-    const labelContent = label || (formatLabel ? formatLabel(value) : `${Math.round(value)}%`);
-
-    return <span className="progress-circular__text">{labelContent}</span>;
-  };
-
-  return (
-    <div
-      ref={ref}
-      className={circularClasses}
-      style={{ width: svgSize, height: svgSize }}
-      role="progressbar"
-      aria-valuenow={indeterminate ? undefined : value}
-      aria-valuemin={0}
-      aria-valuemax={100}
-      {...props}
-    >
-      <svg
-        className="progress-circular__svg"
-        width={svgSize}
-        height={svgSize}
-        viewBox={`0 0 ${svgSize} ${svgSize}`}
-      >
-        <circle
-          className="progress-circular__bg"
-          cx={svgSize / 2}
-          cy={svgSize / 2}
-          r={radius}
-          strokeWidth={actualStrokeWidth}
-        />
-        <circle
-          className={barClasses}
-          cx={svgSize / 2}
-          cy={svgSize / 2}
-          r={radius}
-          strokeWidth={actualStrokeWidth}
-          strokeDasharray={circumference}
-          strokeDashoffset={indeterminate ? circumference * 0.75 : strokeDashoffset}
-          strokeLinecap="round"
-          transform={`rotate(-90 ${svgSize / 2} ${svgSize / 2})`}
-        />
-      </svg>
-      {!indeterminate && renderLabel()}
-    </div>
-  );
-});
-
-CircularProgress.displayName = 'CircularProgress';
-
-/**
- * BRICKS Multi-Step Progress Component
- *
- * @example
- * ```tsx
- * <MultiStepProgress
- *   currentStep={1}
- *   steps={['Step 1', 'Step 2', 'Step 3', 'Step 4']}
- * />
- * ```
- */
-export const MultiStepProgress = forwardRef<HTMLDivElement, MultiStepProgressProps>(({
-  currentStep,
-  steps,
-  variant = 'primary',
-  className,
-  showStepNumbers = false,
-  ...props
-}, ref) => {
-  const percentage = (currentStep / (steps.length - 1)) * 100;
-
-  const wrapperClasses = [
-    'multi-step-progress',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={wrapperClasses} {...props}>
-      <div className="step-labels">
-        {steps.map((step, index) => (
-          <span
-            key={index}
-            className={[
-              'step-label',
-              index < currentStep ? 'step-label--completed' : '',
-              index === currentStep ? 'step-label--active' : '',
-              index > currentStep ? 'step-label--pending' : ''
-            ].filter(Boolean).join(' ')}
-          >
-            {showStepNumbers && <span className="step-label__number">{index + 1}</span>}
-            {step}
-          </span>
-        ))}
-      </div>
-      <Progress
-        value={percentage}
-        variant={variant}
-        aria-label={`Step ${currentStep + 1} of ${steps.length}`}
-      />
-    </div>
-  );
-});
-
-MultiStepProgress.displayName = 'MultiStepProgress';
 
 export default Progress;

@@ -66,14 +66,8 @@ code:not([class*="language-"]) {display:inline-block; padding:2px 6px; border:1p
 .demo-stack-lg {gap:16px;}
 
 /* Icon Styles for Examples */
-.icon-info::before {content:"ⓘ"; font-size:18px;}
-.icon-success::before {content:"✓"; font-size:18px;}
-.icon-warning::before {content:"⚠"; font-size:18px;}
-.icon-danger::before {content:"✕"; font-size:18px;}
 
-.icon-close {display:inline-block; position:relative; width:16px; height:16px;}
-.icon-close::before,
-.icon-close::after {content:""; position:absolute; top:50%; left:50%; width:14px; height:2px; background:currentColor;}
+/* Close icons are rendered with Lucide SVG. */
 .icon-close::before {transform:translate(-50%, -50%) rotate(45deg);}
 .icon-close::after {transform:translate(-50%, -50%) rotate(-45deg);}
 

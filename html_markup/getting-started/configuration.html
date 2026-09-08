@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuration - BRICKS Design System</title>
+    <title>Configuration - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
         <div class="vp-doc-header">
             <h1 class="vp-doc-title">Configuration</h1>
             <p class="vp-doc-description">
-                Customize BRICKS to perfectly match your brand identity. Every aspect of the design system can be configured through CSS variables.
+                Customize DOI INC to perfectly match your brand identity. Every aspect of the design system can be configured through CSS variables.
             </p>
         </div>
 
         <!-- Overview -->
         <div class="vp-custom-block tip">
             <div class="vp-custom-block-title">🎨 Complete Control</div>
-            <p>BRICKS uses CSS custom properties (variables) for all design tokens, making it easy to customize colors, typography, spacing, and more without modifying the source code.</p>
+            <p>DOI INC uses CSS custom properties (variables) for all design tokens, making it easy to customize colors, typography, spacing, and more without modifying the source code.</p>
         </div>
 
         <!-- Quick Start -->
@@ -47,7 +48,7 @@
 
         <div class="config-section">
             <h3>Color System</h3>
-            <p>BRICKS provides a comprehensive color system with semantic naming:</p>
+            <p>DOI INC provides a comprehensive color system with semantic naming:</p>
 
             <div class="color-config">
                 <div class="config-card">
@@ -166,7 +167,7 @@
 
         <!-- Spacing System -->
         <h2 id="spacing">Spacing System</h2>
-        <p>BRICKS uses a consistent 4px-based spacing system:</p>
+        <p>DOI INC uses a consistent 4px-based spacing system:</p>
 
         <pre><code class="language-css">:root {
   /* Base unit */
@@ -193,7 +194,7 @@
 
         <div class="dark-mode-section">
             <h3>Automatic Dark Mode</h3>
-            <p>BRICKS automatically detects system preferences:</p>
+            <p>DOI INC automatically detects system preferences:</p>
 
             <pre><code class="language-css">/* Automatic dark mode based on system preference */
 @media (prefers-color-scheme: dark) {
@@ -443,7 +444,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 
         <pre><code class="language-css">/* custom-bricks-theme.css */
 
-/* 1. Import base BRICKS styles */
+/* 1. Import base DOI INC styles */
 @import '@bricks/design-system/dist/bricks.css';
 
 /* 2. Override with your custom variables */
@@ -515,7 +516,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
                 <div class="practice-icon">❌</div>
                 <h3>Don't</h3>
                 <ul>
-                    <li>Modify the core BRICKS files directly</li>
+                    <li>Modify the core DOI INC files directly</li>
                     <li>Use hard-coded colors in your components</li>
                     <li>Override styles with <code>!important</code></li>
                     <li>Break the spacing system consistency</li>
@@ -529,21 +530,21 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 
         <div class="resource-links">
             <a href="#" class="resource-link">
-                <i class='bx bx-palette'></i>
+                <i data-lucide='palette'></i>
                 <div>
                     <h4>Theme Generator</h4>
                     <p>Interactive tool to create custom themes</p>
                 </div>
             </a>
             <a href="#" class="resource-link">
-                <i class='bx bx-code-alt'></i>
+                <i data-lucide='code-xml'></i>
                 <div>
                     <h4>Example Themes</h4>
                     <p>Pre-built themes for inspiration</p>
                 </div>
             </a>
             <a href="#" class="resource-link">
-                <i class='bx bx-book'></i>
+                <i data-lucide='book'></i>
                 <div>
                     <h4>Variable Reference</h4>
                     <p>Complete list of all CSS variables</p>

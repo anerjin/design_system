@@ -1,285 +1,119 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { Checkbox, CheckboxGroup } from './Checkbox';
+import type { Color, Size } from './utils';
+
+const COLORS: Color[] = [
+  'neutral', 'primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error',
+];
+const SIZES: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Data Entry/Checkbox',
+  title: 'Data Input/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'centered',
+    gallery: {
+      description: '네이티브 체크박스에 클래스만 얹는다. 부분 선택 상태도 지원한다.',
+      daisyui: 'checkbox',
+      props: [
+        { name: 'label', type: 'ReactNode', description: '주면 클릭 가능한 라벨로 감싼다' },
+        { name: 'description', type: 'ReactNode', description: '라벨 아래 보조 설명' },
+        { name: 'indeterminate', type: 'boolean', defaultValue: 'false' },
+        { name: 'color', type: 'neutral | primary | … | error' },
+        { name: 'size', type: 'xs | sm | md | lg | xl', defaultValue: 'md' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
-    },
-    variant: {
-      control: 'select',
-      options: [undefined, 'primary', 'success', 'danger', 'warning', 'info', 'dark'],
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    indeterminate: {
-      control: 'boolean',
-    },
-    required: {
-      control: 'boolean',
-    },
+    color: { control: 'select', options: COLORS },
+    size: { control: 'select', options: SIZES },
+    indeterminate: { control: 'boolean' },
+    disabled: { control: 'boolean' },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const CheckboxWithState = (args: any) => {
-  const [checked, setChecked] = useState(args.checked || false);
-
-  return (
-    <Checkbox
-      {...args}
-      checked={checked}
-      onChange={(e) => {
-        setChecked(e.target.checked);
-        args.onChange?.(e);
-      }}
-    />
-  );
-};
-
 export const Default: Story = {
-  render: (args) => <CheckboxWithState {...args} />,
-  args: {
-    label: 'Default Checkbox',
-  },
+  args: { label: '약관에 동의합니다', defaultChecked: true },
 };
 
-export const Checked: Story = {
-  render: (args) => <CheckboxWithState {...args} />,
-  args: {
-    label: 'Checked by default',
-    checked: true,
-  },
-};
-
-export const WithDescription: Story = {
-  render: (args) => <CheckboxWithState {...args} />,
-  args: {
-    label: 'Accept terms and conditions',
-    description: 'You must accept the terms to continue',
-  },
-};
-
-export const Required: Story = {
-  render: (args) => <CheckboxWithState {...args} />,
-  args: {
-    label: 'Required checkbox',
-    required: true,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled checkbox',
-    disabled: true,
-  },
-};
-
-export const DisabledChecked: Story = {
-  args: {
-    label: 'Disabled checked',
-    disabled: true,
-    checked: true,
-  },
-};
-
-export const Indeterminate: Story = {
-  args: {
-    label: 'Indeterminate state',
-    indeterminate: true,
-  },
+export const Colors: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Checkbox defaultChecked />
+      {COLORS.map((color) => (
+        <Checkbox key={color} color={color} defaultChecked aria-label={color} />
+      ))}
+    </div>
+  ),
 };
 
 export const Sizes: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Checkbox size="xs" label="Extra small checkbox" defaultChecked />
-      <Checkbox size="sm" label="Small checkbox" defaultChecked />
-      <Checkbox size="md" label="Medium checkbox (default)" defaultChecked />
-      <Checkbox size="lg" label="Large checkbox" defaultChecked />
-      <Checkbox size="xl" label="Extra large checkbox" defaultChecked />
+    <div className="flex flex-wrap items-center gap-3">
+      {SIZES.map((size) => (
+        <Checkbox key={size} size={size} color="primary" defaultChecked aria-label={size} />
+      ))}
     </div>
   ),
 };
 
-export const Variants: Story = {
+export const States: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Checkbox label="Default" defaultChecked />
-      <Checkbox label="Primary" variant="primary" defaultChecked />
-      <Checkbox label="Success" variant="success" defaultChecked />
-      <Checkbox label="Danger" variant="danger" defaultChecked />
-      <Checkbox label="Warning" variant="warning" defaultChecked />
-      <Checkbox label="Info" variant="info" defaultChecked />
-      <Checkbox label="Dark" variant="dark" defaultChecked />
+    <div className="flex flex-col gap-1">
+      <Checkbox label="선택 안 함" />
+      <Checkbox label="선택함" defaultChecked />
+      <Checkbox label="부분 선택" indeterminate />
+      <Checkbox label="비활성" disabled />
+      <Checkbox label="비활성 + 선택됨" defaultChecked disabled />
     </div>
   ),
 };
 
-export const Group: Story = {
-  render: () => {
-    const [selectedItems, setSelectedItems] = useState<string[]>([]);
-
-    const items = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
-
-    const handleChange = (item: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.checked) {
-        setSelectedItems([...selectedItems, item]);
-      } else {
-        setSelectedItems(selectedItems.filter(i => i !== item));
-      }
-    };
-
-    return (
-      <div>
-        <h4 style={{ marginBottom: '12px' }}>Select multiple options:</h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {items.map(item => (
-            <Checkbox
-              key={item}
-              label={item}
-              checked={selectedItems.includes(item)}
-              onChange={handleChange(item)}
-            />
-          ))}
-        </div>
-        <p style={{ marginTop: '16px', fontSize: '14px', color: '#666' }}>
-          Selected: {selectedItems.join(', ') || 'None'}
-        </p>
-      </div>
-    );
-  },
-};
-
-export const CheckboxGroupDefault: Story = {
+export const WithDescription: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <CheckboxGroup label="Select your interests" required>
-      <Checkbox label="Frontend Development" value="frontend" />
-      <Checkbox label="Backend Development" value="backend" />
-      <Checkbox label="UI/UX Design" value="design" />
-      <Checkbox label="DevOps" value="devops" />
-    </CheckboxGroup>
-  ),
-};
-
-export const CheckboxGroupInline: Story = {
-  render: () => (
-    <CheckboxGroup label="Select options" inline>
-      <Checkbox label="Option A" />
-      <Checkbox label="Option B" />
-      <Checkbox label="Option C" />
-      <Checkbox label="Option D" />
-    </CheckboxGroup>
-  ),
-};
-
-export const CheckboxGroupError: Story = {
-  render: () => (
-    <CheckboxGroup
-      label="Terms and Conditions"
-      error
-      errorMessage="You must accept at least one condition"
-      required
-    >
-      <Checkbox label="I accept the Terms of Service" />
-      <Checkbox label="I accept the Privacy Policy" />
-      <Checkbox label="I agree to receive marketing emails" />
-    </CheckboxGroup>
-  ),
-};
-
-export const CheckboxStates: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Checkbox label="Unchecked" />
-      <Checkbox label="Checked" defaultChecked />
-      <Checkbox label="Indeterminate" indeterminate />
-      <Checkbox label="Disabled" disabled />
-      <Checkbox label="Disabled Checked" disabled defaultChecked />
-    </div>
-  ),
-};
-
-export const WithDescriptions: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <div className="flex flex-col gap-2">
       <Checkbox
-        label="Email notifications"
-        description="Receive email updates about your account activity"
-      />
-      <Checkbox
-        label="SMS notifications"
-        description="Get text messages for important security alerts"
-      />
-      <Checkbox
-        label="Push notifications"
-        description="Allow browser push notifications for real-time updates"
+        color="primary"
+        label="마케팅 정보 수신"
+        description="신제품 소식과 할인 정보를 이메일로 받아봅니다."
         defaultChecked
       />
+      <Checkbox
+        label="위치 정보 사용"
+        description="가까운 매장을 찾는 데 사용됩니다."
+      />
     </div>
   ),
 };
 
-export const CompleteExample: Story = {
-  render: () => {
-    const [selectAll, setSelectAll] = useState(false);
-    const [selected, setSelected] = useState<string[]>([]);
-    const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
+export const Group: StoryObj<typeof CheckboxGroup> = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-col gap-6">
+      <CheckboxGroup label="관심 분야" required>
+        <Checkbox label="프론트엔드" value="fe" defaultChecked />
+        <Checkbox label="백엔드" value="be" />
+        <Checkbox label="디자인" value="design" />
+      </CheckboxGroup>
 
-    const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.checked) {
-        setSelected(options);
-        setSelectAll(true);
-      } else {
-        setSelected([]);
-        setSelectAll(false);
-      }
-    };
+      <CheckboxGroup label="알림 채널" inline>
+        <Checkbox label="이메일" value="email" defaultChecked />
+        <Checkbox label="SMS" value="sms" />
+        <Checkbox label="푸시" value="push" />
+      </CheckboxGroup>
 
-    const handleOptionChange = (option: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.checked) {
-        const newSelected = [...selected, option];
-        setSelected(newSelected);
-        setSelectAll(newSelected.length === options.length);
-      } else {
-        const newSelected = selected.filter(item => item !== option);
-        setSelected(newSelected);
-        setSelectAll(false);
-      }
-    };
-
-    return (
-      <div style={{ minWidth: '300px' }}>
-        <Checkbox
-          label="Select All"
-          checked={selectAll}
-          indeterminate={selected.length > 0 && selected.length < options.length}
-          onChange={handleSelectAll}
-          variant="primary"
-        />
-        <hr style={{ margin: '12px 0', border: 'none', borderTop: '1px solid #e5e7eb' }} />
-        <CheckboxGroup>
-          {options.map(option => (
-            <Checkbox
-              key={option}
-              label={option}
-              checked={selected.includes(option)}
-              onChange={handleOptionChange(option)}
-            />
-          ))}
-        </CheckboxGroup>
-      </div>
-    );
-  },
+      <CheckboxGroup label="약관" error="필수 약관에 동의해야 합니다">
+        <Checkbox label="이용약관 (필수)" value="tos" />
+        <Checkbox label="개인정보 처리방침 (필수)" value="privacy" />
+      </CheckboxGroup>
+    </div>
+  ),
 };

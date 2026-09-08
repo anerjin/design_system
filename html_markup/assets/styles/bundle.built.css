@@ -1,5 +1,5 @@
 /**
- * BRICKS Design System - Combined Bundle
+ * DOI INC Design System - Combined Bundle
  * Generated: 2026-01-16T08:58:52.845Z
  * Files: 37
  *
@@ -14,7 +14,7 @@
 
 /* --- base/reset.css --- */
 /* ========================================
-   BRICKS - Reset CSS
+   DOI INC - Reset CSS
    기본 리셋 스타일
 ======================================== */
 
@@ -682,7 +682,7 @@ hr {
 
 /* --- tokens/spacing.css --- */
 /* ========================================
-   BRICKS - Spacing Tokens
+   DOI INC - Spacing Tokens
    스페이싱 및 레이아웃 시스템
 ======================================== */
 
@@ -1729,7 +1729,7 @@ hr {
 
 /* --- atoms/input.css --- */
 /* ========================================
-   BRICKS - Input Component
+   DOI INC - Input Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -1786,7 +1786,7 @@ hr {
 
 /* --- atoms/checkbox.css --- */
 /* ========================================
-   BRICKS - Checkbox Component
+   DOI INC - Checkbox Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -1843,7 +1843,7 @@ hr {
 
 /* --- atoms/radio.css --- */
 /* ========================================
-   BRICKS - Radio Component
+   DOI INC - Radio Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -1888,7 +1888,7 @@ hr {
 
 /* --- atoms/toggle.css --- */
 /* ========================================
-   BRICKS - Toggle Switch Component
+   DOI INC - Toggle Switch Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -1918,7 +1918,7 @@ hr {
 .toggle--lg .toggle__thumb {left:3px; width:24px; height:24px;}
 .toggle--lg.toggle--active .toggle__thumb {transform:translateX(30px) translateY(-50%);}
 
-/* Toggle Variants - Using BRICKS color tokens */
+/* Toggle Variants - Using DOI INC color tokens */
 .toggle--success.toggle--active .toggle__track {background-color:var(--ds-color-success);}
 .toggle--warning.toggle--active .toggle__track {background-color:var(--ds-color-warning);}
 .toggle--danger.toggle--active .toggle__track {background-color:var(--ds-color-danger);}
@@ -1944,7 +1944,7 @@ hr {
 
 /* --- atoms/avatar.css --- */
 /* ========================================
-   BRICKS - Avatar Component
+   DOI INC - Avatar Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -2000,7 +2000,7 @@ hr {
 
 /* --- atoms/badge.css --- */
 /* ========================================
-   BRICKS - Badge Component
+   DOI INC - Badge Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -2097,7 +2097,7 @@ hr {
 
 /* --- atoms/spinner.css --- */
 /* ========================================
-   BRICKS - Spinner Component
+   DOI INC - Spinner Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -2194,7 +2194,7 @@ hr {
 
 /* --- atoms/progress.css --- */
 /* ========================================
-   BRICKS - Progress Component
+   DOI INC - Progress Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -2286,7 +2286,7 @@ hr {
 
 /* --- atoms/select.css --- */
 /* ========================================
-   BRICKS - Select Component
+   DOI INC - Select Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -2335,7 +2335,7 @@ hr {
 
 /* --- molecules/card.css --- */
 /* ========================================
-   BRICKS - Card Component
+   DOI INC - Card Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -2485,7 +2485,7 @@ hr {
 
 /* --- molecules/alert.css --- */
 /* ========================================
-   BRICKS - Alert Component
+   DOI INC - Alert Component
    BEM + Single-Line CSS Convention
 ======================================== */
 
@@ -2776,7 +2776,7 @@ hr {
 .dropdown--lg .dropdown__measure-item {font-size:var(--ds-text-base);}
 .dropdown--xl .dropdown__measure-item {font-size:var(--ds-text-lg);}
 
-/* Multiple Selection with BRICKS Checkbox */
+/* Multiple Selection with DOI INC Checkbox */
 .dropdown__item--checkbox {display:flex; align-items:center; gap:var(--ds-space-3);}
 .dropdown__item--checkbox .checkbox {pointer-events:none; flex-shrink:0;}
 .dropdown__item--checkbox .dropdown__item-label {flex:1;}
@@ -3155,7 +3155,7 @@ hr {
 
 /* --- molecules/chart.css --- */
 /* ========================================
-   BRICKS - Chart Component
+   DOI INC - Chart Component
    Chart.js 기반 차트 컴포넌트 스타일
 ======================================== */
 

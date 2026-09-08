@@ -1,29 +1,34 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio, RadioGroup } from './Radio';
+import type { Color, Size } from './utils';
+
+const COLORS: Color[] = [
+  'neutral', 'primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error',
+];
+const SIZES: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const meta: Meta<typeof Radio> = {
-  title: 'Data Entry/Radio',
+  title: 'Data Input/Radio',
   component: Radio,
   parameters: {
     layout: 'centered',
+    gallery: {
+      description: '하나만 고르는 선택지. 그룹이 name과 선택값을 컨텍스트로 내려준다.',
+      daisyui: 'radio',
+      props: [
+        { name: 'label', type: 'ReactNode' },
+        { name: 'description', type: 'ReactNode' },
+        { name: 'color', type: 'neutral | primary | … | error' },
+        { name: 'size', type: 'xs | sm | md | lg | xl', defaultValue: 'md' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    variant: {
-      control: 'select',
-      options: [undefined, 'primary', 'success', 'danger', 'warning', 'info', 'dark'],
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    required: {
-      control: 'boolean',
-    },
+    color: { control: 'select', options: COLORS },
+    size: { control: 'select', options: SIZES },
+    disabled: { control: 'boolean' },
   },
 };
 
@@ -31,283 +36,74 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    label: 'Radio Button',
-    name: 'default',
-    value: 'option1',
-  },
+  args: { label: '베이직', name: 'plan-default', defaultChecked: true },
 };
 
-export const WithDescription: Story = {
-  args: {
-    label: 'Option with description',
-    description: 'This option includes additional information',
-    name: 'description',
-    value: 'option1',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled option',
-    disabled: true,
-    name: 'disabled',
-    value: 'option1',
-  },
-};
-
-export const Required: Story = {
-  args: {
-    label: 'Required option',
-    required: true,
-    name: 'required',
-    value: 'option1',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'sm',
-    label: 'Small radio',
-    name: 'small',
-    value: 'option1',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'lg',
-    label: 'Large radio',
-    name: 'large',
-    value: 'option1',
-  },
-};
-
-export const Variants: Story = {
+export const Colors: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Radio label="Default" name="variants" value="default" defaultChecked />
-      <Radio label="Primary" variant="primary" name="variants" value="primary" />
-      <Radio label="Success" variant="success" name="variants" value="success" />
-      <Radio label="Danger" variant="danger" name="variants" value="danger" />
-      <Radio label="Warning" variant="warning" name="variants" value="warning" />
-      <Radio label="Info" variant="info" name="variants" value="info" />
-      <Radio label="Dark" variant="dark" name="variants" value="dark" />
+    <div className="flex flex-wrap items-center gap-3">
+      {COLORS.map((color) => (
+        <Radio key={color} color={color} name={`c-${color}`} defaultChecked aria-label={color} />
+      ))}
     </div>
   ),
 };
 
 export const Sizes: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Radio size="sm" label="Small radio" name="sizes" value="small" />
-      <Radio size="md" label="Medium radio (default)" name="sizes" value="medium" defaultChecked />
-      <Radio size="lg" label="Large radio" name="sizes" value="large" />
+    <div className="flex flex-wrap items-center gap-3">
+      {SIZES.map((size) => (
+        <Radio key={size} size={size} color="primary" name={`s-${size}`} defaultChecked aria-label={size} />
+      ))}
     </div>
   ),
 };
 
-export const RadioGroupExample: Story = {
-  render: () => {
-    const [selectedValue, setSelectedValue] = useState('option1');
-
-    const options = [
-      { value: 'option1', label: 'Option 1', description: 'First choice' },
-      { value: 'option2', label: 'Option 2', description: 'Second choice' },
-      { value: 'option3', label: 'Option 3', description: 'Third choice' },
-      { value: 'option4', label: 'Option 4', description: 'Fourth choice', disabled: true },
-    ];
-
-    return (
-      <div>
-        <h4 style={{ marginBottom: '12px' }}>Select an option:</h4>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          {options.map(option => (
-            <Radio
-              key={option.value}
-              name="group"
-              value={option.value}
-              label={option.label}
-              description={option.description}
-              disabled={option.disabled}
-              checked={selectedValue === option.value}
-              onChange={(e) => setSelectedValue(e.target.value)}
-            />
-          ))}
-        </div>
-        <p style={{ marginTop: '16px', fontSize: '14px', color: '#666' }}>
-          Selected: {selectedValue}
-        </p>
-      </div>
-    );
-  },
-};
-
-export const PaymentMethods: Story = {
-  render: () => {
-    const [selectedMethod, setSelectedMethod] = useState('credit');
-
-    const methods = [
-      {
-        value: 'credit',
-        label: (<><i className="bx bx-credit-card"></i> Credit Card</>),
-        description: 'Pay with Visa, MasterCard, or American Express',
-      },
-      {
-        value: 'paypal',
-        label: (<><i className="bx bxl-paypal"></i> PayPal</>),
-        description: 'Fast and secure payment with PayPal',
-      },
-      {
-        value: 'bank',
-        label: (<><i className="bx bx-building"></i> Bank Transfer</>),
-        description: 'Direct transfer from your bank account',
-      },
-      {
-        value: 'crypto',
-        label: (<><i className="bx bxl-bitcoin"></i> Cryptocurrency</>),
-        description: 'Pay with Bitcoin, Ethereum, or other cryptocurrencies',
-      },
-    ];
-
-    return (
-      <div style={{ width: '350px' }}>
-        <h3 style={{ marginBottom: '16px' }}>Payment Method</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {methods.map(method => (
-            <div
-              key={method.value}
-              style={{
-                padding: '12px',
-                border: selectedMethod === method.value ? '2px solid #007bff' : '1px solid #ddd',
-                borderRadius: '8px',
-                cursor: 'pointer',
-              }}
-              onClick={() => setSelectedMethod(method.value)}
-            >
-              <Radio
-                name="payment"
-                value={method.value}
-                label={method.label}
-                description={method.description}
-                checked={selectedMethod === method.value}
-                onChange={(e) => setSelectedMethod(e.target.value)}
-                variant="primary"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  },
-};
-
-export const RadioGroupVertical: Story = {
-  render: () => {
-    const [value, setValue] = useState('option1');
-
-    return (
-      <RadioGroup
-        name="vertical-group"
-        label="Select your preference"
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
-        required
-      >
-        <Radio value="option1" label="Option 1" description="First choice" />
-        <Radio value="option2" label="Option 2" description="Second choice" />
-        <Radio value="option3" label="Option 3" description="Third choice" />
-        <Radio value="option4" label="Option 4" description="Fourth choice" disabled />
-      </RadioGroup>
-    );
-  },
-};
-
-export const RadioGroupInline: Story = {
-  render: () => {
-    const [value, setValue] = useState('small');
-
-    return (
-      <RadioGroup
-        name="inline-group"
-        label="Select size"
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
-        inline
-      >
-        <Radio value="small" label="S" />
-        <Radio value="medium" label="M" />
-        <Radio value="large" label="L" />
-        <Radio value="xlarge" label="XL" />
-      </RadioGroup>
-    );
-  },
-};
-
-export const RadioStates: Story = {
+export const States: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Radio name="states" value="unchecked" label="Unchecked" />
-      <Radio name="states2" value="checked" label="Checked" defaultChecked />
-      <Radio name="states" value="disabled" label="Disabled" disabled />
-      <Radio name="states2" value="disabled-checked" label="Disabled Checked" disabled defaultChecked />
+    <div className="flex flex-col gap-1">
+      <Radio name="st" label="선택 안 함" />
+      <Radio name="st" label="선택함" defaultChecked />
+      <Radio name="st2" label="비활성" disabled />
+      <Radio name="st3" label="비활성 + 선택됨" defaultChecked disabled />
     </div>
   ),
 };
 
-export const CompleteExample: Story = {
-  render: () => {
-    const [shirtSize, setShirtSize] = useState('medium');
-    const [deliverySpeed, setDeliverySpeed] = useState('standard');
+/** RadioGroup이 name과 선택값을 컨텍스트로 내려준다 */
+export const Group: StoryObj<typeof RadioGroup> = {
+  parameters: { layout: 'padded' },
+  render: function GroupStory() {
+    const [plan, setPlan] = useState('pro');
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', minWidth: '400px' }}>
+      <div className="flex flex-col gap-6">
         <RadioGroup
-          name="shirt-size"
-          label="T-Shirt Size"
-          value={shirtSize}
-          onChange={(value) => setShirtSize(value)}
-          inline
+          label="요금제"
+          name="plan"
+          value={plan}
+          onChange={(e) => setPlan(e.target.value)}
           required
         >
-          <Radio value="xsmall" label="XS" />
-          <Radio value="small" label="S" />
-          <Radio value="medium" label="M" />
-          <Radio value="large" label="L" />
-          <Radio value="xlarge" label="XL" />
-          <Radio value="xxlarge" label="XXL" />
+          <Radio value="basic" label="베이직" description="월 9,900원" color="primary" />
+          <Radio value="pro" label="프로" description="월 19,900원" color="primary" />
+          <Radio value="team" label="팀" description="월 49,000원" color="primary" />
+        </RadioGroup>
+        <p className="text-sm opacity-60">선택된 값: {plan}</p>
+
+        <RadioGroup label="정렬" name="sort" inline>
+          <Radio value="new" label="최신순" defaultChecked />
+          <Radio value="pop" label="인기순" />
+          <Radio value="price" label="가격순" />
         </RadioGroup>
 
-        <RadioGroup
-          name="delivery"
-          label="Delivery Speed"
-          value={deliverySpeed}
-          onChange={(value) => setDeliverySpeed(value)}
-        >
-          <Radio
-            value="express"
-            label="Express Delivery"
-            description="Get your order in 1-2 business days (+$15)"
-            variant="primary"
-          />
-          <Radio
-            value="standard"
-            label="Standard Delivery"
-            description="Get your order in 5-7 business days (Free)"
-          />
-          <Radio
-            value="economy"
-            label="Economy Delivery"
-            description="Get your order in 10-14 business days (-$5)"
-          />
+        <RadioGroup label="배송 방법" name="ship" error="배송 방법을 선택하세요">
+          <Radio value="std" label="일반 배송" />
+          <Radio value="exp" label="빠른 배송" />
         </RadioGroup>
-
-        <div style={{ padding: '12px', background: '#f3f4f6', borderRadius: '8px' }}>
-          <p style={{ margin: 0, fontSize: '14px' }}>Selected Options:</p>
-          <p style={{ margin: '4px 0 0', fontSize: '12px', color: '#6b7280' }}>
-            Size: {shirtSize.toUpperCase()} | Delivery: {deliverySpeed}
-          </p>
-        </div>
       </div>
     );
   },

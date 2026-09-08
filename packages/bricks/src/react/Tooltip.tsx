@@ -1,204 +1,136 @@
-import React, { useState, useRef, useEffect, useCallback, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
+import { cx, type Color } from './utils';
 
-export interface TooltipProps {
-  children: ReactNode;
-  content?: string | ReactNode;
-  placement?: 'top' | 'bottom' | 'left' | 'right';
-  theme?: 'dark' | 'light';
-  className?: string;
+export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
+
+const PLACEMENT: Record<TooltipPlacement, string> = {
+  top: 'tooltip-top',
+  bottom: 'tooltip-bottom',
+  left: 'tooltip-left',
+  right: 'tooltip-right',
+};
+
+const COLOR: Record<Color, string> = {
+  neutral: 'tooltip-neutral',
+  primary: 'tooltip-primary',
+  secondary: 'tooltip-secondary',
+  accent: 'tooltip-accent',
+  info: 'tooltip-info',
+  success: 'tooltip-success',
+  warning: 'tooltip-warning',
+  error: 'tooltip-error',
+};
+
+// `content`는 HTML의 메타데이터 속성과 이름이 겹치므로 걷어내고 새로 정의한다
+export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
+  /**
+   * 툴팁 내용.
+   * 문자열이면 `data-tip`으로, 그 외 노드면 `tooltip-content` 영역으로 렌더된다.
+   */
+  content?: React.ReactNode;
+
+  /**
+   * 표시 방향
+   * @default 'top'
+   */
+  placement?: TooltipPlacement;
+
+  /** 툴팁 색상 */
+  color?: Color;
+
+  /**
+   * 항상 열어 둔다
+   * @default false
+   */
+  open?: boolean;
+
+  /**
+   * 툴팁을 끈다. 자식만 그대로 렌더된다.
+   * @default false
+   */
   disabled?: boolean;
-  delay?: number;
-  interactive?: boolean;
-  onShow?: () => void;
-  onHide?: () => void;
+
+  children: React.ReactNode;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({
-  children,
+/**
+ * DOI INC Tooltip — daisyUI `tooltip` 기반
+ *
+ * 이전 구현은 `getBoundingClientRect()`로 위치를 계산하고 scroll/resize를 구독했다.
+ * daisyUI 툴팁은 순수 CSS라 그 코드가 전부 사라졌다.
+ *
+ * 그 대신 CSS로 표현할 수 없는 `delay` / `interactive` / `onShow` / `onHide`는 없어졌다.
+ * 마우스를 올려 안쪽을 클릭해야 하는 UI라면 `Dropdown`을 쓴다.
+ *
+ * @example
+ * ```tsx
+ * <Tooltip content="저장합니다">
+ *   <Button>저장</Button>
+ * </Tooltip>
+ * ```
+ */
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(({
   content,
   placement = 'top',
-  theme = 'dark',
-  className = '',
+  color,
+  open = false,
   disabled = false,
-  delay = 0,
-  interactive = false,
-  onShow,
-  onHide,
-}) => {
-  const [visible, setVisible] = useState(false);
-  const [position, setPosition] = useState({ left: '50%', top: '0' });
-  const triggerRef = useRef<HTMLSpanElement>(null);
-  const bubbleRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLSpanElement>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const [tooltipId] = useState(() => `tooltip-${Math.random().toString(36).substring(2, 11)}`);
-
-  const calculatePosition = useCallback(() => {
-    if (!triggerRef.current || !wrapperRef.current || !bubbleRef.current) return;
-
-    const triggerRect = triggerRef.current.getBoundingClientRect();
-    const wrapperRect = wrapperRef.current.getBoundingClientRect();
-
-    const centerX = triggerRect.left + triggerRect.width / 2 - wrapperRect.left;
-    const centerY = triggerRect.top + triggerRect.height / 2 - wrapperRect.top;
-
-    let newPosition = { left: '50%', top: '0' };
-
-    switch (placement) {
-      case 'bottom':
-        newPosition = {
-          left: `${centerX}px`,
-          top: `${triggerRect.bottom - wrapperRect.top}px`,
-        };
-        break;
-      case 'left':
-        newPosition = {
-          left: `${triggerRect.left - wrapperRect.left}px`,
-          top: `${centerY}px`,
-        };
-        break;
-      case 'right':
-        newPosition = {
-          left: `${triggerRect.right - wrapperRect.left}px`,
-          top: `${centerY}px`,
-        };
-        break;
-      case 'top':
-      default:
-        newPosition = {
-          left: `${centerX}px`,
-          top: `${triggerRect.top - wrapperRect.top}px`,
-        };
-        break;
-    }
-
-    setPosition(newPosition);
-  }, [placement]);
-
-  const showTooltip = useCallback(() => {
-    if (disabled || !content) return;
-
-    if (delay > 0) {
-      timeoutRef.current = setTimeout(() => {
-        setVisible(true);
-        onShow?.();
-      }, delay);
-    } else {
-      setVisible(true);
-      onShow?.();
-    }
-  }, [disabled, content, delay, onShow]);
-
-  const hideTooltip = useCallback(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    if (!interactive) {
-      setVisible(false);
-      onHide?.();
-    }
-  }, [interactive, onHide]);
-
-  const handleMouseEnter = () => showTooltip();
-  const handleMouseLeave = () => hideTooltip();
-  const handleFocus = () => showTooltip();
-  const handleBlur = () => hideTooltip();
-
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Escape' && visible) {
-      setVisible(false);
-      onHide?.();
-      if (triggerRef.current) {
-        (triggerRef.current.firstElementChild as HTMLElement)?.blur();
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (visible) {
-      calculatePosition();
-      const handleReposition = () => {
-        if (visible) {
-          calculatePosition();
-        }
-      };
-
-      window.addEventListener('scroll', handleReposition, true);
-      window.addEventListener('resize', handleReposition);
-
-      return () => {
-        window.removeEventListener('scroll', handleReposition, true);
-        window.removeEventListener('resize', handleReposition);
-      };
-    }
-    return undefined;
-  }, [visible, calculatePosition]);
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-
-  if (!content) {
+  className,
+  children,
+  ...props
+}, ref) => {
+  if (disabled || content === undefined || content === null) {
     return <>{children}</>;
   }
 
-  const wrapperClassName = `tooltip ${theme === 'light' ? 'tooltip--light' : ''} ${className}`.trim();
+  const isPlainText = typeof content === 'string' || typeof content === 'number';
 
   return (
-    <span ref={wrapperRef} className={wrapperClassName}>
-      <span
-        ref={triggerRef}
-        className="tooltip__trigger"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onKeyDown={handleKeyDown}
-        aria-describedby={visible ? tooltipId : undefined}
-      >
-        {children}
-      </span>
-      {content && (
-        <div
-          ref={bubbleRef}
-          className="tooltip__bubble"
-          role="tooltip"
-          id={tooltipId}
-          aria-hidden={!visible}
-          data-placement={placement}
-          style={{
-            left: position.left,
-            top: position.top,
-          }}
-          onMouseEnter={interactive ? handleMouseEnter : undefined}
-          onMouseLeave={interactive ? handleMouseLeave : undefined}
-        >
-          {content}
-        </div>
+    <div
+      ref={ref}
+      className={cx(
+        'tooltip',
+        PLACEMENT[placement],
+        color && COLOR[color],
+        open && 'tooltip-open',
+        className,
       )}
-    </span>
+      data-tip={isPlainText ? String(content) : undefined}
+      {...props}
+    >
+      {!isPlainText && <div className="tooltip-content">{content}</div>}
+      {children}
+    </div>
   );
-};
+});
+
+Tooltip.displayName = 'Tooltip';
 
 export interface TooltipShortcutProps {
+  /** 설명 문구 */
   label: string;
+
+  /** 단축키 조합 */
   keys: string[];
 }
 
-export const TooltipShortcut: React.FC<TooltipShortcutProps> = ({ label, keys }) => {
-  return (
-    <div className="tooltip__shortcut">
-      {label}{' '}
-      {keys.map((key, index) => (
-        <kbd key={index}>{key}</kbd>
-      ))}
-    </div>
-  );
-};
+/**
+ * 툴팁 안에 단축키를 보여줄 때 쓰는 보조 컴포넌트
+ *
+ * @example
+ * ```tsx
+ * <Tooltip content={<TooltipShortcut label="저장" keys={['⌘', 'S']} />}>
+ *   <Button>저장</Button>
+ * </Tooltip>
+ * ```
+ */
+export const TooltipShortcut: React.FC<TooltipShortcutProps> = ({ label, keys }) => (
+  <span className="flex items-center gap-1.5 whitespace-nowrap">
+    {label}
+    {keys.map((key, index) => <kbd key={index} className="kbd kbd-xs">{key}</kbd>)}
+  </span>
+);
+
+TooltipShortcut.displayName = 'TooltipShortcut';
 
 export default Tooltip;

@@ -37,5 +37,11 @@ jobs:
       - name: Build CSS and JS bundles
         run: npm run build:bundle --workspace=packages/bricks
 
+      - name: Test gallery metadata extraction
+        run: node --test apps/gallery/plugins/story-manifest.test.mjs
+
+      - name: Build gallery
+        run: npm run build:gallery
+
       - name: Build Storybook
         run: npm run build-storybook --workspace=packages/bricks -- -o "$GITHUB_WORKSPACE/storybook-static"

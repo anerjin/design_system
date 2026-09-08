@@ -1,4 +1,20 @@
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
+import { cx } from './utils';
+
+export type AccordionVariant = 'bordered' | 'ghost' | 'filled';
+export type AccordionIcon = 'arrow' | 'plus' | 'none';
+
+const VARIANT: Record<AccordionVariant, string> = {
+  bordered: 'bg-base-100 border border-base-300',
+  ghost: '',
+  filled: 'bg-base-200',
+};
+
+const ICON: Record<AccordionIcon, string> = {
+  arrow: 'collapse-arrow',
+  plus: 'collapse-plus',
+  none: '',
+};
 
 export interface AccordionItem {
   id: string;
@@ -7,92 +23,53 @@ export interface AccordionItem {
   disabled?: boolean;
 }
 
-export interface AccordionProps {
-  /**
-   * 아코디언 아이템 목록
-   */
+export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  /** 아코디언 항목 목록 */
   items: AccordionItem[];
 
-  /**
-   * 기본으로 열려있을 아이템 ID 목록
-   */
+  /** 처음에 열려 있을 항목 id 목록 (비제어) */
   defaultActiveIds?: string[];
 
-  /**
-   * 제어 컴포넌트용 열려있는 아이템 ID 목록
-   */
+  /** 열려 있는 항목 id 목록 (제어) */
   activeIds?: string[];
 
   /**
-   * 단일 아이템만 열기 허용 (다른 아이템 열면 기존 아이템 닫힘)
+   * 한 번에 하나만 열리게 한다
    * @default false
    */
   exclusive?: boolean;
 
   /**
-   * 아코디언 스타일
-   * @default 'default'
+   * 항목 외형
+   * @default 'bordered'
    */
-  variant?: 'default' | 'flush';
+  variant?: AccordionVariant;
 
   /**
-   * 아코디언 색상 테마
+   * 펼침 표시 아이콘
+   * @default 'arrow'
    */
-  color?: 'primary' | 'success' | 'warning' | 'danger';
+  icon?: AccordionIcon;
 
-  /**
-   * 아코디언 크기
-   * @default 'md'
-   */
-  size?: 'sm' | 'md' | 'lg';
-
-  /**
-   * 아이콘 위치
-   * @default 'right'
-   */
-  iconPosition?: 'left' | 'right';
-
-  /**
-   * 아이템 상태 변경 이벤트
-   */
+  /** 열린 항목이 바뀔 때 호출된다 */
   onChange?: (activeIds: string[]) => void;
-
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
-
-  /**
-   * 커스텀 아이콘 (열린 상태)
-   */
-  openIcon?: React.ReactNode;
-
-  /**
-   * 커스텀 아이콘 (닫힌 상태)
-   */
-  closeIcon?: React.ReactNode;
 }
 
 /**
- * BRICKS 디자인 시스템 Accordion 컴포넌트
+ * DOI INC Accordion — daisyUI `collapse` 기반
+ *
+ * daisyUI의 checkbox/radio 방식 대신 `collapse-open` / `collapse-close`를 직접 붙여
+ * React가 열림 상태를 온전히 제어한다. 높이를 재는 JS는 필요 없다.
  *
  * @example
  * ```tsx
  * <Accordion
- *   items={[
- *     {
- *       id: 'item1',
- *       title: 'Section 1',
- *       content: 'Content for section 1'
- *     },
- *     {
- *       id: 'item2',
- *       title: 'Section 2',
- *       content: 'Content for section 2'
- *     }
- *   ]}
- *   defaultActiveIds={['item1']}
  *   exclusive
+ *   defaultActiveIds={['a']}
+ *   items={[
+ *     { id: 'a', title: '계정은 어떻게 만드나요?', content: '가입 버튼을 누르세요.' },
+ *     { id: 'b', title: '비밀번호를 잊었어요', content: '재설정 링크를 보내드립니다.' },
+ *   ]}
  * />
  * ```
  */
@@ -101,100 +78,69 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(({
   defaultActiveIds = [],
   activeIds,
   exclusive = false,
-  variant = 'default',
-  color,
-  size = 'md',
-  iconPosition = 'right',
+  variant = 'bordered',
+  icon = 'arrow',
   onChange,
   className,
-  openIcon,
-  closeIcon,
   ...props
 }, ref) => {
-  const [openItems, setOpenItems] = useState<string[]>(activeIds || defaultActiveIds);
   const isControlled = activeIds !== undefined;
-  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const [openIds, setOpenIds] = useState<string[]>(activeIds ?? defaultActiveIds);
 
   useEffect(() => {
-    if (isControlled && activeIds) {
-      setOpenItems(activeIds);
-    }
+    if (isControlled && activeIds) setOpenIds(activeIds);
   }, [activeIds, isControlled]);
 
-  const handleToggle = (itemId: string) => {
-    let newOpenItems: string[];
+  const toggle = (id: string) => {
+    const isOpen = openIds.includes(id);
+    const next = exclusive
+      ? (isOpen ? [] : [id])
+      : (isOpen ? openIds.filter((v) => v !== id) : [...openIds, id]);
 
-    if (exclusive) {
-      newOpenItems = openItems.includes(itemId) ? [] : [itemId];
-    } else {
-      newOpenItems = openItems.includes(itemId)
-        ? openItems.filter(id => id !== itemId)
-        : [...openItems, itemId];
-    }
-
-    if (!isControlled) {
-      setOpenItems(newOpenItems);
-    }
-
-    onChange?.(newOpenItems);
+    if (!isControlled) setOpenIds(next);
+    onChange?.(next);
   };
 
-  const accordionClasses = [
-    'accordion',
-    variant === 'flush' ? 'accordion--flush' : '',
-    color ? `accordion--${color}` : '',
-    size !== 'md' ? `accordion--${size}` : '',
-    iconPosition === 'left' ? 'accordion--icon-left' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const defaultChevron = (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-    >
-      <path
-        fillRule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-
   return (
-    <div ref={ref} className={accordionClasses} {...props}>
+    <div ref={ref} className={cx('flex flex-col gap-2', className)} {...props}>
       {items.map((item) => {
-        const isOpen = openItems.includes(item.id);
+        const isOpen = openIds.includes(item.id);
 
         return (
-          <div key={item.id} className="accordion__item">
-            <button
-              type="button"
-              className={`accordion__header ${isOpen ? 'accordion__header--active' : ''}`}
-              onClick={() => !item.disabled && handleToggle(item.id)}
-              disabled={item.disabled}
-              aria-expanded={isOpen}
-              aria-controls={`accordion-content-${item.id}`}
-            >
-              <span>{item.title}</span>
-              <span className="accordion__icon">
-                {isOpen
-                  ? (openIcon || defaultChevron)
-                  : (closeIcon || defaultChevron)
-                }
-              </span>
-            </button>
+          <div
+            key={item.id}
+            className={cx(
+              'collapse',
+              ICON[icon],
+              VARIANT[variant],
+              isOpen ? 'collapse-open' : 'collapse-close',
+              item.disabled && 'opacity-50',
+            )}
+          >
             <div
-              id={`accordion-content-${item.id}`}
-              className={`accordion__content ${isOpen ? 'accordion__content--open' : ''}`}
-              ref={el => { if (el) contentRefs.current[item.id] = el; }}
-              aria-hidden={!isOpen}
+              className="collapse-title font-semibold"
+              role="button"
+              tabIndex={item.disabled ? -1 : 0}
+              aria-expanded={isOpen}
+              aria-controls={`accordion-panel-${item.id}`}
+              aria-disabled={item.disabled}
+              onClick={() => !item.disabled && toggle(item.id)}
+              onKeyDown={(event) => {
+                if (item.disabled) return;
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  toggle(item.id);
+                }
+              }}
             >
-              <div className="accordion__body">
-                {item.content}
-              </div>
+              {item.title}
+            </div>
+            <div
+              id={`accordion-panel-${item.id}`}
+              className="collapse-content text-sm"
+              role="region"
+            >
+              {item.content}
             </div>
           </div>
         );

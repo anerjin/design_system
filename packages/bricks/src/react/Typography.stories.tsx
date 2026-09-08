@@ -1,48 +1,53 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Typography } from './Typography';
+import type {
+  TypographyColor,
+  TypographyVariant,
+  TypographyWeight,
+} from './Typography';
+
+const VARIANTS: TypographyVariant[] = [
+  'display1', 'display2', 'display3', 'display4',
+  'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+  'subtitle1', 'subtitle2',
+  'body1', 'body2',
+  'caption', 'overline',
+];
+
+const WEIGHTS: TypographyWeight[] = ['light', 'regular', 'medium', 'semibold', 'bold', 'black'];
+
+const COLORS: TypographyColor[] = [
+  'primary', 'secondary', 'accent', 'neutral',
+  'info', 'success', 'warning', 'error',
+  'muted', 'inherit',
+];
 
 const meta: Meta<typeof Typography> = {
-  title: 'Foundation/Typography',
+  title: 'Extras/Typography',
   component: Typography,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    gallery: {
+      description: 'Tailwind 텍스트 유틸리티를 묶은 컴포넌트. daisyUI에 대응이 없어 DOI INC가 직접 만든다.',
+      props: [
+        { name: 'variant', type: 'display1-4 | h1-h6 | subtitle1-2 | body1-2 | caption | overline', defaultValue: 'body1' },
+        { name: 'as', type: 'ElementType', description: '렌더할 태그를 직접 지정' },
+        { name: 'color', type: 'primary | … | error | muted | inherit' },
+        { name: 'weight', type: 'light | regular | medium | semibold | bold | black' },
+        { name: 'clamp', type: '1 | 2 | 3 | 4 | 5 | 6', description: '지정한 줄 수로 자른다' },
+        { name: 'truncate', type: 'boolean', defaultValue: 'false', description: '한 줄로 자르고 말줄임' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: [
-        'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-        'subtitle1', 'subtitle2',
-        'body1', 'body2',
-        'caption', 'overline',
-        'display1', 'display2', 'display3', 'display4'
-      ],
-    },
-    align: {
-      control: 'select',
-      options: ['left', 'center', 'right', 'justify'],
-    },
-    weight: {
-      control: 'select',
-      options: [undefined, 'light', 'regular', 'medium', 'semibold', 'bold', 'black'],
-    },
-    color: {
-      control: 'select',
-      options: [undefined, 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'muted', 'inherit'],
-    },
-    transform: {
-      control: 'select',
-      options: [undefined, 'none', 'capitalize', 'uppercase', 'lowercase'],
-    },
-    decoration: {
-      control: 'select',
-      options: [undefined, 'none', 'underline', 'line-through', 'overline'],
-    },
-    display: {
-      control: 'select',
-      options: ['inline', 'inline-block', 'block'],
-    },
+    variant: { control: 'select', options: VARIANTS },
+    weight: { control: 'select', options: WEIGHTS },
+    color: { control: 'select', options: COLORS },
+    align: { control: 'select', options: ['left', 'center', 'right', 'justify'] },
+    clamp: { control: 'select', options: [undefined, 1, 2, 3, 4, 5, 6] },
+    italic: { control: 'boolean' },
+    truncate: { control: 'boolean' },
   },
 };
 
@@ -50,260 +55,94 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    children: 'This is a typography component with default settings.',
-  },
+  args: { variant: 'body1', children: '본문 텍스트입니다.' },
 };
 
-export const Headings: Story = {
+export const Variants: Story = {
   render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="h1" gutterBottom>Heading 1</Typography>
-      <Typography variant="h2" gutterBottom>Heading 2</Typography>
-      <Typography variant="h3" gutterBottom>Heading 3</Typography>
-      <Typography variant="h4" gutterBottom>Heading 4</Typography>
-      <Typography variant="h5" gutterBottom>Heading 5</Typography>
-      <Typography variant="h6" gutterBottom>Heading 6</Typography>
-    </div>
-  ),
-};
-
-export const DisplayVariants: Story = {
-  render: () => (
-    <div style={{ maxWidth: '800px', textAlign: 'left' }}>
-      <Typography variant="display1" gutterBottom>Display 1</Typography>
-      <Typography variant="display2" gutterBottom>Display 2</Typography>
-      <Typography variant="display3" gutterBottom>Display 3</Typography>
-      <Typography variant="display4" gutterBottom>Display 4</Typography>
-    </div>
-  ),
-};
-
-export const BodyText: Story = {
-  render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="subtitle1" gutterBottom>Subtitle 1</Typography>
-      <Typography variant="subtitle2" gutterBottom>Subtitle 2</Typography>
-      <Typography variant="body1" gutterBottom>
-        Body 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </Typography>
-      <Typography variant="body2" gutterBottom>
-        Body 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </Typography>
-      <Typography variant="caption" display="block" gutterBottom>
-        Caption: This is a caption text
-      </Typography>
-      <Typography variant="overline" display="block">
-        Overline Text
-      </Typography>
-    </div>
-  ),
-};
-
-export const Colors: Story = {
-  render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="h5" color="primary" gutterBottom>Primary Color</Typography>
-      <Typography variant="h5" color="secondary" gutterBottom>Secondary Color</Typography>
-      <Typography variant="h5" color="success" gutterBottom>Success Color</Typography>
-      <Typography variant="h5" color="danger" gutterBottom>Danger Color</Typography>
-      <Typography variant="h5" color="warning" gutterBottom>Warning Color</Typography>
-      <Typography variant="h5" color="info" gutterBottom>Info Color</Typography>
-      <Typography variant="h5" color="light" gutterBottom style={{ background: '#333', padding: '8px' }}>Light Color</Typography>
-      <Typography variant="h5" color="dark" gutterBottom>Dark Color</Typography>
-      <Typography variant="h5" color="muted" gutterBottom>Muted Color</Typography>
+    <div className="flex flex-col gap-2">
+      {VARIANTS.map((variant) => (
+        <div key={variant} className="flex items-baseline gap-4">
+          <span className="w-24 shrink-0 text-xs opacity-50">{variant}</span>
+          <Typography variant={variant}>다람쥐 헌 쳇바퀴에 타고파</Typography>
+        </div>
+      ))}
     </div>
   ),
 };
 
 export const Weights: Story = {
   render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="h4" weight="light" gutterBottom>Light Weight</Typography>
-      <Typography variant="h4" weight="regular" gutterBottom>Regular Weight</Typography>
-      <Typography variant="h4" weight="medium" gutterBottom>Medium Weight</Typography>
-      <Typography variant="h4" weight="semibold" gutterBottom>Semibold Weight</Typography>
-      <Typography variant="h4" weight="bold" gutterBottom>Bold Weight</Typography>
-      <Typography variant="h4" weight="black" gutterBottom>Black Weight</Typography>
+    <div className="flex flex-col gap-1">
+      {WEIGHTS.map((weight) => (
+        <Typography key={weight} variant="h4" weight={weight}>
+          {weight} — 다람쥐 헌 쳇바퀴에 타고파
+        </Typography>
+      ))}
+    </div>
+  ),
+};
+
+export const Colors: Story = {
+  render: () => (
+    <div className="flex flex-col gap-1">
+      {COLORS.map((color) => (
+        <Typography key={color} variant="subtitle1" color={color}>
+          {color} — 테마 색상을 따라갑니다
+        </Typography>
+      ))}
     </div>
   ),
 };
 
 export const Alignment: Story = {
   render: () => (
-    <div style={{ maxWidth: '600px' }}>
-      <Typography variant="body1" align="left" gutterBottom>
-        Left aligned text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Typography>
-      <Typography variant="body1" align="center" gutterBottom>
-        Center aligned text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Typography>
-      <Typography variant="body1" align="right" gutterBottom>
-        Right aligned text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Typography>
-      <Typography variant="body1" align="justify" gutterBottom>
-        Justified text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-      </Typography>
+    <div className="flex w-full max-w-96 flex-col gap-3">
+      {(['left', 'center', 'right', 'justify'] as const).map((align) => (
+        <Typography key={align} variant="body2" align={align} className="border border-base-300 p-2">
+          {align} 정렬입니다. 문장을 조금 길게 써야 justify 정렬의 효과가 보입니다.
+        </Typography>
+      ))}
     </div>
   ),
 };
 
-export const TextTransform: Story = {
-  render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="h5" transform="none" gutterBottom>No transformation</Typography>
-      <Typography variant="h5" transform="capitalize" gutterBottom>capitalize text</Typography>
-      <Typography variant="h5" transform="uppercase" gutterBottom>uppercase text</Typography>
-      <Typography variant="h5" transform="lowercase" gutterBottom>LOWERCASE TEXT</Typography>
-    </div>
-  ),
-};
-
-export const TextDecoration: Story = {
-  render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="body1" decoration="none" gutterBottom>No decoration</Typography>
-      <Typography variant="body1" decoration="underline" gutterBottom>Underlined text</Typography>
-      <Typography variant="body1" decoration="line-through" gutterBottom>Line-through text</Typography>
-      <Typography variant="body1" decoration="overline" gutterBottom>Overline text</Typography>
-    </div>
-  ),
-};
-
+/** 한 줄 자르기와 여러 줄 자르기 */
 export const Truncation: Story = {
   render: () => (
-    <div style={{ maxWidth: '400px', textAlign: 'left' }}>
-      <Typography variant="body1" truncate gutterBottom>
-        This is a very long text that will be truncated with an ellipsis when it exceeds the container width. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <div className="flex w-80 flex-col gap-4">
+      <Typography variant="body2" truncate>
+        아주 긴 한 줄 텍스트입니다. 넘치는 부분은 말줄임표로 처리됩니다.
       </Typography>
-      <div style={{ marginTop: '20px' }}>
-        <Typography variant="body1" clamp={2}>
-          This text will be clamped to 2 lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+      {([2, 3] as const).map((n) => (
+        <Typography key={n} variant="body2" clamp={n}>
+          여러 줄 자르기 예시입니다. 지정한 줄 수를 넘어가면 잘립니다.
+          Tailwind 스캐너가 조립된 클래스를 읽지 못하므로 line-clamp-1부터 6까지를
+          리터럴 맵에 미리 적어 두었습니다. 그래서 clamp 값은 1~6만 지원합니다.
         </Typography>
-      </div>
-      <div style={{ marginTop: '20px' }}>
-        <Typography variant="body1" clamp={3}>
-          This text will be clamped to 3 lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
-        </Typography>
-      </div>
+      ))}
     </div>
   ),
 };
 
-export const Italic: Story = {
+export const Decorations: Story = {
   render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="h4" italic gutterBottom>Italic Heading</Typography>
-      <Typography variant="body1" italic>
-        This is italic body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Typography>
+    <div className="flex flex-col gap-1">
+      <Typography italic>기울임</Typography>
+      <Typography decoration="underline">밑줄</Typography>
+      <Typography decoration="line-through">취소선</Typography>
+      <Typography transform="uppercase">uppercase transform</Typography>
+      <Typography variant="overline">overline 변형</Typography>
     </div>
   ),
 };
 
-export const InlineDisplay: Story = {
-  render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="body1" display="inline" color="primary">This is inline </Typography>
-      <Typography variant="body1" display="inline" color="secondary">text that flows </Typography>
-      <Typography variant="body1" display="inline" color="success">together on the </Typography>
-      <Typography variant="body1" display="inline" color="danger">same line.</Typography>
-    </div>
-  ),
-};
-
-export const NoSelect: Story = {
-  render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="body1" noSelect gutterBottom>
-        This text cannot be selected. Try selecting it with your mouse.
-      </Typography>
-      <Typography variant="body1">
-        This text can be selected normally.
-      </Typography>
-    </div>
-  ),
-};
-
+/** `as`로 렌더할 태그를 바꾼다 */
 export const CustomElement: Story = {
   render: () => (
-    <div style={{ maxWidth: '600px', textAlign: 'left' }}>
-      <Typography variant="h1" as="div" gutterBottom>
-        H1 styled text rendered as a div
-      </Typography>
-      <Typography variant="body1" as="span" display="block" gutterBottom>
-        Body text rendered as a span
-      </Typography>
-      <Typography variant="caption" as="h3" display="block">
-        Caption styled text rendered as an h3
-      </Typography>
-    </div>
-  ),
-};
-
-export const Article: Story = {
-  render: () => (
-    <article style={{ maxWidth: '800px' }}>
-      <Typography variant="display2" gutterBottom>
-        The Future of Web Development
-      </Typography>
-      <Typography variant="subtitle1" color="muted" gutterBottom>
-        Published on December 1, 2024 • 5 min read
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </Typography>
-      <Typography variant="h3" gutterBottom>
-        Introduction
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </Typography>
-      <Typography variant="h4" gutterBottom>
-        Key Technologies
-      </Typography>
-      <Typography variant="body2" gutterBottom>
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-      </Typography>
-      <Typography variant="caption" color="muted" display="block">
-        Note: This is a sample article demonstrating various typography styles.
-      </Typography>
-    </article>
-  ),
-};
-
-export const PricingCard: Story = {
-  render: () => (
-    <div style={{
-      padding: '32px',
-      border: '1px solid #e0e0e0',
-      borderRadius: '8px',
-      maxWidth: '300px',
-      textAlign: 'center'
-    }}>
-      <Typography variant="overline" color="primary" display="block" gutterBottom>
-        MOST POPULAR
-      </Typography>
-      <Typography variant="h3" weight="bold" gutterBottom>
-        Pro Plan
-      </Typography>
-      <div style={{ margin: '24px 0' }}>
-        <Typography variant="display3" weight="bold" display="inline">
-          $29
-        </Typography>
-        <Typography variant="subtitle1" color="muted" display="inline">
-          /month
-        </Typography>
-      </div>
-      <Typography variant="body2" color="muted" gutterBottom>
-        Perfect for growing businesses
-      </Typography>
-      <div style={{ marginTop: '24px', textAlign: 'left' }}>
-        <Typography variant="body2" gutterBottom><i className="bx bx-check"></i> Unlimited projects</Typography>
-        <Typography variant="body2" gutterBottom><i className="bx bx-check"></i> Advanced analytics</Typography>
-        <Typography variant="body2" gutterBottom><i className="bx bx-check"></i> Priority support</Typography>
-        <Typography variant="body2" gutterBottom><i className="bx bx-check"></i> Custom integrations</Typography>
-      </div>
+    <div className="flex flex-col gap-2">
+      <Typography variant="h3" as="div">h3 스타일이지만 div로 렌더</Typography>
+      <Typography variant="body2" as="span">body2 스타일의 span</Typography>
     </div>
   ),
 };

@@ -1,5 +1,5 @@
 /* ========================================
-   BRICKS - Theme Toggle Functionality
+   DOI INC - Theme Toggle Functionality
    다크모드/라이트모드 토글 기능
 ======================================== */
 

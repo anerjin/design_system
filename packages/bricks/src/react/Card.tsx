@@ -1,432 +1,213 @@
 import React, { forwardRef } from 'react';
+import { cx, type Size } from './utils';
+
+export type CardVariant = 'normal' | 'border' | 'dash' | 'ghost';
+
+/**
+ * daisyUI 카드는 배경색을 스스로 갖지 않는다.
+ * 따라서 표면색과 테두리/그림자를 변형별로 여기서 부여한다.
+ */
+const VARIANT: Record<CardVariant, string> = {
+  normal: 'bg-base-100 shadow-sm',
+  border: 'bg-base-100 card-border',
+  dash: 'bg-base-100 card-dash',
+  ghost: '',
+};
+
+const SIZE: Record<Size, string> = {
+  xs: 'card-xs',
+  sm: 'card-sm',
+  md: 'card-md',
+  lg: 'card-lg',
+  xl: 'card-xl',
+};
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * 카드 변형 스타일
-   * @default 'default'
+   * 카드 변형
+   * @default 'normal'
    */
-  variant?: 'default' | 'gray' | 'flat' | 'outlined' | 'elevated';
+  variant?: CardVariant;
 
   /**
-   * 테두리 둥글기
-   * @default 'xl'
+   * 카드 안쪽 여백 스케일
+   * @default 'md'
    */
-  radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
+  size?: Size;
 
   /**
-   * 클릭 가능한 카드
+   * 가로 배치 (이미지가 옆에 붙는다)
    * @default false
    */
-  clickable?: boolean;
+  side?: boolean;
 
-  /**
-   * 수평 레이아웃
-   * @default false
-   */
-  horizontal?: boolean;
-
-  /**
-   * 카드 클릭 이벤트
-   */
-  onCardClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
-
-  /**
-   * 자식 요소
-   */
   children: React.ReactNode;
 }
 
-export interface CardImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  /**
-   * 이미지 위치
-   * @default 'top'
-   */
-  position?: 'top';
-
-  /**
-   * 오버레이 사용 여부
-   * @default false
-   */
-  overlay?: boolean;
-
-  /**
-   * 오버레이 내용
-   */
-  overlayContent?: React.ReactNode;
-}
-
-export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * 조밀한 패딩
-   * @default false
-   */
-  dense?: boolean;
-
-  /**
-   * 테두리 제거
-   * @default false
-   */
-  noBorder?: boolean;
-
+export interface CardFigureProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
 
 export interface CardBodyProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * 조밀한 패딩
-   * @default false
-   */
-  dense?: boolean;
-
-  /**
-   * 패딩 제거
-   * @default false
-   */
-  noPadding?: boolean;
-
   children: React.ReactNode;
 }
 
-export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * 조밀한 패딩
-   * @default false
-   */
-  dense?: boolean;
+export interface CardHeaderProps extends React.HTMLAttributes<HTMLElement> {
+  children: React.ReactNode;
+}
 
-  /**
-   * 테두리 제거
-   * @default false
-   */
-  noBorder?: boolean;
-
-  /**
-   * 정렬 방식
-   * @default 'left'
-   */
-  align?: 'left' | 'center' | 'right' | 'between';
-
+export interface CardFooterProps extends React.HTMLAttributes<HTMLElement> {
+  /** 액션 정렬. 기본값은 center. */
+  align?: CardActionsAlign;
   children: React.ReactNode;
 }
 
 export interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
    * 제목 레벨
-   * @default 'h3'
+   * @default 'h2'
    */
   level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
   children: React.ReactNode;
 }
 
-export interface CardSubtitleProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  children: React.ReactNode;
-}
+export type CardActionsAlign = 'start' | 'center' | 'end' | 'between';
+
+const ACTIONS_ALIGN: Record<CardActionsAlign, string> = {
+  start: 'justify-start',
+  center: 'justify-center',
+  end: 'justify-end',
+  between: 'justify-between',
+};
 
 export interface CardActionsProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * 정렬 방식
-   * @default 'start'
+   * 정렬
+   * @default 'end'
    */
-  align?: 'start' | 'center' | 'end' | 'between';
-
-  children: React.ReactNode;
-}
-
-export interface CardBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * 뱃지 위치
-   * @default 'right'
-   */
-  position?: 'left' | 'right';
+  align?: CardActionsAlign;
 
   children: React.ReactNode;
 }
 
 /**
- * BRICKS 디자인 시스템 Card 컴포넌트
+ * DOI INC Card — daisyUI `card` 기반
+ *
+ * Header / Body / Footer는 형제 영역으로 구성한다.
+ * Header와 Footer는 필요할 때만 추가한다. Card.Actions는 기존 인라인 액션 그룹으로도 쓸 수 있다.
  *
  * @example
  * ```tsx
- * <Card variant="elevated" clickable onCardClick={handleClick}>
- *   <Card.Header>
- *     <Card.Title>카드 제목</Card.Title>
- *     <Card.Subtitle>카드 부제목</Card.Subtitle>
- *   </Card.Header>
+ * <Card className="w-96">
+ *   <Card.Header><Card.Title>카드 제목</Card.Title></Card.Header>
  *   <Card.Body>
- *     카드 내용입니다.
+ *     <p>카드 본문입니다.</p>
  *   </Card.Body>
  *   <Card.Footer>
- *     <Card.Actions align="end">
- *       <Button variant="secondary">취소</Button>
- *       <Button variant="primary">확인</Button>
- *     </Card.Actions>
+ *       <Button variant="surface">취소</Button>
+ *       <Button color="primary">확인</Button>
  *   </Card.Footer>
  * </Card>
  * ```
  */
-const Card = forwardRef<HTMLDivElement, CardProps>(({
-  variant = 'default',
-  radius = 'xl',
-  clickable = false,
-  horizontal = false,
-  onCardClick,
-  className,
-  children,
-  onClick,
-  ...props
-}, ref) => {
-  const cardClasses = [
-    'card',
-    variant !== 'default' ? `card--${variant}` : '',
-    radius !== 'xl' ? `card--radius-${radius}` : '',
-    clickable ? 'card--clickable' : '',
-    horizontal ? 'card--horizontal' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    onCardClick?.(event);
-    onClick?.(event);
-  };
-
-  return (
+const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ variant = 'normal', size = 'md', side = false, className, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={cardClasses}
-      onClick={clickable ? handleClick : onClick}
+      className={cx('card', VARIANT[variant], SIZE[size], side && 'card-side', className)}
       {...props}
     >
       {children}
     </div>
-  );
-});
+  ),
+);
 
 Card.displayName = 'Card';
 
-/**
- * Card.Image 컴포넌트
- */
-export const CardImage = forwardRef<HTMLDivElement, CardImageProps>(({
-  position = 'top',
-  overlay = false,
-  overlayContent,
-  className,
-  alt,
-  ...props
-}, ref) => {
-  const imageClasses = [
-    'card__image',
-    position ? `card__image--${position}` : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={imageClasses}>
-      <img alt={alt} {...props} />
-      {overlay && overlayContent && (
-        <div className="card__image--overlay">
-          {overlayContent}
-        </div>
-      )}
-    </div>
-  );
-});
-
-CardImage.displayName = 'CardImage';
-
-/**
- * Card.Header 컴포넌트
- */
-export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(({
-  dense = false,
-  noBorder = false,
-  className,
-  children,
-  ...props
-}, ref) => {
-  const headerClasses = [
-    'card__header',
-    dense ? 'card__header--dense' : '',
-    noBorder ? 'card__header--no-border' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={headerClasses} {...props}>
+/** Card.Figure — 카드 이미지 영역 */
+export const CardFigure = forwardRef<HTMLElement, CardFigureProps>(
+  ({ className, children, ...props }, ref) => (
+    <figure ref={ref} className={className} {...props}>
       {children}
-    </div>
-  );
-});
+    </figure>
+  ),
+);
 
+CardFigure.displayName = 'CardFigure';
+
+/** Card.Header — 제목과 보조 동작. 생략하면 헤더 없는 카드가 된다. */
+export const CardHeader = forwardRef<HTMLElement, CardHeaderProps>(
+  ({ className, children, ...props }, ref) => (
+    <header ref={ref} className={cx('doi-card-header', className)} {...props}>
+      {children}
+    </header>
+  ),
+);
 CardHeader.displayName = 'CardHeader';
 
-/**
- * Card.Body 컴포넌트
- */
-export const CardBody = forwardRef<HTMLDivElement, CardBodyProps>(({
-  dense = false,
-  noPadding = false,
-  className,
-  children,
-  ...props
-}, ref) => {
-  const bodyClasses = [
-    'card__body',
-    dense ? 'card__body--dense' : '',
-    noPadding ? 'card__body--no-padding' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={bodyClasses} {...props}>
+/** Card.Body — 본문 영역 */
+export const CardBody = forwardRef<HTMLDivElement, CardBodyProps>(
+  ({ className, children, ...props }, ref) => (
+    <div ref={ref} className={cx('card-body', className)} {...props}>
       {children}
     </div>
-  );
-});
+  ),
+);
 
 CardBody.displayName = 'CardBody';
 
-/**
- * Card.Footer 컴포넌트
- */
-export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(({
-  dense = false,
-  noBorder = false,
-  align = 'left',
-  className,
-  children,
-  ...props
-}, ref) => {
-  const footerClasses = [
-    'card__footer',
-    dense ? 'card__footer--dense' : '',
-    noBorder ? 'card__footer--no-border' : '',
-    align !== 'left' ? `card__footer--${align}` : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={footerClasses} {...props}>
+/** Card.Title */
+export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
+  ({ level: Heading = 'h2', className, children, ...props }, ref) => (
+    <Heading ref={ref} className={cx('card-title', className)} {...props}>
       {children}
-    </div>
-  );
-});
-
-CardFooter.displayName = 'CardFooter';
-
-/**
- * Card.Title 컴포넌트
- */
-export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(({
-  level = 'h3',
-  className,
-  children,
-  ...props
-}, ref) => {
-  const titleClasses = ['card__title', className].filter(Boolean).join(' ');
-  const Tag = level;
-
-  return (
-    <Tag ref={ref} className={titleClasses} {...props}>
-      {children}
-    </Tag>
-  );
-});
+    </Heading>
+  ),
+);
 
 CardTitle.displayName = 'CardTitle';
 
-/**
- * Card.Subtitle 컴포넌트
- */
-export const CardSubtitle = forwardRef<HTMLParagraphElement, CardSubtitleProps>(({
-  className,
-  children,
-  ...props
-}, ref) => {
-  const subtitleClasses = ['card__subtitle', className].filter(Boolean).join(' ');
-
-  return (
-    <p ref={ref} className={subtitleClasses} {...props}>
-      {children}
-    </p>
-  );
-});
-
-CardSubtitle.displayName = 'CardSubtitle';
-
-/**
- * Card.Actions 컴포넌트
- */
-export const CardActions = forwardRef<HTMLDivElement, CardActionsProps>(({
-  align = 'start',
-  className,
-  children,
-  ...props
-}, ref) => {
-  const actionsClasses = [
-    'card__actions',
-    align !== 'start' ? `card__actions--${align}` : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={actionsClasses} {...props}>
+/** Card.Actions — 버튼 등 액션 영역 */
+export const CardActions = forwardRef<HTMLDivElement, CardActionsProps>(
+  ({ align = 'end', className, children, ...props }, ref) => (
+    <div ref={ref} className={cx('card-actions', ACTIONS_ALIGN[align], className)} {...props}>
       {children}
     </div>
-  );
-});
+  ),
+);
 
 CardActions.displayName = 'CardActions';
 
-/**
- * Card.Badge 컴포넌트
- */
-export const CardBadge = forwardRef<HTMLDivElement, CardBadgeProps>(({
-  position = 'right',
-  className,
-  children,
-  ...props
-}, ref) => {
-  const badgeClasses = [
-    'card__badge',
-    position !== 'right' ? `card__badge--${position}` : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={badgeClasses} {...props}>
+/** Card.Footer — 본문과 구분된 하단 액션. 생략하면 푸터 없는 카드가 된다. */
+export const CardFooter = forwardRef<HTMLElement, CardFooterProps>(
+  ({ align = 'center', className, children, ...props }, ref) => (
+    <footer ref={ref} className={cx('doi-card-footer', ACTIONS_ALIGN[align], className)} {...props}>
       {children}
-    </div>
-  );
-});
+    </footer>
+  ),
+);
+CardFooter.displayName = 'CardFooter';
 
-CardBadge.displayName = 'CardBadge';
-
-// Compound Component 패턴을 위한 타입 확장
-export interface CardComponent extends React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> {
-  Image: typeof CardImage;
+export interface CardComponent extends React.ForwardRefExoticComponent<
+  CardProps & React.RefAttributes<HTMLDivElement>
+> {
+  Figure: typeof CardFigure;
   Header: typeof CardHeader;
   Body: typeof CardBody;
-  Footer: typeof CardFooter;
   Title: typeof CardTitle;
-  Subtitle: typeof CardSubtitle;
   Actions: typeof CardActions;
-  Badge: typeof CardBadge;
+  Footer: typeof CardFooter;
 }
 
-// Card를 CardComponent 타입으로 캐스팅
 const CardWithSubcomponents = Card as CardComponent;
 
-// Subcomponents 할당
-CardWithSubcomponents.Image = CardImage;
+CardWithSubcomponents.Figure = CardFigure;
 CardWithSubcomponents.Header = CardHeader;
 CardWithSubcomponents.Body = CardBody;
-CardWithSubcomponents.Footer = CardFooter;
 CardWithSubcomponents.Title = CardTitle;
-CardWithSubcomponents.Subtitle = CardSubtitle;
 CardWithSubcomponents.Actions = CardActions;
-CardWithSubcomponents.Badge = CardBadge;
+CardWithSubcomponents.Footer = CardFooter;
 
 export { CardWithSubcomponents as Card };
 export default CardWithSubcomponents;

@@ -1,353 +1,103 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Accordion } from './Accordion';
+import type { AccordionIcon, AccordionVariant } from './Accordion';
+
+const VARIANTS: AccordionVariant[] = ['bordered', 'ghost', 'filled'];
+const ICONS: AccordionIcon[] = ['arrow', 'plus', 'none'];
+
+const faq = [
+  { id: 'a', title: '계정은 어떻게 만드나요?', content: '가입 버튼을 누르고 이메일을 입력하면 됩니다.' },
+  { id: 'b', title: '비밀번호를 잊었어요', content: '로그인 화면의 "비밀번호 찾기"에서 재설정 링크를 받을 수 있습니다.' },
+  { id: 'c', title: '구독을 해지하려면?', content: '설정 → 결제 → 구독 해지에서 언제든 해지할 수 있습니다.' },
+];
 
 const meta: Meta<typeof Accordion> = {
-  title: 'General/Accordion',
+  title: 'Data Display/Accordion',
   component: Accordion,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    gallery: {
+      description: '여러 항목을 접었다 펴는 목록. React가 열림 상태를 온전히 제어한다.',
+      daisyui: 'collapse',
+      props: [
+        { name: 'items', type: 'AccordionItem[]', description: 'id · title · content' },
+        { name: 'exclusive', type: 'boolean', defaultValue: 'false', description: '한 번에 하나만 열린다' },
+        { name: 'variant', type: 'bordered | ghost | filled', defaultValue: 'bordered' },
+        { name: 'icon', type: 'arrow | plus | none', defaultValue: 'arrow' },
+        { name: 'activeIds', type: 'string[]', description: '제어 컴포넌트로 쓸 때' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'flush'],
-    },
-    color: {
-      control: 'select',
-      options: [undefined, 'primary', 'success', 'warning', 'danger'],
-    },
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    iconPosition: {
-      control: 'select',
-      options: ['left', 'right'],
-    },
-    exclusive: {
-      control: 'boolean',
-    },
+    variant: { control: 'select', options: VARIANTS },
+    icon: { control: 'select', options: ICONS },
+    exclusive: { control: 'boolean' },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const defaultItems = [
-  {
-    id: 'item1',
-    title: 'What is BRICKS Design System?',
-    content: 'BRICKS is a modern, accessible, and flexible design system built for creating consistent user interfaces across all platforms.',
-  },
-  {
-    id: 'item2',
-    title: 'How do I get started?',
-    content: 'Getting started with BRICKS is easy! Simply install the package via npm or yarn, import the components you need, and start building your application.',
-  },
-  {
-    id: 'item3',
-    title: 'Is BRICKS accessible?',
-    content: 'Yes! BRICKS is built with accessibility in mind. All components follow WCAG 2.1 AA standards and include proper ARIA attributes, keyboard navigation, and screen reader support.',
-  },
-];
-
 export const Default: Story = {
-  args: {
-    items: defaultItems,
-  },
+  args: { items: faq, defaultActiveIds: ['a'] },
 };
 
-export const DefaultOpen: Story = {
-  args: {
-    items: defaultItems,
-    defaultActiveIds: ['item1'],
-  },
-};
-
+/** 한 번에 하나만 열린다 */
 export const Exclusive: Story = {
-  args: {
-    items: defaultItems,
-    exclusive: true,
-    defaultActiveIds: ['item1'],
-  },
+  args: { items: faq, exclusive: true, defaultActiveIds: ['a'] },
 };
 
-export const MultipleOpen: Story = {
-  args: {
-    items: defaultItems,
-    defaultActiveIds: ['item1', 'item2'],
-  },
-};
-
-export const Flush: Story = {
-  args: {
-    items: defaultItems,
-    variant: 'flush',
-    defaultActiveIds: ['item1'],
-  },
-};
-
-export const Colored: Story = {
+export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '600px' }}>
-      <Accordion
-        items={[
-          {
-            id: 'primary',
-            title: 'Primary Color',
-            content: 'This accordion uses the primary color theme.',
-          },
-        ]}
-        color="primary"
-        defaultActiveIds={['primary']}
-      />
-      <Accordion
-        items={[
-          {
-            id: 'success',
-            title: 'Success Color',
-            content: 'This accordion uses the success color theme.',
-          },
-        ]}
-        color="success"
-        defaultActiveIds={['success']}
-      />
-      <Accordion
-        items={[
-          {
-            id: 'warning',
-            title: 'Warning Color',
-            content: 'This accordion uses the warning color theme.',
-          },
-        ]}
-        color="warning"
-        defaultActiveIds={['warning']}
-      />
-      <Accordion
-        items={[
-          {
-            id: 'danger',
-            title: 'Danger Color',
-            content: 'This accordion uses the danger color theme.',
-          },
-        ]}
-        color="danger"
-        defaultActiveIds={['danger']}
-      />
+    <div className="flex flex-col gap-6">
+      {VARIANTS.map((variant) => (
+        <div key={variant} className="flex flex-col gap-2">
+          <span className="text-xs opacity-60">{variant}</span>
+          <Accordion variant={variant} items={faq.slice(0, 2)} defaultActiveIds={['a']} />
+        </div>
+      ))}
     </div>
   ),
 };
 
-export const Sizes: Story = {
+export const Icons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '600px' }}>
-      <Accordion
-        items={[
-          {
-            id: 'small',
-            title: 'Small Size Accordion',
-            content: 'This is a small sized accordion with compact padding.',
-          },
-        ]}
-        size="sm"
-        defaultActiveIds={['small']}
-      />
-      <Accordion
-        items={[
-          {
-            id: 'medium',
-            title: 'Medium Size Accordion (Default)',
-            content: 'This is a medium sized accordion, which is the default size.',
-          },
-        ]}
-        size="md"
-        defaultActiveIds={['medium']}
-      />
-      <Accordion
-        items={[
-          {
-            id: 'large',
-            title: 'Large Size Accordion',
-            content: 'This is a large sized accordion with more spacious padding.',
-          },
-        ]}
-        size="lg"
-        defaultActiveIds={['large']}
-      />
+    <div className="flex flex-col gap-6">
+      {ICONS.map((icon) => (
+        <div key={icon} className="flex flex-col gap-2">
+          <span className="text-xs opacity-60">{icon}</span>
+          <Accordion icon={icon} items={faq.slice(0, 2)} defaultActiveIds={['a']} />
+        </div>
+      ))}
     </div>
   ),
 };
 
-export const WithDisabled: Story = {
+export const Disabled: Story = {
   args: {
     items: [
-      {
-        id: 'item1',
-        title: 'Enabled Item',
-        content: 'This item can be toggled.',
-      },
-      {
-        id: 'item2',
-        title: 'Disabled Item',
-        content: 'This content cannot be accessed.',
-        disabled: true,
-      },
-      {
-        id: 'item3',
-        title: 'Another Enabled Item',
-        content: 'This item can also be toggled.',
-      },
+      ...faq.slice(0, 2),
+      { id: 'locked', title: '관리자 전용 (비활성)', content: '보이지 않습니다.', disabled: true },
     ],
-  },
-};
-
-export const IconLeft: Story = {
-  args: {
-    items: defaultItems,
-    iconPosition: 'left',
-    defaultActiveIds: ['item1'],
+    defaultActiveIds: ['a'],
   },
 };
 
 export const Controlled: Story = {
-  render: () => {
-    const [activeIds, setActiveIds] = useState<string[]>(['item1']);
+  render: function ControlledStory() {
+    const [open, setOpen] = useState<string[]>(['b']);
 
     return (
-      <div style={{ width: '600px' }}>
-        <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
-          <button
-            onClick={() => setActiveIds(['item1', 'item2', 'item3'])}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '4px',
-              border: '1px solid #ccc',
-              cursor: 'pointer',
-            }}
-          >
-            Open All
-          </button>
-          <button
-            onClick={() => setActiveIds([])}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '4px',
-              border: '1px solid #ccc',
-              cursor: 'pointer',
-            }}
-          >
-            Close All
-          </button>
-          <button
-            onClick={() => setActiveIds(['item2'])}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '4px',
-              border: '1px solid #ccc',
-              cursor: 'pointer',
-            }}
-          >
-            Open Second Only
-          </button>
+      <div className="flex flex-col gap-3">
+        <div className="flex gap-2">
+          <button className="btn btn-sm" onClick={() => setOpen(faq.map((f) => f.id))}>모두 열기</button>
+          <button className="btn btn-sm" onClick={() => setOpen([])}>모두 닫기</button>
         </div>
-        <Accordion
-          items={defaultItems}
-          activeIds={activeIds}
-          onChange={setActiveIds}
-        />
+        <Accordion items={faq} activeIds={open} onChange={setOpen} />
+        <p className="text-sm opacity-60">열린 항목: {open.join(', ') || '없음'}</p>
       </div>
     );
   },
-};
-
-export const FAQ: Story = {
-  render: () => (
-    <div style={{ width: '700px' }}>
-      <h2 style={{ marginBottom: '24px', fontSize: '24px', fontWeight: '600' }}>
-        Frequently Asked Questions
-      </h2>
-      <Accordion
-        items={[
-          {
-            id: 'faq1',
-            title: <><i className="bx bx-book"></i> How do I install BRICKS?</>,
-            content: (
-              <div>
-                <p>You can install BRICKS using npm or yarn:</p>
-                <pre style={{ background: '#f5f5f5', padding: '12px', borderRadius: '4px', marginTop: '12px' }}>
-                  npm install @bricks/design-system
-                </pre>
-              </div>
-            ),
-          },
-          {
-            id: 'faq2',
-            title: <><i className="bx bx-palette"></i> Can I customize the theme?</>,
-            content: (
-              <div>
-                <p>Yes! BRICKS supports extensive theming options:</p>
-                <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
-                  <li>Custom color palettes</li>
-                  <li>Typography scales</li>
-                  <li>Spacing systems</li>
-                  <li>Border radius values</li>
-                  <li>Shadow presets</li>
-                </ul>
-              </div>
-            ),
-          },
-          {
-            id: 'faq3',
-            title: <><i className="bx bx-accessibility"></i> Is BRICKS accessible?</>,
-            content: (
-              <div>
-                <p>Absolutely! All components are built with accessibility as a priority:</p>
-                <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
-                  <li>WCAG 2.1 AA compliance</li>
-                  <li>Keyboard navigation support</li>
-                  <li>Screen reader friendly</li>
-                  <li>Focus management</li>
-                  <li>ARIA attributes</li>
-                </ul>
-              </div>
-            ),
-          },
-          {
-            id: 'faq4',
-            title: <><i className="bx bx-rocket"></i> What frameworks are supported?</>,
-            content: (
-              <div>
-                <p>BRICKS currently supports:</p>
-                <ul style={{ marginTop: '12px', paddingLeft: '20px' }}>
-                  <li>React (16.8+)</li>
-                  <li>Vue (3.0+)</li>
-                  <li>Angular (12+)</li>
-                  <li>Vanilla JavaScript</li>
-                </ul>
-                <p style={{ marginTop: '12px' }}>
-                  Support for other frameworks is coming soon!
-                </p>
-              </div>
-            ),
-          },
-          {
-            id: 'faq5',
-            title: <><i className="bx bx-briefcase"></i> Is BRICKS free for commercial use?</>,
-            content: (
-              <div>
-                <p>
-                  BRICKS is licensed under the MIT License, which means it's free for both personal and commercial use.
-                  You can use it in your projects without any restrictions.
-                </p>
-              </div>
-            ),
-          },
-        ]}
-        exclusive
-        variant="flush"
-      />
-    </div>
-  ),
 };

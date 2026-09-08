@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input - BRICKS Design System</title>
+    <title>Input - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
@@ -34,240 +35,240 @@
                     <details class="code-details">
                         <summary class="code-summary">코드 보기</summary>
                         <div class="code-block">
-                            <pre><code class="language-html">&lt;input type="text" class="input" placeholder="Enter text..."&gt;</code></pre>
-                        </div>
-                    </details>
-                </div>
-            </div>
-        </section>
+                            <pre><code class="language-html">&lt;input type="text" class="input" placeholder="Enter text..."&gt;&lt;/code&gt;&lt;/pre&gt;
+                        &lt;/div&gt;
+                    &lt;/details&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
 
-        <!-- Input Types -->
-        <section class="section">
-            <h2 class="section__title">Input Types</h2>
-            <div class="card-group card-group--cols-3">
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Text Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="text" class="input" placeholder="Enter text...">
-                        </div>
-                        <code class="code-inline">type="text"</code>
-                    </div>
-                </div>
+        &lt;!-- Input Types --&gt;
+        &lt;section class="section"&gt;
+            &lt;h2 class="section__title"&gt;Input Types&lt;/h2&gt;
+            &lt;div class="card-group card-group--cols-3"&gt;
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Text Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="text" class="input" placeholder="Enter text..."&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="text"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Email Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="email" class="input" placeholder="email@example.com">
-                        </div>
-                        <code class="code-inline">type="email"</code>
-                    </div>
-                </div>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Email Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="email" class="input" placeholder="email@example.com"&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="email"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Password Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="password" class="input" placeholder="Enter password">
-                        </div>
-                        <code class="code-inline">type="password"</code>
-                    </div>
-                </div>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Password Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="password" class="input" placeholder="Enter password"&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="password"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Number Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="number" class="input" placeholder="0">
-                        </div>
-                        <code class="code-inline">type="number"</code>
-                    </div>
-                </div>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Number Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="number" class="input" placeholder="0"&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="number"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Tel Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="tel" class="input" placeholder="010-0000-0000">
-                        </div>
-                        <code class="code-inline">type="tel"</code>
-                    </div>
-                </div>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Tel Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="tel" class="input" placeholder="010-0000-0000"&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="tel"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Search Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="search" class="input" placeholder="Search...">
-                        </div>
-                        <code class="code-inline">type="search"</code>
-                    </div>
-                </div>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Search Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="search" class="input" placeholder="Search..."&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="search"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Date Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="date" class="input">
-                        </div>
-                        <code class="code-inline">type="date"</code>
-                    </div>
-                </div>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Date Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="date" class="input"&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="date"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">File Input</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <input type="file" class="input">
-                        </div>
-                        <code class="code-inline">type="file"</code>
-                    </div>
-                </div>
-            </div>
-        </section>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;File Input&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;input type="file" class="input"&gt;
+                        &lt;/div&gt;
+                        &lt;code class="code-inline"&gt;type="file"&lt;/code&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
 
-        <!-- Input Sizes -->
-        <section class="section">
-            <h2 class="section__title">Sizes</h2>
-            <div class="card card--gray">
-                <div class="card__header">
-                    <h3 class="card__title">Input Sizes</h3>
-                </div>
-                <div class="card__body">
-                    <div class="example-wrapper" style="display: flex; flex-direction: column; gap: 16px;">
-                        <input type="text" class="input input--xs" placeholder="Extra small input">
-                        <input type="text" class="input input--sm" placeholder="Small input">
-                        <input type="text" class="input" placeholder="Default input">
-                        <input type="text" class="input input--lg" placeholder="Large input">
-                        <input type="text" class="input input--xl" placeholder="Extra large input">
-                    </div>
+        &lt;!-- Input Sizes --&gt;
+        &lt;section class="section"&gt;
+            &lt;h2 class="section__title"&gt;Sizes&lt;/h2&gt;
+            &lt;div class="card card--gray"&gt;
+                &lt;div class="card__header"&gt;
+                    &lt;h3 class="card__title"&gt;Input Sizes&lt;/h3&gt;
+                &lt;/div&gt;
+                &lt;div class="card__body"&gt;
+                    &lt;div class="example-wrapper" style="display: flex; flex-direction: column; gap: 16px;"&gt;
+                        &lt;input type="text" class="input input--xs" placeholder="Extra small input"&gt;
+                        &lt;input type="text" class="input input--sm" placeholder="Small input"&gt;
+                        &lt;input type="text" class="input" placeholder="Default input"&gt;
+                        &lt;input type="text" class="input input--lg" placeholder="Large input"&gt;
+                        &lt;input type="text" class="input input--xl" placeholder="Extra large input"&gt;
+                    &lt;/div&gt;
 
-                    <details class="code-details">
-                        <summary class="code-summary">코드 보기</summary>
-                        <div class="code-block">
-                            <pre><code class="language-html">&lt;input type="text" class="input input--xs" placeholder="Extra small"&gt;
+                    &lt;details class="code-details"&gt;
+                        &lt;summary class="code-summary"&gt;코드 보기&lt;/summary&gt;
+                        &lt;div class="code-block"&gt;
+                            &lt;pre&gt;&lt;code class="language-html"&gt;&lt;input type="text" class="input input--xs" placeholder="Extra small"&gt;
 &lt;input type="text" class="input input--sm" placeholder="Small"&gt;
 &lt;input type="text" class="input" placeholder="Default"&gt;
 &lt;input type="text" class="input input--lg" placeholder="Large"&gt;
-&lt;input type="text" class="input input--xl" placeholder="Extra large"&gt;</code></pre>
-                        </div>
-                    </details>
-                </div>
-            </div>
-        </section>
+&lt;input type="text" class="input input--xl" placeholder="Extra large"&gt;&lt;/code&gt;&lt;/pre&gt;
+                        &lt;/div&gt;
+                    &lt;/details&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
 
-        <!-- Input States -->
-        <section class="section">
-            <h2 class="section__title">States</h2>
-            <div class="card card--gray mb40">
-                <div class="card__header">
-                    <h3 class="card__title">Interactive States</h3>
-                </div>
-                <div class="card__body">
-                    <div class="demo-states">
-                        <div class="state-example">
-                            <h4>Normal</h4>
-                            <input type="text" class="input" placeholder="Normal state">
-                        </div>
-                        <div class="state-example">
-                            <h4>Focus</h4>
-                            <input type="text" class="input" placeholder="Focus state" style="border-color: var(--ds-prime); box-shadow: 0 0 0 3px var(--ds-prime-alpha-20);">
-                        </div>
-                        <div class="state-example">
-                            <h4>Success</h4>
-                            <input type="text" class="input input--success" placeholder="Success state">
-                        </div>
-                        <div class="state-example">
-                            <h4>Error</h4>
-                            <input type="text" class="input input--error" placeholder="Error state">
-                        </div>
-                        <div class="state-example">
-                            <h4>Warning</h4>
-                            <input type="text" class="input input--warning" placeholder="Warning state">
-                        </div>
-                        <div class="state-example">
-                            <h4>Disabled</h4>
-                            <input type="text" class="input" placeholder="Disabled state" disabled>
-                        </div>
-                        <div class="state-example">
-                            <h4>Readonly</h4>
-                            <input type="text" class="input" placeholder="Readonly" readonly value="Read-only content">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        &lt;!-- Input States --&gt;
+        &lt;section class="section"&gt;
+            &lt;h2 class="section__title"&gt;States&lt;/h2&gt;
+            &lt;div class="card card--gray mb40"&gt;
+                &lt;div class="card__header"&gt;
+                    &lt;h3 class="card__title"&gt;Interactive States&lt;/h3&gt;
+                &lt;/div&gt;
+                &lt;div class="card__body"&gt;
+                    &lt;div class="demo-states"&gt;
+                        &lt;div class="state-example"&gt;
+                            &lt;h4&gt;Normal&lt;/h4&gt;
+                            &lt;input type="text" class="input" placeholder="Normal state"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="state-example"&gt;
+                            &lt;h4&gt;Focus&lt;/h4&gt;
+                            &lt;input type="text" class="input" placeholder="Focus state" style="border-color: var(--ds-prime); box-shadow: 0 0 0 3px var(--ds-prime-alpha-20);"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="state-example"&gt;
+                            &lt;h4&gt;Success&lt;/h4&gt;
+                            &lt;input type="text" class="input input--success" placeholder="Success state"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="state-example"&gt;
+                            &lt;h4&gt;Error&lt;/h4&gt;
+                            &lt;input type="text" class="input input--error" placeholder="Error state"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="state-example"&gt;
+                            &lt;h4&gt;Warning&lt;/h4&gt;
+                            &lt;input type="text" class="input input--warning" placeholder="Warning state"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="state-example"&gt;
+                            &lt;h4&gt;Disabled&lt;/h4&gt;
+                            &lt;input type="text" class="input" placeholder="Disabled state" disabled&gt;
+                        &lt;/div&gt;
+                        &lt;div class="state-example"&gt;
+                            &lt;h4&gt;Readonly&lt;/h4&gt;
+                            &lt;input type="text" class="input" placeholder="Readonly" readonly value="Read-only content"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
 
-        <!-- Input with Icons -->
-        <section class="section">
-            <h2 class="section__title">Variations</h2>
-            <div class="card-group card-group--cols-2">
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Input with Left Icon</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <div class="input-icon input-icon--left">
-                                <span class="input-icon__icon input-icon__icon--left">
-                                    <i class='bx bx-user'></i>
-                                </span>
-                                <input type="text" class="input" placeholder="Username">
-                            </div>
-                        </div>
+        &lt;!-- Input with Icons --&gt;
+        &lt;section class="section"&gt;
+            &lt;h2 class="section__title"&gt;Variations&lt;/h2&gt;
+            &lt;div class="card-group card-group--cols-2"&gt;
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Input with Left Icon&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;div class="input-icon input-icon--left"&gt;
+                                &lt;span class="input-icon__icon input-icon__icon--left"&gt;
+                                    &lt;i data-lucide='user-round'&gt;&lt;/i&gt;
+                                &lt;/span&gt;
+                                &lt;input type="text" class="input" placeholder="Username"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
 
-                        <details class="code-details">
-                            <summary class="code-summary">코드 보기</summary>
-                            <div class="code-block">
-                                <pre><code class="language-html">&lt;div class="input-icon input-icon--left"&gt;
+                        &lt;details class="code-details"&gt;
+                            &lt;summary class="code-summary"&gt;코드 보기&lt;/summary&gt;
+                            &lt;div class="code-block"&gt;
+                                &lt;pre&gt;&lt;code class="language-html"&gt;&lt;div class="input-icon input-icon--left"&gt;
   &lt;span class="input-icon__icon input-icon__icon--left"&gt;
-    &lt;i class='bx bx-user'&gt;&lt;/i&gt;
+    &lt;i data-lucide='user-round'&gt;&lt;/i&gt;
   &lt;/span&gt;
   &lt;input type="text" class="input" placeholder="Username"&gt;
-&lt;/div&gt;</code></pre>
-                            </div>
-                        </details>
-                    </div>
-                </div>
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;
+                            &lt;/div&gt;
+                        &lt;/details&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
-                <div class="card card--gray">
-                    <div class="card__header">
-                        <h3 class="card__title">Input with Right Icon</h3>
-                    </div>
-                    <div class="card__body">
-                        <div class="example-wrapper">
-                            <div class="input-icon input-icon--right">
-                                <input type="search" class="input" placeholder="Search...">
-                                <span class="input-icon__icon input-icon__icon--right">
-                                    <i class='bx bx-search'></i>
-                                </span>
-                            </div>
-                        </div>
+                &lt;div class="card card--gray"&gt;
+                    &lt;div class="card__header"&gt;
+                        &lt;h3 class="card__title"&gt;Input with Right Icon&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;div class="card__body"&gt;
+                        &lt;div class="example-wrapper"&gt;
+                            &lt;div class="input-icon input-icon--right"&gt;
+                                &lt;input type="search" class="input" placeholder="Search..."&gt;
+                                &lt;span class="input-icon__icon input-icon__icon--right"&gt;
+                                    &lt;i data-lucide='search'&gt;&lt;/i&gt;
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
 
-                        <details class="code-details">
-                            <summary class="code-summary">코드 보기</summary>
-                            <div class="code-block">
-                                <pre><code class="language-html">&lt;div class="input-icon input-icon--right"&gt;
+                        &lt;details class="code-details"&gt;
+                            &lt;summary class="code-summary"&gt;코드 보기&lt;/summary&gt;
+                            &lt;div class="code-block"&gt;
+                                &lt;pre&gt;&lt;code class="language-html"&gt;&lt;div class="input-icon input-icon--right"&gt;
   &lt;input type="search" class="input" placeholder="Search..."&gt;
   &lt;span class="input-icon__icon input-icon__icon--right"&gt;
-    &lt;i class='bx bx-search'&gt;&lt;/i&gt;
+    &lt;i data-lucide='search'&gt;&lt;/i&gt;
   &lt;/span&gt;
 &lt;/div&gt;</code></pre>
                             </div>
@@ -286,7 +287,7 @@
                                 <button type="button" class="input-icon__icon input-icon__icon--right"
                                         onclick="const input = document.getElementById('password-input'); input.type = input.type === 'password' ? 'text' : 'password';"
                                         style="cursor: pointer; background: none; border: none;">
-                                    <i class='bx bx-show'></i>
+                                    <i data-lucide='eye'></i>
                                 </button>
                             </div>
                         </div>
@@ -305,7 +306,7 @@
                                 <button type="button" class="input-icon__icon input-icon__icon--right"
                                         onclick="document.getElementById('clearable-input').value = '';"
                                         style="cursor: pointer; background: none; border: none;">
-                                    <i class='bx bx-x'></i>
+                                    <i data-lucide='x'></i>
                                 </button>
                             </div>
                         </div>
@@ -381,7 +382,7 @@
                             <div class="input-icon input-icon--right">
                                 <input type="text" class="input input--success" id="username-field" placeholder="Choose username" value="johndoe" aria-describedby="username-success">
                                 <span class="input-icon__icon input-icon__icon--right" style="color: var(--ds-success);">
-                                    <i class='bx bx-check'></i>
+                                    <i data-lucide='check'></i>
                                 </span>
                             </div>
                             <span class="form-group__success" style="color: var(--ds-success); font-size: var(--ds-text-xs);" id="username-success">Username is available!</span>

@@ -1,5 +1,7 @@
 import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
+import tailwindcss from "@tailwindcss/vite";
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
@@ -8,16 +10,15 @@ const config = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  staticDirs: ['../core'],
   viteFinal: async (config) => {
     return {
       ...config,
+      plugins: [...(config.plugins ?? []), tailwindcss()],
       resolve: {
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
           '@': '/src',
-          '@core': '/core',
         },
       },
     };

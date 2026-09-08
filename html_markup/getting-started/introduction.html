@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introduction - BRICKS Design System</title>
+    <title>Introduction - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
@@ -14,18 +15,18 @@
         <div class="vp-hero">
             <div class="vp-hero-content">
                 <h1 class="vp-hero-title">
-                    Build Beautiful Interfaces with <span class="vp-hero-brand">BRICKS</span>
+                    Build Beautiful Interfaces with <span class="vp-hero-brand">DOI INC</span>
                 </h1>
                 <p class="vp-hero-description">
                     A modern, accessible, and performant design system that helps you create consistent user experiences across your applications
                 </p>
                 <div class="vp-hero-actions">
                     <button type="button" class="btn btn--primary btn--large" onclick="document.querySelector('.vp-sidebar-link[href=\'pages/getting-started/installation.html\']').click()">
-                        <i class='bx bx-rocket'></i>
+                        <i data-lucide='rocket'></i>
                         Get Started
                     </button>
                     <button type="button" class="btn btn--secondary btn--large" onclick="document.querySelector('.vp-sidebar-link[href=\'pages/elements/button.html\']').click()">
-                        <i class='bx bx-palette'></i>
+                        <i data-lucide='palette'></i>
                         Explore Components
                     </button>
                 </div>
@@ -52,46 +53,46 @@
 
         <!-- Key Features Section -->
         <section class="vp-features">
-            <h2 id="why-bricks">Why BRICKS?</h2>
+            <h2 id="why-bricks">Why DOI INC?</h2>
             <div class="vp-features-grid">
                 <div class="vp-feature-card">
                     <div class="vp-feature-icon">
-                        <i class='bx bx-universal-access'></i>
+                        <i data-lucide='accessibility'></i>
                     </div>
                     <h3>Accessibility First</h3>
                     <p>Built with WCAG 2.1 AA standards, ensuring your applications are usable by everyone, regardless of their abilities.</p>
                 </div>
                 <div class="vp-feature-card">
                     <div class="vp-feature-icon">
-                        <i class='bx bx-devices'></i>
+                        <i data-lucide='monitor-smartphone'></i>
                     </div>
                     <h3>Responsive Design</h3>
                     <p>Mobile-first approach with fluid layouts that adapt seamlessly to any screen size or device.</p>
                 </div>
                 <div class="vp-feature-card">
                     <div class="vp-feature-icon">
-                        <i class='bx bx-customize'></i>
+                        <i data-lucide='sliders-horizontal'></i>
                     </div>
                     <h3>Highly Customizable</h3>
                     <p>Extensive CSS variables and modular architecture make it easy to match your brand identity.</p>
                 </div>
                 <div class="vp-feature-card">
                     <div class="vp-feature-icon">
-                        <i class='bx bx-bolt'></i>
+                        <i data-lucide='zap'></i>
                     </div>
                     <h3>Performance Optimized</h3>
                     <p>Minimal CSS footprint with tree-shaking support and zero JavaScript dependencies.</p>
                 </div>
                 <div class="vp-feature-card">
                     <div class="vp-feature-icon">
-                        <i class='bx bx-moon'></i>
+                        <i data-lucide='moon'></i>
                     </div>
                     <h3>Dark Mode Support</h3>
                     <p>Built-in light and dark themes with automatic system preference detection.</p>
                 </div>
                 <div class="vp-feature-card">
                     <div class="vp-feature-icon">
-                        <i class='bx bx-code-alt'></i>
+                        <i data-lucide='code-xml'></i>
                     </div>
                     <h3>Developer Friendly</h3>
                     <p>Clear documentation, semantic HTML, and predictable class naming conventions.</p>
@@ -103,7 +104,7 @@
         <section class="vp-quick-start">
             <h2 id="quick-start">Quick Start</h2>
             <p class="vp-section-description">
-                Get up and running with BRICKS in less than 5 minutes. Choose your preferred installation method and start building.
+                Get up and running with DOI INC in less than 5 minutes. Choose your preferred installation method and start building.
             </p>
 
             <div class="vp-tabs">
@@ -128,7 +129,7 @@ pnpm add @bricks/design-system</code></pre>
                     <div class="vp-tab-panel" id="cdn">
                         <h4>Use via CDN</h4>
                         <p>Add this to your HTML head:</p>
-                        <pre><code class="language-html">&lt;!-- BRICKS CSS --&gt;
+                        <pre><code class="language-html">&lt;!-- DOI INC CSS --&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@bricks/design-system/dist/bricks.min.css"&gt;
 
 &lt;!-- Optional: Pretendard Font --&gt;
@@ -139,11 +140,11 @@ pnpm add @bricks/design-system</code></pre>
                         <p>Download the latest release and include it in your project:</p>
                         <div class="vp-download-options">
                             <a href="#" class="btn btn--primary">
-                                <i class='bx bx-download'></i>
+                                <i data-lucide='download'></i>
                                 Download CSS Bundle
                             </a>
                             <a href="#" class="btn btn--ghost">
-                                <i class='bx bxl-github'></i>
+                                <i data-lucide='code-xml'></i>
                                 View on GitHub
                             </a>
                         </div>
@@ -195,7 +196,7 @@ pnpm add @bricks/design-system</code></pre>
                     <h3>Feedback Elements</h3>
                     <div class="vp-showcase-preview">
                         <div class="alert alert--info">
-                            <i class='bx bx-info-circle'></i>
+                            <i data-lucide='info'></i>
                             Information message
                         </div>
                         <div class="badge badge--primary">Badge</div>
@@ -208,7 +209,7 @@ pnpm add @bricks/design-system</code></pre>
             <div class="vp-showcase-cta">
                 <button type="button" class="btn btn--primary" onclick="document.querySelector('.vp-sidebar-link[href=\'pages/elements/button.html\']').click()">
                     View All Components
-                    <i class='bx bx-right-arrow-alt'></i>
+                    <i data-lucide='arrow-right'></i>
                 </button>
             </div>
         </section>
@@ -246,28 +247,28 @@ pnpm add @bricks/design-system</code></pre>
             <div class="vp-resources-grid">
                 <a href="#" class="vp-resource-card">
                     <div class="vp-resource-icon">
-                        <i class='bx bxl-figma'></i>
+                        <i data-lucide='pen-tool'></i>
                     </div>
                     <h3>Figma UI Kit</h3>
                     <p>Design files with all components and design tokens</p>
                 </a>
                 <a href="#" class="vp-resource-card">
                     <div class="vp-resource-icon">
-                        <i class='bx bxl-react'></i>
+                        <i data-lucide='atom'></i>
                     </div>
                     <h3>React Components</h3>
                     <p>Pre-built React components with TypeScript support</p>
                 </a>
                 <a href="#" class="vp-resource-card">
                     <div class="vp-resource-icon">
-                        <i class='bx bxl-vuejs'></i>
+                        <i data-lucide='layers'></i>
                     </div>
                     <h3>Vue Components</h3>
                     <p>Vue 3 components with composition API</p>
                 </a>
                 <a href="#" class="vp-resource-card">
                     <div class="vp-resource-icon">
-                        <i class='bx bx-code-block'></i>
+                        <i data-lucide='square-code'></i>
                     </div>
                     <h3>VS Code Theme</h3>
                     <p>Matching VS Code theme for consistent development</p>
@@ -279,18 +280,18 @@ pnpm add @bricks/design-system</code></pre>
         <section class="vp-community">
             <div class="vp-community-content">
                 <h2>Join the Community</h2>
-                <p>Get help, share your projects, and contribute to making BRICKS better for everyone.</p>
+                <p>Get help, share your projects, and contribute to making DOI INC better for everyone.</p>
                 <div class="vp-community-links">
                     <a href="#" class="btn btn--ghost">
-                        <i class='bx bxl-github'></i>
+                        <i data-lucide='code-xml'></i>
                         GitHub
                     </a>
                     <a href="#" class="btn btn--ghost">
-                        <i class='bx bxl-discord-alt'></i>
+                        <i data-lucide='messages-square'></i>
                         Discord
                     </a>
                     <a href="#" class="btn btn--ghost">
-                        <i class='bx bxl-twitter'></i>
+                        <i data-lucide='message-circle'></i>
                         Twitter
                     </a>
                 </div>
@@ -300,7 +301,7 @@ pnpm add @bricks/design-system</code></pre>
         <!-- Footer -->
         <footer class="vp-footer">
             <div class="vp-footer-content">
-                <p>Built with ❤️ by the BRICKS team</p>
+                <p>Built with ❤️ by the DOI INC team</p>
                 <p>Released under the MIT License · Copyright © 2024</p>
             </div>
         </footer>

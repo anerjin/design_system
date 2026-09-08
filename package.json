@@ -2,14 +2,19 @@
   "name": "bricks-monorepo",
   "version": "1.0.0",
   "private": true,
-  "description": "BRICKS Design System Monorepo",
+  "description": "DOI INC Design System Monorepo",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
+    "typecheck": "npm run typecheck --workspace=packages/bricks",
     "build:bricks": "npm run build --workspace=packages/bricks",
+    "build:all": "npm run build:all --workspace=packages/bricks",
     "storybook": "npm run storybook --workspace=packages/bricks",
-    "build-storybook": "npm run build-storybook --workspace=packages/bricks"
+    "build-storybook": "npm run build-storybook --workspace=packages/bricks",
+    "gallery": "npm run dev --workspace=apps/gallery",
+    "build:gallery": "npm run build --workspace=apps/gallery"
   },
   "repository": {
     "type": "git",

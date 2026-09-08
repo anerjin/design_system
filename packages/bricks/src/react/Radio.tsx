@@ -1,216 +1,181 @@
-import React, { forwardRef } from 'react';
+import React, { createContext, forwardRef, useContext } from 'react';
+import { cx, type Color, type Size } from './utils';
 
-export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  /**
-   * 라디오 버튼 크기
-   * @default 'md'
-   */
-  size?: 'sm' | 'md' | 'lg';
+const COLOR: Record<Color, string> = {
+  neutral: 'radio-neutral',
+  primary: 'radio-primary',
+  secondary: 'radio-secondary',
+  accent: 'radio-accent',
+  info: 'radio-info',
+  success: 'radio-success',
+  warning: 'radio-warning',
+  error: 'radio-error',
+};
 
-  /**
-   * 라디오 버튼 변형 스타일
-   */
-  variant?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'dark';
+const SIZE: Record<Size, string> = {
+  xs: 'radio-xs',
+  sm: 'radio-sm',
+  md: 'radio-md',
+  lg: 'radio-lg',
+  xl: 'radio-xl',
+};
 
-  /**
-   * 라디오 버튼 레이블
-   */
-  label?: React.ReactNode;
-
-  /**
-   * 설명 텍스트
-   */
-  description?: React.ReactNode;
-
-  /**
-   * 라디오 버튼 변경 이벤트
-   */
+interface RadioGroupContextValue {
+  name?: string;
+  value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface RadioGroupProps {
-  /**
-   * 그룹 이름 (name 속성)
-   */
-  name: string;
+/**
+ * RadioGroup이 자식 Radio에 name/선택값을 내려주는 통로.
+ *
+ * 이전 구현은 `cloneElement`로 주입하면서 `...child.props`를 나중에 펼쳐
+ * 주입한 값이 도로 덮이는 문제가 있었다. 컨텍스트로 바꿔 그 문제를 없앴다.
+ */
+const RadioGroupContext = createContext<RadioGroupContextValue | null>(null);
+
+export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  /** 색상 */
+  color?: Color;
 
   /**
-   * 그룹 레이블
+   * 크기
+   * @default 'md'
    */
+  size?: Size;
+
+  /** 라벨 텍스트. 주면 클릭 가능한 라벨로 감싼다 */
   label?: React.ReactNode;
 
-  /**
-   * 인라인 배치
-   * @default false
-   */
-  inline?: boolean;
-
-  /**
-   * 선택된 값
-   */
-  value?: string;
-
-  /**
-   * 값 변경 이벤트
-   */
-  onChange?: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void;
-
-  /**
-   * 자식 요소
-   */
-  children: React.ReactNode;
-
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
-
-  /**
-   * 필수 선택
-   */
-  required?: boolean;
-
-  /**
-   * 비활성화
-   */
-  disabled?: boolean;
+  /** 라벨 아래 보조 설명 */
+  description?: React.ReactNode;
 }
 
 /**
- * BRICKS 디자인 시스템 Radio 컴포넌트
+ * DOI INC Radio — daisyUI `radio` 기반
  *
  * @example
  * ```tsx
- * <Radio
- *   name="gender"
- *   value="male"
- *   label="남성"
- *   checked={gender === 'male'}
- *   onChange={(e) => setGender(e.target.value)}
- * />
+ * <Radio name="plan" value="basic" label="베이직" />
  * ```
  */
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(({
+  color,
   size = 'md',
-  variant,
   label,
   description,
   className,
-  id,
-  disabled,
+  name,
+  checked,
   onChange,
+  value,
   ...props
 }, ref) => {
-  const radioId = id || `radio-${Math.random().toString(36).substr(2, 9)}`;
-  const descriptionId = description ? `${radioId}-description` : undefined;
+  const group = useContext(RadioGroupContext);
 
-  const containerClasses = [
-    'radio',
-    size !== 'md' ? `radio--${size}` : '',
-    variant ? `radio--${variant}` : '',
-    className
-  ].filter(Boolean).join(' ');
+  const resolvedName = name ?? group?.name;
+  const resolvedChecked = checked
+    ?? (group && group.value !== undefined ? group.value === value : undefined);
+
+  const input = (
+    <input
+      ref={ref}
+      type="radio"
+      className={cx('radio', color && COLOR[color], SIZE[size], className)}
+      name={resolvedName}
+      value={value}
+      checked={resolvedChecked}
+      onChange={onChange ?? group?.onChange}
+      {...props}
+    />
+  );
+
+  if (!label) return input;
 
   return (
-    <label className={containerClasses}>
-      <input
-        ref={ref}
-        type="radio"
-        id={radioId}
-        className="radio__input"
-        disabled={disabled}
-        onChange={onChange}
-        aria-describedby={descriptionId}
-        {...props}
-      />
-      <div className="radio__circle">
-        <div className="radio__dot"></div>
-      </div>
-      {label && (
-        <span className="radio__label">
-          {label}
-          {description && (
-            <span
-              id={descriptionId}
-              className="radio__description"
-            >
-              {description}
-            </span>
-          )}
-        </span>
-      )}
+    <label className="label cursor-pointer items-start justify-start gap-3">
+      {input}
+      <span className="flex flex-col items-start">
+        <span>{label}</span>
+        {description && <span className="text-xs opacity-60">{description}</span>}
+      </span>
     </label>
   );
 });
 
 Radio.displayName = 'Radio';
 
+export interface RadioGroupProps extends Omit<React.FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+  /** 그룹 제목 */
+  label?: React.ReactNode;
+
+  /** 자식 Radio가 공유할 name */
+  name?: string;
+
+  /** 선택된 값 (제어 컴포넌트) */
+  value?: string;
+
+  /** 선택 변경 이벤트 */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
+  /**
+   * 가로 배치
+   * @default false
+   */
+  inline?: boolean;
+
+  /** 오류 메시지. 주면 오류 상태로 표시된다 */
+  error?: React.ReactNode;
+
+  /**
+   * 필수 표시
+   * @default false
+   */
+  required?: boolean;
+
+  children: React.ReactNode;
+}
+
 /**
- * BRICKS 디자인 시스템 RadioGroup 컴포넌트
+ * DOI INC RadioGroup — daisyUI `fieldset` 기반
  *
  * @example
  * ```tsx
- * <RadioGroup
- *   name="theme"
- *   label="테마 선택"
- *   value={theme}
- *   onChange={(value) => setTheme(value)}
- * >
- *   <Radio value="light" label="라이트 모드" />
- *   <Radio value="dark" label="다크 모드" />
- *   <Radio value="auto" label="시스템 설정" />
+ * <RadioGroup label="요금제" name="plan" value={plan} onChange={(e) => setPlan(e.target.value)}>
+ *   <Radio value="basic" label="베이직" />
+ *   <Radio value="pro" label="프로" />
  * </RadioGroup>
  * ```
  */
-export const RadioGroup: React.FC<RadioGroupProps> = ({
-  name,
+export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(({
   label,
-  inline = false,
+  name,
   value,
   onChange,
-  children,
-  className,
+  inline = false,
+  error,
   required = false,
-  disabled = false
-}) => {
-  const groupClasses = [
-    'radio-group',
-    inline ? 'radio-group--inline' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(event.target.value, event);
-    }
-  };
-
-  // children을 순회하면서 props 추가
-  const enhancedChildren = React.Children.map(children, (child) => {
-    if (React.isValidElement<RadioProps>(child) && child.type === Radio) {
-      return React.cloneElement(child, {
-        name,
-        checked: child.props.value === value,
-        onChange: handleChange,
-        disabled: disabled || child.props.disabled,
-        ...child.props
-      });
-    }
-    return child;
-  });
-
-  return (
-    <fieldset className={groupClasses}>
+  className,
+  children,
+  ...props
+}, ref) => (
+  <RadioGroupContext.Provider value={{ name, value, onChange }}>
+    <fieldset ref={ref} className={cx('fieldset', className)} {...props}>
       {label && (
-        <legend className="radio-group__label">
+        <legend className="fieldset-legend">
           {label}
-          {required && <span className="required-mark">*</span>}
+          {required && <span className="text-error">*</span>}
         </legend>
       )}
-      {enhancedChildren}
+      <div className={inline ? 'flex flex-wrap items-center gap-4' : 'flex flex-col gap-1'}>
+        {children}
+      </div>
+      {error && (
+        <p className="fieldset-label text-error" role="alert">{error}</p>
+      )}
     </fieldset>
-  );
-};
+  </RadioGroupContext.Provider>
+));
 
 RadioGroup.displayName = 'RadioGroup';
 

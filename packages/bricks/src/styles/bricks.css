@@ -1,0 +1,56 @@
+﻿/**
+ * DOI INC CSS entry: Tailwind v4, daisyUI v5 and shared design tokens.
+ * Component classes must remain literal strings so Tailwind can discover them.
+ */
+@import 'tailwindcss' source(none);
+@source "../react";
+
+/* Keep the built-in themes available alongside the neutral DOI INC defaults. */
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    bumblebee,
+    cupcake,
+    emerald,
+    corporate,
+    synthwave,
+    retro,
+    cyberpunk,
+    valentine,
+    halloween,
+    garden,
+    forest,
+    aqua,
+    lofi,
+    pastel,
+    fantasy,
+    wireframe,
+    black,
+    luxury,
+    dracula,
+    cmyk,
+    autumn,
+    business,
+    acid,
+    lemonade,
+    night,
+    coffee,
+    winter,
+    dim,
+    nord,
+    sunset,
+    caramellatte,
+    abyss,
+    silk;
+  logs: false;
+}
+@import './shape.css';
+@import './type.css';
+@import './themes.css';
+@import './menu.css';
+@import './alert.css';
+@import './radial-progress.css';
+@import './components.css';
+@import './interactive.css';
+@import './navbar.css';

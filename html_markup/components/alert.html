@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alert - BRICKS Design System</title>
+    <title>Alert - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
@@ -156,7 +157,7 @@
                     <div class="example-wrapper">
                         <div class="demo-stack-lg">
                             <div class="alert alert--info">
-                                <span class="alert__icon icon-info"></span>
+                                <i class="alert__icon icon-info" data-lucide="info"></i>
                                 <div class="alert__content">
                                     <div class="alert__title">System Update Available</div>
                                     <div class="alert__description">Version 2.5.0 is now available with performance improvements and bug fixes.</div>
@@ -164,7 +165,7 @@
                             </div>
 
                             <div class="alert alert--success">
-                                <span class="alert__icon icon-success"></span>
+                                <i class="alert__icon icon-success" data-lucide="circle-check"></i>
                                 <div class="alert__content">
                                     <div class="alert__title">Payment Successful</div>
                                     <div class="alert__description">Your payment of $99.00 has been processed successfully.</div>
@@ -172,7 +173,7 @@
                             </div>
 
                             <div class="alert alert--warning">
-                                <span class="alert__icon icon-warning"></span>
+                                <i class="alert__icon icon-warning" data-lucide="triangle-alert"></i>
                                 <div class="alert__content">
                                     <div class="alert__title">Storage Almost Full</div>
                                     <div class="alert__description">You're using 90% of your available storage. Consider upgrading your plan.</div>
@@ -180,7 +181,7 @@
                             </div>
 
                             <div class="alert alert--danger">
-                                <span class="alert__icon icon-danger"></span>
+                                <i class="alert__icon icon-danger" data-lucide="circle-x"></i>
                                 <div class="alert__content">
                                     <div class="alert__title">Connection Failed</div>
                                     <div class="alert__description">Unable to connect to the server. Please check your internet connection.</div>
@@ -193,7 +194,7 @@
                         <summary class="code-summary">코드 보기</summary>
                         <div class="code-block">
                             <pre><code class="language-html">&lt;div class="alert alert--info"&gt;
-    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;i class="alert__icon icon-info" data-lucide="info"&gt;&lt;/i&gt;
     &lt;div class="alert__content"&gt;
         &lt;div class="alert__title"&gt;System Update Available&lt;/div&gt;
         &lt;div class="alert__description"&gt;Version 2.5.0 is now available with performance improvements and bug fixes.&lt;/div&gt;
@@ -216,17 +217,17 @@
                     <div class="example-wrapper">
                         <div class="demo-stack">
                             <div class="alert alert--sm alert--info">
-                                <span class="alert__icon icon-info"></span>
+                                <i class="alert__icon icon-info" data-lucide="info"></i>
                                 <div class="alert__content">Small alert with less padding</div>
                             </div>
 
                             <div class="alert alert--info">
-                                <span class="alert__icon icon-info"></span>
+                                <i class="alert__icon icon-info" data-lucide="info"></i>
                                 <div class="alert__content">Default alert with standard padding</div>
                             </div>
 
                             <div class="alert alert--lg alert--info">
-                                <span class="alert__icon icon-info"></span>
+                                <i class="alert__icon icon-info" data-lucide="info"></i>
                                 <div class="alert__content">Large alert with more padding</div>
                             </div>
                         </div>
@@ -237,13 +238,13 @@
                         <div class="code-block">
                             <pre><code class="language-html">&lt;!-- Small Alert --&gt;
 &lt;div class="alert alert--sm alert--info"&gt;
-    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;i class="alert__icon icon-info" data-lucide="info"&gt;&lt;/i&gt;
     &lt;div class="alert__content"&gt;Small alert with less padding&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;!-- Large Alert --&gt;
 &lt;div class="alert alert--lg alert--info"&gt;
-    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;i class="alert__icon icon-info" data-lucide="info"&gt;&lt;/i&gt;
     &lt;div class="alert__content"&gt;Large alert with more padding&lt;/div&gt;
 &lt;/div&gt;</code></pre>
                         </div>
@@ -268,18 +269,18 @@
                                     <div class="alert__description">Your session will expire in 5 minutes. Save your work to avoid losing changes.</div>
                                 </div>
                                 <button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'">
-                                    <span class="icon-close"></span>
+                                    <i class="icon-close" data-lucide="x"></i>
                                 </button>
                             </div>
 
                             <div class="alert alert--info alert--dismissible">
-                                <span class="alert__icon icon-info"></span>
+                                <i class="alert__icon icon-info" data-lucide="info"></i>
                                 <div class="alert__content">
-                                    <div class="alert__title">Welcome to BRICKS</div>
+                                    <div class="alert__title">Welcome to DOI INC</div>
                                     <div class="alert__description">Check out our getting started guide for tips and tutorials.</div>
                                 </div>
                                 <button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'">
-                                    <span class="icon-close"></span>
+                                    <i class="icon-close" data-lucide="x"></i>
                                 </button>
                             </div>
                         </div>
@@ -294,7 +295,7 @@
         &lt;div class="alert__description"&gt;Your session will expire in 5 minutes. Save your work to avoid losing changes.&lt;/div&gt;
     &lt;/div&gt;
     &lt;button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'"&gt;
-        &lt;span class="icon-close"&gt;&lt;/span&gt;
+        &lt;i class="icon-close" data-lucide="x"&gt;&lt;/i&gt;
     &lt;/button&gt;
 &lt;/div&gt;</code></pre>
                         </div>
@@ -314,7 +315,7 @@
                     <div class="example-wrapper">
                         <div class="demo-stack">
                             <div class="alert alert--success alert--accent-left">
-                                <span class="alert__icon icon-success"></span>
+                                <i class="alert__icon icon-success" data-lucide="circle-check"></i>
                                 <div class="alert__content">
                                     <div class="alert__title">Left Accent Border</div>
                                     <div class="alert__description">Alert with emphasized left border for better visibility.</div>
@@ -322,7 +323,7 @@
                             </div>
 
                             <div class="alert alert--danger alert--accent-top">
-                                <span class="alert__icon icon-danger"></span>
+                                <i class="alert__icon icon-danger" data-lucide="circle-x"></i>
                                 <div class="alert__content">
                                     <div class="alert__title">Top Accent Border</div>
                                     <div class="alert__description">Alert with emphasized top border for critical messages.</div>
@@ -335,7 +336,7 @@
                         <summary class="code-summary">코드 보기</summary>
                         <div class="code-block">
                             <pre><code class="language-html">&lt;div class="alert alert--success alert--accent-left"&gt;
-    &lt;span class="alert__icon icon-success"&gt;&lt;/span&gt;
+    &lt;i class="alert__icon icon-success" data-lucide="circle-check"&gt;&lt;/i&gt;
     &lt;div class="alert__content"&gt;
         &lt;div class="alert__title"&gt;Left Accent Border&lt;/div&gt;
         &lt;div class="alert__description"&gt;Alert with emphasized left border for better visibility.&lt;/div&gt;
@@ -369,7 +370,7 @@
                             </div>
 
                             <div class="alert alert--warning">
-                                <span class="alert__icon icon-warning"></span>
+                                <i class="alert__icon icon-warning" data-lucide="triangle-alert"></i>
                                 <div class="alert__content">
                                     <div class="alert__title">Unsaved Changes</div>
                                     <div class="alert__description">You have unsaved changes. Would you like to save them?</div>
@@ -386,7 +387,7 @@
                         <summary class="code-summary">코드 보기</summary>
                         <div class="code-block">
                             <pre><code class="language-html">&lt;div class="alert alert--warning"&gt;
-    &lt;span class="alert__icon icon-warning"&gt;&lt;/span&gt;
+    &lt;i class="alert__icon icon-warning" data-lucide="triangle-alert"&gt;&lt;/i&gt;
     &lt;div class="alert__content"&gt;
         &lt;div class="alert__title"&gt;Unsaved Changes&lt;/div&gt;
         &lt;div class="alert__description"&gt;You have unsaved changes. Would you like to save them?&lt;/div&gt;
@@ -412,7 +413,7 @@
                 <div class="card__body">
                     <div class="example-wrapper">
                         <div class="alert alert--danger">
-                            <span class="alert__icon icon-danger"></span>
+                            <i class="alert__icon icon-danger" data-lucide="circle-x"></i>
                             <div class="alert__content">
                                 <div class="alert__title">Form Validation Errors</div>
                                 <div class="alert__description">Please correct the following errors:</div>
@@ -429,7 +430,7 @@
                         <summary class="code-summary">코드 보기</summary>
                         <div class="code-block">
                             <pre><code class="language-html">&lt;div class="alert alert--danger"&gt;
-    &lt;span class="alert__icon icon-danger"&gt;&lt;/span&gt;
+    &lt;i class="alert__icon icon-danger" data-lucide="circle-x"&gt;&lt;/i&gt;
     &lt;div class="alert__content"&gt;
         &lt;div class="alert__title"&gt;Form Validation Errors&lt;/div&gt;
         &lt;div class="alert__description"&gt;Please correct the following errors:&lt;/div&gt;
@@ -456,7 +457,7 @@
                 <div class="card__body">
                     <div class="example-wrapper">
                         <div class="alert alert--solid-info alert--lg alert--dismissible">
-                            <span class="alert__icon icon-info"></span>
+                            <i class="alert__icon icon-info" data-lucide="info"></i>
                             <div class="alert__content">
                                 <div class="alert__title">System Maintenance Scheduled</div>
                                 <div class="alert__description">
@@ -473,7 +474,7 @@
                                 </div>
                             </div>
                             <button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'">
-                                <span class="icon-close"></span>
+                                <i class="icon-close" data-lucide="x"></i>
                             </button>
                         </div>
                     </div>
@@ -482,7 +483,7 @@
                         <summary class="code-summary">코드 보기</summary>
                         <div class="code-block">
                             <pre><code class="language-html">&lt;div class="alert alert--solid-info alert--lg alert--dismissible"&gt;
-    &lt;span class="alert__icon icon-info"&gt;&lt;/span&gt;
+    &lt;i class="alert__icon icon-info" data-lucide="info"&gt;&lt;/i&gt;
     &lt;div class="alert__content"&gt;
         &lt;div class="alert__title"&gt;System Maintenance Scheduled&lt;/div&gt;
         &lt;div class="alert__description"&gt;
@@ -499,7 +500,7 @@
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;button type="button" class="alert__close" aria-label="Close" onclick="this.parentElement.style.display='none'"&gt;
-        &lt;span class="icon-close"&gt;&lt;/span&gt;
+        &lt;i class="icon-close" data-lucide="x"&gt;&lt;/i&gt;
     &lt;/button&gt;
 &lt;/div&gt;</code></pre>
                         </div>

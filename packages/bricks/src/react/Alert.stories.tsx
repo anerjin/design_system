@@ -1,45 +1,54 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
-import { Alert } from './Alert';
-import { Button } from './Button';
 import { Icon } from './Icon';
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Alert } from './Alert';
+import type { AlertVariant } from './Alert';
+import { Button } from './Button';
+import type { StatusColor } from './utils';
+
+const COLORS: StatusColor[] = ['info', 'success', 'warning', 'error'];
+const VARIANTS: AlertVariant[] = ['solid', 'outline', 'dash', 'soft'];
+const STATUS_COPY: Record<StatusColor, { title: string; description: string }> = {
+  info: { title: '업데이트 안내', description: '새 버전이 준비되었습니다. 편한 시간에 업데이트하세요.' },
+  success: { title: '저장 완료', description: '변경사항이 정상적으로 반영되었습니다.' },
+  warning: {
+    title: '저장 공간 확인',
+    description: '사용 가능한 공간이 부족합니다. 불필요한 파일을 정리하세요.',
+  },
+  error: { title: '업로드 실패', description: '파일 크기가 10MB를 넘습니다. 더 작은 파일을 선택하세요.' },
+};
 
 const meta: Meta<typeof Alert> = {
   title: 'Feedback/Alert',
   component: Alert,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    gallery: {
+      description:
+        '중립적인 배경과 상태 아이콘으로 안내하는 알림. 좁은 영역에서는 액션이 본문 아래로 배치된다.',
+      daisyui: 'alert',
+      props: [
+        { name: 'color', type: 'info | success | warning | error' },
+        { name: 'variant', type: 'solid | outline | dash | soft', defaultValue: 'solid' },
+        { name: 'title', type: 'ReactNode' },
+        { name: 'description', type: 'ReactNode' },
+        { name: 'actions', type: 'ReactNode', description: '버튼을 묶어 반응형으로 배치' },
+        {
+          name: 'layout',
+          type: 'horizontal | vertical',
+          description: 'vertical은 액션을 항상 본문 아래에 배치',
+        },
+        { name: 'dismissible', type: 'boolean', defaultValue: 'false' },
+        { name: 'autoClose', type: 'number', description: '지정한 ms 뒤 자동으로 닫는다' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
-    },
-    solid: {
-      control: 'boolean',
-    },
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    dismissible: {
-      control: 'boolean',
-    },
-    autoClose: {
-      control: 'number',
-    },
-    accent: {
-      control: 'select',
-      options: [undefined, 'left', 'top'],
-    },
-    toast: {
-      control: 'boolean',
-    },
-    position: {
-      control: 'select',
-      options: ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'],
-    },
+    color: { control: 'select', options: COLORS },
+    variant: { control: 'select', options: VARIANTS },
+    layout: { control: 'select', options: [undefined, 'horizontal', 'vertical'] },
+    dismissible: { control: 'boolean' },
   },
 };
 
@@ -48,373 +57,163 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: 'primary',
-    title: 'Default Alert',
-    children: 'This is a default alert message.',
+    color: 'info',
+    ...STATUS_COPY.info,
+    className: 'max-w-3xl',
   },
 };
 
-export const WithTitleAndDescription: Story = {
-  args: {
-    variant: 'info',
-    title: 'Information',
-    description: 'Here is some important information you should know.',
-  },
+/** 상태는 제목과 아이콘으로 구분하고, 배경은 중립색을 유지한다. */
+export const Colors: Story = {
+  render: () => (
+    <div className="flex w-full max-w-3xl flex-col gap-4">
+      <Alert title="기본 안내" description="계정 설정에서 알림 수신 방법을 변경할 수 있습니다." />
+      {COLORS.map((color) => (
+        <Alert key={color} color={color} {...STATUS_COPY[color]} />
+      ))}
+    </div>
+  ),
 };
 
 export const Variants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '500px' }}>
-      <Alert variant="primary" title="Primary Alert">
-        This is a primary alert message.
-      </Alert>
-      <Alert variant="secondary" title="Secondary Alert">
-        This is a secondary alert message.
-      </Alert>
-      <Alert variant="success" title="Success Alert">
-        Your operation completed successfully.
-      </Alert>
-      <Alert variant="danger" title="Danger Alert">
-        An error occurred while processing your request.
-      </Alert>
-      <Alert variant="warning" title="Warning Alert">
-        Please review your input before continuing.
-      </Alert>
-      <Alert variant="info" title="Info Alert">
-        This is an informational message.
-      </Alert>
-      <Alert variant="light" title="Light Alert">
-        This is a light alert message.
-      </Alert>
-      <Alert variant="dark" title="Dark Alert">
-        This is a dark alert message.
-      </Alert>
+    <div className="flex w-full max-w-3xl flex-col gap-5">
+      {VARIANTS.map((variant) => (
+        <div key={variant} className="flex flex-col gap-2">
+          <span className="text-xs opacity-60">{variant}</span>
+          <Alert
+            variant={variant}
+            color="info"
+            title="업데이트 안내"
+            description="상태색은 아이콘에만 적용하고, 배경과 테두리로 스타일을 구분합니다."
+          />
+        </div>
+      ))}
     </div>
   ),
 };
 
-export const SolidVariants: Story = {
+export const WithTitle: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '500px' }}>
-      <Alert variant="primary" solid title="Primary Solid">
-        Solid background primary alert.
-      </Alert>
-      <Alert variant="secondary" solid title="Secondary Solid">
-        Solid background secondary alert.
-      </Alert>
-      <Alert variant="success" solid title="Success Solid">
-        Solid background success alert.
-      </Alert>
-      <Alert variant="danger" solid title="Danger Solid">
-        Solid background danger alert.
-      </Alert>
-      <Alert variant="warning" solid title="Warning Solid">
-        Solid background warning alert.
-      </Alert>
-      <Alert variant="info" solid title="Info Solid">
-        Solid background info alert.
-      </Alert>
-      <Alert variant="light" solid title="Light Solid">
-        Solid background light alert.
-      </Alert>
-      <Alert variant="dark" solid title="Dark Solid">
-        Solid background dark alert.
-      </Alert>
+    <div className="flex w-full max-w-3xl flex-col gap-4">
+      <Alert color="success" title="저장 완료" description="변경사항이 정상적으로 반영되었습니다." />
+      <Alert color="error" variant="soft" title="업로드 실패" description="파일 크기가 10MB를 넘습니다." />
     </div>
   ),
-};
-
-export const Sizes: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '500px' }}>
-      <Alert size="sm" variant="info" title="Small Alert">
-        This is a small sized alert.
-      </Alert>
-      <Alert size="md" variant="info" title="Medium Alert (Default)">
-        This is a medium sized alert.
-      </Alert>
-      <Alert size="lg" variant="info" title="Large Alert">
-        This is a large sized alert.
-      </Alert>
-    </div>
-  ),
-};
-
-export const WithAccent: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '500px' }}>
-      <Alert variant="success" accent="left" title="Left Accent">
-        Alert with left accent border.
-      </Alert>
-      <Alert variant="danger" accent="top" title="Top Accent">
-        Alert with top accent border.
-      </Alert>
-      <Alert variant="warning" accent="left" solid title="Solid with Accent">
-        Solid alert with left accent.
-      </Alert>
-    </div>
-  ),
-};
-
-export const WithIcon: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '500px' }}>
-      <Alert
-        variant="success"
-        title="Success"
-        icon={<Icon name="check-circle" size={20} color="currentColor" />}
-      >
-        Operation completed successfully.
-      </Alert>
-      <Alert
-        variant="danger"
-        title="Error"
-        icon={<Icon name="x-circle" size={20} color="currentColor" />}
-      >
-        An error has occurred.
-      </Alert>
-      <Alert
-        variant="warning"
-        title="Warning"
-        icon={<Icon name="error" size={20} color="currentColor" />}
-      >
-        Please proceed with caution.
-      </Alert>
-      <Alert
-        variant="info"
-        title="Information"
-        icon={<Icon name="info-circle" size={20} color="currentColor" />}
-      >
-        Here's some helpful information.
-      </Alert>
-    </div>
-  ),
-};
-
-export const WithList: Story = {
-  args: {
-    variant: 'warning',
-    title: 'Please fix the following errors:',
-    icon: <Icon name="error" size={20} color="currentColor" />,
-    list: [
-      'Password must be at least 8 characters',
-      'Password must contain at least one uppercase letter',
-      'Password must contain at least one number',
-      'Password must contain at least one special character'
-    ],
-  },
 };
 
 export const WithActions: Story = {
-  render: () => {
-    const [visible, setVisible] = useState(true);
-
-    if (!visible) {
-      return (
-        <Button onClick={() => setVisible(true)}>Show Alert</Button>
-      );
-    }
-
+  render: function ActionsExample() {
+    const [result, setResult] = useState<'saved' | 'discarded' | null>(null);
+    const [showFeatures, setShowFeatures] = useState(false);
     return (
-      <Alert
-        variant="info"
-        title="Update Available"
-        description="A new version of the application is available."
-        dismissible
-        onClose={() => setVisible(false)}
-        actions={
-          <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
-            <Button size="sm" variant="primary">Update Now</Button>
-            <Button size="sm" variant="secondary">Remind Me Later</Button>
-          </div>
-        }
-      />
+      <div className="flex w-full max-w-3xl flex-col gap-4">
+        <Alert
+          color={result ? 'success' : 'warning'}
+          title={
+            result === 'saved'
+              ? '저장 완료'
+              : result === 'discarded'
+                ? '변경사항 취소'
+                : '저장하지 않은 변경사항'
+          }
+          description={
+            result
+              ? '아래 버튼으로 예제를 다시 실행할 수 있습니다.'
+              : '페이지를 벗어나면 변경사항이 사라집니다.'
+          }
+          actions={
+            result ? (
+              <Button size="sm" variant="surface" onClick={() => setResult(null)}>
+                다시 실행
+              </Button>
+            ) : (
+              <>
+                <Button size="sm" variant="surface" onClick={() => setResult('discarded')}>
+                  취소
+                </Button>
+                <Button size="sm" color="primary" onClick={() => setResult('saved')}>
+                  저장
+                </Button>
+              </>
+            )
+          }
+        />
+        <Alert
+          color="info"
+          layout="vertical"
+          title="새 기능 안내"
+          description={
+            showFeatures
+              ? '화이트·다크 모드와 다양한 테마를 선택할 수 있습니다. Theme Controller 예제에서 확인하세요.'
+              : '작업 환경에 맞는 테마를 선택해 보세요.'
+          }
+          actions={
+            <Button
+              size="sm"
+              color="primary"
+              aria-expanded={showFeatures}
+              onClick={() => setShowFeatures(!showFeatures)}
+            >
+              {showFeatures ? '안내 접기' : '기능 살펴보기'}
+            </Button>
+          }
+        />
+      </div>
     );
   },
 };
 
 export const Dismissible: Story = {
-  render: () => {
-    const [visible, setVisible] = useState(true);
-
-    if (!visible) {
-      return (
-        <Button onClick={() => setVisible(true)}>Show Dismissible Alert</Button>
-      );
-    }
-
+  render: function DismissibleExample() {
+    const [manualVisible, setManualVisible] = useState(true);
+    const [autoVisible, setAutoVisible] = useState(false);
     return (
-      <Alert
-        variant="info"
-        title="Dismissible Alert"
-        dismissible
-        visible={visible}
-        onClose={() => setVisible(false)}
-      >
-        You can close this alert by clicking the X button.
-      </Alert>
-    );
-  },
-};
-
-export const AutoClose: Story = {
-  render: () => {
-    const [visible, setVisible] = useState(false);
-
-    return (
-      <div>
-        <Button onClick={() => setVisible(true)}>Show Auto-Close Alert</Button>
-        {visible && (
-          <div style={{ marginTop: '12px' }}>
-            <Alert
-              variant="success"
-              title="Auto-closing Alert"
-              autoClose={3000}
-              dismissible
-              onClose={() => setVisible(false)}
-            >
-              This alert will close automatically in 3 seconds.
-            </Alert>
-          </div>
+      <div className="flex w-full max-w-3xl flex-col gap-4">
+        <div className="flex flex-wrap gap-2">
+          <Button size="sm" variant="surface" disabled={manualVisible} onClick={() => setManualVisible(true)}>
+            닫기 알림 다시 표시
+          </Button>
+          <Button size="sm" color="primary" disabled={autoVisible} onClick={() => setAutoVisible(true)}>
+            3초 알림 표시
+          </Button>
+        </div>
+        <Alert
+          color="info"
+          title="직접 닫는 알림"
+          dismissible
+          visible={manualVisible}
+          onClose={() => setManualVisible(false)}
+          description="오른쪽 닫기 버튼을 누르세요. 위 버튼으로 다시 표시할 수 있습니다."
+        />
+        {autoVisible && (
+          <Alert
+            color="success"
+            variant="soft"
+            title="저장 완료"
+            dismissible
+            autoClose={3000}
+            onClose={() => setAutoVisible(false)}
+            description="버튼을 누른 시점부터 3초 뒤에 닫힙니다."
+          />
         )}
+        <p className="text-xs opacity-60" role="status">
+          {autoVisible
+            ? '자동 닫기 알림이 표시 중입니다.'
+            : '3초 알림 표시 버튼을 눌러 자동 닫기를 확인하세요.'}
+        </p>
       </div>
     );
   },
 };
 
-export const ToastPositions: Story = {
-  render: () => {
-    const [toasts, setToasts] = useState<string[]>([]);
-
-    const showToast = (position: string) => {
-      const id = `${position}-${Date.now()}`;
-      setToasts(prev => [...prev, id]);
-      setTimeout(() => {
-        setToasts(prev => prev.filter(t => t !== id));
-      }, 5000);
-    };
-
-    return (
-      <div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
-          <Button size="sm" onClick={() => showToast('top-left')}>Top Left</Button>
-          <Button size="sm" onClick={() => showToast('top-center')}>Top Center</Button>
-          <Button size="sm" onClick={() => showToast('top-right')}>Top Right</Button>
-          <Button size="sm" onClick={() => showToast('bottom-left')}>Bottom Left</Button>
-          <Button size="sm" onClick={() => showToast('bottom-center')}>Bottom Center</Button>
-          <Button size="sm" onClick={() => showToast('bottom-right')}>Bottom Right</Button>
-        </div>
-
-        {toasts.map(id => {
-          const position = id.split('-').slice(0, 2).join('-') as any;
-          return (
-            <Alert
-              key={id}
-              toast
-              position={position}
-              variant="success"
-              title="Toast Notification"
-              dismissible
-              autoClose={4000}
-            >
-              This is a toast at {position}
-            </Alert>
-          );
-        })}
-      </div>
-    );
-  },
-};
-
-export const ComplexExample: Story = {
-  render: () => {
-    const [visible, setVisible] = useState(true);
-
-    if (!visible) {
-      return <Button onClick={() => setVisible(true)}>Show Complex Alert</Button>;
-    }
-
-    return (
-      <Alert
-        variant="danger"
-        solid
-        size="lg"
-        accent="left"
-        dismissible
-        icon={<Icon name="lock-alt" size={24} color="currentColor" />}
-        title="Security Alert"
-        description="We've detected unusual activity on your account"
-        onClose={() => setVisible(false)}
-        actions={
-          <div style={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
-            <Button size="sm" variant="light">Review Activity</Button>
-            <Button size="sm" variant="danger">Secure Account</Button>
-          </div>
-        }
-      >
-        <div style={{ marginTop: '12px' }}>
-          <p style={{ margin: '8px 0' }}>Suspicious login attempts detected from:</p>
-          <ul style={{ marginLeft: '20px', marginTop: '8px' }}>
-            <li>Unknown device in New York, USA</li>
-            <li>Unknown device in London, UK</li>
-            <li>Unknown device in Tokyo, Japan</li>
-          </ul>
-        </div>
-      </Alert>
-    );
-  },
-};
-
-export const NotificationExamples: Story = {
+/** `icon={false}`로 기본 아이콘을 끌 수 있다 */
+export const Icons: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '600px' }}>
-      <Alert
-        variant="success"
-        icon={<Icon name="check-circle" size={20} color="currentColor" />}
-        title="Payment Successful"
-        description="Your payment of $99.99 has been processed successfully."
-        dismissible
-      />
-
-      <Alert
-        variant="warning"
-        icon={<Icon name="error" size={20} color="currentColor" />}
-        title="Low Storage Space"
-        description="You have less than 10% storage space remaining. Consider deleting unused files."
-        actions={
-          <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
-            <Button size="sm" variant="warning">Manage Storage</Button>
-            <Button size="sm" variant="secondary">Ignore</Button>
-          </div>
-        }
-        dismissible
-      />
-
-      <Alert
-        variant="info"
-        solid
-        icon={<Icon name="bell" size={20} color="currentColor" />}
-        title="New Feature Available"
-        description="Dark mode is now available! You can enable it in settings."
-        actions={
-          <Button size="sm" variant="light">Go to Settings</Button>
-        }
-        dismissible
-      />
-
-      <Alert
-        variant="danger"
-        accent="left"
-        icon={<Icon name="error-circle" size={20} color="currentColor" />}
-        title="Action Required"
-        description="Your subscription will expire in 3 days. Update your payment method to continue."
-        actions={
-          <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
-            <Button size="sm" variant="danger">Update Payment</Button>
-            <Button size="sm" variant="secondary">Cancel Subscription</Button>
-          </div>
-        }
-      />
+    <div className="flex w-full max-w-3xl flex-col gap-4">
+      <Alert color="info" description="기본 아이콘" />
+      <Alert color="info" icon={false} description="아이콘 없음" />
+      <Alert color="info" icon={<Icon name="rocket" size="1em" />} description="직접 지정한 아이콘" />
     </div>
   ),
 };

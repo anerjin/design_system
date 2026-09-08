@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>doi ui/ux</title>
+    <meta name="description" content="섬세하게 설계된 React 컴포넌트, 실행 가능한 예제와 사용 가이드. DOI와 함께 완성도 높은 인터페이스를 만드세요." />
+    <script>
+      try {
+        const saved = localStorage.getItem('doi-appearance');
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = dark ? 'bricks-dark' : 'bricks-light';
+      } catch { document.documentElement.dataset.theme = 'bricks-light'; }
+    </script>
+    <!-- 본문 글꼴. 동적 서브셋이라 쓰인 글자만 내려받는다 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

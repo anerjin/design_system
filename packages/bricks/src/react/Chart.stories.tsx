@@ -1,391 +1,202 @@
+﻿import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Chart } from './Chart';
+import { Chart, type ChartDataPoint, type ChartProps } from './Chart';
+import { Button } from './Button';
+import { Select } from './Select';
+import { Badge } from './Badge';
+import { Link } from './Link';
+import { Icon } from './Icon';
 
+const TYPES: ChartProps['type'][] = ['bar', 'line', 'area', 'pie', 'doughnut', 'radar', 'polarArea'];
+const THEMES: NonNullable<ChartProps['theme']>[] = ['default', 'pastel', 'vivid', 'dark'];
+const monthly: ChartDataPoint[] = [
+  { label: '1월', value: 65 },
+  { label: '2월', value: 59 },
+  { label: '3월', value: 80 },
+  { label: '4월', value: 81 },
+  { label: '5월', value: 56 },
+  { label: '6월', value: 95 },
+];
+const share: ChartDataPoint[] = [
+  { label: '데스크톱', value: 52 },
+  { label: '모바일', value: 38 },
+  { label: '태블릿', value: 10 },
+];
 const meta: Meta<typeof Chart> = {
-  title: 'Data Display/Chart',
+  title: 'Extras/Chart',
   component: Chart,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
-  argTypes: {
-    type: {
-      control: 'select',
-      options: ['bar', 'line', 'pie', 'doughnut', 'area', 'radar', 'polar'],
-    },
-    theme: {
-      control: 'select',
-      options: ['default', 'pastel', 'vivid', 'dark'],
-    },
-    showLegend: {
-      control: 'boolean',
-    },
-    showGrid: {
-      control: 'boolean',
-    },
-    animated: {
-      control: 'boolean',
-    },
-    responsive: {
-      control: 'boolean',
-    },
-    showTooltip: {
-      control: 'boolean',
-    },
-    beginAtZero: {
-      control: 'boolean',
+  parameters: {
+    layout: 'padded',
+    gallery: {
+      description:
+        'DOI INC 공식 차트 엔진은 Chart.js입니다. 반응형 캔버스, 툴팁, 클릭 가능한 범례, 다중 데이터와 라이트·다크 테마를 지원합니다.',
+      props: [
+        { name: 'type', type: 'bar | line | area | pie | doughnut | radar | polarArea' },
+        { name: 'data', type: 'ChartDataPoint[]', description: 'label · value · color를 가진 간편 데이터' },
+        { name: 'datasets / labels', type: 'ChartDataset[] / string[]', description: '여러 시리즈 비교' },
+        { name: 'height', type: 'number | string', defaultValue: '400' },
+        { name: 'showLegend / showTooltip / showGrid', type: 'boolean', defaultValue: 'true' },
+        { name: 'animated / responsive', type: 'boolean', defaultValue: 'true' },
+        {
+          name: 'options',
+          type: 'ChartOptions',
+          description: 'Chart.js 공식 옵션: 누적 막대·축·플러그인 설정',
+        },
+        { name: 'onClick', type: '(dataPoint, index) => void', description: '실제 차트 요소의 클릭 결과' },
+        { name: 'theme', type: 'default | pastel | vivid | dark', defaultValue: 'default' },
+      ],
     },
   },
+  argTypes: { type: { control: 'select', options: TYPES }, theme: { control: 'select', options: THEMES } },
 };
-
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-const monthlyData = [
-  { label: 'Jan', value: 65 },
-  { label: 'Feb', value: 59 },
-  { label: 'Mar', value: 80 },
-  { label: 'Apr', value: 81 },
-  { label: 'May', value: 56 },
-  { label: 'Jun', value: 55 },
-];
-
-const categoryData = [
-  { label: 'Electronics', value: 450 },
-  { label: 'Clothing', value: 320 },
-  { label: 'Food', value: 280 },
-  { label: 'Books', value: 180 },
-  { label: 'Sports', value: 140 },
-];
-
-export const BarChart: Story = {
-  args: {
-    type: 'bar',
-    data: monthlyData,
-    title: 'Monthly Sales',
-    width: 600,
-    height: 400,
-  },
-};
-
-export const LineChart: Story = {
-  args: {
-    type: 'line',
-    data: monthlyData,
-    title: 'Revenue Trend',
-    width: 600,
-    height: 400,
-  },
-};
-
-export const AreaChart: Story = {
-  args: {
-    type: 'area',
-    data: monthlyData,
-    title: 'Growth Over Time',
-    width: 600,
-    height: 400,
-  },
-};
-
-export const PieChart: Story = {
-  args: {
-    type: 'pie',
-    data: categoryData,
-    title: 'Market Share',
-    width: 500,
-    height: 500,
-  },
-};
-
-export const DoughnutChart: Story = {
-  args: {
-    type: 'doughnut',
-    data: categoryData,
-    title: 'Category Distribution',
-    width: 500,
-    height: 500,
-  },
-};
-
-export const Themes: Story = {
-  render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', width: '800px' }}>
-      <Chart
-        type="bar"
-        data={[
-          { label: 'Q1', value: 85 },
-          { label: 'Q2', value: 72 },
-          { label: 'Q3', value: 91 },
-          { label: 'Q4', value: 88 },
-        ]}
-        title="Default Theme"
-        theme="default"
-        height={300}
-      />
-      <Chart
-        type="bar"
-        data={[
-          { label: 'Q1', value: 85 },
-          { label: 'Q2', value: 72 },
-          { label: 'Q3', value: 91 },
-          { label: 'Q4', value: 88 },
-        ]}
-        title="Pastel Theme"
-        theme="pastel"
-        height={300}
-      />
-      <Chart
-        type="bar"
-        data={[
-          { label: 'Q1', value: 85 },
-          { label: 'Q2', value: 72 },
-          { label: 'Q3', value: 91 },
-          { label: 'Q4', value: 88 },
-        ]}
-        title="Vivid Theme"
-        theme="vivid"
-        height={300}
-      />
-      <Chart
-        type="bar"
-        data={[
-          { label: 'Q1', value: 85 },
-          { label: 'Q2', value: 72 },
-          { label: 'Q3', value: 91 },
-          { label: 'Q4', value: 88 },
-        ]}
-        title="Dark Theme"
-        theme="dark"
-        height={300}
-      />
-    </div>
-  ),
-};
-
-export const NoGrid: Story = {
-  args: {
-    type: 'bar',
-    data: monthlyData,
-    title: 'Without Grid',
-    showGrid: false,
-    width: 600,
-    height: 400,
-  },
-};
-
-export const NoLegend: Story = {
-  args: {
-    type: 'pie',
-    data: categoryData,
-    title: 'Without Legend',
-    showLegend: false,
-    width: 500,
-    height: 500,
-  },
-};
-
-export const CustomColors: Story = {
-  args: {
-    type: 'bar',
-    data: [
-      { label: 'Red', value: 30, color: '#FF0000' },
-      { label: 'Green', value: 45, color: '#00FF00' },
-      { label: 'Blue', value: 60, color: '#0000FF' },
-      { label: 'Yellow', value: 35, color: '#FFFF00' },
-      { label: 'Purple', value: 50, color: '#800080' },
-    ],
-    title: 'Custom Colors',
-    width: 600,
-    height: 400,
-  },
-};
-
-export const RadarChart: Story = {
-  args: {
-    type: 'radar',
-    data: [
-      { label: 'Speed', value: 85 },
-      { label: 'Reliability', value: 92 },
-      { label: 'Comfort', value: 78 },
-      { label: 'Design', value: 95 },
-      { label: 'Price', value: 70 },
-      { label: 'Efficiency', value: 88 },
-    ],
-    title: 'Product Comparison',
-    width: 500,
-    height: 500,
-  },
-};
-
-export const PolarChart: Story = {
-  args: {
-    type: 'polar',
-    data: [
-      { label: 'North', value: 65 },
-      { label: 'Northeast', value: 45 },
-      { label: 'East', value: 80 },
-      { label: 'Southeast', value: 55 },
-      { label: 'South', value: 70 },
-      { label: 'Southwest', value: 50 },
-      { label: 'West', value: 75 },
-      { label: 'Northwest', value: 60 },
-    ],
-    title: 'Regional Sales',
-    width: 500,
-    height: 500,
-  },
-};
-
-export const SmallChart: Story = {
-  args: {
-    type: 'line',
-    data: [
-      { label: 'Mon', value: 20 },
-      { label: 'Tue', value: 35 },
-      { label: 'Wed', value: 25 },
-      { label: 'Thu', value: 40 },
-      { label: 'Fri', value: 30 },
-    ],
-    width: 300,
-    height: 200,
-    showLegend: false,
-  },
-};
-
-export const Dashboard: Story = {
-  render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px', width: '900px' }}>
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: '600' }}>Sales</h3>
+/** 부드럽게 나타나는 라인 차트. 다시 재생하거나 점에 마우스를 올려 보세요. */
+export const Default: Story = {
+  name: '월별 매출 · 애니메이션',
+  render: function AnimatedRevenueChart() {
+    const [replay, setReplay] = useState(0);
+    return (
+      <div className="grid gap-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <Badge variant="outline">Chart.js</Badge>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button size="sm" variant="surface" onClick={() => setReplay((value) => value + 1)}>
+              <Icon name="refresh-cw" size={14} /> 다시 재생
+            </Button>
+            <Link href="https://www.chartjs.org/docs/latest/" target="_blank" rel="noreferrer">
+              공식 문서 <Icon name="external-link" size={14} />
+            </Link>
+          </div>
+        </div>
         <Chart
+          key={replay}
           type="line"
-          data={[
-            { label: 'Mon', value: 120 },
-            { label: 'Tue', value: 150 },
-            { label: 'Wed', value: 100 },
-            { label: 'Thu', value: 170 },
-            { label: 'Fri', value: 140 },
-          ]}
-          height={200}
+          data={monthly}
+          title="월별 매출 · 백만원"
+          height={300}
           showLegend={false}
-          theme="pastel"
+          animated
+          options={{
+            animation: { duration: 1000, easing: 'easeOutQuart' },
+            interaction: { mode: 'index', intersect: false },
+          }}
         />
       </div>
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: '600' }}>Categories</h3>
+    );
+  },
+};
+export const Types: Story = {
+  name: '차트 유형',
+  render: () => (
+    <div className="grid gap-8 lg:grid-cols-2">
+      {TYPES.map((type) => (
         <Chart
-          type="doughnut"
-          data={[
-            { label: 'Product A', value: 45 },
-            { label: 'Product B', value: 30 },
-            { label: 'Product C', value: 25 },
-          ]}
-          height={200}
-          showLegend={false}
-          theme="vivid"
+          key={type}
+          type={type}
+          data={['pie', 'doughnut', 'polarArea'].includes(type) ? share : monthly}
+          title={type}
+          height={260}
         />
-      </div>
-      <div>
-        <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: '600' }}>Performance</h3>
-        <Chart
-          type="bar"
-          data={[
-            { label: 'Q1', value: 85 },
-            { label: 'Q2', value: 92 },
-            { label: 'Q3', value: 78 },
-            { label: 'Q4', value: 95 },
-          ]}
-          height={200}
-          showLegend={false}
-        />
-      </div>
+      ))}
     </div>
   ),
 };
-
-export const Comparison: Story = {
+export const MultiSeries: Story = {
+  name: '다중 시리즈',
   render: () => (
-    <div style={{ width: '700px' }}>
-      <h3 style={{ marginBottom: '24px', fontSize: '20px', fontWeight: '600' }}>
-        2023 vs 2024 Comparison
-      </h3>
-      <div style={{ display: 'flex', gap: '40px' }}>
+    <Chart
+      type="line"
+      title="매출과 목표"
+      labels={monthly.map((point) => point.label)}
+      datasets={[
+        { label: '매출', data: monthly.map((point) => point.value) },
+        { label: '목표', data: [60, 65, 70, 75, 80, 90] },
+      ]}
+      height={300}
+    />
+  ),
+};
+/** 범례를 클릭하면 해당 시리즈를 숨기거나 다시 표시할 수 있습니다. */
+export const Stacked: Story = {
+  name: '누적 막대',
+  render: () => (
+    <Chart
+      type="bar"
+      title="채널별 주문"
+      labels={['월', '화', '수', '목', '금']}
+      datasets={[
+        { label: '온라인', data: [32, 48, 41, 58, 66] },
+        { label: '오프라인', data: [20, 25, 30, 22, 35] },
+      ]}
+      options={{
+        scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true } },
+      }}
+      height={300}
+    />
+  ),
+};
+export const Interactive: Story = {
+  name: '실시간 변경과 클릭',
+  render: function InteractiveChart() {
+    const [type, setType] = useState<ChartProps['type']>('line');
+    const [revision, setRevision] = useState(0);
+    const [selected, setSelected] = useState('차트의 막대나 점을 클릭해 보세요.');
+    return (
+      <div className="grid gap-4">
+        <div className="flex flex-wrap gap-3">
+          <Select
+            aria-label="차트 유형"
+            size="sm"
+            value={type}
+            onChange={(event) => setType(event.target.value as ChartProps['type'])}
+            options={['bar', 'line', 'area', 'doughnut'].map((value) => ({ value, label: value }))}
+          />
+          <Button size="sm" variant="surface" onClick={() => setRevision((value) => value + 1)}>
+            데이터 갱신
+          </Button>
+        </div>
         <Chart
-          type="bar"
-          data={[
-            { label: 'Q1', value: 65 },
-            { label: 'Q2', value: 72 },
-            { label: 'Q3', value: 58 },
-            { label: 'Q4', value: 81 },
-          ]}
-          title="2023"
-          width={320}
+          type={type}
+          title="실시간 매출"
+          data={monthly.map((point, i) => ({ ...point, value: point.value + revision * (i + 1) * 3 }))}
           height={300}
-          theme="pastel"
+          onClick={(point) =>
+            setSelected(point ? `${point.label}: ${point.value}` : '빈 영역을 선택했습니다.')
+          }
         />
-        <Chart
-          type="bar"
-          data={[
-            { label: 'Q1', value: 85 },
-            { label: 'Q2', value: 92 },
-            { label: 'Q3', value: 78 },
-            { label: 'Q4', value: 95 },
-          ]}
-          title="2024"
-          width={320}
-          height={300}
-          theme="vivid"
-        />
+        <p role="status" className="text-sm">
+          {selected}
+        </p>
+        <p className="text-xs opacity-60">갱신 횟수: {revision}</p>
       </div>
+    );
+  },
+};
+export const Themes: Story = {
+  name: '색상 테마',
+  render: () => (
+    <div className="grid gap-8 lg:grid-cols-2">
+      {THEMES.map((theme) => (
+        <Chart key={theme} type="doughnut" data={share} theme={theme} title={theme} height={260} />
+      ))}
     </div>
   ),
 };
-
-export const Analytics: Story = {
-  render: () => (
-    <div style={{ width: '800px' }}>
-      <h3 style={{ marginBottom: '24px', fontSize: '20px', fontWeight: '600' }}>
-        Website Analytics
-      </h3>
-      <Chart
-        type="area"
-        data={[
-          { label: '00:00', value: 120 },
-          { label: '04:00', value: 80 },
-          { label: '08:00', value: 150 },
-          { label: '12:00', value: 320 },
-          { label: '16:00', value: 280 },
-          { label: '20:00', value: 200 },
-          { label: '24:00', value: 100 },
-        ]}
-        title="Daily Traffic"
-        height={350}
-        theme="default"
-      />
-      <div style={{ marginTop: '40px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
-        <Chart
-          type="pie"
-          data={[
-            { label: 'Direct', value: 35 },
-            { label: 'Search', value: 40 },
-            { label: 'Social', value: 15 },
-            { label: 'Email', value: 10 },
-          ]}
-          title="Traffic Sources"
-          height={300}
-        />
-        <Chart
-          type="doughnut"
-          data={[
-            { label: 'Desktop', value: 55 },
-            { label: 'Mobile', value: 35 },
-            { label: 'Tablet', value: 10 },
-          ]}
-          title="Device Types"
-          height={300}
-        />
-      </div>
-    </div>
-  ),
+export const Pie: Story = {
+  name: '원형 차트',
+  args: { type: 'pie', data: share, title: '기기별 접속 비율', height: 300 },
+};
+export const Doughnut: Story = {
+  name: '도넛 차트',
+  args: { type: 'doughnut', data: share, title: '기기별 접속 비율', height: 300 },
+};
+export const WithoutLegend: Story = {
+  name: '간결한 추세',
+  args: { type: 'area', data: monthly, showLegend: false, showGrid: false, height: 260 },
+};
+export const Empty: Story = {
+  name: '빈 데이터',
+  args: { type: 'bar', data: [], title: '집계 대기', height: 160, animated: false },
 };

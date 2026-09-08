@@ -1,5 +1,5 @@
 /**
- * Common types for BRICKS React components
+ * Common types for DOI INC React components
  */
 
 // Common component props

@@ -1,5 +1,5 @@
 /* ========================================
-   BRICKS - VitePress Style Layout
+   DOI INC - VitePress Style Layout
    Modern Documentation Layout inspired by VitePress/Shuriken UI
 ======================================== */
 
@@ -48,9 +48,9 @@ body {margin:0; background:var(--ds-white); color:var(--ds-black);}
 .vp-sidebar-link {display:flex; align-items:center; position:relative; padding:6px 12px; border-radius:6px; color:var(--ds-gray-600); font-size:14px; text-decoration:none;}
 .vp-sidebar-link:hover {background:var(--ds-gray-50); color:var(--ds-black);}
 .vp-sidebar-link.active {background:var(--ds-gray-100); color:var(--ds-black); font-weight:500;}
-.vp-sidebar-link i {font-size:16px; color:var(--ds-gray-400); margin-right:8px;}
-.vp-sidebar-link:hover i {color:var(--ds-gray-600);}
-.vp-sidebar-link.active i {color:var(--ds-black);}
+.vp-sidebar-link .lucide {font-size:16px; color:var(--ds-gray-400); margin-right:8px;}
+.vp-sidebar-link:hover .lucide {color:var(--ds-gray-600);}
+.vp-sidebar-link.active .lucide {color:var(--ds-black);}
 .vp-sidebar-link-text {overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1;}
 .vp-sidebar-link-badge {display:inline-flex; justify-content:center; align-items:center; min-width:20px; height:20px; margin-left:4px; padding:0 6px; border-radius:10px; background:var(--ds-black); color:var(--ds-white); font-size:11px; font-weight:600;}
 /* === Main Content Area === */
@@ -138,8 +138,8 @@ body {margin:0; background:var(--ds-white); color:var(--ds-black);}
 .vp-nav-menu-button {display:flex; align-items:center; gap:4px; padding:6px 12px; border:none; border-radius:6px; background:transparent; color:var(--ds-gray-600); font-size:14px; font-weight:500; cursor:pointer; transition:all 0.2s ease;}
 .vp-nav-menu-button:hover {background:var(--ds-gray-50); color:var(--ds-black);}
 .vp-nav-menu-button.active {background:var(--ds-gray-100); color:var(--ds-black);}
-.vp-nav-menu-button i {font-size:16px; transition:transform 0.2s ease;}
-.vp-nav-menu-button.active i {transform:rotate(180deg);}
+.vp-nav-menu-button .lucide {font-size:16px; transition:transform 0.2s ease;}
+.vp-nav-menu-button.active .lucide {transform:rotate(180deg);}
 
 /* Navigation Dropdown */
 .vp-nav-dropdown {position:absolute; top:100%; left:0; margin-top:8px; min-width:240px; opacity:0; visibility:hidden; transform:translateY(-10px); transition:all 0.2s ease; z-index:100;}
@@ -150,7 +150,7 @@ body {margin:0; background:var(--ds-white); color:var(--ds-black);}
 .vp-nav-dropdown-title {padding:8px 12px 4px; color:var(--ds-gray-400); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px;}
 .vp-nav-dropdown-link {display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:6px; color:var(--ds-gray-600); font-size:14px; text-decoration:none; transition:all 0.15s ease;}
 .vp-nav-dropdown-link:hover {background:var(--ds-gray-50); color:var(--ds-black);}
-.vp-nav-dropdown-link i {font-size:14px; color:var(--ds-gray-400);}
+.vp-nav-dropdown-link .lucide {font-size:14px; color:var(--ds-gray-400);}
 .vp-nav-dropdown-link-title {font-weight:500; margin-bottom:2px;}
 .vp-nav-dropdown-link-desc {font-size:12px; color:var(--ds-gray-400);}
 
@@ -273,7 +273,7 @@ html {scroll-behavior:smooth;}
     min-width: 160px;
 }
 
-.vp-hero-actions .btn i {
+.vp-hero-actions .btn .lucide {
     margin-right: 8px;
 }
 
@@ -498,7 +498,7 @@ html {scroll-behavior:smooth;}
     text-align: center;
 }
 
-.vp-showcase-cta .btn i {
+.vp-showcase-cta .btn .lucide {
     margin-left: 8px;
 }
 
@@ -653,7 +653,7 @@ html {scroll-behavior:smooth;}
     border-color: var(--ds-gray-600);
 }
 
-.vp-community-links .btn i {
+.vp-community-links .btn .lucide {
     margin-right: 8px;
 }
 

@@ -1,365 +1,135 @@
+import { useEffect, useRef, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
 import { DatePicker } from './DatePicker';
 
 const meta: Meta<typeof DatePicker> = {
-  title: 'Data Entry/DatePicker',
+  title: 'Extras/DatePicker',
   component: DatePicker,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    gallery: {
+      description: '날짜 선택기. daisyUI에 없어 DOI INC가 만들되 input·btn은 daisyUI에서 빌려 쓴다.',
+      props: [
+        { name: 'value', type: 'Date | null' },
+        { name: 'onChange', type: '(date: Date | null) => void' },
+        { name: 'format', type: "'yyyy-MM-dd' | 'MM/dd/yyyy' | 'dd/MM/yyyy' | 'yyyy년 MM월 dd일'", defaultValue: 'yyyy-MM-dd' },
+        { name: 'locale', type: 'ko | en', defaultValue: 'ko' },
+        { name: 'minDate / maxDate', type: 'Date', description: '선택 범위 제한' },
+        { name: 'clearable', type: 'boolean', defaultValue: 'true' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
+    size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    locale: { control: 'select', options: ['ko', 'en'] },
     format: {
       control: 'select',
       options: ['yyyy-MM-dd', 'MM/dd/yyyy', 'dd/MM/yyyy', 'yyyy년 MM월 dd일'],
     },
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    locale: {
-      control: 'select',
-      options: ['ko', 'en'],
-    },
-    firstDayOfWeek: {
-      control: 'number',
-      min: 0,
-      max: 6,
-    },
+    disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
+    clearable: { control: 'boolean' },
+    showToday: { control: 'boolean' },
+    error: { control: 'boolean' },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/**
+ * daisyUI에는 날짜 선택기가 없다. DOI INC 고유 컴포넌트로 남기되,
+ * 입력 줄은 daisyUI `input`, 날짜 칸은 `btn`을 빌려 쓰고 격자는 Tailwind로 짰다.
+ * 전용 CSS 파일은 없다.
+ */
 export const Default: Story = {
-  args: {
-    placeholder: '날짜를 선택하세요',
+  render: function DefaultStory(args) {
+    const [date, setDate] = useState<Date | null>(null);
+    return (
+      <div className="h-96">
+        <DatePicker {...args} value={date} onChange={setDate} />
+      </div>
+    );
   },
 };
 
-export const WithValue: Story = {
-  args: {
-    value: new Date(),
-    placeholder: '날짜를 선택하세요',
-  },
-};
+/** 달력이 펼쳐진 모습 — 입력 칸에 포커스를 주면 열린다 */
+export const Opened: Story = {
+  render: function OpenedStory() {
+    const [date, setDate] = useState<Date | null>(new Date(2026, 8, 4));
+    const wrapper = useRef<HTMLDivElement>(null);
 
-export const Formats: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '300px' }}>
-      <DatePicker
-        format="yyyy-MM-dd"
-        placeholder="yyyy-MM-dd"
-      />
-      <DatePicker
-        format="MM/dd/yyyy"
-        placeholder="MM/dd/yyyy"
-      />
-      <DatePicker
-        format="dd/MM/yyyy"
-        placeholder="dd/MM/yyyy"
-      />
-      <DatePicker
-        format="yyyy년 MM월 dd일"
-        placeholder="yyyy년 MM월 dd일"
-      />
-    </div>
-  ),
+    useEffect(() => {
+      wrapper.current?.querySelector('input')?.focus();
+    }, []);
+
+    return (
+      <div className="h-[26rem]" ref={wrapper}>
+        <DatePicker value={date} onChange={setDate} />
+      </div>
+    );
+  },
 };
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '300px' }}>
+    <div className="flex flex-col gap-3">
+      {(['sm', 'md', 'lg'] as const).map((size) => (
+        <DatePicker key={size} size={size} placeholder={`${size} 크기`} />
+      ))}
+    </div>
+  ),
+};
+
+export const Formats: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      {(['yyyy-MM-dd', 'MM/dd/yyyy', 'dd/MM/yyyy', 'yyyy년 MM월 dd일'] as const).map((format) => (
+        <DatePicker key={format} format={format} value={new Date(2026, 8, 4)} placeholder={format} />
+      ))}
+    </div>
+  ),
+};
+
+export const Locales: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <DatePicker locale="ko" placeholder="한국어" />
+      <DatePicker locale="en" format="MM/dd/yyyy" placeholder="English" />
+    </div>
+  ),
+};
+
+export const States: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <DatePicker placeholder="기본" />
+      <DatePicker placeholder="비활성" disabled />
+      <DatePicker value={new Date()} readOnly />
       <DatePicker
-        size="sm"
-        placeholder="Small size"
-      />
-      <DatePicker
-        size="md"
-        placeholder="Medium size (default)"
-      />
-      <DatePicker
-        size="lg"
-        placeholder="Large size"
+        placeholder="오류 상태"
+        error
+        errorMessage="날짜를 선택해주세요"
       />
     </div>
   ),
 };
 
-export const WithMinMax: Story = {
-  render: () => {
+/** 선택 가능한 범위를 제한한다 */
+export const Constrained: Story = {
+  render: function ConstrainedStory() {
     const today = new Date();
-    const minDate = new Date(today);
-    minDate.setDate(today.getDate() - 7); // 7 days ago
-    const maxDate = new Date(today);
-    maxDate.setDate(today.getDate() + 7); // 7 days from now
+    const min = new Date(today.getFullYear(), today.getMonth(), 1);
+    const max = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
     return (
-      <DatePicker
-        minDate={minDate}
-        maxDate={maxDate}
-        placeholder="Select date (±7 days from today)"
-      />
-    );
-  },
-};
-
-export const DisabledDates: Story = {
-  render: () => {
-    const today = new Date();
-    const disabledDates = [
-      new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1),
-      new Date(today.getFullYear(), today.getMonth(), today.getDate() + 3),
-      new Date(today.getFullYear(), today.getMonth(), today.getDate() + 5),
-    ];
-
-    return (
-      <DatePicker
-        disabledDates={disabledDates}
-        placeholder="Some dates are disabled"
-      />
-    );
-  },
-};
-
-export const Controlled: Story = {
-  render: () => {
-    const [date, setDate] = useState<Date | null>(null);
-
-    return (
-      <div style={{ width: '350px' }}>
+      <div className="h-96">
         <DatePicker
-          value={date}
-          onChange={setDate}
-          placeholder="Select a date"
+          minDate={min}
+          maxDate={max}
+          placeholder="이번 달만 선택 가능"
         />
-        <div style={{ marginTop: '20px', padding: '12px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
-          Selected: {date ? date.toLocaleDateString('ko-KR') : 'None'}
-        </div>
-        <div style={{ marginTop: '12px', display: 'flex', gap: '8px' }}>
-          <button
-            onClick={() => setDate(new Date())}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '4px',
-              border: '1px solid #ccc',
-              cursor: 'pointer',
-            }}
-          >
-            Set Today
-          </button>
-          <button
-            onClick={() => setDate(null)}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '4px',
-              border: '1px solid #ccc',
-              cursor: 'pointer',
-            }}
-          >
-            Clear
-          </button>
-        </div>
-      </div>
-    );
-  },
-};
-
-export const WithError: Story = {
-  args: {
-    error: true,
-    errorMessage: '유효한 날짜를 선택해주세요',
-    placeholder: '날짜 선택',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    value: new Date(),
-  },
-};
-
-export const ReadOnly: Story = {
-  args: {
-    readOnly: true,
-    value: new Date(),
-  },
-};
-
-export const Required: Story = {
-  args: {
-    required: true,
-    placeholder: '날짜 선택 (필수)',
-  },
-};
-
-export const EnglishLocale: Story = {
-  args: {
-    locale: 'en',
-    placeholder: 'Select a date',
-  },
-};
-
-export const NoClearButton: Story = {
-  args: {
-    clearable: false,
-    value: new Date(),
-  },
-};
-
-export const NoTodayButton: Story = {
-  args: {
-    showToday: false,
-    placeholder: '날짜 선택',
-  },
-};
-
-export const WithWeekNumbers: Story = {
-  args: {
-    showWeekNumbers: true,
-    placeholder: '주 번호 표시',
-  },
-};
-
-export const WithTime: Story = {
-  args: {
-    showTime: true,
-    placeholder: '날짜와 시간 선택',
-  },
-};
-
-export const RangeSelection: Story = {
-  args: {
-    range: true,
-    placeholder: '기간 선택',
-  },
-};
-
-export const WeekStartsMonday: Story = {
-  args: {
-    firstDayOfWeek: 1,
-    placeholder: '날짜 선택 (월요일 시작)',
-  },
-};
-
-export const MultipleInstances: Story = {
-  render: () => {
-    const [startDate, setStartDate] = useState<Date | null>(null);
-    const [endDate, setEndDate] = useState<Date | null>(null);
-
-    return (
-      <div style={{ width: '400px' }}>
-        <h3 style={{ marginBottom: '16px', fontSize: '16px', fontWeight: '600' }}>
-          기간 선택
-        </h3>
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <DatePicker
-            value={startDate}
-            onChange={setStartDate}
-            maxDate={endDate || undefined}
-            placeholder="시작일"
-          />
-          <span>~</span>
-          <DatePicker
-            value={endDate}
-            onChange={setEndDate}
-            minDate={startDate || undefined}
-            placeholder="종료일"
-          />
-        </div>
-      </div>
-    );
-  },
-};
-
-export const BookingForm: Story = {
-  render: () => {
-    const [checkIn, setCheckIn] = useState<Date | null>(null);
-    const [checkOut, setCheckOut] = useState<Date | null>(null);
-    const today = new Date();
-
-    return (
-      <div style={{ width: '450px', padding: '24px', backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
-        <h3 style={{ marginBottom: '20px', fontSize: '18px', fontWeight: '600' }}>
-          호텔 예약
-        </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div>
-            <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
-              체크인 날짜
-            </label>
-            <DatePicker
-              value={checkIn}
-              onChange={setCheckIn}
-              minDate={today}
-              maxDate={checkOut || undefined}
-              placeholder="체크인 날짜 선택"
-              format="yyyy년 MM월 dd일"
-            />
-          </div>
-          <div>
-            <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px', fontWeight: '500' }}>
-              체크아웃 날짜
-            </label>
-            <DatePicker
-              value={checkOut}
-              onChange={setCheckOut}
-              minDate={checkIn || today}
-              placeholder="체크아웃 날짜 선택"
-              format="yyyy년 MM월 dd일"
-            />
-          </div>
-          {checkIn && checkOut && (
-            <div style={{ padding: '12px', backgroundColor: '#e3f2fd', borderRadius: '4px' }}>
-              <strong>선택된 기간:</strong> {Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24))}박
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  },
-};
-
-export const EventScheduler: Story = {
-  render: () => {
-    const [eventDate, setEventDate] = useState<Date | null>(null);
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    const nextMonth = new Date();
-    nextMonth.setMonth(nextMonth.getMonth() + 1);
-
-    return (
-      <div style={{ width: '400px' }}>
-        <h3 style={{ marginBottom: '20px', fontSize: '18px', fontWeight: '600' }}>
-          이벤트 일정
-        </h3>
-        <DatePicker
-          value={eventDate}
-          onChange={setEventDate}
-          minDate={tomorrow}
-          maxDate={nextMonth}
-          placeholder="이벤트 날짜 선택 (다음 달까지만 가능)"
-          format="yyyy년 MM월 dd일"
-        />
-        {eventDate && (
-          <div style={{ marginTop: '20px' }}>
-            <div style={{ padding: '16px', backgroundColor: '#f0f4f8', borderRadius: '6px' }}>
-              <p style={{ margin: 0, fontSize: '14px', color: '#666' }}>선택된 날짜</p>
-              <p style={{ margin: '8px 0 0', fontSize: '16px', fontWeight: '600' }}>
-                {eventDate.toLocaleDateString('ko-KR', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </p>
-            </div>
-          </div>
-        )}
       </div>
     );
   },

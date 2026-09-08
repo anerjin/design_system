@@ -1,53 +1,31 @@
 import React from 'react';
-import { ButtonProps } from '../react/Button';
+import { Button, type ButtonProps } from '../react/Button';
+
+/** 서버 컴포넌트에서 넘길 수 없는 값들 */
+export type ServerButtonProps = Omit<
+  ButtonProps,
+  'onClick' | 'onChange' | 'onFocus' | 'onBlur' | 'onKeyDown' | 'onKeyUp'
+>;
 
 /**
- * Next.js Server Component Button
- * 서버 사이드에서 렌더링되는 정적 버튼
+ * Next.js Server Component용 Button
  *
- * @note onClick 등 클라이언트 이벤트는 지원하지 않음
+ * DOI INC의 `Button`은 훅도 상태도 쓰지 않으므로 서버 컴포넌트에서 그대로 쓸 수 있다.
+ * 이 래퍼가 하는 일은 **이벤트 핸들러를 타입 수준에서 막는 것**뿐이다.
+ * 서버 컴포넌트에 함수를 넘기면 런타임에 가서야 터지는데, 그걸 컴파일 때 잡아준다.
+ *
+ * 클릭 처리가 필요하면 `ClientButton`을 쓴다.
+ *
+ * @example
+ * ```tsx
+ * // app/page.tsx — 'use client' 없이
+ * import { ServerButton } from '@bricks/core/next/ServerButton';
+ *
+ * export default function Page() {
+ *   return <ServerButton color="primary">자세히 보기</ServerButton>;
+ * }
+ * ```
  */
-export const ServerButton: React.FC<Omit<ButtonProps, 'onClick' | 'loading'>> = ({
-  variant = 'primary',
-  size = 'md',
-  fullWidth = false,
-  iconOnly = false,
-  leftIcon,
-  rightIcon,
-  disabled = false,
-  children,
-  className,
-  ...props
-}) => {
-  const baseClasses = 'bricks-btn';
-  const variantClass = `bricks-btn-${variant}`;
-  const sizeClass = `bricks-btn-${size}`;
-  const fullWidthClass = fullWidth ? 'bricks-btn-full' : '';
-  const iconOnlyClass = iconOnly ? 'bricks-btn-icon' : '';
-  const disabledClass = disabled ? 'disabled' : '';
-
-  const classes = [
-    baseClasses,
-    variantClass,
-    sizeClass,
-    fullWidthClass,
-    iconOnlyClass,
-    disabledClass,
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <button
-      className={classes}
-      disabled={disabled}
-      aria-disabled={disabled}
-      {...props}
-    >
-      {leftIcon && <span className="bricks-btn-icon-left">{leftIcon}</span>}
-      {children}
-      {rightIcon && <span className="bricks-btn-icon-right">{rightIcon}</span>}
-    </button>
-  );
-};
+export const ServerButton: React.FC<ServerButtonProps> = (props) => <Button {...props} />;
 
 export default ServerButton;

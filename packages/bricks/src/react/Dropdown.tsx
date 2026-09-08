@@ -1,318 +1,235 @@
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import { Icon } from './Icon';
+import React, { forwardRef, useRef } from 'react';
+import { usePopupBounds } from './usePopupBounds';
+import { cx, type Size } from './utils';
 
-export interface DropdownOption {
-  value: string;
-  label: React.ReactNode;
-  disabled?: boolean;
+export type DropdownPlacement = 'top' | 'bottom' | 'left' | 'right';
+export type DropdownAlign = 'start' | 'center' | 'end';
+
+const PLACEMENT: Record<DropdownPlacement, string> = {
+  top: 'dropdown-top',
+  bottom: 'dropdown-bottom',
+  left: 'dropdown-left',
+  right: 'dropdown-right',
+};
+
+const ALIGN: Record<DropdownAlign, string> = {
+  start: 'dropdown-start',
+  center: 'dropdown-center',
+  end: 'dropdown-end',
+};
+
+const MENU_SIZE: Record<Size, string> = {
+  xs: 'menu-xs',
+  sm: 'menu-sm',
+  md: 'menu-md',
+  lg: 'menu-lg',
+  xl: 'menu-xl',
+};
+
+export interface DropdownItem {
+  /** 고유 식별자 */
+  key: string;
+
+  /**
+   * 항목 종류. `title`은 구획 제목, `divider`는 구분선이다.
+   * @default 'item'
+   */
+  type?: 'item' | 'title' | 'divider';
+
+  /** 표시할 내용 */
+  label?: React.ReactNode;
+
+  /** 라벨 왼쪽 아이콘 */
   icon?: React.ReactNode;
+
+  /** 링크 주소. 주면 `<a href>`로 렌더된다 */
+  href?: string;
+
+  /** 비활성 여부 */
+  disabled?: boolean;
+
+  /** 선택된 항목으로 강조 */
+  active?: boolean;
+
+  /** 클릭 핸들러 */
+  onClick?: () => void;
 }
 
-export interface DropdownProps {
-  /**
-   * 드롭다운 옵션 목록
-   */
-  options: DropdownOption[];
+export interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** 트리거에 표시할 내용. `trigger`를 주면 무시된다 */
+  label?: React.ReactNode;
+
+  /** 트리거 전체를 직접 구성할 때 쓴다 */
+  trigger?: React.ReactNode;
+
+  /** 메뉴 항목 목록. 주지 않으면 `children`을 메뉴 내용으로 쓴다 */
+  items?: DropdownItem[];
 
   /**
-   * 선택된 값
-   */
-  value?: string;
-
-  /**
-   * 플레이스홀더
-   */
-  placeholder?: string;
-
-  /**
-   * 드롭다운 크기
-   * @default 'md'
-   */
-  size?: 'sm' | 'md' | 'lg';
-
-  /**
-   * 드롭다운 변형
-   * @default 'default'
-   */
-  variant?: 'default' | 'outlined' | 'filled';
-
-  /**
-   * 비활성화 여부
-   */
-  disabled?: boolean;
-
-  /**
-   * 값 변경 이벤트
-   */
-  onChange?: (value: string) => void;
-
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
-
-  /**
-   * 드롭다운 방향
+   * 메뉴가 열리는 방향
    * @default 'bottom'
    */
-  placement?: 'bottom' | 'top';
+  placement?: DropdownPlacement;
+
+  /** 트리거 기준 정렬 */
+  align?: DropdownAlign;
 
   /**
-   * 검색 가능 여부
+   * 마우스를 올리면 열린다
+   * @default false
    */
-  searchable?: boolean;
+  hover?: boolean;
 
   /**
-   * 다중 선택 가능 여부
+   * 항상 열어 둔다 (제어용)
+   * @default false
    */
-  multiple?: boolean;
+  open?: boolean;
 
   /**
-   * 선택된 값들 (다중 선택 시)
+   * 메뉴 크기
+   * @default 'md'
    */
-  values?: string[];
+  size?: Size;
 
-  /**
-   * 다중 선택 시 값 변경 이벤트
-   */
-  onMultiChange?: (values: string[]) => void;
+  /** 메뉴에 적용할 추가 클래스 (폭 조절 등) */
+  menuClassName?: string;
+
+  children?: React.ReactNode;
+}
+
+/** 항목을 고른 뒤 포커스를 풀어 메뉴를 닫는다 (daisyUI는 :focus-within으로 열림을 판단한다) */
+function closeMenu() {
+  const active = document.activeElement;
+  if (active instanceof HTMLElement) active.blur();
 }
 
 /**
- * BRICKS 디자인 시스템 Dropdown 컴포넌트
+ * DOI INC Dropdown — daisyUI `dropdown` + `menu` 기반
+ *
+ * daisyUI 드롭다운은 `:focus-within`으로 열림을 판단하므로 바깥 클릭 감지가 CSS로 해결된다.
+ * 이전 구현에 있던 document 클릭 리스너와 폭 측정 로직은 사라졌다.
+ *
+ * 검색·다중 선택이 필요하면 이 컴포넌트가 아니라 `Select`를 쓴다.
  *
  * @example
  * ```tsx
  * <Dropdown
- *   placeholder="Select an option"
- *   options={[
- *     { value: 'option1', label: 'Option 1' },
- *     { value: 'option2', label: 'Option 2' },
+ *   label="메뉴"
+ *   items={[
+ *     { key: 'profile', label: '프로필', icon: <Icon name="user-round" size="1em"  /> },
+ *     { key: 'd1', type: 'divider' },
+ *     { key: 'logout', label: '로그아웃', onClick: signOut },
  *   ]}
- *   value={selectedValue}
- *   onChange={setSelectedValue}
  * />
  * ```
  */
-export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
-  options,
-  value,
-  placeholder = 'Select...',
-  size = 'md',
-  variant = 'default',
-  disabled = false,
-  onChange,
-  className,
-  placement = 'bottom',
-  searchable = false,
-  multiple = false,
-  values = [],
-  onMultiChange,
-  ...props
-}, ref) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedValues, setSelectedValues] = useState<string[]>(values);
-  const [minWidth, setMinWidth] = useState<number>(0);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const measureRef = useRef<HTMLDivElement>(null);
-
-  // 가장 긴 옵션 텍스트 기준으로 min-width 계산
-  useEffect(() => {
-    if (measureRef.current) {
-      const items = measureRef.current.querySelectorAll('.dropdown__measure-item');
-      let maxWidth = 0;
-      items.forEach((item) => {
-        const width = (item as HTMLElement).offsetWidth;
-        if (width > maxWidth) {
-          maxWidth = width;
-        }
-      });
-      // 패딩 및 화살표 공간 추가 (size에 따라 다름)
-      const paddingMap: Record<string, number> = { sm: 44, md: 52, lg: 60 };
-      const extraPadding = paddingMap[size] || 52;
-      setMinWidth(maxWidth + extraPadding);
-    }
-  }, [options, placeholder, size]);
-
-  useEffect(() => {
-    if (multiple && values) {
-      setSelectedValues(values);
-    }
-  }, [values, multiple]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-        setSearchTerm('');
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const handleToggle = () => {
-    if (!disabled) {
-      setIsOpen(!isOpen);
-      if (!isOpen && searchable) {
-        setTimeout(() => inputRef.current?.focus(), 0);
-      }
-    }
-  };
-
-  const handleSelect = (optionValue: string) => {
-    if (multiple) {
-      const newValues = selectedValues.includes(optionValue)
-        ? selectedValues.filter(v => v !== optionValue)
-        : [...selectedValues, optionValue];
-
-      setSelectedValues(newValues);
-      onMultiChange?.(newValues);
-    } else {
-      onChange?.(optionValue);
-      setIsOpen(false);
-      setSearchTerm('');
-    }
-  };
-
-  const filteredOptions = searchable
-    ? options.filter(option =>
-        typeof option.label === 'string' &&
-        option.label.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    : options;
-
-  const getSelectedLabel = () => {
-    if (multiple) {
-      if (selectedValues.length === 0) return placeholder;
-      if (selectedValues.length === 1) {
-        const option = options.find(opt => opt.value === selectedValues[0]);
-        return option?.label || selectedValues[0];
-      }
-      return `${selectedValues.length} selected`;
-    }
-
-    const selected = options.find(opt => opt.value === value);
-    return selected?.label || placeholder;
-  };
-
-  const dropdownClasses = [
-    'dropdown',
-    `dropdown--${size}`,
-    isOpen ? 'dropdown--open' : '',
-    disabled ? 'dropdown--disabled' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const menuClasses = [
-    'dropdown__menu',
-    placement === 'top' ? 'dropdown--dropup' : '',
-  ].filter(Boolean).join(' ');
-
-  return (
-    <div ref={ref} className={dropdownClasses} {...props}>
-      {/* 숨겨진 측정용 요소 - 가장 긴 옵션 텍스트 width 계산 */}
+export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
+  (
+    {
+      label,
+      trigger,
+      items,
+      placement = 'bottom',
+      align,
+      hover = false,
+      open = false,
+      size = 'md',
+      className,
+      menuClassName,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const menuRef = useRef<HTMLUListElement>(null);
+    usePopupBounds(menuRef, true, placement);
+    return (
       <div
-        ref={measureRef}
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          visibility: 'hidden',
-          height: 0,
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-        }}
+        ref={ref}
+        className={cx(
+          'dropdown',
+          PLACEMENT[placement],
+          align && ALIGN[align],
+          hover && 'dropdown-hover',
+          open && 'dropdown-open',
+          className,
+        )}
+        {...props}
       >
-        <span className="dropdown__measure-item">{placeholder}</span>
-        {options.map((option) => (
-          <span key={option.value} className="dropdown__measure-item">
-            {typeof option.label === 'string' ? option.label : option.value}
-          </span>
-        ))}
-        {multiple && <span className="dropdown__measure-item">{options.length} selected</span>}
-      </div>
+        {trigger ?? (
+          <div tabIndex={0} role="button" className="btn">
+            {label}
+            <Icon name="chevron-down" size="1em" />
+          </div>
+        )}
 
-      <div ref={dropdownRef}>
-        <button
-          type="button"
-          className="dropdown__toggle"
-          onClick={handleToggle}
-          disabled={disabled}
-          aria-haspopup="listbox"
-          aria-expanded={isOpen}
-          style={minWidth > 0 ? { minWidth: `${minWidth}px` } : undefined}
+        <ul
+          ref={menuRef}
+          tabIndex={0}
+          className={cx(
+            'dropdown-content bricks-popup menu',
+            MENU_SIZE[size],
+            'bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm',
+            menuClassName,
+          )}
         >
-          {searchable && isOpen ? (
-            <input
-              ref={inputRef}
-              type="text"
-              className="dropdown__search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search..."
-              onClick={(e) => e.stopPropagation()}
-            />
-          ) : (
-            <span className="dropdown__value">
-              {getSelectedLabel()}
-            </span>
-          )}
-        </button>
+          {items
+            ? items.map((item) => {
+                if (item.type === 'divider') {
+                  return <li key={item.key} className="my-1 border-t border-base-300" />;
+                }
+                if (item.type === 'title') {
+                  return (
+                    <li key={item.key} className="menu-title">
+                      {item.label}
+                    </li>
+                  );
+                }
 
-        <div className={menuClasses} role="listbox">
-          {filteredOptions.map((option) => {
-            const isSelected = multiple
-              ? selectedValues.includes(option.value)
-              : option.value === value;
+                const content = (
+                  <>
+                    {item.icon}
+                    {item.label}
+                  </>
+                );
 
-            return (
-              <button
-                key={option.value}
-                className={[
-                  'dropdown__item',
-                  multiple ? 'dropdown__item--checkbox' : '',
-                  isSelected ? 'dropdown__item--active' : '',
-                  option.disabled ? 'dropdown__item--disabled' : ''
-                ].filter(Boolean).join(' ')}
-                onClick={() => !option.disabled && handleSelect(option.value)}
-                role="option"
-                aria-selected={isSelected}
-                aria-disabled={option.disabled}
-                type="button"
-              >
-                {multiple && (
-                  <label className={`checkbox checkbox--sm ${option.disabled ? 'checkbox--disabled' : ''}`}>
-                    <input
-                      type="checkbox"
-                      className="checkbox__input"
-                      checked={isSelected}
-                      onChange={() => {}}
-                      disabled={option.disabled}
-                    />
-                    <span className="checkbox__box">
-                      <span className="checkbox__checkmark"></span>
-                    </span>
-                  </label>
-                )}
-                {option.icon && (
-                  <span className="dropdown__item-icon">{option.icon}</span>
-                )}
-                <span className="dropdown__item-label">{option.label}</span>
-              </button>
-            );
-          })}
-          {filteredOptions.length === 0 && (
-            <div className="dropdown__item dropdown__item--disabled">
-              No options found
-            </div>
-          )}
-        </div>
+                return (
+                  <li key={item.key} className={cx(item.disabled && 'menu-disabled')}>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className={cx(item.active && 'menu-active')}
+                        onClick={() => {
+                          item.onClick?.();
+                          closeMenu();
+                        }}
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        className={cx(item.active && 'menu-active')}
+                        disabled={item.disabled}
+                        onClick={() => {
+                          item.onClick?.();
+                          closeMenu();
+                        }}
+                      >
+                        {content}
+                      </button>
+                    )}
+                  </li>
+                );
+              })
+            : children}
+        </ul>
       </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 Dropdown.displayName = 'Dropdown';
 

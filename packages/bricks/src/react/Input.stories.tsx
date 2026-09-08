@@ -1,35 +1,43 @@
+import { Icon } from './Icon';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input, Textarea } from './Input';
+import type { FieldColor } from './Input';
+import type { Size } from './utils';
+
+const COLORS: FieldColor[] = [
+  'neutral',
+  'primary',
+  'secondary',
+  'accent',
+  'info',
+  'success',
+  'warning',
+  'error',
+  'ghost',
+];
+const SIZES: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const meta: Meta<typeof Input> = {
-  title: 'Data Entry/Input',
+  title: 'Data Input/Input',
   component: Input,
   parameters: {
     layout: 'centered',
+    gallery: {
+      description: '한 줄 텍스트 입력. 아이콘을 주면 daisyUI v5 방식대로 label이 껍데기가 된다.',
+      daisyui: 'input',
+      props: [
+        { name: 'color', type: 'neutral | … | error | ghost', description: '검증 결과 표시에도 쓴다' },
+        { name: 'size', type: 'xs | sm | md | lg | xl', defaultValue: 'md' },
+        { name: 'leftIcon', type: 'ReactNode', description: '필드 안쪽 왼쪽' },
+        { name: 'rightIcon', type: 'ReactNode', description: '필드 안쪽 오른쪽' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
-    },
-    state: {
-      control: 'select',
-      options: [undefined, 'success', 'warning', 'error'],
-    },
-    type: {
-      control: 'select',
-      options: ['text', 'email', 'password', 'number', 'tel', 'url', 'search', 'date', 'time'],
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    readOnly: {
-      control: 'boolean',
-    },
-    required: {
-      control: 'boolean',
-    },
+    color: { control: 'select', options: COLORS },
+    size: { control: 'select', options: SIZES },
+    disabled: { control: 'boolean' },
   },
 };
 
@@ -37,165 +45,99 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    placeholder: 'Enter text...',
-  },
+  args: { placeholder: '입력하세요' },
+};
+
+export const Colors: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-col gap-2">
+      <Input placeholder="default" />
+      {COLORS.map((color) => (
+        <Input key={color} color={color} placeholder={color} />
+      ))}
+    </div>
+  ),
 };
 
 export const Sizes: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '300px' }}>
-      <Input size="xs" placeholder="Extra small input" />
-      <Input size="sm" placeholder="Small input" />
-      <Input size="md" placeholder="Medium input (default)" />
-      <Input size="lg" placeholder="Large input" />
-      <Input size="xl" placeholder="Extra large input" />
+    <div className="flex flex-col items-start gap-2">
+      {SIZES.map((size) => (
+        <Input key={size} size={size} placeholder={size} />
+      ))}
     </div>
   ),
 };
 
-export const States: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '300px' }}>
-      <Input placeholder="Default state" />
-      <Input state="success" placeholder="Success state" defaultValue="Valid input" />
-      <Input state="warning" placeholder="Warning state" defaultValue="Check this" />
-      <Input state="error" placeholder="Error state" defaultValue="Invalid input" />
-    </div>
-  ),
-};
-
+/** 아이콘을 주면 `<label class="input">`이 껍데기가 된다 */
 export const WithIcons: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '300px' }}>
-      <Input leftIcon={<i className="bx bx-search"></i>} type="search" placeholder="Search..." />
-      <Input rightIcon={<i className="bx bx-check"></i>} placeholder="Verified input" />
-      <Input leftIcon={<i className="bx bx-envelope"></i>} rightIcon={<i className="bx bx-right-arrow-alt"></i>} type="email" placeholder="Email with icons" />
-    </div>
-  ),
-};
-
-export const InputGroup: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '400px' }}>
-      <Input prepend="https://" placeholder="website.com" />
-      <Input append=".com" placeholder="domain" />
-      <Input prepend="$" append=".00" type="number" placeholder="0" />
+    <div className="flex flex-col gap-2">
+      <Input leftIcon={<Icon name="search" size="1em" />} placeholder="검색" />
+      <Input leftIcon={<Icon name="mail" size="1em" />} type="email" placeholder="이메일" />
+      <Input rightIcon={<kbd className="kbd kbd-sm">⌘K</kbd>} placeholder="명령 실행" />
       <Input
-        prepend={<button className="btn btn--sm btn--secondary">Search</button>}
-        placeholder="Search with button"
+        leftIcon={<Icon name="banknote" size="1em" />}
+        rightIcon={<span className="opacity-60">원</span>}
+        type="number"
+        placeholder="0"
       />
     </div>
   ),
 };
 
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    defaultValue: 'Cannot edit',
-  },
-};
-
-export const ReadOnly: Story = {
-  args: {
-    readOnly: true,
-    defaultValue: 'Read only value',
-  },
-};
-
-export const Required: Story = {
-  args: {
-    required: true,
-    placeholder: 'This field is required',
-  },
-};
-
-export const PasswordInput: Story = {
-  args: {
-    type: 'password',
-    placeholder: 'Enter password',
-  },
-};
-
-export const EmailInput: Story = {
-  args: {
-    type: 'email',
-    leftIcon: <i className="bx bx-envelope"></i>,
-    placeholder: 'john@example.com',
-  },
-};
-
-export const NumberInput: Story = {
-  args: {
-    type: 'number',
-    placeholder: 'Enter a number',
-    min: 0,
-    max: 100,
-  },
-};
-
-export const DateInput: Story = {
-  args: {
-    type: 'date',
-  },
-};
-
-export const TimeInput: Story = {
-  args: {
-    type: 'time',
-  },
-};
-
-export const SearchInput: Story = {
-  args: {
-    type: 'search',
-    leftIcon: <i className="bx bx-search"></i>,
-    placeholder: 'Search...',
-  },
-};
-
-export const TextareaDefault: Story = {
+/** 검증 상태는 색상으로 표현한다 */
+export const Validation: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ minWidth: '300px' }}>
-      <Textarea placeholder="Enter your message..." rows={4} />
+    <div className="flex flex-col gap-2">
+      <Input color="success" defaultValue="사용 가능한 아이디" />
+      <Input color="warning" defaultValue="보안이 약한 비밀번호" />
+      <Input color="error" defaultValue="이미 사용 중인 이메일" />
     </div>
   ),
 };
 
-export const TextareaStates: Story = {
+export const States: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '300px' }}>
-      <Textarea placeholder="Default textarea" rows={3} />
-      <Textarea state="success" placeholder="Success state" rows={3} defaultValue="Valid input" />
-      <Textarea state="warning" placeholder="Warning state" rows={3} defaultValue="Check this" />
-      <Textarea state="error" placeholder="Error state" rows={3} defaultValue="Invalid input" />
+    <div className="flex flex-col gap-2">
+      <Input placeholder="기본" />
+      <Input placeholder="비활성" disabled />
+      <Input defaultValue="읽기 전용" readOnly />
     </div>
   ),
 };
 
-export const CompleteForm: Story = {
+/** 버튼·접두사를 붙일 때는 `join`으로 감싼다 */
+export const Joined: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', minWidth: '400px' }}>
-      <div>
-        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Name</label>
-        <Input placeholder="John Doe" required />
+    <div className="flex flex-col gap-3">
+      <div className="join">
+        <span className="btn join-item no-animation">https://</span>
+        <Input className="join-item" placeholder="example.com" />
       </div>
-      <div>
-        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Email</label>
-        <Input type="email" leftIcon={<i className="bx bx-envelope"></i>} placeholder="john@example.com" state="success" />
+      <div className="join">
+        <Input className="join-item" placeholder="검색어" />
+        <button className="btn btn-primary join-item">검색</button>
       </div>
-      <div>
-        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Password</label>
-        <Input type="password" placeholder="Enter password" />
-      </div>
-      <div>
-        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Website</label>
-        <Input prepend="https://" placeholder="example.com" />
-      </div>
-      <div>
-        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Message</label>
-        <Textarea placeholder="Enter your message..." rows={4} />
-      </div>
+    </div>
+  ),
+};
+
+export const TextareaSizes: StoryObj<typeof Textarea> = {
+  name: 'Textarea',
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <Textarea placeholder="기본" rows={3} />
+      <Textarea color="primary" placeholder="primary" rows={3} />
+      <Textarea color="error" defaultValue="내용을 입력해주세요" rows={3} />
+      <Textarea placeholder="비활성" rows={2} disabled />
     </div>
   ),
 };

@@ -1,213 +1,165 @@
 import React, { forwardRef, useEffect, useRef } from 'react';
+import { cx, type Color, type Size } from './utils';
+
+const COLOR: Record<Color, string> = {
+  neutral: 'checkbox-neutral',
+  primary: 'checkbox-primary',
+  secondary: 'checkbox-secondary',
+  accent: 'checkbox-accent',
+  info: 'checkbox-info',
+  success: 'checkbox-success',
+  warning: 'checkbox-warning',
+  error: 'checkbox-error',
+};
+
+const SIZE: Record<Size, string> = {
+  xs: 'checkbox-xs',
+  sm: 'checkbox-sm',
+  md: 'checkbox-md',
+  lg: 'checkbox-lg',
+  xl: 'checkbox-xl',
+};
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  /** 색상 */
+  color?: Color;
+
   /**
-   * 체크박스 크기
+   * 크기
    * @default 'md'
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: Size;
 
-  /**
-   * 체크박스 변형 스타일
-   */
-  variant?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'dark';
-
-  /**
-   * 체크박스 레이블
-   */
+  /** 라벨 텍스트. 주면 클릭 가능한 라벨로 감싼다 */
   label?: React.ReactNode;
 
-  /**
-   * 설명 텍스트
-   */
+  /** 라벨 아래 보조 설명 */
   description?: React.ReactNode;
 
   /**
-   * 불확정 상태 (indeterminate)
-   */
-  indeterminate?: boolean;
-
-  /**
-   * 체크박스 변경 이벤트
-   */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export interface CheckboxGroupProps {
-  /**
-   * 그룹 레이블
-   */
-  label?: React.ReactNode;
-
-  /**
-   * 인라인 배치
+   * 부분 선택 상태
    * @default false
    */
-  inline?: boolean;
-
-  /**
-   * 에러 상태
-   */
-  error?: boolean;
-
-  /**
-   * 에러 메시지
-   */
-  errorMessage?: React.ReactNode;
-
-  /**
-   * 필수 선택
-   */
-  required?: boolean;
-
-  /**
-   * 자식 요소
-   */
-  children: React.ReactNode;
-
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
+  indeterminate?: boolean;
 }
 
 /**
- * BRICKS 디자인 시스템 Checkbox 컴포넌트
+ * DOI INC Checkbox — daisyUI `checkbox` 기반
+ *
+ * daisyUI 체크박스는 네이티브 `<input type="checkbox">`에 클래스만 얹는다.
+ * (이전 DOI INC의 `checkbox__box` / `checkbox__checkmark` 대체 마크업은 없어졌다.)
  *
  * @example
  * ```tsx
- * <Checkbox
- *   label="동의합니다"
- *   description="개인정보 처리방침에 동의합니다"
- *   checked={agreed}
- *   onChange={(e) => setAgreed(e.target.checked)}
- * />
+ * <Checkbox label="약관에 동의합니다" color="primary" />
+ * <Checkbox indeterminate />
  * ```
  */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({
+  color,
   size = 'md',
-  variant,
   label,
   description,
   indeterminate = false,
   className,
-  id,
-  disabled,
-  onChange,
   ...props
 }, ref) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const finalRef = (ref as React.RefObject<HTMLInputElement>) || inputRef;
+  const innerRef = useRef<HTMLInputElement | null>(null);
 
-  // indeterminate 상태 설정
+  // indeterminate는 속성이 아니라 DOM 프로퍼티라 직접 지정해야 한다
   useEffect(() => {
-    if (finalRef.current) {
-      finalRef.current.indeterminate = indeterminate;
+    if (innerRef.current) {
+      innerRef.current.indeterminate = indeterminate;
     }
-  }, [indeterminate, finalRef]);
+  }, [indeterminate]);
 
-  const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
-  const descriptionId = description ? `${checkboxId}-description` : undefined;
-
-  const containerClasses = [
-    'checkbox',
-    size !== 'md' ? `checkbox--${size}` : '',
-    variant ? `checkbox--${variant}` : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // indeterminate 상태에서 변경 시 indeterminate 해제
-    if (indeterminate && finalRef.current) {
-      finalRef.current.indeterminate = false;
-    }
-
-    onChange?.(event);
+  const setRefs = (node: HTMLInputElement | null) => {
+    innerRef.current = node;
+    if (typeof ref === 'function') ref(node);
+    else if (ref) (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
   };
 
+  const input = (
+    <input
+      ref={setRefs}
+      type="checkbox"
+      className={cx('checkbox', color && COLOR[color], SIZE[size], className)}
+      {...props}
+    />
+  );
+
+  if (!label) return input;
+
   return (
-    <label className={containerClasses}>
-      <input
-        ref={finalRef}
-        type="checkbox"
-        id={checkboxId}
-        className="checkbox__input"
-        disabled={disabled}
-        aria-describedby={descriptionId}
-        onChange={handleChange}
-        {...props}
-      />
-      <div className="checkbox__box">
-        <div className="checkbox__checkmark"></div>
-      </div>
-      {label && (
-        <span className="checkbox__label">
-          {label}
-          {description && (
-            <span
-              id={descriptionId}
-              className="checkbox__description"
-            >
-              {description}
-            </span>
-          )}
-        </span>
-      )}
+    <label className="label cursor-pointer items-start justify-start gap-3 whitespace-normal">
+      {input}
+      <span className="flex min-w-0 flex-col items-start">
+        <span>{label}</span>
+        {description && <span className="text-xs opacity-60">{description}</span>}
+      </span>
     </label>
   );
 });
 
 Checkbox.displayName = 'Checkbox';
 
+export interface CheckboxGroupProps extends React.FieldsetHTMLAttributes<HTMLFieldSetElement> {
+  /** 그룹 제목 */
+  label?: React.ReactNode;
+
+  /**
+   * 가로 배치
+   * @default false
+   */
+  inline?: boolean;
+
+  /** 오류 메시지. 주면 오류 상태로 표시된다 */
+  error?: React.ReactNode;
+
+  /**
+   * 필수 표시
+   * @default false
+   */
+  required?: boolean;
+
+  children: React.ReactNode;
+}
+
 /**
- * BRICKS 디자인 시스템 CheckboxGroup 컴포넌트
+ * DOI INC CheckboxGroup — daisyUI `fieldset` 기반
  *
  * @example
  * ```tsx
- * <CheckboxGroup
- *   label="관심 분야"
- *   error={hasError}
- *   errorMessage="최소 1개 이상 선택해주세요"
- * >
- *   <Checkbox label="프론트엔드" value="frontend" />
- *   <Checkbox label="백엔드" value="backend" />
- *   <Checkbox label="디자인" value="design" />
+ * <CheckboxGroup label="관심 분야" error="하나 이상 선택하세요">
+ *   <Checkbox label="프론트엔드" value="fe" />
+ *   <Checkbox label="백엔드" value="be" />
  * </CheckboxGroup>
  * ```
  */
-export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
+export const CheckboxGroup = forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(({
   label,
   inline = false,
-  error = false,
-  errorMessage,
+  error,
   required = false,
+  className,
   children,
-  className
-}) => {
-  const groupClasses = [
-    'checkbox-group',
-    inline ? 'checkbox-group--inline' : '',
-    error ? 'checkbox-group--error' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  return (
-    <fieldset className={groupClasses} data-required={required || undefined}>
-      {label && (
-        <legend className="checkbox-group__label">
-          {label}
-          {required && <span className="required-mark">*</span>}
-        </legend>
-      )}
+  ...props
+}, ref) => (
+  <fieldset ref={ref} className={cx('fieldset', className)} {...props}>
+    {label && (
+      <legend className="fieldset-legend">
+        {label}
+        {required && <span className="text-error">*</span>}
+      </legend>
+    )}
+    <div className={inline ? 'flex flex-wrap items-center gap-4' : 'flex flex-col gap-1'}>
       {children}
-      {error && errorMessage && (
-        <div className="checkbox-group__error" role="alert">
-          {errorMessage}
-        </div>
-      )}
-    </fieldset>
-  );
-};
+    </div>
+    {error && (
+      <p className="fieldset-label text-error" role="alert">{error}</p>
+    )}
+  </fieldset>
+));
 
 CheckboxGroup.displayName = 'CheckboxGroup';
 

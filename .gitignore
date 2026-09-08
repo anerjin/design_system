@@ -6,11 +6,7 @@ dist/
 .next/
 out/
 _site/
-
-# tsc outDir for tsconfig.json (npm run watch) — generated, never commit.
-# bricks_loader.js is hand-written and lives here on purpose, so keep it tracked.
-packages/bricks/core/scripts/*
-!packages/bricks/core/scripts/bricks_loader.js
+*.tsbuildinfo
 
 # IDE
 .vscode/

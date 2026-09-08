@@ -1,203 +1,106 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Icon } from './Icon';
 import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Toggle } from './Toggle';
+import type { Color, Size } from './utils';
+
+const COLORS: Color[] = ['neutral', 'primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error'];
+const SIZES: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 const meta: Meta<typeof Toggle> = {
-  title: 'Data Entry/Toggle',
+  title: 'Data Input/Toggle',
   component: Toggle,
   parameters: {
     layout: 'centered',
+    gallery: {
+      description: '켜고 끄는 스위치. 네이티브 체크박스라 상태는 e.target.checked로 읽는다.',
+      daisyui: 'toggle',
+      props: [
+        { name: 'label', type: 'ReactNode' },
+        { name: 'color', type: 'neutral | primary | … | error' },
+        { name: 'size', type: 'xs | sm | md | lg | xl', defaultValue: 'md' },
+        { name: 'onIcon', type: 'ReactNode', description: '스위치 안 아이콘 (켜짐)' },
+        { name: 'offIcon', type: 'ReactNode', description: '스위치 안 아이콘 (꺼짐)' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    variant: {
-      control: 'select',
-      options: ['primary', 'success', 'danger', 'warning', 'info', 'purple', 'pink', 'mint', 'yellow', 'green', 'lightblue', 'blue', 'dark'],
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    checked: {
-      control: 'boolean',
-    },
+    color: { control: 'select', options: COLORS },
+    size: { control: 'select', options: SIZES },
+    disabled: { control: 'boolean' },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const ToggleWithState = (args: any) => {
-  const [checked, setChecked] = useState(args.checked || false);
-
-  return (
-    <Toggle
-      {...args}
-      checked={checked}
-      onChange={(newChecked) => {
-        setChecked(newChecked);
-        args.onChange?.(newChecked);
-      }}
-    />
-  );
-};
-
 export const Default: Story = {
-  render: (args) => <ToggleWithState {...args} />,
-  args: {
-    label: 'Toggle Switch',
-  },
+  args: { label: '알림 받기', defaultChecked: true },
 };
 
-export const Checked: Story = {
-  render: (args) => <ToggleWithState {...args} />,
-  args: {
-    label: 'Enabled by default',
-    checked: true,
-  },
-};
-
-export const WithDescription: Story = {
-  render: (args) => <ToggleWithState {...args} />,
-  args: {
-    label: 'Enable notifications',
-    description: 'Receive email notifications for important updates',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled toggle',
-    disabled: true,
-  },
-};
-
-export const DisabledOn: Story = {
-  args: {
-    label: 'Disabled (On)',
-    disabled: true,
-    checked: true,
-  },
-};
-
-export const Small: Story = {
-  render: (args) => <ToggleWithState {...args} />,
-  args: {
-    size: 'sm',
-    label: 'Small toggle',
-  },
-};
-
-export const Large: Story = {
-  render: (args) => <ToggleWithState {...args} />,
-  args: {
-    size: 'lg',
-    label: 'Large toggle',
-  },
-};
-
-export const ColorVariants: Story = {
+export const Colors: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
-        <Toggle label="Default" defaultChecked />
-        <Toggle label="Primary" variant="primary" defaultChecked />
-        <Toggle label="Success" variant="success" defaultChecked />
-        <Toggle label="Danger" variant="danger" defaultChecked />
-        <Toggle label="Warning" variant="warning" defaultChecked />
-        <Toggle label="Info" variant="info" defaultChecked />
-        <Toggle label="Purple" variant="purple" defaultChecked />
-        <Toggle label="Pink" variant="pink" defaultChecked />
-        <Toggle label="Mint" variant="mint" defaultChecked />
-        <Toggle label="Yellow" variant="yellow" defaultChecked />
-        <Toggle label="Green" variant="green" defaultChecked />
-        <Toggle label="Light Blue" variant="lightblue" defaultChecked />
-        <Toggle label="Blue" variant="blue" defaultChecked />
-        <Toggle label="Dark" variant="dark" defaultChecked />
-      </div>
-    </div>
-  ),
-};
-
-export const WithIcons: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Toggle
-        label="Default Icons"
-        showIcons
-        defaultChecked
-      />
-      <Toggle
-        label="Custom Icons"
-        showIcons
-        onIcon="✓"
-        offIcon="✕"
-        variant="success"
-        defaultChecked
-      />
+    <div className="flex flex-wrap items-center gap-3">
+      <Toggle defaultChecked />
+      {COLORS.map((color) => (
+        <Toggle key={color} color={color} defaultChecked aria-label={color} />
+      ))}
     </div>
   ),
 };
 
 export const Sizes: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Toggle size="sm" label="Small toggle" defaultChecked />
-      <Toggle size="md" label="Medium toggle (default)" defaultChecked />
-      <Toggle size="lg" label="Large toggle" defaultChecked />
+    <div className="flex flex-wrap items-center gap-3">
+      {SIZES.map((size) => (
+        <Toggle key={size} size={size} color="primary" defaultChecked aria-label={size} />
+      ))}
     </div>
   ),
 };
 
 export const States: Story = {
+  parameters: { layout: 'padded' },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Toggle label="Unchecked" />
-      <Toggle label="Checked" defaultChecked />
-      <Toggle label="Disabled" disabled />
-      <Toggle label="Disabled Checked" disabled defaultChecked />
+    <div className="flex flex-col gap-2">
+      <Toggle label="꺼짐" />
+      <Toggle label="켜짐" defaultChecked />
+      <Toggle label="비활성" disabled />
+      <Toggle label="비활성 + 켜짐" defaultChecked disabled />
     </div>
   ),
 };
 
-export const Settings: Story = {
-  render: () => {
-    const [darkMode, setDarkMode] = useState(false);
-    const [autoSave, setAutoSave] = useState(true);
-    const [notifications, setNotifications] = useState(true);
-    const [analytics, setAnalytics] = useState(false);
+/** 스위치 안에 아이콘을 넣을 수 있다 */
+export const WithIcons: Story = {
+  parameters: { layout: 'padded' },
+  render: () => (
+    <div className="flex flex-wrap items-center gap-4">
+      <Toggle size="lg" offIcon={<Icon name="moon" size="1em" />} onIcon={<Icon name="sun" size="1em" />} />
+      <Toggle
+        size="lg"
+        color="success"
+        defaultChecked
+        offIcon={<Icon name="x" size="1em" />}
+        onIcon={<Icon name="check" size="1em" />}
+      />
+    </div>
+  ),
+};
+
+/** 상태는 네이티브 체크박스처럼 `e.target.checked`로 읽는다 */
+export const Controlled: Story = {
+  parameters: { layout: 'padded' },
+  render: function ControlledStory() {
+    const [on, setOn] = useState(false);
 
     return (
-      <div style={{ width: '300px' }}>
-        <h3 style={{ marginBottom: '16px' }}>Application Settings</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <Toggle
-            label="Dark Mode"
-            checked={darkMode}
-            onChange={setDarkMode}
-          />
-          <Toggle
-            label="Auto-save"
-            checked={autoSave}
-            onChange={setAutoSave}
-            variant="success"
-          />
-          <Toggle
-            label="Notifications"
-            checked={notifications}
-            onChange={setNotifications}
-            variant="info"
-          />
-          <Toggle
-            label="Analytics"
-            checked={analytics}
-            onChange={setAnalytics}
-            variant="warning"
-          />
-        </div>
+      <div className="flex flex-col gap-3">
+        <Toggle color="primary" label="다크 모드" checked={on} onChange={(e) => setOn(e.target.checked)} />
+        <p className="text-sm opacity-60">현재 상태: {on ? '켜짐' : '꺼짐'}</p>
       </div>
     );
   },

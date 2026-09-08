@@ -1,4 +1,4 @@
-# BRICKS Design System 사용 가이드
+# DOI INC Design System 사용 가이드
 
 `@bricks/core` 를 다른 프로젝트에서 사용하는 방법을 정리한 문서입니다.
 저장소 구조와 개발 명령은 [README.md](./README.md) 를 참고하세요.
@@ -102,14 +102,13 @@ import '@bricks/core/styles/atoms/button.css';
 
 ### 아이콘
 
-`Icon` 컴포넌트와 버튼 아이콘은 [boxicons](https://boxicons.com/) 클래스명을 사용합니다.
-
-```bash
-npm install boxicons
-```
+공식 아이콘은 [Lucide](https://lucide.dev/)입니다. `Icon`은 SVG를 렌더링하며 별도 폰트나 CSS가 필요하지 않습니다.
 
 ```tsx
-import 'boxicons/css/boxicons.min.css';
+import { Icon } from '@bricks/core';
+
+<Icon name="house" size={20} strokeWidth={2} />
+<Icon name="camera" aria-label="사진" />
 ```
 
 ### Next.js (App Router)
@@ -117,7 +116,6 @@ import 'boxicons/css/boxicons.min.css';
 ```tsx
 // app/layout.tsx
 import '@bricks/core/styles/bundle';
-import 'boxicons/css/boxicons.min.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -145,7 +143,6 @@ module.exports = {
 ```tsx
 // main.tsx
 import '@bricks/core/styles/bundle';
-import 'boxicons/css/boxicons.min.css';
 ```
 
 ---
@@ -159,7 +156,7 @@ import { Button } from '@bricks/core';
 
 <Button variant="primary">Primary</Button>
 <Button variant="outline-danger" size="lg">Large Outline</Button>
-<Button variant="secondary" leftIcon={<i className="bx bx-download" />}>다운로드</Button>
+<Button variant="secondary" leftIcon={<Icon name="download" size={16} />}>다운로드</Button>
 <Button variant="primary" loading>저장 중</Button>
 <Button variant="primary" pill fullWidth>Pill</Button>
 ```
@@ -233,7 +230,7 @@ function Example() {
 import { Input, Select, Checkbox, Radio, RadioGroup, Toggle, DatePicker } from '@bricks/core';
 
 <Input placeholder="이름을 입력하세요" required />
-<Input placeholder="이메일" state="error" leftIcon={<i className="bx bx-envelope" />} />
+<Input placeholder="이메일" state="error" leftIcon={<Icon name="mail" size={16} />} />
 
 <Select
   placeholder="국가를 선택하세요"
@@ -300,7 +297,6 @@ React 없이 순수 HTML/CSS 로도 쓸 수 있습니다. 클래스명은 BEM �
 
 ```html
 <link rel="stylesheet" href="node_modules/@bricks/core/core/styles/bundle.min.css">
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <button class="btn btn--primary btn--md">확인</button>
 <span class="badge badge--success">완료</span>
@@ -397,14 +393,15 @@ const props: ButtonProps = {
 `@bricks/core/styles` 는 `@import` 기반입니다. 번들러가 CSS `@import` 를 따라가지 못하면
 단일 파일인 `@bricks/core/styles/bundle` 을 사용하세요.
 
-**아이콘이 네모로 보임**
-boxicons 스타일시트가 로드되지 않았습니다.
+**아이콘이 표시되지 않음**
+DOI-C-ICON에서 지원되는 Lucide 이름을 확인하세요. 공통 목록은 `icon-registry.ts`에 정의됩니다.
+추가 아이콘은 `lucide-react`에서 직접 가져오거나 해당 목록에 정적 import로 등록할 수 있습니다.
 
 **Next.js 에서 hydration 오류**
 컴포넌트를 쓰는 파일 최상단에 `'use client'` 를 추가하세요.
 
 **스타일이 앱 CSS 에 덮어써짐**
-BRICKS CSS 를 앱 CSS 보다 먼저 임포트하고, 오버라이드는 더 구체적인 선택자로 작성하세요.
+DOI INC CSS 를 앱 CSS 보다 먼저 임포트하고, 오버라이드는 더 구체적인 선택자로 작성하세요.
 
 **`@bricks/core` 를 찾을 수 없음**
 `npm run build:all` 로 `dist/` 를 먼저 생성했는지 확인하세요. `dist/` 는 저장소에 커밋되지 않습니다.

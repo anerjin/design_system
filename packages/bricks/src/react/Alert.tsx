@@ -1,332 +1,180 @@
-import React, { useEffect, useState, forwardRef, createElement } from 'react';
-import { createRoot, Root } from 'react-dom/client';
+import { Icon, type IconName } from './Icon';
+import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+import { cx, type StatusColor } from './utils';
 
-export interface AlertProps {
+export type AlertVariant = 'solid' | 'outline' | 'dash' | 'soft';
+export type AlertLayout = 'horizontal' | 'vertical';
+
+const COLOR: Record<StatusColor, string> = {
+  info: 'alert-info',
+  success: 'alert-success',
+  warning: 'alert-warning',
+  error: 'alert-error',
+};
+
+const VARIANT: Record<AlertVariant, string> = {
+  solid: '',
+  outline: 'alert-outline',
+  dash: 'alert-dash',
+  soft: 'alert-soft',
+};
+
+const LAYOUT: Record<AlertLayout, string> = {
+  horizontal: 'alert-horizontal',
+  vertical: 'alert-vertical',
+};
+
+/** 색상별 기본 아이콘 (Lucide) */
+const DEFAULT_ICON: Record<StatusColor, IconName> = {
+  info: 'info',
+  success: 'circle-check',
+  warning: 'triangle-alert',
+  error: 'circle-x',
+};
+
+export interface AlertProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   /**
-   * 알림 변형 스타일
-   * @default 'primary'
+   * 상태 아이콘 색상. 배경과 본문은 중립색을 유지한다.
    */
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
+  color?: StatusColor;
 
   /**
-   * 솔리드 스타일 사용 여부
-   * @default false
+   * 알림 스타일
+   * @default 'solid'
    */
-  solid?: boolean;
+  variant?: AlertVariant;
 
   /**
-   * 알림 크기
-   * @default 'md'
+   * 액션 배치 방향. 기본은 가로 배치이며, 공간이 부족하면 본문 아래로 줄바꿈한다.
    */
-  size?: 'sm' | 'md' | 'lg';
+  layout?: AlertLayout;
+
+  /** 제목 */
+  title?: React.ReactNode;
+
+  /** 설명 */
+  description?: React.ReactNode;
 
   /**
-   * 닫기 가능 여부
+   * 왼쪽 아이콘. `false`를 주면 기본 아이콘도 감춘다.
+   */
+  icon?: React.ReactNode | false;
+
+  /** 액션 영역. 좁은 화면에서는 본문 아래로 배치된다. */
+  actions?: React.ReactNode;
+
+  /**
+   * 닫기 버튼 표시
    * @default false
    */
   dismissible?: boolean;
 
-  /**
-   * 자동 닫기 시간 (밀리초)
-   */
+  /** 지정한 밀리초 뒤 자동으로 닫는다 */
   autoClose?: number;
 
-  /**
-   * 강조선 위치
-   */
-  accent?: 'left' | 'top';
+  /** 표시 여부 (제어 컴포넌트용) */
+  visible?: boolean;
 
-  /**
-   * 토스트 모드 (플로팅)
-   * @default false
-   */
-  toast?: boolean;
-
-  /**
-   * 토스트 위치
-   */
-  position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-
-  /**
-   * 알림 제목
-   */
-  title?: React.ReactNode;
-
-  /**
-   * 알림 설명
-   */
-  description?: React.ReactNode;
-
-  /**
-   * 왼쪽 아이콘
-   */
-  icon?: React.ReactNode;
-
-  /**
-   * 액션 버튼들
-   */
-  actions?: React.ReactNode;
-
-  /**
-   * 리스트 아이템들
-   */
-  list?: React.ReactNode[];
-
-  /**
-   * 알림 닫기 이벤트
-   */
+  /** 닫힐 때 호출된다 */
   onClose?: () => void;
 
-  /**
-   * 알림 내용
-   */
   children?: React.ReactNode;
-
-  /**
-   * 추가 CSS 클래스
-   */
-  className?: string;
-
-  /**
-   * 표시 여부 (제어 컴포넌트용)
-   */
-  visible?: boolean;
 }
 
 /**
- * BRICKS 디자인 시스템 Alert 컴포넌트
+ * DOI INC Alert — daisyUI `alert` 기반
  *
  * @example
  * ```tsx
- * <Alert
- *   variant="success"
- *   title="성공"
- *   description="작업이 성공적으로 완료되었습니다."
- *   dismissible
- *   onClose={() => setAlertVisible(false)}
- *   icon={<CheckIcon />}
- * />
+ * <Alert color="success" title="저장 완료" description="변경사항이 반영되었습니다." />
+ * <Alert color="error" variant="soft" dismissible onClose={handleClose}>
+ *   업로드에 실패했습니다.
+ * </Alert>
  * ```
  */
-export const Alert = forwardRef<HTMLDivElement, AlertProps>(({
-  variant = 'primary',
-  solid = false,
-  size = 'md',
-  dismissible = false,
-  autoClose,
-  accent,
-  toast = false,
-  position = 'top-right',
-  title,
-  description,
-  icon,
-  actions,
-  list,
-  onClose,
-  children,
-  className,
-  visible = true
-}, ref) => {
-  const [isVisible, setIsVisible] = useState(visible);
-  const [isClosing, setIsClosing] = useState(false);
+export const Alert = forwardRef<HTMLDivElement, AlertProps>(
+  (
+    {
+      color,
+      variant = 'solid',
+      layout,
+      title,
+      description,
+      icon,
+      actions,
+      dismissible = false,
+      autoClose,
+      visible = true,
+      onClose,
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const [isVisible, setIsVisible] = useState(visible);
 
-  // autoClose 처리
-  useEffect(() => {
-    if (autoClose && isVisible) {
-      const timer = setTimeout(() => {
-        handleClose();
-      }, autoClose);
+    useEffect(() => setIsVisible(visible), [visible]);
 
-      return () => clearTimeout(timer);
-    }
-    return undefined;
-  }, [autoClose, isVisible]);
-
-  // visible prop 변경 처리
-  useEffect(() => {
-    setIsVisible(visible);
-  }, [visible]);
-
-  const handleClose = () => {
-    setIsClosing(true);
-    setTimeout(() => {
+    const handleClose = useCallback(() => {
       setIsVisible(false);
-      setIsClosing(false);
       onClose?.();
-    }, 300); // 애니메이션 시간
-  };
+    }, [onClose]);
 
-  if (!isVisible) {
-    return null;
-  }
+    useEffect(() => {
+      if (!autoClose || !isVisible) return undefined;
+      const timer = setTimeout(handleClose, autoClose);
+      return () => clearTimeout(timer);
+    }, [autoClose, isVisible, handleClose]);
 
-  const alertClasses = [
-    'alert',
-    solid ? `alert--solid-${variant}` : `alert--${variant}`,
-    size !== 'md' ? `alert--${size}` : '',
-    dismissible ? 'alert--dismissible' : '',
-    accent ? `alert--accent-${accent}` : '',
-    toast ? 'alert--toast' : '',
-    toast && position ? `alert--toast-${position.replace('-', ' alert--toast-')}` : '',
-    isClosing ? 'alert--fade-out' : '',
-    className
-  ].filter(Boolean).join(' ');
+    if (!isVisible) return null;
 
-  return (
-    <div
-      ref={ref}
-      className={alertClasses}
-      role="alert"
-    >
-      {icon && (
-        <div className="alert__icon">
-          {icon}
+    const resolvedIcon =
+      icon === false ? null : (icon ?? (color ? <Icon name={DEFAULT_ICON[color]} size="1em" /> : null));
+
+    return (
+      <div
+        ref={ref}
+        role="alert"
+        className={cx(
+          'alert bricks-alert',
+          color && COLOR[color],
+          VARIANT[variant],
+          layout && LAYOUT[layout],
+          className,
+        )}
+        {...props}
+      >
+        {resolvedIcon && (
+          <span className="bricks-alert-icon" aria-hidden="true">
+            {resolvedIcon}
+          </span>
+        )}
+
+        <div className="bricks-alert-body">
+          <div className="bricks-alert-content">
+            {title && <h3 className="bricks-alert-title">{title}</h3>}
+            {description && <div className="bricks-alert-description">{description}</div>}
+            {children}
+          </div>
+          {actions && <div className="bricks-alert-actions">{actions}</div>}
         </div>
-      )}
 
-      <div className="alert__content">
-        {title && (
-          <div className="alert__title">
-            {title}
-          </div>
-        )}
-
-        {description && (
-          <div className="alert__description">
-            {description}
-          </div>
-        )}
-
-        {children}
-
-        {list && list.length > 0 && (
-          <ul className="alert__list">
-            {list.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        )}
-
-        {actions && (
-          <div className="alert__actions">
-            {actions}
-          </div>
+        {dismissible && (
+          <button
+            type="button"
+            className="btn btn-ghost btn-sm btn-circle bricks-alert-close"
+            aria-label="닫기"
+            onClick={handleClose}
+          >
+            <Icon name="x" size="1em" aria-hidden="true" />
+          </button>
         )}
       </div>
-
-      {dismissible && (
-        <button
-          type="button"
-          className="alert__close"
-          aria-label="닫기"
-          onClick={handleClose}
-        >
-          ×
-        </button>
-      )}
-    </div>
-  );
-});
+    );
+  },
+);
 
 Alert.displayName = 'Alert';
-
-// 토스트 인스턴스 관리
-const toastInstances: Map<string, { root: Root; element: HTMLDivElement }> = new Map();
-
-/**
- * 토스트 알림을 생성하는 유틸리티 함수
- */
-export const toast = {
-  show: (props: Omit<AlertProps, 'toast'>) => {
-    const toastContainer = document.getElementById('toast-container') || (() => {
-      const container = document.createElement('div');
-      container.id = 'toast-container';
-      container.className = 'toast-container';
-      document.body.appendChild(container);
-      return container;
-    })();
-
-    const toastId = `toast-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    const toastElement = document.createElement('div');
-    toastElement.id = toastId;
-    toastElement.style.pointerEvents = 'auto';
-    toastContainer.appendChild(toastElement);
-
-    const root = createRoot(toastElement);
-
-    const handleClose = () => {
-      props.onClose?.();
-      setTimeout(() => {
-        root.unmount();
-        toastElement.remove();
-        toastInstances.delete(toastId);
-      }, 300);
-    };
-
-    root.render(
-      createElement(Alert, {
-        ...props,
-        toast: true,
-        onClose: handleClose,
-        visible: true
-      })
-    );
-
-    toastInstances.set(toastId, { root, element: toastElement });
-
-    return {
-      id: toastId,
-      close: handleClose
-    };
-  },
-
-  success: (message: string, options?: Partial<AlertProps>) => {
-    return toast.show({
-      variant: 'success',
-      description: message,
-      dismissible: true,
-      autoClose: 5000,
-      ...options
-    });
-  },
-
-  error: (message: string, options?: Partial<AlertProps>) => {
-    return toast.show({
-      variant: 'danger',
-      description: message,
-      dismissible: true,
-      autoClose: 5000,
-      ...options
-    });
-  },
-
-  warning: (message: string, options?: Partial<AlertProps>) => {
-    return toast.show({
-      variant: 'warning',
-      description: message,
-      dismissible: true,
-      autoClose: 5000,
-      ...options
-    });
-  },
-
-  info: (message: string, options?: Partial<AlertProps>) => {
-    return toast.show({
-      variant: 'info',
-      description: message,
-      dismissible: true,
-      autoClose: 5000,
-      ...options
-    });
-  },
-
-  closeAll: () => {
-    toastInstances.forEach(({ root, element }) => {
-      root.unmount();
-      element.remove();
-    });
-    toastInstances.clear();
-  }
-};
 
 export default Alert;

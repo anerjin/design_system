@@ -38,7 +38,7 @@
 ## [1.0.0] - 2024-09-21
 
 ### 초기 릴리스
-- BRICKS 디자인 시스템 기본 구조 구현
+- DOI INC 디자인 시스템 기본 구조 구현
 - HTML/CSS/JavaScript 기반 컴포넌트 라이브러리
 - 기본 컴포넌트 세트:
   - **Atoms**: Button, Input, Badge, Checkbox, Radio, Toggle, Avatar, Progress, Spinner, Select
@@ -75,7 +75,7 @@
 
 
 
-⏺ 🎯 BRICKS 디자인 시스템 사용 방법
+⏺ 🎯 DOI INC 디자인 시스템 사용 방법
 
   방법 1: 직접 복사 (가장 간단)
 
@@ -94,7 +94,7 @@
 
   방법 3: NPM 로컬 패키지
 
-  # BRICKS 폴더에서
+  # DOI INC 폴더에서
   npm run build:lib
   npm pack
 

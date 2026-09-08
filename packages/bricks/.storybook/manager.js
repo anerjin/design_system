@@ -5,7 +5,7 @@ const theme = create({
   base: 'light',
 
   // Brand
-  brandTitle: 'BRICKS Design System',
+  brandTitle: 'DOI DESIGN SYSTEM',
   brandUrl: 'https://github.com/anerjin/private_project_design_system',
   brandTarget: '_self',
 

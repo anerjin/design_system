@@ -1,30 +1,52 @@
+import { useId, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from './Card';
+import type { CardVariant } from './Card';
 import { Button } from './Button';
 import { Badge } from './Badge';
+import { Icon } from './Icon';
+import { Input } from './Input';
+import { Label } from './Fieldset';
+import type { Size } from './utils';
+
+const VARIANTS: CardVariant[] = ['normal', 'border', 'dash', 'ghost'];
+const SIZES: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+/**
+ * 데모용 커버.
+ *
+ * 색을 직접 박지 않고 테마 색으로 칠한다 — 툴바에서 테마를 바꾸면 함께 바뀐다.
+ * `Card.Figure`는 이미지뿐 아니라 어떤 요소든 감쌀 수 있다.
+ */
+const Cover = ({ className = 'h-40 w-full' }: { className?: string }) => (
+  <div className={`bg-primary ${className}`} />
+);
 
 const meta: Meta<typeof Card> = {
   title: 'Data Display/Card',
   component: Card,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    gallery: {
+      description:
+        'Header · Body · Footer로 구성하는 카드. Header에는 제목과 보조 동작, Body에는 본문, Footer에는 취소·확인 등의 액션을 배치합니다. Header와 Footer는 각각 생략할 수 있습니다.',
+      daisyui: 'card',
+      props: [
+        { name: 'variant', type: 'normal | border | dash | ghost', defaultValue: 'normal' },
+        { name: 'size', type: 'xs | sm | md | lg | xl', defaultValue: 'md', description: '안쪽 여백' },
+        { name: 'side', type: 'boolean', defaultValue: 'false', description: '이미지를 옆에 붙인다' },
+        { name: 'Card.Header', type: 'ReactNode', description: '선택 영역. 제목·설명·닫기 버튼 등' },
+        { name: 'Card.Body', type: 'ReactNode', description: '본문 영역. Header와 Footer의 형제로 배치' },
+        { name: 'Card.Footer', type: 'ReactNode', description: '선택 영역. 취소·삭제·확인 등 하단 액션' },
+        { name: 'Card.Footer.align', type: 'start | center | end | between', defaultValue: 'center' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'gray', 'flat', 'outlined', 'elevated'],
-    },
-    radius: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', 'full'],
-    },
-    clickable: {
-      control: 'boolean',
-    },
-    horizontal: {
-      control: 'boolean',
-    },
+    variant: { control: 'select', options: VARIANTS },
+    size: { control: 'select', options: SIZES },
+    side: { control: 'boolean' },
   },
 };
 
@@ -32,371 +54,308 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    children: (
-      <>
+  name: '기본형 · Header + Body + Footer',
+  render: function DefaultCard(args) {
+    const [visible, setVisible] = useState(true);
+    const [confirmed, setConfirmed] = useState(false);
+    if (!visible)
+      return (
+        <Button variant="surface" onClick={() => setVisible(true)}>
+          카드 다시 보기
+        </Button>
+      );
+    return (
+      <Card {...args} className="w-full max-w-md">
         <Card.Header>
-          <Card.Title>Default Card</Card.Title>
-          <Card.Subtitle>This is a default card example</Card.Subtitle>
+          <Card.Title>프로젝트 검토</Card.Title>
+          <Button
+            variant="ghost"
+            size="sm"
+            shape="circle"
+            aria-label="카드 닫기"
+            onClick={() => setVisible(false)}
+          >
+            <Icon name="x" size={16} />
+          </Button>
         </Card.Header>
         <Card.Body>
-          This is the card body content. You can put any content here.
+          <p>웹사이트 리뉴얼의 최종 시안을 확인하고 검토를 완료해 주세요.</p>
+          <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
+            <dt className="opacity-60">담당 팀</dt>
+            <dd>디자인팀</dd>
+            <dt className="opacity-60">검토 항목</dt>
+            <dd>화면 12개 · 컴포넌트 8개</dd>
+          </dl>
+          {confirmed && (
+            <p role="status" className="text-sm">
+              검토를 완료했습니다.
+            </p>
+          )}
         </Card.Body>
-        <Card.Footer align="right">
-          <Button variant="secondary" size="sm">Cancel</Button>
-          <Button variant="primary" size="sm" style={{ marginLeft: '8px' }}>Save</Button>
+        <Card.Footer>
+          <Button variant="surface" onClick={() => setConfirmed(false)}>
+            취소
+          </Button>
+          <Button color="primary" onClick={() => setConfirmed(true)} disabled={confirmed}>
+            확인
+          </Button>
         </Card.Footer>
-      </>
-    ),
+      </Card>
+    );
   },
 };
 
-export const WithImage: Story = {
-  args: {
-    variant: 'elevated',
-    children: (
-      <>
-        <Card.Image
-          src="https://via.placeholder.com/400x200"
-          alt=""
-        />
-        <Card.Header>
-          <Card.Title>Card with Image</Card.Title>
-          <Card.Subtitle>Beautiful image card</Card.Subtitle>
-        </Card.Header>
+/** Card.Header를 생략하면 Body부터 시작합니다. */
+export const WithoutHeader: Story = {
+  name: 'Header 없음 · Body + Footer',
+  render: function WithoutHeaderCard() {
+    const [saved, setSaved] = useState(false);
+    return (
+      <Card className="w-full max-w-md">
         <Card.Body>
-          This card includes an image at the top. Perfect for showcasing products, articles, or any visual content.
+          <div className="flex size-10 items-center justify-center rounded-full bg-base-200">
+            <Icon name="folder" size={20} />
+          </div>
+          <Card.Title>새 프로젝트를 시작하세요</Card.Title>
+          <p className="opacity-70">작업과 파일을 한곳에 모으고 팀원과 함께 진행할 수 있습니다.</p>
+          {saved && <p role="status">예제 프로젝트가 생성되었습니다.</p>}
         </Card.Body>
-        <Card.Footer align="between">
-          <span style={{ fontSize: '14px', color: '#666' }}>2 hours ago</span>
-          <Button variant="primary" size="sm">View Details</Button>
+        <Card.Footer>
+          <Button variant="surface" onClick={() => setSaved(false)}>
+            취소
+          </Button>
+          <Button color="primary" onClick={() => setSaved(true)} disabled={saved}>
+            프로젝트 만들기
+          </Button>
         </Card.Footer>
-      </>
-    ),
+      </Card>
+    );
   },
 };
 
-export const Clickable: Story = {
-  args: {
-    clickable: true,
-    variant: 'outlined',
-    onCardClick: () => alert('Card clicked!'),
-    children: (
-      <>
-        <Card.Header>
-          <Card.Title>Clickable Card</Card.Title>
-          <Card.Subtitle>Click anywhere on this card</Card.Subtitle>
-        </Card.Header>
-        <Card.Body>
-          This entire card is clickable. Hover over it to see the interactive effect.
-        </Card.Body>
-      </>
-    ),
-  },
+/** Card.Footer가 없으면 하단 구분선과 액션 영역도 없습니다. */
+export const WithoutFooter: Story = {
+  name: 'Footer 없음 · Header + Body',
+  render: () => (
+    <Card className="w-full max-w-md">
+      <Card.Header>
+        <Card.Title>프로젝트 정보</Card.Title>
+        <Badge variant="outline" size="sm">
+          진행 중
+        </Badge>
+      </Card.Header>
+      <Card.Body>
+        <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
+          <dt className="opacity-60">프로젝트</dt>
+          <dd>웹사이트 리뉴얼</dd>
+          <dt className="opacity-60">담당 팀</dt>
+          <dd>디자인팀</dd>
+          <dt className="opacity-60">참여 인원</dt>
+          <dd>4명</dd>
+        </dl>
+      </Card.Body>
+    </Card>
+  ),
 };
 
-export const Horizontal: Story = {
-  args: {
-    horizontal: true,
-    variant: 'elevated',
-    children: (
-      <>
-        <Card.Image
-          src="https://via.placeholder.com/200x200"
-          alt=""
-          style={{ width: '200px', height: '100%', objectFit: 'cover' }}
-        />
-        <div style={{ flex: 1 }}>
-          <Card.Header>
-            <Card.Title>Horizontal Card</Card.Title>
-            <Card.Subtitle>Side-by-side layout</Card.Subtitle>
-          </Card.Header>
-          <Card.Body>
-            This card uses a horizontal layout, perfect for list views or when you need to display content side by side.
-          </Card.Body>
+export const BodyOnly: Story = {
+  name: 'Body만 사용',
+  render: () => (
+    <Card className="w-full max-w-sm">
+      <Card.Body>
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-sm opacity-70">이번 달 완료한 작업</span>
+          <Icon name="check" size={18} />
         </div>
-      </>
-    ),
+        <strong className="text-3xl font-semibold tracking-tight">
+          128<span className="ml-1 text-sm font-normal opacity-60">개</span>
+        </strong>
+        <p className="text-sm opacity-70">지난달보다 24개 더 완료했습니다.</p>
+      </Card.Body>
+    </Card>
+  ),
+};
+
+/** Body의 폼과 Footer의 제출 버튼을 form 속성으로 연결합니다. */
+export const EditForm: Story = {
+  name: '입력 폼 · 취소와 저장',
+  render: function EditCard() {
+    const formId = useId();
+    const inputId = useId();
+    const [saved, setSaved] = useState('웹사이트 리뉴얼');
+    const [name, setName] = useState(saved);
+    const [message, setMessage] = useState('');
+    return (
+      <Card className="w-full max-w-md">
+        <Card.Header>
+          <Card.Title>프로젝트 설정</Card.Title>
+        </Card.Header>
+        <Card.Body>
+          <form
+            id={formId}
+            className="grid gap-3"
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (!name.trim()) return;
+              setSaved(name.trim());
+              setName(name.trim());
+              setMessage('프로젝트 이름을 저장했습니다.');
+            }}
+          >
+            <Label htmlFor={inputId}>프로젝트 이름</Label>
+            <Input
+              id={inputId}
+              className="w-full"
+              required
+              value={name}
+              onChange={(event) => {
+                setName(event.target.value);
+                setMessage('');
+              }}
+            />
+            <p className="text-sm opacity-70">팀원에게 표시되는 이름입니다.</p>
+            {message && (
+              <p role="status" className="text-sm">
+                {message}
+              </p>
+            )}
+          </form>
+        </Card.Body>
+        <Card.Footer>
+          <Button
+            variant="surface"
+            onClick={() => {
+              setName(saved);
+              setMessage('변경사항을 취소했습니다.');
+            }}
+          >
+            취소
+          </Button>
+          <Button color="primary" type="submit" form={formId} disabled={!name.trim()}>
+            저장
+          </Button>
+        </Card.Footer>
+      </Card>
+    );
   },
 };
 
 export const Variants: Story = {
+  name: '표면과 테두리',
   render: () => (
-    <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(2, 300px)' }}>
-      <Card variant="default">
-        <Card.Body>
-          <Card.Title>Default</Card.Title>
-          <p>Default card style</p>
-        </Card.Body>
-      </Card>
-      <Card variant="gray">
-        <Card.Body>
-          <Card.Title>Gray</Card.Title>
-          <p>Gray background card</p>
-        </Card.Body>
-      </Card>
-      <Card variant="flat">
-        <Card.Body>
-          <Card.Title>Flat</Card.Title>
-          <p>Flat card without shadow</p>
-        </Card.Body>
-      </Card>
-      <Card variant="outlined">
-        <Card.Body>
-          <Card.Title>Outlined</Card.Title>
-          <p>Card with border</p>
-        </Card.Body>
-      </Card>
-      <Card variant="elevated">
-        <Card.Body>
-          <Card.Title>Elevated</Card.Title>
-          <p>Card with elevation shadow</p>
-        </Card.Body>
-      </Card>
+    <div className="flex flex-wrap gap-4">
+      {VARIANTS.map((variant) => (
+        <Card key={variant} variant={variant} className="w-64">
+          <Card.Header>
+            <Card.Title>{variant}</Card.Title>
+          </Card.Header>
+          <Card.Body>
+            <p className="text-sm opacity-70">variant=&quot;{variant}&quot;</p>
+          </Card.Body>
+          <Card.Footer>
+            <Badge variant="outline" size="sm">
+              {variant}
+            </Badge>
+          </Card.Footer>
+        </Card>
+      ))}
     </div>
   ),
 };
 
-export const BorderRadius: Story = {
+export const Sizes: Story = {
+  name: '영역별 여백',
   render: () => (
-    <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(3, 200px)' }}>
-      <Card radius="none" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">None</Card.Title>
-          <p style={{ fontSize: '14px' }}>Sharp corners</p>
-        </Card.Body>
-      </Card>
-      <Card radius="sm" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">Small</Card.Title>
-          <p style={{ fontSize: '14px' }}>Slight rounding</p>
-        </Card.Body>
-      </Card>
-      <Card radius="md" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">Medium</Card.Title>
-          <p style={{ fontSize: '14px' }}>Medium rounding</p>
-        </Card.Body>
-      </Card>
-      <Card radius="lg" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">Large</Card.Title>
-          <p style={{ fontSize: '14px' }}>Large rounding</p>
-        </Card.Body>
-      </Card>
-      <Card radius="xl" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">XL (Default)</Card.Title>
-          <p style={{ fontSize: '14px' }}>Extra large</p>
-        </Card.Body>
-      </Card>
-      <Card radius="2xl" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">2XL</Card.Title>
-          <p style={{ fontSize: '14px' }}>2X large</p>
-        </Card.Body>
-      </Card>
-      <Card radius="3xl" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">3XL</Card.Title>
-          <p style={{ fontSize: '14px' }}>3X large</p>
-        </Card.Body>
-      </Card>
-      <Card radius="full" variant="outlined">
-        <Card.Body>
-          <Card.Title level="h6">Full</Card.Title>
-          <p style={{ fontSize: '14px' }}>Maximum</p>
-        </Card.Body>
-      </Card>
+    <div className="flex flex-wrap items-start gap-4">
+      {SIZES.map((size) => (
+        <Card key={size} variant="border" size={size} className="w-52">
+          <Card.Header>
+            <Card.Title>{size}</Card.Title>
+          </Card.Header>
+          <Card.Body>
+            <p>여백이 달라집니다.</p>
+          </Card.Body>
+          <Card.Footer>
+            <span className="text-xs opacity-60">{size} 여백</span>
+          </Card.Footer>
+        </Card>
+      ))}
     </div>
   ),
 };
 
-export const WithBadge: Story = {
-  args: {
-    variant: 'elevated',
-    children: (
-      <>
-        <Card.Badge position="right">
-          <Badge variant="danger" shape="pill">NEW</Badge>
-        </Card.Badge>
-        <Card.Header>
-          <Card.Title>Featured Product</Card.Title>
-          <Card.Subtitle>Limited time offer</Card.Subtitle>
-        </Card.Header>
-        <Card.Body>
-          This card has a badge to highlight important information or status.
-        </Card.Body>
-        <Card.Footer align="right">
-          <Button variant="primary">Shop Now</Button>
-        </Card.Footer>
-      </>
-    ),
-  },
-};
-
-export const ProductCard: Story = {
+export const WithImage: Story = {
+  name: '커버와 세 영역',
   render: () => (
-    <Card variant="elevated" style={{ width: '300px' }}>
-      <Card.Badge>
-        <Badge variant="success" size="sm">20% OFF</Badge>
-      </Card.Badge>
-      <Card.Image
-        src="https://via.placeholder.com/300x200"
-        alt=""
-      />
+    <Card className="w-full max-w-96">
+      <Card.Figure>
+        <Cover />
+      </Card.Figure>
       <Card.Header>
-        <Card.Title level="h4">Premium Headphones</Card.Title>
-        <Card.Subtitle>Wireless Bluetooth 5.0</Card.Subtitle>
+        <Card.Title>
+          신제품 출시
+          <Badge color="secondary" size="sm">
+            NEW
+          </Badge>
+        </Card.Title>
       </Card.Header>
       <Card.Body>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <span style={{ fontSize: '24px', fontWeight: 'bold' }}>$79.99</span>
-          <span style={{ fontSize: '16px', textDecoration: 'line-through', color: '#999' }}>$99.99</span>
-        </div>
-        <p style={{ fontSize: '14px', color: '#666' }}>
-          High-quality wireless headphones with noise cancellation and 30-hour battery life.
-        </p>
+        <p>이미지는 Card.Figure로 감쌉니다.</p>
       </Card.Body>
-      <Card.Footer align="between">
-        <Button variant="ghost" size="sm"><i className="bx bx-heart"></i> Save</Button>
-        <Button variant="primary" size="sm">Add to Cart</Button>
+      <Card.Footer>
+        <Button color="primary">자세히</Button>
       </Card.Footer>
     </Card>
   ),
 };
 
-export const BlogCard: Story = {
+/** 이미지를 옆에 붙이는 가로 배치 */
+export const Side: Story = {
+  name: '가로 배치',
   render: () => (
-    <Card variant="flat" clickable style={{ width: '400px' }}>
-      <Card.Image
-        src="https://via.placeholder.com/400x200"
-        alt=""
-        overlay
-        overlayContent={
-          <div style={{ padding: '16px', color: 'white' }}>
-            <Badge variant="primary" type="soft">Technology</Badge>
-          </div>
-        }
-      />
-      <Card.Header dense>
-        <Card.Title level="h3">The Future of Web Development</Card.Title>
-        <Card.Subtitle>Understanding modern web frameworks</Card.Subtitle>
-      </Card.Header>
-      <Card.Body>
-        <p style={{ fontSize: '14px', lineHeight: '1.6' }}>
-          Explore the latest trends in web development, from server components to edge computing. Learn how modern frameworks are shaping the future of web applications...
-        </p>
-      </Card.Body>
-      <Card.Footer dense align="between">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#666' }}>
-          <span>John Doe</span>
-          <span>•</span>
-          <span>5 min read</span>
-        </div>
-        <Button variant="link" size="sm">Read More →</Button>
-      </Card.Footer>
+    <Card side variant="border" className="w-full max-w-lg">
+      <Card.Figure>
+        <Cover className="h-full w-16 sm:w-32" />
+      </Card.Figure>
+      <div className="flex min-w-0 flex-1 flex-col">
+        <Card.Header>
+          <Card.Title>가로 배치</Card.Title>
+        </Card.Header>
+        <Card.Body>
+          <p>커버 옆에 Header · Body · Footer를 배치합니다.</p>
+        </Card.Body>
+        <Card.Footer>
+          <Badge variant="outline" size="sm">
+            디자인 가이드
+          </Badge>
+        </Card.Footer>
+      </div>
     </Card>
   ),
 };
 
-export const FooterAlignments: Story = {
+export const ActionAlignment: Story = {
+  name: 'Footer 액션 정렬',
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
-      <Card variant="outlined">
-        <Card.Header>
-          <Card.Title level="h5">Left Alignment (Default)</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <p>Footer content aligned to the left.</p>
-        </Card.Body>
-        <Card.Footer align="left">
-          <Button variant="secondary" size="sm">Cancel</Button>
-          <Button variant="primary" size="sm" style={{ marginLeft: '8px' }}>Submit</Button>
-        </Card.Footer>
-      </Card>
-
-      <Card variant="outlined">
-        <Card.Header>
-          <Card.Title level="h5">Center Alignment</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <p>Footer content centered.</p>
-        </Card.Body>
-        <Card.Footer align="center">
-          <Button variant="secondary" size="sm">Cancel</Button>
-          <Button variant="primary" size="sm" style={{ marginLeft: '8px' }}>Submit</Button>
-        </Card.Footer>
-      </Card>
-
-      <Card variant="outlined">
-        <Card.Header>
-          <Card.Title level="h5">Right Alignment</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <p>Footer content aligned to the right.</p>
-        </Card.Body>
-        <Card.Footer align="right">
-          <Button variant="secondary" size="sm">Cancel</Button>
-          <Button variant="primary" size="sm" style={{ marginLeft: '8px' }}>Submit</Button>
-        </Card.Footer>
-      </Card>
-
-      <Card variant="outlined">
-        <Card.Header>
-          <Card.Title level="h5">Between Alignment</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <p>Footer content spaced between edges.</p>
-        </Card.Body>
-        <Card.Footer align="between">
-          <Button variant="ghost" size="sm">← Back</Button>
-          <Button variant="primary" size="sm">Next →</Button>
-        </Card.Footer>
-      </Card>
-    </div>
-  ),
-};
-
-export const StatsCard: Story = {
-  render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-      <Card variant="gray">
-        <Card.Body>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-            <div>
-              <p style={{ fontSize: '14px', color: '#666', margin: '0' }}>Total Users</p>
-              <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '4px 0' }}>2,543</p>
-              <p style={{ fontSize: '14px', color: '#10b981', margin: '0' }}>↑ 12% from last month</p>
-            </div>
-            <Badge variant="success" type="soft">Active</Badge>
-          </div>
-        </Card.Body>
-      </Card>
-      <Card variant="gray">
-        <Card.Body>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-            <div>
-              <p style={{ fontSize: '14px', color: '#666', margin: '0' }}>Revenue</p>
-              <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '4px 0' }}>$45,231</p>
-              <p style={{ fontSize: '14px', color: '#10b981', margin: '0' }}>↑ 8% from last month</p>
-            </div>
-            <Badge variant="info" type="soft">Monthly</Badge>
-          </div>
-        </Card.Body>
-      </Card>
-      <Card variant="gray">
-        <Card.Body>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-            <div>
-              <p style={{ fontSize: '14px', color: '#666', margin: '0' }}>Orders</p>
-              <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '4px 0' }}>439</p>
-              <p style={{ fontSize: '14px', color: '#ef4444', margin: '0' }}>↓ 3% from last month</p>
-            </div>
-            <Badge variant="warning" type="soft">Pending</Badge>
-          </div>
-        </Card.Body>
-      </Card>
+    <div className="flex flex-wrap gap-4">
+      {(['start', 'center', 'end', 'between'] as const).map((align) => (
+        <Card key={align} variant="border" className="w-64">
+          <Card.Header>
+            <Card.Title>{align}</Card.Title>
+          </Card.Header>
+          <Card.Body>
+            <p className="text-sm opacity-70">Footer 버튼 정렬</p>
+          </Card.Body>
+          <Card.Footer align={align}>
+            <Button size="sm" variant="surface">
+              취소
+            </Button>
+            <Button size="sm" color="primary">
+              확인
+            </Button>
+          </Card.Footer>
+        </Card>
+      ))}
     </div>
   ),
 };

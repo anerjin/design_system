@@ -1,175 +1,91 @@
-import React, { forwardRef, useState, useEffect } from 'react';
+import React, { forwardRef } from 'react';
+import { cx, type Color, type Size } from './utils';
 
-export interface ToggleProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
+const COLOR: Record<Color, string> = {
+  neutral: 'toggle-neutral',
+  primary: 'toggle-primary',
+  secondary: 'toggle-secondary',
+  accent: 'toggle-accent',
+  info: 'toggle-info',
+  success: 'toggle-success',
+  warning: 'toggle-warning',
+  error: 'toggle-error',
+};
+
+const SIZE: Record<Size, string> = {
+  xs: 'toggle-xs',
+  sm: 'toggle-sm',
+  md: 'toggle-md',
+  lg: 'toggle-lg',
+  xl: 'toggle-xl',
+};
+
+export interface ToggleProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
+  /** 색상 */
+  color?: Color;
+
   /**
-   * 토글 스위치 크기
+   * 크기
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: Size;
 
-  /**
-   * 토글 스위치 변형 스타일
-   */
-  variant?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'purple' | 'pink' | 'mint' | 'yellow' | 'green' | 'lightblue' | 'blue' | 'dark';
-
-  /**
-   * 토글 스위치 활성화 상태
-   */
-  checked?: boolean;
-
-  /**
-   * 기본 활성화 상태 (비제어 컴포넌트)
-   */
-  defaultChecked?: boolean;
-
-  /**
-   * 토글 스위치 레이블
-   */
+  /** 라벨 텍스트. 주면 클릭 가능한 라벨로 감싼다 */
   label?: React.ReactNode;
 
-  /**
-   * 아이콘 표시 여부
-   */
-  showIcons?: boolean;
-
-  /**
-   * 켜짐 상태 아이콘
-   */
+  /** 켜짐 상태 아이콘. `offIcon`과 함께 스위치 안에 표시된다 */
   onIcon?: React.ReactNode;
 
-  /**
-   * 꺼짐 상태 아이콘
-   */
+  /** 꺼짐 상태 아이콘 */
   offIcon?: React.ReactNode;
-
-  /**
-   * 토글 상태 변경 이벤트
-   */
-  onChange?: (checked: boolean, event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
 }
 
 /**
- * BRICKS 디자인 시스템 Toggle 컴포넌트
+ * DOI INC Toggle — daisyUI `toggle` 기반
+ *
+ * 이전 구현은 `<button role="switch">`였지만, daisyUI 토글은
+ * 네이티브 `<input type="checkbox">`다. 따라서 상태는 `e.target.checked`로 읽는다.
  *
  * @example
  * ```tsx
+ * <Toggle label="알림 받기" color="success" defaultChecked />
  * <Toggle
- *   label="알림 설정"
- *   checked={notificationEnabled}
- *   onChange={(checked) => setNotificationEnabled(checked)}
- *   variant="success"
+ *   onIcon={<Icon name="sun" size="1em"  />}
+ *   offIcon={<Icon name="moon" size="1em"  />}
  * />
  * ```
  */
-export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(({
+export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(({
+  color,
   size = 'md',
-  variant,
-  checked,
-  defaultChecked = false,
   label,
-  showIcons = false,
   onIcon,
   offIcon,
   className,
-  id,
-  disabled,
-  onChange,
-  onKeyDown,
-  onClick,
   ...props
 }, ref) => {
-  const [isChecked, setIsChecked] = useState(checked ?? defaultChecked);
-  const isControlled = checked !== undefined;
+  const classes = cx('toggle', color && COLOR[color], SIZE[size], className);
 
-  // 제어 컴포넌트에서 checked prop이 변경되면 상태 업데이트
-  useEffect(() => {
-    if (isControlled) {
-      setIsChecked(checked);
-    }
-  }, [checked, isControlled]);
+  // 아이콘을 쓰면 daisyUI 방식대로 label.toggle이 껍데기가 되고 input은 안에 들어간다
+  if (onIcon || offIcon) {
+    return (
+      <label className={classes}>
+        <input ref={ref} type="checkbox" {...props} />
+        {offIcon}
+        {onIcon}
+      </label>
+    );
+  }
 
-  const toggleId = id || `toggle-${Math.random().toString(36).substr(2, 9)}`;
+  const input = <input ref={ref} type="checkbox" className={classes} {...props} />;
 
-  const containerClasses = [
-    'toggle',
-    size !== 'md' ? `toggle--${size}` : '',
-    variant ? `toggle--${variant}` : '',
-    isChecked ? 'toggle--active' : '',
-    showIcons ? 'toggle--icons' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const handleToggle = (event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => {
-    if (disabled) return;
-
-    const newChecked = !isChecked;
-
-    if (!isControlled) {
-      setIsChecked(newChecked);
-    }
-
-    onChange?.(newChecked, event);
-  };
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    handleToggle(event);
-    onClick?.(event);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    // Space, Enter, ArrowRight, ArrowLeft 키 처리
-    if (event.key === ' ' || event.key === 'Enter') {
-      event.preventDefault();
-      handleToggle(event);
-    } else if (event.key === 'ArrowRight' && !isChecked) {
-      event.preventDefault();
-      handleToggle(event);
-    } else if (event.key === 'ArrowLeft' && isChecked) {
-      event.preventDefault();
-      handleToggle(event);
-    }
-
-    onKeyDown?.(event);
-  };
+  if (!label) return input;
 
   return (
-    <div className="toggle-wrapper" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-      <button
-        ref={ref}
-        id={toggleId}
-        className={containerClasses}
-        role="switch"
-        aria-checked={isChecked}
-        aria-disabled={disabled}
-        disabled={disabled}
-        onClick={handleClick}
-        onKeyDown={handleKeyDown}
-        {...props}
-      >
-        <span className="toggle__track" />
-        <span className="toggle__thumb">
-          {showIcons && (
-            <>
-              {onIcon && (
-                <span className="toggle__icon toggle__icon--on">
-                  {onIcon}
-                </span>
-              )}
-              {offIcon && (
-                <span className="toggle__icon toggle__icon--off">
-                  {offIcon}
-                </span>
-              )}
-            </>
-          )}
-        </span>
-      </button>
-      {label && (
-        <label htmlFor={toggleId} style={{ cursor: disabled ? 'not-allowed' : 'pointer', userSelect: 'none' }}>
-          {label}
-        </label>
-      )}
-    </div>
+    <label className="label cursor-pointer justify-start gap-3">
+      {input}
+      <span>{label}</span>
+    </label>
   );
 });
 

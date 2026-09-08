@@ -1,0 +1,52 @@
+/* Neutral defaults shared by the package, Storybook and the gallery. */
+:root:not([data-theme]),
+[data-theme='bricks-light'] {
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #f5f5f5;
+  --color-base-300: #e4e4e7;
+  --color-base-content: #18181b;
+  --color-primary: #000000;
+  --color-primary-content: #ffffff;
+  --color-secondary: #7c3aed;
+  --color-secondary-content: #ffffff;
+  --color-neutral: #27272a;
+  --color-neutral-content: #fafafa;
+  --color-accent: var(--color-secondary);
+  --color-accent-content: #ffffff;
+  --color-info: #2563eb;
+  --color-info-content: #ffffff;
+  --color-success: #15803d;
+  --color-success-content: #ffffff;
+  --color-warning: #b45309;
+  --color-warning-content: #ffffff;
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
+  --depth: 0;
+  --noise: 0;
+}
+[data-theme='bricks-dark'] {
+  color-scheme: dark;
+  --color-base-100: #0a0a0a;
+  --color-base-200: #1c1c1c;
+  --color-base-300: #2e2e32;
+  --color-base-content: #f4f4f5;
+  --color-primary: #fafafa;
+  --color-primary-content: #0a0a0a;
+  --color-secondary: #a78bfa;
+  --color-secondary-content: #0a0a0a;
+  --color-neutral: #e4e4e7;
+  --color-neutral-content: #18181b;
+  --color-accent: var(--color-secondary);
+  --color-accent-content: #0a0a0a;
+  --color-info: #60a5fa;
+  --color-info-content: #0a0a0a;
+  --color-success: #4ade80;
+  --color-success-content: #0a0a0a;
+  --color-warning: #fbbf24;
+  --color-warning-content: #0a0a0a;
+  --color-error: #f87171;
+  --color-error-content: #0a0a0a;
+  --depth: 0;
+  --noise: 0;
+}

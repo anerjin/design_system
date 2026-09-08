@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installation - BRICKS Design System</title>
+    <title>Installation - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
         <div class="vp-doc-header">
             <h1 class="vp-doc-title">Installation</h1>
             <p class="vp-doc-description">
-                Get started with BRICKS in minutes. Choose your preferred installation method and start building beautiful interfaces.
+                Get started with DOI INC in minutes. Choose your preferred installation method and start building beautiful interfaces.
             </p>
         </div>
 
@@ -25,13 +26,13 @@
 
         <!-- Installation Methods -->
         <h2 id="quick-setup">Quick Setup</h2>
-        <p>Choose your preferred method to get started with BRICKS Design System:</p>
+        <p>Choose your preferred method to get started with DOI INC Design System:</p>
 
         <!-- Method Cards -->
         <div class="installation-methods">
             <div class="method-card recommended">
                 <div class="method-badge">Recommended</div>
-                <h3><i class='bx bxl-npm'></i> Package Manager</h3>
+                <h3><i data-lucide='package'></i> Package Manager</h3>
                 <p>Best for modern JavaScript projects with build tools</p>
                 <pre><code class="language-bash"># Using npm
 npm install @bricks/design-system
@@ -44,7 +45,7 @@ pnpm add @bricks/design-system</code></pre>
             </div>
 
             <div class="method-card">
-                <h3><i class='bx bx-globe'></i> CDN</h3>
+                <h3><i data-lucide='globe'></i> CDN</h3>
                 <p>Quick setup without any build tools</p>
                 <pre><code class="language-html">&lt;!-- Add to your HTML head --&gt;
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@bricks/design-system@latest/dist/bricks.min.css"&gt;
@@ -54,15 +55,15 @@ pnpm add @bricks/design-system</code></pre>
             </div>
 
             <div class="method-card">
-                <h3><i class='bx bx-download'></i> Direct Download</h3>
+                <h3><i data-lucide='download'></i> Direct Download</h3>
                 <p>Download and host the files yourself</p>
                 <div class="download-buttons">
                     <a href="#" class="btn btn--primary">
-                        <i class='bx bx-download'></i>
+                        <i data-lucide='download'></i>
                         Download Latest (v1.0.0)
                     </a>
                     <a href="#" class="btn btn--ghost">
-                        <i class='bx bxl-github'></i>
+                        <i data-lucide='code-xml'></i>
                         View on GitHub
                     </a>
                 </div>
@@ -73,7 +74,7 @@ pnpm add @bricks/design-system</code></pre>
         <h2 id="basic-setup">Basic Setup</h2>
 
         <h3>1. Import CSS</h3>
-        <p>After installation, import BRICKS CSS into your project:</p>
+        <p>After installation, import DOI INC CSS into your project:</p>
 
         <div class="vp-tabs">
             <div class="vp-tabs-nav">
@@ -120,17 +121,17 @@ import '@bricks/design-system/dist/utilities.css';</code></pre>
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;My App with BRICKS&lt;/title&gt;
+    &lt;title&gt;My App with DOI INC&lt;/title&gt;
 
-    &lt;!-- BRICKS CSS --&gt;
+    &lt;!-- DOI INC CSS --&gt;
     &lt;link rel="stylesheet" href="path/to/bricks.css"&gt;
 
     &lt;!-- Box Icons (optional) --&gt;
-    &lt;link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'&gt;
+    &lt;script defer src="../assets/js/lucide-icons.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;div class="container"&gt;
-        &lt;h1&gt;Welcome to BRICKS&lt;/h1&gt;
+        &lt;h1&gt;Welcome to DOI INC&lt;/h1&gt;
         &lt;button class="btn btn--primary"&gt;Get Started&lt;/button&gt;
     &lt;/div&gt;
 &lt;/body&gt;
@@ -138,7 +139,7 @@ import '@bricks/design-system/dist/utilities.css';</code></pre>
 
         <!-- Project Structure -->
         <h2 id="project-structure">Project Structure</h2>
-        <p>Understanding the BRICKS file structure helps you import only what you need:</p>
+        <p>Understanding the DOI INC file structure helps you import only what you need:</p>
 
         <pre><code class="language-plaintext">@bricks/design-system/
 │
@@ -179,12 +180,12 @@ import '@bricks/design-system/dist/utilities.css';</code></pre>
 
         <!-- Framework Integration -->
         <h2 id="framework-integration">Framework Integration</h2>
-        <p>BRICKS works seamlessly with popular frameworks:</p>
+        <p>DOI INC works seamlessly with popular frameworks:</p>
 
         <div class="framework-cards">
             <div class="framework-card">
                 <div class="framework-icon">
-                    <i class='bx bxl-react'></i>
+                    <i data-lucide='atom'></i>
                 </div>
                 <h3>React</h3>
                 <pre><code class="language-jsx">import '@bricks/design-system/dist/bricks.css';
@@ -200,7 +201,7 @@ function App() {
 
             <div class="framework-card">
                 <div class="framework-icon">
-                    <i class='bx bxl-vuejs'></i>
+                    <i data-lucide='layers'></i>
                 </div>
                 <h3>Vue</h3>
                 <pre><code class="language-vue">&lt;template&gt;
@@ -216,7 +217,7 @@ function App() {
 
             <div class="framework-card">
                 <div class="framework-icon">
-                    <i class='bx bxl-angular'></i>
+                    <i data-lucide='code-xml'></i>
                 </div>
                 <h3>Angular</h3>
                 <pre><code class="language-typescript">// In angular.json
@@ -232,7 +233,7 @@ function App() {
 
         <div class="vp-custom-block info">
             <div class="vp-custom-block-title">ℹ️ Semantic Versioning</div>
-            <p>BRICKS follows semantic versioning (SemVer). We recommend using a specific version in production to avoid unexpected breaking changes.</p>
+            <p>DOI INC follows semantic versioning (SemVer). We recommend using a specific version in production to avoid unexpected breaking changes.</p>
         </div>
 
         <h3>Specify Version</h3>
@@ -260,15 +261,15 @@ function App() {
         <div class="next-steps-grid">
             <a href="pages/getting-started/configuration.html" class="next-step-card">
                 <div class="next-step-icon">
-                    <i class='bx bx-cog'></i>
+                    <i data-lucide='settings'></i>
                 </div>
                 <h3>Configuration</h3>
-                <p>Learn how to customize BRICKS to match your brand</p>
+                <p>Learn how to customize DOI INC to match your brand</p>
             </a>
 
             <a href="pages/design-tokens/colors.html" class="next-step-card">
                 <div class="next-step-icon">
-                    <i class='bx bx-palette'></i>
+                    <i data-lucide='palette'></i>
                 </div>
                 <h3>Design Tokens</h3>
                 <p>Explore colors, typography, and spacing systems</p>
@@ -276,7 +277,7 @@ function App() {
 
             <a href="pages/elements/button.html" class="next-step-card">
                 <div class="next-step-icon">
-                    <i class='bx bx-cube'></i>
+                    <i data-lucide='box'></i>
                 </div>
                 <h3>Components</h3>
                 <p>Browse our component library and examples</p>
@@ -289,15 +290,15 @@ function App() {
         <details class="faq-item">
             <summary>Styles are not applying correctly</summary>
             <div class="faq-content">
-                <p>Make sure BRICKS CSS is loaded before your custom styles. Check the browser DevTools to ensure the CSS file is loaded without errors.</p>
+                <p>Make sure DOI INC CSS is loaded before your custom styles. Check the browser DevTools to ensure the CSS file is loaded without errors.</p>
             </div>
         </details>
 
         <details class="faq-item">
             <summary>Icons are not showing</summary>
             <div class="faq-content">
-                <p>BRICKS uses Box Icons. Make sure to include the Box Icons CSS:</p>
-                <pre><code class="language-html">&lt;link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'&gt;</code></pre>
+                <p>DOI INC uses Box Icons. Make sure to include the Box Icons CSS:</p>
+                <pre><code class="language-html">&lt;script defer src="../assets/js/lucide-icons.js"&gt;&lt;/script&gt;</code></pre>
             </div>
         </details>
 

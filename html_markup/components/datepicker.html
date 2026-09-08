@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datepicker - BRICKS Design System</title>
+    <title>Datepicker - DOI INC Design System</title>
     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/template.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/lucide.css">
+    <script defer src="../assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="vp-doc">
@@ -62,29 +63,29 @@
                                     <div class="datepicker__input-wrapper">
                                         <input id="datepicker-basic-input" class="datepicker__input" type="text" readonly placeholder="YYYY-MM-DD" data-format="회의 날짜" aria-haspopup="dialog" aria-expanded="false" aria-controls="datepicker-basic-popover">
                                         <button type="button" class="datepicker__toggle" data-datepicker-toggle aria-label="달력 열기" aria-controls="datepicker-basic-popover">
-                                            <i class="bx bx-calendar" aria-hidden="true" style="font-size: 18px;"></i>
+                                            <i data-lucide="calendar" aria-hidden="true" style="font-size: 18px;"></i>
                                         </button>
                                     </div>
                                     <div class="datepicker__popover" id="datepicker-basic-popover" role="dialog" aria-modal="true" aria-hidden="true">
                                         <div class="datepicker__header">
                                             <button type="button" class="datepicker__nav" data-datepicker-prev aria-label="이전 달">
-                                                <i class="bx bx-chevron-left" aria-hidden="true" style="font-size: 16px;"></i>
+                                                <i data-lucide="chevron-left" aria-hidden="true" style="font-size: 16px;"></i>
                                             </button>
                                             <div class="datepicker__controls">
                                                 <label class="sr-only" for="datepicker-basic-month">월 선택</label>
                                                 <span class="datepicker__select-wrapper">
                                                     <select id="datepicker-basic-month" class="datepicker__select" data-datepicker-month aria-label="월 선택"></select>
-                                                    <i class="bx bx-chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i data-lucide="chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
                                                 </span>
                                                 <label class="sr-only" for="datepicker-basic-year">년도 선택</label>
                                                 <span class="datepicker__select-wrapper">
                                                     <select id="datepicker-basic-year" class="datepicker__select" data-datepicker-year aria-label="년도 선택"></select>
-                                                    <i class="bx bx-chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i data-lucide="chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
                                                 </span>
                                             </div>
                                             <div class="datepicker__current sr-only" id="datepicker-basic-label">2024년 10월</div>
                                             <button type="button" class="datepicker__nav" data-datepicker-next aria-label="다음 달">
-                                                <i class="bx bx-chevron-right" aria-hidden="true" style="font-size: 16px;"></i>
+                                                <i data-lucide="chevron-right" aria-hidden="true" style="font-size: 16px;"></i>
                                             </button>
                                         </div>
                                         <div class="datepicker__weekdays" aria-hidden="true">
@@ -135,30 +136,30 @@
                                         <input id="trip-start" class="datepicker__input" type="text" readonly placeholder="시작일" data-format="여행 시작일" aria-haspopup="dialog" aria-expanded="false" aria-controls="datepicker-range-popover">
                                         <input id="trip-end" class="datepicker__input" type="text" readonly placeholder="종료일" data-format="여행 종료일" aria-haspopup="dialog" aria-expanded="false" aria-controls="datepicker-range-popover">
                                         <button type="button" class="datepicker__toggle" data-datepicker-toggle aria-label="달력 열기" aria-controls="datepicker-range-popover">
-                                            <i class="bx bx-calendar" aria-hidden="true" style="font-size: 18px;"></i>
+                                            <i data-lucide="calendar" aria-hidden="true" style="font-size: 18px;"></i>
                                         </button>
                                     </div>
                                     <div class="datepicker__popover" id="datepicker-range-popover" role="dialog" aria-modal="true" aria-hidden="true">
                                         <div class="datepicker__header">
                                             <button type="button" class="datepicker__nav" data-datepicker-prev aria-label="이전 달">
-                                                <i class="bx bx-chevron-left" aria-hidden="true" style="font-size: 16px;"></i>
+                                                <i data-lucide="chevron-left" aria-hidden="true" style="font-size: 16px;"></i>
                                             </button>
                                             <div class="datepicker__controls">
                                                 <label class="sr-only" for="datepicker-range-month">월 선택</label>
                                                 <span class="datepicker__select-wrapper">
                                                     <select id="datepicker-range-month" class="datepicker__select" data-datepicker-month aria-label="월 선택"></select>
-                                                    <i class="bx bx-chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i data-lucide="chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
                                                 </span>
                                                 <label class="sr-only" for="datepicker-range-year">년도 선택</label>
                                                 <span class="datepicker__select-wrapper">
                                                     <select id="datepicker-range-year" class="datepicker__select" data-datepicker-year aria-label="년도 선택"></select>
-                                                    <i class="bx bx-chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i data-lucide="chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
                                                 </span>
                                             </div>
         
                                             <div class="datepicker__current sr-only" id="datepicker-range-label">2024년 10월</div>
                                             <button type="button" class="datepicker__nav" data-datepicker-next aria-label="다음 달">
-                                                <i class="bx bx-chevron-right" aria-hidden="true" style="font-size: 16px;"></i>
+                                                <i data-lucide="chevron-right" aria-hidden="true" style="font-size: 16px;"></i>
                                             </button>
                                         </div>
                                         <div class="datepicker__weekdays" aria-hidden="true">
@@ -189,23 +190,23 @@
                                     <div class="datepicker__popover" role="group" aria-hidden="false">
                                         <div class="datepicker__header">
                                             <button type="button" class="datepicker__nav" data-datepicker-prev aria-label="이전 달">
-                                                <i class="bx bx-chevron-left" aria-hidden="true" style="font-size: 16px;"></i>
+                                                <i data-lucide="chevron-left" aria-hidden="true" style="font-size: 16px;"></i>
                                             </button>
                                             <div class="datepicker__controls">
                                                 <label class="sr-only" for="datepicker-inline-month">월 선택</label>
                                                 <span class="datepicker__select-wrapper">
                                                     <select id="datepicker-inline-month" class="datepicker__select" data-datepicker-month aria-label="월 선택"></select>
-                                                    <i class="bx bx-chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i data-lucide="chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
                                                 </span>
                                                 <label class="sr-only" for="datepicker-inline-year">년도 선택</label>
                                                 <span class="datepicker__select-wrapper">
                                                     <select id="datepicker-inline-year" class="datepicker__select" data-datepicker-year aria-label="년도 선택"></select>
-                                                    <i class="bx bx-chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i data-lucide="chevron-down" aria-hidden="true" style="font-size: 14px;"></i>
                                                 </span>
                                             </div>
                                             <div class="datepicker__current sr-only" id="datepicker-inline-label">2024년 10월</div>
                                             <button type="button" class="datepicker__nav" data-datepicker-next aria-label="다음 달">
-                                                <i class="bx bx-chevron-right" aria-hidden="true" style="font-size: 16px;"></i>
+                                                <i data-lucide="chevron-right" aria-hidden="true" style="font-size: 16px;"></i>
                                             </button>
                                         </div>
                                         <div class="datepicker__weekdays" aria-hidden="true">

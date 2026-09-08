@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BRICKS Design System — an npm workspaces monorepo containing one package, `packages/bricks`
+DOI INC Design System — an npm workspaces monorepo containing one package, `packages/bricks`
 (`@bricks/core`): CSS design tokens, 25 React/TypeScript components, and Storybook. A separate
 `html_markup/` directory holds a standalone static HTML documentation site that uses the same CSS
 but no React.
@@ -92,8 +92,9 @@ interface and attaches `Header`, `Body`, `Footer`, `Title`, `Subtitle`, `Actions
 @bricks/core/styles/*          -> individual CSS files
 ```
 
-Icons use [boxicons](https://boxicons.com/) class names (`bx bx-*`); consumers must load
-`boxicons/css/boxicons.min.css` themselves.
+Icons use [Lucide](https://lucide.dev/) via the shared `Icon` component and `icon-registry.ts`.
+Use canonical Lucide names, e.g. `<Icon name="house" size={20} />`. No icon font stylesheet is required.
+Add new shared names using static named imports in the registry; avoid importing the entire Lucide catalog.
 
 ### TypeScript configs
 - `tsconfig.json` — strict; `outDir: core/scripts`, includes all of `src/**`. Used by `npm run watch`.

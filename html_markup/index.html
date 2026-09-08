@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRICKS Design System</title>
+    <title>DOI INC Design System</title>
     <link rel="stylesheet" href="assets/css/index.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         /* Frameset Layout */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,11 +78,11 @@
             transition: color 0.15s;
         }
         .frame-nav__group-header:hover { color: var(--ds-gray-900, #111); }
-        .frame-nav__group-header i {
+        .frame-nav__group-header .lucide {
             font-size: 16px;
             transition: transform 0.2s;
         }
-        .frame-nav__group.is-collapsed .frame-nav__group-header i {
+        .frame-nav__group.is-collapsed .frame-nav__group-header .lucide {
             transform: rotate(-90deg);
         }
         .frame-nav__group.is-collapsed .frame-nav__list { display: none; }
@@ -111,7 +110,7 @@
             color: #fff;
             font-weight: 500;
         }
-        .frame-nav__link i { font-size: 16px; }
+        .frame-nav__link .lucide { font-size: 16px; }
 
         /* Content Frame */
         .frame-content {
@@ -193,6 +192,8 @@
         .frame-sidebar::-webkit-scrollbar-thumb,
         .frame-nav::-webkit-scrollbar-thumb { background: var(--ds-gray-300, #d1d5db); border-radius: 2px; }
     </style>
+    <link rel="stylesheet" href="assets/css/lucide.css">
+    <script defer src="assets/js/lucide-icons.js"></script>
 </head>
 <body>
     <div class="frame-layout">
@@ -200,7 +201,7 @@
         <aside class="frame-sidebar">
             <div class="frame-sidebar__header">
                 <div class="frame-sidebar__logo">B</div>
-                <div class="frame-sidebar__title">BRICKS</div>
+                <div class="frame-sidebar__title">DOI INC</div>
                 <span class="frame-sidebar__version">v1.0</span>
             </div>
 
@@ -208,95 +209,95 @@
                 <!-- Getting Started -->
                 <div class="frame-nav__group is-collapsed">
                     <div class="frame-nav__group-header" onclick="toggleGroup(this)">
-                        Getting Started <i class='bx bx-chevron-down'></i>
+                        Getting Started <i data-lucide='chevron-down'></i>
                     </div>
                     <ul class="frame-nav__list">
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Introduction" onclick="loadPage('getting-started/introduction.html', this)"><i class='bx bx-book-open'></i> Introduction</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Installation" onclick="loadPage('getting-started/installation.html', this)"><i class='bx bx-download'></i> Installation</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Configuration" onclick="loadPage('getting-started/configuration.html', this)"><i class='bx bx-cog'></i> Configuration</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Template" onclick="loadPage('getting-started/template.html', this)"><i class='bx bx-file'></i> Template</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Introduction" onclick="loadPage('getting-started/introduction.html', this)"><i data-lucide='book-open'></i> Introduction</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Installation" onclick="loadPage('getting-started/installation.html', this)"><i data-lucide='download'></i> Installation</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Configuration" onclick="loadPage('getting-started/configuration.html', this)"><i data-lucide='settings'></i> Configuration</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Getting Started" data-page="Template" onclick="loadPage('getting-started/template.html', this)"><i data-lucide='file'></i> Template</a></li>
                     </ul>
                 </div>
 
                 <!-- Design Tokens -->
                 <div class="frame-nav__group is-collapsed">
                     <div class="frame-nav__group-header" onclick="toggleGroup(this)">
-                        Design Tokens <i class='bx bx-chevron-down'></i>
+                        Design Tokens <i data-lucide='chevron-down'></i>
                     </div>
                     <ul class="frame-nav__list">
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Colors" onclick="loadPage('design-tokens/colors.html', this)"><i class='bx bx-palette'></i> Colors</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Typography" onclick="loadPage('design-tokens/typography.html', this)"><i class='bx bx-font'></i> Typography</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Spacing" onclick="loadPage('design-tokens/spacing.html', this)"><i class='bx bx-expand'></i> Spacing</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Shadows" onclick="loadPage('design-tokens/shadows.html', this)"><i class='bx bx-sun'></i> Shadows</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Borders" onclick="loadPage('design-tokens/borders.html', this)"><i class='bx bx-border-all'></i> Borders</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Colors" onclick="loadPage('design-tokens/colors.html', this)"><i data-lucide='palette'></i> Colors</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Typography" onclick="loadPage('design-tokens/typography.html', this)"><i data-lucide='type'></i> Typography</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Spacing" onclick="loadPage('design-tokens/spacing.html', this)"><i data-lucide='expand'></i> Spacing</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Shadows" onclick="loadPage('design-tokens/shadows.html', this)"><i data-lucide='sun'></i> Shadows</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Design Tokens" data-page="Borders" onclick="loadPage('design-tokens/borders.html', this)"><i data-lucide='grid-2x2'></i> Borders</a></li>
                     </ul>
                 </div>
 
                 <!-- Elements -->
                 <div class="frame-nav__group is-collapsed">
                     <div class="frame-nav__group-header" onclick="toggleGroup(this)">
-                        Elements <i class='bx bx-chevron-down'></i>
+                        Elements <i data-lucide='chevron-down'></i>
                     </div>
                     <ul class="frame-nav__list">
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Button" onclick="loadPage('elements/button.html', this)"><i class='bx bx-pointer'></i> Button</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Input" onclick="loadPage('elements/input.html', this)"><i class='bx bx-text'></i> Input</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Select" onclick="loadPage('elements/select.html', this)"><i class='bx bx-list-ul'></i> Select</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Checkbox" onclick="loadPage('elements/checkbox.html', this)"><i class='bx bx-checkbox-checked'></i> Checkbox</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Radio" onclick="loadPage('elements/radio.html', this)"><i class='bx bx-radio-circle-marked'></i> Radio</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Toggle" onclick="loadPage('elements/toggle.html', this)"><i class='bx bx-toggle-right'></i> Toggle</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Badge" onclick="loadPage('elements/badge.html', this)"><i class='bx bx-badge'></i> Badge</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Avatar" onclick="loadPage('elements/avatar.html', this)"><i class='bx bx-user-circle'></i> Avatar</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Icon" onclick="loadPage('elements/icon.html', this)"><i class='bx bx-star'></i> Icon</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Progress" onclick="loadPage('elements/progress.html', this)"><i class='bx bx-loader-alt'></i> Progress</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Spinner" onclick="loadPage('elements/spinner.html', this)"><i class='bx bx-loader-circle'></i> Spinner</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Typography" onclick="loadPage('elements/typography.html', this)"><i class='bx bx-heading'></i> Typography</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Button" onclick="loadPage('elements/button.html', this)"><i data-lucide='mouse-pointer-2'></i> Button</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Input" onclick="loadPage('elements/input.html', this)"><i data-lucide='text-align-start'></i> Input</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Select" onclick="loadPage('elements/select.html', this)"><i data-lucide='list'></i> Select</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Checkbox" onclick="loadPage('elements/checkbox.html', this)"><i data-lucide='square-check'></i> Checkbox</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Radio" onclick="loadPage('elements/radio.html', this)"><i data-lucide='circle-dot'></i> Radio</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Toggle" onclick="loadPage('elements/toggle.html', this)"><i data-lucide='toggle-right'></i> Toggle</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Badge" onclick="loadPage('elements/badge.html', this)"><i data-lucide='badge'></i> Badge</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Avatar" onclick="loadPage('elements/avatar.html', this)"><i data-lucide='circle-user-round'></i> Avatar</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Icon" onclick="loadPage('elements/icon.html', this)"><i data-lucide='star'></i> Icon</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Progress" onclick="loadPage('elements/progress.html', this)"><i data-lucide='loader-circle'></i> Progress</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Spinner" onclick="loadPage('elements/spinner.html', this)"><i data-lucide='loader-circle'></i> Spinner</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Elements" data-page="Typography" onclick="loadPage('elements/typography.html', this)"><i data-lucide='heading'></i> Typography</a></li>
                     </ul>
                 </div>
 
                 <!-- Components -->
                 <div class="frame-nav__group">
                     <div class="frame-nav__group-header" onclick="toggleGroup(this)">
-                        Components <i class='bx bx-chevron-down'></i>
+                        Components <i data-lucide='chevron-down'></i>
                     </div>
                     <ul class="frame-nav__list">
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Accordion" onclick="loadPage('components/accordion.html', this)"><i class='bx bx-chevrons-down'></i> Accordion</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Alert" onclick="loadPage('components/alert.html', this)"><i class='bx bx-bell'></i> Alert</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Breadcrumb" onclick="loadPage('components/breadcrumb.html', this)"><i class='bx bx-right-arrow-alt'></i> Breadcrumb</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Card" onclick="loadPage('components/card.html', this)"><i class='bx bx-card'></i> Card</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Chart" onclick="loadPage('components/chart.html', this)"><i class='bx bx-bar-chart-alt-2'></i> Chart</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Datepicker" onclick="loadPage('components/datepicker.html', this)"><i class='bx bx-calendar'></i> Datepicker</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Dropdown" onclick="loadPage('components/dropdown.html', this)"><i class='bx bx-chevron-down-square'></i> Dropdown</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Modal" onclick="loadPage('components/modal.html', this)"><i class='bx bx-window-alt'></i> Modal</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Navbar" onclick="loadPage('components/navbar.html', this)"><i class='bx bx-menu'></i> Navbar</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Pagination" onclick="loadPage('components/pagination.html', this)"><i class='bx bx-dots-horizontal-rounded'></i> Pagination</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Table" onclick="loadPage('components/table.html', this)"><i class='bx bx-table'></i> Table</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Tabs" onclick="loadPage('components/tabs.html', this)"><i class='bx bx-tab'></i> Tabs</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Tooltip" onclick="loadPage('components/tooltip.html', this)"><i class='bx bx-info-circle'></i> Tooltip</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Accordion" onclick="loadPage('components/accordion.html', this)"><i data-lucide='chevrons-down'></i> Accordion</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Alert" onclick="loadPage('components/alert.html', this)"><i data-lucide='bell'></i> Alert</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Breadcrumb" onclick="loadPage('components/breadcrumb.html', this)"><i data-lucide='arrow-right'></i> Breadcrumb</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Card" onclick="loadPage('components/card.html', this)"><i data-lucide='contact'></i> Card</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Chart" onclick="loadPage('components/chart.html', this)"><i data-lucide='chart-column'></i> Chart</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Datepicker" onclick="loadPage('components/datepicker.html', this)"><i data-lucide='calendar'></i> Datepicker</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Dropdown" onclick="loadPage('components/dropdown.html', this)"><i data-lucide='square-chevron-down'></i> Dropdown</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Modal" onclick="loadPage('components/modal.html', this)"><i data-lucide='app-window'></i> Modal</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Navbar" onclick="loadPage('components/navbar.html', this)"><i data-lucide='menu'></i> Navbar</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Pagination" onclick="loadPage('components/pagination.html', this)"><i data-lucide='ellipsis'></i> Pagination</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Table" onclick="loadPage('components/table.html', this)"><i data-lucide='table'></i> Table</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Tabs" onclick="loadPage('components/tabs.html', this)"><i data-lucide='panel-top'></i> Tabs</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Components" data-page="Tooltip" onclick="loadPage('components/tooltip.html', this)"><i data-lucide='info'></i> Tooltip</a></li>
                     </ul>
                 </div>
 
                 <!-- Layout -->
                 <div class="frame-nav__group is-collapsed">
                     <div class="frame-nav__group-header" onclick="toggleGroup(this)">
-                        Layout <i class='bx bx-chevron-down'></i>
+                        Layout <i data-lucide='chevron-down'></i>
                     </div>
                     <ul class="frame-nav__list">
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Layout" data-page="Grid System" onclick="loadPage('layout/grid.html', this)"><i class='bx bx-grid-alt'></i> Grid System</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Layout" data-page="Container" onclick="loadPage('layout/container.html', this)"><i class='bx bx-box'></i> Container</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Layout" data-page="Flexbox" onclick="loadPage('layout/flexbox.html', this)"><i class='bx bx-columns'></i> Flexbox</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Layout" data-page="Grid System" onclick="loadPage('layout/grid.html', this)"><i data-lucide='layout-grid'></i> Grid System</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Layout" data-page="Container" onclick="loadPage('layout/container.html', this)"><i data-lucide='box'></i> Container</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Layout" data-page="Flexbox" onclick="loadPage('layout/flexbox.html', this)"><i data-lucide='columns-3'></i> Flexbox</a></li>
                     </ul>
                 </div>
 
                 <!-- Utilities -->
                 <div class="frame-nav__group is-collapsed">
                     <div class="frame-nav__group-header" onclick="toggleGroup(this)">
-                        Utilities <i class='bx bx-chevron-down'></i>
+                        Utilities <i data-lucide='chevron-down'></i>
                     </div>
                     <ul class="frame-nav__list">
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Display" onclick="loadPage('utilities/display.html', this)"><i class='bx bx-show'></i> Display</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Position" onclick="loadPage('utilities/position.html', this)"><i class='bx bx-move'></i> Position</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Overflow" onclick="loadPage('utilities/overflow.html', this)"><i class='bx bx-expand'></i> Overflow</a></li>
-                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Text" onclick="loadPage('utilities/text.html', this)"><i class='bx bx-text'></i> Text</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Display" onclick="loadPage('utilities/display.html', this)"><i data-lucide='eye'></i> Display</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Position" onclick="loadPage('utilities/position.html', this)"><i data-lucide='move'></i> Position</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Overflow" onclick="loadPage('utilities/overflow.html', this)"><i data-lucide='expand'></i> Overflow</a></li>
+                        <li class="frame-nav__item"><a class="frame-nav__link" data-category="Utilities" data-page="Text" onclick="loadPage('utilities/text.html', this)"><i data-lucide='text-align-start'></i> Text</a></li>
                     </ul>
                 </div>
             </nav>
@@ -309,14 +310,14 @@
         <main class="frame-content">
             <div class="frame-content__header">
                 <div class="frame-content__breadcrumb" id="breadcrumb">
-                    BRICKS &rsaquo; <span>Welcome</span>
+                    DOI INC &rsaquo; <span>Welcome</span>
                 </div>
                 <div class="frame-content__actions">
                     <button class="frame-content__btn" onclick="openInNewTab()">
-                        <i class='bx bx-link-external'></i> 새 탭에서 열기
+                        <i data-lucide='external-link'></i> 새 탭에서 열기
                     </button>
                     <button class="frame-content__btn" onclick="reloadFrame()">
-                        <i class='bx bx-refresh'></i> 새로고침
+                        <i data-lucide='refresh-cw'></i> 새로고침
                     </button>
                 </div>
             </div>
@@ -340,7 +341,7 @@
             const category = linkEl ? linkEl.dataset.category : '';
             const page = linkEl ? linkEl.dataset.page : '';
             document.getElementById('breadcrumb').innerHTML =
-                `BRICKS &rsaquo; ${category} &rsaquo; <span>${page}</span>`;
+                `DOI INC &rsaquo; ${category} &rsaquo; <span>${page}</span>`;
         }
 
         // Toggle nav group

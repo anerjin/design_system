@@ -1,432 +1,400 @@
-import React, { forwardRef, useState, useMemo, useRef, useEffect } from 'react';
 import { Icon } from './Icon';
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
+import { cx, type Size } from './utils';
 
-export interface TableColumn<T = any> {
-  /**
-   * Unique key for the column
-   */
+export type TableAlign = 'left' | 'center' | 'right';
+export type SortDirection = 'asc' | 'desc';
+
+const SIZE: Record<Size, string> = {
+  xs: 'table-xs',
+  sm: 'table-sm',
+  md: 'table-md',
+  lg: 'table-lg',
+  xl: 'table-xl',
+};
+
+const ALIGN: Record<TableAlign, string> = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right',
+};
+
+export interface TableColumn<T = Record<string, unknown>> {
+  /** 컬럼 식별자. 기본 렌더에서는 행 객체의 키로도 쓰인다 */
   key: string;
 
-  /**
-   * Column header label
-   */
+  /** 헤더에 표시할 내용 */
   label: React.ReactNode;
 
-  /**
-   * Width of the column
-   */
+  /** 컬럼 너비 */
   width?: string | number;
 
-  /**
-   * Alignment of column content
-   */
-  align?: 'left' | 'center' | 'right';
+  /** 셀 정렬 */
+  align?: TableAlign;
 
-  /**
-   * Whether the column is sortable
-   */
+  /** 정렬 가능 여부 */
   sortable?: boolean;
 
-  /**
-   * Custom render function for cell content
-   */
-  render?: (value: any, row: T, index: number) => React.ReactNode;
+  /** 셀 렌더 함수 */
+  render?: (value: unknown, row: T, index: number) => React.ReactNode;
 
-  /**
-   * Custom sort function
-   */
+  /** 커스텀 비교 함수 */
   sortFn?: (a: T, b: T) => number;
-
-  /**
-   * Whether the column is sticky
-   */
-  sticky?: boolean;
 }
 
-export interface TableProps<T = any> {
-  /**
-   * Table columns configuration
-   */
+export interface SortConfig {
+  key: string;
+  direction: SortDirection;
+}
+
+export interface TableProps<T = Record<string, unknown>> extends Omit<
+  React.TableHTMLAttributes<HTMLTableElement>,
+  'onSelect'
+> {
+  /** 컬럼 정의 */
   columns: TableColumn<T>[];
 
-  /**
-   * Table data
-   */
+  /** 표시할 데이터 */
   data: T[];
 
   /**
-   * Table variant
-   * @default 'default'
-   */
-  variant?: 'default' | 'bordered' | 'striped' | 'hover';
-
-  /**
-   * Table size
+   * 크기
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg';
+  size?: Size;
 
   /**
-   * Whether to show table header
+   * 줄무늬 배경
+   * @default false
+   */
+  zebra?: boolean;
+
+  /**
+   * 행에 마우스를 올리면 강조
+   * @default false
+   */
+  hoverable?: boolean;
+
+  /**
+   * 표 바깥 테두리
+   * @default false
+   */
+  bordered?: boolean;
+
+  /**
+   * 스크롤해도 헤더가 붙어 있게 한다
+   * @default false
+   */
+  pinRows?: boolean;
+
+  /**
+   * 가로 스크롤 시 첫 열을 고정한다
+   * @default false
+   */
+  pinCols?: boolean;
+
+  /**
+   * 헤더 표시
    * @default true
    */
   showHeader?: boolean;
 
   /**
-   * Whether rows are selectable
+   * 행 선택 체크박스 표시
    * @default false
    */
   selectable?: boolean;
 
-  /**
-   * Selected row keys
-   */
+  /** 선택된 행 키 목록 (제어) */
   selectedRowKeys?: string[];
 
-  /**
-   * Callback when selection changes
-   */
+  /** 선택이 바뀔 때 호출된다 */
   onSelectionChange?: (selectedKeys: string[]) => void;
 
   /**
-   * Row key extractor
+   * 행 키 추출 함수
    * @default (row, index) => index
    */
   rowKey?: (row: T, index: number) => string | number;
 
   /**
-   * Whether table is loading
+   * 로딩 상태
    * @default false
    */
   loading?: boolean;
 
-  /**
-   * Empty state message
-   * @default 'No data'
-   */
+  /** 데이터가 없을 때 표시할 내용 */
   emptyText?: React.ReactNode;
 
-  /**
-   * Sort configuration
-   */
-  sortConfig?: {
-    key: string;
-    direction: 'asc' | 'desc';
-  };
+  /** 정렬 상태 (제어) */
+  sortConfig?: SortConfig;
 
-  /**
-   * Callback when sort changes
-   */
-  onSortChange?: (key: string, direction: 'asc' | 'desc') => void;
+  /** 정렬이 바뀔 때 호출된다 */
+  onSortChange?: (key: string, direction: SortDirection) => void;
 
-  /**
-   * Whether table is responsive
-   * @default true
-   */
-  responsive?: boolean;
-
-  /**
-   * Fixed table layout
-   * @default false
-   */
-  fixed?: boolean;
-
-  /**
-   * Sticky header
-   * @default false
-   */
-  stickyHeader?: boolean;
-
-  /**
-   * Max height for scrollable table
-   */
+  /** 세로 스크롤을 위한 최대 높이 */
   maxHeight?: string | number;
 
-  /**
-   * Row click handler
-   */
+  /** 행 클릭 핸들러 */
   onRowClick?: (row: T, index: number) => void;
 
-  /**
-   * Custom row className
-   */
+  /** 행별 추가 클래스 */
   rowClassName?: (row: T, index: number) => string;
 
-  /**
-   * Footer content
-   */
+  /** 표 아래 요약 영역 */
   footer?: React.ReactNode;
-
-  /**
-   * Additional CSS class
-   */
-  className?: string;
 }
 
 /**
- * BRICKS Table Component
+ * DOI INC Table — daisyUI `table` 기반
+ *
+ * 정렬·선택 로직은 그대로 React가 담당하고, 외형만 daisyUI 클래스로 바뀌었다.
+ * `stickyHeader`는 daisyUI의 `table-pin-rows`에 대응하는 `pinRows`로 이름이 바뀌었다.
  *
  * @example
  * ```tsx
  * <Table
+ *   zebra
  *   columns={[
- *     { key: 'name', label: 'Name' },
- *     { key: 'age', label: 'Age', sortable: true }
+ *     { key: 'name', label: '이름' },
+ *     { key: 'age', label: '나이', align: 'right', sortable: true },
  *   ]}
- *   data={[
- *     { name: 'John', age: 30 },
- *     { name: 'Jane', age: 25 }
- *   ]}
+ *   data={rows}
  * />
  * ```
  */
-export const Table = forwardRef<HTMLTableElement, TableProps>(({
-  columns,
-  data,
-  variant = 'default',
-  size = 'md',
-  showHeader = true,
-  selectable = false,
-  selectedRowKeys = [],
-  onSelectionChange,
-  rowKey = (_, index) => index,
-  loading = false,
-  emptyText = 'No data',
-  sortConfig,
-  onSortChange,
-  responsive = true,
-  fixed = false,
-  stickyHeader = false,
-  maxHeight,
-  onRowClick,
-  rowClassName,
-  footer,
-  className,
-  ...props
-}, ref) => {
-  const [internalSelection, setInternalSelection] = useState<string[]>(selectedRowKeys);
-  const [internalSort, setInternalSort] = useState<{key: string; direction: 'asc' | 'desc'} | undefined>(sortConfig);
+function TableImpl<T>(
+  {
+    columns,
+    data,
+    size = 'md',
+    zebra = false,
+    hoverable = false,
+    bordered = false,
+    pinRows = false,
+    pinCols = false,
+    showHeader = true,
+    selectable = false,
+    selectedRowKeys,
+    onSelectionChange,
+    rowKey = (_, index) => index,
+    loading = false,
+    emptyText = '데이터가 없습니다',
+    sortConfig,
+    onSortChange,
+    maxHeight,
+    onRowClick,
+    rowClassName,
+    footer,
+    className,
+    ...props
+  }: TableProps<T>,
+  ref: React.ForwardedRef<HTMLTableElement>,
+) {
+  const isSelectionControlled = selectedRowKeys !== undefined;
+  const isSortControlled = sortConfig !== undefined;
+
+  const [innerSelection, setInnerSelection] = useState<string[]>([]);
+  const [innerSort, setInnerSort] = useState<SortConfig | undefined>(sortConfig);
   const selectAllRef = useRef<HTMLInputElement>(null);
 
-  const selection = onSelectionChange ? selectedRowKeys : internalSelection;
+  const selection = isSelectionControlled ? selectedRowKeys : innerSelection;
+  const sort = isSortControlled ? sortConfig : innerSort;
 
   const sortedData = useMemo(() => {
-    if (!internalSort) return data;
+    if (!sort) return data;
 
-    const column = columns.find(col => col.key === internalSort.key);
+    const column = columns.find((col) => col.key === sort.key);
     if (!column) return data;
 
     const sorted = [...data].sort((a, b) => {
-      if (column.sortFn) {
-        return column.sortFn(a, b);
-      }
+      if (column.sortFn) return column.sortFn(a, b);
 
-      const aVal = (a as any)[column.key];
-      const bVal = (b as any)[column.key];
+      const av = (a as Record<string, unknown>)[column.key];
+      const bv = (b as Record<string, unknown>)[column.key];
 
-      if (aVal === bVal) return 0;
-      if (aVal === null || aVal === undefined) return 1;
-      if (bVal === null || bVal === undefined) return -1;
-
-      if (typeof aVal === 'string') {
-        return aVal.localeCompare(bVal);
-      }
-
-      return aVal < bVal ? -1 : 1;
+      if (av === bv) return 0;
+      if (av === null || av === undefined) return 1;
+      if (bv === null || bv === undefined) return -1;
+      if (typeof av === 'string' && typeof bv === 'string') return av.localeCompare(bv);
+      return av < bv ? -1 : 1;
     });
 
-    return internalSort.direction === 'desc' ? sorted.reverse() : sorted;
-  }, [data, columns, internalSort]);
+    return sort.direction === 'desc' ? sorted.reverse() : sorted;
+  }, [data, columns, sort]);
 
-  const handleSort = (columnKey: string) => {
-    const column = columns.find(col => col.key === columnKey);
-    if (!column?.sortable) return;
-
-    const newDirection: 'asc' | 'desc' =
-      internalSort?.key === columnKey && internalSort.direction === 'asc'
-        ? 'desc'
-        : 'asc';
-
-    const newSortConfig = { key: columnKey, direction: newDirection };
-    setInternalSort(newSortConfig);
-    onSortChange?.(columnKey, newDirection);
-  };
-
-  const handleSelectAll = () => {
-    const allKeys = data.map((row, index) => String(rowKey(row, index)));
-    const newSelection = selection.length === allKeys.length ? [] : allKeys;
-
-    if (onSelectionChange) {
-      onSelectionChange(newSelection);
-    } else {
-      setInternalSelection(newSelection);
-    }
-  };
-
-  const handleSelectRow = (key: string) => {
-    const newSelection = selection.includes(key)
-      ? selection.filter(k => k !== key)
-      : [...selection, key];
-
-    if (onSelectionChange) {
-      onSelectionChange(newSelection);
-    } else {
-      setInternalSelection(newSelection);
-    }
-  };
-
-  const tableClasses = [
-    'table',
-    variant !== 'default' ? `table--${variant}` : '',
-    size !== 'md' ? `table--${size}` : '',
-    responsive ? 'table--responsive' : '',
-    fixed ? 'table--fixed' : '',
-    stickyHeader ? 'table--sticky-header' : '',
-    loading ? 'table--loading' : '',
-    className
-  ].filter(Boolean).join(' ');
-
-  const containerStyle: React.CSSProperties = maxHeight ? {
-    maxHeight: typeof maxHeight === 'number' ? `${maxHeight}px` : maxHeight,
-    overflowY: 'auto'
-  } : {};
-
+  const allKeys = data.map((row, index) => String(rowKey(row, index)));
   const allSelected = data.length > 0 && selection.length === data.length;
   const someSelected = selection.length > 0 && selection.length < data.length;
 
-  // Set indeterminate state for checkbox
   useEffect(() => {
-    if (selectAllRef.current) {
-      selectAllRef.current.indeterminate = someSelected;
-    }
+    if (selectAllRef.current) selectAllRef.current.indeterminate = someSelected;
   }, [someSelected]);
 
+  const applySelection = (next: string[]) => {
+    if (!isSelectionControlled) setInnerSelection(next);
+    onSelectionChange?.(next);
+  };
+
+  const toggleSort = (key: string) => {
+    const column = columns.find((col) => col.key === key);
+    if (!column?.sortable) return;
+
+    const direction: SortDirection = sort?.key === key && sort.direction === 'asc' ? 'desc' : 'asc';
+
+    if (!isSortControlled) setInnerSort({ key, direction });
+    onSortChange?.(key, direction);
+  };
+
+  const colSpan = columns.length + (selectable ? 1 : 0);
+
   return (
-    <div className="table-container" style={containerStyle}>
-      <table ref={ref} className={tableClasses} {...props}>
+    <div
+      className={cx('overflow-x-auto', bordered && 'rounded-box border border-base-content/10')}
+      style={maxHeight ? { maxHeight, overflowY: 'auto' } : undefined}
+    >
+      <table
+        ref={ref}
+        className={cx(
+          'table',
+          SIZE[size],
+          zebra && 'table-zebra',
+          pinRows && 'table-pin-rows',
+          pinCols && 'table-pin-cols',
+          className,
+        )}
+        {...props}
+      >
         {showHeader && (
-          <thead className="table__head">
-            <tr className="table__row">
+          <thead>
+            <tr>
               {selectable && (
-                <th className="table__header table__header--checkbox">
+                <th className="w-px">
                   <input
                     ref={selectAllRef}
                     type="checkbox"
-                    className="table__checkbox"
+                    className="checkbox checkbox-sm"
                     checked={allSelected}
-                    onChange={handleSelectAll}
-                    aria-label="Select all rows"
+                    onChange={() => applySelection(allSelected ? [] : allKeys)}
+                    aria-label="전체 선택"
                   />
                 </th>
               )}
-              {columns.map(column => (
+              {columns.map((column) => (
                 <th
                   key={column.key}
-                  className={[
-                    'table__header',
-                    column.align ? `table__header--${column.align}` : '',
-                    column.sortable ? 'table__header--sortable' : '',
-                    column.sticky ? 'table__header--sticky' : ''
-                  ].filter(Boolean).join(' ')}
                   style={{ width: column.width }}
-                  onClick={() => column.sortable && handleSort(column.key)}
+                  className={cx(
+                    column.align && ALIGN[column.align],
+                    column.sortable && 'cursor-pointer select-none',
+                  )}
+                  aria-sort={
+                    sort?.key === column.key
+                      ? sort.direction === 'asc'
+                        ? 'ascending'
+                        : 'descending'
+                      : undefined
+                  }
+                  onClick={() => toggleSort(column.key)}
                 >
-                  <div className="table__header-content">
-                    <span>{column.label}</span>
-                    {column.sortable && (
-                      <span className="table__sort-icon">
-                        {internalSort?.key === column.key ? (
-                          <Icon name={internalSort.direction === 'asc' ? 'chevron-up' : 'chevron-down'} size={16} />
-                        ) : (
-                          <Icon name="sort" size={16} />
-                        )}
-                      </span>
-                    )}
-                  </div>
+                  <span className="inline-flex items-center gap-1">
+                    {column.label}
+                    {column.sortable &&
+                      (sort?.key === column.key ? (
+                        <Icon name={sort.direction === 'asc' ? 'chevron-up' : 'chevron-down'} size="1em" />
+                      ) : (
+                        <Icon name="arrow-up-down" size="1em" className="opacity-40" />
+                      ))}
+                  </span>
                 </th>
               ))}
             </tr>
           </thead>
         )}
 
-        <tbody className="table__body">
-          {loading ? (
+        <tbody>
+          {loading && (
             <tr>
-              <td colSpan={columns.length + (selectable ? 1 : 0)} className="table__cell table__cell--loading">
-                <div className="table__loading">
-                  <Icon name="loader-alt" className="bx-spin" /> Loading...
-                </div>
+              <td colSpan={colSpan} className="text-center">
+                <span className="loading loading-spinner loading-md" />
               </td>
             </tr>
-          ) : sortedData.length === 0 ? (
+          )}
+
+          {!loading && sortedData.length === 0 && (
             <tr>
-              <td colSpan={columns.length + (selectable ? 1 : 0)} className="table__cell table__cell--empty">
+              <td colSpan={colSpan} className="text-center opacity-60">
                 {emptyText}
               </td>
             </tr>
-          ) : (
-            sortedData.map((row, rowIndex) => {
-              const key = String(rowKey(row, rowIndex));
+          )}
+
+          {!loading &&
+            sortedData.map((row, index) => {
+              const key = String(rowKey(row, index));
               const isSelected = selection.includes(key);
-              const customClassName = rowClassName?.(row, rowIndex);
 
               return (
                 <tr
                   key={key}
-                  className={[
-                    'table__row',
-                    isSelected ? 'table__row--selected' : '',
-                    onRowClick ? 'table__row--clickable' : '',
-                    customClassName
-                  ].filter(Boolean).join(' ')}
-                  onClick={() => onRowClick?.(row, rowIndex)}
+                  className={cx(
+                    hoverable && 'hover:bg-base-300',
+                    isSelected && 'bg-base-200',
+                    onRowClick && 'cursor-pointer',
+                    rowClassName?.(row, index),
+                  )}
+                  onClick={() => onRowClick?.(row, index)}
                 >
                   {selectable && (
-                    <td className="table__cell table__cell--checkbox">
+                    <td className="w-px">
                       <input
                         type="checkbox"
-                        className="table__checkbox"
+                        className="checkbox checkbox-sm"
                         checked={isSelected}
-                        onChange={() => handleSelectRow(key)}
-                        onClick={(e) => e.stopPropagation()}
-                        aria-label={`Select row ${rowIndex + 1}`}
+                        onChange={() =>
+                          applySelection(
+                            isSelected ? selection.filter((k) => k !== key) : [...selection, key],
+                          )
+                        }
+                        onClick={(event) => event.stopPropagation()}
+                        aria-label={`${index + 1}행 선택`}
                       />
                     </td>
                   )}
-                  {columns.map(column => (
-                    <td
-                      key={column.key}
-                      className={[
-                        'table__cell',
-                        column.align ? `table__cell--${column.align}` : '',
-                        column.sticky ? 'table__cell--sticky' : ''
-                      ].filter(Boolean).join(' ')}
-                    >
+                  {columns.map((column) => (
+                    <td key={column.key} className={cx(column.align && ALIGN[column.align])}>
                       {column.render
-                        ? column.render((row as any)[column.key], row, rowIndex)
-                        : (row as any)[column.key]}
+                        ? column.render((row as Record<string, unknown>)[column.key], row, index)
+                        : String((row as Record<string, unknown>)[column.key] ?? '')}
                     </td>
                   ))}
                 </tr>
               );
-            })
-          )}
+            })}
         </tbody>
 
         {footer && (
-          <tfoot className="table__foot">
+          <tfoot>
             <tr>
-              <td colSpan={columns.length + (selectable ? 1 : 0)} className="table__footer">
-                {footer}
-              </td>
+              <td colSpan={colSpan}>{footer}</td>
             </tr>
           </tfoot>
         )}
       </table>
     </div>
   );
-});
+}
 
-Table.displayName = 'Table';
+/**
+ * `forwardRef`는 제네릭을 잃어버려 `TableProps<unknown>`으로 굳어버린다.
+ * 그래서 감싼 뒤 원래의 제네릭 시그니처로 되돌린다 — 이렇게 해야 소비자가
+ * `Table<Member>`처럼 행 타입을 유지할 수 있고, 스토리에서 캐스팅이 필요 없다.
+ */
+const TableWithRef = forwardRef(TableImpl);
+TableWithRef.displayName = 'Table';
+
+export const Table = TableWithRef as <T = Record<string, unknown>>(
+  props: TableProps<T> & React.RefAttributes<HTMLTableElement>,
+) => React.ReactElement | null;
 
 export default Table;
