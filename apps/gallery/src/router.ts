@@ -2,7 +2,7 @@
 
 export type Route =
   | { name: 'home' }
-  | { name: 'layout' }
+  | { name: 'layout'; id?: string }
   | { name: 'catalog' }
   | { name: 'docs' }
   | { name: 'detail'; id: string };
@@ -12,7 +12,10 @@ function parse(hash: string): Route {
   if (match) return { name: 'detail', id: match[1] };
   if (path === '/components') return { name: 'catalog' };
   if (path === '/docs') return { name: 'docs' };
-  if (path === '/layout') return { name: 'layout' };
+  if (path === '/layout') {
+    const query = new URLSearchParams(hash.split('?')[1]);
+    return { name: 'layout', id: query.get('layout') ?? undefined };
+  }
   if (path === '/modules') return { name: 'home' };
   return { name: 'home' };
 }

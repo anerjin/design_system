@@ -2,6 +2,7 @@
 import { fileURLToPath } from 'node:url';
 import { storyManifest } from '../plugins/story-manifest.ts';
 import { moduleCatalog } from '../src/modules/catalog.ts';
+import { layoutCatalog } from '../src/layouts/catalog.ts';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const plugin = storyManifest(path.join(root, 'packages/bricks/src/react'));
 const source = plugin.load.call({ addWatchFile() {} }, '\0virtual:doi-stories');
@@ -25,6 +26,16 @@ entries.push(
   })),
 );
 const requested = process.argv[2]?.trim().toUpperCase();
+entries.push(
+  ...layoutCatalog.map((layout) => ({
+    pageId: layout.pageId,
+    name: layout.title,
+    url: 'http://localhost:5180/#/layout?layout=' + layout.pageId,
+    route: '#/layout?layout=' + layout.pageId,
+    component: 'apps/gallery/src/layouts/' + layout.source,
+    page: 'apps/gallery/src/pages/Layout.tsx',
+  })),
+);
 const matches = requested === '--LIST' ? entries : entries.filter((entry) => entry.pageId === requested);
 if (!matches.length) {
   console.error('페이지 ID를 찾을 수 없습니다. 예: DOI-C-BUTTON 또는 DOI-M-TEAM');

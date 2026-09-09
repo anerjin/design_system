@@ -1,6 +1,6 @@
 ﻿import { useEffect, useState, type ComponentType } from 'react';
 import { Badge, Button, Icon, Input, Link } from '@bricks/core';
-import { moduleCatalog, moduleCategories } from '../modules/catalog';
+import { moduleCatalog } from '../modules/catalog';
 import { ModuleFrame } from '../modules/ModuleFrame';
 import { AnalyticsModule } from '../modules/AnalyticsModule';
 import { ProjectsModule } from '../modules/ProjectsModule';
@@ -35,8 +35,13 @@ const components: Record<string, ComponentType> = {
   activity: ActivityModule,
   cart: CartModule,
 };
-export function Modules() {
-  const [category, setCategory] = useState('전체');
+export function Modules({
+  category,
+  onCategoryChange,
+}: {
+  category: string;
+  onCategoryChange: (category: string) => void;
+}) {
   const [query, setQuery] = useState('');
   useEffect(() => {
     let frame = 0;
@@ -44,7 +49,7 @@ export function Modules() {
       const requested = new URLSearchParams(window.location.hash.split('?')[1]).get('module');
       const entry = moduleCatalog.find((module) => module.id === requested || module.pageId === requested);
       if (!entry) return;
-      setCategory('전체');
+      onCategoryChange('전체');
       setQuery('');
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() =>
@@ -57,7 +62,7 @@ export function Modules() {
       cancelAnimationFrame(frame);
       window.removeEventListener('hashchange', revealModule);
     };
-  }, []);
+  }, [onCategoryChange]);
   const visible = moduleCatalog.filter(
     (module) =>
       (category === '전체' || module.category === category) &&
@@ -77,20 +82,7 @@ export function Modules() {
       </header>
       <section aria-label="모듈 라이브러리">
         <div className="modules-toolbar">
-          <div className="module-filter-buttons" role="group" aria-label="모듈 분류">
-            {moduleCategories.map((item) => (
-              <Button
-                key={item}
-                size="sm"
-                color={category === item ? 'primary' : undefined}
-                variant={category === item ? 'solid' : 'ghost'}
-                aria-pressed={category === item}
-                onClick={() => setCategory(item)}
-              >
-                {item}
-              </Button>
-            ))}
-          </div>
+          <h2 className="module-category-heading">{category === '전체' ? '전체 모듈' : category}</h2>
           <div className="module-search">
             <Input
               size="sm"
@@ -131,7 +123,7 @@ export function Modules() {
               size="sm"
               onClick={() => {
                 setQuery('');
-                setCategory('전체');
+                onCategoryChange('전체');
               }}
             >
               전체 모듈 보기

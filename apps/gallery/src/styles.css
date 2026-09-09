@@ -341,7 +341,8 @@ kbd {
   padding: 0 10px;
   margin-bottom: 8px;
 }
-.sidebar-group > a {
+.sidebar-group > a,
+.sidebar-group > button {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -351,11 +352,21 @@ kbd {
   margin-block: 2px;
   min-height: 30px;
 }
-.sidebar-group > a:hover {
+.sidebar-group > button {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+.sidebar-group > a:hover,
+.sidebar-group > button:hover {
   background: var(--doc-subtle);
   color: var(--doc-fg);
 }
-.sidebar-group > a[aria-current='page'] {
+.sidebar-group > a[aria-current='page'],
+.sidebar-group > button[aria-pressed='true'] {
   color: var(--doc-fg);
   background: var(--doc-hover);
   font-weight: 500;

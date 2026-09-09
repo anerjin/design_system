@@ -1,10 +1,10 @@
 ﻿/* Module composition only: component appearance comes from @bricks/core. */
 .module-library {
   padding-bottom: 32px;
+  container-type: inline-size;
 }
 .modules-toolbar,
 .module-search,
-.module-filter-buttons,
 .module-card-heading,
 .module-row,
 .module-copy-row,
@@ -18,9 +18,10 @@
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
-.module-filter-buttons {
-  flex-wrap: wrap;
-  gap: 6px;
+.module-category-heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
 }
 .module-search {
   width: min(100%, 340px);
@@ -325,7 +326,7 @@
   align-items: center;
   gap: 8px;
 }
-@media (min-width: 800px) {
+@container (min-width: 744px) {
   .module-slot-wide {
     grid-column: span 2;
   }

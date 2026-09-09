@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Glyph } from './Glyph';
 
-export function PageIdentity({ pageId }: { pageId: string }) {
+export function PageIdentity({ pageId, compact = false }: { pageId: string; compact?: boolean }) {
   const [status, setStatus] = useState<'idle' | 'copied' | 'error'>('idle');
   const field = useRef<HTMLInputElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout>>();
@@ -21,9 +21,11 @@ export function PageIdentity({ pageId }: { pageId: string }) {
   }
 
   return (
-    <div className="page-identity">
+    <div className={'page-identity' + (compact ? ' page-identity-compact' : '')}>
       <div className="page-identity-control">
-        <label htmlFor="current-page-id">PAGE ID</label>
+        <label htmlFor="current-page-id" className={compact ? 'sr-only' : undefined}>
+          PAGE ID
+        </label>
         <input
           ref={field}
           id="current-page-id"
@@ -35,10 +37,10 @@ export function PageIdentity({ pageId }: { pageId: string }) {
         />
         <button type="button" className="page-id-copy" onClick={copy} aria-label="페이지 ID 복사">
           <Glyph name={status === 'copied' ? 'check' : 'copy'} size={15} />
-          {status === 'copied' ? '복사됨' : '복사'}
+          {status === 'copied' ? '복사됨' : compact ? 'ID 복사' : '복사'}
         </button>
       </div>
-      <span className="page-id-help" role="status" aria-live="polite">
+      <span className={compact ? 'sr-only' : 'page-id-help'} role="status" aria-live="polite">
         {status === 'copied'
           ? '복사했습니다. 이 ID로 페이지를 정확히 전달할 수 있어요.'
           : status === 'error'

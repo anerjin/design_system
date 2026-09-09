@@ -9,17 +9,18 @@ import { Layout } from './pages/Layout';
 import { Guide } from './pages/Guide';
 import { catalogHref, docsHref, homeHref, modulesHref, layoutHref, useRoute } from './router';
 import { findEntry, registry } from './registry';
+import { findLayout } from './layouts/catalog';
 
 export function App() {
   const route = useRoute();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [moduleCategory, setModuleCategory] = useState('전체');
   const [dark, setDark] = useState(() => document.documentElement.dataset.theme === 'bricks-dark');
   const menu = useRef<HTMLDialogElement>(null);
   const entry = route.name === 'detail' ? findEntry(route.id) : undefined;
   const isHome = route.name === 'home';
   const isLayout = route.name === 'layout';
-  const isFullWidth = isHome || isLayout;
-  const isFluidDocs = route.name === 'catalog' || route.name === 'detail' || route.name === 'docs';
+  const layout = route.name === 'layout' ? findLayout(route.id) : undefined;
   useEffect(() => {
     const keydown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
@@ -41,10 +42,10 @@ export function App() {
   useEffect(() => {
     document.title =
       (entry?.name ??
-        (isHome ? '모듈' : isLayout ? '레이아웃' : route.name === 'docs' ? '시작하기' : '컴포넌트')) +
+        (isHome ? '모듈' : layout ? layout.title : route.name === 'docs' ? '시작하기' : '컴포넌트')) +
       ' — doi ui/ux';
     menu.current?.close();
-  }, [route.name, entry, isHome, isLayout]);
+  }, [route.name, entry, isHome, layout]);
   return (
     <>
       <a
@@ -108,23 +109,23 @@ export function App() {
           </div>
         </div>
       </header>
-      <div
-        className={
-          isFullWidth
-            ? 'site-container page-fluid'
-            : 'site-container docs-layout' + (isFluidDocs ? ' docs-fluid' : '')
-        }
-      >
-        {!isFullWidth && (
-          <aside className="desktop-sidebar">
-            <Sidebar entries={registry} activeId={entry?.id} docs={route.name === 'docs'} />
-          </aside>
-        )}
-        <main id="main-content" tabIndex={-1} className={isFullWidth ? 'module-main' : 'docs-main'}>
+      <div className={'site-container docs-layout docs-fluid' + (isLayout ? ' layout-workspace' : '')}>
+        <aside className="desktop-sidebar">
+          <Sidebar
+            entries={registry}
+            activeId={entry?.id}
+            docs={route.name === 'docs'}
+            page={isHome ? 'home' : isLayout ? 'layout' : undefined}
+            activeLayoutId={route.name === 'layout' && route.id ? layout?.pageId : undefined}
+            moduleCategory={moduleCategory}
+            onModuleCategoryChange={setModuleCategory}
+          />
+        </aside>
+        <main id="main-content" tabIndex={-1} className={isLayout || isHome ? 'module-main' : 'docs-main'}>
           {isHome ? (
-            <Modules />
+            <Modules category={moduleCategory} onCategoryChange={setModuleCategory} />
           ) : isLayout ? (
-            <Layout />
+            <Layout layoutId={layout?.pageId} />
           ) : route.name === 'docs' ? (
             <Guide />
           ) : route.name === 'catalog' ? (
@@ -142,7 +143,7 @@ export function App() {
           )}
         </main>
       </div>
-      <footer className={'site-footer' + (isFullWidth || isFluidDocs ? ' is-fluid' : '')}>
+      <footer className="site-footer is-fluid">
         <div>
           <a href={homeHref} className="footer-brand">
             <BrandMark />
@@ -175,6 +176,9 @@ export function App() {
           activeId={entry?.id}
           docs={route.name === 'docs'}
           page={isHome ? 'home' : isLayout ? 'layout' : undefined}
+          activeLayoutId={route.name === 'layout' && route.id ? layout?.pageId : undefined}
+          moduleCategory={moduleCategory}
+          onModuleCategoryChange={setModuleCategory}
           onNavigate={() => menu.current?.close()}
         />
       </dialog>
