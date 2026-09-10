@@ -4,7 +4,75 @@
 형식은 [Keep a Changelog](https://keepachangelog.com/ko/1.0.0/)를 기반으로 하며,
 이 프로젝트는 [Semantic Versioning](https://semver.org/spec/v2.0.0.html)을 준수합니다.
 
-## [Unreleased]
+## [2.0.0] — 2026-09-08
+
+BEM + 자체 CSS 토큰 체계를 버리고 **Tailwind CSS 4 + daisyUI 5** 위에 다시 만들었습니다.
+(`8bb9a80`, `99d7ac2`)
+
+### 💥 호환성이 깨지는 변경
+
+- **CSS 아키텍처 교체** — `core/styles/`(base → tokens → layout → atoms → molecules →
+  utilities)와 BEM 클래스(`.btn--primary`)를 폐기했습니다. 컴포넌트 클래스는 이제
+  daisyUI가 제공하고(`.btn`, `.btn-primary`), 이 저장소의 CSS는 그 위의 보정입니다.
+- **토큰 이름 교체** — `--ds-*`(`--ds-prime`, `--ds-gray-500`, `--ds-space-4`)를
+  daisyUI 시멘틱 토큰(`--color-primary`, `--color-base-100/200/300`,
+  `--color-base-content`)으로 바꿨습니다.
+- **테마 이름 변경** — `[data-theme="dark"]` → `bricks-light`(기본) / `bricks-dark`.
+  daisyUI 내장 테마 35종도 함께 사용할 수 있습니다.
+- **패키지 exports 변경**
+
+  | 이전 | 현재 |
+  |------|------|
+  | `@bricks/core/styles` → `core/styles/bundle.css` | `dist/bricks.css` |
+  | `@bricks/core/styles/bundle` | `@bricks/core/styles` |
+  | `@bricks/core/styles/bundle.min` | `@bricks/core/styles/min` |
+  | `@bricks/core/styles/*` (개별 CSS) | 제거 |
+  | — | `@bricks/core/styles/tokens` → `dist/bricks-tokens.css` (신규) |
+
+- **`src/components/`(바닐라 TS 클래스) 제거.**
+- **Button props 변경** — `variant="primary"`가 색을 뜻하던 것을 `color`/`variant`로
+  나눴습니다. `color`는 시멘틱 색, `variant`는 `solid | surface | outline | dash |
+  soft | ghost | link`입니다.
+
+### 🚀 추가됨
+
+- **`apps/gallery`** — 카탈로그·문서·반응형 미리보기 Vite 앱(포트 5180).
+  해시 라우팅, `Ctrl`/`Cmd`+`K` 검색, PAGE ID로 소스를 찾는
+  `scripts/locate-page.mjs`, 스토리 메타데이터를 AST로 추출하는 `story-manifest` 플러그인.
+- **컴포넌트 확대** — 25종 → **모듈 62개**. Carousel, ChatBubble, Collapse, ContextMenu,
+  Countdown, Diff, Dock, Drawer, Fab, Fieldset, FileInput, Filter, Hero, Indicator, Join,
+  Kbd, List, Mask, Mockup, Range, Rating, Resizable, Stack, Status, Steps, Swap,
+  ThemeController, Timeline, Toast, Validator 등.
+- **접근성** — `Modal`을 네이티브 `<dialog>` + `showModal()` 기반으로 다시 만들어
+  포커스 트랩·Escape를 브라우저에 맡깁니다. `ContextMenu`·`Navbar`는 `@base-ui/react`를 씁니다.
+- **`dist/bricks-tokens.css`** — 이미 Tailwind + daisyUI를 쓰는 프로젝트가 토큰만
+  가져갈 수 있는 산출물.
+- **빌드 안전장치** — `scripts/build-css.js`가 대표 클래스를 검사해, 컴포넌트가 클래스를
+  템플릿 리터럴로 조립해 산출 CSS에서 빠지면 빌드를 실패시킵니다.
+- **`src/next/`** — Next.js 서버/클라이언트 컴포넌트 예제.
+- CI에 갤러리 메타데이터 추출 테스트와 갤러리 빌드를 추가했습니다.
+
+### 🔄 변경됨
+
+- 워크스페이스에 `apps/*` 추가.
+- Storybook 10, Vite 5.4, TypeScript 5.7, Node 22 기준.
+- React는 peer로 18 또는 19를 허용합니다.
+
+### 📝 문서
+
+- README·CLAUDE.md·USAGE.md를 v2 기준으로 다시 썼습니다. v2 코드가 들어온 뒤에도
+  이 문서들이 v1(BEM·`--ds-*`·25종)을 설명하고 있었습니다.
+
+### ⚠️ 남은 것
+
+- **`html_markup/`은 v1 구조에 묶여 있습니다.** `assets/styles/`의 BEM 번들을 참조하며
+  현재 패키지와 연결돼 있지 않습니다. 문서는 `apps/gallery`가 대신합니다.
+- **컴포넌트 테스트가 없습니다.** `packages/bricks/tests/`는 비어 있고, 유일한 테스트는
+  `apps/gallery/plugins/story-manifest.test.mjs`입니다.
+
+## [1.x] — 모노레포 전환 (v1, 별도 릴리스 없음)
+
+> 아래는 v1 시절의 기록입니다. 현재 구조는 위 2.0.0 항목을 보세요.
 
 ### 🚀 추가됨
 - TypeScript 지원 및 React 컴포넌트 라이브러리 (`@bricks/core`, 25종)

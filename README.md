@@ -1,69 +1,65 @@
 # DOI INC Design System
 
-> **현재 갤러리 개발 안내**: DOI 갤러리는 `apps/gallery`에 있습니다.
-> `npm run gallery`로 실행하고 http://localhost:5180/ 에서 확인하세요.
-> 모듈, 컴포넌트 검색, 사용 가이드와 반응형 미리보기를 제공합니다.
-> 현재 공유 스타일은 `packages/bricks/src/styles`의 `bricks-light` / `bricks-dark`
-> 테마와 18px 기본 글자 크기를 사용합니다.
-> 페이지 ID(`DOI-C-BUTTON` 등)를 전달받으면
-> `node apps/gallery/scripts/locate-page.mjs DOI-C-BUTTON`으로 화면과 소스 위치를 찾을 수 있습니다.
-> 구조·실행·검증에 관한 최신 내용은 [갤러리 안내](apps/gallery/README.md)를 참고하세요.
-> 아래의 `core/styles`, 25개 컴포넌트, BEM 관련 설명은 이전 구조에 대한 기록입니다.
+**Tailwind CSS 4 + daisyUI 5** 위에 올린 React 디자인 시스템입니다.
+컴포넌트 62종과 공유 토큰을 제공하고, `[data-theme]` 속성으로 테마를 전환합니다.
 
-텍스트 기반의 미니멀한 디자인 시스템입니다. CSS 디자인 토큰과 React 컴포넌트를 함께 제공하며,
-다크/라이트 테마를 지원합니다.
-
-- **React 컴포넌트 25종** — `forwardRef` + TypeScript 인터페이스
-- **CSS 디자인 토큰** — `--ds-*` 접두사, `[data-theme="dark"]` 로 다크모드 전환
-- **BEM 기반 CSS** — React 없이 순수 HTML/CSS 로도 사용 가능
-- **Storybook** — 405개 스토리로 모든 컴포넌트와 변형을 문서화
+- **React 컴포넌트 62종** — `forwardRef` + 내보낸 props 인터페이스
+- **daisyUI 테마** — `bricks-light`(기본) / `bricks-dark` + daisyUI 내장 35종
+- **접근성** — `Modal`은 네이티브 `<dialog>`, `ContextMenu`·`Navbar`는 `@base-ui/react`
+- **아이콘** — [Lucide](https://lucide.dev/) (`<Icon name="house" size={20} />`)
+- **갤러리** — 카탈로그·문서·반응형 미리보기를 갖춘 Vite 앱
 
 ---
 
 ## 저장소 구조
 
 ```
-private_project_design_system/
-├── packages/
-│   └── bricks/              # @bricks/core — 디자인 시스템 패키지
-│       ├── core/styles/     # CSS (토큰 → atoms → molecules → utilities)
-│       ├── src/react/       # React 컴포넌트 + Storybook 스토리
-│       ├── src/components/  # 프레임워크 비의존 바닐라 TS 컴포넌트
-│       ├── src/stories/     # Foundation(색상·간격·그림자·테두리) 스토리
-│       ├── scripts/         # CSS/JS 번들 빌드 스크립트
-│       └── .storybook/      # Storybook 설정
-├── html_markup/             # 정적 HTML 문서 사이트 (React 불필요)
-└── .github/workflows/       # GitHub Pages 배포
+bricks-monorepo/
+├── packages/bricks/        # @bricks/core — 디자인 시스템 패키지
+│   ├── src/react/          #   컴포넌트 + Storybook 스토리 (공개 API는 react/index.ts)
+│   ├── src/styles/         #   Tailwind/daisyUI 진입점과 공유 토큰
+│   ├── src/next/           #   Next.js 서버/클라이언트 컴포넌트 예제
+│   ├── scripts/            #   CSS·JS 번들 빌드
+│   └── .storybook/
+├── apps/gallery/           # 카탈로그·문서 사이트 (Vite, 포트 5180)
+├── html_markup/            # v1 시절 정적 문서 사이트 — 레거시, 아래 참고
+└── .github/workflows/ci.yml
 ```
 
-npm workspaces 모노레포이며, 현재 워크스페이스는 `packages/bricks` 하나입니다.
+npm workspaces 모노레포입니다. 워크스페이스는 `packages/*`와 `apps/*`입니다.
 
 ---
 
 ## 빠른 시작
 
-**요구 사항**: Node.js 20 이상
+**요구 사항**: Node.js 22.18 이상 (CI는 Node 22)
 
 ```bash
-git clone https://github.com/anerjin/private_project_design_system.git
-cd private_project_design_system
+git clone https://github.com/anerjin/design_system.git
+cd design_system
 npm install
+```
+
+### 갤러리 실행 — 권장 진입점
+
+```bash
+npm run gallery
+```
+
+http://localhost:5180/ 에서 모듈·컴포넌트 카탈로그와 사용 가이드를 봅니다.
+`Ctrl`/`Cmd`+`K`로 검색합니다. 자세한 내용은 [갤러리 안내](apps/gallery/README.md).
+
+컴포넌트 문서 상단의 PAGE ID(`DOI-C-BUTTON` 등)로 소스 위치를 찾을 수 있습니다.
+
+```bash
+node apps/gallery/scripts/locate-page.mjs DOI-C-BUTTON
+node apps/gallery/scripts/locate-page.mjs --list
 ```
 
 ### Storybook 실행
 
 ```bash
-npm run storybook
-```
-
-http://localhost:6006 에서 모든 컴포넌트를 확인할 수 있습니다.
-
-### 정적 HTML 문서 사이트 보기
-
-`html_markup/index.html` 을 브라우저로 열거나, 로컬 서버로 서빙합니다.
-
-```bash
-npx serve html_markup
+npm run storybook     # http://localhost:6006
 ```
 
 ---
@@ -74,22 +70,23 @@ npx serve html_markup
 
 | 명령 | 설명 |
 |------|------|
+| `npm run gallery` | 갤러리 개발 서버 (포트 5180) |
+| `npm run build:gallery` | 갤러리 정적 빌드 |
 | `npm run storybook` | Storybook 개발 서버 (포트 6006) |
 | `npm run build-storybook` | Storybook 정적 빌드 |
-| `npm run build:bricks` | `@bricks/core` TypeScript 컴파일 → `dist/` |
+| `npm run build:bricks` | 타입 선언(`.d.ts`) 생성 → `dist/` |
+| `npm run build:all` | 타입 선언 + CSS/JS 번들 |
+| `npm run typecheck` | 패키지 타입 체크 |
 
 ### `packages/bricks`
 
 | 명령 | 설명 |
 |------|------|
-| `npm run build` | `tsc -p tsconfig.lib.json` → `dist/` (배포용 타입 + JS) |
-| `npm run build:css` | CSS 번들 생성 → `core/styles/bundle.built.css`, `bundle.min.css` |
-| `npm run build:js` | Vite 라이브러리 번들 → `dist/bundle/bricks.{es,umd}.js` |
+| `npm run build` | `tsc` — **타입 선언만** 내보낸다(`emitDeclarationOnly`) |
+| `npm run build:css` | Tailwind CLI → `dist/bricks.css`, `bricks.min.css`, `bricks-tokens.css` |
+| `npm run build:js` | Vite 라이브러리 번들 → `dist/index.js`, `index.cjs`, `bricks.umd.js` |
 | `npm run build:bundle` | `build:css` + `build:js` |
-| `npm run build:all` | `build` + `build:bundle` |
-| `npm run watch` | `tsc --watch` (출력: `core/scripts/`) |
-| `npm run storybook` | Storybook 개발 서버 |
-| `npm run build-storybook` | Storybook 정적 빌드 |
+| `npm run build:all` | `build` + `build:bundle` (배포 전 전체) |
 
 ---
 
@@ -106,28 +103,24 @@ export function Example() {
         <Card.Title>안녕하세요</Card.Title>
       </Card.Header>
       <Card.Body>
-        <Button variant="primary" size="md">확인</Button>
+        <Button color="primary" size="md">확인</Button>
       </Card.Body>
     </Card>
   );
 }
 ```
 
-설치 방법(로컬 패키지·Git 서브모듈·npm 배포)과 컴포넌트별 예제는 **[USAGE.md](./USAGE.md)** 를 참고하세요.
+설치 방법과 컴포넌트별 예제는 **[USAGE.md](./USAGE.md)** 를 참고하세요.
 
 ### 패키지 exports
 
-| import 경로 | 대상 |
-|-------------|------|
-| `@bricks/core` | `dist/index.js` — React 컴포넌트 |
-| `@bricks/core/bundle` | `dist/bundle/bricks.es.js` (ESM) / `bricks.umd.js` (UMD) |
-| `@bricks/core/styles` | `core/styles/bundle.css` — `@import` 기반 |
-| `@bricks/core/styles/bundle` | `core/styles/bundle.built.css` — 단일 파일 |
-| `@bricks/core/styles/bundle.min` | `core/styles/bundle.min.css` — 압축본 |
-| `@bricks/core/styles/*` | 개별 CSS 파일 |
-
-> 공식 아이콘은 [Lucide](https://lucide.dev/)입니다. `<Icon name="house" size={20} />`처럼 사용하며,
-> 별도의 아이콘 폰트나 CSS 로딩 없이 SVG로 표시됩니다. DOI-C-ICON에서 이름 검색과 코드 복사를 지원합니다.
+| import 경로 | 대상 | 언제 쓰나 |
+|-------------|------|-----------|
+| `@bricks/core` | `dist/index.js` (ESM) / `dist/index.cjs` (CJS) | React 컴포넌트 |
+| `@bricks/core/bundle` | `dist/bricks.umd.js` | 번들러 없이 쓸 때 |
+| `@bricks/core/styles` | `dist/bricks.css` | **Tailwind를 쓰지 않는 프로젝트** — preflight + daisyUI + 테마 전체 |
+| `@bricks/core/styles/min` | `dist/bricks.min.css` | 위의 압축본 |
+| `@bricks/core/styles/tokens` | `dist/bricks-tokens.css` | **이미 Tailwind + daisyUI를 쓰는 프로젝트** — 토큰만 |
 
 ---
 
@@ -135,74 +128,95 @@ export function Example() {
 
 ### 컴포넌트 패턴
 
-모든 React 컴포넌트는 `forwardRef` + 내보낸 props 인터페이스 + BEM 클래스 조립 + `displayName` 형태입니다.
+`forwardRef` + 내보낸 props 인터페이스 + **리터럴 클래스 룩업 맵** + `displayName`.
 
 ```tsx
+// Tailwind v4 스캐너는 템플릿 리터럴을 읽지 못한다.
+// `btn-${color}`로 조립하면 해당 클래스가 산출 CSS에서 통째로 빠진다.
+const COLOR: Record<ButtonColor, string> = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  // …
+};
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', ...props }, ref) => {
-    const classes = ['btn', `btn--${variant}`, `btn--${size}`].filter(Boolean).join(' ');
-    return <button ref={ref} className={classes} {...props} />;
-  }
+  ({ color = 'neutral', size = 'md', ...props }, ref) => (
+    <button ref={ref} className={cx('btn', COLOR[color], SIZE[size])} {...props} />
+  ),
 );
 Button.displayName = 'Button';
 ```
 
-`Card` 는 서브 컴포넌트를 속성으로 붙인 복합 컴포넌트입니다 — `Card.Header`, `Card.Body`,
-`Card.Footer`, `Card.Title`, `Card.Subtitle`, `Card.Actions`, `Card.Badge`, `Card.Image`.
-`Modal` 은 서브 컴포넌트 대신 `title` / `header` / `footer` prop 을 받습니다.
+`scripts/build-css.js`가 대표 클래스 목록을 검사해, 클래스가 산출물에서 빠지면
+빌드를 실패시킵니다. 이 규칙을 어기면 CI에서 잡힙니다.
 
-### CSS
+`Card`는 서브 컴포넌트를 붙인 복합 컴포넌트입니다 — `Card.Header`, `Card.Body`,
+`Card.Footer`, `Card.Title` 등. `Modal`은 `title`/`header`/`footer` prop을 받습니다.
+
+### 스타일
 
 ```
-core/styles/
-├── base/        reset.css, base.css
-├── tokens/      colors, typography, spacing, shadows, borders
-├── layout/      container, grid, flexbox
-├── atoms/       button, input, checkbox, radio, toggle, badge, avatar, progress, spinner, select
-├── molecules/   card, modal, alert, dropdown, tabs, accordion, pagination,
-│                breadcrumb, table, navbar, tooltip, chart, datepicker
-└── utilities/   display, position, overflow, text
+src/styles/
+├── bricks.css            진입점 — Tailwind + daisyUI 플러그인 + 아래 파일 import
+├── themes.css            bricks-light / bricks-dark 색 토큰
+├── shape.css             --radius-field / --radius-selector / --radius-box
+├── type.css              Pretendard, 16px rem 스케일 (@theme)
+├── components.css        daisyUI 위에 얹는 보정
+├── interactive.css · menu.css · navbar.css · alert.css · radial-progress.css
+└── examples.css          갤러리 예제 전용
 ```
 
-- **BEM** — `.btn`, `.btn--primary`, `.btn__icon`
-- **디자인 토큰** — `--ds-prime`, `--ds-gray-500`, `--ds-space-4`, `--ds-radius-md`, `--ds-shadow-md`
-- **다크모드** — `[data-theme="dark"]` 셀렉터가 토큰 값을 재정의
-- CSS 와 React 는 서로 독립적입니다. 컴포넌트를 바꾸려면 `src/react/*.tsx` 와
-  `core/styles/**/*.css` 를 **둘 다** 수정해야 합니다.
+- **색은 daisyUI 시멘틱 토큰** — `--color-primary`, `--color-base-100/200/300`,
+  `--color-base-content`, `info`/`success`/`warning`/`error`
+- **테마 전환** — `[data-theme="bricks-dark"]`가 토큰 값을 재정의. 기본은 `bricks-light`
+- **글자 크기** — 16px rem 기준. UI 본문은 `text-sm`(14px), 캡션은 `text-xs`(12px)
+- 컴포넌트 클래스는 **daisyUI가 제공**합니다. 이 저장소의 CSS는 그 위의 보정입니다.
 
-### 컴포넌트 목록
+### 컴포넌트 모듈 62개
 
 | 분류 | 컴포넌트 |
 |------|----------|
-| General | Accordion, Button |
-| Feedback | Alert, Modal, Spinner, Tooltip |
-| Data Display | Avatar, Badge, Card, Chart, Progress, Table |
-| Navigation | Breadcrumb, Navbar, Pagination, Tabs |
-| Data Entry | Checkbox, DatePicker, Dropdown, Input, Radio, Select, Toggle |
-| Foundation | Typography, Icon |
+| General | Accordion, Button, Collapse, Divider, Join, Stack, Swap |
+| Feedback | Alert, Loading, Modal, Progress, RadialProgress, Skeleton, Toast, Tooltip |
+| Data Display | Avatar, Badge, Card, Carousel, Chart, ChatBubble, Countdown, Diff, Indicator, Kbd, List, Mask, Mockup, Stat, Status, Table, Timeline |
+| Navigation | Breadcrumb, Dock, Drawer, Fab, Footer, Hero, Link, Menu, Navbar, Pagination, Steps, Tabs |
+| Data Entry | Checkbox, DatePicker, Dropdown, Fieldset, FileInput, Filter, Input, Radio, Range, Rating, Select, Toggle, Validator |
+| Foundation | ContextMenu, Icon, Resizable, ThemeController, Typography |
+
+공개 API는 `src/react/index.ts` 한 곳에서 관리합니다(모듈 62개). `src/index.ts`는 재export만 합니다.
+`Mockup`은 `MockupBrowser`·`MockupCode`·`MockupPhone`·`MockupWindow` 4종을 제공합니다.
 
 ---
 
 ## CI
 
-`main` 푸시와 모든 pull request 에서 [`.github/workflows/ci.yml`](./.github/workflows/ci.yml) 이
-빌드가 깨지지 않는지 검증합니다 — 패키지 타입 체크/컴파일, CSS·JS 번들, Storybook 정적 빌드.
+`main` 푸시와 모든 pull request에서 [`ci.yml`](./.github/workflows/ci.yml)이
+Node 22로 검증합니다 — 패키지 타입 체크/컴파일, CSS·JS 번들, 갤러리 메타데이터
+추출 테스트, 갤러리 빌드, Storybook 정적 빌드. 자동 배포는 하지 않습니다.
 
-자동 배포는 하지 않습니다. 문서 사이트를 호스팅하려면 아래 산출물을 직접 배포하세요.
+---
 
-```bash
-npm run build-storybook --workspace=packages/bricks -- -o _site/storybook
-cp -r html_markup/. _site/
-```
+## `html_markup/`은 레거시입니다
 
-`_site/` 를 정적 호스팅에 올리면 `/` 는 `html_markup` 문서 사이트, `/storybook/` 은
-Storybook 이 됩니다. (`_site/` 는 `.gitignore` 에 등록되어 있습니다.)
+v1 시절의 정적 문서 사이트입니다. `assets/styles/`의 BEM 번들(`--ds-*` 토큰)을
+참조하며 **현재 패키지와 연결돼 있지 않습니다.** 문서는 `apps/gallery`가 대신합니다.
+참고 목적으로만 남겨 두었고, 여기를 고쳐도 패키지에는 반영되지 않습니다.
+
+---
+
+## 알려진 공백
+
+- `packages/bricks/tests/`가 비어 있습니다(`.gitkeep`만). 컴포넌트 단위 테스트가
+  없고, 저장소의 유일한 테스트는 `apps/gallery/plugins/story-manifest.test.mjs`입니다.
+- `src/next/`에는 예제 컴포넌트 2개(`ServerButton`, `ClientButton`)만 있습니다.
+- `html_markup/`이 위와 같이 v1에 묶여 있습니다.
 
 ---
 
 ## 문서
 
 - [USAGE.md](./USAGE.md) — 다른 프로젝트에서 사용하는 방법
+- [apps/gallery/README.md](./apps/gallery/README.md) — 갤러리 구조·실행·검증
 - [CHANGELOG.md](./CHANGELOG.md) — 변경 이력
 - [CLAUDE.md](./CLAUDE.md) — Claude Code 작업 가이드
 
