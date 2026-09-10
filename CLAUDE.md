@@ -1,138 +1,118 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Claude Code가 이 저장소에서 작업할 때 참고하는 안내입니다.
 
-## Project Overview
+## 무엇인가
 
-DOI INC Design System — an npm workspaces monorepo containing one package, `packages/bricks`
-(`@bricks/core`): CSS design tokens, 25 React/TypeScript components, and Storybook. A separate
-`html_markup/` directory holds a standalone static HTML documentation site that uses the same CSS
-but no React.
+**Tailwind CSS 4 + daisyUI 5** 기반 React 디자인 시스템(`@bricks/core` v2.0.0)과
+그 카탈로그 사이트(`apps/gallery`)를 담은 npm workspaces 모노레포입니다.
 
-There is no `apps/` directory and no Next.js showcase app.
+> **v1과 헷갈리지 않기.** 2026-09-08의 `8bb9a80`에서 BEM + `--ds-*` 토큰 + `core/styles/`
+> 구조를 버리고 Tailwind + daisyUI로 다시 만들었습니다. `core/styles/`와
+> `src/components/`는 삭제됐습니다. `html_markup/`만 v1 구조에 남아 있습니다.
 
-## Repository Structure
+## 저장소 구조
 
-- **`packages/bricks`** (`@bricks/core`) — the design system package
-  - `core/styles/` — CSS: `base/` → `tokens/` → `layout/` → `atoms/` → `molecules/` → `utilities/`
-  - `src/react/` — 25 React components + their `*.stories.tsx`
-  - `src/stories/` — Foundation stories (Colors, Typography, Spacing, Shadows, Borders) and Tooltip
-  - `src/components/` — framework-agnostic vanilla TypeScript component classes
-  - `src/next/` — `ClientButton` / `ServerButton` examples for Next.js RSC
-  - `scripts/` — `build-css.js` (CSS concatenation + minify), `build-js.js` (Vite lib build wrapper)
-  - `.storybook/` — Storybook 10 config (`@storybook/react-vite`)
-- **`html_markup/`** — static HTML docs site; `index.html` is a sidebar + iframe shell, page HTML
-  lives under `getting-started/`, `design-tokens/`, `elements/`, `components/`, `layout/`, `utilities/`
-- **`.github/workflows/ci.yml`** — build verification only (package build, CSS/JS bundles,
-  Storybook static build) on push to `main` and on pull requests. **Nothing is deployed.**
-  GitHub Pages is not enabled on this repository, and it is private, so a Pages deploy step
-  fails at `actions/configure-pages`. Don't add one back without the owner enabling Pages first.
+- **`packages/bricks`** (`@bricks/core`) — 디자인 시스템 패키지
+  - `src/react/` — 컴포넌트 + Storybook 스토리. **공개 API는 `src/react/index.ts` 한 곳**
+  - `src/styles/` — Tailwind/daisyUI 진입점(`bricks.css`)과 공유 토큰
+  - `src/next/` — Next.js 서버/클라이언트 예제 2개
+  - `scripts/` — `build-css.js`, `build-js.js`
+  - `tests/` — **비어 있음**(`.gitkeep`만)
+- **`apps/gallery`** — 카탈로그·문서 Vite 앱(포트 5180). 구조는 `apps/gallery/README.md`
+- **`html_markup/`** — v1 정적 문서 사이트. **레거시이며 현재 패키지와 연결돼 있지 않다**
+- **`.github/workflows/ci.yml`** — 빌드 검증만. 자동 배포 없음
 
-## Commands
+## 명령
 
-### Root
-```bash
-npm install                 # install all workspaces
-npm run storybook           # Storybook dev server (port 6006)
-npm run build-storybook     # Storybook static build
-npm run build:bricks        # tsc -p tsconfig.lib.json -> packages/bricks/dist/
-```
+### 루트
 
-### packages/bricks
-```bash
-npm run build               # TypeScript -> dist/ (publishable output)
-npm run build:css           # -> core/styles/bundle.built.css + bundle.min.css
-npm run build:js            # Vite lib mode -> dist/bundle/bricks.{es,umd}.js
-npm run build:bundle        # build:css + build:js
-npm run build:all           # build + build:bundle
-npm run watch               # tsc --watch (outputs to core/scripts/, NOT dist/)
-npm run storybook           # Storybook dev
-npm run build-storybook     # Storybook static build
-npm run clean               # rm -rf dist (POSIX only; on Windows use `rm -rf` via Git Bash)
-```
+| 명령 | 설명 |
+|------|------|
+| `npm run gallery` | 갤러리 개발 서버 (5180) |
+| `npm run build:gallery` | 갤러리 정적 빌드 |
+| `npm run storybook` | Storybook (6006) |
+| `npm run build-storybook` | Storybook 정적 빌드 |
+| `npm run build:bricks` | 타입 선언(`.d.ts`) 생성 → `dist/` |
+| `npm run build:all` | 타입 선언 + CSS/JS 번들 |
+| `npm run typecheck` | 패키지 타입 체크 |
 
-There is no test runner and no linter configured. `packages/bricks/tests/` is an empty placeholder.
+### `packages/bricks`
 
-## Architecture
+`build` · `build:css` · `build:js` · `build:bundle` · `build:all` · `typecheck` · `watch`.
 
-### Component Pattern
-All React components use `forwardRef`, export their props interface, build BEM class strings, and
-set `displayName`:
+## 아키텍처
+
+### 컴포넌트 패턴
+
+`forwardRef` + 내보낸 props 인터페이스 + **리터럴 클래스 룩업 맵** + `displayName`.
 
 ```tsx
-export const Component = forwardRef<HTMLElement, ComponentProps>(({ variant, size, ...props }, ref) => {
-  const classes = ['block', `block--${variant}`].filter(Boolean).join(' ');
-  return <element ref={ref} className={classes} {...props} />;
-});
-Component.displayName = 'Component';
+const COLOR: Record<ButtonColor, string> = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+};
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ color = 'neutral', size = 'md', ...props }, ref) => (
+    <button ref={ref} className={cx('btn', COLOR[color], SIZE[size])} {...props} />
+  ),
+);
+Button.displayName = 'Button';
 ```
 
-`Card` is the only true compound component: `Card.tsx` casts the base `Card` to a `CardComponent`
-interface and attaches `Header`, `Body`, `Footer`, `Title`, `Subtitle`, `Actions`, `Badge`, `Image`.
-`Modal` does **not** — it takes `title` / `header` / `footer` as props, and its `ModalHeader`,
-`ModalTitle`, `ModalBody`, `ModalFooter` are standalone named exports.
+> ⚠️ **클래스를 템플릿 리터럴로 조립하지 마세요.** Tailwind v4 스캐너는 `btn-${color}`를
+> 읽지 못해 해당 클래스가 산출 CSS에서 통째로 빠집니다. 반드시 리터럴 룩업 맵을 씁니다.
+> `scripts/build-css.js`가 대표 클래스를 검사해 빌드를 실패시킵니다.
 
-### CSS Architecture
-- **BEM methodology**: `.btn`, `.btn--primary`, `.btn__icon`
-- **Design tokens**: CSS variables with a `--ds-*` prefix (`--ds-prime`, `--ds-gray-500`,
-  `--ds-space-4`, `--ds-radius-md`, `--ds-shadow-md`)
-- **Dark mode**: `[data-theme="dark"]` in `core/styles/tokens/colors.css` overrides token values
-- **CSS and React are separate**: changing a component requires editing both the `.tsx` in
-  `src/react/` and the `.css` in `core/styles/`
-- Adding a new CSS file requires registering it in **three** places: `core/styles/bundle.css`
-  (`@import`), `scripts/build-css.js` (`CSS_FILES` array), and `.storybook/preview-head.html`
+### 스타일
 
-### Package Exports
-```
-@bricks/core                   -> dist/index.js               (React components)
-@bricks/core/bundle            -> dist/bundle/bricks.es.js | bricks.umd.js
-@bricks/core/styles            -> core/styles/bundle.css      (@import-based)
-@bricks/core/styles/bundle     -> core/styles/bundle.built.css (single file)
-@bricks/core/styles/bundle.min -> core/styles/bundle.min.css
-@bricks/core/styles/*          -> individual CSS files
-```
+- 컴포넌트 클래스는 **daisyUI가 제공**합니다. `src/styles/*.css`는 그 위의 보정입니다.
+- 진입점은 `src/styles/bricks.css` — `@import 'tailwindcss' source(none)`,
+  `@source "../react"`, `@plugin "daisyui"`, 그리고 나머지 CSS import.
+- 색 토큰은 daisyUI 시멘틱(`--color-primary`, `--color-base-100/200/300`,
+  `--color-base-content`, info/success/warning/error).
+- 테마는 `themes.css`의 `bricks-light`(기본) / `bricks-dark`. `[data-theme]`로 전환.
+- 글자 크기는 16px rem 기준. UI 본문 `text-sm`(14px), 캡션 `text-xs`(12px). Pretendard.
+- 모양 토큰은 `shape.css` — `--radius-field` `--radius-selector` `--radius-box`.
+  `.btn`은 `--radius-field: 9999px`로 알약 모양입니다(`.btn-square` 제외).
+- **CSS 파일을 추가하면 `src/styles/bricks.css`의 import 목록에 등록**하고,
+  소비자에게 내보낼 토큰이면 `scripts/build-css.js`의 `TOKEN_FILES`에도 넣습니다.
 
-Icons use [Lucide](https://lucide.dev/) via the shared `Icon` component and `icon-registry.ts`.
-Use canonical Lucide names, e.g. `<Icon name="house" size={20} />`. No icon font stylesheet is required.
-Add new shared names using static named imports in the registry; avoid importing the entire Lucide catalog.
+### 빌드 산출물
 
-### TypeScript configs
-- `tsconfig.json` — strict; `outDir: core/scripts`, includes all of `src/**`. Used by `npm run watch`.
-  **`core/scripts/` is generated output and is gitignored — never edit or commit it.** The one
-  exception is the hand-written `core/scripts/bricks_loader.js`, which `.gitignore` re-includes.
-- `tsconfig.lib.json` — extends the above; `outDir: dist`, includes only `src/react/**` and
-  `src/index.ts`, excludes stories/tests/`src/components`/`src/stories`. Used by `npm run build`.
+| 파일 | 내용 |
+|------|------|
+| `dist/bricks.css` / `.min.css` | Tailwind preflight + daisyUI + 테마 35종 + 토큰 |
+| `dist/bricks-tokens.css` | 토큰만. 이미 Tailwind+daisyUI를 쓰는 소비자용 |
+| `dist/index.js` / `.cjs` / `bricks.umd.js` | Vite 라이브러리 번들 (ESM/CJS/UMD) |
+| `dist/*.d.ts` | `tsc`가 내보내는 타입 선언 — `build`는 JS를 내보내지 않는다 |
 
-## Key Conventions
+### 접근성
 
-- React components: `PascalCase.tsx` in `packages/bricks/src/react/`
-- Stories: `PascalCase.stories.tsx` alongside components; Storybook's glob is `../src/**/*.stories.*`
-- Story titles follow `Category/Component` (General, Feedback, Data Display, Navigation, Data Entry,
-  Foundation) — keep new stories in one of those categories
-- CSS files: lowercase in `packages/bricks/core/styles/`
-- Size variants: `xs | sm | md | lg | xl`
-- Variant props map directly to BEM modifiers (`variant="primary"` → `.btn--primary`)
-- All props interfaces must be exported
-- TypeScript strict mode is on, plus `noUnusedLocals` / `noUnusedParameters` / `noImplicitReturns`
-  (relaxed only in `tsconfig.lib.json`)
+- `Modal`은 네이티브 `<dialog>` + `showModal()`. 포커스 트랩·Escape가 브라우저에서 나옵니다.
+  `aria-labelledby`/`aria-label`을 상황에 따라 붙입니다.
+- `ContextMenu`·`Navbar`는 `@base-ui/react`를 씁니다.
+- 갤러리의 모바일 메뉴·검색도 native dialog입니다.
 
-## Known Gaps
+## 규칙
 
-Verify these are still true before relying on them.
+- 컴포넌트: `PascalCase.tsx` (`packages/bricks/src/react/`)
+- 스토리: 같은 폴더의 `PascalCase.stories.tsx`. 제목은 `분류/컴포넌트`
+- 크기 변형: `xs | sm | md | lg | xl`
+- **모든 props 인터페이스를 export**합니다
+- TypeScript strict + `noUnusedLocals` / `noUnusedParameters` / `noImplicitReturns`
+- 새 컴포넌트는 `src/react/index.ts`에 등록해야 공개 API가 됩니다
 
-- **`html_markup/assets/styles/` is a duplicated copy of `packages/bricks/core/styles/`** and has
-  already drifted — `molecules/datepicker.css` there has `.datepicker__toggle` and `[data-mode]`
-  rules that the package copy lacks. Editing package CSS does not update the docs site, or vice versa.
-- **`Tooltip` is not exported** from `src/index.ts` or `src/react/index.ts` even though
-  `src/react/Tooltip.tsx`, its CSS, and `src/stories/Tooltip.stories.tsx` all exist. It ships only
-  as a default export from its own module.
-- **`ModalHeader` / `ModalTitle` / `ModalBody` / `ModalFooter` are not re-exported** from the
-  package index either — consumers of `@bricks/core` can only use `Modal` with its
-  `title` / `header` / `footer` props.
-- **`Input` and `Select` have no `label` prop** (unlike `Checkbox` / `Radio` / `RadioGroup` /
-  `CheckboxGroup`). Don't assume a uniform labeling API across form components.
-- **`src/components/*.ts`** (vanilla TS classes) are compiled only into the gitignored
-  `core/scripts/` and are imported by nothing. `html_markup` uses its own hand-written
-  `assets/js/components.js` instead.
-- **`html_markup/assets/js/theme-toggle.js`** is a complete dark-mode toggle implementation but is
-  not referenced by any HTML page.
+## 알려진 공백
+
+- **컴포넌트 테스트가 없습니다.** `packages/bricks/tests/`는 비어 있고, 저장소의 유일한
+  테스트는 `apps/gallery/plugins/story-manifest.test.mjs`입니다.
+- **`html_markup/`이 v1에 묶여 있습니다.** `assets/styles/`의 BEM 번들을 참조하며
+  패키지와 동기화되지 않습니다. 고쳐도 패키지에 반영되지 않습니다.
+- `src/next/`에는 예제 2개뿐입니다.
+
+## 환경
+
+Node.js 22.18 이상(CI는 Node 22). 패키지 매니저는 npm(workspaces).
+React는 peer로 18 또는 19를 허용하며 개발 의존성은 18입니다.
